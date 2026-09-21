@@ -1,0 +1,116 @@
+.specimen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+}
+
+.title {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  margin: 0;
+}
+
+.note {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  line-height: var(--sk-type-caption-line-height);
+  color: var(--sk-app-text-secondary);
+  max-width: var(--sk-layout-measure-reading);
+  margin: 0;
+}
+
+/* The stage holds live components. It is intentionally plain so the specimen
+   reads as a component under test, not as a finished page section. */
+.stage {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) dashed var(--sk-app-border-subtle);
+  background-color: var(--sk-app-surface);
+}
+
+.stageColumn {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.stageBlock {
+  display: block;
+}
+
+.stageDark {
+  background-color: var(--sk-app-surface-dark);
+  border-color: var(--sk-app-surface-dark);
+  color: var(--sk-app-text-on-dark);
+}
+
+/* --- token table --------------------------------------------------------- */
+
+.tableWrap {
+  /* Tables are the one place horizontal scrolling is correct: it is scoped to
+     the table, never to the page. */
+  overflow-x: auto;
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-compact);
+}
+
+.table th,
+.table td {
+  text-align: start;
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  white-space: nowrap;
+}
+
+.table th {
+  font-weight: var(--sk-font-weight-semibold);
+  background-color: var(--sk-app-surface-warm);
+}
+
+.table tbody tr:last-child td {
+  border-block-end: 0;
+}
+
+.swatch {
+  display: inline-block;
+  width: var(--sk-space-32);
+  height: var(--sk-space-32);
+  border-radius: var(--sk-radius-button);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-strong);
+  vertical-align: middle;
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- scale rows ---------------------------------------------------------- */
+
+.spacingBar {
+  display: block;
+  height: var(--sk-space-16);
+  background-color: var(--sk-app-action-primary);
+  border-radius: var(--sk-radius-button);
+}

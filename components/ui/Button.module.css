@@ -1,0 +1,161 @@
+/* ===========================================================================
+ * Surface-aware CTA model (brand-system/tokens/README.md, BSD-029)
+ *
+ *   light  primary   Forest fill + light text
+ *   light  secondary transparent/outline + Forest text/border
+ *   dark   primary   Warm White fill + Forest text
+ *   dark   secondary transparent/outline + Ivory text/border
+ *
+ * Minimum height is the canonical 52px control height, which exceeds the 44px
+ * touch-target requirement.
+ * =========================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-control-height-default);
+  min-width: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-16) var(--sk-space-32);
+  border-radius: var(--sk-radius-button);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) transparent;
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  line-height: var(--sk-type-button-line-height);
+  letter-spacing: var(--sk-type-button-letter-spacing);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  /* Full width below the primary breakpoint: the landing wireframe specifies
+     full-width CTAs on mobile. */
+  width: 100%;
+  transition:
+    background-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    border-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: auto;
+  }
+}
+
+/* --- light surface ------------------------------------------------------- */
+
+.primary {
+  background-color: var(--sk-color-action-primary-bg);
+  color: var(--sk-color-action-primary-text);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--sk-color-action-primary-hover);
+}
+
+.primary:active:not(:disabled) {
+  background-color: var(--sk-color-action-primary-active);
+}
+
+.secondary {
+  background-color: transparent;
+  color: var(--sk-color-action-secondary-text);
+  border-color: var(--sk-color-action-secondary-border);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--sk-color-action-primary-bg);
+  color: var(--sk-color-action-primary-text);
+}
+
+.secondary:active:not(:disabled) {
+  background-color: var(--sk-color-action-primary-active);
+  border-color: var(--sk-color-action-primary-active);
+  color: var(--sk-color-action-primary-text);
+}
+
+.text {
+  background-color: transparent;
+  color: var(--sk-color-action-secondary-text);
+  padding-inline: 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.text:hover:not(:disabled) {
+  color: var(--sk-color-action-primary-hover);
+}
+
+/* --- dark surface -------------------------------------------------------- */
+
+.onDark.primary {
+  background-color: var(--sk-color-action-inverse-primary-bg);
+  color: var(--sk-color-action-inverse-primary-text);
+}
+
+.onDark.primary:hover:not(:disabled) {
+  background-color: var(--sk-color-action-inverse-primary-hover);
+}
+
+.onDark.primary:active:not(:disabled) {
+  background-color: var(--sk-color-action-inverse-primary-active);
+}
+
+.onDark.secondary {
+  background-color: transparent;
+  color: var(--sk-color-action-inverse-secondary-text);
+  border-color: var(--sk-color-action-inverse-secondary-border);
+}
+
+.onDark.secondary:hover:not(:disabled) {
+  background-color: var(--sk-color-action-inverse-primary-bg);
+  color: var(--sk-color-action-inverse-primary-text);
+  border-color: var(--sk-color-action-inverse-primary-bg);
+}
+
+.onDark.text {
+  color: var(--sk-color-action-inverse-secondary-text);
+}
+
+/* --- states -------------------------------------------------------------- */
+
+.button:disabled {
+  opacity: var(--sk-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.loadingLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+}
+
+.spinner {
+  width: var(--sk-space-16);
+  height: var(--sk-space-16);
+  border-radius: var(--sk-radius-pill);
+  border: 2px solid currentColor;
+  border-block-start-color: transparent;
+  animation: sk-spin 600ms linear infinite;
+}
+
+@keyframes sk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-block-start-color: currentColor;
+    opacity: var(--sk-opacity-disabled-content);
+  }
+}
+
+.icon {
+  display: inline-flex;
+  flex: none;
+}

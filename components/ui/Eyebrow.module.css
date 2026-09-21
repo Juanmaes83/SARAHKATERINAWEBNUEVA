@@ -1,0 +1,20 @@
+.eyebrow {
+  display: block;
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  line-height: var(--sk-type-eyebrow-line-height);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  /* The 0.32em tracking adds trailing space after the last glyph; removing it
+     keeps the eyebrow optically aligned with the heading below. */
+  margin-inline-end: calc(-1 * var(--sk-type-eyebrow-letter-spacing));
+  /* Terracotta is PROHIBITED at this size (BSD-027, contrast-matrix.md):
+     13px is below the large-text threshold on every approved surface. */
+  color: var(--sk-app-text-secondary);
+}
+
+.onDark {
+  color: var(--sk-app-text-on-dark);
+}

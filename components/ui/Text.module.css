@@ -1,0 +1,48 @@
+.text {
+  margin: 0;
+  /* Canonical reading measure. Prevents over-wide paragraphs on desktop. */
+  max-width: var(--sk-layout-measure-reading);
+}
+
+.full {
+  max-width: none;
+}
+
+.lead {
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  font-weight: var(--sk-type-lead-weight);
+  line-height: var(--sk-type-lead-line-height);
+}
+
+.body {
+  font-family: var(--sk-type-body-family);
+  font-size: var(--sk-type-body-size);
+  font-weight: var(--sk-type-body-weight);
+  line-height: var(--sk-type-body-line-height);
+}
+
+.bodySmall {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-type-body-small-weight);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.caption {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  font-weight: var(--sk-type-caption-weight);
+  line-height: var(--sk-type-caption-line-height);
+}
+
+.legal {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-type-legal-weight);
+  line-height: var(--sk-type-legal-line-height);
+}
+
+.primary { color: var(--sk-app-text-primary); }
+.secondary { color: var(--sk-app-text-secondary); }
+.onDark { color: var(--sk-app-text-on-dark); }

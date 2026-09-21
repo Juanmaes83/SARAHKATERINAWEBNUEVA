@@ -1,0 +1,33 @@
+/* ===========================================================================
+ * Content reveal
+ *
+ * Canonical motion tokens only: 400ms reveal, cubic-bezier(.22,.8,.3,1),
+ * 10px distance. No GSAP, no animation library, no new timing values.
+ *
+ * The animation is CSS-only and self-cancelling: if JavaScript never runs the
+ * content is already visible, so no content can be trapped in a hidden state.
+ * =========================================================================== */
+
+.reveal {
+  animation: sk-reveal var(--sk-motion-reveal-duration) var(--sk-motion-reveal-ease) both;
+}
+
+@keyframes sk-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sk-motion-reveal-distance));
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

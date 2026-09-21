@@ -1,0 +1,113 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Least privilege: CI only needs to read the repository.
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, typecheck, test and build
+    runs-on: ubuntu-latest
+
+    env:
+      # The build must never be handed a production host or an indexable flag.
+      NEXT_PUBLIC_SITE_MODE: preview
+      NEXT_PUBLIC_SITE_INDEXABLE: 'false'
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      # Includes the token parity suite (fails if the vendored canonical
+      # tokens drift from the source of truth) and the governance suite
+      # (fails on hardcoded colours, a hardcoded production host, forbidden
+      # naming, VITA Host references or Organization/Person JSON-LD).
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
+
+  secrets:
+    name: Secret and env hygiene
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Full history so a secret introduced in an earlier commit of the
+          # branch is still caught.
+          fetch-depth: 0
+
+      - name: Fail if an env file is committed
+        run: |
+          set -euo pipefail
+          tracked=$(git ls-files | grep -E '(^|/)\.env($|\.)' | grep -v '\.env\.example$' || true)
+          if [ -n "$tracked" ]; then
+            echo "::error::Committed environment file(s) detected:"
+            echo "$tracked"
+            exit 1
+          fi
+          echo "No committed .env files."
+
+      - name: Scan for credentials and tracking identifiers
+        run: |
+          set -euo pipefail
+
+          # Patterns for credentials and for the analytics identifiers this
+          # phase explicitly forbids.
+          patterns=(
+            'AKIA[0-9A-Z]{16}'
+            'AIza[0-9A-Za-z_\-]{35}'
+            'gh[pousr]_[0-9A-Za-z]{36}'
+            'sk_live_[0-9A-Za-z]{16,}'
+            'xox[baprs]-[0-9A-Za-z-]{10,}'
+            '-----BEGIN [A-Z ]*PRIVATE KEY-----'
+            'GTM-[A-Z0-9]{6,}'
+            'UA-[0-9]{4,}-[0-9]+'
+            '\bG-[A-Z0-9]{10}\b'
+          )
+
+          failed=0
+          for pattern in "${patterns[@]}"; do
+            if matches=$(git grep -nIE "$pattern" -- \
+                  ':!package-lock.json' \
+                  ':!.github/workflows/ci.yml' \
+                  ':!tests/governance.test.ts' 2>/dev/null); then
+              echo "::error::Potential credential or tracking ID matching /$pattern/:"
+              echo "$matches"
+              failed=1
+            fi
+          done
+
+          if [ "$failed" -ne 0 ]; then
+            exit 1
+          fi
+          echo "No credentials or tracking identifiers found."

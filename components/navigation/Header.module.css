@@ -1,0 +1,185 @@
+.header {
+  position: relative;
+  z-index: var(--sk-app-z-header);
+  background-color: var(--sk-app-background-primary);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  min-height: var(--sk-space-64);
+  padding-block: var(--sk-space-8);
+}
+
+/* --- wordmark ------------------------------------------------------------ */
+
+.wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+  text-decoration: none;
+  color: var(--sk-app-text-primary);
+  /* Keeps the whole brand block a comfortable target. */
+  min-height: var(--sk-layout-touch-target-min);
+  justify-content: center;
+}
+
+.wordmarkName {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-font-line-height-control);
+  letter-spacing: var(--sk-font-letter-spacing-tight);
+}
+
+.wordmarkNote {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: 1;
+  color: var(--sk-app-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-font-letter-spacing-eyebrow);
+}
+
+/* --- desktop navigation -------------------------------------------------- */
+
+.desktopNav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-navigation-size);
+  font-weight: var(--sk-type-navigation-weight);
+  line-height: var(--sk-type-navigation-line-height);
+  color: var(--sk-app-text-primary);
+  text-decoration: none;
+  border-block-end: 2px solid transparent;
+  transition: border-color var(--sk-motion-interaction-duration)
+    var(--sk-motion-interaction-ease);
+}
+
+.navLink:hover,
+.navLink[aria-current='page'] {
+  border-block-end-color: var(--sk-app-border-strong);
+}
+
+.desktopActions {
+  display: none;
+}
+
+/* --- mobile trigger ------------------------------------------------------ */
+
+.menuTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  min-width: var(--sk-layout-touch-target-min);
+  padding-inline: var(--sk-space-16);
+  background-color: transparent;
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-strong);
+  border-radius: var(--sk-radius-button);
+  color: var(--sk-app-text-primary);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  cursor: pointer;
+}
+
+/* --- mobile panel -------------------------------------------------------- */
+
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sk-app-z-modal);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--sk-app-background-primary);
+  padding: var(--sk-space-24);
+  overflow-y: auto;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  margin-block-end: var(--sk-space-32);
+}
+
+.panelTitle {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-app-text-secondary);
+}
+
+.panelList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0 0 var(--sk-space-32);
+  padding: 0;
+}
+
+.panelLink {
+  display: flex;
+  align-items: center;
+  min-height: var(--sk-layout-control-height-default);
+  padding-inline: var(--sk-space-8);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-lead-size);
+  font-weight: var(--sk-type-navigation-weight);
+  color: var(--sk-app-text-primary);
+  text-decoration: none;
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.panelFooter {
+  margin-block-start: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+/* --- breakpoint ---------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .desktopNav,
+  .desktopActions {
+    display: flex;
+    align-items: center;
+    gap: var(--sk-space-24);
+  }
+
+  .menuTrigger {
+    display: none;
+  }
+
+  .panel {
+    display: none;
+  }
+}

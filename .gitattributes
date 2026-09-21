@@ -1,0 +1,14 @@
+# Normalise line endings so the token parity test produces the same hash on
+# every platform, including Windows checkouts and the Linux CI runner.
+* text=auto eol=lf
+
+# Vendored canonical token files: copied byte-for-byte from the source of
+# truth. Never transform them — tests/tokens-parity.test.ts recomputes the
+# git blob hash of tokens.json and any conversion would change it.
+lib/tokens/tokens.json -text
+app/tokens.css -text
+
+*.png binary
+*.jpg binary
+*.webp binary
+*.woff2 binary

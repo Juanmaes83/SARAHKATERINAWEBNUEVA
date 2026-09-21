@@ -1,0 +1,151 @@
+.footer {
+  background-color: var(--sk-app-surface-dark);
+  color: var(--sk-app-text-on-dark);
+  padding-block: var(--sk-space-48);
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding-block: var(--sk-space-64);
+  }
+}
+
+/* The brand block sits above the link groups at every width.
+   Nesting a 2-column group grid inside a 2-column top grid produced ~110px
+   columns at 768px, which clipped the PENDING_APPROVAL badges. Giving the
+   groups the full content width keeps every column usable. */
+.top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-48);
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+.brandName {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-font-line-height-control);
+  color: var(--sk-app-text-on-dark);
+}
+
+.brandNote {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-font-letter-spacing-eyebrow);
+  color: var(--sk-app-text-on-dark);
+  opacity: var(--sk-opacity-disabled-content);
+}
+
+.description {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-app-text-on-dark);
+  max-width: var(--sk-layout-measure-reading);
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-32);
+}
+
+/* Single column until the primary breakpoint. These groups contain a label
+   plus a PENDING_APPROVAL badge, which needs more room than a 375px screen
+   can give two columns. */
+@media (min-width: 768px) {
+  .groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .groups {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.groupTitle {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-app-text-on-dark);
+  opacity: var(--sk-opacity-disabled-content);
+  margin-block-end: var(--sk-space-16);
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  color: var(--sk-app-text-on-dark);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  text-decoration: none;
+  border-block-end: 1px solid transparent;
+}
+
+.link:hover {
+  border-block-end-color: var(--sk-app-text-on-dark);
+}
+
+/* A slot whose content is not confirmed. Rendered as a governance marker, not
+   as data, so it can never be read as a real address, number or email. */
+.pendingSlot {
+  /* Wraps: the label and its badge must stack rather than overflow a narrow
+     footer column. Verified at 320 / 375 / 768 / 1024 / 1440. */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+  color: var(--sk-app-text-on-dark);
+  opacity: var(--sk-opacity-disabled-content);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  margin-block-start: var(--sk-space-48);
+  padding-block-start: var(--sk-space-24);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    currentColor;
+}
+
+@media (min-width: 768px) {
+  .bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.legal {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+  color: var(--sk-app-text-on-dark);
+  max-width: var(--sk-layout-measure-reading);
+}

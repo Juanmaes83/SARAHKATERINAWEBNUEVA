@@ -1,0 +1,43 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-4);
+  /* Pill radius is restricted to tags, status indicators, chips and language
+     metadata (BSD-015). It must never be used on cards, CTAs or form fields. */
+  border-radius: var(--sk-radius-pill);
+  padding: var(--sk-space-4) var(--sk-space-16);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-font-line-height-control);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) transparent;
+}
+
+.neutral {
+  background-color: var(--sk-app-surface-warm);
+  color: var(--sk-app-text-primary);
+  border-color: var(--sk-app-border-subtle);
+}
+
+.strong {
+  background-color: var(--sk-app-action-primary);
+  color: var(--sk-color-action-primary-text);
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--sk-app-text-secondary);
+  border-color: var(--sk-app-border-strong);
+}
+
+.pending {
+  background-color: transparent;
+  color: var(--sk-app-danger);
+  border-color: var(--sk-color-border-error);
+}
+
+.onDark {
+  background-color: transparent;
+  color: var(--sk-app-text-on-dark);
+  border-color: var(--sk-app-text-on-dark);
+}

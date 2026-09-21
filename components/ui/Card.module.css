@@ -1,0 +1,118 @@
+/* ===========================================================================
+ * Cards
+ *
+ * Canonical rules (brand-system/foundations/surfaces-borders-radius.md):
+ *   - 4px radius. Pill radius is NEVER allowed on a card.
+ *   - Standard cards are separated by surface, border and spacing, NOT by
+ *     elevation. Only the elevated panel uses the single approved shadow.
+ *   - Borders are deliberately quiet.
+ *
+ * Priority order: air, legibility, hierarchy, action.
+ * =========================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  /* Generous padding. Mobile keeps 24px; desktop opens up to 32px. */
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  background-color: var(--sk-app-surface);
+  color: var(--sk-app-text-primary);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--sk-space-32);
+  }
+}
+
+/* --- variants ------------------------------------------------------------ */
+
+.feature {
+  gap: var(--sk-space-16);
+}
+
+.metric {
+  gap: var(--sk-space-8);
+}
+
+/* Decision cards carry the dashed treatment used for items that require
+   attention or a choice. */
+.decision {
+  border-style: dashed;
+  border-color: var(--sk-color-border-accent);
+  background-color: transparent;
+}
+
+/* Forest surface. BSD-026: reserved by default for the conversion anchor;
+   additional dark blocks require explicit design justification. */
+.dark {
+  background-color: var(--sk-app-surface-dark);
+  border-color: var(--sk-app-surface-dark);
+  color: var(--sk-app-text-on-dark);
+}
+
+.dark :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sk-app-text-on-dark);
+}
+
+/* --- accent -------------------------------------------------------------- */
+
+/* 3px Terracotta top rule — the approved editorial emphasis pattern.
+   Decorative only; Terracotta is never interactive. */
+.accent {
+  border-block-start-width: var(--sk-border-accent-width);
+  border-block-start-color: var(--sk-color-border-accent);
+}
+
+/* --- elevation ----------------------------------------------------------- */
+
+.elevated {
+  box-shadow: var(--sk-shadow-elevated);
+}
+
+/* --- interactive --------------------------------------------------------- */
+
+/* Hover state applies ONLY when the card is actually interactive. */
+.interactive {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    background-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.interactive:hover {
+  border-color: var(--sk-app-border-strong);
+}
+
+.dark.interactive:hover {
+  border-color: var(--sk-app-text-on-dark);
+}
+
+/* --- metric -------------------------------------------------------------- */
+
+.metricValue {
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+  font-variant-numeric: tabular-nums;
+}
+
+.metricLabel {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  line-height: var(--sk-type-caption-line-height);
+  color: var(--sk-app-text-secondary);
+}
+
+.metricOnDark .metricValue,
+.metricOnDark .metricLabel {
+  color: var(--sk-app-text-on-dark);
+}

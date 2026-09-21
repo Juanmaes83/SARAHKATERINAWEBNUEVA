@@ -1,0 +1,19 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  line-height: var(--sk-type-eyebrow-line-height);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-app-text-secondary);
+  padding-block-end: var(--sk-space-8);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.code {
+  font-variant-numeric: tabular-nums;
+}
