@@ -1,0 +1,5 @@
+# Files that never need to reach a Vercel build.
+.next
+node_modules
+coverage
+.github
