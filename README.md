@@ -249,6 +249,38 @@ appears.
 
 ---
 
+
+---
+
+## Routes and design systems
+
+| Route | Purpose | Chrome | Palette | Indexable |
+|---|---|---|---|---|
+| `/` | Repository overview | `AppChrome` | Canonical | No |
+| `/foundation` | Component laboratory | `AppChrome` | Canonical | No — ever |
+| `/preview/investment` | Investment visual implementation | `WebHeader` / `WebFooter` | Scoped `--sk-web-*` | No — ever, while under `/preview` |
+
+Two token layers coexist deliberately:
+
+- **Canonical** — `app/tokens.css` and `lib/tokens/tokens.json`, byte-identical
+  copies of the upstream brand system, verified by `tests/tokens-parity.test.ts`.
+  **Never edited here.**
+- **Scoped website palette** — `app/web-tokens.css`, namespaced `--sk-web-*`
+  (ivory, navy, gold). Approved by Juanma on 2026-09-21 for this repository
+  only; it does not replace the global brand system. Every value was sampled
+  from the approved Investment template and verified against WCAG AA. See
+  `docs/phase-2b-visual-implementation.md` §1.
+
+Page chrome lives with each page rather than in the root layout, which is what
+lets the two systems coexist without one bleeding into the other.
+
+## Human visual review
+
+Every visual change requires Juanma's review on the Vercel preview, at mobile
+and desktop widths, **before** it is considered accepted or merged. Review
+instructions for the current phase are in
+`docs/phase-2b-visual-implementation.md` §7.
+
 ## Governance
 
 `AGENTS.md` holds the operating rules for anyone — human or agent — working in

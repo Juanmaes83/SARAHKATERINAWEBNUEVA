@@ -1,0 +1,103 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-16);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--sk-space-24);
+  }
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-8);
+}
+
+/* The sample marker. Deliberately prominent: this card shows figures, and a
+   reader must never be able to mistake them for a real result. */
+.sampleTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-4);
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-gold-on-dark);
+  color: var(--sk-web-gold-on-dark);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-web-tracking-caps);
+}
+
+.rows {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-16);
+  margin: 0;
+}
+
+@media (min-width: 375px) {
+  .rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+}
+
+.rowLabel {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  color: var(--sk-web-muted-on-dark);
+}
+
+.rowValueLine {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sk-space-8);
+  margin: 0;
+}
+
+.rowValue {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-font-line-height-control);
+  font-variant-numeric: tabular-nums;
+  color: var(--sk-web-on-dark);
+}
+
+.spark {
+  width: var(--sk-space-64);
+  flex: none;
+}
+
+.foot {
+  margin: 0;
+  padding-block-start: var(--sk-space-8);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+  color: var(--sk-web-muted-on-dark);
+}

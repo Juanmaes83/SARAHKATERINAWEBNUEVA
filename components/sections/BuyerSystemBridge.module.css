@@ -17,9 +17,9 @@
   padding: var(--sk-space-24);
   border-radius: var(--sk-radius-card);
   border: var(--sk-border-standard-width) var(--sk-border-standard-style)
-    var(--sk-app-border-subtle);
-  background-color: var(--sk-app-surface);
-  color: var(--sk-app-text-primary);
+    var(--sk-web-border);
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-ink);
   text-decoration: none;
 }
 
@@ -35,12 +35,12 @@
 }
 
 .entryLive:hover {
-  border-color: var(--sk-app-border-strong);
+  border-color: var(--sk-web-gold);
 }
 
 .entryPending {
   border-style: dashed;
-  border-color: var(--sk-color-border-accent);
+  border-color: var(--sk-web-gold);
   background-color: transparent;
 }
 
@@ -57,7 +57,7 @@
   font-family: var(--sk-type-body-small-family);
   font-size: var(--sk-type-body-small-size);
   line-height: var(--sk-type-body-small-line-height);
-  color: var(--sk-app-text-secondary);
+  color: var(--sk-web-muted);
   max-width: var(--sk-layout-measure-reading);
 }
 
@@ -78,7 +78,7 @@
   font-family: var(--sk-type-button-family);
   font-size: var(--sk-type-button-size);
   font-weight: var(--sk-type-button-weight);
-  color: var(--sk-app-action-secondary);
+  color: var(--sk-web-gold);
 }
 
 .noFormNote {
@@ -87,6 +87,6 @@
   gap: var(--sk-space-8);
   padding: var(--sk-space-16);
   border-inline-start: var(--sk-border-accent-width) var(--sk-border-standard-style)
-    var(--sk-color-border-accent);
-  background-color: var(--sk-app-surface-warm);
+    var(--sk-web-gold);
+  background-color: var(--sk-web-ivory-soft);
 }

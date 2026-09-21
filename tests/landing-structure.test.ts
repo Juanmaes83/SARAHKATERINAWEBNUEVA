@@ -5,8 +5,14 @@ import { LABORATORY_ROUTES, isLaboratoryRoute } from '../lib/seo/config';
 import * as investment from '../content/en/investment';
 
 const root = resolve(__dirname, '..');
-const pageSource = readFileSync(resolve(root, 'app/preview/investment/page.tsx'), 'utf8');
-const nextConfig = readFileSync(resolve(root, 'next.config.ts'), 'utf8');
+const read = (p: string) => readFileSync(resolve(root, p), 'utf8');
+
+const pageSource = read('app/preview/investment/page.tsx');
+const nextConfig = read('next.config.ts');
+const heroSource = read('components/web/WebHero.tsx');
+const sectionSource = read('components/web/WebSection.tsx');
+const bandsSource = read('components/web/WebBands.tsx');
+const faqSource = read('components/web/WebFaq.tsx');
 
 describe('prototype route governance', () => {
   it('treats the whole /preview namespace as a laboratory route', () => {
@@ -24,6 +30,7 @@ describe('prototype route governance', () => {
 
   it('declares the page as a laboratory page in its metadata', () => {
     expect(pageSource).toMatch(/laboratory:\s*true/);
+    expect(pageSource).toMatch(/path:\s*'\/preview\/investment'/);
   });
 
   it('carries a transport-level noindex header for /preview', () => {
@@ -31,115 +38,161 @@ describe('prototype route governance', () => {
     expect(nextConfig).toMatch(/noindex, nofollow/);
   });
 
-  it('lives under /preview, not at a production path', () => {
-    expect(pageSource).toMatch(/path:\s*'\/preview\/investment'/);
+  it('shows the prototype banner before any other content', () => {
+    const banner = pageSource.indexOf('<PrototypeBanner');
+    const header = pageSource.indexOf('<WebHeader');
+    expect(banner).toBeGreaterThan(-1);
+    expect(banner).toBeLessThan(header);
   });
 });
 
-describe('landing structure', () => {
-  it('renders exactly one h1', () => {
-    // The Hero owns the single h1; the page must not add another.
-    const heroSource = readFileSync(resolve(root, 'components/sections/Hero.tsx'), 'utf8');
-    const heroH1 = heroSource.match(/level=\{1\}/g) ?? [];
-    const pageH1 = pageSource.match(/level=\{1\}/g) ?? [];
-    expect(heroH1).toHaveLength(1);
-    expect(pageH1).toHaveLength(0);
+describe('heading structure', () => {
+  it('renders exactly one h1, owned by the hero', () => {
+    expect(heroSource.match(/<h1/g) ?? []).toHaveLength(1);
+    expect(pageSource).not.toMatch(/<h1/);
+    expect(bandsSource).not.toMatch(/<h1/);
+    expect(faqSource).not.toMatch(/<h1/);
   });
 
-  it('uses h2 for every top-level section heading', () => {
-    const h2 = pageSource.match(/level=\{2\}/g) ?? [];
-    // Problem, decision doors, visual proof, process, benefits, buyer system,
-    // authority, cases, FAQ, final CTA.
-    expect(h2.length).toBeGreaterThanOrEqual(10);
+  it('uses h2 for every section header', () => {
+    expect(sectionSource).toMatch(/<h2/);
+    expect(sectionSource).not.toMatch(/<h1/);
   });
 
-  it('skips no heading level', () => {
-    // Only levels 1-3 are used, and 3 never appears without a 2 above it.
-    const levels = [...pageSource.matchAll(/level=\{(\d)\}/g)].map((m) => Number(m[1]));
-    expect(levels.every((level) => level >= 1 && level <= 3)).toBe(true);
-    expect(levels.includes(2)).toBe(true);
+  it('uses h3 for items inside sections, never h4 or deeper', () => {
+    expect(bandsSource).toMatch(/<h3/);
+    for (const source of [bandsSource, faqSource, heroSource]) {
+      expect(source).not.toMatch(/<h[4-6]/);
+    }
   });
+});
 
-  it('includes every block required by the phase brief', () => {
+describe('landing composition', () => {
+  it('includes every band the Phase 2B brief requires', () => {
     const required = [
       'PrototypeBanner',
-      'Hero',
-      'TrustStrip',
-      'problem',
-      'decisionDoors',
-      'visualProof',
-      'process',
-      'benefits',
+      'WebHeader',
+      'WebHero',
+      'TrustBand',
+      'ApproachBand',
+      'DoorsBand',
+      'AssetTypesBand',
+      'ProcessBand',
+      'ReportBand',
+      'ScenariosBand',
       'BuyerSystemBridge',
-      'authority',
-      'cases',
-      'faq',
-      'finalCta',
+      'AuthorityBand',
+      'CasesBand',
+      'JourneyBand',
+      'WebFaq',
+      'FinalCtaBand',
+      'WebFooter',
     ];
-    const missing = required.filter((block) => !pageSource.includes(block));
-    expect(missing).toEqual([]);
-  });
-
-  it('shows the prototype banner before any other content', () => {
-    const bannerIndex = pageSource.indexOf('<PrototypeBanner');
-    const heroIndex = pageSource.indexOf('<Hero');
-    expect(bannerIndex).toBeGreaterThan(-1);
-    expect(bannerIndex).toBeLessThan(heroIndex);
+    expect(required.filter((band) => !pageSource.includes(band))).toEqual([]);
   });
 
   it('emits no JSON-LD', () => {
-    // FAQ schema is prepared but not emitted: most answers are pending, and
-    // structured data may only describe visible, verified content.
-    expect(pageSource).not.toMatch(/application\/ld\+json/);
+    // FAQ and Organization schema stay unemitted: most answers are pending and
+    // the legal entity is unconfirmed.
+    for (const source of [pageSource, bandsSource, faqSource]) {
+      expect(source).not.toMatch(/application\/ld\+json/);
+    }
   });
 });
 
 describe('content completeness', () => {
-  it('provides the five decision-door and process structures the brief requires', () => {
-    expect(investment.decisionDoors.doors.length).toBeGreaterThanOrEqual(2);
-    expect(investment.decisionDoors.doors.length).toBeLessThanOrEqual(3);
-    expect(investment.process.stages).toHaveLength(5);
+  it('provides the five process steps named by the brief', () => {
+    expect(investment.process.steps).toHaveLength(5);
+    const ids = investment.process.steps.map((step) => step.id);
+    expect(ids).toEqual([
+      'market-screen',
+      'due-diligence',
+      'financial-modelling',
+      'tax-overlay',
+      'decision-report',
+    ]);
+  });
+
+  it('gives every process step a deliverable', () => {
+    for (const step of investment.process.steps) {
+      expect(step.deliverable.text.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('provides the four asset types named by the brief', () => {
+    const ids = investment.assetTypes.items.map((item) => item.id);
+    expect(ids).toEqual(['residential', 'land', 'commercial', 'redevelopment']);
+  });
+
+  it('describes what is analysed, the risk and the deliverable for each asset type', () => {
+    for (const item of investment.assetTypes.items) {
+      expect(item.analysed.text.length).toBeGreaterThan(0);
+      expect(item.risk.text.length).toBeGreaterThan(0);
+      expect(item.deliverable.text.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('provides two or three decision doors, each with its own CTA', () => {
+    expect(investment.doors.items.length).toBeGreaterThanOrEqual(2);
+    expect(investment.doors.items.length).toBeLessThanOrEqual(3);
+    const ctas = investment.doors.items.map((door) => door.cta.text);
+    expect(new Set(ctas).size).toBe(ctas.length);
   });
 
   it('covers every FAQ topic the brief lists', () => {
     const ids = investment.faq.items.map((item) => item.id);
     for (const topic of [
-      'price',
+      'analysed',
+      'already-have',
+      'still-looking',
+      'information',
       'time',
-      'language',
-      'remote',
-      'scope',
-      'independence',
+      'includes',
       'tax',
-      'documents',
-      'risk',
-      'next',
+      'independence',
+      'not-do',
     ]) {
       expect(ids).toContain(topic);
     }
   });
 
-  it('separates feature, benefit, outcome and risk in every benefit item', () => {
-    for (const item of investment.benefits.items) {
-      expect(item.feature.text.length).toBeGreaterThan(0);
-      expect(item.benefit.text.length).toBeGreaterThan(0);
-      expect(item.outcome.text.length).toBeGreaterThan(0);
-      expect(item.risk.text.length).toBeGreaterThan(0);
+  it('keeps every case study as an explicit blocked placeholder', () => {
+    for (const item of investment.cases.items) {
+      expect(item.title.text).toContain('PLACEHOLDER');
+      expect(item.title.status).toBe('blocked');
     }
   });
 
-  it('gives every process stage a what, deliverable and decision', () => {
-    for (const stage of investment.process.stages) {
-      expect(stage.what.text.length).toBeGreaterThan(0);
-      expect(stage.deliverable.text.length).toBeGreaterThan(0);
-      expect(stage.decision.text.length).toBeGreaterThan(0);
+  it('uses the GEO vocabulary the brief requires', () => {
+    const corpus = JSON.stringify(investment).toLowerCase();
+    for (const term of [
+      'property investment analysis',
+      'costa blanca',
+      'financial modelling',
+      'due diligence',
+      'tax overlay',
+      'decision report',
+    ]) {
+      expect(corpus).toContain(term);
     }
   });
+});
 
-  it('keeps every case study as an explicit placeholder', () => {
-    for (const placeholder of investment.cases.placeholders) {
-      expect(placeholder.text).toContain('PENDING_APPROVAL');
-      expect(placeholder.status).toBe('blocked');
-    }
+describe('sample data labelling', () => {
+  const chartSource = read('components/web/SampleChart.tsx');
+  const dashboardSource = read('components/web/DashboardCard.tsx');
+
+  it('labels every chart as illustrative in its accessible name', () => {
+    expect(chartSource).toContain('Illustrative sample data, not a real result');
+  });
+
+  it('marks the hero dashboard as illustrative', () => {
+    expect(dashboardSource).toMatch(/Illustrative/);
+    expect(dashboardSource).toMatch(/Not a client result/);
+  });
+
+  it('marks every report card as illustrative', () => {
+    expect(bandsSource).toMatch(/pendingTag/);
+    expect(bandsSource).toContain('Illustrative');
   });
 });

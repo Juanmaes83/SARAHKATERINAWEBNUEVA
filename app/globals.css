@@ -2,6 +2,8 @@
 @import './tokens.css';
 /* Application-level additions — see file header for governance. */
 @import './tokens.app.css';
+/* Scoped website palette (ivory / navy / gold), approved 2026-09-21. */
+@import './web-tokens.css';
 
 /* ===========================================================================
  * RESET

@@ -1,0 +1,106 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sk-space-24);
+    align-items: start;
+  }
+}
+
+.item {
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  background-color: var(--sk-web-white);
+  overflow: hidden;
+  transition: border-color var(--sk-motion-interaction-duration)
+    var(--sk-motion-interaction-ease);
+}
+
+.item:hover {
+  border-color: var(--sk-web-gold);
+}
+
+.heading {
+  margin: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  width: 100%;
+  min-height: var(--sk-layout-control-height-default);
+  padding: var(--sk-space-16) var(--sk-space-24);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: start;
+  font-family: var(--sk-type-body-family);
+  font-size: var(--sk-type-body-size);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-font-line-height-compact);
+  color: var(--sk-web-ink);
+}
+
+.marker {
+  position: relative;
+  flex: none;
+  width: var(--sk-space-16);
+  height: var(--sk-space-16);
+  margin-block-start: var(--sk-space-4);
+  color: var(--sk-web-gold);
+}
+
+.marker::before,
+.marker::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.marker::after {
+  transform: rotate(90deg);
+}
+
+.trigger[aria-expanded='true'] .marker::after {
+  transform: rotate(0deg);
+}
+
+.panel {
+  padding: 0 var(--sk-space-24) var(--sk-space-24);
+}
+
+.answer {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-muted);
+  max-width: var(--sk-layout-measure-reading);
+}
+
+.reviewTag {
+  display: inline-flex;
+  align-items: center;
+  margin-block-start: var(--sk-space-16);
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  color: var(--sk-web-gold);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--sk-web-tracking-caps);
+}

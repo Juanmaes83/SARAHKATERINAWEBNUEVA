@@ -1,0 +1,134 @@
+.section {
+  /* Generous editorial rhythm. The template is condensed in places; the
+     implementation contract asks for more air, so mobile starts at 48px and
+     opens to 80px on desktop. */
+  padding-block: var(--sk-space-48);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--sk-space-64);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-block: var(--sk-space-80);
+  }
+}
+
+.tight {
+  padding-block: var(--sk-space-32);
+}
+
+@media (min-width: 768px) {
+  .tight {
+    padding-block: var(--sk-space-48);
+  }
+}
+
+/* --- surfaces ------------------------------------------------------------- */
+
+.ivory {
+  background-color: var(--sk-web-ivory);
+  color: var(--sk-web-ink);
+}
+
+.soft {
+  background-color: var(--sk-web-ivory-soft);
+  color: var(--sk-web-ink);
+}
+
+.white {
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-ink);
+}
+
+.navy {
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+}
+
+.navySoft {
+  background-color: var(--sk-web-navy-soft);
+  color: var(--sk-web-on-dark);
+}
+
+/* --- header --------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  margin-block-end: var(--sk-space-48);
+}
+
+.centered {
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+.navy .eyebrow,
+.navySoft .eyebrow {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+  color: var(--sk-web-ink);
+  max-width: 22ch;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.centered .title {
+  max-width: 28ch;
+}
+
+.navy .title,
+.navySoft .title {
+  color: var(--sk-web-on-dark);
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  line-height: var(--sk-type-lead-line-height);
+  color: var(--sk-web-muted);
+  max-width: var(--sk-web-measure-lead);
+}
+
+.navy .subtitle,
+.navySoft .subtitle {
+  color: var(--sk-web-muted-on-dark);
+}
+
+/* Short gold rule under a section header. Decorative. */
+.rule {
+  width: var(--sk-space-48);
+  height: 2px;
+  background-color: var(--sk-web-gold);
+  border: 0;
+  margin: 0;
+}
+
+.navy .rule,
+.navySoft .rule {
+  background-color: var(--sk-web-gold-on-dark);
+}

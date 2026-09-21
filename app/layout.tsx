@@ -1,7 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { baseMetadata } from '@/lib/seo/metadata';
 import './globals.css';
 
@@ -47,9 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="sk-skip-link" href="#main">
           Skip to content
         </a>
-        <Header />
+        {/* Page chrome lives with each page: the canonical brand pages use
+            AppChrome, the website landings supply their own header and footer
+            in the scoped palette. */}
         <main id="main">{children}</main>
-        <Footer />
       </body>
     </html>
   );

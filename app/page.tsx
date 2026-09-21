@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { AppChrome } from '@/components/layout/AppChrome';
 import { Container } from '@/components/layout/Container';
 import { Section } from '@/components/layout/Section';
 import { Stack } from '@/components/layout/Stack';
@@ -33,7 +34,7 @@ export const metadata: Metadata = buildMetadata({
  */
 export default function OverviewPage() {
   return (
-    <>
+    <AppChrome>
       <Section spacing="generous">
         <Container>
           <Stack gap={24}>
@@ -105,6 +106,6 @@ export default function OverviewPage() {
           </Stack>
         </Container>
       </Section>
-    </>
+    </AppChrome>
   );
 }
