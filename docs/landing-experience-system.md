@@ -1,6 +1,6 @@
 # Landing Experience System
 
-Status: ACTIVE PHASE 2 IMPLEMENTATION CONTRACT
+Status: ACTIVE MULTI-LANDING PHASE 2 IMPLEMENTATION CONTRACT
 Updated: 2026-09-21
 
 This document supersedes the earlier interpretation that treated Phase 2 as
@@ -172,3 +172,15 @@ Before each visual merge:
 3. Record corrections.
 4. Re-test technical and accessibility constraints.
 5. Merge only after explicit approval.
+
+
+## 11. Current delivery sequence
+
+Investment has been implemented through Phase 2C and merged as the first
+visual development base. Tax Advisory is the second base in progress and
+Property Purchase is the next base to build. The three bases will then receive
+a shared consolidation pass for spacing, image treatment, iconography, motion,
+responsive hierarchy, CRO and SEO/GEO readiness.
+
+A merge of an individual base does not mean that the shared system or the final
+production website is approved. Juanma remains the final visual approver.

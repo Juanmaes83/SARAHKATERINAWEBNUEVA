@@ -1,6 +1,6 @@
 # Phase 2 — Decision Gate and Visual Implementation Contract
 
-Status: VISUAL IMPLEMENTATION APPROVED TO PROCEED · PRODUCTION NOT APPROVED
+Status: INVESTMENT VISUAL BASE MERGED · MULTI-LANDING IMPLEMENTATION IN PROGRESS · PRODUCTION NOT APPROVED
 Updated: 2026-09-21
 
 ## 1. Governing distinction
@@ -123,8 +123,11 @@ Phase 2 must prepare, not falsely claim to complete, production acquisition:
 |---|---|---|
 | Phase 1 | Technical foundation | Merged |
 | Phase 2A | Structural Investment prototype and reusable landing grammar | Merged |
-| Phase 2B | Real visual implementation with assets, approved palette, dashboards, calculators, copy and motion | Next |
-| Phase 2C | Juanma visual review and correction cycle | Mandatory |
+| Phase 2B/2C — Investment | Real visual implementation and fidelity pass | Merged as development base; final consolidation open |
+| Tax Advisory | Service-specific visual base | In progress |
+| Property Purchase | Service-specific visual base | Next |
+| Shared consolidation | Apply common improvements across the three bases | After the three bases |
+| Human visual gate | Juanma visual review and correction cycle | Mandatory before final acceptance and production |
 | Phase 3 | Functional Buyer System integration, events, consent and lead-capture decision | Blocked on upstream decisions |
 | Phase 4 | Production SEO, accessibility, performance, legal and publication gate | Later |
 
@@ -140,8 +143,9 @@ Phase 2B cannot be called complete until:
 - motion has reduced-motion behavior;
 - no fake claim or evidence has entered the page;
 - responsive screenshots exist at mobile and desktop widths;
-- Juanma has reviewed and accepted the Vercel preview;
-- only then may a merge be requested.
+- the visual base has a Vercel preview and the merge decision is explicitly recorded;
+- final acceptance still requires Juanma's consolidated review of Investment, Tax Advisory and Property Purchase;
+- only after that may production approval or migration be requested.
 
 ## 10. Remaining decisions
 

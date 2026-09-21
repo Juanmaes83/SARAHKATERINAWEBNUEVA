@@ -1,12 +1,14 @@
 # Phase 2C — Visual fidelity decisions
 
-**Status:** `PHASE 2C — VISUAL FIDELITY IMPLEMENTATION READY FOR HUMAN REVIEW`
+**Status:** `MERGED AS INVESTMENT DEVELOPMENT VISUAL BASE — FINAL CONSOLIDATION OPEN`
 **Date:** 2026-09-21
-**Base:** Phase 2B, commit `b7fd6f0`
+**Merged PRs:** #4 (`da2e36a`) and #5 (`54f460b`)
 **Route:** `/preview/investment` — noindex, nofollow, excluded from the sitemap
 
-Not final. Not approved. Not production. Juanma's review against the template
-is the last gate.
+This phase is merged into `main` by explicit project decision. The merge records
+a usable visual base; it is not final visual acceptance, production approval or
+migration approval. Human visual consolidation remains open after Tax Advisory
+and Property Purchase are implemented.
 
 ---
 
