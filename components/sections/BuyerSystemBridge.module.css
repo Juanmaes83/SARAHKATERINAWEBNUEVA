@@ -1,0 +1,92 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-24);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.entry {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  background-color: var(--sk-app-surface);
+  color: var(--sk-app-text-primary);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .entry {
+    padding: var(--sk-space-32);
+  }
+}
+
+.entryLive {
+  transition: border-color var(--sk-motion-interaction-duration)
+    var(--sk-motion-interaction-ease);
+}
+
+.entryLive:hover {
+  border-color: var(--sk-app-border-strong);
+}
+
+.entryPending {
+  border-style: dashed;
+  border-color: var(--sk-color-border-accent);
+  background-color: transparent;
+}
+
+.question {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+}
+
+.scope {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-app-text-secondary);
+  max-width: var(--sk-layout-measure-reading);
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-8);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  color: var(--sk-app-action-secondary);
+}
+
+.noFormNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  padding: var(--sk-space-16);
+  border-inline-start: var(--sk-border-accent-width) var(--sk-border-standard-style)
+    var(--sk-color-border-accent);
+  background-color: var(--sk-app-surface-warm);
+}

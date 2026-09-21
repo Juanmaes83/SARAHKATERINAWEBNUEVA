@@ -1,0 +1,155 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-48);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    /* Text leads; the visual carries real weight rather than sitting as a
+       decorative sliver. */
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--sk-space-64);
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+}
+
+.heading {
+  max-width: 16ch;
+}
+
+.sub {
+  max-width: 48ch;
+}
+
+.ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  margin-block-start: var(--sk-space-8);
+}
+
+@media (min-width: 768px) {
+  .ctas {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* --- visual -------------------------------------------------------------- */
+
+/* A high-fidelity structural placeholder for the model summary. It shows the
+   SHAPE of the deliverable — labelled rows, a scenario strip, a footer note —
+   with no figures, because no figure here could be anything but invented. */
+.visual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  background-color: var(--sk-app-surface);
+  box-shadow: var(--sk-shadow-elevated);
+}
+
+@media (min-width: 768px) {
+  .visual {
+    padding: var(--sk-space-32);
+  }
+}
+
+.visualHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-8);
+  padding-block-end: var(--sk-space-16);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.visualTitle {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-app-text-secondary);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  padding-block: var(--sk-space-8);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.rowLabel {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  color: var(--sk-app-text-primary);
+}
+
+/* The withheld value. A rule, not a fake number. */
+.rowValue {
+  flex: none;
+  width: var(--sk-space-64);
+  height: var(--sk-space-8);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-app-border-subtle);
+}
+
+.rowValueStrong {
+  background-color: var(--sk-app-action-primary);
+  opacity: var(--sk-opacity-disabled-content);
+}
+
+.strip {
+  display: flex;
+  gap: var(--sk-space-8);
+}
+
+.chip {
+  flex: 1;
+  min-height: var(--sk-space-32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sk-radius-button);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-app-text-secondary);
+}
+
+.chipActive {
+  border-color: var(--sk-app-border-strong);
+  color: var(--sk-app-text-primary);
+}
+
+.visualFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-8);
+  padding-block-start: var(--sk-space-8);
+}

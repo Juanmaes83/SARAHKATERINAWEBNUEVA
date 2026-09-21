@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
         source: '/foundation',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
       },
+      {
+        // Everything under /preview is a visual prototype. Never indexable.
+        source: '/preview/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
     ];
   },
 };

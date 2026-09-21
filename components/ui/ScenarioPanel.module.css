@@ -1,0 +1,134 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  background-color: var(--sk-app-surface);
+}
+
+@media (min-width: 768px) {
+  .panel {
+    padding: var(--sk-space-32);
+  }
+}
+
+.tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sk-layout-touch-target-min);
+  padding-inline: var(--sk-space-24);
+  border-radius: var(--sk-radius-button);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  background-color: transparent;
+  color: var(--sk-app-text-secondary);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  cursor: pointer;
+  transition:
+    background-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    border-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.tab[aria-selected='true'] {
+  background-color: var(--sk-app-action-primary);
+  border-color: var(--sk-app-action-primary);
+  color: var(--sk-color-action-primary-text);
+}
+
+.tabpanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  animation: sk-scenario-in var(--sk-motion-interaction-duration)
+    var(--sk-motion-interaction-ease) both;
+}
+
+@keyframes sk-scenario-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabpanel {
+    animation: none;
+  }
+}
+
+.description {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+}
+
+/* --- structured data placeholder ---------------------------------------- */
+
+/* A deliberately abstract shape. It communicates "a figure lives here"
+   without inventing a figure. Bars are fixed proportions of the container,
+   not data. */
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sk-space-8);
+  height: var(--sk-space-80);
+  padding: var(--sk-space-16);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) dashed var(--sk-app-border-subtle);
+  background-color: var(--sk-app-surface-warm);
+}
+
+.bar {
+  flex: 1;
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-app-action-primary);
+  opacity: var(--sk-opacity-disabled-content);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8);
+  align-items: center;
+}
+
+.artefacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.artefact {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.artefactMarker {
+  flex: none;
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  margin-block-start: var(--sk-space-8);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-app-accent);
+}
