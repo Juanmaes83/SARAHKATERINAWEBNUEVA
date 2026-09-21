@@ -1,6 +1,6 @@
 # Sarah Katerina — New Website
 
-> **Status: PHASE 2 VISUAL IMPLEMENTATION IN PROGRESS · NOT PRODUCTION · NOT APPROVED FOR MIGRATION**
+> **Status: INVESTMENT VISUAL BASE MERGED · TAX ADVISORY IN PROGRESS · NOT PRODUCTION · NOT APPROVED FOR MIGRATION**
 >
 > Nothing in this repository is approved for publication. The application is
 > **not indexable by default** and no page in it represents finished marketing.
@@ -95,7 +95,10 @@ Phase 2 visual implementation contract.
 ```
 PHASE 1 MERGED
 PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
-PHASE 2B REAL VISUAL LANDING IMPLEMENTATION NEXT
+PHASE 2B INVESTMENT VISUAL IMPLEMENTATION MERGED (PR #4)
+PHASE 2C INVESTMENT VISUAL FIDELITY MERGED (PR #5)
+TAX ADVISORY VISUAL BASE IN PROGRESS
+PROPERTY PURCHASE NEXT
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
@@ -112,11 +115,12 @@ NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 | ESLint + Prettier | Lint and format gates. |
 | `next/font` | Self-hosts Fraunces and Inter; no third-party font request. |
 
-Phase 1 deliberately avoided GSAP and third-party motion dependencies. Phase 2
-must implement the approved motion direction with GSAP or a native equivalent
-when it adds value, always with prefers-reduced-motion, no scroll-jacking and
-no motion that fabricates data. The current RevealOnScroll primitive is a
-foundation, not the finished Phase 2 motion system.
+Phase 1 deliberately avoided GSAP and third-party motion dependencies. Investment
+Phase 2 uses a native equivalent (CSS transitions/keyframes plus
+IntersectionObserver) with prefers-reduced-motion, no scroll-jacking and no
+motion that fabricates data. GSAP remains available for later pages only when it
+adds measurable value; a library is not mandatory when the native track is
+visually equivalent and verified.
 
 ## 7. Running locally
 
@@ -185,7 +189,7 @@ confirmed. Until then, calculator entry points remain visibly pending.
 | Item | State | Why it is blocked |
 |---|---|---|
 | Canonical production host | **OPEN CONFLICT** | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0. |
-| Logo / wordmark asset | AVAILABLE REFERENCE — IMPORT PENDING | Authentic logo reference exists in the mother repository at IMAGENES NUEVAS/SK_SARAH_LOGO.jpg. It has not yet been selected, optimized or imported into this repo. Ask Juanma if the intended light/dark treatment is unclear. |
+| Logo / wordmark asset | BRAND-001 IN USE FOR INVESTMENT | The authentic insertable mark is BRAND-001 in the mother repository. SK_SARAH_LOGO.jpg is a composite key visual, not the insertable logo. Investment uses BRAND-001 without recolouring; dark-surface treatment remains a visual decision. |
 | Institutional descriptor | `NEEDS_DECISION` | Must not be chosen silently. |
 | `Property Decision Advisor` | `TEST` + `INTERNAL_TEST_ONLY` | Not usable in public output. |
 | Legal entity, address, company number | NOT CONFIRMED | Rendered as `PENDING_APPROVAL` slots. |
@@ -215,8 +219,8 @@ confirmed. Until then, calculator entry points remain visibly pending.
 |---|---|---|
 | 1 — Technical foundation | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory | MERGED |
 | 2A — Landing Experience System | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype | MERGED |
-| 2B — Real visual landing implementation | Template-led composition, approved palette, real logo/images, optional video, dashboards, calculator entry points, editorial copy, CRO, SEO/GEO and premium motion | NEXT / IN PROGRESS |
-| 2C — Human visual gate | Juanma reviews mobile and desktop previews; feedback is implemented before any visual change is accepted | MANDATORY BEFORE EACH VISUAL MERGE |
+| 2B — Real visual landing implementation | Template-led composition, approved palette, real logo/images, optional video, dashboards, calculator entry points, editorial copy, CRO, SEO/GEO and premium motion | MERGED FOR INVESTMENT · TAX ADVISORY IN PROGRESS |
+| 2C — Human visual gate | Investment fidelity pass merged as a development base; human visual consolidation remains open before production | INVESTMENT BASE MERGED · REVIEW CONTINUES ACROSS THREE LANDINGS |
 | 3 — Functional integration | Buyer System production URL, live calculator links, events, consent and lead-capture decision | BLOCKED ON PRODUCT DECISIONS |
 | 4 — Production hardening | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval | AFTER 2B/3 |
 | 5 — Migration | Domain, redirects, indexation and production cutover | LAST GATE |
@@ -276,10 +280,12 @@ lets the two systems coexist without one bleeding into the other.
 
 ## Human visual review
 
-Every visual change requires Juanma's review on the Vercel preview, at mobile
-and desktop widths, **before** it is considered accepted or merged. Review
-instructions for the current phase are in
-`docs/phase-2b-visual-implementation.md` §7.
+Investment 2B/2C was merged by explicit project decision on 2026-09-21 as a
+development visual base. This does not mean final visual acceptance or
+production approval. Future visual changes and the final three-landing
+consolidation require Juanma's review on Vercel at mobile and desktop widths
+before they are accepted or merged. Review instructions are in
+`docs/phase-2c-visual-decisions.md` §8.
 
 ## Governance
 
