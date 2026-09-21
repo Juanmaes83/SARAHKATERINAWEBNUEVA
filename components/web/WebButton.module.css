@@ -1,0 +1,130 @@
+/* ===========================================================================
+ * Website CTA model (scoped ivory / navy / gold palette)
+ *
+ *   primary    gold fill + white label        white on gold = 5.02:1
+ *   secondary  transparent + navy outline     navy on ivory = 14.36:1
+ *   onDark     navy surfaces: gold fill, or ivory outline
+ *
+ * Height is the canonical 52px control height, above the 44px minimum.
+ * =========================================================================== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-control-height-default);
+  padding: var(--sk-space-16) var(--sk-space-32);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) transparent;
+  border-radius: var(--sk-radius-button);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  transition:
+    background-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    border-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease),
+    transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+@media (min-width: 768px) {
+  .button {
+    width: auto;
+  }
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button:active {
+    transform: none;
+  }
+}
+
+/* The arrow nudges on hover. Decorative, and it never changes layout. */
+.arrow {
+  display: inline-flex;
+  transition: transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.button:hover .arrow {
+  transform: translateX(var(--sk-space-4));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow,
+  .button:hover .arrow {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* --- light surfaces ------------------------------------------------------ */
+
+.primary {
+  background-color: var(--sk-web-gold);
+  color: var(--sk-web-white);
+}
+
+.primary:hover {
+  background-color: var(--sk-web-gold-strong);
+}
+
+.secondary {
+  background-color: transparent;
+  color: var(--sk-web-ink);
+  border-color: var(--sk-web-ink);
+}
+
+.secondary:hover {
+  background-color: var(--sk-web-ink);
+  color: var(--sk-web-ivory);
+}
+
+.quiet {
+  background-color: transparent;
+  color: var(--sk-web-gold);
+  padding-inline: 0;
+  min-height: var(--sk-layout-touch-target-min);
+  width: auto;
+  text-transform: none;
+  letter-spacing: var(--sk-font-letter-spacing-normal);
+}
+
+.quiet:hover {
+  color: var(--sk-web-gold-strong);
+}
+
+/* --- navy surfaces -------------------------------------------------------- */
+
+.onDark.primary {
+  background-color: var(--sk-web-gold);
+  color: var(--sk-web-white);
+}
+
+.onDark.primary:hover {
+  background-color: var(--sk-web-gold-on-dark);
+  color: var(--sk-web-navy);
+}
+
+.onDark.secondary {
+  color: var(--sk-web-on-dark);
+  border-color: var(--sk-web-on-dark);
+}
+
+.onDark.secondary:hover {
+  background-color: var(--sk-web-on-dark);
+  color: var(--sk-web-navy);
+}
+
+.onDark.quiet {
+  color: var(--sk-web-gold-on-dark);
+}

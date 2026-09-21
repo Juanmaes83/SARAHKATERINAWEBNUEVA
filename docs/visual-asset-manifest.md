@@ -92,3 +92,40 @@ Assets are ready for a visual merge only when:
 - contrast and text-safe areas pass;
 - responsive crops are reviewed at 375px and 1440px;
 - Juanma has approved the visual result.
+
+---
+
+## 7. Phase 2B import record (2026-09-21)
+
+Assets actually imported into this repository, with provenance.
+
+| Asset | Origin | Register ID | Use | State | Approval |
+|---|---|---|---|---|---|
+| Logo | `IMAGENES NUEVAS/IMAGENES CON PROMPTS/IMAGENES NUEVASLOGO SARAH KATERINA.png.png` | `BRAND-001` | header/footer | imported → `public/brand/sarah-katerina-logo.png` (transparent padding trimmed, pixel-identical) | pending visual review |
+| Logo, untouched | same | `BRAND-001` | provenance copy, unused by the app | imported → `public/brand/BRAND-001-original.png` | — |
+| Sarah, B&W full body | `IMAGENES NUEVAS/SK_REAL_1.jpg` | `AUTH-SK-001` | hero visual | imported → `public/sarah/sk-real-1.jpg`, unmodified | pending visual review |
+| Sarah, colour headshot | `IMAGENES NUEVAS/SK_REAL_2.jpg` | `AUTH-SK-002` | authority band | imported → `public/sarah/sk-real-2.jpg`, unmodified | pending visual review |
+| Sarah, 4-view turnaround | `IMAGENES NUEVAS/SK_REAL_3.png` | `AUTH-SK-003` | — | **not imported** | contact sheet; unusable as a single web image |
+| Composite key visual | `IMAGENES NUEVAS/SK_SARAH_LOGO.jpg` | `AUTH-SK-004` | — | **not imported** | register: composite, `NOT_SUITABLE` for identity/body use; embedded wording is not canonical claim copy |
+| Dashboards and charts | built in `components/web/SampleChart.tsx` | — | hero, report, scenarios | illustrative sample, labelled | **no claim** |
+| Video | — | — | hero, optional | **not implemented** | requires an asset and a decision |
+
+### Corrections to §1 established by this import
+
+1. **`SK_SARAH_LOGO.jpg` is not the logo.** `AUTHENTIC-REFERENCE-REGISTER.md`
+   reclassifies it as a *composite key visual* and names `BRAND-001` as "the
+   correct insertable mark". §1 of this document previously pointed at the
+   composite. `BRAND-001` is what Phase 2B imported.
+2. **All three `SK_REAL_*` files are classified `Authentic identity reference`**,
+   not AI-generated. `AUTH-SK-001` is monochrome and marked `SUPPORT` for
+   identity; `AUTH-SK-002` is the colour frontal marked `PRIMARY`.
+3. **The logo's accent is teal**, approximately `#79BFBD`, and the canonical
+   palette contains no teal. The register records this and forbids recolouring
+   the mark. Juanma decided on 2026-09-21 to use it exactly as supplied, so the
+   teal sits beside the gold interface. **Open visual question.**
+
+### Still missing
+
+Costa Blanca and property photography · process video · a logo treatment
+approved for dark surfaces · Open Graph image · favicon · case-study imagery
+and permissions.
