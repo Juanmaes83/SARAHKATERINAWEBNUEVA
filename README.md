@@ -1,6 +1,6 @@
 # Sarah Katerina — New Website
 
-> **Status: FOUNDATION IN PROGRESS · NOT PRODUCTION · NOT APPROVED FOR MIGRATION**
+> **Status: PHASE 2 VISUAL IMPLEMENTATION IN PROGRESS · NOT PRODUCTION · NOT APPROVED FOR MIGRATION**
 >
 > Nothing in this repository is approved for publication. The application is
 > **not indexable by default** and no page in it represents finished marketing.
@@ -16,14 +16,22 @@ Phase 1 delivers the technical and visual foundation — tokens, reusable
 components, header and footer, responsive and accessibility baselines, SEO/GEO
 scaffolding, a typed analytics contract and CI.
 
+Phase 2 is the visual implementation workstream. It must transform that
+foundation into a real, editorial landing experience based on the visual
+proposal in website/nueva web/, especially the Investment composition. The
+proposal is not a production approval, but its architecture, rhythm, hierarchy
+and composition are the explicit implementation reference for Phase 2.
+
 ## 2. What this repository is not
 
 - Not the strategic source of truth. That is [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina).
 - Not a brand repository. Brand decisions are made and recorded upstream.
 - Not the Buyer System. That is [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System).
 - Not a production deployment, and not connected to `sarahkaterina.com`.
-- Not an approved design. The final landing experience is a separate, later
-  workstream.
+- Not an approved production website. Phase 2 is the active visual
+  implementation workstream; it is not a separate interpretation-free later
+  phase. Production approval, legal review and human visual validation remain
+  separate gates.
 
 ## 3. Relationship with the other repositories
 
@@ -56,7 +64,7 @@ Documents consulted for this phase:
 | `website/01-audits/00-website-audit-master-2026-09.md` | CANONICAL CONSOLIDATED BASELINE |
 | `website/01-audits/seo-final-audit-2026-09.md` | CANONICAL FINAL BASELINE — VERIFICATION GATE REQUIRED |
 | `website/02-activation/buyer-system-lead-magnet-strategy-2026-09.md` | ACTIVE OPERATIONAL BRIEF |
-| `website/02-activation/new-website-landings-proposal-2026-09.md` | **PROPOSAL — NOT CANONICAL — NOT APPROVED FOR PRODUCTION** |
+| website/02-activation/new-website-landings-proposal-2026-09.md | **VISUAL PROPOSAL / IMPLEMENTATION REFERENCE FOR PHASE 2 — NOT CANONICAL — NOT APPROVED FOR PRODUCTION** |
 
 ### Design token provenance
 
@@ -75,15 +83,20 @@ the canonical token layer. They must never be edited here.
 `tests/tokens-parity.test.ts` recomputes the blob hash and re-derives every CSS
 variable from the JSON, so any drift from the source of truth fails CI.
 
-Application-only additions live in `app/tokens.app.css`, namespaced `--sk-app-`
-and individually justified. They introduce **no new colour value**.
+Application-only additions live in app/tokens.app.css, namespaced --sk-app-
+and individually justified. Phase 1 additions introduce no new colour value.
+For Phase 2, the scoped website palette approved by Juanma is implemented in a
+separate, namespaced web layer such as --sk-web-*; it must not mutate the
+canonical global token files and must carry its own contrast tests. See the
+Phase 2 visual implementation contract.
 
 ## 5. Current status
 
 ```
-FOUNDATION IN PROGRESS
-NOT PRODUCTION
-NOT APPROVED FOR MIGRATION
+PHASE 1 MERGED
+PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
+PHASE 2B REAL VISUAL LANDING IMPLEMENTATION NEXT
+NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
 ## 6. Stack
@@ -99,9 +112,11 @@ NOT APPROVED FOR MIGRATION
 | ESLint + Prettier | Lint and format gates. |
 | `next/font` | Self-hosts Fraunces and Inter; no third-party font request. |
 
-Deliberately **not** installed: GSAP or any animation library, any icon
-library, any UI kit, any analytics SDK. See `components/motion/Reveal.tsx` for
-the GSAP rationale.
+Phase 1 deliberately avoided GSAP and third-party motion dependencies. Phase 2
+must implement the approved motion direction with GSAP or a native equivalent
+when it adds value, always with prefers-reduced-motion, no scroll-jacking and
+no motion that fabricates data. The current RevealOnScroll primitive is a
+foundation, not the finished Phase 2 motion system.
 
 ## 7. Running locally
 
@@ -127,26 +142,27 @@ CI runs `lint`, `typecheck`, `test` and `build` on every pull request.
 
 ## 9. Deploying a preview
 
-No Vercel project is linked and no deployment has been created. To create a
-**private preview** once a human authorises it:
+A private Vercel project exists for visual review. The application remains
+noindex and no custom domain is connected. Every visual change must be reviewed
+by Juanma before it is treated as accepted.
 
-```bash
-npx vercel link           # select the account/scope, create the project
-npx vercel                # preview deployment (NOT production)
-```
-
-Project settings: framework **Next.js**, root directory **repository root**,
-output directory **empty**, default build and install commands.
+Use a branch preview for normal review. A merge to main may also create a
+default Vercel deployment because of the repository integration; that does not
+authorise publication or migration.
 
 Required preview environment variables (all public, none secret):
 
-```
 NEXT_PUBLIC_SITE_MODE=preview
 NEXT_PUBLIC_SITE_INDEXABLE=false
 NEXT_PUBLIC_SITE_URL=<the vercel preview url>
-```
 
-**Never run `vercel --prod`.** Never add a domain. Never add a secret.
+Never connect sarahkaterina.com, enable indexing or treat a Vercel deployment
+as production approval.
+
+NEXT_PUBLIC_BUYER_SYSTEM_URL may only be set after the Buyer System origin is
+confirmed. Until then, calculator entry points remain visibly pending.
+
+---
 
 ## 10. Branches
 
@@ -169,7 +185,7 @@ NEXT_PUBLIC_SITE_URL=<the vercel preview url>
 | Item | State | Why it is blocked |
 |---|---|---|
 | Canonical production host | **OPEN CONFLICT** | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0. |
-| Logo / wordmark asset | MISSING | No vector logo exists upstream. A text placeholder is used. |
+| Logo / wordmark asset | AVAILABLE REFERENCE — IMPORT PENDING | Authentic logo reference exists in the mother repository at IMAGENES NUEVAS/SK_SARAH_LOGO.jpg. It has not yet been selected, optimized or imported into this repo. Ask Juanma if the intended light/dark treatment is unclear. |
 | Institutional descriptor | `NEEDS_DECISION` | Must not be chosen silently. |
 | `Property Decision Advisor` | `TEST` + `INTERNAL_TEST_ONLY` | Not usable in public output. |
 | Legal entity, address, company number | NOT CONFIRMED | Rendered as `PENDING_APPROVAL` slots. |
@@ -180,8 +196,8 @@ NEXT_PUBLIC_SITE_URL=<the vercel preview url>
 | Any commercial CTA copy | NOT APPROVED | Per-intent CTAs are an open P0. |
 | Property Management / VITA Host | `HOLD` | D-06 unexecuted; excluded entirely. |
 | AI crawler policy | `Propuesta` | Awaiting legal input; no directive invented. |
-| Photography and video of Sarah | NOT AUTHORISED | Placeholders only. |
-| Any metric, claim, case or testimonial | NOT APPROVED | Requires source, date, permission, scope and legal review. |
+| Photography and video of Sarah | ASSETS AVAILABLE / USE DECISION REQUIRED | Authentic references exist upstream. Each image or video must be assigned to a slot, carry provenance and receive human approval. If a selection or video treatment is unclear, ask Juanma rather than choosing silently. |
+| Any metric, claim, case or testimonial | NOT APPROVED | Requires source, date, permission, scope and legal review. Visual proof may be shown as a clearly labelled demo/preview; it must not imply a verified result. |
 
 ## 13. What must not be published
 
@@ -197,13 +213,18 @@ NEXT_PUBLIC_SITE_URL=<the vercel preview url>
 
 | Phase | Scope | State |
 |---|---|---|
-| **1 — Technical foundation** | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI, `/foundation` | **This PR** |
-| 2 — Decision gate | Resolve host, entity, logo, descriptor, contact and legal data | Blocked on human decisions |
-| 3 — Landing Experience System | Strategy, IA, storytelling, UX, CRO, motion, proof, CTA, testing | Not started; follows the upstream Creative Brand System |
-| 4 — Buyer System integration | `/buyer-system` hub, calculators, progressive capture, events | Requires Phase 2 + analytics/consent approval |
-| 5 — Content and localisation | EN consolidation, ES parity, hreflang | Blocked on the host decision |
-| 6 — Migration | Domain, redirects, production cutover | Requires every upstream exit criterion |
+| 1 — Technical foundation | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory | MERGED |
+| 2A — Landing Experience System | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype | MERGED |
+| 2B — Real visual landing implementation | Template-led composition, approved palette, real logo/images, optional video, dashboards, calculator entry points, editorial copy, CRO, SEO/GEO and premium motion | NEXT / IN PROGRESS |
+| 2C — Human visual gate | Juanma reviews mobile and desktop previews; feedback is implemented before any visual change is accepted | MANDATORY BEFORE EACH VISUAL MERGE |
+| 3 — Functional integration | Buyer System production URL, live calculator links, events, consent and lead-capture decision | BLOCKED ON PRODUCT DECISIONS |
+| 4 — Production hardening | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval | AFTER 2B/3 |
+| 5 — Migration | Domain, redirects, indexation and production cutover | LAST GATE |
 
+The full Phase 2 implementation contract is in
+docs/phase-2-visual-implementation-contract.md.
+
+---
 ## 15. Permitted environment variables
 
 Only these three. All are public; none is a secret.
