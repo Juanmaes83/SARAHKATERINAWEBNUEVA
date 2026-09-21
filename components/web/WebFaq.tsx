@@ -2,21 +2,17 @@
 
 import { useId, useState } from 'react';
 import { WebSection, WebSectionHeader } from './WebSection';
+import { Icon } from './icons/Icon';
 import { faq } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import styles from './WebFaq.module.css';
 
-interface FaqItemProps {
-  question: string;
-  answer: Claim;
-}
-
-function FaqItem({ question, answer }: FaqItemProps) {
+function FaqItem({ question, answer }: { question: string; answer: Claim }) {
   const [open, setOpen] = useState(false);
   const baseId = useId();
   const triggerId = `${baseId}-trigger`;
   const panelId = `${baseId}-panel`;
-  const review = answer.review && answer.review !== 'none' ? answer.review : null;
+  const pending = answer.status === 'pending';
 
   return (
     <div className={styles.item}>
@@ -35,16 +31,23 @@ function FaqItem({ question, answer }: FaqItemProps) {
       </h3>
 
       {/*
-        The panel is removed from the DOM when collapsed rather than hidden.
-        A future FAQPage schema may only describe content that is actually
-        rendered, and most answers here are still pending approval, so no
-        schema is emitted yet.
+        Removed from the DOM when collapsed. A future FAQPage schema may only
+        describe rendered content, and several answers are still pending.
       */}
       {open ? (
         <div id={panelId} role="region" aria-labelledby={triggerId} className={styles.panel}>
           <p className={styles.answer}>{answer.text}</p>
-          {review ? (
-            <span className={styles.reviewTag}>{review} — review required</span>
+          {/*
+            Phase 2B put a loud "FINANCIAL — REVIEW REQUIRED" badge on most
+            answers, which dominated the section. The governance is unchanged;
+            it now reads as a quiet note, and the section-level disclaimer
+            below carries the general warning.
+          */}
+          {pending ? (
+            <p className={styles.pendingNote}>
+              <Icon name="clock" size="sm" />
+              <span>Not confirmed for publication yet.</span>
+            </p>
           ) : null}
         </div>
       ) : null}
@@ -53,21 +56,22 @@ function FaqItem({ question, answer }: FaqItemProps) {
 }
 
 /**
- * FAQ.
+ * Quick answers.
  *
  * Independent disclosures rather than a single-select accordion: a reader
- * comparing two answers should not have one close the other. Built on native
- * buttons, so keyboard and screen-reader behaviour is the platform's.
+ * comparing two answers should not have one close the other. Native buttons,
+ * so keyboard and screen-reader behaviour is the platform's.
  */
 export function WebFaq() {
   return (
-    <WebSection surface="white" id="faq">
+    <WebSection surface="ivory" id="faq">
       <WebSectionHeader eyebrow={faq.eyebrow.text} title={faq.title.text} centered rule />
       <div className={styles.grid}>
         {faq.items.map((item) => (
           <FaqItem key={item.id} question={item.question.text} answer={item.answer} />
         ))}
       </div>
+      <p className={styles.legalNote}>{faq.legalNote.text}</p>
     </WebSection>
   );
 }

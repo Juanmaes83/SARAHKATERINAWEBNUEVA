@@ -1,0 +1,23 @@
+/* One base size, one stroke weight, one optical grid.
+   Colour always comes from `currentColor`. */
+
+.icon {
+  display: inline-block;
+  flex: none;
+  vertical-align: middle;
+}
+
+.sm {
+  width: var(--sk-space-16);
+  height: var(--sk-space-16);
+}
+
+.md {
+  width: var(--sk-space-24);
+  height: var(--sk-space-24);
+}
+
+.lg {
+  width: var(--sk-space-32);
+  height: var(--sk-space-32);
+}

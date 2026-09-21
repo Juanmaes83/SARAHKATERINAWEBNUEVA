@@ -20,9 +20,47 @@
 .head {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: var(--sk-space-8);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-on-dark);
+}
+
+.property {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: var(--sk-space-4) 0 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  color: var(--sk-web-on-dark);
+}
+
+.horizon {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sk-space-8);
+  padding-block-start: var(--sk-space-8);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+}
+
+.horizonValue {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  color: var(--sk-web-on-dark);
 }
 
 /* The sample marker. Deliberately prominent: this card shows figures, and a
