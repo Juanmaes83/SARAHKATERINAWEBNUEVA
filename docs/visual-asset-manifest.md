@@ -1,94 +1,94 @@
-# Visual asset manifest
+# Visual Asset Manifest and Import Contract
 
-**Status:** ACTIVE — inventory of what is missing
-**Date:** 2026-09-21
+Status: ACTIVE — assets available upstream, import and assignment pending
+Updated: 2026-09-21
 
-Every visual slot in the Investment prototype, what it currently renders, and
-what would have to exist and be authorised to replace it.
+This document corrects the previous wording. The logo and authentic photography
+do exist as references in the mother repository. They are not yet imported or
+assigned to the new website, and their existence does not by itself approve a
+public placement.
 
-**No asset in this repository was invented, generated, traced or sourced from a
-screenshot.** `public/brand`, `public/sarah`, `public/costa-blanca` and
-`public/previews` contain no image files.
+## 1. Canonical source references
 
----
+| Asset | Source repository/path | Current state in new repo | Intended use |
+|---|---|---|---|
+| Sarah reference 01 | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_1.jpg | Available upstream; not imported | Authority/editorial portrait or hero support |
+| Sarah reference 02 | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_2.jpg | Available upstream; not imported | Authority/editorial context |
+| Sarah reference 03 | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_3.png | Available upstream; not imported | Transparent/editorial identity asset if suitable |
+| Sarah logo reference | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_SARAH_LOGO.jpg | Available upstream; not imported | Header/footer brand reference; create approved light/dark treatment only after review |
+| Investment template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Investment.png | Visual proposal reference | Composition, rhythm, hierarchy and slot mapping |
+| Tax Advisory template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Tax Advisory.png | Visual proposal reference | Shared landing grammar |
+| Property Purchase template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Property Purchase.png | Visual proposal reference | Shared landing grammar |
+| Property Management template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Property Management · VITA Host.png | Visual proposal reference | Reference only; service remains governed by its upstream status |
 
-## 1. Missing assets, by priority
+The current public directories may remain empty until the Phase 2 visual branch
+imports selected files. This is an implementation gap, not evidence that the
+assets do not exist.
 
-| # | Asset | Where it is needed | Currently renders | Authorisation required |
-|---|---|---|---|---|
-| A-01 | **Wordmark / logotype** (SVG, light + dark, clear-space and minimum-size rules) | Header, footer | Text wordmark marked "Wordmark placeholder" | Brand approval. Listed as "Deliberately deferred" upstream; no logo file exists anywhere in `brand-system/` |
-| A-02 | **Authorised photograph of Sarah** | Authority section | Dashed placeholder naming the missing asset | Written image release. Authentic photography is the canonical identity source; synthetic imagery may never stand in as documentary evidence |
-| A-03 | **Scenario / model screenshot** | Hero visual, visual proof | Labelled skeleton with every value withheld | Approval of the real model output, or an approved abstraction of it. Any figure shown becomes a published financial claim |
-| A-04 | **Costa Blanca location photography** | Not currently placed | — | Licence plus authorisation. Generic stock may not be used as proof |
-| A-05 | **Process explainer video** (30–60s, subtitled, poster, deferred loading) | Not currently placed | — | Production plus approval. No player is embedded: that would add an unreviewed third-party dependency |
-| A-06 | **Icon set** | Decorative slots | Bordered glyph placeholders | Icon system decision. No icon library is installed for a phase that does not need one |
-| A-07 | **Case study imagery** | Cases section | `CASE STUDY PLACEHOLDER — PENDING_APPROVAL` | Written client permission plus verified figures |
-| A-08 | **Open Graph image** | Social preview | None emitted | Requires A-01 and an approved composition |
-| A-09 | **Favicon / app icons** | Browser chrome | Next.js default | Requires A-01 |
+## 2. Required import record
 
----
+Every imported asset must record:
 
-## 2. Placeholder design rules
+- original repository and path;
+- authentic, synthetic, conceptual or documentary classification;
+- rights/provenance and public-use status;
+- target landing and section;
+- crop/aspect ratio and responsive behavior;
+- contextual alt text;
+- reviewer and date;
+- whether it may appear in a public production route.
 
-A placeholder in this repository must be **unmistakable**. It must never be a
-plausible-looking stand-in that a reviewer could screenshot and circulate as
-the real thing.
+The mother repository is read-only from this project. Copying a selected file does
+not modify or approve its source.
 
-Concretely:
+## 3. Human selection rule
 
-1. **Dashed border, not solid.** Every media placeholder uses a dashed rule so
-   it never reads as a finished frame.
-2. **It names what is missing.** `ResponsiveImage` takes a `pendingAsset`
-   string and renders it. "Image placeholder" alone is not enough.
-3. **It is announced.** Placeholders carry `role="img"` with an accessible name
-   stating that the asset is pending.
-4. **Withheld values are rules, not numbers.** In the hero summary and the
-   scenario chart, a value renders as a bar of neutral colour. No digit
-   appears, so nothing can be misread as data.
-5. **Proportions are declared as non-data.** The scenario chart's bar heights
-   are fixed percentages written in the component, documented in its own source
-   as "not data".
+If a required image, logo treatment, video, crop or visual treatment is not
+explicitly selected, the agent must ask Juanma.
 
----
+The agent must not:
 
-## 3. What the prototype renders instead of assets
+- choose generic stock silently;
+- generate a synthetic Sarah or property scene as documentary proof;
+- replace a missing video with a misleading still;
+- use a screenshot containing unverified figures as evidence;
+- circulate an asset as final because it looks visually plausible.
 
-| Slot | Implementation | Rationale |
-|---|---|---|
-| Hero visual | `Hero.module.css` — labelled rows, withheld value rules, scenario chip strip, pending caption | Shows the *shape* of the deliverable, which is the genuine communication job, without a figure |
-| Scenario chart | `ScenarioPanel` — five fixed-proportion bars, badged `NO FIGURES — PENDING_APPROVAL` | A chart shape communicates "a model lives here"; a fabricated dataset would be a published financial claim |
-| Portrait | `ResponsiveImage` with `pendingAsset` | Names the release that is missing |
-| Process markers | Numbered rules drawn in CSS | No icon dependency; the sequence is the meaning |
-| Accordion marker | Two CSS rules rotated | No icon dependency, no new radius |
-| Case studies | `Card variant="decision"` with a pending badge | Dashed treatment is the approved pattern for items needing attention |
+A clearly labelled structural placeholder is acceptable during development. It must
+state what is pending.
 
----
+## 4. Phase 2 Investment asset map
 
-## 4. Colour and token compliance
+| Slot | Required visual | Source/status | Fallback |
+|---|---|---|---|
+| Header | Sarah Katerina logo | Upstream reference; import pending | Text placeholder only in structural prototype |
+| Hero | Sarah/property/Costa Blanca image or approved video | Selection required | Ask Juanma |
+| Hero proof | Dashboard/report preview | Existing Buyer System/report evidence to be selected | Labelled demo surface with no invented figures |
+| Decision doors | Property / opportunity imagery | Template reference; asset selection required | No generic stock |
+| Asset classes | Residential, land, commercial, redevelopment images | Selection/licence required | Labelled placeholders |
+| Process | Icons or numbered visual sequence | Design treatment required | Accessible CSS numbering |
+| Analysis proof | Dashboard screenshots/charts | Approved real screenshots or labelled demo | Never fabricate performance |
+| Authority | Sarah portrait | Authentic upstream reference | Labelled placeholder |
+| Cases | Permissioned case imagery | Blocked until permission/evidence | Placeholder |
+| CTA/footer | Brand mark and approved location imagery | Selection required | No invented contact or legal details |
 
-The historical proposal describes ivory, **navy** and **gold**. The canonical
-token layer defines Ivory, **Forest `#173B32`** and **Terracotta `#B96F55`**,
-with Terracotta restricted to editorial use and prohibited on Sand and Sage.
+## 5. Image and video quality
 
-`SOURCE-HIERARCHY.md` ranks the merged token system above a proposal.
-**No navy and no gold appear anywhere in this repository.** The editorial
-weight the proposal achieved with gold is carried instead by Terracotta rules
-and dashed borders, used only decoratively.
+Use responsive image handling, explicit dimensions, meaningful alt text, lazy
+loading below the fold, priority loading only for the hero, and poster/preload
+strategy for video.
 
-Enforced by test: no component stylesheet may contain a raw hex, `rgb()`,
-`hsl()` or `oklch()` value, an off-scale length, a new radius or a new shadow.
+Video must be approved before implementation, muted/autoplay only when
+appropriate, subtitled if it contains speech, deferred below the fold and
+replaced by a useful poster for reduced motion and low-bandwidth users.
 
----
+## 6. Acceptance
 
-## 5. When an asset arrives
+Assets are ready for a visual merge only when:
 
-1. Confirm the authorisation exists **in writing** and record where.
-2. Add the file under the matching `public/` directory.
-3. Replace the placeholder by passing `src` and a **contextual** `alt` — never
-   the file name.
-4. Remove the `pendingAsset` prop.
-5. Update this manifest: move the row out of §1 and record the authorisation.
-6. Re-run the responsive QA: a real image changes layout weight.
-
-Do **not** add an asset because it "looks right". The absence of an approval is
-the blocker, not the absence of a file.
+- source and provenance are recorded;
+- intended slot is clear;
+- image treatment matches the Investment template grammar;
+- contrast and text-safe areas pass;
+- responsive crops are reviewed at 375px and 1440px;
+- Juanma has approved the visual result.
