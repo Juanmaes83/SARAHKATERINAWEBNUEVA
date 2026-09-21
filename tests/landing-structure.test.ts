@@ -80,7 +80,7 @@ describe('landing composition', () => {
       'ProcessBand',
       'ReportBand',
       'ScenariosBand',
-      'BuyerSystemBridge',
+      'ToolsBand',
       'AuthorityBand',
       'CasesBand',
       'JourneyBand',
@@ -139,27 +139,30 @@ describe('content completeness', () => {
     expect(new Set(ctas).size).toBe(ctas.length);
   });
 
-  it('covers every FAQ topic the brief lists', () => {
+  it('covers every FAQ topic from the template plus the governance ones', () => {
     const ids = investment.faq.items.map((item) => item.id);
     for (const topic of [
-      'analysed',
-      'already-have',
-      'still-looking',
-      'information',
+      // From the template's own FAQ
+      'foreign-only',
       'time',
       'includes',
+      'purchase-support',
+      'cost',
+      'rental',
+      // Retained from Phase 2B because governance requires them
       'tax',
       'independence',
-      'not-do',
     ]) {
       expect(ids).toContain(topic);
     }
   });
 
-  it('keeps every case study as an explicit blocked placeholder', () => {
+  it('withholds every case result and location', () => {
+    // The cards look like real cases; the evidence stays blocked.
+    expect(investment.cases.permissionPending.status).toBe('blocked');
+    expect(investment.cases.locationPending.status).toBe('pending');
     for (const item of investment.cases.items) {
-      expect(item.title.text).toContain('PLACEHOLDER');
-      expect(item.title.status).toBe('blocked');
+      expect(item.period.status).toBe('pending');
     }
   });
 
@@ -188,11 +191,32 @@ describe('sample data labelling', () => {
 
   it('marks the hero dashboard as illustrative', () => {
     expect(dashboardSource).toMatch(/Illustrative/);
-    expect(dashboardSource).toMatch(/Not a client result/);
+    // The footnote lives in the content module so it is classified like every
+    // other string; assert it there rather than in the component.
+    expect(investment.heroDashboard.foot.text).toMatch(/Sample figures/);
+    expect(investment.heroDashboard.foot.text).toMatch(/Not a client result/);
+  });
+
+  it('never presents a dashboard figure as a classified claim', () => {
+    // The sample values are plain strings on purpose: they are illustrative
+    // output, not statements the project is making.
+    for (const row of investment.heroDashboard.rows) {
+      expect(typeof row.value).toBe('string');
+      expect(row.label.status).not.toBe('confirmed');
+    }
+    for (const row of investment.report.summary.rows) {
+      expect(typeof row.value).toBe('string');
+    }
   });
 
   it('marks every report card as illustrative', () => {
-    expect(bandsSource).toMatch(/pendingTag/);
+    expect(bandsSource).toMatch(/illustrativeTag/);
     expect(bandsSource).toContain('Illustrative');
+  });
+
+  it('declares every territory drawing as a schematic, never a photograph', () => {
+    const territory = read('components/web/TerritoryVisual.tsx');
+    expect(territory).toContain('Conceptual illustration, not a photograph of a real property.');
+    expect(territory).toContain('Schematic');
   });
 });

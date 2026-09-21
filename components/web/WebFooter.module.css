@@ -18,7 +18,7 @@
 
 @media (min-width: 1024px) {
   .top {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 0.9fr 2.1fr;
     gap: var(--sk-space-64);
   }
 }
@@ -101,19 +101,59 @@
   color: var(--sk-web-on-dark);
 }
 
-/* A link whose destination is not approved yet is rendered as text, never as
-   a link that goes nowhere. */
-.pending {
+/* Rendered as text, never as a link that would 404. The single note in the
+   footer's bottom row explains why, once. */
+.item {
+  color: var(--sk-web-muted-on-dark);
+  transition: color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.item:hover {
+  color: var(--sk-web-on-dark);
+}
+
+.bottomLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-24);
+  flex-wrap: wrap;
+}
+
+.langGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-navigation-size);
   color: var(--sk-web-muted-on-dark);
 }
 
-.pendingTag {
+.langActive {
+  color: var(--sk-web-on-dark);
+  text-decoration: underline;
+  text-decoration-color: var(--sk-web-gold-on-dark);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+.langDivider {
+  width: var(--sk-border-standard-width);
+  height: var(--sk-space-16);
+  background-color: var(--sk-web-navy-line);
+}
+
+.routesNote {
+  margin: 0;
   font-family: var(--sk-type-legal-family);
   font-size: var(--sk-type-legal-size);
-  font-weight: var(--sk-font-weight-semibold);
-  color: var(--sk-web-gold-on-dark);
-  text-transform: uppercase;
-  letter-spacing: var(--sk-web-tracking-caps);
+  color: var(--sk-web-muted-on-dark);
+  opacity: 0.7;
 }
 
 .bottom {

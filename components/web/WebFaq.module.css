@@ -90,17 +90,25 @@
   max-width: var(--sk-layout-measure-reading);
 }
 
-.reviewTag {
-  display: inline-flex;
+/* Quiet, inline. Replaces the Phase 2B badge that dominated each answer. */
+.pendingNote {
+  display: flex;
   align-items: center;
-  margin-block-start: var(--sk-space-16);
-  padding: var(--sk-space-4) var(--sk-space-8);
-  border-radius: var(--sk-radius-pill);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
-  color: var(--sk-web-gold);
+  gap: var(--sk-space-8);
+  margin: var(--sk-space-16) 0 0;
   font-family: var(--sk-type-legal-family);
   font-size: var(--sk-type-legal-size);
-  font-weight: var(--sk-font-weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: var(--sk-web-tracking-caps);
+  color: var(--sk-web-muted);
+}
+
+/* One disclaimer for the whole section, not one per answer. */
+.legalNote {
+  margin: var(--sk-space-32) 0 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+  color: var(--sk-web-muted);
+  text-align: center;
+  max-width: var(--sk-layout-measure-reading);
+  margin-inline: auto;
 }

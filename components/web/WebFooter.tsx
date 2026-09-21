@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
+import { Icon } from './icons/Icon';
 import { footer } from '@/content/en/investment';
 import { siteConfig } from '@/lib/seo/config';
 import logo from '@/public/brand/sarah-katerina-logo.png';
@@ -8,12 +9,12 @@ import styles from './WebFooter.module.css';
 /**
  * Website footer.
  *
- * Every link here points nowhere yet: the information architecture is not
- * approved and none of these routes exists. They are therefore rendered as
- * text with a pending marker rather than as links that would 404.
+ * Phase 2B tagged every single link "pending", which made the footer read as a
+ * defect list. The governance has not changed — none of these routes exists
+ * yet, and no contact detail, legal entity or social profile is confirmed —
+ * but it is now stated once, quietly, instead of eighteen times.
  *
- * No contact detail, legal entity, address or social profile is shown. None is
- * confirmed in any governed document.
+ * Links are rendered as text rather than anchors, so nothing 404s.
  */
 export function WebFooter() {
   return (
@@ -27,7 +28,7 @@ export function WebFooter() {
               preserves the asset exactly while keeping it legible.
             */}
             <span className={styles.logoPlate}>
-              <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="180px" />
+              <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="200px" />
             </span>
             <p className={styles.description}>{footer.description.text}</p>
           </div>
@@ -38,38 +39,34 @@ export function WebFooter() {
                 <h2 className={styles.groupTitle}>{group.title}</h2>
                 <ul className={styles.list}>
                   {group.links.map((link) => (
-                    <li key={link.text} className={`${styles.item} ${styles.pending}`}>
-                      <span>{link.text}</span>
-                      <span className={styles.pendingTag} aria-label="pending approval">
-                        pending
-                      </span>
+                    <li key={link.text} className={styles.item}>
+                      {link.text}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
-
-            <div>
-              <h2 className={styles.groupTitle}>Legal</h2>
-              <ul className={styles.list}>
-                {footer.legal.map((link) => (
-                  <li key={link.text} className={`${styles.item} ${styles.pending}`}>
-                    <span>{link.text}</span>
-                    <span className={styles.pendingTag} aria-label="pending approval">
-                      pending
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
 
         <div className={styles.bottom}>
-          <p className={styles.copyright}>{footer.copyright.text}</p>
-          <span className={styles.status}>
-            {siteConfig.mode} · noindex
-          </span>
+          <div className={styles.bottomLeft}>
+            <p className={styles.copyright}>{footer.copyright.text}</p>
+            {/* Stated once for the whole footer. */}
+            <p className={styles.routesNote}>{footer.routesNote.text}</p>
+          </div>
+
+          <div className={styles.bottomRight}>
+            <span className={styles.langGroup}>
+              <span className={styles.langActive}>EN</span>
+              <span className={styles.langDivider} aria-hidden="true" />
+              <span>ES</span>
+            </span>
+            <span className={styles.status}>
+              <Icon name="check" size="sm" />
+              {siteConfig.mode} · noindex
+            </span>
+          </div>
         </div>
       </Container>
     </footer>
