@@ -1,118 +1,158 @@
-# Phase 2 — Decision Gate
+# Phase 2 — Decision Gate and Visual Implementation Contract
 
-**Status:** OPEN — records a conflict, does not resolve it
-**Date:** 2026-09-21
-**Scope:** which landing Phase 2 builds, and under what status
+Status: VISUAL IMPLEMENTATION APPROVED TO PROCEED · PRODUCTION NOT APPROVED
+Updated: 2026-09-21
 
----
+## 1. Governing distinction
 
-## 1. The conflict, stated plainly
+The visual files in website/nueva web/ are material visual de propuesta. They
+are not canonical documentation, legal approval, production release or a
+replacement for the Brand System.
 
-Two different priorities point at two different landings. Neither supersedes the
-other, and no human decision exists that reconciles them.
+They are nevertheless the explicit implementation reference for Phase 2.
 
-### A. Business priority — Pre-Arras / Before You Sign / `/tax-diagnostic`
+The architecture, rhythm, hierarchy and composition of website/nueva web/,
+especially the Investment template, are the target visual grammar for Phase 2.
+They remain subordinate to approved business decisions, the Brand System,
+legal/fiscal review and Juanma's human visual validation.
 
-| Evidence | Source | Status |
+## 2. Human decisions recorded
+
+Juanma approved the following scope on 2026-09-21:
+
+| Decision | Status | Boundary |
 |---|---|---|
-| `/tax-diagnostic` is the **canonical active asset** of the Pre-Arras / Before You Sign offer. It already exists in production with a payment gateway, 24h delivery and a proceed/renegotiate/walk recommendation. SK-032 was reclassified from "create a landing" to "index, measure and align". | `strategy/master/decisions-log.md`, 2026-08-05 | **Aprobada** |
-| The Modelo 210 / recurring non-resident tax territory is confirmed as a central territory, verified against 8 competitors, and is the only one with an annual recurring cycle. | `strategy/master/decisions-log.md`, 2026-08-05 | **Aprobada** |
-| Property Purchase should surface a pre-arras review as its primary CTA, with Purchase Tax and Real Cash Needed as micro-conversions. | `website/01-audits/00-website-audit-master-2026-09.md` §3 P0 | CANONICAL baseline |
-| The Buyer System is the strongest intent and qualification mechanism and is currently disconnected from every landing. | `website/01-audits/00-website-audit-master-2026-09.md` §2, problem 3 | CANONICAL baseline |
+| Investment template as the Phase 2 visual base | APPROVED FOR IMPLEMENTATION | Reference composition, not production approval |
+| Ivory / navy / gold palette shown in the templates | APPROVED FOR THIS WEBSITE PROJECT | Scoped to SARAHKATERINAWEBNUEVA; does not replace the global Brand System palette |
+| Logo and authentic imagery | REQUIRED | Use available references from the mother repo; record provenance and ask Juanma when selection or treatment is unclear |
+| Hero image or video | REQUIRED SLOT | Use an approved real asset or ask Juanma; never silently substitute generic or synthetic media |
+| Dashboards and calculators | REQUIRED VISUAL SURFACES | Phase 2 shows and routes the experience; functional integration belongs to the later integration gate |
+| Human visual review | MANDATORY | Juanma reviews the Vercel preview before every visual merge |
 
-**Reading:** the business priority is an approved decision, backed by a product
-that verifiably exists and by a territory verified against competitors.
+## 3. Required Phase 2 deliverable
 
-### B. Visual-prototype priority — Investment
+Phase 2 must become a real visual experience based on the template grammar:
 
-| Evidence | Source | Status |
+1. Navigation with language, service routing and contextual CTA.
+2. Editorial hero with clear promise, image/video and proof surface.
+3. Trust strip with only approved facts.
+4. Problem, tension and objection handling.
+5. Decision doors for the visitor's starting point.
+6. Timeline/process with visible deliverables.
+7. Dashboards, report previews and calculator entry points.
+8. Authority section with Sarah's approved real image or clearly labelled placeholder.
+9. Testimonials and case studies only with written permission and verified evidence.
+10. FAQ with accessible disclosures.
+11. Final CTA with intent-specific action and risk reduction.
+12. Footer with approved brand, legal, contact and navigation information.
+13. Responsive mobile-first composition with deliberate mobile hierarchy.
+14. CRO, accessibility, SEO semantics and GEO readiness.
+
+The implementation must preserve the proposal's editorial character while adding
+more air, spacing and rhythm where the screenshots are too condensed.
+
+## 4. Palette implementation
+
+The approved website palette is the palette visibly used by the templates:
+
+- warm ivory/off-white foundation;
+- deep navy authority surfaces;
+- restrained gold/ochre accent;
+- neutral supporting surfaces and high-contrast text.
+
+The mother repository Brand System remains unchanged. This implementation must:
+
+- use namespaced web tokens such as --sk-web-*;
+- avoid changing the canonical token files;
+- document exact values and contrast pairings before code;
+- test WCAG AA for text and interactive states;
+- avoid arbitrary shades without a documented reason.
+
+## 5. Assets and media
+
+The mother repository contains authentic visual references:
+
+- IMAGENES NUEVAS/SK_REAL_1.jpg
+- IMAGENES NUEVAS/SK_REAL_2.jpg
+- IMAGENES NUEVAS/SK_REAL_3.png
+- IMAGENES NUEVAS/SK_SARAH_LOGO.jpg
+
+They are available references, not automatically approved placements. Phase 2
+must assign each selected asset to a slot, record its origin, crop, treatment,
+alt text and intended use.
+
+If the project needs a video, missing photograph, different crop or generated
+creative asset, the agent must ask Juanma before choosing or generating it.
+Synthetic imagery may support editorial storytelling, but it may never fabricate
+documentary evidence, a client, a case study or a verified property outcome.
+
+## 6. Motion
+
+GSAP or a native equivalent is allowed and expected where it improves
+comprehension:
+
+- staged hero entry;
+- reveal of the image/proof surface;
+- dashboard and scenario transitions;
+- timeline progression;
+- card hover and focus feedback;
+- accordion and calculator-entry transitions.
+
+Motion must be purposeful, generally 150–500ms where appropriate, respect
+prefers-reduced-motion, preserve keyboard access, avoid scroll-jacking and never
+animate an unapproved financial value as if it were real.
+
+## 7. CRO, SEO and GEO acceptance
+
+Phase 2 must prepare, not falsely claim to complete, production acquisition:
+
+- one dominant CTA per intent;
+- calculator entry points as micro-conversions;
+- clear next-step copy and objection handling;
+- no invented pricing, credentials, returns or outcomes;
+- semantic heading structure and accessible controls;
+- metadata and Open Graph slots ready for approved content;
+- canonical/hreflang/schema strategy documented but emitted only when routes and claims are production-ready;
+- answer-oriented copy blocks useful to search engines and AI systems;
+- internal links to the relevant service and Buyer System surfaces;
+- noindex while under preview.
+
+## 8. Phase split
+
+| Stage | Meaning | Status |
 |---|---|---|
-| `website/nueva web/Sarah Katerina Investment.png` is one of four proposal screenshots. | `website/nueva web/` | **MATERIAL VISUAL DE PROPUESTA** — explicitly not canonical documentation and not a production approval (`website/README.md`, `decisions-log.md` 2026-09-16) |
-| The Investment landing architecture (hero, Monte Carlo / seasonality / scenario previews, Asking Price + Real Cash Needed before the paid report). | `website/02-activation/new-website-landings-proposal-2026-09.md` §3 | **PROPOSAL — NOT CANONICAL — NOT APPROVED FOR PRODUCTION** |
-| Investment needs more proof, a clearer entry point and clearer scope; the paid product must be protected. | `website/01-audits/00-website-audit-master-2026-09.md` §5 | CANONICAL baseline, but a *diagnosis*, not a priority ruling |
+| Phase 1 | Technical foundation | Merged |
+| Phase 2A | Structural Investment prototype and reusable landing grammar | Merged |
+| Phase 2B | Real visual implementation with assets, approved palette, dashboards, calculators, copy and motion | Next |
+| Phase 2C | Juanma visual review and correction cycle | Mandatory |
+| Phase 3 | Functional Buyer System integration, events, consent and lead-capture decision | Blocked on upstream decisions |
+| Phase 4 | Production SEO, accessibility, performance, legal and publication gate | Later |
 
-**Reading:** the visual priority rests on documents that classify themselves as
-proposals. None of them claims Investment is the commercial priority.
+## 9. Definition of done
 
----
+Phase 2B cannot be called complete until:
 
-## 2. Why this is not resolvable by an agent
+- the implementation visibly follows the Investment template grammar;
+- the real logo and selected images are present or explicitly blocked pending Juanma's decision;
+- the hero has real image/video treatment or an approved replacement;
+- dashboards/calculator surfaces are visible;
+- spacing, hierarchy and mobile rhythm pass human review;
+- motion has reduced-motion behavior;
+- no fake claim or evidence has entered the page;
+- responsive screenshots exist at mobile and desktop widths;
+- Juanma has reviewed and accepted the Vercel preview;
+- only then may a merge be requested.
 
-`brand-system/SOURCE-HIERARCHY.md` ranks an approved decision (L1) and a merged
-canonical system (L2) above a proposal or mockup (L7). On authority alone, **A
-outranks B**.
+## 10. Remaining decisions
 
-But that does not make A the right thing to *build first in Phase 2*, because:
+- production landing priority: Investment versus Pre-Arras;
+- final institutional descriptor and legal/contact data;
+- exact CTA copy and pricing publication;
+- Buyer System production URL;
+- where lead capture lives;
+- public Asking Price approval;
+- Spanish route architecture and hreflang;
+- final video selection/production.
 
-- the two are not competing claims about the same question. A is a statement
-  about **commercial priority**; B is a statement about **which composition was
-  explored visually**;
-- `PROJECT-STATUS.md` states that current landing design, content, animation,
-  CRO and personalisation are **NOT APPROVED**, and that future work belongs to
-  a separate **Landing Experience System** that follows the Creative Brand
-  System. Phase 2 therefore cannot produce an approved landing for *either*;
-- the source hierarchy's own rule applies: *"An unresolved decision is not
-  permission to decide it silently. It is also not a reason to stop unrelated
-  work."*
-
----
-
-## 3. Ruling applied in Phase 2
-
-No new human decision exists. Therefore:
-
-> **Investment is implemented as `VISUAL PROTOTYPE — NOT PRODUCTION`.**
-
-Specifically:
-
-1. The landing is built at **`/preview/investment`**, inside a `preview`
-   namespace, not at `/investment`. The route is a laboratory route: `noindex`,
-   `nofollow`, excluded from the sitemap, excluded from any future information
-   architecture until a decision exists.
-2. Every page carries a persistent, visible prototype banner. The prototype
-   status is not a footnote.
-3. It is **not** presented as an approved landing.
-4. It is **not** presented as the definitive business priority.
-5. The business priority recorded above (Pre-Arras / `/tax-diagnostic`) is
-   **not** contradicted, downgraded or overwritten by this build.
-6. Building Investment visually does **not** constitute a recommendation to
-   prioritise Investment commercially.
-
-### Why Investment and not Pre-Arras, given A outranks B
-
-Because Phase 2's deliverable is a **visual system**, not a commercial launch.
-Investment is the composition the proposal actually explored, so building it
-tests the design system against a real intended layout without inventing one.
-Building Pre-Arras instead would require inventing a composition that no
-approved or proposed document describes — which rule 8 forbids.
-
-The prototype therefore validates the **design system**, and leaves the
-**commercial priority** exactly where the approved decision left it.
-
----
-
-## 4. What Sarah needs to decide
-
-| # | Decision | Why it is blocked | Consequence of not deciding |
-|---|---|---|---|
-| D2-01 | **Which landing is built first for production**: Pre-Arras / `/tax-diagnostic` or Investment. | A (approved business priority) and B (explored visual priority) point in different directions and no document reconciles them. | Phase 3 cannot start. The prototype stays a prototype. |
-| D2-02 | Whether `/tax-diagnostic` is **migrated** into this repository or stays where it is and is linked. | It already exists in production with a payment gateway. Rebuilding it is out of scope and would risk the live product. | Information architecture cannot be fixed. |
-| D2-03 | Whether the **€1,000 savings-or-risks guarantee** on `/tax-diagnostic` is reformulated. | `decisions-log.md` 2026-08-05 records this as **Propuesta**, not approved: it is a quantified savings promise, contrary to Calm Evidence, and it has already been offered to clients. Requires legal review. | No Pre-Arras copy can be written. |
-| D2-04 | Whether the **€597 Investment analysis price** and the **€347 `/tax-diagnostic` price** may be published. | Both figures appear in upstream documents, but the master audit requires every published claim to carry source, date, permission and scope. | No pricing appears in the prototype. |
-| D2-05 | **Per-intent CTA wording** for each landing. | An open P0 in the master audit. | The prototype uses provisional CTAs only. |
-| D2-06 | Whether the **Asking Price** experience may be linked publicly. | Its roadmap status is `NEXT — LIMITED GO`; "Production requires Sarah and legal review." | The prototype links it as pending, not as a live tool. |
-
-Until D2-01 is answered, **no landing in this repository may be promoted out of
-the `preview` namespace.**
-
----
-
-## 5. What this document does not do
-
-- It does not choose the commercial priority.
-- It does not approve the Investment landing.
-- It does not approve any copy, claim, figure or CTA.
-- It does not supersede `decisions-log.md` or `PROJECT-STATUS.md`.
-
-It records the conflict, the evidence on each side, the ruling applied to
-Phase 2, and the decisions that remain with a human.
+Until these are resolved, the repository remains a controlled preview and noindex
+implementation.
