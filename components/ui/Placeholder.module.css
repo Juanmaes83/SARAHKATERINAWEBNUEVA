@@ -1,0 +1,84 @@
+/* ===========================================================================
+ * Technical placeholders
+ *
+ * No approved logo, photography or video asset exists in the source of truth
+ * (brand-system/tokens/README.md lists "vector logo" and "authentic
+ * photography production" as deliberately deferred).
+ *
+ * These components therefore render an explicitly marked placeholder. They
+ * must never be mistaken for real brand assets, and they never render a
+ * fabricated image of Sarah, an office, a team or a property.
+ * =========================================================================== */
+
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  border: var(--sk-border-standard-width) dashed var(--sk-app-border-strong);
+  background-color: var(--sk-app-surface-warm);
+  color: var(--sk-app-text-secondary);
+  text-align: center;
+}
+
+.ratio3x2 {
+  aspect-ratio: 3 / 2;
+}
+
+.ratio16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.ratio1x1 {
+  aspect-ratio: 1 / 1;
+}
+
+.label {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+}
+
+.note {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  line-height: var(--sk-type-caption-line-height);
+  max-width: 40ch;
+}
+
+/* --- icon placeholder ---------------------------------------------------- */
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sk-space-32);
+  height: var(--sk-space-32);
+  flex: none;
+  border-radius: var(--sk-radius-button);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-strong);
+  color: var(--sk-app-text-secondary);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: 1;
+}
+
+.iconOnDark {
+  border-color: var(--sk-app-text-on-dark);
+  color: var(--sk-app-text-on-dark);
+}
+
+/* --- video --------------------------------------------------------------- */
+
+.videoControl {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+}

@@ -1,0 +1,24 @@
+/* Mobile-first: every grid is a single column until there is room.
+   foundations/layout-grid.md — "Stack sections single column" below the
+   primary breakpoint. Column counts are chosen by content need, not by a
+   rigid column grid. */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-24);
+}
+
+.gapTight { gap: var(--sk-space-16); }
+.gapWide { gap: var(--sk-space-32); }
+
+@media (min-width: 768px) {
+  .cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cols4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split { grid-template-columns: 1.25fr 0.9fr; }
+}
+
+@media (min-width: 1024px) {
+  .cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}

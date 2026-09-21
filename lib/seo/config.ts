@@ -1,0 +1,70 @@
+import { z } from 'zod';
+
+/**
+ * Environment is validated at the data boundary only (Zod is deliberately not
+ * used anywhere else in this phase).
+ *
+ * Every default is the SAFE one: preview mode, not indexable, localhost origin.
+ * A malformed or missing variable can therefore never accidentally publish.
+ */
+const siteEnvSchema = z.object({
+  NEXT_PUBLIC_SITE_MODE: z.enum(['preview', 'production']).catch('preview'),
+  NEXT_PUBLIC_SITE_INDEXABLE: z
+    .enum(['true', 'false'])
+    .catch('false')
+    .transform((value) => value === 'true'),
+  NEXT_PUBLIC_SITE_URL: z.string().url().catch('http://localhost:3000'),
+});
+
+const parsed = siteEnvSchema.parse({
+  // Next.js inlines NEXT_PUBLIC_* only when referenced statically.
+  NEXT_PUBLIC_SITE_MODE: process.env.NEXT_PUBLIC_SITE_MODE,
+  NEXT_PUBLIC_SITE_INDEXABLE: process.env.NEXT_PUBLIC_SITE_INDEXABLE,
+  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+});
+
+export type SiteMode = 'preview' | 'production';
+
+export const siteConfig = {
+  mode: parsed.NEXT_PUBLIC_SITE_MODE as SiteMode,
+
+  /**
+   * Master indexing switch.
+   *
+   * Indexing additionally requires production mode, so a preview deployment
+   * that is handed an indexable flag by mistake still stays out of the index.
+   */
+  indexable: parsed.NEXT_PUBLIC_SITE_INDEXABLE && parsed.NEXT_PUBLIC_SITE_MODE === 'production',
+
+  /**
+   * Origin used for canonical URLs, Open Graph URLs and sitemap entries.
+   *
+   * PENDING_APPROVAL — the production host is an OPEN decision in the source of
+   * truth. decisions-log.md (2026-08-05) approved https://sarahkaterina.com
+   * (non-www); the 2026-09-16 entry records production redirecting non-www to
+   * www and leaves the conflict "Abierta" as a P0. No production host is
+   * hardcoded anywhere in this repository.
+   */
+  url: parsed.NEXT_PUBLIC_SITE_URL,
+
+  /**
+   * English is the primary acquisition language (decisions-log.md 2026-07-27).
+   * No language beyond EN/ES may be added before EN is consolidated and ES is
+   * complete (decisions-log.md 2026-08-05).
+   */
+  defaultLocale: 'en',
+  locales: ['en', 'es'],
+} as const;
+
+export type Locale = (typeof siteConfig.locales)[number];
+
+/** Routes that must never appear in the sitemap or be indexed. */
+export const LABORATORY_ROUTES = ['/foundation'] as const;
+
+export function isLaboratoryRoute(path: string): boolean {
+  return (LABORATORY_ROUTES as readonly string[]).includes(path);
+}
+
+export function absoluteUrl(path: string): string {
+  return new URL(path, siteConfig.url).toString();
+}

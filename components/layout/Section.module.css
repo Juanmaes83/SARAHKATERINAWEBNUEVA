@@ -1,0 +1,50 @@
+.section {
+  display: block;
+  width: 100%;
+}
+
+/* Canonical section rhythm: 48 / 64 / 80px (BSD-014). */
+.min {
+  padding-block: var(--sk-space-section-min);
+}
+
+.comfortable {
+  padding-block: var(--sk-space-section-min);
+}
+
+.generous {
+  padding-block: var(--sk-space-section-comfortable);
+}
+
+/* Mobile-first: the generous end of the scale only applies once there is room
+   for it. Below 768px every section stays at the 48px minimum baseline. */
+@media (min-width: 768px) {
+  .comfortable {
+    padding-block: var(--sk-space-section-comfortable);
+  }
+
+  .generous {
+    padding-block: var(--sk-space-section-generous);
+  }
+}
+
+.page {
+  background-color: var(--sk-app-background-primary);
+}
+
+.soft {
+  background-color: var(--sk-app-background-secondary);
+}
+
+.warm {
+  background-color: var(--sk-app-surface-warm);
+}
+
+.dark {
+  background-color: var(--sk-app-surface-dark);
+  color: var(--sk-app-text-on-dark);
+}
+
+.dark :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--sk-app-text-on-dark);
+}

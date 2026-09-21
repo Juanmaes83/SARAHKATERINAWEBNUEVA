@@ -1,0 +1,18 @@
+.divider {
+  border: 0;
+  border-top: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+  margin: 0;
+  width: 100%;
+}
+
+.accent {
+  border-top-width: var(--sk-border-accent-width);
+  border-top-color: var(--sk-color-border-accent);
+  width: var(--sk-space-48);
+}
+
+.onDark {
+  border-top-color: var(--sk-app-text-on-dark);
+  opacity: var(--sk-opacity-disabled);
+}

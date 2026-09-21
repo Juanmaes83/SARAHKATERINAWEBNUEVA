@@ -1,0 +1,140 @@
+/* ===========================================================================
+ * APP-LEVEL TOKEN LAYER — NOT CANONICAL
+ * ===========================================================================
+ *
+ * app/tokens.css is a byte-for-byte copy of the canonical, human-approved
+ * token layer in Juanmaes83/sarahkaterina (brand-system/tokens/tokens.css,
+ * generated from tokens.json v0.1.0). It must never be edited here.
+ *
+ * This file holds ONLY the tokens this application needs that the canonical
+ * layer does not define. The canonical token contract is explicit:
+ *
+ *   "if a token has no approved current use, do not create it"
+ *   "[components] must not introduce raw hex/rgb/hsl/oklch values, new fonts,
+ *    new radii, arbitrary spacing, new motion values or local focus rules"
+ *   -- brand-system/tokens/README.md
+ *
+ * Therefore every token below either:
+ *   (a) aliases an already-approved canonical value, or
+ *   (b) is a structural (non-brand, non-colour) value marked PENDING_APPROVAL.
+ *
+ * NOTHING here introduces a new colour. No navy. No gold. No new hex value.
+ * None of this is propagated back to the source-of-truth repository.
+ * =========================================================================== */
+
+:root {
+  /* -------------------------------------------------------------------------
+   * 1. SEMANTIC ALIASES
+   * Role names required by the foundation brief, mapped onto canonical roles.
+   * These add vocabulary, not values.
+   * ---------------------------------------------------------------------- */
+  --sk-app-background-primary: var(--sk-color-bg-page);
+  --sk-app-background-secondary: var(--sk-color-bg-soft);
+  --sk-app-surface: var(--sk-color-bg-elevated);
+  --sk-app-surface-warm: var(--sk-color-bg-warm);
+  --sk-app-surface-dark: var(--sk-color-bg-dark);
+  --sk-app-text-primary: var(--sk-color-text-primary);
+  --sk-app-text-on-dark: var(--sk-color-text-on-dark);
+  --sk-app-accent: var(--sk-color-accent-editorial);
+  --sk-app-border-subtle: var(--sk-color-border-default);
+  --sk-app-border-strong: var(--sk-color-border-strong);
+  --sk-app-action-primary: var(--sk-color-action-primary-bg);
+  --sk-app-action-secondary: var(--sk-color-action-secondary-text);
+  --sk-app-focus-ring: var(--sk-color-focus-on-light);
+  --sk-app-focus-ring-on-dark: var(--sk-color-focus-on-dark);
+  --sk-app-danger: var(--sk-color-feedback-error);
+  --sk-app-success: var(--sk-color-feedback-success);
+
+  /* -------------------------------------------------------------------------
+   * 2. TEXT HIERARCHY — PENDING_APPROVAL
+   *
+   * The canonical layer defines text.primary / heading / on-dark / link. It
+   * does NOT define a secondary or muted text role.
+   *
+   * text-secondary resolves to canonical Forest (#173B32). That is an approved
+   * value, verified at 10.83:1 on Ivory in brand-system/qa/contrast-matrix.md,
+   * so it is safe to ship while the role itself awaits approval.
+   *
+   * text-muted deliberately resolves to the SAME value. A genuinely muted tone
+   * would require a new grey or an opacity treatment; both would be invented
+   * values and either could fall below WCAG AA. Per condition 8 of the work
+   * order, --sk-app-text-muted MUST NOT be used by any public-facing component
+   * until a formal value is approved. It exists here only so the role is
+   * declared and reviewable.
+   * ---------------------------------------------------------------------- */
+  --sk-app-text-secondary: var(--sk-color-forest); /* PENDING_APPROVAL */
+  --sk-app-text-muted: var(--sk-color-forest); /* PENDING_APPROVAL — DO NOT USE */
+
+  /* -------------------------------------------------------------------------
+   * 3. Z-INDEX SCALE — PENDING_APPROVAL
+   * Structural only. The canonical layer defines no z-index because
+   * foundations/layout-grid.md records "no complex z-index layering between
+   * content areas". This scale exists to keep header/overlay ordering in one
+   * place rather than scattered through components.
+   * ---------------------------------------------------------------------- */
+  --sk-app-z-base: 0;
+  --sk-app-z-raised: 10;
+  --sk-app-z-sticky: 100;
+  --sk-app-z-header: 200;
+  --sk-app-z-overlay: 300;
+  --sk-app-z-modal: 400;
+
+  /* -------------------------------------------------------------------------
+   * 4. BREAKPOINTS — PENDING_APPROVAL
+   *
+   * brand-system/foundations/layout-grid.md leaves this DEFERRED-NONBLOCKING:
+   * the L3 presentation uses 900px, standard web convention uses 768px, and
+   * "both values are acceptable, final decision depends on implementation
+   * context".
+   *
+   * This implementation fixes the primary collapse at 768px to align with the
+   * 320 / 375 / 768 / 1024 / 1440 validation ladder. It is an implementation
+   * decision, not a brand decision, and is reversible in one place.
+   *
+   * NOTE: custom properties cannot be used inside @media queries. These are
+   * declared for documentation and for JS/tests; the media queries themselves
+   * carry the literal values and must be kept in sync with this block.
+   * ---------------------------------------------------------------------- */
+  --sk-app-bp-xs: 320px;
+  --sk-app-bp-sm: 375px;
+  --sk-app-bp-md: 768px;
+  --sk-app-bp-lg: 1024px;
+  --sk-app-bp-xl: 1440px;
+
+  /* -------------------------------------------------------------------------
+   * 5. LAYOUT GUTTERS
+   * Composed from the canonical 8-point spacing primitives. No new values.
+   * ---------------------------------------------------------------------- */
+  --sk-app-gutter: var(--sk-space-24);
+
+  /* -------------------------------------------------------------------------
+   * 6. FONT LOADER BINDING — NOT A TOKEN CHANGE
+   *
+   * The canonical layer declares the families by name:
+   *   --sk-font-family-display: "Fraunces", Georgia, serif
+   *   --sk-font-family-body:    "Inter", system-ui, ... sans-serif
+   *
+   * next/font self-hosts both families and exposes each under a generated,
+   * hashed family name rather than the literal string "Fraunces" / "Inter".
+   * These two lines bind the canonical token to the locally served font.
+   *
+   * The families, the order and the fallback stacks are UNCHANGED. This is a
+   * delivery mechanism, not a design decision, and it is the reason
+   * app/tokens.css itself stays byte-identical to the source of truth.
+   * ---------------------------------------------------------------------- */
+  --sk-font-family-display: var(--sk-font-fraunces), Georgia, serif;
+  --sk-font-family-body:
+    var(--sk-font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --sk-app-gutter: var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --sk-app-gutter: var(--sk-space-48);
+  }
+}
