@@ -1,0 +1,871 @@
+/* ===========================================================================
+ * TAX ADVISORY — shared section layouts
+ *
+ * Mobile-first throughout. Every layout is a single column at 320px and only
+ * gains structure once there is room for it: 768px for two columns, 1024px
+ * for the reference's three- and four-column compositions.
+ * =========================================================================== */
+
+/* ===========================================================================
+ * HERO
+ * ======================================================================== */
+
+.hero {
+  position: relative;
+  background-color: var(--sk-web-ground);
+  padding-block: var(--sk-space-48) var(--sk-space-64);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-block: var(--sk-space-80);
+  }
+}
+
+.heroInner {
+  width: 100%;
+  max-width: var(--sk-layout-container-landing);
+  margin-inline: auto;
+  padding-inline: var(--sk-app-gutter);
+  display: grid;
+  gap: var(--sk-space-48);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1.05fr) minmax(var(--sk-web-hero-media-min), 0.95fr);
+    gap: var(--sk-space-64);
+  }
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-24);
+}
+
+.heroEyebrow {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-ink);
+}
+
+/* The reference's two-weight headline: roman navy over italic gold. */
+.heroHeading {
+  margin: 0;
+  font-family: var(--sk-type-h1-family);
+  font-size: var(--sk-type-h1-size);
+  font-weight: var(--sk-type-h1-weight);
+  line-height: var(--sk-type-h1-line-height);
+  letter-spacing: var(--sk-type-h1-letter-spacing);
+  color: var(--sk-web-navy);
+  text-wrap: balance;
+}
+
+.heroHeadingAccent {
+  font-style: italic;
+  color: var(--sk-web-gold-ink);
+}
+
+.heroBody {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  line-height: var(--sk-type-lead-line-height);
+  color: var(--sk-web-text-secondary);
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .heroActions {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.heroMarkers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-16) var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding-block-start: var(--sk-space-16);
+  padding-inline: 0;
+  border-block-start: 1px solid var(--sk-web-rule-soft);
+  width: 100%;
+}
+
+.heroMarker {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-text-secondary);
+}
+
+.heroMarkerIcon {
+  color: var(--sk-web-gold-ink);
+}
+
+/* --- hero media ---------------------------------------------------------- */
+
+.heroMedia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+.heroFigure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-navy);
+}
+
+.heroFrame {
+  position: relative;
+  display: block;
+}
+
+/*
+ * AUTH-SK-001 is a 768x1344 full-length studio frame — far taller than the
+ * reference's landscape hero. It is cropped to 4:5 in CSS, weighted towards
+ * the top so the face stays in frame. The file is not modified; the crop is
+ * recorded in docs/tax-advisory-asset-record.md.
+ */
+.heroImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.heroChips {
+  position: absolute;
+  inset-inline-start: var(--sk-space-16);
+  inset-block-end: var(--sk-space-16);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.heroChip {
+  padding: var(--sk-space-4) var(--sk-space-16);
+  background-color: var(--sk-web-ground);
+  border-inline-start: 2px solid var(--sk-web-gold);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-snug);
+  color: var(--sk-web-navy);
+}
+
+.heroVideoSlot {
+  position: absolute;
+  inset-inline-end: var(--sk-space-16);
+  inset-block-start: var(--sk-space-16);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  max-width: calc(100% - var(--sk-space-32));
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-web-navy);
+}
+
+.heroVideoIcon {
+  color: var(--sk-web-gold-on-dark);
+}
+
+/* The full warning is placed under the image. A governance marker that cannot
+   be read against a photograph is not a governance marker. */
+.heroVideoNote {
+  padding: var(--sk-space-8) var(--sk-space-16) var(--sk-space-16);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-gold-on-dark);
+}
+
+.heroScript {
+  align-self: flex-end;
+  text-align: end;
+}
+
+.sentinel {
+  display: block;
+  height: 1px;
+}
+
+/* ===========================================================================
+ * TRUST STRIP
+ * ======================================================================== */
+
+.trust {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+}
+
+@media (min-width: 1024px) {
+  .trust {
+    gap: var(--sk-space-24);
+  }
+}
+
+.trustList {
+  display: grid;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .trustList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .trustList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+}
+
+.trustItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  /* Without this a long PENDING_APPROVAL marker pushes the grid track wider
+     than its share and overlaps the item beside it. */
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .trustItem + .trustItem {
+    padding-inline-start: var(--sk-space-32);
+    border-inline-start: 1px solid var(--sk-web-rule);
+  }
+}
+
+.trustIcon {
+  color: var(--sk-web-gold-ink);
+}
+
+.trustText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-4);
+  min-width: 0;
+}
+
+.trustValue {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-font-line-height-compact);
+  color: var(--sk-web-navy);
+}
+
+.trustLabel {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+.trustWithheld {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-snug);
+  text-transform: uppercase;
+  color: var(--sk-app-danger);
+}
+
+.trustScript {
+  align-self: flex-end;
+  text-align: end;
+}
+
+/* ===========================================================================
+ * PROBLEM
+ * ======================================================================== */
+
+.problem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-48);
+}
+
+.problemHead {
+  max-width: var(--sk-layout-focused-max);
+}
+
+.problemList {
+  display: grid;
+  gap: var(--sk-space-32);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+@media (min-width: 768px) {
+  .problemList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sk-space-48);
+  }
+}
+
+@media (min-width: 1024px) {
+  .problemList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.problemItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+}
+
+.problemRule {
+  margin-block-end: var(--sk-space-8);
+}
+
+.problemLead {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-navy);
+}
+
+.problemBody {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-text-secondary);
+}
+
+.problemLimit {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+  padding-block-start: var(--sk-space-24);
+  border-block-start: 1px solid var(--sk-web-rule);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+/* ===========================================================================
+ * AUDIENCE
+ * ======================================================================== */
+
+.audience {
+  display: grid;
+  gap: var(--sk-space-48);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .audience {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--sk-space-48);
+  }
+}
+
+.audienceHead {
+  max-width: none;
+}
+
+.audienceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.audienceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding-block-end: var(--sk-space-16);
+  border-block-end: 1px solid var(--sk-web-rule-soft);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-text-secondary);
+}
+
+.audienceArrow {
+  color: var(--sk-web-gold);
+  margin-block-start: 2px;
+}
+
+.audienceMedia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+.audienceScript {
+  align-self: flex-end;
+  text-align: end;
+}
+
+/* ===========================================================================
+ * PROCESS
+ * ======================================================================== */
+
+.process {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-48);
+}
+
+.processList {
+  display: grid;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .processList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .processList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.processCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  min-height: 100%;
+  padding: var(--sk-space-24);
+  background-color: var(--sk-web-surface);
+  border: 1px solid var(--sk-web-rule);
+  border-radius: var(--sk-radius-card);
+  transition: border-color var(--sk-web-motion-interaction) var(--sk-web-motion-ease);
+}
+
+.processCard:hover {
+  border-color: var(--sk-web-gold);
+}
+
+.processTop {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-16);
+}
+
+.processTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  letter-spacing: var(--sk-web-tracking-snug);
+  text-transform: uppercase;
+  color: var(--sk-web-navy);
+}
+
+.processIcon {
+  color: var(--sk-web-gold-ink);
+}
+
+.processBody {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-text-secondary);
+}
+
+.processDeliverable {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: 0;
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-16);
+  border-block-start: 1px solid var(--sk-web-rule-soft);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-navy);
+}
+
+.processDeliverableIcon {
+  color: var(--sk-web-gold);
+}
+
+.processNote {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-app-danger);
+}
+
+/* ===========================================================================
+ * CONCERNS
+ * ======================================================================== */
+
+.concerns {
+  display: grid;
+  gap: var(--sk-space-48);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .concerns {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr) minmax(0, 1fr);
+  }
+}
+
+.concernsHead {
+  max-width: none;
+}
+
+.concernsList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.concernsItem {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-16);
+  padding-block: var(--sk-space-16);
+  border-block-end: 1px solid var(--sk-web-rule-soft);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-text-secondary);
+}
+
+.concernsItem:last-child {
+  border-block-end: 0;
+}
+
+.concernsIcon {
+  color: var(--sk-web-gold-ink);
+}
+
+.concernsMedia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+.concernsScript {
+  align-self: flex-end;
+  text-align: end;
+}
+
+/* ===========================================================================
+ * CASES
+ * ======================================================================== */
+
+.cases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-48);
+}
+
+.casesList {
+  display: grid;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .casesList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+}
+
+.caseCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  border: 1px dashed var(--sk-web-rule);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-surface);
+}
+
+.caseRole {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-ink);
+}
+
+.caseNote {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+.caseFields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  margin: 0;
+  width: 100%;
+}
+
+.caseField {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  padding-block-end: var(--sk-space-8);
+  border-block-end: 1px solid var(--sk-web-rule-soft);
+}
+
+.caseFieldLabel {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-navy);
+}
+
+.caseFieldValue {
+  margin: 0;
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-text-secondary);
+}
+
+.casesRequirement {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-app-danger);
+}
+
+/* ===========================================================================
+ * CONTINUITY
+ * ======================================================================== */
+
+.continuity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-48);
+}
+
+.journey {
+  display: grid;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .journey {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sk-space-16);
+  }
+}
+
+.journeyStep {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  padding: var(--sk-space-24);
+  background-color: var(--sk-web-surface);
+  border: 1px solid var(--sk-web-rule);
+  border-radius: var(--sk-radius-card);
+}
+
+.journeyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sk-web-icon-size);
+  height: var(--sk-web-icon-size);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-ground-alt);
+  color: var(--sk-web-gold-ink);
+}
+
+.journeyTitle {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  letter-spacing: var(--sk-web-tracking-snug);
+  text-transform: uppercase;
+  color: var(--sk-web-navy);
+}
+
+.journeyBody {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+/* The connector between steps. Horizontal once the row exists. */
+.journeyArrow {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .journeyArrow {
+    display: block;
+    position: absolute;
+    inset-inline-end: calc(var(--sk-space-16) * -1);
+    inset-block-start: 50%;
+    color: var(--sk-web-gold);
+    background-color: var(--sk-web-ground);
+  }
+}
+
+.continuityFoot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .continuityFoot {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--sk-space-48);
+  }
+}
+
+.continuitySubstitution {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+.continuityScript {
+  flex: none;
+  text-align: end;
+}
+
+/* ===========================================================================
+ * FINAL CTA
+ * ======================================================================== */
+
+.finalCta {
+  display: grid;
+  gap: var(--sk-space-32);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .finalCta {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: var(--sk-space-48);
+    align-items: start;
+  }
+}
+
+.finalCtaCopy {
+  min-width: 0;
+}
+
+.finalCtaActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+}
+
+.finalCtaReassurances {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.finalCtaReassurance {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-text-on-dark);
+  opacity: 0.85;
+}
+
+.finalCtaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .finalCtaButtons {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.finalCtaScript {
+  text-align: end;
+}

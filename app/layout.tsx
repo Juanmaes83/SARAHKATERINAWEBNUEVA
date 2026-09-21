@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
+import { SiteChrome } from '@/components/navigation/SiteChrome';
 import { baseMetadata } from '@/lib/seo/metadata';
 import './globals.css';
 
@@ -47,9 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="sk-skip-link" href="#main">
           Skip to content
         </a>
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
+        {/* Most routes get the application chrome. A landing that owns its
+            own header, main and footer opts out — see SiteChrome. */}
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

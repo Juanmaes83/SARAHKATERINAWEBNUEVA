@@ -1,0 +1,407 @@
+/* ===========================================================================
+ * TAX ADVISORY — shared primitives
+ *
+ * Every colour is a --sk-web-* token (app/tokens.web.css) or a canonical
+ * --sk-* token. Every length is a token. Translucency uses color-mix() over a
+ * token rather than a raw alpha-channel literal, so no colour value is ever
+ * written into a component stylesheet (AGENTS.md §5.3).
+ * =========================================================================== */
+
+/* --- BAND ---------------------------------------------------------------- */
+
+.band {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.tight {
+  padding-block: var(--sk-space-48);
+}
+
+.regular {
+  padding-block: var(--sk-space-48);
+}
+
+.open {
+  padding-block: var(--sk-space-64);
+}
+
+/* The reference composition is dense because it is a single-screen mock. The
+   implementation opens it up once there is room, per the phase contract. */
+@media (min-width: 768px) {
+  .tight {
+    padding-block: var(--sk-space-48);
+  }
+
+  .regular {
+    padding-block: var(--sk-space-80);
+  }
+
+  .open {
+    padding-block: var(--sk-space-80);
+  }
+}
+
+@media (min-width: 1024px) {
+  .regular {
+    padding-block: var(--sk-space-80);
+  }
+
+  .open {
+    padding-block: calc(var(--sk-space-80) + var(--sk-space-32));
+  }
+}
+
+.ivory {
+  background-color: var(--sk-web-ground);
+  color: var(--sk-web-text);
+}
+
+.ivoryDeep {
+  background-color: var(--sk-web-ground-alt);
+  color: var(--sk-web-text);
+}
+
+.navy {
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-text-on-dark);
+}
+
+.navySoft {
+  background-color: var(--sk-web-navy-soft);
+  color: var(--sk-web-text-on-dark);
+}
+
+.banded {
+  border-block-start: 1px solid var(--sk-web-rule-soft);
+}
+
+.navy.banded,
+.navySoft.banded {
+  border-block-start-color: var(--sk-web-navy-line);
+}
+
+/* --- SECTION HEAD -------------------------------------------------------- */
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  max-width: var(--sk-layout-measure-reading);
+}
+
+.headCentre {
+  align-items: center;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  line-height: var(--sk-type-eyebrow-line-height);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-ink);
+}
+
+.eyebrowOnDark {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+  color: var(--sk-web-navy);
+  text-wrap: balance;
+}
+
+.headingOnDark,
+.navy .heading,
+.navySoft .heading {
+  color: var(--sk-web-text-on-dark);
+}
+
+/* The template's second headline line: italic, gold, same size. */
+.headingAccent {
+  font-style: italic;
+  color: var(--sk-web-gold-ink);
+}
+
+.headingOnDark .headingAccent,
+.navy .headingAccent,
+.navySoft .headingAccent {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.standfirst {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  line-height: var(--sk-type-lead-line-height);
+  color: var(--sk-web-text-secondary);
+}
+
+.standfirstOnDark {
+  color: var(--sk-web-text-on-dark);
+  opacity: 0.88;
+}
+
+/* --- GOVERNANCE MARKERS -------------------------------------------------- */
+
+.reviewMark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  letter-spacing: var(--sk-web-tracking-snug);
+  text-transform: uppercase;
+  color: var(--sk-app-danger);
+}
+
+.reviewMarkOnDark {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.reviewDot {
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  flex: none;
+  border-radius: var(--sk-radius-pill);
+  background-color: currentColor;
+}
+
+.statusMark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-4);
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border: 1px dashed var(--sk-app-danger);
+  border-radius: var(--sk-radius-button);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-font-line-height-control);
+  letter-spacing: var(--sk-web-tracking-snug);
+  text-transform: uppercase;
+  color: var(--sk-app-danger);
+  background-color: transparent;
+  /* A marker is often longer than the figure it replaces. It wraps inside its
+     container rather than spilling over the panel beside it. */
+  max-width: 100%;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+/* Where the template shows a large figure, the marker takes the figure's
+   place at the figure's weight, so the composition still reads. */
+.statusMarkValue {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  line-height: var(--sk-font-line-height-compact);
+  letter-spacing: var(--sk-font-letter-spacing-normal);
+  padding: var(--sk-space-8) var(--sk-space-16);
+}
+
+.statusMarkOnDark {
+  border-color: var(--sk-web-gold-on-dark);
+  color: var(--sk-web-gold-on-dark);
+}
+
+/* --- SCRIPT MARGINALIA --------------------------------------------------- */
+
+.script {
+  margin: 0;
+  font-family: var(--sk-type-quote-family);
+  font-size: var(--sk-type-lead-size);
+  font-style: italic;
+  font-weight: var(--sk-font-weight-light);
+  line-height: var(--sk-font-line-height-quote);
+  color: var(--sk-web-text-secondary);
+  max-width: var(--sk-web-measure-editorial);
+  text-wrap: balance;
+}
+
+.scriptOnDark {
+  color: var(--sk-web-gold-on-dark);
+}
+
+/* --- GOLD RULE ----------------------------------------------------------- */
+
+.goldRule {
+  display: block;
+  width: var(--sk-space-48);
+  height: 2px;
+  flex: none;
+  background-color: var(--sk-web-gold);
+}
+
+/* --- EDITORIAL MEDIA ----------------------------------------------------- */
+
+.media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--sk-radius-card);
+  border: 1px solid var(--sk-web-rule);
+  background-color: var(--sk-web-ground-alt);
+  isolation: isolate;
+}
+
+.media_portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.media_landscape {
+  aspect-ratio: 3 / 2;
+}
+
+.media_wide {
+  aspect-ratio: 16 / 9;
+}
+
+.media_square {
+  aspect-ratio: 1 / 1;
+}
+
+.media_navy {
+  background-color: var(--sk-web-navy-soft);
+  border-color: var(--sk-web-navy-line);
+}
+
+/*
+ * A layered wash in the approved palette. Deliberately abstract: it reads as a
+ * designed surface, never as a photograph, so it cannot be mistaken for the
+ * documentary asset it is standing in for.
+ */
+.mediaGrain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--sk-web-gold) 22%, transparent) 0%,
+      transparent 55%
+    ),
+    linear-gradient(
+      20deg,
+      color-mix(in srgb, var(--sk-web-navy) 16%, transparent) 0%,
+      transparent 60%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--sk-web-navy) 5%, transparent) 0,
+      color-mix(in srgb, var(--sk-web-navy) 5%, transparent) 1px,
+      transparent 1px,
+      transparent var(--sk-space-24)
+    );
+}
+
+.media_navy .mediaGrain {
+  background-image:
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--sk-web-gold) 26%, transparent) 0%,
+      transparent 58%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--sk-web-ground) 6%, transparent) 0,
+      color-mix(in srgb, var(--sk-web-ground) 6%, transparent) 1px,
+      transparent 1px,
+      transparent var(--sk-space-24)
+    );
+}
+
+.mediaCaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  align-items: flex-start;
+  padding: var(--sk-space-16);
+  background-color: var(--sk-web-ground);
+  border-block-start: 1px solid var(--sk-web-rule);
+}
+
+.media_navy .mediaCaption {
+  background-color: var(--sk-web-navy);
+  border-block-start-color: var(--sk-web-navy-line);
+}
+
+.mediaLabel {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-ink);
+}
+
+.media_navy .mediaLabel {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.mediaStatus {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+.media_navy .mediaStatus {
+  color: var(--sk-web-text-on-dark);
+}
+
+/* --- NUMERAL ------------------------------------------------------------- */
+
+.numeral {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sk-web-numeral-size);
+  height: var(--sk-web-numeral-size);
+  flex: none;
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-gold);
+  color: var(--sk-web-navy);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: 1;
+  letter-spacing: var(--sk-web-tracking-snug);
+}
+
+.numeralOnDark {
+  background-color: transparent;
+  border: 1px solid var(--sk-web-gold-on-dark);
+  color: var(--sk-web-gold-on-dark);
+}
+
+/* --- ICON ---------------------------------------------------------------- */
+
+.icon {
+  width: var(--sk-web-icon-size);
+  height: var(--sk-web-icon-size);
+  flex: none;
+  color: var(--sk-web-gold-ink);
+}
+
+.iconSm {
+  width: var(--sk-web-icon-size-sm);
+  height: var(--sk-web-icon-size-sm);
+}

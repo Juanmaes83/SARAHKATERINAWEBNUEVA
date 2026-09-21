@@ -1,0 +1,155 @@
+/* ===========================================================================
+ * TAX ADVISORY CTA
+ *
+ * Surface-aware, like the canonical Button, but on the scoped ivory/navy/gold
+ * palette.
+ *
+ * CONTRAST — DELIBERATE DIVERGENCE FROM THE REFERENCE
+ * The template sets WHITE type on its gold fill, which measures 2.91:1 and
+ * fails WCAG AA. The gold fill is kept and the type is navy instead, measured
+ * at 4.86:1. Hover moves the fill LIGHTER rather than darker, because a darker
+ * gold would drop navy type below 4.5:1. See docs/web-palette-contrast.md.
+ *
+ * Height is the canonical 52px control height, which clears the 44px touch
+ * target. Full width below the primary breakpoint.
+ * =========================================================================== */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  width: 100%;
+  min-height: var(--sk-layout-control-height-default);
+  min-width: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-16) var(--sk-space-24);
+  border: 1px solid transparent;
+  border-radius: var(--sk-radius-button);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  line-height: var(--sk-type-button-line-height);
+  letter-spacing: var(--sk-web-tracking-snug);
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition:
+    background-color var(--sk-web-motion-interaction) var(--sk-web-motion-ease),
+    border-color var(--sk-web-motion-interaction) var(--sk-web-motion-ease),
+    color var(--sk-web-motion-interaction) var(--sk-web-motion-ease);
+}
+
+@media (min-width: 768px) {
+  .cta {
+    width: auto;
+  }
+}
+
+/* --- light surfaces ------------------------------------------------------ */
+
+.primary {
+  background-color: var(--sk-web-gold);
+  color: var(--sk-web-navy);
+  border-color: var(--sk-web-gold);
+}
+
+.primary:hover {
+  background-color: var(--sk-web-gold-lift);
+  border-color: var(--sk-web-gold-lift);
+}
+
+.secondary {
+  color: var(--sk-web-navy);
+  border-color: var(--sk-web-navy);
+}
+
+.secondary:hover {
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-ground);
+}
+
+.quiet {
+  padding-inline: 0;
+  min-height: var(--sk-layout-touch-target-min);
+  width: auto;
+  color: var(--sk-web-gold-ink);
+  text-transform: none;
+  letter-spacing: var(--sk-font-letter-spacing-normal);
+  font-size: var(--sk-type-body-small-size);
+  justify-content: flex-start;
+}
+
+.quiet:hover .label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+/* --- dark surfaces ------------------------------------------------------- */
+
+.onDark.primary {
+  background-color: var(--sk-web-gold);
+  color: var(--sk-web-navy);
+  border-color: var(--sk-web-gold);
+}
+
+.onDark.primary:hover {
+  background-color: var(--sk-web-gold-lift);
+  border-color: var(--sk-web-gold-lift);
+}
+
+.onDark.secondary {
+  color: var(--sk-web-ground);
+  border-color: var(--sk-web-ground);
+}
+
+.onDark.secondary:hover {
+  background-color: var(--sk-web-ground);
+  color: var(--sk-web-navy);
+}
+
+.onDark.quiet {
+  color: var(--sk-web-gold-on-dark);
+}
+
+/* --- arrow --------------------------------------------------------------- */
+
+.arrow {
+  width: var(--sk-space-16);
+  height: var(--sk-space-16);
+  color: currentColor;
+  transition: transform var(--sk-web-motion-interaction) var(--sk-web-motion-ease);
+}
+
+.cta:hover .arrow {
+  transform: translateX(var(--sk-space-4));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta:hover .arrow {
+    transform: none;
+  }
+}
+
+/*
+ * A CTA with no destination. It is styled identically on purpose — the point
+ * of the preview is to review the composition — and its explanation is carried
+ * by aria-describedby and by the note its section renders.
+ */
+.inert {
+  cursor: pointer;
+}
+
+.note {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+.noteOnDark {
+  color: var(--sk-web-gold-on-dark);
+}

@@ -1,7 +1,7 @@
 # Visual Asset Manifest and Import Contract
 
-Status: ACTIVE — assets available upstream, import and assignment pending
-Updated: 2026-09-21
+Status: ACTIVE — first import completed for the Tax Advisory preview
+Updated: 2026-09-22
 
 This document corrects the previous wording. The logo and authentic photography
 do exist as references in the mother repository. They are not yet imported or
@@ -12,18 +12,25 @@ public placement.
 
 | Asset | Source repository/path | Current state in new repo | Intended use |
 |---|---|---|---|
-| Sarah reference 01 | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_1.jpg | Available upstream; not imported | Authority/editorial portrait or hero support |
-| Sarah reference 02 | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_2.jpg | Available upstream; not imported | Authority/editorial context |
-| Sarah reference 03 | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_3.png | Available upstream; not imported | Transparent/editorial identity asset if suitable |
-| Sarah logo reference | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_SARAH_LOGO.jpg | Available upstream; not imported | Header/footer brand reference; create approved light/dark treatment only after review |
+| Sarah reference 01 (`AUTH-SK-001`) | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_1.jpg | **Imported** → `public/sarah/AUTH-SK-001-editorial-portrait.jpg`, byte-identical | Tax Advisory hero media |
+| Sarah reference 02 (`AUTH-SK-002`) | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_2.jpg | **Imported** → `public/sarah/AUTH-SK-002-portrait-square.jpg`, byte-identical | Tax Advisory authority portrait |
+| Sarah reference 03 (`AUTH-SK-003`) | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_REAL_3.png | **NOT imported — PROHIBITED.** Reclassified upstream 2026-08-17 as NOT Sarah; `IDENTITY_USE = PROHIBITED` | None. A test asserts its absence |
+| Sarah logo composite (`AUTH-SK-004`) | Juanmaes83/sarahkaterina/IMAGENES NUEVAS/SK_SARAH_LOGO.jpg | **NOT imported.** Composite key visual with baked photography and typography; the register states it is not a substitute for the clean mark | None. A test asserts its absence |
+| **Official clean logo (`BRAND-SK-001`)** | Juanmaes83/sarahkaterina/brand-system/foundations/brand-assets/SK_LOGO_CLEAN.png | **Imported** → `public/brand/SK_LOGO_CLEAN.png`, byte-identical, plus `public/brand/sk-wordmark.png` cropped to its own alpha bounding box | Header and footer lockups |
 | Investment template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Investment.png | Visual proposal reference | Composition, rhythm, hierarchy and slot mapping |
 | Tax Advisory template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Tax Advisory.png | Visual proposal reference | Shared landing grammar |
 | Property Purchase template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Property Purchase.png | Visual proposal reference | Shared landing grammar |
 | Property Management template | Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Property Management · VITA Host.png | Visual proposal reference | Reference only; service remains governed by its upstream status |
 
-The current public directories may remain empty until the Phase 2 visual branch
-imports selected files. This is an implementation gap, not evidence that the
-assets do not exist.
+The first import was performed on 2026-09-22 for `/preview/tax-advisory`. The
+full record — source paths, md5 hashes, classification, slot, crop, treatment,
+alt text and the list of assets still missing — is in
+`docs/tax-advisory-asset-record.md`.
+
+Note the register correction: the official clean logo is `BRAND-SK-001` at
+`brand-system/foundations/brand-assets/SK_LOGO_CLEAN.png`, not the composite
+key visual in `IMAGENES NUEVAS/`. Earlier wording in this document pointed at
+the composite.
 
 ## 2. Required import record
 

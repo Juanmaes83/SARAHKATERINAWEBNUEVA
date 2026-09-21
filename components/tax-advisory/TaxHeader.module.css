@@ -1,0 +1,271 @@
+/* ===========================================================================
+ * TAX ADVISORY HEADER — sticky, condensing
+ * =========================================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--sk-app-z-header);
+  background-color: color-mix(in srgb, var(--sk-web-ground) 92%, transparent);
+  backdrop-filter: blur(var(--sk-space-8));
+  border-block-end: 1px solid transparent;
+  transition:
+    border-color var(--sk-web-motion-interaction) var(--sk-web-motion-ease),
+    background-color var(--sk-web-motion-interaction) var(--sk-web-motion-ease),
+    box-shadow var(--sk-web-motion-interaction) var(--sk-web-motion-ease);
+}
+
+/* Applied once the hero sentinel leaves the viewport. */
+.condensed {
+  background-color: var(--sk-web-ground);
+  border-block-end-color: var(--sk-web-rule-soft);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  width: 100%;
+  max-width: var(--sk-layout-container-landing);
+  margin-inline: auto;
+  padding-inline: var(--sk-app-gutter);
+  min-height: var(--sk-web-header-height);
+  padding-block: var(--sk-space-8);
+  transition: min-height var(--sk-web-motion-interaction) var(--sk-web-motion-ease);
+}
+
+/* --- brand --------------------------------------------------------------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  text-decoration: none;
+  color: var(--sk-web-navy);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+}
+
+.logo {
+  width: auto;
+  height: var(--sk-web-logo-height-sm);
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: var(--sk-web-logo-height);
+  }
+}
+
+/*
+ * The service line sits beside the mark, separated by a hairline, rather than
+ * being baked into it. The approved asset is a wordmark only: composing a new
+ * "TAX ADVISORY" lockup would be creating a brand mark, which AGENTS.md §2
+ * forbids.
+ */
+.serviceLine {
+  display: none;
+  padding-inline-start: var(--sk-space-8);
+  border-inline-start: 1px solid var(--sk-web-rule);
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-wide);
+  line-height: var(--sk-font-line-height-control);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-ink);
+}
+
+@media (min-width: 375px) {
+  .serviceLine {
+    display: inline-block;
+  }
+}
+
+/* --- desktop navigation -------------------------------------------------- */
+
+.desktopNav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-navigation-size);
+  font-weight: var(--sk-type-navigation-weight);
+  color: var(--sk-web-navy);
+  text-decoration: none;
+  border-block-end: 2px solid transparent;
+  transition: border-color var(--sk-web-motion-interaction) var(--sk-web-motion-ease);
+}
+
+.navLink:hover {
+  border-block-end-color: var(--sk-web-gold);
+}
+
+.actions {
+  display: none;
+}
+
+/* --- language ------------------------------------------------------------ */
+
+.locales {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-4);
+}
+
+.locale {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sk-layout-touch-target-min);
+  min-width: var(--sk-layout-touch-target-min);
+  padding-inline: var(--sk-space-8);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--sk-radius-button);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-snug);
+  color: var(--sk-web-text-secondary);
+  cursor: pointer;
+}
+
+.locale[aria-pressed='true'] {
+  color: var(--sk-web-navy);
+  border-color: var(--sk-web-rule);
+}
+
+.headerCta {
+  width: auto;
+}
+
+/* --- mobile trigger ------------------------------------------------------ */
+
+.menuTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  min-width: var(--sk-layout-touch-target-min);
+  padding-inline: var(--sk-space-16);
+  background-color: transparent;
+  border: 1px solid var(--sk-web-navy);
+  border-radius: var(--sk-radius-button);
+  color: var(--sk-web-navy);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  cursor: pointer;
+}
+
+.menuBars {
+  display: block;
+  width: var(--sk-space-16);
+  height: 2px;
+  background-color: currentColor;
+  box-shadow:
+    0 var(--sk-space-4) 0 0 currentColor,
+    0 calc(var(--sk-space-4) * -1) 0 0 currentColor;
+}
+
+/* --- mobile panel -------------------------------------------------------- */
+
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sk-app-z-modal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-32);
+  background-color: var(--sk-web-ground);
+  padding: var(--sk-space-24);
+  overflow-y: auto;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+}
+
+.panelList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.panelLink {
+  display: flex;
+  align-items: center;
+  min-height: var(--sk-layout-control-height-default);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  color: var(--sk-web-navy);
+  text-decoration: none;
+  border-block-end: 1px solid var(--sk-web-rule-soft);
+}
+
+.panelFooter {
+  margin-block-start: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+}
+
+.panelNote {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-text-secondary);
+}
+
+/* --- breakpoint ---------------------------------------------------------- */
+
+@media (min-width: 1024px) {
+  .desktopNav,
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sk-space-24);
+  }
+
+  .menuTrigger {
+    display: none;
+  }
+
+  .panel {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .inner {
+    transition: none;
+  }
+}

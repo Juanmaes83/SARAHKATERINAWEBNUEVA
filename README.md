@@ -95,9 +95,22 @@ Phase 2 visual implementation contract.
 ```
 PHASE 1 MERGED
 PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
-PHASE 2B REAL VISUAL LANDING IMPLEMENTATION NEXT
+PHASE 2B TAX ADVISORY VISUAL IMPLEMENTATION IN REVIEW
+PHASE 2C HUMAN VISUAL GATE PENDING
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
+
+The first full Phase 2B landing is `/preview/tax-advisory`. It implements the
+Tax Advisory composition from `website/nueva web/` against the scoped
+ivory/navy/gold palette, with the real brand mark and authentic Sarah
+photography imported from the mother repository. Every figure the reference
+carries that this repository may not publish is rendered as a labelled slot.
+
+| Document | What it records |
+|---|---|
+| `docs/tax-advisory-visual-decisions.md` | Every judgement call, and what still differs from the reference |
+| `docs/tax-advisory-asset-record.md` | Asset provenance, hashes, crops, and the assets still missing |
+| `docs/web-palette-contrast.md` | Scoped palette values, provenance and measured WCAG ratios |
 
 ## 6. Stack
 
@@ -126,7 +139,17 @@ cp .env.example .env.local   # optional; safe defaults apply without it
 npm run dev                  # http://localhost:3000
 ```
 
-Routes: `/` (overview) and `/foundation` (internal component laboratory).
+Routes:
+
+| Route | What it is |
+|---|---|
+| `/` | Overview |
+| `/foundation` | Internal component laboratory. Never indexable. |
+| `/preview/investment` | Phase 2A structural prototype |
+| `/preview/tax-advisory` | Phase 2B visual implementation |
+
+Everything under `/preview` is `noindex, nofollow` at three independent
+layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
 
 ## 8. Lint, typecheck, test and build
 

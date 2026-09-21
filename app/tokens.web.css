@@ -1,0 +1,155 @@
+/* ===========================================================================
+ * SCOPED WEBSITE PALETTE LAYER — NOT CANONICAL
+ * ===========================================================================
+ *
+ * AGENTS.md §5.8 records the human decision of 2026-09-21:
+ *
+ *   "Scoped Phase 2 website palette approved: use the same ivory, navy and
+ *    gold direction shown in website/nueva web. This is a scoped
+ *    implementation decision for SARAHKATERINAWEBNUEVA; it does not replace
+ *    the global canonical palette. Implement it with namespaced --sk-web-*
+ *    tokens, verify WCAG contrast and never mutate the canonical token files."
+ *
+ * This file is that layer. It does not touch app/tokens.css (the byte-for-byte
+ * canonical copy) or app/tokens.app.css.
+ *
+ * SCOPE OF USE
+ * ------------
+ * Only the Tax Advisory landing consumes these tokens:
+ *   components/tax-advisory/**
+ *   app/preview/tax-advisory/**
+ * tests/tax-advisory.test.ts fails if any other source file reads a
+ * --sk-web-* token, so the scope is enforced rather than merely documented.
+ *
+ * PROVENANCE OF EVERY VALUE
+ * -------------------------
+ * No colour below was chosen by eye. Each is either an alias of an
+ * already-approved canonical token, or a value sampled from the approved
+ * reference composition
+ * "Sarah Katerina Tax Advisory.png" (website/nueva web/, visual proposal),
+ * or a value derived from such a sample by moving lightness only — hue and
+ * saturation are held constant — to reach a measured WCAG AA ratio.
+ *
+ * Measured ratios and the sampling method are recorded in
+ * docs/web-palette-contrast.md, which tests/tax-advisory.test.ts re-derives.
+ * =========================================================================== */
+
+:root {
+  /* -------------------------------------------------------------------------
+   * 1. GROUNDS — canonical aliases, no new value
+   *
+   * The template's page ground samples at #FDFCF9. The canonical warm white is
+   * #FFFDF9. The difference is JPEG noise, not a design decision, so the
+   * canonical token is used rather than a near-duplicate being introduced.
+   * ---------------------------------------------------------------------- */
+  --sk-web-ground: var(--sk-color-warm-white);
+  --sk-web-ground-alt: var(--sk-color-ivory);
+  --sk-web-surface: var(--sk-color-white);
+
+  /* -------------------------------------------------------------------------
+   * 2. NAVY AUTHORITY SURFACES — sampled
+   *
+   *   --sk-web-navy       sampled from the authority band and the footer
+   *   --sk-web-navy-soft  sampled from the report-preview band
+   *
+   * The template uses two navies deliberately: the report band sits slightly
+   * lighter than the footer so two dark sections in sequence stay legible as
+   * separate surfaces.
+   * ---------------------------------------------------------------------- */
+  --sk-web-navy: #0d2233;
+  --sk-web-navy-soft: #12293c;
+
+  /* Hairline on navy. Derived from --sk-web-navy, lightness only.
+     Non-text separator, so no text-contrast requirement applies. */
+  --sk-web-navy-line: #1a4669;
+
+  /* -------------------------------------------------------------------------
+   * 3. GOLD ACCENT — sampled and derived
+   *
+   * --sk-web-gold is the template's CTA fill, sampled directly.
+   *
+   * The template sets WHITE type on that fill, which measures 2.91:1 and fails
+   * WCAG AA. The fill is kept and the TYPE is changed to navy (4.86:1) rather
+   * than the gold being altered — that preserves the reference's colour while
+   * meeting AA. This is a deliberate, recorded divergence from the template.
+   *
+   * --sk-web-gold-lift is the hover fill. It moves LIGHTER, not darker: navy
+   * type on a darker gold would drop below 4.5:1, so the conventional
+   * darken-on-hover would break the button it is decorating.
+   *
+   * --sk-web-gold-ink and --sk-web-gold-on-dark exist because the base gold is
+   * not a legible type colour on ivory (3.30:1) or reliably so on navy-soft
+   * (4.41:1). Same hue and saturation, lightness moved until AA is met.
+   * ---------------------------------------------------------------------- */
+  --sk-web-gold: #a78854;
+  --sk-web-gold-lift: #b79c70;
+  --sk-web-gold-ink: #806940;
+  --sk-web-gold-on-dark: #bca37a;
+
+  /* -------------------------------------------------------------------------
+   * 4. TYPE AND LINE ROLES
+   *
+   * Body and heading type on light grounds is navy, matching the template.
+   * --sk-web-text-secondary is navy at reduced weight of meaning, NOT a new
+   * grey: a muted grey would be an invented value and --sk-app-text-muted is
+   * PENDING_APPROVAL and forbidden.
+   * ---------------------------------------------------------------------- */
+  --sk-web-text: var(--sk-web-navy);
+  --sk-web-text-secondary: var(--sk-web-navy-soft);
+  --sk-web-text-on-dark: var(--sk-color-warm-white);
+
+  /* Hairline rules and card borders on light grounds. Sampled from the
+     template's card edges and divider lines. Non-text. */
+  --sk-web-rule: #d6ccb8;
+  --sk-web-rule-soft: #e7e0d2;
+
+  /* -------------------------------------------------------------------------
+   * 5. STRUCTURAL MEASUREMENTS — not brand values
+   *
+   * Lengths the canonical spacing scale does not express: media minimums,
+   * the calendar track height, the numeral disc. Declared here so no
+   * component stylesheet carries a bare pixel value (AGENTS.md §5.3 and the
+   * off-scale-spacing guard in tests/governance.test.ts).
+   * ---------------------------------------------------------------------- */
+  --sk-web-hero-media-min: 320px;
+  --sk-web-numeral-size: 44px;
+  --sk-web-icon-size: 40px;
+  --sk-web-icon-size-sm: 28px;
+  --sk-web-calendar-track: 10px;
+  --sk-web-calendar-label: 180px;
+  --sk-web-chart-height: 120px;
+  --sk-web-logo-height: 34px;
+  --sk-web-logo-height-sm: 28px;
+  --sk-web-header-height: 72px;
+  --sk-web-card-media: 96px;
+  --sk-web-portrait-min: 260px;
+
+  /* Editorial content column, narrower than the 1200px landing container, used
+     where the template sets a headline against generous white space. */
+  --sk-web-measure-editorial: 34ch;
+
+  /* Letter-spacing between the canonical normal (0em) and eyebrow (0.32em)
+     steps, for the template's small-caps card and column titles. */
+  --sk-web-tracking-wide: 0.14em;
+  --sk-web-tracking-snug: 0.06em;
+
+  /* Elevation. --sk-shadow-elevated is the single canonical panel shadow; the
+     two below are the same shadow at lower and higher strength for cards that
+     lift on hover, expressed as a ratio of it rather than as new geometry. */
+  --sk-web-shadow-card: 0 1px 2px rgb(13 34 51 / 6%);
+  --sk-web-shadow-lift: var(--sk-shadow-elevated);
+
+  /* Translation distance for the card hover lift. */
+  --sk-web-lift-distance: -2px;
+
+  /* -------------------------------------------------------------------------
+   * 6. MOTION — composed from canonical motion tokens only
+   *
+   * No new duration or easing curve is introduced. The stagger step is a
+   * count, not a design value.
+   * ---------------------------------------------------------------------- */
+  --sk-web-motion-duration: var(--sk-motion-duration-reveal);
+  --sk-web-motion-ease: var(--sk-motion-ease-standard);
+  --sk-web-motion-distance: var(--sk-motion-distance-reveal);
+  --sk-web-motion-interaction: var(--sk-motion-duration-fast);
+}

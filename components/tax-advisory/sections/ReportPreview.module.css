@@ -1,0 +1,185 @@
+/* ===========================================================================
+ * REPORT PREVIEW — navy dashboard band
+ * =========================================================================== */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-48);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-24);
+}
+
+@media (min-width: 1024px) {
+  .header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sk-space-48);
+  }
+}
+
+.layout {
+  display: grid;
+  gap: var(--sk-space-32);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: var(--sk-space-48);
+    align-items: start;
+  }
+}
+
+/* --- panels -------------------------------------------------------------- */
+
+.panels {
+  display: grid;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .panels {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  min-height: 100%;
+  padding: var(--sk-space-24);
+  background-color: color-mix(in srgb, var(--sk-web-ground) 6%, transparent);
+  border: 1px solid var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-card);
+}
+
+.panelTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-text-on-dark);
+}
+
+.panelValue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin-block-start: auto;
+}
+
+.panelCaption {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-text-on-dark);
+  opacity: 0.82;
+}
+
+/*
+ * SPARKLINE — decoration, not data.
+ *
+ * Twelve bars with a fixed, monotonic-ish silhouette. There is no axis, no
+ * scale, no label and no value: it stands in for the shape of a chart so the
+ * panel reads as a dashboard, and the band's governance note says so.
+ */
+.sparkline {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: var(--sk-web-chart-height);
+  margin-block-start: auto;
+}
+
+.sparkbar {
+  display: block;
+  flex: 1;
+  min-width: 2px;
+  border-radius: 2px;
+  background-color: color-mix(in srgb, var(--sk-web-gold) 70%, transparent);
+  transform-origin: bottom;
+  animation: sk-web-sparkbar var(--sk-web-motion-duration) var(--sk-web-motion-ease) both;
+}
+
+.sparkbar:nth-child(even) {
+  background-color: color-mix(in srgb, var(--sk-web-gold) 40%, transparent);
+}
+
+@keyframes sk-web-sparkbar {
+  from {
+    transform: scaleY(0.4);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkbar {
+    animation: none;
+  }
+}
+
+/* --- contents list ------------------------------------------------------- */
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contentItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding-block-end: var(--sk-space-16);
+  border-block-end: 1px solid var(--sk-web-navy-line);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-text-on-dark);
+}
+
+.contentItem:last-child {
+  border-block-end: 0;
+  padding-block-end: 0;
+}
+
+.contentIcon {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.governance {
+  margin: 0;
+  max-width: var(--sk-layout-measure-reading);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-gold-on-dark);
+}
