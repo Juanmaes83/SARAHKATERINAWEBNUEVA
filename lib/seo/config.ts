@@ -58,11 +58,17 @@ export const siteConfig = {
 
 export type Locale = (typeof siteConfig.locales)[number];
 
-/** Routes that must never appear in the sitemap or be indexed. */
-export const LABORATORY_ROUTES = ['/foundation'] as const;
+/**
+ * Routes that must never appear in the sitemap or be indexed.
+ *
+ * `/preview` is a prefix: everything under it is a prototype. Nothing may be
+ * promoted out of that namespace until the Phase 2 decision gate is answered
+ * (see docs/phase-2-decision-gate.md, D2-01).
+ */
+export const LABORATORY_ROUTES = ['/foundation', '/preview'] as const;
 
 export function isLaboratoryRoute(path: string): boolean {
-  return (LABORATORY_ROUTES as readonly string[]).includes(path);
+  return LABORATORY_ROUTES.some((route) => path === route || path.startsWith(`${route}/`));
 }
 
 export function absoluteUrl(path: string): string {

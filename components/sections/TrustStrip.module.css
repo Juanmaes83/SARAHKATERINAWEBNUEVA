@@ -1,0 +1,61 @@
+.strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-24);
+}
+
+@media (min-width: 375px) {
+  .strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .strip {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  padding-block-start: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.label {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  color: var(--sk-app-text-secondary);
+  /* The eyebrow tracking adds trailing space; pull it back so the column
+     edges stay aligned at narrow widths. */
+  margin-inline-end: calc(-1 * var(--sk-type-eyebrow-letter-spacing));
+}
+
+.value {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-app-text-primary);
+}
+
+.pending {
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: normal;
+  color: var(--sk-app-text-secondary);
+}

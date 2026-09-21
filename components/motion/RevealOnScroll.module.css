@@ -1,0 +1,22 @@
+/* Canonical motion tokens only: 400ms reveal, standard easing, 10px distance. */
+
+.reveal {
+  transition:
+    opacity var(--sk-motion-reveal-duration) var(--sk-motion-reveal-ease),
+    transform var(--sk-motion-reveal-duration) var(--sk-motion-reveal-ease);
+}
+
+/* Applied only once JavaScript has confirmed it can also remove it. */
+.hidden {
+  opacity: 0;
+  transform: translateY(var(--sk-motion-reveal-distance));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .hidden {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

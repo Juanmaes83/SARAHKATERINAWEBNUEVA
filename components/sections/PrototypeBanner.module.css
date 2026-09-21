@@ -1,0 +1,45 @@
+/* Persistent, non-dismissible status banner.
+   The prototype status is not a footnote: it must be visible wherever the
+   reader enters the page and wherever they stop scrolling. */
+
+.banner {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--sk-app-z-sticky);
+  background-color: var(--sk-app-surface-dark);
+  color: var(--sk-app-text-on-dark);
+  border-block-end: var(--sk-border-accent-width) var(--sk-border-standard-style)
+    var(--sk-color-border-accent);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  padding-block: var(--sk-space-8);
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sk-space-16);
+  }
+}
+
+.label {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+  flex: none;
+}
+
+.body {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+  max-width: var(--sk-layout-measure-reading);
+}

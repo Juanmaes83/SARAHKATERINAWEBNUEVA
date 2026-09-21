@@ -1,0 +1,79 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.item {
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-app-border-subtle);
+}
+
+.trigger {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  width: 100%;
+  min-height: var(--sk-layout-control-height-default);
+  padding-block: var(--sk-space-24);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: start;
+  color: var(--sk-app-text-primary);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+}
+
+.trigger:hover {
+  color: var(--sk-app-text-secondary);
+}
+
+/* Plus / minus built from two rules: no icon library, no new radius. */
+.marker {
+  position: relative;
+  flex: none;
+  width: var(--sk-space-24);
+  height: var(--sk-space-24);
+  margin-block-start: var(--sk-space-4);
+}
+
+.marker::before,
+.marker::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.marker::after {
+  transform: rotate(90deg);
+}
+
+.trigger[aria-expanded='true'] .marker::after {
+  transform: rotate(0deg);
+}
+
+.panel {
+  padding-block-end: var(--sk-space-24);
+}
+
+.answer {
+  max-width: var(--sk-layout-measure-reading);
+}
+
+.reviewNote {
+  margin-block-start: var(--sk-space-16);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8);
+  align-items: center;
+}
