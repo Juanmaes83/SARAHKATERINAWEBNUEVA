@@ -16,11 +16,13 @@ Read `README.md` first for what this repository is and is not.
    repository and the source of truth disagree, the source of truth wins.
 3. Its conflict rules apply here: `brand-system/SOURCE-HIERARCHY.md`
    (L0–L7) and `brand-system/governance/decision-status-model.md`.
-4. **Screenshots and visual proposals are references, not specifications.**
-   `website/nueva web/` is explicitly classified as proposal material.
-   `website/02-activation/new-website-landings-proposal-2026-09.md` is
-   explicitly `NOT CANONICAL — NOT APPROVED FOR PRODUCTION`. Neither may
-   override the canonical brand system.
+4. **Screenshots and visual proposals are not production approvals, but they
+   are the explicit visual implementation reference for Phase 2.**
+   website/nueva web/, especially the Investment template, defines the target
+   architecture, hierarchy, rhythm and composition. The proposal remains
+   non-canonical and cannot silently override approved brand, legal or business
+   decisions. Phase 2 must implement it deliberately, not reinterpret it as a
+   vague moodboard.
 5. Recency is not authority. A newer document does not supersede an older
    approved decision unless the supersession is recorded.
 
@@ -38,7 +40,13 @@ Never fabricate, and never infer from a screenshot or an external repository:
 - legal or fiscal identity;
 - photographs of Sarah, of a team, of an office or of a property.
 
-If a value is needed and not confirmed, mark it `PENDING_APPROVAL` and stop.
+Authentic visual references listed in the mother repository may be copied into
+this repository without modifying the source, provided the file path,
+provenance and intended slot are recorded. If an image, logo or video is
+missing, ambiguous or not clearly approved, ask Juanma. Do not invent,
+substitute or generate a plausible asset silently.
+
+If a value is needed and not confirmed, mark it PENDING_APPROVAL and stop.
 Do not ship a plausible placeholder that a reviewer could mistake for real data.
 
 ## 3. Repository boundaries
@@ -52,7 +60,10 @@ Do not ship a plausible placeholder that a reviewer could mistake for real data.
 documentation wholesale, or create a new branding repository.
 
 **You may:** link to upstream documentation, consume upstream decisions,
-prepare interfaces for the Buyer System, and use clearly marked mocks.
+prepare interfaces for the Buyer System, use clearly marked mocks, and copy
+approved/reference assets from the mother repository into public/ with
+provenance. The mother repository remains read-only; importing a file never
+means editing its source or approving it for production.
 
 ## 4. Workflow
 
@@ -61,8 +72,11 @@ prepare interfaces for the Buyer System, and use clearly marked mocks.
 3. Run the full QA set before every pull request:
    `npm run lint`, `npm run typecheck`, `npm run test`, `npm run build`.
 4. Open a **Draft** pull request. Merge only on explicit human approval.
-5. Never touch production without explicit authorisation.
-6. Report only what you actually verified. Never claim "pixel perfect",
+5. Every visual change requires Juanma's human visual review on the Vercel
+   preview at mobile and desktop widths before the change is considered
+   accepted or merged.
+6. Never touch production without explicit authorisation.
+7. Report only what you actually verified. Never claim "pixel perfect",
    "SEO resolved" or "Core Web Vitals passing" without dated evidence.
 
 ## 5. Design system rules
@@ -81,12 +95,21 @@ prepare interfaces for the Buyer System, and use clearly marked mocks.
 7. **Terracotta is editorial, never interactive.** Not for body text,
    eyebrows, buttons, links, focus indicators or form errors. Prohibited
    outright on Sand and Sage.
-8. **No navy. No gold.** They appear in a proposal document, not in the
-   canonical palette.
-9. Forest dark surfaces are reserved by default for the conversion anchor.
+8. **Scoped Phase 2 website palette approved (2026-09-21):** use the same
+   ivory, navy and gold direction shown in website/nueva web, especially the
+   Investment template. This is a scoped implementation decision for
+   SARAHKATERINAWEBNUEVA; it does not replace the global canonical palette.
+   Implement it with namespaced --sk-web-* tokens, verify WCAG contrast and
+   never mutate the canonical token files.
+9. Forest dark surfaces remain available where the canonical system requires
+   them; the scoped web palette must still preserve hierarchy and contrast.
    Additional dark sections need explicit design justification.
-10. `--sk-app-text-muted` is `PENDING_APPROVAL` and **must not be used** by any
+10. --sk-app-text-muted is PENDING_APPROVAL and must not be used by any
     component until a value is approved. A guard test enforces this.
+11. Phase 2 motion must use GSAP or a native equivalent where it creates
+    hierarchy or feedback: reveals, staged hero entry, dashboard transitions,
+    card hover and scenario changes. Respect prefers-reduced-motion, avoid
+    scroll-jacking and never animate unapproved financial values.
 
 ## 6. Accessibility
 
@@ -170,10 +193,35 @@ An agent may draft such content only as an explicitly marked proposal.
 ## 12. Domain
 
 The real domain is not connected in this phase. Do not change DNS, add a
-domain in Vercel, deploy to production, or point any configuration at
-`sarahkaterina.com`.
+domain in Vercel, enable indexation or point any configuration at
+sarahkaterina.com.
 
-## 13. When you are unsure
+A Vercel deployment created by a merge is still a review environment until
+publication, legal, SEO and human visual gates are complete.
+
+## 13. Phase 2 visual contract
+
+Every Phase 2 landing must implement the template grammar:
+
+- navigation and contextual CTA;
+- editorial hero with real image or approved video slot;
+- trust strip;
+- problem and objections;
+- decision doors;
+- process/timeline;
+- dashboards, report previews and calculator entry points;
+- Sarah authority block;
+- testimonials/cases only with permission and verified evidence;
+- FAQ;
+- final CTA;
+- footer;
+- mobile-first responsive composition;
+- CRO, accessibility, SEO semantics and GEO readiness.
+
+A placeholder may be used only when it is unmistakably labelled. If the visual
+asset or video is not present or its use is unclear, stop and ask Juanma.
+
+## 14. When you are unsure
 
 Do not resolve an open decision silently, and do not stop unrelated work
 because one is open. Do the work that does not depend on it, mark the
