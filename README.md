@@ -95,9 +95,30 @@ Phase 2 visual implementation contract.
 ```
 PHASE 1 MERGED
 PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
-PHASE 2B REAL VISUAL LANDING IMPLEMENTATION NEXT
+PHASE 2B/2C INVESTMENT VISUAL IMPLEMENTATION MERGED — CANONICAL VISUAL BASE
+PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — IN REVIEW
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
+
+**Investment is the canonical visual base of the website layer.** Both
+landings render through one set of components and one token file:
+
+| Concern | Single source |
+|---|---|
+| Website palette | `app/web-tokens.css` |
+| Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*` |
+| Motion | `components/motion/RevealOnScroll.tsx` |
+
+A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
+fails if a second `--sk-web-*` declaration, a second header, footer or button,
+or a re-declared navy or gold ever reappears.
+
+| Document | What it records |
+|---|---|
+| `docs/shared-web-layer-convergence.md` | What is canonical, what was removed, what each landing still owns, how Investment is verified, how the next landing is added |
+| `docs/tax-advisory-fidelity-matrix.md` | Section-by-section comparison against the Tax Advisory template |
+| `docs/tax-advisory-visual-decisions.md` | Every judgement call, and what needs Juanma's decision |
+| `docs/tax-advisory-asset-record.md` | Asset provenance, hashes, crops, and the assets still missing |
 
 ## 6. Stack
 
@@ -126,7 +147,17 @@ cp .env.example .env.local   # optional; safe defaults apply without it
 npm run dev                  # http://localhost:3000
 ```
 
-Routes: `/` (overview) and `/foundation` (internal component laboratory).
+Routes:
+
+| Route | What it is |
+|---|---|
+| `/` | Overview |
+| `/foundation` | Internal component laboratory. Never indexable. |
+| `/preview/investment` | Phase 2A structural prototype |
+| `/preview/tax-advisory` | Phase 2B visual implementation |
+
+Everything under `/preview` is `noindex, nofollow` at three independent
+layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
 
 ## 8. Lint, typecheck, test and build
 

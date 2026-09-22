@@ -1,6 +1,11 @@
 # Property Purchase fidelity matrix
 
 **Status:** implementation baseline, pending Juanma visual review
+
+**Integration baseline:** merged with `origin/main` at Tax Advisory merge
+`0967fe2281845559b6e5b1c2acd0531ed5a2e085`. Property Purchase continues to
+use the canonical `WebHeader`, configurable `WebFaq`, configurable `WebFooter`
+and `app/web-tokens.css`; no parallel visual layer was introduced.
 **Reference:** `Juanmaes83/sarahkaterina/website/nueva web/Sarah Katerina Property Purchase.png`
 **Reference dimensions:** 941 x 1672 px
 **Route:** `/preview/property-purchase`
@@ -47,3 +52,12 @@ Human review must compare the template and preview side by side at 375 px and
 1440 px, then inspect 320, 390, 768 and 1024 px for reflow. A matching headline
 alone is not acceptance: section silhouette, media weight, rules, card
 proportions, negative space and editorial rhythm are all part of the review.
+
+## Post-merge fidelity check
+
+The merge resolution changes no Property Purchase section order, copy, media
+ratio or component silhouette. Its seven-stage file tracker, six-step process,
+illustrative pre-sign dashboard and landing-specific FAQ/footer content remain
+in place. The pending differences in the matrix above are unchanged: approved
+photography, governed proof, destinations and human visual approval are still
+required.

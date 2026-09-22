@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { Icon } from './icons/Icon';
-import { footer } from '@/content/en/investment';
+import { footer as investmentFooter } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import { siteConfig } from '@/lib/seo/config';
 import logo from '@/public/brand/sarah-katerina-logo.png';
@@ -16,18 +16,22 @@ import styles from './WebFooter.module.css';
  * but it is now stated once, quietly, instead of eighteen times.
  *
  * Links are rendered as text rather than anchors, so nothing 404s.
+ *
+ * SHARED ACROSS LANDINGS. The content is a prop so Tax Advisory can supply its
+ * own column titles, links and descriptor without a second footer component
+ * existing. It defaults to the Investment content, so `/preview/investment`
+ * behaves exactly as before.
  */
-interface FooterContent {
+export interface WebFooterContent {
   readonly description: Claim;
-  readonly groups: readonly {
-    readonly title: string;
-    readonly links: readonly Claim[];
-  }[];
+  readonly groups: readonly { readonly title: string; readonly links: readonly Claim[] }[];
   readonly copyright: Claim;
   readonly routesNote: Claim;
 }
 
-export function WebFooter({ content = footer }: { content?: FooterContent }) {
+export function WebFooter({ content = investmentFooter }: { content?: WebFooterContent } = {}) {
+  const footer = content;
+
   return (
     <footer className={styles.footer} data-surface="dark">
       <Container>
@@ -41,11 +45,11 @@ export function WebFooter({ content = footer }: { content?: FooterContent }) {
             <span className={styles.logoPlate}>
               <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="200px" />
             </span>
-            <p className={styles.description}>{content.description.text}</p>
+            <p className={styles.description}>{footer.description.text}</p>
           </div>
 
           <div className={styles.groups}>
-            {content.groups.map((group) => (
+            {footer.groups.map((group) => (
               <div key={group.title}>
                 <h2 className={styles.groupTitle}>{group.title}</h2>
                 <ul className={styles.list}>
@@ -62,9 +66,9 @@ export function WebFooter({ content = footer }: { content?: FooterContent }) {
 
         <div className={styles.bottom}>
           <div className={styles.bottomLeft}>
-            <p className={styles.copyright}>{content.copyright.text}</p>
+            <p className={styles.copyright}>{footer.copyright.text}</p>
             {/* Stated once for the whole footer. */}
-            <p className={styles.routesNote}>{content.routesNote.text}</p>
+            <p className={styles.routesNote}>{footer.routesNote.text}</p>
           </div>
 
           <div className={styles.bottomRight}>

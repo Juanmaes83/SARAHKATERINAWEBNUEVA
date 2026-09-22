@@ -16,7 +16,7 @@
   font-size: var(--sk-type-h3-size);
   font-weight: var(--sk-font-weight-light);
   line-height: var(--sk-font-line-height-quote);
-  color: var(--sk-web-gold);
+  color: var(--sk-web-gold-strong);
   max-width: 24ch;
 }
 
@@ -912,7 +912,6 @@
   font-size: var(--sk-type-legal-size);
   line-height: var(--sk-type-legal-line-height);
   color: var(--sk-web-muted-on-dark);
-  opacity: 0.75;
 }
 
 /* --- cases ------------------------------------------------------------------- */

@@ -3,6 +3,11 @@
 **Status:** active implementation record, pending Juanma asset decisions
 **Date:** 2026-09-22
 
+**Post-merge asset check:** integration over Tax Advisory main
+`0967fe2281845559b6e5b1c2acd0531ed5a2e085` added no Property Purchase asset,
+changed no source file or crop, and created no duplicate logo. Header and
+footer still render the canonical BRAND-001 asset from the shared web layer.
+
 The mother repository is read-only. No template screenshot is used as a
 production asset. No stock or generated scene is presented as a real property,
 buyer, client or Costa Blanca location.
@@ -41,3 +46,7 @@ them without restructuring the page.
 4. Decide whether a governed Property Purchase lockup and Sarah signature asset
    will be commissioned. Until then, BRAND-001 remains unchanged and no
    signature is drawn.
+
+These missing assets remain the only media blockers after conflict resolution;
+no Tax Advisory, Investment, mother-repository or Buyer System asset was copied,
+modified or replaced during the merge.

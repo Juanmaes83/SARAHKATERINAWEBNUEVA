@@ -1,6 +1,6 @@
 # Property Purchase visual decisions
 
-**Status:** implemented for Draft PR and human visual review
+**Status:** integrated over current main; pending human visual review
 **Date:** 2026-09-22
 **Route:** `/preview/property-purchase`
 **Production approval:** not granted
@@ -24,6 +24,8 @@
 | Cases              | Preserve three media-led case slots while withholding evidence                                                   | No permissions, real images or verified outcomes                                 | Implemented as blocked slots                    |
 | Motion             | Reuse native reveal, hover and line transitions                                                                  | Investment Phase 2C pattern                                                      | Implemented with full reduced-motion fallback   |
 | SEO                | One H1, preview canonical from environment, OG metadata, noindex and empty sitemap                               | Repository SEO contract                                                          | Implemented                                     |
+| Shared convergence | Resolve `WebFaq.tsx` and `WebFooter.tsx` on main's exported content contracts                                    | Tax Advisory merge `0967fe2`; PR #8 conflict resolution                          | Implemented; one FAQ and one footer remain      |
+| Contrast           | Use `--sk-web-gold-strong` on soft ivory and full muted-on-dark text on navy-soft                                | Three documented AA near-misses and merge brief                                  | Implemented without changing palette tokens     |
 
 ## Decisions pending Juanma
 
@@ -95,11 +97,22 @@ process, pre-sign dashboard, objections, services, authority, cases, journey,
 FAQ, final CTA and footer are implemented. No structural template section is
 missing. Photography, approved evidence and live destinations remain pending.
 
+## Main integration record
+
+PR #8 was merged locally with `origin/main` using a normal merge. The only
+content conflicts were `components/web/WebFaq.tsx` and
+`components/web/WebFooter.tsx`. Both retain main's exported content types,
+Investment defaults, Tax Advisory consumers, accessible FAQ disclosure model,
+BRAND-001 ivory plate and single preview/noindex footer note. Property Purchase
+passes its own `content` to those same components; no duplicate FAQ, footer,
+tokens or landing architecture was restored.
+
 ## QA evidence
 
-Verified locally on 2026-09-22 against the implemented route:
+Verified locally on 2026-09-22 after the merge, across Investment, Tax
+Advisory and Property Purchase:
 
-- `lint`, isolated `typecheck`, 71 automated tests and production build.
+- `lint`, isolated `typecheck`, 116 automated tests and production build.
 - Browser screenshots at 320, 375, 390, 768, 1024 and 1440 px in
   `output/playwright/` (local QA artifacts, not production assets).
 - No horizontal overflow at any required width.
@@ -113,7 +126,10 @@ Verified locally on 2026-09-22 against the implemented route:
 - Page meta and HTTP header both emit `noindex, nofollow`; preview canonical and
   Open Graph URL derive from `NEXT_PUBLIC_SITE_URL`.
 - Sitemap is an empty `<urlset>` and `robots.txt` disallows `/` in preview.
-- No browser console errors were present after the final reload.
+- No React warnings remain after correcting the key placement in Investment's
+  journey fragment; that correction changes no rendered DOM or styling. The
+  repository still has no approved favicon, so a fresh local browser session
+  can request `/favicon.ico` and receive the expected 404.
 
 Not executed: Lighthouse, PageSpeed Insights, axe, Core Web Vitals collection or
 physical-device testing.

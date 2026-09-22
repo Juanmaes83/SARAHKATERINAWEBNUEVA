@@ -1,0 +1,363 @@
+/* ===========================================================================
+ * TAX ADVISORY — the only styles the shared layer has no equivalent of
+ * ===========================================================================
+ *
+ * CONVERGENCE RULE: everything the Investment system already expresses is used
+ * from `WebBands.module.css`, `WebHero.module.css`, `WebSection.module.css`,
+ * `WebButton.module.css`, `WebFaq.module.css` and `DashboardCard.module.css`.
+ * This file holds four structures the Investment template does not contain,
+ * each justified below, and nothing else.
+ *
+ * Every colour is a `--sk-web-*` token from `app/web-tokens.css` — the single
+ * canonical palette. No value is declared here.
+ * =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+ * 1. HERO DOCUMENT SPINES AND VIDEO MARKER
+ *
+ * The Tax Advisory template layers labelled tax-document spines across its
+ * hero and offers a one-minute intro video. The Investment hero has neither.
+ * The spines are typography rather than a photograph of paperwork, which would
+ * be fabricated; the video marker states the asset is pending instead of
+ * faking a play button over nothing.
+ * ------------------------------------------------------------------------ */
+
+.documents {
+  position: absolute;
+  inset-inline-start: var(--sk-space-16);
+  /* Clears the snapshot card, which the shared hero floats over the frame's
+     bottom edge. Measured against WebHero's own geometry, not guessed. */
+  inset-block-end: var(--sk-space-64);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+}
+
+.document {
+  padding: var(--sk-space-4) var(--sk-space-16);
+  /* Opaque on purpose: text over a photograph must not depend on the
+     photograph for its contrast, or replacing the asset silently breaks it. */
+  background-color: var(--sk-web-ivory);
+  border-inline-start: 2px solid var(--sk-web-gold);
+  border-radius: var(--sk-radius-button);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-font-line-height-control);
+  color: var(--sk-web-ink);
+}
+
+.videoSlot {
+  position: absolute;
+  /* Under the location pin, not top-right: the shared hero floats the
+     territory schematic into that corner. */
+  inset-inline-start: var(--sk-space-16);
+  inset-block-start: calc(var(--sk-space-48) + var(--sk-space-16));
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  max-width: calc(100% - var(--sk-space-32));
+  padding: var(--sk-space-4) var(--sk-space-16);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-gold-on-dark);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-font-line-height-control);
+}
+
+/* ---------------------------------------------------------------------------
+ * 2. AUDIENCE PROFILES
+ *
+ * The template marks each profile with a gold arrow rather than the check used
+ * by the Investment cards, and runs them as a three-column list under the
+ * headline rather than inside a card.
+ * ------------------------------------------------------------------------ */
+
+.profiles {
+  display: grid;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: var(--sk-space-48) 0 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .profiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sk-space-16) var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .profiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding-block-end: var(--sk-space-16);
+  border-block-end: 1px solid var(--sk-web-border);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-body);
+  color: var(--sk-web-muted);
+}
+
+.profileArrow {
+  flex: none;
+  margin-block-start: 2px;
+  color: var(--sk-web-gold);
+}
+
+.limit {
+  max-width: var(--sk-layout-measure-reading);
+  margin: var(--sk-space-32) 0 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * 3. ANNUAL TAX CALENDAR
+ *
+ * The one genuinely new structure. Investment has no twelve-month obligation
+ * chart, and none of its chart components expresses a horizontal span across a
+ * fixed year, so this is the one layout that had to be written.
+ * ------------------------------------------------------------------------ */
+
+.calendarLayout {
+  display: grid;
+  gap: var(--sk-space-32);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .calendarLayout {
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+    gap: var(--sk-space-48);
+  }
+}
+
+.calendarChart {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  background-color: var(--sk-web-white);
+  border: 1px solid var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+}
+
+/* The month header only exists on the gantt; the stacked mobile layout gives
+   each row its own full-width track instead. */
+.months {
+  display: none;
+}
+
+.month {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  text-transform: uppercase;
+  color: var(--sk-web-muted);
+}
+
+.calendarRows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.calendarRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  padding-block-end: var(--sk-space-16);
+  border-block-end: 1px solid var(--sk-web-border);
+}
+
+.calendarRow:last-child {
+  border-block-end: 0;
+  padding-block-end: 0;
+}
+
+.calendarLabel {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-font-line-height-compact);
+  color: var(--sk-web-ink);
+}
+
+.track {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  min-height: var(--sk-space-24);
+  /* The faint twelve-cell field the bars sit in. */
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--sk-web-border) 0,
+    var(--sk-web-border) 1px,
+    transparent 1px,
+    transparent calc(100% / 12)
+  );
+}
+
+.bar {
+  display: block;
+  height: var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-navy);
+}
+
+/*
+ * Six distinguishable bar tones. The canonical palette defines no categorical
+ * scale, so each is a mix of two approved tokens rather than a new value. The
+ * colour carries no meaning on its own — the row label is the identification
+ * (AGENTS.md §6: never signal by colour alone).
+ */
+.tone_navy {
+  background-color: var(--sk-web-navy);
+}
+
+.tone_sky {
+  background-color: color-mix(in srgb, var(--sk-web-navy) 45%, var(--sk-web-white));
+}
+
+.tone_gold {
+  background-color: var(--sk-web-gold);
+}
+
+.tone_sand {
+  background-color: color-mix(in srgb, var(--sk-web-gold) 40%, var(--sk-web-white));
+}
+
+.tone_sage {
+  background-color: var(--sk-web-muted);
+}
+
+.tone_clay {
+  background-color: color-mix(in srgb, var(--sk-web-gold-strong) 60%, var(--sk-web-navy));
+}
+
+.calendarNote {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-muted);
+}
+
+@media (min-width: 768px) {
+  .months {
+    display: grid;
+    grid-template-columns: var(--sk-web-calendar-label) repeat(12, 1fr);
+    gap: var(--sk-space-16);
+    align-items: center;
+    padding-block-end: var(--sk-space-8);
+    border-block-end: 1px solid var(--sk-web-border);
+  }
+
+  .calendarRow {
+    display: grid;
+    grid-template-columns: var(--sk-web-calendar-label) repeat(12, 1fr);
+    gap: var(--sk-space-16);
+    align-items: center;
+    padding-block-end: var(--sk-space-8);
+  }
+
+  /* The track keeps its own field at every width; only its placement changes,
+     from a full-width block to the gantt's second column. */
+  .track {
+    grid-column: 2 / -1;
+  }
+}
+
+.calendarAside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  /* --sk-web-ivory, not --sk-web-ivory-soft: the gold eyebrow measures 4.41:1
+     on ivory-soft, which misses AA, and 4.77:1 on ivory. Same tint role, one
+     step lighter, no palette change. */
+  background-color: var(--sk-web-ivory);
+  border: 1px solid var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+}
+
+/* ---------------------------------------------------------------------------
+ * 4. SERVICE SUB-ITEM AND PRICE NOTE
+ *
+ * The template's three service blocks each carry a price. No price may be
+ * published, and the blocks absorb the detail that Phase 2B had spread across
+ * three extra cards, so each block needs one secondary line the Investment
+ * cards do not have.
+ * ------------------------------------------------------------------------ */
+
+.alsoLine {
+  margin: 0;
+  padding-block-start: var(--sk-space-8);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-muted);
+}
+
+.priceNote {
+  max-width: var(--sk-layout-measure-reading);
+  margin: var(--sk-space-32) auto 0;
+  text-align: center;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-muted);
+}
+
+.substitution {
+  max-width: var(--sk-layout-measure-reading);
+  margin: var(--sk-space-16) auto 0;
+  text-align: center;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-muted);
+}
+
+/* ---------------------------------------------------------------------------
+ * 5. SIX-STEP TIMELINE
+ *
+ * The shared `.timeline` is a five-column grid, because the Investment process
+ * has five steps. The Tax Advisory template has six, which wraps 5 + 1 and
+ * leaves an orphan. Three columns across two rows keeps the numerals legible
+ * and the rhythm even; the shared `.timeline` is untouched, so Investment is
+ * unaffected.
+ * ------------------------------------------------------------------------ */
+
+@media (min-width: 1024px) {
+  .timelineSix {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+}

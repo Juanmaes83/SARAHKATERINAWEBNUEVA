@@ -82,6 +82,12 @@
    * canonical layer does not define.
    */
   --sk-web-tracking-caps: 0.18em;
+  /* Label column of the Tax Advisory annual calendar. Added 2026-09-22 by the
+     Phase 2D convergence: a structural length, not a colour, so the approved
+     palette is unchanged. It lives here rather than in a landing stylesheet so
+     there stays exactly one token file for the website layer. */
+  --sk-web-calendar-label: 190px;
+
   --sk-web-measure-hero: 18ch;
   --sk-web-measure-lead: 46ch;
 
