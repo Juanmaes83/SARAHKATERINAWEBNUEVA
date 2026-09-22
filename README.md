@@ -1,9 +1,8 @@
 # Sarah Katerina — New Website
 
-> **Status: PHASE 2 VISUAL IMPLEMENTATION IN PROGRESS · NOT PRODUCTION · NOT APPROVED FOR MIGRATION**
+> **Status: THREE VISUAL BASES APPROVED FOR CONTINUATION · PHASE 2E PREMIUM ENRICHMENT NEXT · NOT PRODUCTION**
 >
-> Nothing in this repository is approved for publication. The application is
-> **not indexable by default** and no page in it represents finished marketing.
+> Juanma has approved the three merged landing implementations as visual bases for continued work. This is not approval for publication, indexing, migration or finished marketing. The application remains **not indexable by default**.
 
 ---
 
@@ -17,10 +16,16 @@ components, header and footer, responsive and accessibility baselines, SEO/GEO
 scaffolding, a typed analytics contract and CI.
 
 Phase 2 is the visual implementation workstream. It must transform that
-foundation into a real, editorial landing experience based on the visual
+foundation into real, editorial landing experiences based on the visual
 proposal in website/nueva web/, especially the Investment composition. The
 proposal is not a production approval, but its architecture, rhythm, hierarchy
 and composition are the explicit implementation reference for Phase 2.
+
+The merged base now contains three coordinated visual implementations:
+Investment, Tax Advisory and Property Purchase. Investment is the canonical
+shared visual layer; the other two adapt their template-specific content and
+structures to it. Phase 2E now focuses on premium media, motion and visual
+refinement across all three routes.
 
 ## 2. What this repository is not
 
@@ -96,22 +101,31 @@ Phase 2 visual implementation contract.
 PHASE 1 MERGED
 PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
 PHASE 2B/2C INVESTMENT VISUAL IMPLEMENTATION MERGED — CANONICAL VISUAL BASE
-PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — IN REVIEW
+PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — VISUAL BASE READY
+PHASE 2D PROPERTY PURCHASE CONVERGED ONTO THAT BASE — VISUAL BASE READY
+THREE LANDING BASES APPROVED BY JUANMA FOR PREMIUM ENRICHMENT
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
-**Investment is the canonical visual base of the website layer.** Both
-landings render through one set of components and one token file:
+**Investment is the canonical visual base of the website layer.** Investment,
+Tax Advisory and Property Purchase are now registered as the three approved
+visual implementation bases for the next workstream. This approval means they
+are ready for premium enrichment and cross-landing refinement; it does **not**
+mean that any route is approved for production, publication or migration.
+
+All three routes render through one shared web layer and one token file:
 
 | Concern | Single source |
 |---|---|
 | Website palette | `app/web-tokens.css` |
 | Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*` |
-| Motion | `components/motion/RevealOnScroll.tsx` |
+| Motion foundation | `components/motion/RevealOnScroll.tsx` |
+| Landing-specific composition | Each route's content and section module, without duplicate chrome or tokens |
 
 A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
-fails if a second `--sk-web-*` declaration, a second header, footer or button,
-or a re-declared navy or gold ever reappears.
+and the converged web-layer tests fail if a second `--sk-web-*` declaration, a
+second header, footer or button, or a re-declared navy or gold ever reappears.
+The next branch is `feat/phase-2e-premium-media-motion-2026-09-22`.
 
 | Document | What it records |
 |---|---|
@@ -119,6 +133,9 @@ or a re-declared navy or gold ever reappears.
 | `docs/tax-advisory-fidelity-matrix.md` | Section-by-section comparison against the Tax Advisory template |
 | `docs/tax-advisory-visual-decisions.md` | Every judgement call, and what needs Juanma's decision |
 | `docs/tax-advisory-asset-record.md` | Asset provenance, hashes, crops, and the assets still missing |
+| `docs/property-purchase-fidelity-matrix.md` | Section-by-section comparison against the Property Purchase template |
+| `docs/property-purchase-asset-map.md` | Property Purchase asset provenance and placement map |
+| `docs/property-purchase-visual-decisions.md` | Property Purchase visual decisions and remaining production gates |
 
 ## 6. Stack
 
@@ -153,8 +170,9 @@ Routes:
 |---|---|
 | `/` | Overview |
 | `/foundation` | Internal component laboratory. Never indexable. |
-| `/preview/investment` | Phase 2A structural prototype |
-| `/preview/tax-advisory` | Phase 2B visual implementation |
+| `/preview/investment` | Canonical Investment visual base |
+| `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment |
+| `/preview/property-purchase` | Property Purchase visual base adapted to Investment |
 
 Everything under `/preview` is `noindex, nofollow` at three independent
 layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
@@ -216,7 +234,7 @@ confirmed. Until then, calculator entry points remain visibly pending.
 | Item | State | Why it is blocked |
 |---|---|---|
 | Canonical production host | **OPEN CONFLICT** | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0. |
-| Logo / wordmark asset | AVAILABLE REFERENCE — IMPORT PENDING | Authentic logo reference exists in the mother repository at IMAGENES NUEVAS/SK_SARAH_LOGO.jpg. It has not yet been selected, optimized or imported into this repo. Ask Juanma if the intended light/dark treatment is unclear. |
+| Logo / wordmark asset | AVAILABLE REFERENCE — BASE IMPORTED | The governed authentic mark is already imported for the three visual bases. Final light/dark treatment, lockup selection and any retouch remain subject to Juanma's visual approval. Ask rather than recolouring or redrawing the mark. |
 | Institutional descriptor | `NEEDS_DECISION` | Must not be chosen silently. |
 | `Property Decision Advisor` | `TEST` + `INTERNAL_TEST_ONLY` | Not usable in public output. |
 | Legal entity, address, company number | NOT CONFIRMED | Rendered as `PENDING_APPROVAL` slots. |
@@ -227,7 +245,7 @@ confirmed. Until then, calculator entry points remain visibly pending.
 | Any commercial CTA copy | NOT APPROVED | Per-intent CTAs are an open P0. |
 | Property Management / VITA Host | `HOLD` | D-06 unexecuted; excluded entirely. |
 | AI crawler policy | `Propuesta` | Awaiting legal input; no directive invented. |
-| Photography and video of Sarah | ASSETS AVAILABLE / USE DECISION REQUIRED | Authentic references exist upstream. Each image or video must be assigned to a slot, carry provenance and receive human approval. If a selection or video treatment is unclear, ask Juanma rather than choosing silently. |
+| Photography and video of Sarah | ASSETS AVAILABLE / PREMIUM ENRICHMENT IN PROGRESS | Authentic references exist upstream. Each image or video must be assigned to a landing slot, carry provenance, receive the correct crop/treatment and be reviewed by Juanma. If a selection or video treatment is unclear, ask rather than choosing silently. |
 | Any metric, claim, case or testimonial | NOT APPROVED | Requires source, date, permission, scope and legal review. Visual proof may be shown as a clearly labelled demo/preview; it must not imply a verified result. |
 
 ## 13. What must not be published
@@ -246,11 +264,18 @@ confirmed. Until then, calculator entry points remain visibly pending.
 |---|---|---|
 | 1 — Technical foundation | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory | MERGED |
 | 2A — Landing Experience System | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype | MERGED |
-| 2B — Real visual landing implementation | Template-led composition, approved palette, real logo/images, optional video, dashboards, calculator entry points, editorial copy, CRO, SEO/GEO and premium motion | NEXT / IN PROGRESS |
-| 2C — Human visual gate | Juanma reviews mobile and desktop previews; feedback is implemented before any visual change is accepted | MANDATORY BEFORE EACH VISUAL MERGE |
+| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer | MERGED — CANONICAL VISUAL BASE |
+| 2D — Tax Advisory and Property Purchase convergence | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives | MERGED — THREE VISUAL BASES READY |
+| 2E — Premium media, motion and visual refinement | Import selected media, replace approved placeholders, refine crops, video, transitions, effects, responsive rhythm, CRO and visual polish across all three landings | NEXT |
+| 2F — Cross-landing visual QA | Compare all three routes against their templates at mobile and desktop widths; resolve shared regressions | AFTER 2E — HUMAN GATE |
 | 3 — Functional integration | Buyer System production URL, live calculator links, events, consent and lead-capture decision | BLOCKED ON PRODUCT DECISIONS |
-| 4 — Production hardening | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval | AFTER 2B/3 |
+| 4 — Production hardening | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval | AFTER 2E/2F/3 |
 | 5 — Migration | Domain, redirects, indexation and production cutover | LAST GATE |
+
+Phase 2E is the next implementation block, not a production release. Its
+acceptance requires documented media provenance, intentional responsive crops,
+purposeful motion with `prefers-reduced-motion`, no major placeholders in
+approved slots, and Juanma's visual review before merge.
 
 The full Phase 2 implementation contract is in
 docs/phase-2-visual-implementation-contract.md.
@@ -289,7 +314,9 @@ appears.
 |---|---|---|---|---|
 | `/` | Repository overview | `AppChrome` | Canonical | No |
 | `/foundation` | Component laboratory | `AppChrome` | Canonical | No — ever |
-| `/preview/investment` | Investment visual implementation | `WebHeader` / `WebFooter` | Scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/investment` | Investment canonical visual base | `WebHeader` / `WebFooter` | Scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/tax-advisory` | Tax Advisory visual base | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/property-purchase` | Property Purchase visual base | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 
 Two token layers coexist deliberately:
 
@@ -308,9 +335,11 @@ lets the two systems coexist without one bleeding into the other.
 ## Human visual review
 
 Every visual change requires Juanma's review on the Vercel preview, at mobile
-and desktop widths, **before** it is considered accepted or merged. Review
-instructions for the current phase are in
-`docs/phase-2b-visual-implementation.md` §7.
+and desktop widths, **before** it is considered accepted or merged. The three
+landing bases are accepted for continuation, but each Phase 2E media, motion or
+composition change still requires the same human gate. Review instructions are
+recorded in the relevant landing fidelity/visual-decision documents and the
+Phase 2 implementation contract.
 
 ## Governance
 
