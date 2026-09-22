@@ -85,7 +85,7 @@ export const APPROVED_MEDIA = {
     width: 1344,
     height: 752,
     alt: 'Sarah Katerina seated in an armchair in a warm, low-lit interior.',
-    focal: '58% 38%',
+    focal: '35% 38%',
     source: 'IMAGES/sarahkaterina_home.png',
     note: 'No embedded text. The cleanest of the three hero candidates.',
   }),
@@ -124,6 +124,23 @@ export const APPROVED_MEDIA = {
     focal: '36% 30%',
     source: 'IMAGES/sarahkaterina_home.png',
     note: 'No embedded text, no logo. Same original as the Tax Advisory hero, saved as its own derivative at higher quality so each slot keeps its own focal point.',
+  }),
+
+  /**
+   * Tax Advisory authority image — 2026-09-22 visual correction.
+   * The previous AUTH-SK-002 portrait was replaced at the owner's request.
+   * This is preview-only editorial imagery; embedded wall copy is recorded.
+   */
+  taxAuthority: media({
+    id: 'tax-authority-office',
+    src: '/media/tax-authority-office.webp',
+    width: 1122,
+    height: 1402,
+    alt: 'Sarah Katerina seated at a desk in an editorial office portrait with shelves and a laptop.',
+    focal: '50% 34%',
+    source: 'IMAGES/SARAHKATERINA_OFFICE_EDITORIAL.jpeg',
+    embeddedText: 'Sarah Katerina — “Ideas. People. Real impact.” (embedded in image)',
+    note: 'Owner-selected for the Preview only. The image contains visible brand and editorial text; retouching remains a later visual pass.',
   }),
 
   /* --- asset types / property ------------------------------------------- */

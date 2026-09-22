@@ -21,7 +21,6 @@ import {
   trustScript,
   trustStrip,
 } from '@/content/en/tax-advisory';
-import portrait from '@/public/sarah/sk-real-2.jpg';
 import shared from './WebBands.module.css';
 
 /**
@@ -457,13 +456,14 @@ export function TaxAuthorityBand() {
       <div className={shared.authorityGrid}>
         <RevealOnScroll>
           <div className={shared.portraitFrame}>
-            {/* AUTH-SK-002 — authentic identity reference, colour frontal. */}
+            {/* Owner-selected editorial authority image — Preview only. */}
             <Image
-              src={portrait}
-              alt={authority.imageAlt.text}
+              src={APPROVED_MEDIA.taxAuthority.src}
+              alt={APPROVED_MEDIA.taxAuthority.alt}
               className={shared.portraitImage}
               sizes="(max-width: 767px) 100vw, 30vw"
-              placeholder="blur"
+              width={APPROVED_MEDIA.taxAuthority.width}
+              height={APPROVED_MEDIA.taxAuthority.height}
             />
           </div>
         </RevealOnScroll>

@@ -128,7 +128,7 @@ export function TaxHero() {
                 variant="coast"
                 tone="navy"
                 label={hero.locationLabel.text}
-                media={APPROVED_MEDIA.territoryContact}
+                media={APPROVED_MEDIA.territoryCoast}
                 sizes="(max-width: 1023px) 60vw, 22vw"
               />
             </div>
