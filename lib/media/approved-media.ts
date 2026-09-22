@@ -102,6 +102,30 @@ export const APPROVED_MEDIA = {
     note: 'Embedded copy sits on the right, so the HTML headline is placed left of it.',
   }),
 
+  /**
+   * Investment authority portrait.
+   *
+   * Requested explicitly for "The knowledge behind every decision". The file
+   * is `IMAGES/sarahkaterina_home.png` — the only asset in the repository with
+   * that exact base name, at 1344x752. `home2` and `home3` exist and are NOT
+   * used; nor is AUTH-SK-002, which this replaces in the Investment section.
+   *
+   * No crop. Sarah is seated with both hands visible across most of the frame,
+   * so a portrait crop would have cut an arm. The section frame moves to 3:2
+   * instead — the ratio every other media frame on this page already uses, so
+   * the change also improves the page's proportional coherence.
+   */
+  investmentAuthority: media({
+    id: 'sarah-authority',
+    src: '/media/sarah-authority.webp',
+    width: 1344,
+    height: 752,
+    alt: 'Sarah Katerina seated in an armchair in a warm, low-lit room, looking towards the camera.',
+    focal: '36% 30%',
+    source: 'IMAGES/sarahkaterina_home.png',
+    note: 'No embedded text, no logo. Same original as the Tax Advisory hero, saved as its own derivative at higher quality so each slot keeps its own focal point.',
+  }),
+
   /* --- asset types / property ------------------------------------------- */
 
   assetResidential: media({

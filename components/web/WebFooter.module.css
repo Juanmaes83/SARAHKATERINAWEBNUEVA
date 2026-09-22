@@ -26,24 +26,28 @@
 .brandBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--sk-space-16);
+  align-items: flex-start;
+  gap: var(--sk-space-24);
   align-items: flex-start;
 }
 
-/* The logo is used exactly as supplied, including its teal accent. The mark
-   may not be recoloured (AUTHENTIC-REFERENCE-REGISTER.md). On the navy
-   surface the teal and the near-black "Katerina" both sit on a dark ground,
-   so the lockup is placed on an ivory plate rather than altered. */
-.logoPlate {
-  display: inline-flex;
-  padding: var(--sk-space-8) var(--sk-space-16);
-  border-radius: var(--sk-radius-card);
-  background-color: var(--sk-web-ivory);
+/* Reversed light mark for the shared navy footer.
+ *
+ * The transparent asset preserves the supplied geometry and teal accent. The
+ * ivory wordmark is the approved treatment for dark surfaces; no background
+ * plate, recolouring of the mark or local redraw is used.
+ */
+.logo {
+  display: block;
+  height: var(--sk-space-48);
+  width: auto;
+  max-width: 100%;
 }
 
-.logo {
-  height: var(--sk-space-32);
-  width: auto;
+@media (min-width: 1024px) {
+  .logo {
+    height: var(--sk-space-64);
+  }
 }
 
 .description {

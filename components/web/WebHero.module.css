@@ -213,36 +213,17 @@
   font-size: var(--sk-type-caption-size);
 }
 
-/* The place signal: a schematic, tucked against the portrait's lower edge so
-   the two read as one composition rather than two stacked pictures. */
-.territory {
-  margin-block-start: calc(-1 * var(--sk-space-32));
-  margin-inline-start: var(--sk-space-32);
-  width: 60%;
-  border-radius: var(--sk-radius-card);
-  overflow: hidden;
-  box-shadow: var(--sk-web-shadow-float);
-  position: relative;
-  z-index: var(--sk-app-z-raised);
-}
-
-@media (min-width: 1024px) {
-  .territory {
-    position: absolute;
-    inset-block-start: var(--sk-space-24);
-    inset-inline-end: calc(-1 * var(--sk-space-16));
-    width: 44%;
-    margin: 0;
-  }
-}
-
 /* In normal flow, pulled up so it overlaps the portrait's lower edge.
    Absolute positioning was tried first and covered the caption that declares
    the figures illustrative — the one line that must never be obscured. */
+/* Overlaps the lower edge of the photograph so the two read as one block.
+   The coastline thumbnail that used to sit top-right was removed on
+   2026-09-22; the card's overlap is what keeps the composition intentional
+   rather than leaving a gap where the thumbnail was. */
 .dashboard {
   position: relative;
   z-index: var(--sk-app-z-raised);
-  margin-block-start: calc(-1 * var(--sk-space-24));
+  margin-block-start: calc(-1 * var(--sk-space-32));
   margin-inline: var(--sk-space-16);
 }
 
