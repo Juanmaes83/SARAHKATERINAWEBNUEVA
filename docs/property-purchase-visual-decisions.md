@@ -124,7 +124,8 @@ Advisory and Property Purchase:
 - Under `prefers-reduced-motion: reduce`: zero hidden reveal elements, zero CSS
   animations and zero transitions longer than 50 ms.
 - Page meta and HTTP header both emit `noindex, nofollow`; preview canonical and
-  Open Graph URL derive from `NEXT_PUBLIC_SITE_URL`.
+  Open Graph URL derive from `NEXT_PUBLIC_SITE_URL`, then Vercel's generated
+  preview URL when the explicit value is absent.
 - Sitemap is an empty `<urlset>` and `robots.txt` disallows `/` in preview.
 - No React warnings remain after correcting the key placement in Investment's
   journey fragment; that correction changes no rendered DOM or styling. The

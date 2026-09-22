@@ -242,3 +242,8 @@ its annual calendar and three service blocks. Property Purchase keeps seven
 file stages and six process steps. `robots.txt` disallows `/`, `sitemap.xml`
 contains an empty urlset, and all preview responses emit
 `X-Robots-Tag: noindex, nofollow`.
+
+The deployed Preview additionally verifies canonical and Open Graph URLs
+against its generated `VERCEL_URL` when `NEXT_PUBLIC_SITE_URL` is absent. This
+is deployment-scoped metadata only: no production domain or DNS setting is
+created or changed.

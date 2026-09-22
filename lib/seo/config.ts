@@ -4,8 +4,9 @@ import { z } from 'zod';
  * Environment is validated at the data boundary only (Zod is deliberately not
  * used anywhere else in this phase).
  *
- * Every default is the SAFE one: preview mode, not indexable, localhost origin.
- * A malformed or missing variable can therefore never accidentally publish.
+ * Every default is the SAFE one: preview mode, not indexable, and either the
+ * deployment preview origin or localhost. A malformed or missing variable can
+ * therefore never accidentally publish.
  */
 const siteEnvSchema = z.object({
   NEXT_PUBLIC_SITE_MODE: z.enum(['preview', 'production']).catch('preview'),
@@ -20,7 +21,9 @@ const parsed = siteEnvSchema.parse({
   // Next.js inlines NEXT_PUBLIC_* only when referenced statically.
   NEXT_PUBLIC_SITE_MODE: process.env.NEXT_PUBLIC_SITE_MODE,
   NEXT_PUBLIC_SITE_INDEXABLE: process.env.NEXT_PUBLIC_SITE_INDEXABLE,
-  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+  NEXT_PUBLIC_SITE_URL:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined),
 });
 
 export type SiteMode = 'preview' | 'production';
@@ -43,7 +46,9 @@ export const siteConfig = {
    * truth. decisions-log.md (2026-08-05) approved https://sarahkaterina.com
    * (non-www); the 2026-09-16 entry records production redirecting non-www to
    * www and leaves the conflict "Abierta" as a P0. No production host is
-   * hardcoded anywhere in this repository.
+   * hardcoded anywhere in this repository. Vercel previews use their generated
+   * `VERCEL_URL` only when no explicit site URL is configured, so canonical and
+   * Open Graph URLs never point to localhost on a remote review deployment.
    */
   url: parsed.NEXT_PUBLIC_SITE_URL,
 
