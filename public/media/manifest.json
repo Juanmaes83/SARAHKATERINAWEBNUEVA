@@ -10,12 +10,12 @@
   },
   {
     "id": "tax-hero",
-    "source": "IMAGES/sarahkaterina_home.png",
-    "original": "1344x752",
-    "web": "1344x752",
+    "source": "IMAGES/sarahkaterina_Services_14.png",
+    "original": "1376x768",
+    "web": "1376x768",
     "cropped": false,
-    "originalKB": 1394,
-    "webKB": 29
+    "originalKB": 2197,
+    "webKB": 2197
   },
   {
     "id": "purchase-hero",
@@ -109,12 +109,12 @@
   },
   {
     "id": "authority-editorial",
-    "source": "IMAGES/sarahkaterina_Services_11.png",
+    "source": "IMAGES/sarahkaterina_Services_Especial.png",
     "original": "1376x768",
     "web": "1376x768",
     "cropped": false,
-    "originalKB": 1335,
-    "webKB": 1335
+    "originalKB": 1564,
+    "webKB": 1564
   },
   {
     "id": "purchase-final-contact",

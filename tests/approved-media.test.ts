@@ -42,12 +42,20 @@ describe('approved media registry', () => {
 
   it('uses the exact approved shared authority image on all three landings', () => {
     const authority = APPROVED_MEDIA.authorityEditorial;
-    expect(authority.source).toBe('IMAGES/sarahkaterina_Services_11.png');
+    expect(authority.source).toBe('IMAGES/sarahkaterina_Services_Especial.png');
     expect(authority.src).toBe('/media/authority-editorial.png');
     expect(authority.source).not.toMatch(/home|sk-real/);
     expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
     expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
     expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
+  });
+
+  it('uses Services_14 for both Tax Advisory hero media slots', () => {
+    expect(APPROVED_MEDIA.taxHero.source).toBe('IMAGES/sarahkaterina_Services_14.png');
+    expect(APPROVED_MEDIA.taxHero.src).toBe('/media/tax-services-14.png');
+    const taxHero = read(resolve(root, 'components/web/TaxHero.tsx'));
+    expect(taxHero).toContain('media={APPROVED_MEDIA.taxHero}');
+    expect(taxHero).not.toContain('media={APPROVED_MEDIA.territoryCoast}');
   });
 
   it('uses the approved Property Purchase final CTA image', () => {
@@ -65,6 +73,7 @@ describe('approved media registry', () => {
   it('keeps production derivatives under 250KB and isolates Preview source assets', () => {
     const previewSourceAssets = new Set([
       '/media/authority-editorial.png',
+      '/media/tax-services-14.png',
       '/media/purchase-final-contact.png',
     ]);
     const heavy = entries
