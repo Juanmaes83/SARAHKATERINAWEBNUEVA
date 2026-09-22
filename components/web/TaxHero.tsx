@@ -13,22 +13,15 @@ import styles from './TaxBands.module.css';
 /**
  * Tax Advisory hero.
  *
- * CONVERGENCE: this deliberately imports `WebHero.module.css`, the Investment
- * hero's stylesheet, rather than defining its own. The two templates share the
- * same hero composition — copy left, portrait right, a navy data card over the
- * image — so reusing the stylesheet is what guarantees the brief's
- * requirement that the hero keep the same ratio, scale, crop, position,
- * balance with the copy, visual weight and mobile behaviour as the canonical
- * base. Nothing about the hero geometry is re-specified here.
+ * The hero keeps the shared Investment composition: editorial copy on the left
+ * and one visual column on the right. Tax-specific metadata sits in normal
+ * document flow above the image, while the illustrative snapshot is rendered
+ * below it. Nothing is positioned over Sarah's face and no HTML labels repeat
+ * text already embedded in the approved image.
  *
- * Only two things are additive and Tax-Advisory-specific, both from its own
- * template: the stack of labelled document spines, and the pending intro-video
- * marker. Those live in `TaxBands.module.css`.
- *
- * MEDIA: the owner-selected Services_14 editorial image is used in both Tax
- * Advisory hero media slots for this protected Preview. The asset is retained
- * at source size provisionally and remains subject to the production derivative
- * and retouching pass.
+ * MEDIA: the owner-selected Services_14 editorial image is used in the
+ * protected Preview. The asset remains subject to the later production
+ * derivative and retouching pass.
  */
 export function TaxHero() {
   const heroMedia = APPROVED_MEDIA.taxHero;
@@ -77,55 +70,38 @@ export function TaxHero() {
 
         <RevealOnScroll order={1} className={shared.visual}>
           <figure className={shared.figure}>
-            <div className={`${shared.frame} ${styles.singleHeroFrame}`}>
-              {/*
-                PHASE 2E — approved Tax Advisory hero (inventory §11, item 1).
-                The owner-selected Services_14 visual is the single Tax Advisory
-                hero image for this Preview. The duplicated companion slot has
-                been removed; this frame now uses the wider crop that previously
-                belonged to the second visual.
-              */}
-              <Image
-                src={heroMedia.src}
-                alt={heroMedia.alt}
-                className={shared.image}
-                fill
-                priority
-                sizes="(max-width: 1023px) 100vw, 46vw"
-                style={{ objectPosition: heroMedia.focal }}
-              />
-              <span className={shared.scrim} aria-hidden="true" />
-              <span className={shared.locationPin}>
-                <Icon name="pin" size="sm" />
-                {hero.locationLabel.text}
-              </span>
+            <div className={styles.heroMedia}>
+              <div className={styles.mediaMeta} aria-label="Hero media details">
+                <span className={styles.mediaMetaItem}>
+                  <Icon name="pin" size="sm" />
+                  {hero.locationLabel.text}
+                </span>
+                <span className={`${styles.mediaMetaItem} ${styles.mediaMetaPending}`}>
+                  <Icon name="play" size="sm" />
+                  {hero.videoPending.text}
+                </span>
+              </div>
 
-              {/*
-                The template layers labelled document spines across the hero.
-                Kept as typography: a photograph of paperwork would be
-                fabricated, the labels carry the same information.
-              */}
-              <ul className={styles.documents}>
-                {hero.documents.map((document) => (
-                  <li key={document.text} className={styles.document}>
-                    {document.text}
-                  </li>
-                ))}
-              </ul>
-
-              {/*
-                The template offers a one-minute intro video. No approved video
-                asset exists and one may not be substituted, so the affordance
-                is present and marked rather than faked.
-              */}
-              <span className={styles.videoSlot}>
-                <Icon name="play" size="sm" />
-                {hero.videoPending.text}
-              </span>
+              <div className={`${shared.frame} ${styles.singleHeroFrame}`}>
+                {/*
+                  The approved image already contains its own tax-agency copy
+                  and visual labels. Keep one information layer: do not overlay
+                  duplicate document chips on top of the artwork.
+                */}
+                <Image
+                  src={heroMedia.src}
+                  alt={heroMedia.alt}
+                  className={shared.image}
+                  fill
+                  priority
+                  sizes="(max-width: 1023px) 100vw, 46vw"
+                  style={{ objectPosition: heroMedia.focal }}
+                />
+                <span className={shared.scrim} aria-hidden="true" />
+              </div>
             </div>
 
-
-            <div className={shared.dashboard}>
+            <div className={`${shared.dashboard} ${styles.detachedDashboard}`}>
               <TaxSnapshotCard />
             </div>
           </figure>
