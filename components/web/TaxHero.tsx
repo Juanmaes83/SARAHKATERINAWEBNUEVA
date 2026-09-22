@@ -26,10 +26,10 @@ import styles from './TaxBands.module.css';
  * template: the stack of labelled document spines, and the pending intro-video
  * marker. Those live in `TaxBands.module.css`.
  *
- * MEDIA: AUTH-SK-001, the authentic portrait, used directly. The template's
- * hero is a generated desk-and-coastline scene; AGENTS.md §2 forbids
- * fabricating a photograph of Sarah, so the place signal is carried by a
- * declared schematic instead.
+ * MEDIA: the owner-selected Services_14 editorial image is used in both Tax
+ * Advisory hero media slots for this protected Preview. The asset is retained
+ * at source size provisionally and remains subject to the production derivative
+ * and retouching pass.
  */
 export function TaxHero() {
   const heroMedia = APPROVED_MEDIA.taxHero;
@@ -81,8 +81,9 @@ export function TaxHero() {
             <div className={shared.frame}>
               {/*
                 PHASE 2E — approved Tax Advisory hero (inventory §11, item 1).
-                The authentic portrait remains the authority image further down
-                the page, as the approval requires.
+                The same owner-selected Services_14 visual is intentionally reused in the
+                companion slot so the Tax Advisory hero reads as one coherent
+                editorial composition.
               */}
               <Image
                 src={heroMedia.src}
@@ -128,7 +129,7 @@ export function TaxHero() {
                 variant="coast"
                 tone="navy"
                 label={hero.locationLabel.text}
-                media={APPROVED_MEDIA.territoryCoast}
+                media={APPROVED_MEDIA.taxHero}
                 sizes="(max-width: 1023px) 60vw, 22vw"
               />
             </div>

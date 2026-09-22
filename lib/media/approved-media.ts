@@ -81,13 +81,14 @@ export const APPROVED_MEDIA = {
 
   taxHero: media({
     id: 'tax-hero',
-    src: '/media/tax-hero.webp',
-    width: 1344,
-    height: 752,
-    alt: 'Sarah Katerina seated in an armchair in a warm, low-lit interior.',
-    focal: '35% 38%',
-    source: 'IMAGES/sarahkaterina_home.png',
-    note: 'No embedded text. The cleanest of the three hero candidates.',
+    src: '/media/tax-services-14.png',
+    width: 1376,
+    height: 768,
+    alt: 'A warm editorial scene featuring Sarah Katerina in a dark interior, framed with brand and service imagery.',
+    focal: '50% 50%',
+    source: 'IMAGES/sarahkaterina_Services_14.png',
+    embeddedText: 'Brand and service copy embedded in the source image.',
+    note: 'Preview-only source-sized image selected by the owner for both Tax Advisory hero media slots; create a clean optimised derivative before production.',
   }),
 
   purchaseHero: media({
@@ -114,10 +115,11 @@ export const APPROVED_MEDIA = {
     src: '/media/authority-editorial.png',
     width: 1376,
     height: 768,
-    alt: 'Sarah Katerina in a warmly lit editorial interior, seated in an armchair and looking towards the camera.',
-    focal: '50% 42%',
-    source: 'IMAGES/sarahkaterina_Services_11.png',
-    note: 'Preview-only source-sized image. The shared authority block uses a larger full-bleed editorial treatment; produce an optimised derivative before any production release.',
+    alt: 'Sarah Katerina in a warm editorial interior, framed by a dark room and soft practical lighting.',
+    focal: '50% 50%',
+    source: 'IMAGES/sarahkaterina_Services_Especial.png',
+    embeddedText: 'Brand and service copy embedded in the source image.',
+    note: 'Preview-only source-sized image selected by the owner as the shared authority visual for Investment, Tax Advisory and Property Purchase; create a clean optimised derivative before production.',
   }),
 
   /* --- asset types / property ------------------------------------------- */

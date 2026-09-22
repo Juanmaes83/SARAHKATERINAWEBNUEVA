@@ -38,3 +38,24 @@ later owner-led step.
 - Confirm the image is large enough without cutting the subject awkwardly.
 - Confirm the Property Purchase final CTA no longer uses the amphora image.
 - Confirm no horizontal overflow, focus regressions or hidden content.
+
+
+## Owner correction — 2026-09-22
+
+The owner clarified the next media replacement:
+
+1. `IMAGES/sarahkaterina_Services_Especial.png` replaces the shared
+   authority image in Investment, Tax Advisory and Property Purchase. It is
+   served through the existing `/media/authority-editorial.png` slot so the
+   three landings remain structurally identical.
+2. `IMAGES/sarahkaterina_Services_14.png` replaces **both** Tax Advisory hero
+   visuals: the main Sarah/editorial frame and the lower ceramic/amphora
+   companion frame. Both intentionally resolve to `APPROVED_MEDIA.taxHero`
+   in this Preview.
+3. `Services_11` is no longer the active shared authority source. The
+   previous Tax Advisory `territoryCoast` image remains registered for other
+   approved slots, but it is no longer used in either of the two Tax Advisory
+   hero media positions.
+4. The change is Preview-only. No navigation, copy, CTA destination, Buyer
+   System connection, production metadata, DNS or production deployment is
+   authorised by this correction.
