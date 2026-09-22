@@ -10,12 +10,12 @@
   },
   {
     "id": "tax-hero",
-    "source": "IMAGES/sarahkaterina_home.png",
-    "original": "1344x752",
-    "web": "1344x752",
+    "source": "IMAGES/sarahkaterina_Services_14.png",
+    "original": "1376x768",
+    "web": "1376x768",
     "cropped": false,
-    "originalKB": 1394,
-    "webKB": 29
+    "originalKB": 2197,
+    "webKB": 2197
   },
   {
     "id": "purchase-hero",
@@ -108,21 +108,21 @@
     "webKB": 101
   },
   {
-    "id": "tax-authority-office",
-    "source": "IMAGES/SARAHKATERINA_OFFICE_EDITORIAL.jpeg",
-    "original": "1122x1402",
-    "web": "1122x1402",
+    "id": "authority-editorial",
+    "source": "IMAGES/sarahkaterina_Services_Especial.png",
+    "original": "1376x768",
+    "web": "1376x768",
     "cropped": false,
-    "originalKB": 253,
-    "webKB": 71
+    "originalKB": 1564,
+    "webKB": 1564
   },
   {
-    "id": "sarah-authority",
-    "source": "IMAGES/sarahkaterina_home.png",
-    "original": "1344x752",
-    "web": "1344x752",
+    "id": "purchase-final-contact",
+    "source": "sarahkaterina_Contacto.png",
+    "original": "1376x768",
+    "web": "1376x768",
     "cropped": false,
-    "originalKB": 1394,
-    "webKB": 43
+    "originalKB": 6988,
+    "webKB": 6988
   }
 ]

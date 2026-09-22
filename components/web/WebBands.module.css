@@ -798,37 +798,28 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--sk-space-32);
-  align-items: center;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
   .authorityGrid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: var(--sk-space-48);
   }
 }
 
 @media (min-width: 1024px) {
   .authorityGrid {
-    /* Wider image column: the portrait is now landscape, so it needs room to
-       breathe beside the copy rather than being squeezed into a sliver. */
-    grid-template-columns: 0.92fr 1.08fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
     gap: var(--sk-space-64);
   }
 }
 
-/* NOTE: stretching the frame to the copy column's height was tried and
-   reverted — `height: 100%` on a stretched grid item fed back into the parent
-   and produced ~50 overflowing elements at 1024px and above. The frame keeps
-   its 3:2 ratio and the surrounding space reads as editorial air. */
-
-/* 3:2, matching every other media frame on the page. The portrait ratio it
-   replaced forced a crop that cut an arm out of the seated composition. */
 .portraitFrame {
   position: relative;
   overflow: hidden;
-  border-radius: var(--sk-radius-card);
-  aspect-ratio: 3 / 2;
+  min-height: clamp(360px, 42vw, 620px);
+  border-radius: 0;
   background-color: var(--sk-web-navy);
 }
 
@@ -836,7 +827,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 26%;
+  object-position: 50% 42%;
 }
 
 .authorityBody {
