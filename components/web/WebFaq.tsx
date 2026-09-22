@@ -7,6 +7,17 @@ import { faq } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import styles from './WebFaq.module.css';
 
+interface FaqContent {
+  readonly eyebrow: Claim;
+  readonly title: Claim;
+  readonly items: readonly {
+    readonly id: string;
+    readonly question: Claim;
+    readonly answer: Claim;
+  }[];
+  readonly legalNote: Claim;
+}
+
 function FaqItem({ question, answer }: { question: string; answer: Claim }) {
   const [open, setOpen] = useState(false);
   const baseId = useId();
@@ -62,16 +73,16 @@ function FaqItem({ question, answer }: { question: string; answer: Claim }) {
  * comparing two answers should not have one close the other. Native buttons,
  * so keyboard and screen-reader behaviour is the platform's.
  */
-export function WebFaq() {
+export function WebFaq({ content = faq }: { content?: FaqContent }) {
   return (
     <WebSection surface="ivory" id="faq">
-      <WebSectionHeader eyebrow={faq.eyebrow.text} title={faq.title.text} centered rule />
+      <WebSectionHeader eyebrow={content.eyebrow.text} title={content.title.text} centered rule />
       <div className={styles.grid}>
-        {faq.items.map((item) => (
+        {content.items.map((item) => (
           <FaqItem key={item.id} question={item.question.text} answer={item.answer} />
         ))}
       </div>
-      <p className={styles.legalNote}>{faq.legalNote.text}</p>
+      <p className={styles.legalNote}>{content.legalNote.text}</p>
     </WebSection>
   );
 }

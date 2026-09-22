@@ -64,6 +64,7 @@
   display: inline-flex;
   align-items: center;
   min-height: var(--sk-layout-touch-target-min);
+  min-width: var(--sk-layout-touch-target-min);
   font-family: var(--sk-type-navigation-family);
   font-size: var(--sk-type-navigation-size);
   font-weight: var(--sk-type-navigation-weight);
@@ -82,8 +83,7 @@
   background-color: var(--sk-web-gold);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform var(--sk-motion-interaction-duration)
-    var(--sk-motion-interaction-ease);
+  transition: transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
 }
 
 .navLink:hover::after,
