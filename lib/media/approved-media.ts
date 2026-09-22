@@ -103,44 +103,21 @@ export const APPROVED_MEDIA = {
   }),
 
   /**
-   * Investment authority portrait.
+   * Shared authority editorial image — 2026-09-22 visual pass.
    *
-   * Requested explicitly for "The knowledge behind every decision". The file
-   * is `IMAGES/sarahkaterina_home.png` — the only asset in the repository with
-   * that exact base name, at 1344x752. `home2` and `home3` exist and are NOT
-   * used; nor is AUTH-SK-002, which this replaces in the Investment section.
-   *
-   * No crop. Sarah is seated with both hands visible across most of the frame,
-   * so a portrait crop would have cut an arm. The section frame moves to 3:2
-   * instead — the ratio every other media frame on this page already uses, so
-   * the change also improves the page's proportional coherence.
+   * Owner-selected for the protected Preview and intentionally shared by
+   * Investment, Tax Advisory and Property Purchase so the Sarah section has
+   * one coherent visual language across all three landings.
    */
-  investmentAuthority: media({
-    id: 'sarah-authority',
-    src: '/media/sarah-authority.webp',
-    width: 1344,
-    height: 752,
-    alt: 'Sarah Katerina seated in an armchair in a warm, low-lit room, looking towards the camera.',
-    focal: '36% 30%',
-    source: 'IMAGES/sarahkaterina_home.png',
-    note: 'No embedded text, no logo. Same original as the Tax Advisory hero, saved as its own derivative at higher quality so each slot keeps its own focal point.',
-  }),
-
-  /**
-   * Tax Advisory authority image — 2026-09-22 visual correction.
-   * The previous AUTH-SK-002 portrait was replaced at the owner's request.
-   * This is preview-only editorial imagery; embedded wall copy is recorded.
-   */
-  taxAuthority: media({
-    id: 'tax-authority-office',
-    src: '/media/tax-authority-office.webp',
-    width: 1122,
-    height: 1402,
-    alt: 'Sarah Katerina seated at a desk in an editorial office portrait with shelves and a laptop.',
-    focal: '50% 34%',
-    source: 'IMAGES/SARAHKATERINA_OFFICE_EDITORIAL.jpeg',
-    embeddedText: 'Sarah Katerina — “Ideas. People. Real impact.” (embedded in image)',
-    note: 'Owner-selected for the Preview only. The image contains visible brand and editorial text; retouching remains a later visual pass.',
+  authorityEditorial: media({
+    id: 'authority-editorial',
+    src: '/media/authority-editorial.png',
+    width: 1376,
+    height: 768,
+    alt: 'Sarah Katerina in a warmly lit editorial interior, seated in an armchair and looking towards the camera.',
+    focal: '50% 42%',
+    source: 'IMAGES/sarahkaterina_Services_11.png',
+    note: 'Preview-only source-sized image. The shared authority block uses a larger full-bleed editorial treatment; produce an optimised derivative before any production release.',
   }),
 
   /* --- asset types / property ------------------------------------------- */
@@ -203,6 +180,18 @@ export const APPROVED_MEDIA = {
     focal: '50% 50%',
     source: 'IMAGES/sarahkaterina_LifeStyle_6.png',
     note: 'The phone screen shows a mock-up of this site. Self-referential, not a third-party brand.',
+  }),
+
+  purchaseFinalContact: media({
+    id: 'purchase-final-contact',
+    src: '/media/purchase-final-contact.png',
+    width: 1376,
+    height: 768,
+    alt: 'A warm editorial tabletop scene with a branded contact presentation, viewed from above.',
+    focal: '50% 50%',
+    source: 'sarahkaterina_Contacto.png',
+    embeddedText: 'Sarah Katerina — brand and service copy embedded in the source image.',
+    note: 'Preview-only owner-selected visual for the Property Purchase final CTA. The original is retained unchanged; create a clean derivative before production.',
   }),
 
   /* --- process / report -------------------------------------------------- */

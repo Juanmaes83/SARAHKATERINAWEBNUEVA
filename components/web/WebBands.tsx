@@ -420,7 +420,7 @@ export function ScenariosBand() {
 /* --- AUTHORITY (navy) ---------------------------------------------------------- */
 
 export function AuthorityBand() {
-  const authorityMedia = APPROVED_MEDIA.investmentAuthority;
+  const authorityMedia = APPROVED_MEDIA.authorityEditorial;
 
   return (
     <WebSection surface="navySoft" id="sarah">

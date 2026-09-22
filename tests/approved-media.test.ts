@@ -35,16 +35,24 @@ const entries = Object.values(APPROVED_MEDIA);
 
 describe('approved media registry', () => {
   it('registers only images approved in the Phase 2E inventory', () => {
-    // 12 from the Phase 2E approval, plus the Investment authority portrait
-    // and the owner-selected Tax Advisory editorial portrait.
+    // 12 from the Phase 2E approval, plus the shared authority image
+    // and the Property Purchase final CTA image.
     expect(entries.length).toBe(14);
   });
 
-  it('uses the exact approved file for the Investment authority portrait', () => {
-    const authority = APPROVED_MEDIA.investmentAuthority;
-    expect(authority.source).toBe('IMAGES/sarahkaterina_home.png');
-    // The near-miss files must never be substituted for it.
-    expect(authority.source).not.toMatch(/home[23]/);
+  it('uses the exact approved shared authority image on all three landings', () => {
+    const authority = APPROVED_MEDIA.authorityEditorial;
+    expect(authority.source).toBe('IMAGES/sarahkaterina_Services_11.png');
+    expect(authority.src).toBe('/media/authority-editorial.png');
+    expect(authority.source).not.toMatch(/home|sk-real/);
+    expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
+    expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
+    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
+  });
+
+  it('uses the approved Property Purchase final CTA image', () => {
+    expect(APPROVED_MEDIA.purchaseFinalContact.source).toBe('sarahkaterina_Contacto.png');
+    expect(APPROVED_MEDIA.purchaseFinalContact.src).toBe('/media/purchase-final-contact.png');
   });
 
   it('ships a web derivative for every registered entry', () => {
@@ -54,16 +62,21 @@ describe('approved media registry', () => {
     expect(missing).toEqual([]);
   });
 
-  it('keeps every web derivative under 250KB', () => {
-    // The originals total ~50MB of PNG. Serving those would be a performance
-    // defect, so every entry is a WebP derivative.
+  it('keeps production derivatives under 250KB and isolates Preview source assets', () => {
+    const previewSourceAssets = new Set([
+      '/media/authority-editorial.png',
+      '/media/purchase-final-contact.png',
+    ]);
     const heavy = entries
       .map((m) => {
         const path = resolve(root, 'public', m.src.replace(/^\//, ''));
         return { src: m.src, kb: Math.round(statSync(path).size / 1024) };
       })
-      .filter((m) => m.kb > 250);
+      .filter((m) => m.kb > 250 && !previewSourceAssets.has(m.src));
     expect(heavy).toEqual([]);
+    for (const src of previewSourceAssets) {
+      expect(entries.find((m) => m.src === src)?.note).toMatch(/Preview-only/);
+    }
   });
 
   it('never modifies or deletes an original', () => {
@@ -145,11 +158,9 @@ describe('excluded media', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('uses the owner-selected editorial portrait for Tax Advisory authority', () => {
-    expect(APPROVED_MEDIA.taxAuthority.source).toBe(
-      'IMAGES/SARAHKATERINA_OFFICE_EDITORIAL.jpeg',
-    );
-    const usesEditorial = sourceFiles.filter((f) => /taxAuthority/.test(read(f)));
-    expect(usesEditorial.length).toBeGreaterThan(0);
+  it('does not retain the superseded authority portraits as active consumers', () => {
+    expect(
+      sourceFiles.filter((f) => /APPROVED_MEDIA\.(investmentAuthority|taxAuthority)/.test(readCode(f))),
+    ).toEqual([]);
   });
 });

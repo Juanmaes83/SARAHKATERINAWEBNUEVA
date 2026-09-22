@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { resolveEntryPoint, type BuyerSystemExperienceKey } from '@/lib/buyer-system/links';
-import portrait from '@/public/sarah/sk-real-2.jpg';
 import { WebLinkButton } from './WebButton';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
@@ -448,16 +447,19 @@ export function ServicesBand() {
 }
 
 export function AuthorityBand() {
+  const authorityMedia = APPROVED_MEDIA.authorityEditorial;
+
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
         <RevealOnScroll className={styles.portraitFrame}>
           <Image
-            src={portrait}
-            alt={authority.imageAlt.text}
+            src={authorityMedia.src}
+            alt={authorityMedia.alt}
             className={styles.portrait}
-            sizes="(max-width: 767px) 100vw, 28vw"
-            placeholder="blur"
+            fill
+            sizes="(max-width: 767px) 100vw, 46vw"
+            style={{ objectPosition: authorityMedia.focal }}
           />
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.authorityCopy}>
@@ -559,7 +561,7 @@ export function FinalCtaBand() {
           <PlaceholderMedia
           label="Costa Blanca panorama pending"
           variant="coast"
-          media={APPROVED_MEDIA.territoryCoast}
+          media={APPROVED_MEDIA.purchaseFinalContact}
           sizes="(max-width: 1023px) 100vw, 45vw"
         />
           <p>{finalCta.script.text}</p>

@@ -458,12 +458,12 @@ export function TaxAuthorityBand() {
           <div className={shared.portraitFrame}>
             {/* Owner-selected editorial authority image — Preview only. */}
             <Image
-              src={APPROVED_MEDIA.taxAuthority.src}
-              alt={APPROVED_MEDIA.taxAuthority.alt}
+              src={APPROVED_MEDIA.authorityEditorial.src}
+              alt={APPROVED_MEDIA.authorityEditorial.alt}
               className={shared.portraitImage}
-              sizes="(max-width: 767px) 100vw, 30vw"
-              width={APPROVED_MEDIA.taxAuthority.width}
-              height={APPROVED_MEDIA.taxAuthority.height}
+              fill
+              sizes="(max-width: 767px) 100vw, 46vw"
+              style={{ objectPosition: APPROVED_MEDIA.authorityEditorial.focal }}
             />
           </div>
         </RevealOnScroll>
