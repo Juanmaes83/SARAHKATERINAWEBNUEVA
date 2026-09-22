@@ -75,7 +75,7 @@
   font-weight: var(--sk-type-eyebrow-weight);
   letter-spacing: var(--sk-web-tracking-caps);
   text-transform: uppercase;
-  color: var(--sk-web-gold);
+  color: var(--sk-web-gold-strong);
 }
 
 .navy .eyebrow,

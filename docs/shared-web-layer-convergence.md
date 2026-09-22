@@ -3,7 +3,7 @@
 Status: IMPLEMENTED · PREVIEW ONLY · NOT PRODUCTION
 Date: 2026-09-22
 Phase: 2D
-Routes affected: `/preview/investment`, `/preview/tax-advisory`
+Routes affected: `/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase`
 
 ---
 
@@ -153,9 +153,10 @@ Manual, this run — **both routes measured with the same script, at 320 / 375 /
 
 The two landings behave identically. That is the intended result.
 
-### The three contrast failures are the canonical layer's, and predate this work
+### The three canonical contrast near-misses are resolved
 
-Both routes fail the **same three pairings**, from the **same shared classes**:
+Before this resolution, both integrated routes failed the **same three
+pairings**, from the **same shared classes**:
 
 | Class                | Foreground                                      | Background                        | Measured | Needs |
 | -------------------- | ----------------------------------------------- | --------------------------------- | -------- | ----- |
@@ -173,44 +174,38 @@ and both landings put gold text on soft bands.
 | `--sk-web-ivory-soft` `#f4f0e7` | **4.41 ✗** |
 | `--sk-web-white` `#fefdfb`      | 4.94 ✓     |
 
-**Not fixed here, deliberately.** The palette is Juanma's approved decision and
-the brief is explicit that it must not be changed; these predate this branch and
-affect Investment identically. The smallest fixes, for Juanma to choose:
+The PR #8 integration applies the scoped remedies requested for all three
+landings. `WebBands_script` and light-surface `WebSection_eyebrow` now use the
+existing `--sk-web-gold-strong` token (5.14:1 on ivory-soft). Dark-surface
+eyebrows keep `--sk-web-gold-on-dark`. `WebBands_limit` keeps
+`--sk-web-muted-on-dark` at full opacity (6.78:1 on navy-soft). No palette token
+value changed, so Investment's approved global colours remain intact.
 
-1. `--sk-web-gold: #88682e` — clears 4.5 on every light ground (ivory 4.91,
-   ivory-soft 4.54, white 5.08). A two-unit change, visually imperceptible.
-2. Or use the existing `--sk-web-gold-strong` (`#7e6029`, **5.14** on
-   ivory-soft) for gold text on soft surfaces only.
-3. For `WebBands_limit`, drop the opacity that composites
-   `--sk-web-muted-on-dark` down to `#7c8e9c`; the token alone measures 6.78 on
-   navy-soft.
-
-One instance **was** fixed, because it was introduced by this branch: the tax
-calendar aside used `--sk-web-ivory-soft` as its own background, putting a gold
-eyebrow at 4.41. It now uses `--sk-web-ivory` (4.77). No palette change.
+Tax Advisory had already fixed its calendar aside by using `--sk-web-ivory`
+(4.77) instead of soft ivory behind a gold eyebrow. The shared corrections
+above complete the same contrast work without changing the approved palette.
 
 ---
 
-## 7. How Property Purchase is added next
+## 7. Property Purchase integration outcome
 
-The pattern is now established; follow it exactly.
+Property Purchase now follows the established pattern:
 
-1. Write `content/en/property-purchase.ts` against the shapes the shared
+1. `content/en/property-purchase.ts` supplies the shapes the shared
    components expect: `nav`, `headerCta`, `seo`, `PROTOTYPE_NOTICE`, `hero`,
-   `faq`, `footer`, plus the landing's own sections. Follow the Investment
+   `faq`, `footer`, plus the landing's own sections. It follows the Investment
    conventions: illustrative values as **plain strings** outside the claim
    graph, unconfirmed headline figures as a `pending` claim so the shared
    components render the small pending dot.
-2. Build the bands in `components/web/PurchaseBands.tsx`, importing
-   `WebBands.module.css`. Do not create a stylesheet until a structure genuinely
-   has no shared equivalent — and then write down why, next to the code.
+2. Its landing-specific compositions live in `PropertyPurchase.tsx` and
+   `PropertyPurchase.module.css`; they reuse canonical tokens and primitives and
+   do not declare a second visual system.
 3. Reuse `WebHeader`, `WebFooter content={…}`, `WebFaq content={…}`,
    `WebButton`, `Icon`, `TerritoryVisual`, `SampleChart`, `WebSection`.
-4. Add the route under `/preview/`, `laboratory: true`.
-5. Extend the `converged web layer` suite so the new landing is covered by the
+4. The route remains `/preview/property-purchase`, `laboratory: true`.
+5. The `converged web layer` suite covers the new landing with the
    same one-system assertions.
-6. Run the QA script against all three routes. They should produce the same
-   numbers.
+6. QA is run against all three routes at the same six required widths.
 
 **Do not** add a second token file, a second header, a second footer, a second
 button or a second icon set. The tests will fail, and so will the review.
@@ -219,9 +214,36 @@ button or a second icon set. The tests will fail, and so will the review.
 
 ## 8. What is still open
 
-- The three contrast pairings in §6 — Juanma's call.
-- `--sk-web-gold` is validated against only one of three light grounds in
-  `app/web-tokens.css`; the comment block should record all three once a value
-  is chosen.
 - The Tax Advisory template's gold is lighter than the canonical gold. Visual
   intent preserved, exact hue not. Worth confirming at the visual gate.
+- Property Purchase still needs approved photography, governed case evidence,
+  live CTA/Buyer System destinations and Juanma's visual review.
+
+## 9. PR #8 conflict resolution
+
+The branch was integrated over `origin/main` containing Tax Advisory merge
+`0967fe2281845559b6e5b1c2acd0531ed5a2e085` with a normal merge. Only
+`WebFaq.tsx` and `WebFooter.tsx` conflicted. The resolution keeps main's
+`WebFaqContent` and `WebFooterContent` contracts, Investment defaults, Tax
+Advisory content props, accessible independent FAQ disclosures, canonical logo
+plate, shared navigation groups and single preview/noindex note. Property
+Purchase passes its own content through those contracts. There is one header,
+one footer, one FAQ implementation and one `app/web-tokens.css`; no parallel
+architecture was restored.
+
+### Post-merge QA
+
+All three routes were checked at 320, 375, 390, 768, 1024 and 1440 px. Each
+has one H1, header, main and footer; zero horizontal overflow; no visible target
+below 44 by 44 px; no heading-level skip; independent labelled FAQ regions; a
+focus-trapped mobile dialog that closes with Escape and returns focus; and zero
+hidden reveal content or long animation with reduced motion. Tax Advisory keeps
+its annual calendar and three service blocks. Property Purchase keeps seven
+file stages and six process steps. `robots.txt` disallows `/`, `sitemap.xml`
+contains an empty urlset, and all preview responses emit
+`X-Robots-Tag: noindex, nofollow`.
+
+The deployed Preview additionally verifies canonical and Open Graph URLs
+against its generated `VERCEL_URL` when `NEXT_PUBLIC_SITE_URL` is absent. This
+is deployment-scoped metadata only: no production domain or DNS setting is
+created or changed.

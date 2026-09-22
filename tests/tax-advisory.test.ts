@@ -11,6 +11,7 @@ const read = (p: string) => readFileSync(resolve(root, p), 'utf8');
 
 const pageSource = read('app/preview/tax-advisory/page.tsx');
 const investmentPage = read('app/preview/investment/page.tsx');
+const propertyPurchasePage = read('app/preview/property-purchase/page.tsx');
 const bandsSource = read('components/web/TaxBands.tsx');
 const heroSource = read('components/web/TaxHero.tsx');
 const taxCss = read('components/web/TaxBands.module.css');
@@ -102,8 +103,8 @@ describe('converged web layer', () => {
     }
   });
 
-  it('runs both landings through the same chrome components', () => {
-    for (const source of [pageSource, investmentPage]) {
+  it('runs all three landings through the same chrome components', () => {
+    for (const source of [pageSource, investmentPage, propertyPurchasePage]) {
       expect(source).toContain('<WebHeader');
       expect(source).toContain('<WebFooter');
       expect(source).toContain('<WebFaq');
@@ -188,6 +189,13 @@ describe('investment is unaffected', () => {
     expect(investmentPage).toMatch(/<WebFaq\s*\/>/);
     expect(read('components/web/WebFooter.tsx')).toContain('content = investmentFooter');
     expect(read('components/web/WebFaq.tsx')).toContain('content = investmentFaq');
+  });
+
+  it('passes landing-specific FAQ and footer content through the shared contracts', () => {
+    for (const source of [pageSource, propertyPurchasePage]) {
+      expect(source).toMatch(/<WebFaq content=\{faq\}/);
+      expect(source).toMatch(/<WebFooter content=\{footer\}/);
+    }
   });
 });
 

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { Fragment } from 'react';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
@@ -513,9 +514,8 @@ export function JourneyBand() {
       <WebSectionHeader eyebrow={journey.eyebrow.text} title={journey.title.text} centered />
       <ol className={styles.chain}>
         {journey.steps.map((step, index) => (
-          <>
+          <Fragment key={step.title.text}>
             <RevealOnScroll
-              key={step.title.text}
               as="li"
               order={index}
               className={styles.chainItem}
@@ -533,7 +533,7 @@ export function JourneyBand() {
                 <Icon name="arrow" size="sm" />
               </li>
             ) : null}
-          </>
+          </Fragment>
         ))}
       </ol>
       <RevealOnScroll order={2} style={{ marginBlockStart: 'var(--sk-space-24)' }}>

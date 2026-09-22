@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { Container } from '@/components/layout/Container';
-import { WebButton } from './WebButton';
+import { WebButton, WebLinkButton } from './WebButton';
 import { track } from '@/lib/analytics/track';
 import { cn } from '@/lib/utils/cn';
 import logo from '@/public/brand/sarah-katerina-logo.png';
@@ -21,6 +21,8 @@ export interface WebNavItem {
 export interface WebHeaderProps {
   nav: readonly WebNavItem[];
   ctaLabel: string;
+  brandHref?: string;
+  ctaHref?: string;
 }
 
 /**
@@ -42,7 +44,12 @@ export interface WebHeaderProps {
  * NOTE: the Investment template shows a different lockup ("SK · SARAH KATERINA
  * INVESTMENT"). That lockup is not a governed asset, so it is not reproduced.
  */
-export function WebHeader({ nav, ctaLabel }: WebHeaderProps) {
+export function WebHeader({
+  nav,
+  ctaLabel,
+  brandHref = '/preview/investment',
+  ctaHref,
+}: WebHeaderProps) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [locale, setLocale] = useState<'en' | 'es'>('en');
@@ -105,7 +112,11 @@ export function WebHeader({ nav, ctaLabel }: WebHeaderProps) {
   }, [open]);
 
   const languages = (
-    <div className={styles.langGroup} role="group" aria-label="Language — preview only, routing not implemented">
+    <div
+      className={styles.langGroup}
+      role="group"
+      aria-label="Language — preview only, routing not implemented"
+    >
       {(['en', 'es'] as const).map((option) => (
         <button
           key={option}
@@ -124,7 +135,7 @@ export function WebHeader({ nav, ctaLabel }: WebHeaderProps) {
   return (
     <header className={cn(styles.header, scrolled && styles.scrolled)}>
       <Container className={styles.inner}>
-        <Link href="/preview/investment" className={styles.brand}>
+        <Link href={brandHref} className={styles.brand}>
           <Image
             src={logo}
             alt="Sarah Katerina"
@@ -149,13 +160,28 @@ export function WebHeader({ nav, ctaLabel }: WebHeaderProps) {
         <div className={styles.actions}>
           {languages}
           <span className={styles.divider} aria-hidden="true" />
-          <WebButton
-            variant="primary"
-            arrow
-            onClick={() => track('nav_cta_click', { location: 'header', target: 'primary_action' })}
-          >
-            {ctaLabel}
-          </WebButton>
+          {ctaHref ? (
+            <WebLinkButton
+              href={ctaHref}
+              variant="primary"
+              arrow
+              onClick={() =>
+                track('nav_cta_click', { location: 'header', target: 'primary_action' })
+              }
+            >
+              {ctaLabel}
+            </WebLinkButton>
+          ) : (
+            <WebButton
+              variant="primary"
+              arrow
+              onClick={() =>
+                track('nav_cta_click', { location: 'header', target: 'primary_action' })
+              }
+            >
+              {ctaLabel}
+            </WebButton>
+          )}
         </div>
 
         <button
@@ -200,15 +226,35 @@ export function WebHeader({ nav, ctaLabel }: WebHeaderProps) {
 
           <div className={styles.panelFoot}>
             {languages}
-            <WebButton
-              variant="primary"
-              arrow
-              onClick={() =>
-                track('nav_cta_click', { location: 'mobile_menu', target: 'primary_action' })
-              }
-            >
-              {ctaLabel}
-            </WebButton>
+            {ctaHref ? (
+              <WebLinkButton
+                href={ctaHref}
+                variant="primary"
+                arrow
+                onClick={() => {
+                  track('nav_cta_click', {
+                    location: 'mobile_menu',
+                    target: 'primary_action',
+                  });
+                  close();
+                }}
+              >
+                {ctaLabel}
+              </WebLinkButton>
+            ) : (
+              <WebButton
+                variant="primary"
+                arrow
+                onClick={() =>
+                  track('nav_cta_click', {
+                    location: 'mobile_menu',
+                    target: 'primary_action',
+                  })
+                }
+              >
+                {ctaLabel}
+              </WebButton>
+            )}
           </div>
         </div>
       ) : null}
