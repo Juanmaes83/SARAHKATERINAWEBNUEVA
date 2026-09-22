@@ -36,8 +36,8 @@ const entries = Object.values(APPROVED_MEDIA);
 describe('approved media registry', () => {
   it('registers only images approved in the Phase 2E inventory', () => {
     // 12 from the Phase 2E approval, plus the Investment authority portrait
-    // requested in the 2026-09-22 visual corrections.
-    expect(entries.length).toBe(13);
+    // and the owner-selected Tax Advisory editorial portrait.
+    expect(entries.length).toBe(14);
   });
 
   it('uses the exact approved file for the Investment authority portrait', () => {
@@ -145,9 +145,11 @@ describe('excluded media', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('keeps the authentic portrait as the authority image', () => {
-    // Required by the approval: the hero may change, the authority may not.
-    const usesAuthentic = sourceFiles.filter((f) => /sk-real-2/.test(read(f)));
-    expect(usesAuthentic.length).toBeGreaterThan(0);
+  it('uses the owner-selected editorial portrait for Tax Advisory authority', () => {
+    expect(APPROVED_MEDIA.taxAuthority.source).toBe(
+      'IMAGES/SARAHKATERINA_OFFICE_EDITORIAL.jpeg',
+    );
+    const usesEditorial = sourceFiles.filter((f) => /taxAuthority/.test(read(f)));
+    expect(usesEditorial.length).toBeGreaterThan(0);
   });
 });
