@@ -31,6 +31,7 @@ PROJECT-STATUS.md`, which this repository does not duplicate or override.
 | `/preview/investment` | Canonical Investment visual base | No — ever, while under `/preview` |
 | `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment | No — ever, while under `/preview` |
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment | No — ever, while under `/preview` |
+| `/preview/team` | Editorial team page for buyer-side roles and process | No — ever, while under `/preview` |
 
 Juanma has approved all three preview routes as visual bases for continued
 implementation. This is a continuation approval, not production or publication

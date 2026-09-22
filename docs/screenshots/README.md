@@ -35,3 +35,11 @@ change can be compared against it.
 
 They are compressed for repository weight. Judge colour and type on the live
 preview, not here.
+
+## Team editorial reference
+
+`ed87a2a9-e307-4a2c-a58d-7a92ff0bf8ee.png` is the user-supplied composition
+and density reference for `/preview/team`. It is documentation only and must
+never be served as page photography or treated as a source of approved copy,
+figures or testimonials. Its provenance is recorded in
+`docs/team-asset-record.md`.

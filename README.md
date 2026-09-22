@@ -178,6 +178,7 @@ Routes:
 | `/preview/investment` | Canonical Investment visual base |
 | `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment |
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment |
+| `/preview/team` | Editorial team page; buyer-side roles and process preview |
 
 Everything under `/preview` is `noindex, nofollow` at three independent
 layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
