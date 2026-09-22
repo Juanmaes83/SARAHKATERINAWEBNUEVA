@@ -13,64 +13,66 @@
  * =========================================================================== */
 
 /* ---------------------------------------------------------------------------
- * 1. HERO DOCUMENT SPINES AND VIDEO MARKER
+ * 1. TAX HERO MEDIA HIERARCHY
  *
- * The Tax Advisory template layers labelled tax-document spines across its
- * hero and offers a one-minute intro video. The Investment hero has neither.
- * The spines are typography rather than a photograph of paperwork, which would
- * be fabricated; the video marker states the asset is pending instead of
- * faking a play button over nothing.
+ * The approved artwork already contains its tax-agency labels. The location
+ * and pending-video indicators remain useful metadata, but live outside the
+ * artwork so they never cover Sarah's face. The snapshot is also detached from
+ * the image and returned to normal document flow.
  * ------------------------------------------------------------------------ */
 
-.documents {
-  position: absolute;
-  inset-inline-start: var(--sk-space-16);
-  /* Clears the snapshot card, which the shared hero floats over the frame's
-     bottom edge. Measured against WebHero's own geometry, not guessed. */
-  inset-block-end: var(--sk-space-64);
+.heroMedia {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--sk-space-8);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  z-index: 2;
+  gap: var(--sk-space-16);
 }
 
-.document {
-  padding: var(--sk-space-4) var(--sk-space-16);
-  /* Opaque on purpose: text over a photograph must not depend on the
-     photograph for its contrast, or replacing the asset silently breaks it. */
-  background-color: var(--sk-web-ivory);
-  border-inline-start: 2px solid var(--sk-web-gold);
-  border-radius: var(--sk-radius-button);
-  font-family: var(--sk-type-caption-family);
-  font-size: var(--sk-type-legal-size);
-  font-weight: var(--sk-font-weight-semibold);
-  line-height: var(--sk-font-line-height-control);
-  color: var(--sk-web-ink);
+.mediaMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-8) var(--sk-space-16);
 }
 
-.videoSlot {
-  position: absolute;
-  /* Under the location pin, not top-right: the shared hero floats the
-     territory schematic into that corner. */
-  inset-inline-start: var(--sk-space-16);
-  inset-block-start: calc(var(--sk-space-48) + var(--sk-space-16));
-  z-index: 2;
+.mediaMetaItem {
   display: inline-flex;
   align-items: center;
   gap: var(--sk-space-8);
-  max-width: calc(100% - var(--sk-space-32));
-  padding: var(--sk-space-4) var(--sk-space-16);
+  min-height: var(--sk-space-32);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border: 1px solid var(--sk-web-border);
   border-radius: var(--sk-radius-pill);
-  background-color: var(--sk-web-navy);
-  color: var(--sk-web-gold-on-dark);
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-navy);
   font-family: var(--sk-type-caption-family);
   font-size: var(--sk-type-legal-size);
   font-weight: var(--sk-font-weight-semibold);
   line-height: var(--sk-font-line-height-control);
+}
+
+.mediaMetaPending {
+  color: var(--sk-web-gold-strong);
+}
+
+.detachedDashboard.detachedDashboard {
+  position: static;
+  z-index: auto;
+  width: auto;
+  margin-block-start: var(--sk-space-24);
+  margin-inline: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .detachedDashboard.detachedDashboard {
+    margin-inline: var(--sk-space-32) var(--sk-space-48);
+  }
+}
+
+@media (max-width: 374px) {
+  .mediaMeta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -364,10 +366,10 @@
 
 
 /* Phase 2E visual correction — 2026-09-22.
- * Tax Advisory had the same Services_14 image twice in the hero stack.
- * The surviving image uses the source asset's native 3:2 treatment so
- * Sarah and the tax-agency panel remain visible without a forced portrait crop.
- * The compound selector intentionally outranks WebHero's desktop 3:4 rule.
+ * The surviving Services_14 image uses the source asset's native 3:2
+ * treatment, so the editorial tax-agency panel and Sarah remain visible
+ * without a forced portrait crop. The snapshot is detached by
+ * .detachedDashboard above.
  */
 .singleHeroFrame.singleHeroFrame {
   aspect-ratio: 3 / 2;
