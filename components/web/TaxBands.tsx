@@ -3,6 +3,7 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
+import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { SampleColumnChart, SampleDistribution } from './SampleChart';
 import { isPublishable } from '@/lib/content/claims';
@@ -20,8 +21,17 @@ import {
   trustScript,
   trustStrip,
 } from '@/content/en/tax-advisory';
-import portrait from '@/public/sarah/sk-real-2.jpg';
 import shared from './WebBands.module.css';
+
+/**
+ * PHASE 2E — approved imagery for the Tax Advisory service cards.
+ * Cases are untouched: client imagery stays blocked pending permissions.
+ */
+const TAX_SERVICE_MEDIA: readonly ApprovedMedia[] = [
+  APPROVED_MEDIA.processModel,
+  APPROVED_MEDIA.assetPlan,
+  APPROVED_MEDIA.processAnalysis,
+];
 import styles from './TaxBands.module.css';
 
 /**
@@ -105,7 +115,13 @@ export function TaxContextBand() {
         </div>
 
         <RevealOnScroll order={1}>
-          <TerritoryVisual variant="coast" label={context.territoryLabel.text} tone="navy" />
+          <TerritoryVisual
+            variant="coast"
+            label={context.territoryLabel.text}
+            tone="navy"
+            media={APPROVED_MEDIA.processPresentation}
+            sizes="(max-width: 1023px) 100vw, 40vw"
+          />
           <p className={shared.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {context.script.text}
           </p>
@@ -248,7 +264,12 @@ export function TaxReportBand() {
           </div>
 
           <div className={shared.summaryVisual}>
-            <TerritoryVisual variant="built" tone="sand" />
+            <TerritoryVisual
+              variant="built"
+              tone="sand"
+              media={APPROVED_MEDIA.reportInterior}
+              sizes="(max-width: 767px) 100vw, 20vw"
+            />
           </div>
 
           <dl className={shared.summaryRows}>
@@ -329,7 +350,13 @@ export function TaxConcernsBand() {
         </div>
 
         <RevealOnScroll order={1}>
-          <TerritoryVisual variant="district" label={concerns.territoryLabel.text} tone="navy" />
+          <TerritoryVisual
+            variant="district"
+            label={concerns.territoryLabel.text}
+            tone="navy"
+            media={APPROVED_MEDIA.processAnalysis}
+            sizes="(max-width: 1023px) 100vw, 40vw"
+          />
           <p className={shared.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {concerns.script.text}
           </p>
@@ -377,7 +404,12 @@ export function TaxServicesBand() {
         {services.items.map((item, index) => (
           <RevealOnScroll key={item.id} order={index} className={shared.mediaCard}>
             <div className={shared.mediaCardMedia}>
-              <TerritoryVisual variant={item.visual} tone="navy" />
+              <TerritoryVisual
+                variant={item.visual}
+                tone="navy"
+                media={TAX_SERVICE_MEDIA[index]}
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+              />
               <span className={shared.cardIcon}>
                 <Icon name={item.icon} />
               </span>
@@ -424,13 +456,14 @@ export function TaxAuthorityBand() {
       <div className={shared.authorityGrid}>
         <RevealOnScroll>
           <div className={shared.portraitFrame}>
-            {/* AUTH-SK-002 — authentic identity reference, colour frontal. */}
+            {/* Owner-selected editorial authority image — Preview only. */}
             <Image
-              src={portrait}
-              alt={authority.imageAlt.text}
+              src={APPROVED_MEDIA.authorityEditorial.src}
+              alt={APPROVED_MEDIA.authorityEditorial.alt}
               className={shared.portraitImage}
-              sizes="(max-width: 767px) 100vw, 30vw"
-              placeholder="blur"
+              fill
+              sizes="(max-width: 767px) 100vw, 46vw"
+              style={{ objectPosition: APPROVED_MEDIA.authorityEditorial.focal }}
             />
           </div>
         </RevealOnScroll>
@@ -598,7 +631,13 @@ export function TaxFinalCtaBand() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1}>
-          <TerritoryVisual variant="coast" label="Costa Blanca" tone="navy" />
+          <TerritoryVisual
+            variant="coast"
+            label="Costa Blanca"
+            tone="navy"
+            media={APPROVED_MEDIA.territoryContact}
+            sizes="(max-width: 1023px) 100vw, 40vw"
+          />
           <p
             className={`${shared.script} ${shared.scriptOnDark}`}
             style={{ marginBlockStart: 'var(--sk-space-16)' }}

@@ -1,11 +1,11 @@
 import Image from 'next/image';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { resolveEntryPoint, type BuyerSystemExperienceKey } from '@/lib/buyer-system/links';
-import portrait from '@/public/sarah/sk-real-2.jpg';
 import { WebLinkButton } from './WebButton';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
+import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import {
   audience,
   authority,
@@ -26,17 +26,45 @@ import styles from './PropertyPurchase.module.css';
 function PlaceholderMedia({
   label,
   variant = 'built',
+  media,
+  priority = false,
+  sizes,
 }: {
   label: string;
   variant?: 'built' | 'coast' | 'district' | 'plot';
+  /**
+   * PHASE 2E — an approved photograph for this slot. When absent the
+   * schematic still draws and the "pending" label stays, so an unfilled slot
+   * remains visibly unfilled.
+   */
+  media?: ApprovedMedia;
+  priority?: boolean;
+  sizes?: string;
 }) {
   return (
     <div className={styles.placeholderMedia}>
-      <TerritoryVisual variant={variant} tone="navy" />
-      <span className={styles.placeholderLabel}>{label}</span>
+      <TerritoryVisual
+        variant={variant}
+        tone="navy"
+        media={media}
+        priority={priority}
+        {...(sizes ? { sizes } : {})}
+      />
+      {/* The label only reports a gap; once an image lands it is redundant. */}
+      {media ? null : <span className={styles.placeholderLabel}>{label}</span>}
     </div>
   );
 }
+
+/**
+ * PHASE 2E — approved imagery for the three service cards.
+ * Cases deliberately get nothing: client imagery stays blocked.
+ */
+const SERVICE_MEDIA: readonly ApprovedMedia[] = [
+  APPROVED_MEDIA.assetArchitecture,
+  APPROVED_MEDIA.processPresentation,
+  APPROVED_MEDIA.processModel,
+];
 
 export function PurchaseHero() {
   return (
@@ -67,7 +95,13 @@ export function PurchaseHero() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1} className={styles.heroVisual}>
-          <PlaceholderMedia label={hero.visualTitle.text} variant="coast" />
+          <PlaceholderMedia
+            label={hero.visualTitle.text}
+            variant="coast"
+            media={APPROVED_MEDIA.purchaseHero}
+            priority
+            sizes="(max-width: 1023px) 100vw, 48vw"
+          />
           <div className={styles.heroVisualCopy}>
             <p>{hero.visualBody.text}</p>
             <span>
@@ -154,7 +188,12 @@ export function AudienceBand() {
             ))}
           </ul>
           <div className={styles.audienceMedia}>
-            <PlaceholderMedia label={audience.mediaLabel.text} variant="built" />
+            <PlaceholderMedia
+              label={audience.mediaLabel.text}
+              variant="built"
+              media={APPROVED_MEDIA.assetResidential}
+              sizes="(max-width: 1023px) 100vw, 40vw"
+            />
             <p className={styles.script}>{audience.script.text}</p>
           </div>
         </RevealOnScroll>
@@ -344,7 +383,12 @@ export function WorriesBand() {
           ))}
         </ul>
         <RevealOnScroll>
-          <PlaceholderMedia label="Property image pending" variant="built" />
+          <PlaceholderMedia
+            label="Property image pending"
+            variant="built"
+            media={APPROVED_MEDIA.assetPlan}
+            sizes="(max-width: 1023px) 100vw, 40vw"
+          />
           <p className={styles.script}>{worries.script.text}</p>
         </RevealOnScroll>
       </div>
@@ -363,6 +407,8 @@ export function ServicesBand() {
               <PlaceholderMedia
                 label="Property image pending"
                 variant={index === 1 ? 'built' : index === 2 ? 'coast' : 'district'}
+                media={SERVICE_MEDIA[index]}
+                sizes="(max-width: 767px) 100vw, 32vw"
               />
               {service.popular ? <span className={styles.popular}>Most requested</span> : null}
               <div className={styles.serviceBody}>
@@ -401,16 +447,19 @@ export function ServicesBand() {
 }
 
 export function AuthorityBand() {
+  const authorityMedia = APPROVED_MEDIA.authorityEditorial;
+
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
         <RevealOnScroll className={styles.portraitFrame}>
           <Image
-            src={portrait}
-            alt={authority.imageAlt.text}
+            src={authorityMedia.src}
+            alt={authorityMedia.alt}
             className={styles.portrait}
-            sizes="(max-width: 767px) 100vw, 28vw"
-            placeholder="blur"
+            fill
+            sizes="(max-width: 767px) 100vw, 46vw"
+            style={{ objectPosition: authorityMedia.focal }}
           />
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.authorityCopy}>
@@ -509,7 +558,12 @@ export function FinalCtaBand() {
           <p className={styles.finalNote}>{finalCta.note.text}</p>
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.finalVisual}>
-          <PlaceholderMedia label="Costa Blanca panorama pending" variant="coast" />
+          <PlaceholderMedia
+          label="Costa Blanca panorama pending"
+          variant="coast"
+          media={APPROVED_MEDIA.purchaseFinalContact}
+          sizes="(max-width: 1023px) 100vw, 45vw"
+        />
           <p>{finalCta.script.text}</p>
         </RevealOnScroll>
       </div>

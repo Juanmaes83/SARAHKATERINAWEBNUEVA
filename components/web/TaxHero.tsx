@@ -3,11 +3,10 @@ import { Container } from '@/components/layout/Container';
 import { WebButton } from './WebButton';
 import { TaxSnapshotCard } from './TaxSnapshotCard';
 import { Icon, type IconName } from './icons/Icon';
-import { TerritoryVisual } from './TerritoryVisual';
+import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/tax-advisory';
 import { isPublishable } from '@/lib/content/claims';
-import portrait from '@/public/sarah/sk-real-1.jpg';
 import shared from './WebHero.module.css';
 import styles from './TaxBands.module.css';
 
@@ -26,12 +25,14 @@ import styles from './TaxBands.module.css';
  * template: the stack of labelled document spines, and the pending intro-video
  * marker. Those live in `TaxBands.module.css`.
  *
- * MEDIA: AUTH-SK-001, the authentic portrait, used directly. The template's
- * hero is a generated desk-and-coastline scene; AGENTS.md §2 forbids
- * fabricating a photograph of Sarah, so the place signal is carried by a
- * declared schematic instead.
+ * MEDIA: the owner-selected Services_14 editorial image is used in both Tax
+ * Advisory hero media slots for this protected Preview. The asset is retained
+ * at source size provisionally and remains subject to the production derivative
+ * and retouching pass.
  */
 export function TaxHero() {
+  const heroMedia = APPROVED_MEDIA.taxHero;
+
   return (
     <section className={shared.hero} id="top">
       <Container className={shared.grid}>
@@ -76,14 +77,22 @@ export function TaxHero() {
 
         <RevealOnScroll order={1} className={shared.visual}>
           <figure className={shared.figure}>
-            <div className={shared.frame}>
+            <div className={`${shared.frame} ${styles.singleHeroFrame}`}>
+              {/*
+                PHASE 2E — approved Tax Advisory hero (inventory §11, item 1).
+                The owner-selected Services_14 visual is the single Tax Advisory
+                hero image for this Preview. The duplicated companion slot has
+                been removed; this frame now uses the wider crop that previously
+                belonged to the second visual.
+              */}
               <Image
-                src={portrait}
-                alt={hero.imageAlt.text}
+                src={heroMedia.src}
+                alt={heroMedia.alt}
                 className={shared.image}
+                fill
                 priority
                 sizes="(max-width: 1023px) 100vw, 46vw"
-                placeholder="blur"
+                style={{ objectPosition: heroMedia.focal }}
               />
               <span className={shared.scrim} aria-hidden="true" />
               <span className={shared.locationPin}>
@@ -115,9 +124,6 @@ export function TaxHero() {
               </span>
             </div>
 
-            <div className={shared.territory}>
-              <TerritoryVisual variant="coast" tone="navy" label={hero.locationLabel.text} />
-            </div>
 
             <div className={shared.dashboard}>
               <TaxSnapshotCard />

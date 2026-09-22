@@ -25,6 +25,13 @@
   height: 100%;
 }
 
+/* Phase 2E: an approved photograph occupying the same slot as the drawing.
+   `object-fit: cover` plus a per-image focal point keeps the subject safe at
+   every breakpoint from 320px up. */
+.photo {
+  object-fit: cover;
+}
+
 /* --- drawing layers ------------------------------------------------------- */
 
 /* Opacities were raised after the first visual review: at 0.1 / 0.22 the
