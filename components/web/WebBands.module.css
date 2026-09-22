@@ -823,6 +823,13 @@
   background-color: var(--sk-web-navy);
 }
 
+.portraitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
 .authorityBody {
   display: grid;
   grid-template-columns: 1fr;
