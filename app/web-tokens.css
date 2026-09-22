@@ -1,0 +1,100 @@
+/* ===========================================================================
+ * SCOPED WEBSITE PALETTE — --sk-web-*
+ * ===========================================================================
+ *
+ * Approved by Juanma on 2026-09-21 and recorded in
+ * docs/phase-2-visual-implementation-contract.md §4:
+ *
+ *   "Ivory / navy / gold palette shown in the templates — APPROVED FOR THIS
+ *    WEBSITE PROJECT. Scoped to SARAHKATERINAWEBNUEVA; does not replace the
+ *    global Brand System palette."
+ *
+ * This layer is ADDITIVE and NAMESPACED. It does not touch app/tokens.css or
+ * lib/tokens/tokens.json, which remain byte-identical copies of the canonical
+ * layer and are still verified by tests/tokens-parity.test.ts.
+ *
+ * ---------------------------------------------------------------------------
+ * PROVENANCE OF EVERY VALUE
+ * ---------------------------------------------------------------------------
+ * Colours were sampled from the approved reference,
+ * `website/nueva web/Sarah Katerina Investment.png`, by reading pixels
+ * directly (most-common value for surfaces, chromatic extreme for accents).
+ * The template is a low-resolution screenshot, so sampled values were then
+ * adjusted to the nearest tone that passes WCAG AA for its actual use, and
+ * every pairing below states its measured contrast ratio.
+ *
+ * No value was guessed and no shade was invented for decoration.
+ * =========================================================================== */
+
+:root {
+  /* --- surfaces ---------------------------------------------------------
+   * Sampled: page background #FBF9F5, card fill #FEFDFB, band #FCFBF9.
+   */
+  --sk-web-ivory: #fbf9f5;
+  --sk-web-ivory-soft: #f4f0e7;
+  --sk-web-white: #fefdfb;
+
+  /* --- navy authority surfaces ------------------------------------------
+   * Sampled: report band / footer #0B1A26, authority band #142837.
+   */
+  --sk-web-navy: #0b1a26;
+  --sk-web-navy-soft: #142837;
+  /* Rule on navy. Decorative separation only. */
+  --sk-web-navy-line: #2a3f4f;
+
+  /* --- gold accent -------------------------------------------------------
+   * Sampled from the CTA fill (#8D6A31 / #91753F chromatic extreme).
+   *
+   *   --sk-web-gold          4.77:1 on ivory  -> AA body text, icons, rules
+   *   --sk-web-gold-strong   5.56:1 on ivory  -> hover / active
+   *   white on --sk-web-gold 5.02:1           -> AA body on the filled CTA
+   *   --sk-web-gold-on-dark  7.58:1 on navy   -> AA body on navy surfaces
+   */
+  --sk-web-gold: #8a6a2f;
+  --sk-web-gold-strong: #7e6029;
+  --sk-web-gold-on-dark: #c9a55c;
+  /* Low-opacity gold wash for icon chips on light surfaces. Decorative. */
+  --sk-web-gold-wash: #f0e8d6;
+
+  /* --- text --------------------------------------------------------------
+   *   --sk-web-ink            14.36:1 on ivory
+   *   --sk-web-muted           7.24:1 on ivory
+   *   --sk-web-on-dark        16.78:1 on navy
+   *   --sk-web-muted-on-dark   7.92:1 on navy
+   */
+  --sk-web-ink: #12283a;
+  --sk-web-muted: #4a5560;
+  --sk-web-on-dark: #fbf9f5;
+  --sk-web-muted-on-dark: #9fb0bd;
+
+  /* --- borders -----------------------------------------------------------
+   * `border` is decorative separation only.
+   * Any border that carries meaning on an interactive control uses
+   * `border-strong` (gold, 4.77:1) or the navy ink, both far above the 3:1
+   * required by WCAG 2.1 SC 1.4.11.
+   */
+  --sk-web-border: #ded6c6;
+  --sk-web-border-strong: #8a6a2f;
+
+  /* --- typography extras -------------------------------------------------
+   * The canonical type scale still governs size, family and line height.
+   * These add only what the template's editorial voice needs and the
+   * canonical layer does not define.
+   */
+  --sk-web-tracking-caps: 0.18em;
+  /* Label column of the Tax Advisory annual calendar. Added 2026-09-22 by the
+     Phase 2D convergence: a structural length, not a colour, so the approved
+     palette is unchanged. It lives here rather than in a landing stylesheet so
+     there stays exactly one token file for the website layer. */
+  --sk-web-calendar-label: 190px;
+
+  --sk-web-measure-hero: 18ch;
+  --sk-web-measure-lead: 46ch;
+
+  /* --- elevation ---------------------------------------------------------
+   * One card shadow, matching the canonical restraint: large, diffuse, very
+   * low opacity. Used only on cards that float above an image or a band.
+   */
+  --sk-web-shadow-card: 0 18px 50px rgba(11, 26, 38, 0.1);
+  --sk-web-shadow-float: 0 24px 70px rgba(11, 26, 38, 0.22);
+}

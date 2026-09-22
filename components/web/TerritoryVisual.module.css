@@ -1,0 +1,149 @@
+/* Conceptual territory module. Every colour is a token; nothing here is a
+   photograph and nothing may be mistaken for one. */
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sk-radius-card);
+  aspect-ratio: 3 / 2;
+  width: 100%;
+}
+
+.navy {
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+}
+
+.sand {
+  background-color: var(--sk-web-ivory-soft);
+  color: var(--sk-web-ink);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- drawing layers ------------------------------------------------------- */
+
+/* Opacities were raised after the first visual review: at 0.1 / 0.22 the
+   drawing read as a flat dark rectangle in a thumbnail. */
+.grid line {
+  stroke: currentColor;
+  stroke-width: 0.5;
+  opacity: 0.18;
+}
+
+.contour path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.9;
+  opacity: 0.4;
+}
+
+.water {
+  fill: var(--sk-web-gold);
+  opacity: 0.26;
+  stroke: none;
+}
+
+.waterLine,
+.swell {
+  fill: none;
+  stroke: var(--sk-web-gold);
+  stroke-width: 1.3;
+  opacity: 0.85;
+  stroke-linecap: round;
+}
+
+.parcel {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  opacity: 0.8;
+}
+
+.footprint {
+  fill: currentColor;
+  fill-opacity: 0.16;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-opacity: 0.9;
+}
+
+.dash {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.6;
+}
+
+.access {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  opacity: 0.45;
+}
+
+.accent {
+  fill: none;
+  stroke: var(--sk-web-gold);
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+}
+
+.marker {
+  fill: var(--sk-web-gold);
+}
+
+.sand .water {
+  opacity: 0.28;
+}
+
+/* --- overlays -------------------------------------------------------------- */
+
+.labelScrim {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 45%;
+  background: linear-gradient(to bottom, transparent, var(--sk-web-navy));
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.sand .labelScrim {
+  background: linear-gradient(to bottom, transparent, var(--sk-web-ivory-soft));
+}
+
+.label {
+  position: absolute;
+  inset-block-end: var(--sk-space-16);
+  inset-inline-start: var(--sk-space-16);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: currentColor;
+}
+
+/* Discreet, but never absent: the drawing must always declare itself. */
+.badge {
+  position: absolute;
+  inset-block-start: var(--sk-space-8);
+  inset-inline-end: var(--sk-space-8);
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) currentColor;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  opacity: 0.65;
+}

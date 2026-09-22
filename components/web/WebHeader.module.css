@@ -1,0 +1,221 @@
+.header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--sk-app-z-header);
+  background-color: var(--sk-web-ivory);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  transition: box-shadow var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+/* Set by script once the page has scrolled. Purely a depth cue. */
+.scrolled {
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-24);
+  min-height: var(--sk-space-64);
+  padding-block: var(--sk-space-8);
+}
+
+/* --- brand --------------------------------------------------------------- */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-height: var(--sk-layout-touch-target-min);
+}
+
+.logo {
+  /* The mark is 2.159:1. Height drives the size so the lockup keeps its
+     proportions at every breakpoint. */
+  height: var(--sk-space-32);
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .logo {
+    height: var(--sk-space-48);
+  }
+}
+
+/* --- desktop navigation --------------------------------------------------- */
+
+.nav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-navigation-size);
+  font-weight: var(--sk-type-navigation-weight);
+  color: var(--sk-web-ink);
+  text-decoration: none;
+}
+
+/* Gold underline, drawn as a pseudo-element so it can animate without
+   shifting layout. */
+.navLink::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: var(--sk-space-16);
+  height: 2px;
+  background-color: var(--sk-web-gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--sk-motion-interaction-duration)
+    var(--sk-motion-interaction-ease);
+}
+
+.navLink:hover::after,
+.navLink[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: none;
+}
+
+.divider {
+  width: var(--sk-border-standard-width);
+  height: var(--sk-space-16);
+  background-color: var(--sk-web-border);
+}
+
+/* --- language ------------------------------------------------------------- */
+
+.langGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-4);
+}
+
+.lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sk-layout-touch-target-min);
+  min-width: var(--sk-layout-touch-target-min);
+  border: 0;
+  background: transparent;
+  color: var(--sk-web-muted);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-navigation-size);
+  font-weight: var(--sk-type-navigation-weight);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
+}
+
+.lang[aria-pressed='true'] {
+  color: var(--sk-web-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--sk-web-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+/* --- mobile trigger ------------------------------------------------------- */
+
+.menuTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  min-width: var(--sk-layout-touch-target-min);
+  padding-inline: var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border-strong);
+  border-radius: var(--sk-radius-button);
+  background-color: transparent;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  cursor: pointer;
+}
+
+/* --- mobile panel --------------------------------------------------------- */
+
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: var(--sk-app-z-modal);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-32);
+  padding: var(--sk-space-24);
+  background-color: var(--sk-web-ivory);
+  overflow-y: auto;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+}
+
+.panelList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.panelLink {
+  display: flex;
+  align-items: center;
+  min-height: var(--sk-layout-control-height-default);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  color: var(--sk-web-ink);
+  text-decoration: none;
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.panelFoot {
+  margin-block-start: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .nav,
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sk-space-24);
+  }
+
+  .menuTrigger {
+    display: none;
+  }
+
+  .panel {
+    display: none;
+  }
+}

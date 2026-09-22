@@ -2,9 +2,8 @@
 @import './tokens.css';
 /* Application-level additions — see file header for governance. */
 @import './tokens.app.css';
-/* Scoped Phase 2 website palette (ivory / navy / gold). Consumed only by the
-   Tax Advisory landing; see the file header and docs/web-palette-contrast.md. */
-@import './tokens.web.css';
+/* Scoped website palette (ivory / navy / gold), approved 2026-09-21. */
+@import './web-tokens.css';
 
 /* ===========================================================================
  * RESET

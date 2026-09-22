@@ -95,22 +95,30 @@ Phase 2 visual implementation contract.
 ```
 PHASE 1 MERGED
 PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
-PHASE 2B TAX ADVISORY VISUAL IMPLEMENTATION IN REVIEW
-PHASE 2C HUMAN VISUAL GATE PENDING
+PHASE 2B/2C INVESTMENT VISUAL IMPLEMENTATION MERGED — CANONICAL VISUAL BASE
+PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — IN REVIEW
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
-The first full Phase 2B landing is `/preview/tax-advisory`. It implements the
-Tax Advisory composition from `website/nueva web/` against the scoped
-ivory/navy/gold palette, with the real brand mark and authentic Sarah
-photography imported from the mother repository. Every figure the reference
-carries that this repository may not publish is rendered as a labelled slot.
+**Investment is the canonical visual base of the website layer.** Both
+landings render through one set of components and one token file:
+
+| Concern | Single source |
+|---|---|
+| Website palette | `app/web-tokens.css` |
+| Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*` |
+| Motion | `components/motion/RevealOnScroll.tsx` |
+
+A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
+fails if a second `--sk-web-*` declaration, a second header, footer or button,
+or a re-declared navy or gold ever reappears.
 
 | Document | What it records |
 |---|---|
-| `docs/tax-advisory-visual-decisions.md` | Every judgement call, and what still differs from the reference |
+| `docs/shared-web-layer-convergence.md` | What is canonical, what was removed, what each landing still owns, how Investment is verified, how the next landing is added |
+| `docs/tax-advisory-fidelity-matrix.md` | Section-by-section comparison against the Tax Advisory template |
+| `docs/tax-advisory-visual-decisions.md` | Every judgement call, and what needs Juanma's decision |
 | `docs/tax-advisory-asset-record.md` | Asset provenance, hashes, crops, and the assets still missing |
-| `docs/web-palette-contrast.md` | Scoped palette values, provenance and measured WCAG ratios |
 
 ## 6. Stack
 
@@ -271,6 +279,38 @@ ID, webhook URL or personal data. `.env*` files are gitignored except
 appears.
 
 ---
+
+
+---
+
+## Routes and design systems
+
+| Route | Purpose | Chrome | Palette | Indexable |
+|---|---|---|---|---|
+| `/` | Repository overview | `AppChrome` | Canonical | No |
+| `/foundation` | Component laboratory | `AppChrome` | Canonical | No — ever |
+| `/preview/investment` | Investment visual implementation | `WebHeader` / `WebFooter` | Scoped `--sk-web-*` | No — ever, while under `/preview` |
+
+Two token layers coexist deliberately:
+
+- **Canonical** — `app/tokens.css` and `lib/tokens/tokens.json`, byte-identical
+  copies of the upstream brand system, verified by `tests/tokens-parity.test.ts`.
+  **Never edited here.**
+- **Scoped website palette** — `app/web-tokens.css`, namespaced `--sk-web-*`
+  (ivory, navy, gold). Approved by Juanma on 2026-09-21 for this repository
+  only; it does not replace the global brand system. Every value was sampled
+  from the approved Investment template and verified against WCAG AA. See
+  `docs/phase-2b-visual-implementation.md` §1.
+
+Page chrome lives with each page rather than in the root layout, which is what
+lets the two systems coexist without one bleeding into the other.
+
+## Human visual review
+
+Every visual change requires Juanma's review on the Vercel preview, at mobile
+and desktop widths, **before** it is considered accepted or merged. Review
+instructions for the current phase are in
+`docs/phase-2b-visual-implementation.md` §7.
 
 ## Governance
 

@@ -1,51 +1,49 @@
 import type { Metadata } from 'next';
-import { Container } from '@/components/layout/Container';
-import { Band } from '@/components/tax-advisory/Primitives';
-import { PreviewNotice } from '@/components/tax-advisory/PreviewNotice';
-import { TaxHeader } from '@/components/tax-advisory/TaxHeader';
-import { TaxFooter } from '@/components/tax-advisory/TaxFooter';
-import { Hero } from '@/components/tax-advisory/sections/Hero';
-import { TrustStrip } from '@/components/tax-advisory/sections/TrustStrip';
-import { Problem } from '@/components/tax-advisory/sections/Problem';
-import { Audience } from '@/components/tax-advisory/sections/Audience';
-import { TaxCalendar } from '@/components/tax-advisory/sections/TaxCalendar';
-import { Process } from '@/components/tax-advisory/sections/Process';
-import { ReportPreview } from '@/components/tax-advisory/sections/ReportPreview';
-import { Concerns } from '@/components/tax-advisory/sections/Concerns';
-import { Services } from '@/components/tax-advisory/sections/Services';
-import { Authority } from '@/components/tax-advisory/sections/Authority';
-import { Cases } from '@/components/tax-advisory/sections/Cases';
-import { Continuity } from '@/components/tax-advisory/sections/Continuity';
-import { Faq } from '@/components/tax-advisory/sections/Faq';
-import { FinalCta } from '@/components/tax-advisory/sections/FinalCta';
+import { WebHeader } from '@/components/web/WebHeader';
+import { WebFooter } from '@/components/web/WebFooter';
+import { WebFaq } from '@/components/web/WebFaq';
+import { TaxHero } from '@/components/web/TaxHero';
+import {
+  TaxAuthorityBand,
+  TaxCalendarBand,
+  TaxCasesBand,
+  TaxConcernsBand,
+  TaxContextBand,
+  TaxFinalCtaBand,
+  TaxJourneyBand,
+  TaxProcessBand,
+  TaxReportBand,
+  TaxServicesBand,
+  TaxTrustBand,
+} from '@/components/web/TaxBands';
+import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { buildMetadata } from '@/lib/seo/metadata';
-import { seo, trustStrip } from '@/content/en/tax-advisory';
+import { PROTOTYPE_NOTICE, faq, footer, headerCta, nav, seo } from '@/content/en/tax-advisory';
 
 /**
- * TAX ADVISORY — VISUAL IMPLEMENTATION PREVIEW. NOT PRODUCTION.
+ * TAX ADVISORY — PHASE 2D, CONVERGED ONTO THE INVESTMENT SYSTEM.
  *
- * Lives under /preview/ deliberately. `laboratory: true` forces
- * noindex/nofollow and keeps the route out of the sitemap regardless of the
- * site-wide indexing flag; next.config.ts adds an X-Robots-Tag on the whole
- * /preview namespace, and robots.ts disallows everything while the site is
- * not indexable. Three independent layers, none of which depends on the
- * others being right.
+ * Implements the approved Tax Advisory template
+ * (`website/nueva web/Sarah Katerina Tax Advisory.png`) using the canonical
+ * website layer: `app/web-tokens.css`, `components/web/*`, the shared header,
+ * footer, FAQ, buttons, cards, icons, charts and motion.
  *
- * SECTION ORDER follows the reference composition exactly, with the problem
- * and audience blocks separated (the reference folds them together) as the
- * phase brief requires:
+ * There is no second visual architecture. Everything this page renders comes
+ * from the same components and the same tokens as `/preview/investment`; the
+ * only Tax-Advisory-specific styles are the four structures listed in
+ * `components/web/TaxBands.module.css`, each justified there and in
+ * `docs/shared-web-layer-convergence.md`.
  *
- *   header · hero · trust · problem · audience · calendar · process ·
- *   report preview · concerns · services · authority · cases · continuity ·
+ * SECTION ORDER — the template's own:
+ *   header · hero · trust · context ("Know what Spain will actually cost you",
+ *   which the template composes as one band) · calendar · process · report ·
+ *   concerns · services (three blocks) · authority · cases · continuity ·
  *   FAQ · final CTA · footer
  *
- * NO JSON-LD IS EMITTED. FAQPage schema is prepared in content but withheld:
- * schema may only describe visible, verified content and most answers are
- * pending. Organization/Person/LocalBusiness are prohibited outright while the
- * legal entity and contact details are unconfirmed (AGENTS.md §7.4).
- *
- * The page owns its own header and footer rather than inheriting the
- * application chrome — see components/navigation/SiteChrome.tsx.
+ * Still a preview: `laboratory: true` forces noindex/nofollow, the route stays
+ * under `/preview`, and it is excluded from the sitemap by construction.
+ * No JSON-LD is emitted — most FAQ answers are pending and the legal entity is
+ * unconfirmed. Juanma's visual review is mandatory before any merge.
  */
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -54,114 +52,27 @@ export const metadata: Metadata = buildMetadata({
   laboratory: true,
 });
 
-export default function TaxAdvisoryPreviewPage() {
+export default function TaxAdvisoryPage() {
   return (
     <>
-      <PreviewNotice />
-      <TaxHeader />
+      <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
-      <main id="main">
-        {/* 2. HERO ---------------------------------------------------- */}
-        <Hero />
+      <WebHeader nav={nav} ctaLabel={headerCta.text} />
 
-        {/* 3. TRUST STRIP --------------------------------------------- */}
-        <Band tone="ivoryDeep" space="tight" rule>
-          <Container>
-            <TrustStrip />
-            <p className="sk-visually-hidden">{trustStrip.note.text}</p>
-          </Container>
-        </Band>
-
-        {/* 4. PROBLEM / CONTEXT --------------------------------------- */}
-        <Band tone="ivory" space="regular">
-          <Container>
-            <Problem />
-          </Container>
-        </Band>
-
-        {/* 5. AUDIENCE ------------------------------------------------ */}
-        <Band tone="ivoryDeep" space="regular" rule>
-          <Container>
-            <Audience />
-          </Container>
-        </Band>
-
-        {/* 6. ANNUAL TAX CALENDAR ------------------------------------- */}
-        <Band tone="ivory" space="regular">
-          <Container>
-            <TaxCalendar />
-          </Container>
-        </Band>
-
-        {/* 7. PROCESS ------------------------------------------------- */}
-        <Band tone="ivoryDeep" space="regular" rule>
-          <Container>
-            <Process />
-          </Container>
-        </Band>
-
-        {/* 8. REPORT PREVIEW — first navy band ------------------------ */}
-        <Band tone="navySoft" space="open">
-          <Container>
-            <ReportPreview />
-          </Container>
-        </Band>
-
-        {/* 9. CONCERNS ------------------------------------------------ */}
-        <Band tone="ivory" space="regular">
-          <Container>
-            <Concerns />
-          </Container>
-        </Band>
-
-        {/* 10. SERVICES ----------------------------------------------- */}
-        <Band tone="ivoryDeep" space="regular" rule>
-          <Container>
-            <Services />
-          </Container>
-        </Band>
-
-        {/* 11. AUTHORITY — second navy band --------------------------- */}
-        <Band tone="navy" space="open">
-          <Container>
-            <Authority />
-          </Container>
-        </Band>
-
-        {/* 12. CASES -------------------------------------------------- */}
-        <Band tone="ivory" space="regular">
-          <Container>
-            <Cases />
-          </Container>
-        </Band>
-
-        {/* 13. CONTINUITY --------------------------------------------- */}
-        <Band tone="ivoryDeep" space="regular" rule>
-          <Container>
-            <Continuity />
-          </Container>
-        </Band>
-
-        {/* 14. FAQ ---------------------------------------------------- */}
-        <Band tone="ivory" space="regular">
-          <Container>
-            <Faq />
-          </Container>
-        </Band>
-
-        {/* 15. FINAL CTA — third navy band ----------------------------
-            `regular`, not `open`: this band meets the navy footer directly,
-            so two open paddings in a row would read as a void rather than as
-            air. */}
-        <Band tone="navy" space="regular">
-          <Container>
-            <FinalCta />
-          </Container>
-        </Band>
-      </main>
-
-      {/* 16. FOOTER --------------------------------------------------- */}
-      <TaxFooter />
+      <TaxHero />
+      <TaxTrustBand />
+      <TaxContextBand />
+      <TaxCalendarBand />
+      <TaxProcessBand />
+      <TaxReportBand />
+      <TaxConcernsBand />
+      <TaxServicesBand />
+      <TaxAuthorityBand />
+      <TaxCasesBand />
+      <TaxJourneyBand />
+      <WebFaq content={faq} />
+      <TaxFinalCtaBand />
+      <WebFooter content={footer} />
     </>
   );
 }

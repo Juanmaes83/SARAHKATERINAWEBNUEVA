@@ -6,10 +6,10 @@
   position: sticky;
   inset-block-start: 0;
   z-index: var(--sk-app-z-sticky);
-  background-color: var(--sk-app-surface-dark);
-  color: var(--sk-app-text-on-dark);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
   border-block-end: var(--sk-border-accent-width) var(--sk-border-standard-style)
-    var(--sk-color-border-accent);
+    var(--sk-web-gold);
 }
 
 .inner {

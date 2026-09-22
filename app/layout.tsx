@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
-import { SiteChrome } from '@/components/navigation/SiteChrome';
 import { baseMetadata } from '@/lib/seo/metadata';
 import './globals.css';
 
@@ -46,9 +45,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="sk-skip-link" href="#main">
           Skip to content
         </a>
-        {/* Most routes get the application chrome. A landing that owns its
-            own header, main and footer opts out — see SiteChrome. */}
-        <SiteChrome>{children}</SiteChrome>
+        {/* Page chrome lives with each page: the canonical brand pages use
+            AppChrome, the website landings supply their own header and footer
+            in the scoped palette. */}
+        <main id="main">{children}</main>
       </body>
     </html>
   );

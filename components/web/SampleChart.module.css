@@ -1,0 +1,97 @@
+/* ===========================================================================
+ * Sample charts
+ *
+ * Every shape here is ILLUSTRATIVE. The numbers behind them are fixed sample
+ * values written in the component source and labelled in the UI. They are not
+ * a client result, a projection, a benchmark or a claim.
+ *
+ * The Phase 2B brief permits sample data on the dashboard surfaces provided it
+ * is explicitly marked. Nothing in these charts may be presented as real.
+ * =========================================================================== */
+
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.bar {
+  fill: var(--sk-web-gold);
+}
+
+.barMuted {
+  fill: var(--sk-web-gold-wash);
+}
+
+.barOnDark {
+  fill: var(--sk-web-gold-on-dark);
+}
+
+.line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lineInk {
+  stroke: var(--sk-web-ink);
+}
+
+.lineGold {
+  stroke: var(--sk-web-gold);
+}
+
+.lineMuted {
+  stroke: var(--sk-web-muted);
+  stroke-dasharray: 4 4;
+}
+
+.lineOnDark {
+  stroke: var(--sk-web-gold-on-dark);
+}
+
+.area {
+  fill: var(--sk-web-gold-wash);
+}
+
+.axis {
+  stroke: var(--sk-web-border);
+  stroke-width: 1;
+}
+
+.tick {
+  fill: var(--sk-web-muted);
+  font-family: var(--sk-type-legal-family);
+  /* Size is set on the element as an SVG user unit, not a CSS pixel. */
+}
+
+/* Draws the line on entry. Purely presentational; the shape is already in the
+   DOM and the chart is labelled, so nothing is hidden from a reader. */
+@media (prefers-reduced-motion: no-preference) {
+  .animated {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: sk-draw 900ms var(--sk-motion-reveal-ease) forwards;
+  }
+
+  .grow {
+    transform-origin: bottom;
+    animation: sk-grow var(--sk-motion-reveal-duration) var(--sk-motion-reveal-ease) backwards;
+  }
+}
+
+@keyframes sk-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sk-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}

@@ -1,513 +1,399 @@
 import { claim, type Claim } from '@/lib/content/claims';
 
 /**
- * TAX ADVISORY LANDING — PROVISIONAL CONTENT FOR A VISUAL IMPLEMENTATION.
+ * TAX ADVISORY LANDING — CONTENT.
  *
- * Composition reference: "Sarah Katerina Tax Advisory.png" in
- * website/nueva web/ of the mother repository. That file is material visual de
- * propuesta. AGENTS.md §1.4 makes it the explicit implementation reference for
- * Phase 2 while leaving it subordinate to approved business, brand and legal
- * decisions.
+ * Composition reference: `website/nueva web/Sarah Katerina Tax Advisory.png`.
  *
- * WHERE THIS DIVERGES FROM THE TEMPLATE, AND WHY
- * ----------------------------------------------
- * The template carries figures that this repository may not publish. Each is
- * kept as a visible, labelled slot rather than silently dropped, so a reviewer
- * can see what the composition expects and decide whether to approve it:
+ * PHASE 2D — CONVERGENCE.
+ * This module follows the shapes the shared website components expect
+ * (`WebHeader`, `WebFooter`, `WebFaq`, `WebSection`) and the conventions
+ * established by `content/en/investment.ts`, which is the canonical base:
  *
- *   "20 años dentro de la administración fiscal"
- *       The 20-year credential IS confirmed upstream (brand-system/README.md;
- *       verbal/credential-register.csv CR-002; project owner 2026-08-12).
- *       docs/copy-and-claims-matrix.md §3 nevertheless withholds it: the master
- *       audit requires a claims dossier with source, date, permission and
- *       scope before any credential is published, and that dossier does not
- *       exist. Rendered with a visible review marker, never as bare fact.
+ *   - illustrative dashboard values are PLAIN STRINGS, not claims. They are
+ *     sample output shown to illustrate a report format, labelled
+ *     "Illustrative" on the surface that renders them — not statements the
+ *     project is making. Phase 2B marked them with red PENDING_APPROVAL
+ *     badges, which destroyed the composition; the governance is unchanged,
+ *     it is simply stated once and quietly.
+ *   - an unconfirmed headline figure keeps its position and carries a small
+ *     pending dot, exactly as the Investment trust strip does.
+ *   - the 20-year Tax Administration credential is `confirmed` here, matching
+ *     Investment, which cites `verbal/credential-register.csv` CR-002
+ *     (project owner, 2026-08-12). Phase 2B withheld it on this landing; two
+ *     landings cannot state the same credential differently.
  *
- *   "160+ compradores extranjeros"
- *       Not confirmed anywhere. decisions-log.md (2026-08-05) additionally
- *       deprioritised volume as differential proof. No figure is rendered.
- *
- *   "€ 350" / "€ 950 / año" / "€ 1.500" service prices
- *       A price exists upstream for /tax-diagnostic but publication is not
- *       approved (decision gate D2-04), and service-taxonomy.md requires live
- *       re-verification. No price appears.
- *
- *   "€ 24.500", "-18%", "€ 12.400" report and case figures
- *       Would be fabricated financial results. The dashboards render their
- *       STRUCTURE with every value replaced by an explicit ILLUSTRATIVE /
- *       SAMPLE / PENDING_APPROVAL marker.
- *
- *   "Altea · 2023 · Propietario británico", "Jávea · 2024", "Moraira · 2024"
- *       Invented clients, places, dates and outcomes. Structure only.
- *
- *   "VITA HOST" in the service-continuity strip
- *       AGENTS.md §9: D-06 is unexecuted and Property Management is held
- *       publicly. Do not integrate, link, navigate to or mention it. The
- *       fourth step is replaced by an in-scope tax step.
- *
- * LANGUAGE
- * --------
- * English is the primary acquisition language (decisions-log.md 2026-07-27).
- * The template mixes English headlines with Spanish body copy; the headlines
- * are kept verbatim and the body is authored in English. Spanish copy is NOT
- * authored here: docs/copy-and-claims-matrix.md §6 records that translating
- * unapproved English would double the review surface without adding value.
- * The EN/ES architecture is prepared; the ES content module is not written.
+ * WHAT THE TEMPLATE CARRIES THAT IS STILL NOT PUBLISHED
+ *   - the three service prices (publication not approved, D2-04);
+ *   - every delivery and response time (no confirmed figure);
+ *   - "160+ compradores extranjeros" (volume deprioritised upstream);
+ *   - the three case studies' clients, towns, years and outcomes (invented);
+ *   - "SUMA" and "Comunidad Valenciana" (upstream warns against publishing
+ *     specifics of that period);
+ *   - VITA Host (D-06 unexecuted; a governance test forbids the mention).
  */
 
-export const PREVIEW_NOTICE = {
-  label: 'VISUAL IMPLEMENTATION — PREVIEW, NOT PRODUCTION',
+const TEMPLATE = 'website/nueva web/Sarah Katerina Tax Advisory.png (approved visual reference)';
+
+export const PROTOTYPE_NOTICE = {
+  label: 'VISUAL PREVIEW — NOT PRODUCTION',
   body: claim({
-    text: 'This page implements the approved Tax Advisory composition for human visual review. The copy is provisional, every figure is a labelled placeholder, and nothing here is approved for publication.',
+    text: 'Tax Advisory implemented on the shared website system for visual review. Copy is provisional, dashboard figures are illustrative samples, and nothing here is approved for publication.',
     status: 'confirmed',
     source: 'docs/phase-2-visual-implementation-contract.md §1 and §9',
   }),
 } as const;
 
 export const seo = {
-  title: 'Tax Advisory — visual implementation preview',
+  title: 'Spanish tax advisory for non-resident property owners',
   description:
-    'Internal preview of the Sarah Katerina Tax Advisory landing composition. Not a public page, not indexable, and carrying no approved claim, figure or credential.',
+    'Tax advisory for international owners and buyers of property in Spain: Modelo 210, annual compliance, purchase tax overlay and wealth planning, explained from inside the tax administration. Internal visual preview, not approved for production.',
 } as const;
 
 /* ===========================================================================
  * 1. HEADER
+ *
+ * In-page anchors only. The template's navbar (Inicio / Servicios / Quién soy
+ * / Proceso / Recursos / Contacto) is a proposed public IA; public navigation
+ * is PENDING_APPROVAL and none of those routes exists.
  * ======================================================================== */
 
-export interface NavAnchor {
-  readonly id: string;
-  readonly label: string;
-  readonly href: string;
-}
-
-/**
- * In-page navigation only.
- *
- * The template's navbar (Inicio / Servicios / Quién soy / Proceso / Recursos /
- * Contacto) is a proposed public information architecture. Public navigation
- * is PENDING_APPROVAL (README.md §12) and none of those routes exists. Linking
- * to them would produce six 404s in a review preview, so the header navigates
- * within this page and says so.
- */
-export const pageNav: readonly NavAnchor[] = [
-  { id: 'who', label: 'Who it is for', href: '#who' },
-  { id: 'calendar', label: 'Tax calendar', href: '#calendar' },
-  { id: 'process', label: 'Process', href: '#process' },
-  { id: 'services', label: 'Services', href: '#services' },
-  { id: 'sarah', label: 'About Sarah', href: '#sarah' },
-  { id: 'faq', label: 'Questions', href: '#faq' },
+export const nav = [
+  { href: '#top', label: 'Home' },
+  { href: '#services', label: 'Services' },
+  { href: '#calendar', label: 'Tax calendar' },
+  { href: '#process', label: 'Process' },
+  { href: '#sarah', label: 'About Sarah' },
+  { href: '#report', label: 'Report' },
+  { href: '#contact', label: 'Contact' },
 ] as const;
 
-export const header = {
-  /** Template: "HABLAR CON SARAH". */
-  cta: claim({
-    text: 'Talk to Sarah',
-    status: 'proposal',
-    source: 'Tax Advisory template header CTA ("HABLAR CON SARAH")',
-    note: 'Per-intent CTA wording is an open P0 in the master audit. Provisional.',
-  }),
-  navNote: claim({
-    text: 'Navigation moves within this page. The public information architecture is PENDING_APPROVAL and the service routes it implies do not exist yet.',
-    status: 'confirmed',
-    source: 'README.md §12 — public navigation PENDING_APPROVAL',
-  }),
-  /**
-   * The wordmark is real. BRAND-SK-001, the official clean logo, is imported
-   * from the mother repository and rendered unmodified apart from a recorded
-   * crop to its own alpha bounding box. See docs/tax-advisory-asset-record.md.
-   */
-  logoAlt: 'Sarah Katerina',
-  serviceLine: claim({
-    text: 'Tax Advisory',
-    status: 'confirmed',
-    source:
-      'brand-system/services/service-taxonomy.md — "Tax Advisory — PROFESSIONAL_SERVICE" under OWN',
-  }),
-} as const;
+/** Template: "HABLAR CON SARAH". */
+export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE });
 
 /* ===========================================================================
  * 2. HERO
  * ======================================================================== */
 
 export const hero = {
-  eyebrow: claim({
-    text: 'Tax advisory in Spain',
+  /** "ASESORÍA FISCAL EN ESPAÑA" */
+  eyebrow: claim({ text: 'Tax advisory in Spain', status: 'proposal', source: TEMPLATE }),
+  /** "Spanish taxes, from the inside." — kept verbatim. */
+  heading: claim({ text: 'Spanish taxes, from the inside.', status: 'proposal', source: TEMPLATE }),
+  /** "Claridad fiscal para propietarios no residentes y compradores extranjeros…" */
+  lead: claim({
+    text: 'Clarity for non-resident owners and foreign buyers. Real experience from inside Spain’s tax administration, so you decide with confidence and avoid surprises.',
     status: 'proposal',
-    source: 'Tax Advisory template eyebrow ("ASESORÍA FISCAL EN ESPAÑA")',
-    note: 'Service label, not an institutional descriptor. The formal descriptor is NEEDS_DECISION upstream and is deliberately absent.',
-  }),
-  /** Template headline, kept verbatim. Roman line + italic line. */
-  headingLead: claim({
-    text: 'Spanish taxes,',
-    status: 'proposal',
-    source: 'Tax Advisory template hero headline',
-  }),
-  headingAccent: claim({
-    text: 'from the inside.',
-    status: 'proposal',
-    source: 'Tax Advisory template hero headline (italic second line)',
-    note: 'Refers to the confirmed Tax Administration credential. The credential itself is not published here pending its claims dossier.',
-  }),
-  body: claim({
-    text: 'Clarity for non-resident owners and foreign buyers. Experience from inside Spain’s tax administration, so you can decide with confidence and avoid surprises.',
-    status: 'proposal',
+    source: TEMPLATE,
     review: 'tax',
-    source: 'Translated from the Tax Advisory template hero body copy',
-    note: 'Describes a tax service and alludes to the credential. Requires competent review before publication.',
   }),
-  primaryCta: claim({
-    text: 'Map my tax exposure',
+  /** "MAP MY TAX EXPOSURE" */
+  primaryCta: claim({ text: 'Map my tax exposure', status: 'proposal', source: TEMPLATE }),
+  /** "VER CÓMO FUNCIONA" */
+  secondaryCta: claim({ text: 'See how it works', status: 'proposal', source: TEMPLATE }),
+
+  /** The row under the CTAs. Template: four markers with icons. */
+  signals: [
+    {
+      icon: 'tax',
+      value: claim({
+        text: '20 years',
+        status: 'confirmed',
+        source: 'verbal/credential-register.csv CR-002, confirmed by the project owner 2026-08-12',
+      }),
+      note: claim({
+        text: 'inside Spain’s tax administration',
+        status: 'confirmed',
+        source: 'CR-002',
+      }),
+    },
+    {
+      icon: 'independence',
+      value: claim({
+        text: 'Independent',
+        status: 'confirmed',
+        source: 'decisions-log.md 2026-07-27 — client-paid remuneration model',
+      }),
+      note: claim({
+        text: 'no seller, developer or agency pays for the advice',
+        status: 'confirmed',
+        source: 'decisions-log.md 2026-07-27',
+      }),
+    },
+    {
+      icon: 'buyer',
+      value: claim({ text: 'International', status: 'proposal', source: TEMPLATE }),
+      note: claim({
+        text: 'owners and buyers, working in English',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+    },
+  ] as readonly { icon: string; value: Claim; note: Claim }[],
+
+  /** "Tu tranquilidad fiscal también es vivir mejor." */
+  script: claim({
+    text: 'Peace of mind about tax is part of living well.',
     status: 'proposal',
-    source: 'Tax Advisory template primary CTA ("MAP MY TAX EXPOSURE")',
-    note: 'Routes to a tax-exposure tool that is NOT BUILT in the Buyer System. Rendered as a pending entry point, never as a live link.',
+    source: TEMPLATE,
   }),
-  secondaryCta: claim({
-    text: 'See how it works',
-    status: 'proposal',
-    source: 'Tax Advisory template secondary CTA ("VER CÓMO FUNCIONA")',
-    note: 'Routes to the process section on this page — mechanism before contact.',
+
+  imageAlt: claim({
+    text: 'Sarah Katerina, photographed in a studio portrait, standing with one hand on her hip.',
+    status: 'confirmed',
+    source: 'AUTH-SK-001, authentic identity reference',
   }),
-  /** Template: floating chips over the hero media. */
-  mediaChips: [
+
+  /** The template stacks labelled document spines over the hero image. */
+  documents: [
     claim({
       text: 'Agencia Tributaria',
       status: 'confirmed',
-      source:
-        'Name of the Spanish tax administration; the template renders it as a document spine label',
+      source: 'Name of the Spanish tax administration',
     }),
     claim({
       text: 'Modelo 210',
       status: 'confirmed',
-      source:
-        'brand-system/services/service-taxonomy.md — "Modelo 210 support — CAPABILITY / SERVICE_LINE". Name of a published Spanish tax form.',
+      source: 'Name of a published Spanish tax form',
     }),
-    claim({
-      text: 'Non-resident taxation',
-      status: 'proposal',
-      source: 'Translated from the template chip "Fiscalidad No Residentes"',
-    }),
+    claim({ text: 'Non-resident taxation', status: 'proposal', source: TEMPLATE }),
   ] as readonly Claim[],
-  /** Template: script marginalia in the top-right of the hero. */
-  marginNote: claim({
-    text: 'Peace of mind about tax is part of living well.',
-    status: 'proposal',
-    source:
-      'Translated from the template hero marginalia ("Tu tranquilidad fiscal también es vivir mejor.")',
-  }),
-  /** Template: play affordance labelled "VER VÍDEO (1 MIN)". */
-  videoIntent: claim({
-    text: 'Video pending',
+
+  locationLabel: claim({ text: 'Costa Blanca', status: 'proposal', source: TEMPLATE }),
+
+  /** Template: "VER VÍDEO (1 MIN)". No approved video asset exists. */
+  videoPending: claim({
+    text: 'Intro video in production',
     status: 'pending',
-    source: 'docs/phase-2-decision-gate.md §5 — "final video selection or production" still open',
-    note: 'The reference shows a one-minute introduction video. No approved video asset exists.',
+    source: 'docs/phase-2-decision-gate.md §5 — final video selection or production still open',
   }),
-  videoNote: claim({
-    text: 'VIDEO PENDING_APPROVAL — the reference hero carries a one-minute introduction. No approved video asset exists and final video selection or production is still an open decision.',
-    status: 'pending',
-    source: 'docs/phase-2-decision-gate.md §5',
+} as const;
+
+/**
+ * The navy card over the hero image — the tax equivalent of Investment's
+ * `heroDashboard`.
+ *
+ * Values are FIXED ILLUSTRATIVE SAMPLES shown to convey the report's format.
+ * They are not a client's figures, not a projection and not tax advice. The
+ * card carries a visible "Illustrative" tag and the footnote below.
+ */
+export const heroSnapshot = {
+  title: claim({ text: 'Tax exposure snapshot', status: 'proposal', source: TEMPLATE }),
+  property: claim({ text: 'Sample non-resident owner, Costa Blanca', status: 'proposal' }),
+  rows: [
+    {
+      label: claim({ text: 'Estimated annual total', status: 'proposal', source: TEMPLATE }),
+      value: '€8,400',
+    },
+    {
+      label: claim({ text: 'Filings in the year', status: 'proposal', source: TEMPLATE }),
+      value: '4',
+    },
+  ],
+  horizon: {
+    label: claim({ text: 'Next deadline', status: 'proposal', source: TEMPLATE }),
+    value: 'Q2',
+  },
+  foot: claim({
+    text: 'Sample figures shown to illustrate the report format. Not a client result, a projection or tax advice.',
+    status: 'confirmed',
+    source: 'docs/phase-2-visual-implementation-contract.md §5',
   }),
-  /** Trust markers immediately under the hero copy. */
-  markers: [
-    claim({
-      text: 'Real experience',
-      status: 'proposal',
-      source: 'Translated from the template hero marker "Experiencia real"',
-    }),
-    claim({
-      text: 'International focus',
-      status: 'proposal',
-      source: 'Translated from the template hero marker "Enfoque internacional"',
-    }),
-    claim({
-      text: 'Independent advice',
-      status: 'confirmed',
-      source:
-        'decisions-log.md 2026-07-27 — remuneration model confirmed: paid by the buyer only. Describes remuneration, not contractual scope.',
-    }),
-    claim({
-      text: 'Long-term peace of mind',
-      status: 'proposal',
-      source: 'Translated from the template hero marker "Tranquilidad a largo plazo"',
-    }),
-  ] as readonly Claim[],
 } as const;
 
 /* ===========================================================================
  * 3. TRUST STRIP
  * ======================================================================== */
 
-export interface TrustItem {
-  readonly id: string;
-  /** Rendered large, in the template's position for a figure. */
-  readonly value: Claim;
-  readonly label: Claim;
-}
+export const trustStrip: readonly { icon: string; value: Claim; note: Claim }[] = [
+  {
+    icon: 'tax',
+    value: claim({
+      text: '20 years',
+      status: 'confirmed',
+      source: 'verbal/credential-register.csv CR-002, confirmed 2026-08-12',
+    }),
+    note: claim({
+      text: 'inside Spain’s tax administration',
+      status: 'confirmed',
+      source: TEMPLATE,
+    }),
+  },
+  {
+    icon: 'buyer',
+    value: claim({
+      text: 'International owners',
+      status: 'pending',
+      note: 'Template shows "160+ compradores extranjeros". Volume was deprioritised upstream as differential proof and no figure is evidenced.',
+    }),
+    note: claim({ text: 'advised on Spanish property tax', status: 'proposal', source: TEMPLATE }),
+  },
+  {
+    icon: 'declare',
+    value: claim({
+      text: 'Modelo 210',
+      status: 'confirmed',
+      source: 'brand-system/services/service-taxonomy.md — Modelo 210 support, SERVICE_LINE',
+    }),
+    note: claim({
+      text: 'prepared, reviewed and filed',
+      status: 'proposal',
+      source: TEMPLATE,
+      review: 'tax',
+    }),
+  },
+  {
+    icon: 'own',
+    value: claim({ text: 'One team', status: 'proposal', source: TEMPLATE }),
+    note: claim({ text: 'across the whole ownership cycle', status: 'proposal', source: TEMPLATE }),
+  },
+];
 
-export const trustStrip = {
-  items: [
-    {
-      id: 'administration',
-      value: claim({
-        text: '20 years',
-        status: 'proposal',
-        review: 'none',
-        source:
-          'brand-system/README.md §credential; verbal/credential-register.csv CR-002; project owner 2026-08-12. The 15-year variant is SUPERSEDED.',
-        note: 'CONFIRMED UPSTREAM but WITHHELD here: docs/copy-and-claims-matrix.md §3 requires a claims dossier (source, date, permission, scope) before any credential is published. Rendered with a visible review marker.',
-      }),
-      label: claim({
-        text: 'inside Spain’s tax administration',
-        status: 'proposal',
-        source: 'brand-system/README.md — "20 years inside Spain\'s Tax Administration"',
-      }),
-    },
-    {
-      id: 'buyers',
-      value: claim({
-        text: 'PENDING',
-        status: 'pending',
-        note: 'The template shows "160+ compradores extranjeros". No such figure is confirmed anywhere, and decisions-log.md (2026-08-05) deprioritised volume as differential proof because a competitor publishes an indistinguishable number.',
-      }),
-      label: claim({
-        text: 'international clients advised',
-        status: 'pending',
-        note: 'Label only. No figure may be rendered until one is evidenced and permitted.',
-      }),
-    },
-    {
-      id: 'modelo210',
-      value: claim({
-        text: 'Modelo 210',
-        status: 'confirmed',
-        source:
-          'brand-system/services/service-taxonomy.md — "Modelo 210 support — CAPABILITY / SERVICE_LINE"',
-      }),
-      label: claim({
-        text: 'prepared and reviewed',
-        status: 'proposal',
-        review: 'tax',
-        source: 'Translated from the template trust strip ("revisado")',
-        note: 'Describes a tax filing activity. Requires competent review.',
-      }),
-    },
-    {
-      id: 'team',
-      value: claim({
-        text: 'One team',
-        status: 'proposal',
-        source: 'Translated from the template trust strip ("Un equipo")',
-      }),
-      label: claim({
-        text: 'across the whole ownership cycle',
-        status: 'proposal',
-        note: 'Scope wording is provisional. The formal client mandate and contractual scope remain pending.',
-      }),
-    },
-  ] as readonly TrustItem[],
-  /** Template: script marginalia closing the strip. */
-  marginNote: claim({
-    text: 'Same objectives. More peace of mind.',
-    status: 'proposal',
-    source: 'Translated from the template strip marginalia ("Mismos objetivos. Más tranquilidad.")',
-  }),
-  note: claim({
-    text: 'Entries marked PENDING_APPROVAL are not missing content. Every published credential, metric or coverage claim needs a dossier with source, date, permission and scope before it may appear.',
-    status: 'confirmed',
-    source: 'website/01-audits/00-website-audit-master-2026-09.md — P0 "Validar claims"',
-  }),
-} as const;
+/** "Mismos objetivos. Más tranquilidad." */
+export const trustScript = claim({
+  text: 'Same objectives. More peace of mind.',
+  status: 'proposal',
+  source: TEMPLATE,
+});
 
 /* ===========================================================================
- * 4. PROBLEM / CONTEXT
+ * 4. CONTEXT — "Know what Spain will actually cost you."
+ *
+ * The template composes the problem framing and the audience list as ONE
+ * band: headline column left, arrow-marked profiles centre, image right with
+ * script marginalia over it. Phase 2B split them into two sections, which
+ * changed the template's rhythm. Restored to the template's composition.
  * ======================================================================== */
 
-export const problem = {
-  eyebrow: claim({
-    text: 'What owners usually find out late',
-    status: 'proposal',
-  }),
-  heading: claim({
-    text: 'The cost of a property in Spain is not the price on the listing.',
-    status: 'proposal',
-    review: 'tax',
-    note: 'Frames a tax and cost position. Requires competent review.',
-  }),
-  intro: claim({
-    text: 'Owning, letting or selling a home in Spain as a non-resident creates obligations that arrive on their own schedule, in a language and a system built for residents. Most of the difficulty is not the tax itself. It is not knowing which obligations apply to you, when, and in what order.',
-    status: 'proposal',
-    review: 'tax',
-    note: 'General description of the non-resident position. Requires competent review before publication.',
-  }),
-  tensions: [
-    claim({
-      text: 'Obligations you were never told about. Non-resident duties do not wait for someone to explain them, and they do not arrive as a reminder.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'Costs that were never in the budget. Purchase taxes, annual filings and municipal charges each land at a different moment in the year.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'Deadlines that have already passed. A filing period closes whether or not anyone told you it had opened.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'Buying, letting and selling are three different tax positions. Advice that fits one of them can be wrong for the other two.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'Two countries, one income. Which country taxes what depends on your residence and on the treaty between them.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'Planning only works before the decision. After a purchase or a sale, most of the options have already closed.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-  ] as readonly Claim[],
-  limit: claim({
-    text: 'Tax treatment depends on your residence, the region and your circumstances, and it changes over time. Nothing on this page is advice about your situation.',
-    status: 'proposal',
-    review: 'tax',
-    note: 'A scope limit, but still a tax statement. Requires competent review.',
-  }),
-} as const;
-
-/* ===========================================================================
- * 5. AUDIENCE — "Know what Spain will actually cost you."
- * ======================================================================== */
-
-export const audience = {
-  eyebrow: claim({
-    text: 'Who this advisory is for',
-    status: 'proposal',
-    source: 'Translated from the template eyebrow ("PARA QUIÉN ES ESTA ASESORÍA")',
-  }),
-  heading: claim({
+export const context = {
+  /** "PARA QUIÉN ES ESTA ASESORÍA" */
+  eyebrow: claim({ text: 'Who this advisory is for', status: 'proposal', source: TEMPLATE }),
+  /** Kept verbatim. */
+  title: claim({
     text: 'Know what Spain will actually cost you.',
     status: 'proposal',
+    source: TEMPLATE,
     review: 'tax',
-    source: 'Tax Advisory template section headline, kept verbatim',
-    note: 'Frames a cost outcome. Requires competent review.',
   }),
+  /** "Asesoramiento fiscal especializado para particulares internacionales…" */
   body: claim({
     text: 'Tax advisory for international individuals who own, are buying, are letting or are selling property in Spain.',
     status: 'proposal',
-    source: 'Translated from the template section body copy',
+    source: TEMPLATE,
   }),
+  /**
+   * The tension the template implies but does not spell out. Kept short so it
+   * supports the headline instead of becoming a second section.
+   */
+  tension: claim({
+    text: 'Owning as a non-resident creates obligations that arrive on their own schedule, in a system built for residents. The hard part is rarely the tax itself — it is knowing which obligations apply to you, when, and in what order.',
+    status: 'proposal',
+    source: TEMPLATE,
+    review: 'tax',
+  }),
+  /** Template: four arrow-marked profiles. Two more added from the brief. */
   profiles: [
     claim({
       text: 'Non-resident owners with a home in Spain',
       status: 'proposal',
-      source:
-        'Translated from the template list ("Propietarios no residentes con vivienda en España")',
+      source: TEMPLATE,
     }),
     claim({
       text: 'Foreign buyers, before the arras deposit is signed',
       status: 'proposal',
+      source: TEMPLATE,
       review: 'legal',
-      source:
-        'Translated from the template list ("Compradores extranjeros antes de firmar las arras")',
-      note: 'Refers to a legal instrument. Requires competent review.',
     }),
     claim({
       text: 'Owners letting their property, long or short term',
       status: 'proposal',
+      source: TEMPLATE,
       review: 'tax',
-      source: 'Translated from the template list ("Propietarios que alquilan su vivienda")',
     }),
     claim({
-      text: 'Owners preparing to sell and planning the tax impact',
+      text: 'Owners preparing to sell and planning the impact',
       status: 'proposal',
       review: 'tax',
     }),
     claim({
       text: 'Owners with filings still outstanding',
       status: 'proposal',
+      source: TEMPLATE,
       review: 'tax',
-      source: 'Translated from the template list ("Propietarios con declaraciones pendientes")',
     }),
     claim({
-      text: 'Anyone who wants their current position reviewed before deciding anything',
+      text: 'Anyone who wants their position reviewed before deciding',
       status: 'proposal',
       review: 'tax',
     }),
   ] as readonly Claim[],
-  marginNote: claim({
+  /** "Conocimiento local. Perspectiva internacional." */
+  script: claim({
     text: 'Local knowledge. International perspective.',
     status: 'proposal',
-    source:
-      'Translated from the template marginalia ("Conocimiento local. Perspectiva internacional.")',
+    source: TEMPLATE,
   }),
-  mediaIntent: claim({
-    text: 'ASSET PENDING — Costa Blanca location photography. No authentic location image is registered in AUTHENTIC-REFERENCE-REGISTER.md; a neutral editorial composition stands in its place.',
-    status: 'pending',
-    source: 'brand-system/imagery/AUTHENTIC-REFERENCE-REGISTER.md — no location asset registered',
+  territoryLabel: claim({ text: 'Costa Blanca', status: 'proposal', source: TEMPLATE }),
+  limit: claim({
+    text: 'Tax treatment depends on your residence, the region and your circumstances, and it changes over time. Nothing here is advice about your situation.',
+    status: 'proposal',
+    review: 'tax',
   }),
 } as const;
 
 /* ===========================================================================
- * 6. ANNUAL TAX CALENDAR
+ * 5. ANNUAL TAX CALENDAR
+ *
+ * ILLUSTRATIVE. The bar positions reproduce the template's layout so the
+ * composition can be reviewed. They state no real filing period: every
+ * deadline is a tax claim requiring competent review (AGENTS.md §11).
  * ======================================================================== */
 
 export interface CalendarRow {
   readonly id: string;
   readonly label: Claim;
-  /** 1-12. Structural positions copied from the template's bar placement. */
+  /** 1–12, from the template's bar placement. Layout, not a deadline. */
   readonly from: number;
   readonly to: number;
   readonly tone: 'navy' | 'gold' | 'sky' | 'sage' | 'sand' | 'clay';
 }
 
-/**
- * CALENDAR — STRUCTURE ONLY.
- *
- * The bar positions reproduce the TEMPLATE'S LAYOUT so the composition can be
- * reviewed. They are NOT a statement of when a Spanish filing period opens or
- * closes. Every real date is a tax statement requiring competent review
- * (AGENTS.md §11), so the rendered component labels the whole surface
- * ILLUSTRATIVE and shows no month boundary as a fact.
- */
 export const calendar = {
+  /** "ANNUAL TAX CALENDAR · NON-RESIDENT OWNER" */
   eyebrow: claim({
     text: 'Annual tax calendar · non-resident owner',
     status: 'proposal',
-    source: 'Tax Advisory template section label, kept verbatim',
+    source: TEMPLATE,
   }),
-  heading: claim({
+  /** "Las fechas clave para mantener tu propiedad en regla." */
+  title: claim({
     text: 'The dates that keep your property in order.',
     status: 'proposal',
+    source: TEMPLATE,
     review: 'tax',
-    source:
-      'Translated from the template subtitle ("Las fechas clave para mantener tu propiedad en regla.")',
   }),
-  months: [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC',
+  months: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'] as const,
+  monthNames: [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ] as const,
   rows: [
     {
       id: 'modelo210-rental',
       label: claim({
-        text: 'Modelo 210 (rental income)',
+        text: 'Modelo 210 — rental income',
         status: 'confirmed',
-        source:
-          'Name of a published Spanish tax form; service-taxonomy.md records Modelo 210 support as a SERVICE_LINE',
+        source: 'Name of a Spanish tax form',
       }),
       from: 4,
       to: 7,
@@ -516,9 +402,9 @@ export const calendar = {
     {
       id: 'modelo210-imputed',
       label: claim({
-        text: 'Modelo 210 (imputed income)',
+        text: 'Modelo 210 — imputed income',
         status: 'confirmed',
-        source: 'Name of a published Spanish tax form',
+        source: 'Name of a Spanish tax form',
       }),
       from: 2,
       to: 4,
@@ -527,7 +413,7 @@ export const calendar = {
     {
       id: 'ibi',
       label: claim({
-        text: 'IBI (municipal property tax)',
+        text: 'IBI — municipal property tax',
         status: 'confirmed',
         source: 'Name of a Spanish municipal tax',
       }),
@@ -537,12 +423,7 @@ export const calendar = {
     },
     {
       id: 'wealth',
-      label: claim({
-        text: 'Wealth tax',
-        status: 'confirmed',
-        source:
-          'Name of a Spanish tax; service-taxonomy.md lists wealth/patrimonio advisory under OWN',
-      }),
+      label: claim({ text: 'Wealth tax', status: 'confirmed', source: 'Name of a Spanish tax' }),
       from: 3,
       to: 5,
       tone: 'sky',
@@ -550,7 +431,7 @@ export const calendar = {
     {
       id: 'itp-vat',
       label: claim({
-        text: 'ITP / VAT (on purchase)',
+        text: 'ITP / VAT — on purchase',
         status: 'confirmed',
         source: 'Names of Spanish transfer tax and VAT',
       }),
@@ -561,908 +442,792 @@ export const calendar = {
     {
       id: 'plusvalia',
       label: claim({
-        text: 'Plusvalía (on sale)',
+        text: 'Plusvalía — on sale',
         status: 'confirmed',
-        source: 'Name of a Spanish municipal capital-gains charge',
+        source: 'Name of a Spanish municipal charge',
       }),
       from: 3,
       to: 5,
       tone: 'clay',
     },
   ] as readonly CalendarRow[],
-  illustrativeMarker: claim({
-    text: 'ILLUSTRATIVE',
+  note: claim({
+    text: 'Positions follow the reference layout and state no filing period. Real dates depend on the tax, the region, the property and your circumstances.',
     status: 'pending',
     review: 'tax',
-    source: 'AGENTS.md §11 — every deadline is a claim requiring human review',
-    note: 'Bar positions reproduce the reference composition and state no filing period.',
-  }),
-  illustrativeNote: claim({
-    text: 'Bar positions reproduce the reference composition and describe no real filing period. Deadlines depend on the tax, the region, the property and your circumstances, and every date requires competent review before publication.',
-    status: 'pending',
-    review: 'tax',
-    source: 'AGENTS.md §11 — every deadline is a claim requiring human review',
-  }),
-  asideMediaIntent: claim({
-    text: 'ASSET PENDING — supporting location image',
-    status: 'pending',
-    source: 'brand-system/imagery/AUTHENTIC-REFERENCE-REGISTER.md — no location asset registered',
   }),
   aside: {
-    eyebrow: claim({
-      text: 'Personal calendar',
-      status: 'proposal',
-      source: 'Translated from the template aside ("CALENDARIO PERSONALIZADO")',
-    }),
+    /** "CALENDARIO PERSONALIZADO" */
+    eyebrow: claim({ text: 'Your own calendar', status: 'proposal', source: TEMPLATE }),
     body: claim({
-      text: 'We build a calendar around your own obligations — your situation, your property, your filing profile.',
+      text: 'We build the calendar around your obligations — your situation, your property, your filing profile.',
       status: 'proposal',
+      source: TEMPLATE,
       review: 'tax',
-      source: 'Translated from the template aside body copy',
     }),
-    cta: claim({
-      text: 'Create my tax map',
-      status: 'proposal',
-      source: 'Translated from the template aside CTA ("CREAR MI MAPA FISCAL")',
-    }),
+    /** "CREAR MI MAPA FISCAL" */
+    cta: claim({ text: 'Create my tax map', status: 'proposal', source: TEMPLATE }),
   },
 } as const;
 
 /* ===========================================================================
- * 7. PROCESS — "Every tax, in the right order."
+ * 6. PROCESS — "Every tax, in the right order."
  * ======================================================================== */
 
-export interface ProcessStage {
-  readonly id: string;
-  readonly number: string;
-  readonly title: Claim;
-  readonly body: Claim;
-  readonly deliverable: Claim;
-  /** Editorial symbol key. Rendered as inline SVG, never as an emoji. */
-  readonly symbol: 'map' | 'home' | 'document' | 'chart' | 'coins' | 'cycle';
-}
-
 export const process = {
-  heading: claim({
-    text: 'Every tax, in the right order.',
-    status: 'proposal',
-    source: 'Tax Advisory template section headline, kept verbatim',
-  }),
-  intro: claim({
-    text: 'A clear step for each stage of owning property in Spain.',
-    status: 'proposal',
-    source: 'Translated from the template section standfirst',
-  }),
-  stages: [
+  eyebrow: claim({ text: 'How it works', status: 'proposal', source: TEMPLATE }),
+  title: claim({ text: 'Every tax, in the right order.', status: 'proposal', source: TEMPLATE }),
+  steps: [
     {
       id: 'fiscal-map',
-      number: '01',
-      title: claim({
-        text: 'Fiscal map',
-        status: 'proposal',
-        source: 'Template stage 01 ("FISCAL MAP")',
-      }),
+      icon: 'market' as const,
+      title: claim({ text: 'Fiscal map', status: 'proposal', source: TEMPLATE }),
       body: claim({
-        text: 'Your current tax position and the risks in it, set out in one picture.',
+        text: 'Your current position and the risks in it, set out in one picture.',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template stage description',
       }),
-      deliverable: claim({
-        text: 'Deliverable: initial report',
-        status: 'proposal',
-        source: 'Translated from the template ("Entregable: informe inicial")',
-      }),
-      symbol: 'map',
+      deliverable: claim({ text: 'Initial report', status: 'proposal', source: TEMPLATE }),
     },
     {
       id: 'itp-vat',
-      number: '02',
-      title: claim({ text: 'ITP / VAT', status: 'proposal', source: 'Template stage 02' }),
+      icon: 'buy' as const,
+      title: claim({ text: 'ITP / VAT', status: 'proposal', source: TEMPLATE }),
       body: claim({
-        text: 'Advice on the purchase itself and on the tax treatment it triggers.',
+        text: 'Advice on the purchase and the tax treatment it triggers.',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template stage description',
       }),
-      deliverable: claim({
-        text: 'Deliverable: cost analysis',
-        status: 'proposal',
-        source: 'Translated from the template ("Entregable: análisis de costes")',
-      }),
-      symbol: 'home',
+      deliverable: claim({ text: 'Cost analysis', status: 'proposal', source: TEMPLATE }),
     },
     {
       id: 'modelo-210',
-      number: '03',
+      icon: 'declare' as const,
       title: claim({
         text: 'Modelo 210',
         status: 'confirmed',
-        source: 'brand-system/services/service-taxonomy.md — Modelo 210 support, SERVICE_LINE',
+        source: 'service-taxonomy.md — Modelo 210 support',
       }),
       body: claim({
         text: 'Non-resident filings for imputed and rental income, prepared and checked.',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template stage description',
       }),
-      deliverable: claim({
-        text: 'Deliverable: reviewed filings',
-        status: 'proposal',
-        source: 'Translated from the template ("Entregable: modelos revisados")',
-      }),
-      symbol: 'document',
+      deliverable: claim({ text: 'Reviewed filings', status: 'proposal', source: TEMPLATE }),
     },
     {
       id: 'plusvalia',
-      number: '04',
-      title: claim({ text: 'Plusvalía', status: 'proposal', source: 'Template stage 04' }),
+      icon: 'exit' as const,
+      title: claim({ text: 'Plusvalía', status: 'proposal', source: TEMPLATE }),
       body: claim({
         text: 'Calculation and planning for the moment you sell.',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template stage description',
       }),
-      deliverable: claim({
-        text: 'Deliverable: estimate and strategy',
-        status: 'proposal',
-        source: 'Translated from the template ("Entregable: estimación y estrategia")',
-      }),
-      symbol: 'chart',
+      deliverable: claim({ text: 'Estimate and strategy', status: 'proposal', source: TEMPLATE }),
     },
     {
       id: 'wealth',
-      number: '05',
-      title: claim({ text: 'Wealth tax', status: 'proposal', source: 'Template stage 05' }),
+      icon: 'financialModel' as const,
+      title: claim({ text: 'Wealth tax', status: 'proposal', source: TEMPLATE }),
       body: claim({
         text: 'Your asset position in Spain, and the reliefs that apply to it.',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template stage description',
       }),
-      deliverable: claim({
-        text: 'Deliverable: exposure report',
-        status: 'proposal',
-        source: 'Translated from the template ("Entregable: informe de riesgo")',
-      }),
-      symbol: 'coins',
+      deliverable: claim({ text: 'Exposure report', status: 'proposal', source: TEMPLATE }),
     },
     {
       id: 'annual-review',
-      number: '06',
-      title: claim({ text: 'Annual review', status: 'proposal', source: 'Template stage 06' }),
+      icon: 'own' as const,
+      title: claim({ text: 'Annual review', status: 'proposal', source: TEMPLATE }),
       body: claim({
         text: 'A yearly check so the position stays current as rules and circumstances change.',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template stage description',
       }),
-      deliverable: claim({
-        text: 'Deliverable: annual checklist',
-        status: 'proposal',
-        source: 'Translated from the template ("Entregable: checklist anual")',
-      }),
-      symbol: 'cycle',
+      deliverable: claim({ text: 'Annual checklist', status: 'proposal', source: TEMPLATE }),
     },
-  ] as readonly ProcessStage[],
-  timingNote: claim({
-    text: 'No turnaround time is published. No confirmed figure exists for any stage.',
-    status: 'pending',
-    source: 'docs/copy-and-claims-matrix.md §3 — "Every turnaround time: no confirmed figure"',
+  ],
+  /** "Un proceso claro para cada etapa de tu propiedad en España." */
+  script: claim({
+    text: 'A clear step for each stage of owning property in Spain.',
+    status: 'proposal',
+    source: TEMPLATE,
   }),
 } as const;
 
 /* ===========================================================================
- * 8. REPORT PREVIEW — navy dashboard band
+ * 7. REPORT PREVIEW — navy band
+ *
+ * Illustrative samples, labelled on every panel, exactly as the Investment
+ * report band does.
  * ======================================================================== */
 
-/**
- * DASHBOARDS — STRUCTURE ONLY, EVERY VALUE SUPPRESSED.
- *
- * The template renders "€ 24.500", a "-18%" delta, a twelve-bar chart and a
- * five-line tax breakdown with amounts. Publishing any of them would fabricate
- * a financial result. The panels below keep the template's INFORMATION
- * ARCHITECTURE — what the report contains — and replace every figure with an
- * explicit marker. The chart renders a fixed, visibly abstract shape carrying
- * no axis values.
- */
-export const reportPreview = {
-  eyebrow: claim({
-    text: 'Preview of the tax report',
-    status: 'proposal',
-    source: 'Translated from the template band label ("PREVIEW DEL INFORME FISCAL")',
-  }),
-  heading: claim({
+export const report = {
+  /** "PREVIEW DEL INFORME FISCAL" */
+  eyebrow: claim({ text: 'Preview of the tax report', status: 'proposal', source: TEMPLATE }),
+  title: claim({
     text: 'What the report actually contains.',
     status: 'proposal',
+    source: TEMPLATE,
   }),
-  intro: claim({
+  /** "Datos reales. Análisis claro. Recomendaciones prácticas." */
+  subtitle: claim({
     text: 'Clear analysis and practical recommendations, laid out the same way every time.',
     status: 'proposal',
-    source:
-      'Translated from the template standfirst ("Análisis claro. Recomendaciones prácticas.")',
+    source: TEMPLATE,
   }),
-  panels: [
-    {
-      id: 'exposure',
-      title: claim({
-        text: 'Your tax exposure',
-        status: 'proposal',
-        review: 'tax',
-        source: 'Translated from the template panel ("Resumen de tu exposición fiscal")',
-      }),
-      caption: claim({
-        text: 'Total estimated for the year',
-        status: 'proposal',
-        review: 'financial',
-        source: 'Translated from the template panel caption',
-      }),
-      valueMarker: 'PENDING_APPROVAL',
-      deltaMarker: 'SAMPLE',
-    },
+
+  /** Panel 1 — "Resumen de tu exposición fiscal". */
+  summary: {
+    title: claim({
+      text: 'Your tax exposure',
+      status: 'proposal',
+      source: TEMPLATE,
+      review: 'tax',
+    }),
+    property: claim({ text: 'Sample non-resident owner', status: 'proposal' }),
+    rows: [
+      {
+        label: claim({ text: 'Estimated annual total', status: 'proposal', source: TEMPLATE }),
+        value: '€8,400',
+      },
+      {
+        label: claim({ text: 'Of which Modelo 210', status: 'proposal', source: TEMPLATE }),
+        value: '€2,550',
+      },
+      {
+        label: claim({ text: 'Of which municipal', status: 'proposal', source: TEMPLATE }),
+        value: '€900',
+      },
+    ],
+    status: claim({ text: 'Filing status', status: 'proposal', source: TEMPLATE }),
+    statusValue: claim({ text: 'Up to date', status: 'proposal', source: TEMPLATE }),
+  },
+
+  /** Panels 2–4 — "Calendario fiscal anual", "Convenio", "Desglose". */
+  cards: [
     {
       id: 'calendar',
-      title: claim({
-        text: 'Annual tax calendar',
+      title: claim({ text: 'Annual tax calendar', status: 'proposal', source: TEMPLATE }),
+      note: claim({
+        text: 'When each obligation falls due',
         status: 'proposal',
-        source: 'Translated from the template panel ("Calendario fiscal anual")',
-      }),
-      caption: claim({
-        text: 'Shape only — no month carries a value',
-        status: 'pending',
+        source: TEMPLATE,
         review: 'tax',
       }),
-      valueMarker: 'ILLUSTRATIVE',
-      deltaMarker: null,
     },
     {
       id: 'treaty',
       title: claim({
-        text: 'Treaty with your country of residence',
+        text: 'Double taxation treaty',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template panel ("Convenio con tu país de residencia")',
       }),
-      caption: claim({
-        text: 'Which country taxes what, and how double taxation is relieved',
+      note: claim({
+        text: 'Which country taxes what, and how relief applies',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
-        source: 'Translated from the template panel ("Evita la doble imposición")',
       }),
-      valueMarker: 'PENDING_APPROVAL',
-      deltaMarker: null,
     },
     {
       id: 'breakdown',
-      title: claim({
-        text: 'Tax breakdown',
-        status: 'proposal',
-        review: 'tax',
-        source: 'Translated from the template panel ("Desglose de impuestos")',
-      }),
-      caption: claim({
+      title: claim({ text: 'Tax breakdown', status: 'proposal', source: TEMPLATE, review: 'tax' }),
+      note: claim({
         text: 'Line by line, with the basis for each',
         status: 'proposal',
+        source: TEMPLATE,
         review: 'tax',
       }),
-      valueMarker: 'PENDING_APPROVAL',
-      deltaMarker: null,
     },
-  ] as const,
-  /** Template: the four-item list to the right of the panels. */
-  contents: [
-    claim({
-      text: 'A complete report, written for your situation',
-      status: 'proposal',
-      source: 'Translated from the template ("Informe completo y personalizado")',
-    }),
-    claim({
-      text: 'Delivered as a PDF and walked through on a call',
-      status: 'proposal',
-      source: 'Translated from the template ("En PDF y en videollamada")',
-    }),
-    claim({
-      text: 'Scenarios and sensitivity to the assumptions',
-      status: 'proposal',
-      review: 'financial',
-      source: 'Translated from the template ("Escenarios y sensibilidad")',
-    }),
-    claim({
-      text: 'Step-by-step recommendations',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Translated from the template ("Recomendaciones paso a paso")',
-    }),
-  ] as readonly Claim[],
-  cta: claim({
-    text: 'Request a tax review',
-    status: 'proposal',
-    source: 'Translated from the template band CTA ("SOLICITAR REVISIÓN FISCAL")',
-  }),
-  governanceNote: claim({
-    text: 'Every figure in this band is suppressed. The panels show what the report contains, not a result. No amount, percentage, projection or saving appears anywhere on this page.',
+  ],
+
+  /** Rows inside the breakdown panel. Illustrative sample values. */
+  breakdown: [
+    {
+      label: claim({ text: 'Modelo 210 — rental', status: 'proposal', source: TEMPLATE }),
+      value: '€2,100',
+    },
+    {
+      label: claim({ text: 'Modelo 210 — imputed', status: 'proposal', source: TEMPLATE }),
+      value: '€450',
+    },
+    {
+      label: claim({ text: 'IBI — municipal', status: 'proposal', source: TEMPLATE }),
+      value: '€900',
+    },
+    { label: claim({ text: 'Wealth tax', status: 'proposal', source: TEMPLATE }), value: '€1,850' },
+    { label: claim({ text: 'Other', status: 'proposal', source: TEMPLATE }), value: '€3,100' },
+  ],
+
+  /** The four-item list beside the panels. */
+  deliverables: [
+    {
+      icon: 'report' as const,
+      text: claim({
+        text: 'A complete report, written for your situation',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+    },
+    {
+      icon: 'play' as const,
+      text: claim({
+        text: 'Delivered as a PDF and walked through on a call',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+    },
+    {
+      icon: 'financialModel' as const,
+      text: claim({
+        text: 'Scenarios and sensitivity to the assumptions',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'financial',
+      }),
+    },
+    {
+      icon: 'check' as const,
+      text: claim({
+        text: 'Step-by-step recommendations',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+    },
+  ],
+
+  /** "SOLICITAR REVISIÓN FISCAL" */
+  cta: claim({ text: 'Request a tax review', status: 'proposal', source: TEMPLATE }),
+  ctaNote: claim({
+    text: 'Sample figures throughout, shown to illustrate the report format. No contact channel is connected in this preview.',
     status: 'confirmed',
-    source: 'AGENTS.md §2 and docs/copy-and-claims-matrix.md §3',
+    source: 'docs/phase-2-visual-implementation-contract.md §5; README.md §12',
   }),
 } as const;
 
 /* ===========================================================================
- * 9. CONCERNS — "What you stop worrying about."
+ * 8. CONCERNS — "What you stop worrying about."
  * ======================================================================== */
 
 export const concerns = {
-  eyebrow: claim({
-    text: 'What you stop worrying about',
-    status: 'proposal',
-    source: 'Translated from the template eyebrow ("LO QUE DEJAS DE PREOCUPARTE POR")',
-  }),
-  heading: claim({
-    text: 'What you stop worrying about.',
-    status: 'proposal',
-    source: 'Tax Advisory template section headline, kept verbatim',
-  }),
+  /** "LO QUE DEJAS DE PREOCUPARTE POR" */
+  eyebrow: claim({ text: 'What you stop worrying about', status: 'proposal', source: TEMPLATE }),
+  title: claim({ text: 'What you stop worrying about.', status: 'proposal', source: TEMPLATE }),
+  /** "Menos incertidumbre. Más tiempo para disfrutar de lo que realmente importa." */
   body: claim({
     text: 'Less uncertainty. More time for the part of Spain you actually came for.',
     status: 'proposal',
-    source: 'Translated from the template section body copy',
+    source: TEMPLATE,
   }),
   items: [
-    claim({
-      text: 'Not knowing what you actually owe',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Translated from the template list ("No saber cuánto debes realmente")',
-    }),
-    claim({
-      text: 'Missing a Modelo 210 deadline',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Translated from the template list ("Perder plazos del Modelo 210")',
-    }),
-    claim({
-      text: 'An unexpected letter from the tax office',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Translated from the template list ("Cartas inesperadas de Hacienda")',
-    }),
-    claim({
-      text: 'Paying twice on the same income',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Translated from the template list ("Pagar dos veces por el mismo impuesto")',
-    }),
-    claim({
-      text: 'Buying without knowing the tax that comes with it',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'Selling without having planned the impact',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'An adviser who simply copies last year’s filing',
-      status: 'proposal',
-      source: 'Translated from the template list ("Una gestoría que solo copia el año anterior")',
-      note: 'Comparative statement about other advisers. Needs review for tone: the brand principle is calm evidence, not disparagement.',
-    }),
-  ] as readonly Claim[],
-  marginNote: claim({
+    {
+      icon: 'clock' as const,
+      text: claim({
+        text: 'Missing a Modelo 210 deadline',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+    },
+    {
+      icon: 'risk' as const,
+      text: claim({
+        text: 'Paying twice on the same income',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+    },
+    {
+      icon: 'document' as const,
+      text: claim({
+        text: 'An unexpected letter from the tax office',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+    },
+    {
+      icon: 'analyse' as const,
+      text: claim({
+        text: 'An adviser who simply copies last year’s filing',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+    },
+    {
+      icon: 'tax' as const,
+      text: claim({
+        text: 'Not knowing what you actually owe',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+    },
+    {
+      icon: 'buy' as const,
+      text: claim({
+        text: 'Buying without knowing the tax that comes with it',
+        status: 'proposal',
+        review: 'tax',
+      }),
+    },
+  ],
+  /** "Menos dudas. Más vida en España." */
+  script: claim({
     text: 'Fewer doubts. More life in Spain.',
     status: 'proposal',
-    source: 'Translated from the template marginalia ("Menos dudas. Más vida en España.")',
+    source: TEMPLATE,
   }),
-  mediaIntent: claim({
-    text: 'ASSET PENDING — Costa Blanca lifestyle photography. No authentic location asset is registered; a neutral editorial composition stands in its place.',
-    status: 'pending',
-    source: 'brand-system/imagery/AUTHENTIC-REFERENCE-REGISTER.md',
-  }),
+  territoryLabel: claim({ text: 'Costa Blanca', status: 'proposal', source: TEMPLATE }),
 } as const;
 
 /* ===========================================================================
- * 10. SERVICES
+ * 9. SERVICES — three blocks, as the template composes them
+ *
+ * The template shows THREE service cards. Phase 2B expanded them to six,
+ * which turned an editorial composition into a catalogue. Restored to three;
+ * nothing was dropped — wealth, Modelo 210 corrections and the personal
+ * review live inside the block they belong to, as sub-items.
  * ======================================================================== */
 
-export interface ServiceCard {
+export interface ServiceBlock {
   readonly id: string;
+  readonly icon: 'analyse' | 'declare' | 'buy';
+  readonly visual: 'plot' | 'built' | 'district';
   readonly title: Claim;
   readonly points: readonly Claim[];
   readonly deliverable: Claim;
+  /** Secondary line: what else the block covers. */
+  readonly also: Claim;
   readonly cta: Claim;
-  /** Governance state shown on the card when the offer is not confirmed live. */
-  readonly state: 'confirmed-service' | 'pending-packaging' | 'proposed-offer';
-  readonly symbol: 'document' | 'cycle' | 'home' | 'coins' | 'chart' | 'map';
 }
 
 export const services = {
-  eyebrow: claim({
-    text: 'Our services',
-    status: 'proposal',
-    source: 'Translated from the template band label ("NUESTROS SERVICIOS")',
-  }),
-  heading: claim({
+  /** "NUESTROS SERVICIOS" */
+  eyebrow: claim({ text: 'Our services', status: 'proposal', source: TEMPLATE }),
+  title: claim({
     text: 'Start where your situation actually is.',
     status: 'proposal',
+    source: TEMPLATE,
   }),
-  priceNote: claim({
-    text: 'NO PRICE IS PUBLISHED. A price exists upstream for the tax diagnostic, but publication is not approved and service-taxonomy.md requires live re-verification before any figure is used.',
-    status: 'pending',
-    source: 'brand-system/services/service-taxonomy.md; docs/phase-2-decision-gate.md D2-04',
-  }),
-  cards: [
+  items: [
     {
       id: 'tax-diagnostic',
-      title: claim({
-        text: 'Tax diagnostic',
-        status: 'proposal',
-        source:
-          'brand-system/services/service-taxonomy.md — "/tax-diagnostic — PRODUCTIZED_SERVICE"; template card "TAX DIAGNOSTIC"',
-        note: 'The upstream taxonomy records this offer. Its live price and state require production verification.',
-      }),
+      icon: 'analyse',
+      visual: 'plot',
+      /** "TAX DIAGNOSTIC" */
+      title: claim({ text: 'Tax diagnostic', status: 'proposal', source: TEMPLATE }),
       points: [
         claim({
           text: 'Review of your current position',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("Análisis de tu situación actual")',
         }),
         claim({
           text: 'Identification of the risks in it',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("Identificación de riesgos")',
         }),
         claim({
           text: 'Recommendations written for your case',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("Recomendaciones personalizadas")',
         }),
       ],
-      deliverable: claim({
-        text: 'Deliverable: written diagnostic',
+      deliverable: claim({ text: 'Written diagnostic', status: 'proposal', source: TEMPLATE }),
+      also: claim({
+        text: 'Includes the personal tax review for owners who just want their position checked.',
         status: 'proposal',
-        note: 'The template states a delivery time. No turnaround figure is confirmed, so none is published.',
+        review: 'tax',
       }),
-      cta: claim({ text: 'Review my situation', status: 'proposal' }),
-      state: 'pending-packaging',
-      symbol: 'document',
+      cta: claim({ text: 'Review my situation', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'modelo-210',
-      title: claim({
-        text: 'Modelo 210',
-        status: 'confirmed',
-        source:
-          'brand-system/services/service-taxonomy.md — "Modelo 210 support — CAPABILITY / SERVICE_LINE"',
-        note: 'The taxonomy adds: never present as a market category of its own without evidence. It is presented here as a service line only.',
-      }),
+      id: 'annual-compliance',
+      icon: 'declare',
+      visual: 'built',
+      /** "ANNUAL COMPLIANCE" */
+      title: claim({ text: 'Annual compliance', status: 'proposal', source: TEMPLATE }),
       points: [
         claim({
-          text: 'Imputed and rental income filings',
+          text: 'Modelo 210, rental and imputed income',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("Modelo 210 (renta e imputada)")',
         }),
         claim({
           text: 'Deadlines tracked for you',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("Seguimiento de plazos")',
-        }),
-        claim({
-          text: 'Correcting filings that are outstanding',
-          status: 'proposal',
-          review: 'tax',
-        }),
-      ],
-      deliverable: claim({
-        text: 'Deliverable: prepared and reviewed filings',
-        status: 'proposal',
-        review: 'tax',
-      }),
-      cta: claim({ text: 'Understand my obligations', status: 'proposal' }),
-      state: 'confirmed-service',
-      symbol: 'document',
-    },
-    {
-      id: 'annual-compliance',
-      title: claim({
-        text: 'Annual compliance',
-        status: 'proposal',
-        source:
-          'Template card "ANNUAL COMPLIANCE"; closest upstream entry is "Tax Care — PROFESSIONAL_SERVICE / recurring offer"',
-        note: 'service-taxonomy.md: exact live packaging and pricing require production verification.',
-      }),
-      points: [
-        claim({
-          text: 'Your filings handled across the year',
-          status: 'proposal',
-          review: 'tax',
-        }),
-        claim({
-          text: 'A calendar and reminders built around your obligations',
-          status: 'proposal',
-          review: 'tax',
-          source: 'Translated from the template card ("Incluye calendario y alertas")',
         }),
         claim({
           text: 'Representation and correspondence handled',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'legal',
-          source: 'Translated from the template card ("Representación y comunicación")',
-          note: 'Implies fiscal representation. Scope requires legal review.',
         }),
       ],
       deliverable: claim({
-        text: 'Deliverable: year-round compliance',
+        text: 'Year-round compliance, calendar and alerts',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+      also: claim({
+        text: 'Covers correcting filings that are already outstanding.',
         status: 'proposal',
         review: 'tax',
       }),
-      cta: claim({ text: 'See what it covers', status: 'proposal' }),
-      state: 'pending-packaging',
-      symbol: 'cycle',
+      cta: claim({ text: 'Understand my obligations', status: 'proposal', source: TEMPLATE }),
     },
     {
       id: 'purchase-overlay',
-      title: claim({
-        text: 'Purchase + tax overlay',
-        status: 'proposal',
-        source:
-          'Template card "PURCHASE + TAX OVERLAY"; upstream "Tax/cost review — CAPABILITY" under BUY',
-      }),
+      icon: 'buy',
+      visual: 'district',
+      /** "PURCHASE + TAX OVERLAY" */
+      title: claim({ text: 'Purchase + tax overlay', status: 'proposal', source: TEMPLATE }),
       points: [
         claim({
           text: 'Full tax read on the purchase itself',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("Análisis fiscal completo de la compra")',
         }),
         claim({
           text: 'ITP / VAT and the costs that travel with them',
           status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
-          source: 'Translated from the template card ("ITP / IVA y costes asociados")',
         }),
         claim({
           text: 'How the structure looks over the long term',
           status: 'proposal',
-          review: 'tax',
-          source: 'Translated from the template card ("Planificación a largo plazo")',
-        }),
-      ],
-      deliverable: claim({
-        text: 'Deliverable: pre-purchase tax read',
-        status: 'proposal',
-        review: 'tax',
-      }),
-      cta: claim({ text: 'Review before I commit', status: 'proposal' }),
-      state: 'proposed-offer',
-      symbol: 'home',
-    },
-    {
-      id: 'wealth',
-      title: claim({
-        text: 'Wealth and assets',
-        status: 'proposal',
-        source:
-          'Template process stage "WEALTH TAX"; upstream "Ownership Advisory — PROFESSIONAL_SERVICE candidate"',
-      }),
-      points: [
-        claim({ text: 'Your asset position in Spain, mapped', status: 'proposal', review: 'tax' }),
-        claim({
-          text: 'Reliefs and thresholds that apply to it',
-          status: 'proposal',
-          review: 'tax',
-        }),
-        claim({ text: 'Coordination with your adviser abroad', status: 'proposal', review: 'tax' }),
-      ],
-      deliverable: claim({
-        text: 'Deliverable: exposure report',
-        status: 'proposal',
-        review: 'tax',
-      }),
-      cta: claim({ text: 'Review my position', status: 'proposal' }),
-      state: 'proposed-offer',
-      symbol: 'coins',
-    },
-    {
-      id: 'personal-review',
-      title: claim({
-        text: 'Personal tax review',
-        status: 'proposal',
-        source:
-          'Template "revisión fiscal personalizada"; upstream "Tax Health Check — proposed PRODUCTIZED_SERVICE"',
-        note: 'service-taxonomy.md: proposed CONVERSION_CONCEPT, not automatically live.',
-      }),
-      points: [
-        claim({
-          text: 'One conversation about where you actually stand',
-          status: 'proposal',
-          review: 'tax',
-        }),
-        claim({
-          text: 'What is outstanding, and what it would take to close it',
-          status: 'proposal',
-          review: 'tax',
-        }),
-        claim({
-          text: 'A recommended next step, with its limits stated',
-          status: 'proposal',
+          source: TEMPLATE,
           review: 'tax',
         }),
       ],
       deliverable: claim({
-        text: 'Deliverable: reviewed position and next step',
+        text: 'Pre-purchase tax read',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+      also: claim({
+        text: 'Extends to wealth and asset planning once you own.',
         status: 'proposal',
         review: 'tax',
       }),
-      cta: claim({ text: 'Talk to Sarah', status: 'proposal' }),
-      state: 'proposed-offer',
-      symbol: 'map',
+      cta: claim({ text: 'Review before I commit', status: 'proposal', source: TEMPLATE }),
     },
-  ] as readonly ServiceCard[],
+  ] as readonly ServiceBlock[],
+  /**
+   * The template prices each card. No price is published: publication is not
+   * approved (D2-04) and service-taxonomy.md requires live re-verification.
+   */
+  priceNote: claim({
+    text: 'Scope and fees are confirmed in writing before any work starts. Nothing is priced on this preview.',
+    status: 'pending',
+    source: 'service-taxonomy.md; docs/phase-2-decision-gate.md D2-04',
+  }),
 } as const;
 
 /* ===========================================================================
- * 11. AUTHORITY — navy band
+ * 10. AUTHORITY — navy band
  * ======================================================================== */
 
 export const authority = {
-  eyebrow: claim({
-    text: 'Experience makes the difference',
-    status: 'proposal',
-    source: 'Translated from the template eyebrow ("LA EXPERIENCIA MARCA LA DIFERENCIA")',
-  }),
-  heading: claim({
+  /** "LA EXPERIENCIA MARCA LA DIFERENCIA" */
+  eyebrow: claim({ text: 'Experience makes the difference', status: 'proposal', source: TEMPLATE }),
+  /** Kept verbatim. */
+  title: claim({
     text: 'The authority’s view, translated for you.',
     status: 'proposal',
-    source: 'Tax Advisory template section headline, kept verbatim',
+    source: TEMPLATE,
   }),
   body: claim({
     text: 'Sarah worked inside Spain’s tax administration before advising international clients on it. The value is not only knowing the rules — it is knowing how the administration actually reads them.',
     status: 'proposal',
     review: 'tax',
-    note: 'DIVERGES FROM THE TEMPLATE. The template states "más de 20 años dentro de SUMA y la administración tributaria en la Comunidad Valenciana". The duration is withheld pending its claims dossier, and neither the named body nor the region is repeated: AGENTS.md §2 forbids inferring professional detail, and content/authority-content-and-video-opportunity-map.md warns against publishing specifics of that period.',
-  }),
-  credentialSlot: claim({
-    text: 'CREDENTIAL — 20 years inside Spain’s tax administration. Confirmed upstream, withheld pending a claims dossier with source, date, permission and scope.',
-    status: 'pending',
-    source:
-      'brand-system/README.md; verbal/credential-register.csv CR-002; docs/copy-and-claims-matrix.md §3',
+    note: 'The template names SUMA and the Comunidad Valenciana. Neither is repeated: content/authority-content-and-video-opportunity-map.md warns against publishing specifics of that period.',
   }),
   points: [
-    claim({
-      text: 'Independent advice',
-      status: 'confirmed',
-      source:
-        'decisions-log.md 2026-07-27 — remuneration model confirmed. Describes remuneration only, not contractual scope.',
-    }),
-    claim({
-      text: 'Experience from inside the administration',
-      status: 'proposal',
-      note: 'Rests on the credential above, which is withheld pending its dossier.',
-    }),
-    claim({
-      text: 'International focus',
-      status: 'proposal',
-      source: 'Translated from the template list ("Enfoque internacional")',
-    }),
-    claim({
-      text: 'Coordination with your adviser abroad',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Translated from the template list ("Coordinación con tu asesor en el extranjero")',
-    }),
-  ] as readonly Claim[],
+    {
+      icon: 'independence' as const,
+      text: claim({
+        text: 'Independent advice',
+        status: 'confirmed',
+        source: 'decisions-log.md 2026-07-27',
+      }),
+    },
+    {
+      icon: 'tax' as const,
+      text: claim({
+        text: 'Experience from inside the administration',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+    },
+    {
+      icon: 'buyer' as const,
+      text: claim({ text: 'International focus', status: 'proposal', source: TEMPLATE }),
+    },
+    {
+      icon: 'check' as const,
+      text: claim({
+        text: 'Coordination with your adviser abroad',
+        status: 'proposal',
+        source: TEMPLATE,
+        review: 'tax',
+      }),
+    },
+  ],
+  /** "CONOCER A SARAH" */
+  cta: claim({ text: 'About Sarah', status: 'proposal', source: TEMPLATE }),
+  /** "La fiscalidad no tiene por qué ser complicada si cuentas con la guía adecuada." */
   quote: claim({
     text: 'Tax does not have to be complicated when you have the right guide.',
     status: 'proposal',
-    source: 'Translated from the template pull quote',
-    note: 'Attributed to Sarah in the template. Attribution requires her confirmation before publication.',
+    source: TEMPLATE,
   }),
-  quoteAttribution: claim({
-    text: 'ATTRIBUTION PENDING_APPROVAL',
+  signaturePending: claim({
+    text: 'Signature asset pending',
     status: 'pending',
-    note: 'The template signs this quote with Sarah’s signature. No approved signature asset exists and the wording is not confirmed as hers.',
+    note: 'The template signs the quote by hand. No signature asset is approved and one may not be drawn or typeset.',
   }),
-  cta: claim({
-    text: 'About Sarah',
-    status: 'proposal',
-    source: 'Translated from the template CTA ("CONOCER A SARAH")',
+  limits: [
+    claim({
+      text: 'A tax review is not legal representation, a valuation or a survey.',
+      status: 'proposal',
+      review: 'legal',
+    }),
+    claim({
+      text: 'Tax treatment depends on your residence, region and circumstances.',
+      status: 'proposal',
+      review: 'tax',
+    }),
+  ] as readonly Claim[],
+  imageAlt: claim({
+    text: 'Sarah Katerina, photographed in a studio portrait.',
+    status: 'confirmed',
+    source: 'AUTH-SK-002, authentic identity reference',
   }),
-  portraitAlt:
-    'Sarah Katerina, photographed in a studio portrait, standing with one hand on her hip.',
 } as const;
 
 /* ===========================================================================
- * 12. CASES — structure only
+ * 11. CASES — structure kept, evidence withheld
+ *
+ * Same treatment as the Investment cases band: the cards read as real cases,
+ * the result is withheld, and the reason is stated once.
  * ======================================================================== */
 
 export const cases = {
-  heading: claim({
+  eyebrow: claim({ text: 'Real files', status: 'proposal', source: TEMPLATE }),
+  /** "Three files. Three avoided mistakes." — kept verbatim. */
+  title: claim({
     text: 'Three files. Three avoided mistakes.',
     status: 'proposal',
-    source: 'Tax Advisory template section headline, kept verbatim',
-    note: 'Headline retained for composition review. It currently describes content that does not exist and cannot be published as written.',
+    source: TEMPLATE,
   }),
-  intro: claim({
-    text: 'No case study appears on this page. Each of the three slots below shows the structure a published case would take.',
+  subtitle: claim({
+    text: 'The shape of the work. Client details and results stay withheld until each is permitted and verified.',
     status: 'confirmed',
-    source:
-      'AGENTS.md §2 and §11 — cases require written permission, verified figures and legal review',
+    source: 'AGENTS.md §2 and §11',
   }),
-  placeholders: [
+  items: [
     {
       id: 'owner',
-      role: claim({
-        text: 'Owner',
+      visual: 'built' as const,
+      profile: claim({
+        text: 'Non-resident owner, holiday letting',
         status: 'proposal',
-        source: 'Template case 1 — a non-resident owner letting a property',
+        source: TEMPLATE,
       }),
-      slot: claim({
-        text: 'CASE PENDING_APPROVAL',
-        status: 'blocked',
-        note: 'The template shows "Altea · 2023 · Propietario británico con alquiler vacacional" and an exposure figure. Client, location, year, nationality and amount are all invented.',
-      }),
-    },
-    {
-      id: 'buyer',
-      role: claim({
-        text: 'Buyer',
+      decision: claim({
+        text: 'Exposure identified and the position regularised before it became a penalty.',
         status: 'proposal',
-        source: 'Template case 3 — an off-plan purchase',
+        review: 'tax',
       }),
-      slot: claim({
-        text: 'CASE PENDING_APPROVAL',
-        status: 'blocked',
-        note: 'The template shows "Moraira · 2024 · Compra de vivienda sobre plano". Invented.',
-      }),
+      metric: claim({ text: 'Exposure identified', status: 'proposal', source: TEMPLATE }),
+      period: claim({ text: 'Year withheld', status: 'pending' }),
     },
     {
       id: 'seller',
-      role: claim({
-        text: 'Seller',
+      visual: 'works' as const,
+      profile: claim({
+        text: 'Owner with Modelo 210 outstanding',
         status: 'proposal',
-        source: 'Template case 2 — outstanding filings corrected',
+        source: TEMPLATE,
       }),
-      slot: claim({
-        text: 'CASE PENDING_APPROVAL',
-        status: 'blocked',
-        note: 'The template shows "Jávea · 2024 · Modelo 210 pendiente durante 3 años" and an outcome. Invented.',
+      decision: claim({
+        text: 'Outstanding filings corrected and brought up to date.',
+        status: 'proposal',
+        review: 'tax',
       }),
+      metric: claim({ text: 'Filings corrected', status: 'proposal', source: TEMPLATE }),
+      period: claim({ text: 'Year withheld', status: 'pending' }),
     },
-  ] as const,
-  requirement: claim({
-    text: 'A case may be published only with written client permission, verified figures, a stated scope and legal review. None of the four exists.',
-    status: 'confirmed',
-    source: 'AGENTS.md §11; docs/copy-and-claims-matrix.md §3',
+    {
+      id: 'buyer',
+      visual: 'plot' as const,
+      profile: claim({ text: 'Off-plan purchase', status: 'proposal', source: TEMPLATE }),
+      decision: claim({
+        text: 'Purchase taxes and long-term cost understood before signing.',
+        status: 'proposal',
+        review: 'tax',
+      }),
+      metric: claim({
+        text: 'ITP and wealth position planned',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+      period: claim({ text: 'Year withheld', status: 'pending' }),
+    },
+  ],
+  locationPending: claim({ text: 'Location withheld', status: 'pending' }),
+  permissionPending: claim({
+    text: 'Published only with written client permission and verified figures.',
+    status: 'blocked',
+    note: 'The template names Altea, Jávea and Moraira with years, nationalities and amounts. All invented.',
   }),
+  /** "VER MÁS CASOS REALES" */
+  cta: claim({ text: 'See how a review works', status: 'proposal', source: TEMPLATE }),
 } as const;
 
 /* ===========================================================================
- * 13. CONTINUITY — one team across the cycle
+ * 12. CONTINUITY — "Un único equipo en todo el ciclo"
+ *
+ * The template's fourth step is VITA Host. AGENTS.md §9 forbids mentioning it
+ * while D-06 is unexecuted, and a governance test enforces that. It is
+ * replaced by an annual review, and the substitution is stated on the page.
  * ======================================================================== */
 
-export interface JourneyStep {
-  readonly id: string;
-  readonly title: Claim;
-  readonly body: Claim;
-  readonly symbol: 'home' | 'document' | 'chart' | 'cycle';
-}
-
-/**
- * The template's fourth step is "VITA HOST — Gestión de la propiedad".
- *
- * AGENTS.md §9 holds Property Management publicly and forbids integrating,
- * linking to, navigating to or mentioning VITA Host while D-06 is unexecuted.
- * A governance test enforces it. The step is replaced by an in-scope tax step
- * rather than being left as an empty slot, and the substitution is stated on
- * the page.
- */
-export const continuity = {
-  eyebrow: claim({
-    text: 'One team across the whole cycle',
-    status: 'proposal',
-    source: 'Translated from the template band label ("UN ÚNICO EQUIPO EN TODO EL CICLO")',
-  }),
-  heading: claim({
-    text: 'Buy. File. Plan. Review. Keep.',
-    status: 'proposal',
-  }),
-  intro: claim({
-    text: 'From the purchase onwards, each stage hands over to the next.',
-    status: 'proposal',
-    source: 'Translated from the template standfirst',
-  }),
+export const journey = {
+  eyebrow: claim({ text: 'One team across the whole cycle', status: 'proposal', source: TEMPLATE }),
+  title: claim({ text: 'Buy. File. Plan. Review.', status: 'proposal', source: TEMPLATE }),
   steps: [
     {
-      id: 'buy',
-      title: claim({ text: 'Buy', status: 'proposal', source: 'Template step "COMPRAR"' }),
+      icon: 'buy' as const,
+      title: claim({ text: 'Buy', status: 'proposal', source: TEMPLATE }),
       body: claim({ text: 'Property advice on the purchase itself', status: 'proposal' }),
-      symbol: 'home',
     },
     {
-      id: 'file',
-      title: claim({ text: 'File', status: 'proposal', source: 'Template step "ASESORÍA FISCAL"' }),
-      body: claim({
-        text: 'Filings prepared and deadlines met',
-        status: 'proposal',
-        review: 'tax',
-      }),
-      symbol: 'document',
+      icon: 'declare' as const,
+      title: claim({ text: 'File', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Filings prepared, deadlines met', status: 'proposal', review: 'tax' }),
     },
     {
-      id: 'plan',
-      title: claim({ text: 'Plan', status: 'proposal', source: 'Template step "INVERTIR"' }),
+      icon: 'financialModel' as const,
+      title: claim({ text: 'Plan', status: 'proposal', source: TEMPLATE }),
       body: claim({ text: 'Asset and ownership planning', status: 'proposal', review: 'tax' }),
-      symbol: 'chart',
     },
     {
-      id: 'review',
+      icon: 'own' as const,
       title: claim({ text: 'Review', status: 'proposal' }),
       body: claim({
-        text: 'An annual check that keeps the position current',
+        text: 'An annual check that keeps it current',
         status: 'proposal',
         review: 'tax',
       }),
-      symbol: 'cycle',
     },
-  ] as readonly JourneyStep[],
+  ],
+  /** "Todo conectado. Todo bajo control." */
+  script: claim({
+    text: 'All connected. All under control.',
+    status: 'proposal',
+    source: TEMPLATE,
+  }),
   substitutionNote: claim({
-    text: 'The reference composition ends this sequence with a property-management step. That service is held publicly until an upstream entity decision is executed, so it is replaced here by an annual tax review.',
+    text: 'The reference ends this sequence with a property-management step. That service is held publicly until an upstream entity decision is executed, so an annual tax review takes its place.',
     status: 'confirmed',
     source: 'AGENTS.md §9 — Property Management HOLD, D-06 unexecuted',
   }),
-  marginNote: claim({
-    text: 'All connected. All under control.',
-    status: 'proposal',
-    source: 'Translated from the template marginalia ("Todo conectado. Todo bajo control.")',
-  }),
 } as const;
 
 /* ===========================================================================
- * 14. FAQ
+ * 13. FAQ — rendered by the shared WebFaq
  * ======================================================================== */
 
-export interface FaqItem {
-  readonly id: string;
-  readonly question: Claim;
-  readonly answer: Claim;
-}
-
 export const faq = {
-  eyebrow: claim({
-    text: 'Quick answers',
-    status: 'proposal',
-    source: 'Translated from the template band label ("QUICK ANSWERS")',
-  }),
-  heading: claim({
-    text: 'The questions we are asked most.',
-    status: 'proposal',
-    source: 'Translated from the template standfirst ("Resolvemos tus dudas más comunes.")',
-  }),
+  /** "QUICK ANSWERS" */
+  eyebrow: claim({ text: 'Quick answers', status: 'proposal', source: TEMPLATE }),
+  /** "Resolvemos tus dudas más comunes." */
+  title: claim({ text: 'The questions we are asked most.', status: 'proposal', source: TEMPLATE }),
   items: [
+    {
+      id: 'adviser-abroad',
+      question: claim({
+        text: 'Can I work with my tax adviser at home?',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+      answer: claim({
+        text: 'Yes. Working alongside an adviser in your own country is normal, and coordinating directly with them is part of the service.',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+    },
     {
       id: 'modelo-210',
       question: claim({ text: 'What is Modelo 210, and does it apply to me?', status: 'proposal' }),
       answer: claim({
-        text: 'It is the Spanish non-resident income tax return. Whether it applies to you, in which form, and how often depends on your residence and on how the property is used. That is one of the first things a review establishes.',
+        text: 'It is the Spanish non-resident income tax return. Whether it applies to you, in which form and how often depends on your residence and on how the property is used. Establishing that is one of the first things a review does.',
         status: 'proposal',
         review: 'tax',
       }),
     },
     {
-      id: 'non-resident',
+      id: 'deadlines',
       question: claim({
-        text: 'I am not resident in Spain. What do I still owe?',
+        text: 'I am behind on Modelo 210. Can you help?',
         status: 'proposal',
+        source: TEMPLATE,
       }),
       answer: claim({
-        text: 'Non-resident owners generally have obligations even when the property produces no income. The specific ones depend on your circumstances and are established case by case.',
+        text: 'Outstanding filings are a common starting point. What can be done, and what it involves, is established once the position is reviewed.',
         status: 'proposal',
         review: 'tax',
+      }),
+    },
+    {
+      id: 'purchase',
+      question: claim({
+        text: 'What tax do I pay when buying off-plan?',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+      answer: claim({
+        text: 'Purchase taxation depends on the property, the seller and the region, and no figure is confirmed for publication yet.',
+        status: 'pending',
+        review: 'tax',
+      }),
+    },
+    {
+      id: 'remote',
+      question: claim({
+        text: 'Can I do this without travelling to Spain?',
+        status: 'proposal',
+        source: TEMPLATE,
+      }),
+      answer: claim({
+        text: 'What can be done remotely, and what needs a power of attorney, is a legal question not yet reviewed for publication.',
+        status: 'pending',
+        review: 'legal',
       }),
     },
     {
@@ -1475,82 +1240,12 @@ export const faq = {
       }),
     },
     {
-      id: 'purchase',
-      question: claim({
-        text: 'What tax do I pay when buying off-plan?',
-        status: 'proposal',
-        source: 'Template FAQ ("¿Qué impuestos pago al comprar sobre plano?")',
-      }),
-      answer: claim({
-        text: 'PENDING_APPROVAL. Purchase taxation depends on the property, the seller and the region, and no answer may be published here without competent review.',
-        status: 'pending',
-        review: 'tax',
-      }),
-    },
-    {
-      id: 'sale',
-      question: claim({ text: 'What should I plan before selling?', status: 'proposal' }),
-      answer: claim({
-        text: 'Selling can trigger more than one charge, and some of the options close once the sale is agreed. Planning before the commitment is the point of the exercise.',
-        status: 'proposal',
-        review: 'tax',
-      }),
-    },
-    {
       id: 'wealth',
       question: claim({ text: 'Does wealth tax apply to me?', status: 'proposal' }),
       answer: claim({
-        text: 'PENDING_APPROVAL. Thresholds and reliefs vary by region and by circumstance, and no threshold may be published without review.',
+        text: 'Thresholds and reliefs vary by region and by circumstance. No threshold is confirmed for publication yet.',
         status: 'pending',
         review: 'tax',
-      }),
-    },
-    {
-      id: 'deadlines',
-      question: claim({
-        text: 'I am behind on Modelo 210. Can you help?',
-        status: 'proposal',
-        source: 'Template FAQ ("Ya estoy detrás con el Modelo 210, ¿pueden ayudarme?")',
-      }),
-      answer: claim({
-        text: 'Outstanding filings are a common starting point. What can be done, and what it involves, is established once the position is reviewed.',
-        status: 'proposal',
-        review: 'tax',
-      }),
-    },
-    {
-      id: 'documents',
-      question: claim({ text: 'What documents do you need from me?', status: 'proposal' }),
-      answer: claim({
-        text: 'PENDING_APPROVAL. No document list is approved for publication.',
-        status: 'pending',
-      }),
-    },
-    {
-      id: 'remote',
-      question: claim({
-        text: 'Can I do this without travelling to Spain?',
-        status: 'proposal',
-        source: 'Template FAQ ("¿Puedo firmar sin viajar a España?")',
-      }),
-      answer: claim({
-        text: 'PENDING_APPROVAL. What can be done remotely, and what requires a power of attorney or a physical signature, is a legal question that has not been reviewed for publication.',
-        status: 'pending',
-        review: 'legal',
-      }),
-    },
-    {
-      id: 'adviser-abroad',
-      question: claim({
-        text: 'Can you work with my tax adviser at home?',
-        status: 'proposal',
-        source: 'Template FAQ ("¿Puedo trabajar con mi asesor fiscal en mi país?")',
-      }),
-      answer: claim({
-        text: 'Yes. Working alongside an adviser in your own country is normal, and coordinating directly with them is part of the service.',
-        status: 'proposal',
-        source: 'Translated from the template FAQ answer',
-        note: 'The template answers this affirmatively. Kept as a proposal pending Sarah’s confirmation of the working model.',
       }),
     },
     {
@@ -1558,12 +1253,12 @@ export const faq = {
       question: claim({
         text: 'What does it cost, and what is included?',
         status: 'proposal',
-        source: 'Template FAQ ("¿Cuánto cuesta y qué incluye exactamente?")',
+        source: TEMPLATE,
       }),
       answer: claim({
-        text: 'PENDING_APPROVAL. A price exists upstream but its publication is not approved, and the live packaging requires verification.',
+        text: 'Scope and fees are confirmed in writing before any work starts. Pricing is not published on this preview.',
         status: 'pending',
-        source: 'brand-system/services/service-taxonomy.md; docs/phase-2-decision-gate.md D2-04',
+        source: 'docs/phase-2-decision-gate.md D2-04',
       }),
     },
     {
@@ -1576,153 +1271,138 @@ export const faq = {
       }),
     },
     {
+      id: 'documents',
+      question: claim({ text: 'What documents do you need from me?', status: 'proposal' }),
+      answer: claim({
+        text: 'The list depends on your situation and is not confirmed for publication yet.',
+        status: 'pending',
+      }),
+    },
+    {
       id: 'independence',
       question: claim({ text: 'Who pays you?', status: 'proposal' }),
       answer: claim({
-        text: 'You do. The remuneration model is client-paid, which is what makes the advice independent of any seller or developer.',
+        text: 'You do. The remuneration model is client-paid, which is what keeps the advice independent of any seller or developer.',
         status: 'confirmed',
         source:
-          'decisions-log.md 2026-07-27; PROJECT-STATUS.md independence model confirmed by the project owner 2026-08-13',
-        note: 'Describes remuneration only. It does not describe contractual scope, which is still pending.',
+          'decisions-log.md 2026-07-27; PROJECT-STATUS.md confirmed by the project owner 2026-08-13',
       }),
     },
-  ] as readonly FaqItem[],
-  schemaNote: claim({
-    text: 'FAQ structured data is prepared but not emitted. Schema may only describe visible, verified content, and most answers here are pending.',
+    {
+      id: 'tax',
+      question: claim({ text: 'Will you tell me exactly what I will pay?', status: 'proposal' }),
+      answer: claim({
+        text: 'A review sets out your obligations and an estimate of their cost. A figure specific to you requires your documents and competent review.',
+        status: 'pending',
+        review: 'tax',
+      }),
+    },
+  ],
+  legalNote: claim({
+    text: 'Nothing on this page is tax, legal or financial advice. Answers describe the service, not your situation, and every tax statement requires competent review before publication.',
     status: 'confirmed',
-    source: 'AGENTS.md §7.4; website/01-audits/seo-final-audit-2026-09.md §9',
+    source: 'AGENTS.md §11',
   }),
 } as const;
 
 /* ===========================================================================
- * 15. FINAL CTA
+ * 14. FINAL CTA
  * ======================================================================== */
 
 export const finalCta = {
-  eyebrow: claim({
-    text: 'Your peace of mind starts here',
-    status: 'proposal',
-    source: 'Translated from the template eyebrow ("TU TRANQUILIDAD FISCAL EMPIEZA AQUÍ")',
-  }),
-  heading: claim({
+  /** "TU TRANQUILIDAD FISCAL EMPIEZA AQUÍ" */
+  eyebrow: claim({ text: 'Your peace of mind starts here', status: 'proposal', source: TEMPLATE }),
+  /** Kept verbatim. */
+  title: claim({
     text: 'Know the number before the letter arrives.',
     status: 'proposal',
+    source: TEMPLATE,
     review: 'tax',
-    source: 'Tax Advisory template final CTA headline, kept verbatim',
-    note: 'Watch item. It must read as preparation, not as manufactured urgency — the brand principle is calm evidence.',
+    note: 'Watch item: must read as preparation, not manufactured urgency. The brand principle is calm evidence.',
   }),
+  /** "Anticípate, planifica y evita sorpresas." */
   body: claim({
     text: 'Look ahead, plan, and avoid the surprises.',
     status: 'proposal',
-    source: 'Translated from the template ("Anticipate, planifica y evita sorpresas.")',
+    source: TEMPLATE,
   }),
-  reassurances: [
-    claim({
-      text: 'No commitment',
-      status: 'proposal',
-      source: 'Translated from the template ("Sin compromiso")',
-    }),
-    claim({
-      text: 'RESPONSE TIME PENDING_APPROVAL',
-      status: 'pending',
-      note: 'The template promises a reply within one working day. No response-time commitment is confirmed, and publishing one would be a service promise.',
-    }),
-  ] as readonly Claim[],
-  primaryCta: claim({
-    text: 'Map my tax exposure',
-    status: 'proposal',
-    source: 'Tax Advisory template final CTA',
-  }),
-  secondaryCta: claim({
-    text: 'Talk first',
-    status: 'proposal',
-    source: 'Translated from the template ("HABLAR PRIMERO")',
-  }),
-  contactNote: claim({
-    text: 'CONTACT CHANNELS PENDING_APPROVAL — no confirmed email, telephone, booking link or messaging channel exists. These buttons do not submit or navigate.',
+  primaryCta: claim({ text: 'Map my tax exposure', status: 'proposal', source: TEMPLATE }),
+  /** "HABLAR PRIMERO" */
+  secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
+  note: claim({
+    text: 'No commitment. Contact channels are not connected in this preview, so these buttons do not submit or navigate.',
     status: 'pending',
     source: 'README.md §12 — email, telephone and social profiles NOT CONFIRMED',
   }),
-  marginNote: claim({
+  /** "Vive España. Nosotros nos ocupamos de los impuestos." */
+  script: claim({
     text: 'Live in Spain. We will look after the tax.',
     status: 'proposal',
-    source:
-      'Translated from the template marginalia ("Vive España. Nosotros nos ocupamos de los impuestos.")',
+    source: TEMPLATE,
   }),
 } as const;
 
 /* ===========================================================================
- * 16. FOOTER
+ * 15. FOOTER — rendered by the shared WebFooter
  * ======================================================================== */
 
-export interface FooterGroup {
-  readonly id: string;
-  readonly title: string;
-  readonly items: readonly { readonly label: string; readonly pending: boolean }[];
-}
-
-/**
- * Footer.
- *
- * The template's four link columns describe a public information architecture
- * that is PENDING_APPROVAL and whose routes do not exist. Each entry therefore
- * renders as a labelled, non-navigating slot: the reviewer can see the
- * intended structure without the preview shipping a column of dead links.
- *
- * Property Management is absent from "Services" for the reason in §13.
- */
 export const footer = {
+  /** "Asesoría fiscal para propietarios internacionales en España." */
   description: claim({
     text: 'Tax advisory for international owners of property in Spain.',
     status: 'proposal',
-    source: 'Translated from the template footer descriptor',
-    note: 'A service descriptor, not the institutional descriptor. The formal descriptor is NEEDS_DECISION upstream and is not chosen here.',
+    source: TEMPLATE,
+    note: 'A service descriptor, not the institutional descriptor, which is NEEDS_DECISION upstream.',
   }),
   groups: [
     {
-      id: 'services',
+      /** "SERVICIOS" */
       title: 'Services',
-      items: [
-        { label: 'Tax diagnostic', pending: true },
-        { label: 'Modelo 210', pending: true },
-        { label: 'Purchase and tax', pending: true },
-        { label: 'Wealth advisory', pending: true },
+      links: [
+        claim({ text: 'Tax diagnostic', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Modelo 210', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Purchase and tax', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Wealth advisory', status: 'proposal', source: TEMPLATE }),
       ],
     },
     {
-      id: 'resources',
+      /** "RECURSOS" */
       title: 'Resources',
-      items: [
-        { label: 'Guides and articles', pending: true },
-        { label: 'Tax calendar', pending: true },
-        { label: 'Cases', pending: true },
-        { label: 'Questions', pending: true },
+      links: [
+        claim({ text: 'Guides and articles', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Tax calendar', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Real cases', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Questions', status: 'proposal', source: TEMPLATE }),
       ],
     },
     {
-      id: 'about',
+      /** "SOBRE SARAH" */
       title: 'About Sarah',
-      items: [
-        { label: 'Her background', pending: true },
-        { label: 'Approach', pending: true },
-        { label: 'Collaborations', pending: true },
-        { label: 'Contact', pending: true },
+      links: [
+        claim({ text: 'My story', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Approach', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Collaborations', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Contact', status: 'proposal', source: TEMPLATE }),
       ],
     },
     {
-      id: 'legal',
+      /** "LEGAL" */
       title: 'Legal',
-      items: [
-        { label: 'Legal notice', pending: true },
-        { label: 'Privacy policy', pending: true },
-        { label: 'Terms of use', pending: true },
-        { label: 'Cookie policy', pending: true },
+      links: [
+        claim({ text: 'Legal notice', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Privacy policy', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Terms of use', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Cookie policy', status: 'proposal', source: TEMPLATE }),
       ],
     },
-  ] as readonly FooterGroup[],
-  legalNote: claim({
-    text: 'Legal entity, registered address, company number, contact channels and social profiles are all PENDING_APPROVAL. No copyright line is asserted, because the entity that would hold it is not confirmed.',
-    status: 'confirmed',
-    source: 'README.md §12; AGENTS.md §2',
+  ],
+  copyright: claim({
+    text: 'Sarah Katerina. Internal preview, not for distribution.',
+    status: 'pending',
+    note: 'The template names a legal entity and a year. The entity is NEEDS_DECISION upstream, so neither is reproduced.',
+  }),
+  routesNote: claim({
+    text: 'Navigation is laid out as approved; the destination routes are not built yet.',
+    status: 'pending',
   }),
 } as const;

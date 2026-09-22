@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { AppChrome } from '@/components/layout/AppChrome';
 import { Container } from '@/components/layout/Container';
 import { Section } from '@/components/layout/Section';
 import { Stack } from '@/components/layout/Stack';
@@ -74,7 +75,7 @@ const BREAKPOINTS = [
 
 export default function FoundationPage() {
   return (
-    <>
+    <AppChrome>
       {/* ---------------------------------------------------------------- */}
       <Section spacing="generous">
         <Container>
@@ -481,6 +482,6 @@ export default function FoundationPage() {
           </Stack>
         </Container>
       </Section>
-    </>
+    </AppChrome>
   );
 }

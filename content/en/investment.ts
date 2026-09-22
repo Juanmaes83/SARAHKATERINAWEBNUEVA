@@ -1,488 +1,723 @@
 import { claim, type Claim } from '@/lib/content/claims';
 
 /**
- * Investment landing — PROVISIONAL CONTENT FOR A VISUAL PROTOTYPE.
+ * Investment landing — Phase 2C copy.
  *
- * None of this copy is approved. See docs/copy-and-claims-matrix.md for the
- * per-string classification and docs/phase-2-decision-gate.md for why this
- * landing exists as a prototype at all.
+ * SOURCE OF COPY — approved by Juanma on 2026-09-21.
  *
- * Constraints applied throughout:
- *   - no price, metric, percentage, return, yield or client result;
- *   - no testimonial, case outcome or named client;
- *   - no uniqueness or "no competition" claim (PROHIBITED upstream);
- *   - no tax, legal or financial assertion presented as fact;
- *   - no institutional descriptor (NEEDS_DECISION upstream);
- *   - no VITA Host / Group reference (D-06 unexecuted).
+ * The Investment template (`website/nueva web/Sarah Katerina Investment.png`)
+ * is the approved copy source for this landing. Its headlines, section names,
+ * descriptions, CTAs and editorial voice are reused directly. The template is
+ * in Spanish and this route is English, so each string is a faithful editorial
+ * translation that preserves intent, structure and rhythm. Original and
+ * adaptation are recorded in `docs/copy-and-claims-matrix.md`.
+ *
+ * WHAT IS STILL WITHHELD
+ *
+ * The approval covers the template's *narrative*, not its figures. The template
+ * displays `160+ compradores`, `Análisis en 48 h`, `6,8%`, `€24.500`,
+ * `€850.000`, `+42%`, `6,1%`, `2,8x`, three testimonials with client countries,
+ * and a legal entity in its copyright line. None of those is confirmed in any
+ * governed document, so per the Phase 2C brief §10 they are either withheld,
+ * marked pending, or rendered as clearly labelled illustrative sample data.
+ *
+ * The `status` on each claim records which of the two it is.
  */
+
+/** `status: 'proposal'` + this source = reused from the approved template. */
+const TEMPLATE = 'Investment template — approved copy source (Juanma, 2026-09-21)';
 
 export const PROTOTYPE_NOTICE = {
-  label: 'VISUAL PROTOTYPE — NOT PRODUCTION',
+  label: 'PHASE 2C — VISUAL FIDELITY IMPLEMENTATION READY FOR HUMAN REVIEW',
   body: claim({
-    text: 'This page exists to validate the design system against a real intended composition. It is not an approved landing, the copy is provisional, and it does not represent a decision about commercial priority.',
+    text: 'Copy is taken from the approved Investment template. Figures on the dashboards are illustrative samples, cases are withheld pending permission, and nothing on this page is approved for production.',
     status: 'confirmed',
-    source: 'docs/phase-2-decision-gate.md §3',
+    source: 'docs/phase-2-visual-implementation-contract.md §9',
   }),
 } as const;
+
+/** Template nav: Inicio · Servicios · Propiedades · Proceso · Sobre Sarah · Insights · Contacto */
+export const nav = [
+  { href: '#top', label: 'Home' },
+  { href: '#services', label: 'Services' },
+  { href: '#assets', label: 'Properties' },
+  { href: '#process', label: 'Process' },
+  { href: '#sarah', label: 'About Sarah' },
+  { href: '#report', label: 'Insights' },
+  { href: '#contact', label: 'Contact' },
+] as const;
+
+/** Template: "HABLAR CON SARAH" */
+export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE });
 
 export const hero = {
-  eyebrow: claim({
-    text: 'Investment advisory',
+  /** "INVERSIÓN CON SENTIDO" */
+  eyebrow: claim({ text: 'Investment with purpose', status: 'proposal', source: TEMPLATE }),
+  /** "Propiedades. Datos. Decisiones más inteligentes." */
+  heading: claim({ text: 'Properties. Data. Smarter decisions.', status: 'proposal', source: TEMPLATE }),
+  /** "Asesoramiento independiente para compradores extranjeros en la Costa Blanca. Análisis, fiscalidad y acompañamiento completo para invertir con seguridad y rentabilidad." */
+  lead: claim({
+    text: 'Independent advice for foreign buyers on the Costa Blanca. Property investment analysis, tax and full support, so you invest with confidence.',
     status: 'proposal',
-    note: 'Service label is provisional. The formal institutional descriptor is NEEDS_DECISION upstream.',
-  }),
-  heading: claim({
-    text: 'Decide on the numbers, not on the brochure.',
-    status: 'proposal',
-    source: 'Adapted from website/02-activation/new-website-landings-proposal-2026-09.md §6 ("Buy on numbers, not on the brochure")',
-    note: 'Proposal wording. Not approved copy.',
-  }),
-  subheading: claim({
-    text: 'For foreign buyers weighing a property in Spain as an investment: an independent financial review of the purchase, before the money and the deadlines start moving.',
-    status: 'proposal',
+    source: TEMPLATE,
     review: 'financial',
-    note: 'Describes the service. "Independent" is an approved positioning principle, but the contractual scope behind it is still pending Sarah’s confirmation.',
+    note: 'The template ends "…con seguridad y rentabilidad". "Rentabilidad" is dropped: promising returns is a financial claim.',
   }),
-  primaryCta: claim({
-    text: 'Review the investment',
-    status: 'proposal',
-    source: 'Provisional CTA listed in the Phase 2 brief',
-    note: 'Per-intent CTA wording is an open P0 in the master audit.',
+  primaryCta: claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE }),
+  /** "VER CÓMO FUNCIONA" */
+  secondaryCta: claim({ text: 'See how it works', status: 'proposal', source: TEMPLATE }),
+  /** Template script accent: "A better life, a smarter investment." — already English. */
+  script: claim({ text: 'A better life, a smarter investment.', status: 'proposal', source: TEMPLATE }),
+  /** Template: "Altea, Costa Blanca" — a specific town is not claimed. */
+  locationLabel: claim({
+    text: 'Costa Blanca, Spain',
+    status: 'confirmed',
+    source: 'seo-final-audit-2026-09.md §6',
   }),
-  secondaryCta: claim({
-    text: 'Talk to Sarah first',
-    status: 'proposal',
-    note: 'Provisional. Deliberately not "Book a discovery call", which the master audit flags as an over-used universal CTA.',
+  imageAlt: claim({
+    text: 'Sarah Katerina, photographed standing in a dark tailored suit against a plain studio background.',
+    status: 'confirmed',
+    source: 'AUTH-SK-001 — authentic identity reference',
   }),
-  visualIntent: claim({
-    text: 'Scenario panel showing how one purchase behaves under different assumptions.',
-    status: 'pending',
-    note: 'Requires an authorised screenshot of the real model, or an approved abstraction of it.',
+  /** Template hero inline row: 160+ compradores · 20 años · Análisis en 48 h · Modelo financiero */
+  signals: [
+    {
+      icon: 'tax',
+      value: claim({
+        text: '20 years',
+        status: 'confirmed',
+        source: 'credential-register.csv CR-002, confirmed 2026-08-12',
+      }),
+      note: claim({ text: 'inside Spain’s tax administration', status: 'confirmed', source: 'CR-002' }),
+    },
+    {
+      icon: 'independence',
+      value: claim({
+        text: 'Buyer-side only',
+        status: 'confirmed',
+        source: 'decisions-log.md 2026-07-27',
+      }),
+      note: claim({ text: 'no seller or agency pays for the advice', status: 'confirmed', source: 'decisions-log.md 2026-07-27' }),
+    },
+    {
+      icon: 'financialModel',
+      value: claim({ text: 'Full financial model', status: 'proposal', source: TEMPLATE }),
+      note: claim({ text: 'with scenarios and risk analysis', status: 'proposal', source: TEMPLATE }),
+    },
+  ],
+} as const;
+
+/** Hero dashboard. Template shows 6,8% and €24.500 — both replaced with samples. */
+export const heroDashboard = {
+  title: claim({ text: 'Investment snapshot', status: 'proposal', source: TEMPLATE }),
+  property: claim({ text: 'Sample villa, Costa Blanca', status: 'proposal' }),
+  rows: [
+    { label: claim({ text: 'Net yield', status: 'proposal', source: TEMPLATE }), value: '6.0%' },
+    { label: claim({ text: 'Annual cash flow', status: 'proposal', source: TEMPLATE }), value: '€24,000' },
+  ],
+  horizon: { label: claim({ text: 'Horizon', status: 'proposal', source: TEMPLATE }), value: '5 years' },
+  foot: claim({
+    text: 'Sample figures shown to illustrate the report format. Not a client result, a projection or a market benchmark.',
+    status: 'confirmed',
+    source: 'docs/phase-2-visual-implementation-contract.md §5',
   }),
 } as const;
 
-/**
- * Trust strip.
- *
- * Every entry is deliberately a placeholder. The only quantitative credential
- * confirmed upstream is "20 years inside Spain's Tax Administration", and the
- * master audit requires a claims dossier with source, date, permission and
- * scope before any credential is published. That dossier does not exist.
- */
-export const trustStrip: readonly { label: string; value: Claim }[] = [
+/** Template trust strip. Two of four figures are not confirmed. */
+export const trustStrip: readonly {
+  icon: string;
+  value: Claim;
+  note: Claim;
+}[] = [
   {
-    label: 'Experience',
-    value: claim({
-      text: 'PENDING_APPROVAL',
-      status: 'pending',
-      note: 'The 20-year Tax Administration credential is confirmed upstream but has no published claims dossier.',
-    }),
+    icon: 'buyer',
+    value: claim({ text: 'International buyers', status: 'pending', note: 'Template shows "160+". Volume was deprioritised upstream as differential proof.' }),
+    note: claim({ text: 'advised across the Costa Blanca', status: 'proposal', source: TEMPLATE }),
   },
   {
-    label: 'Coverage',
-    value: claim({
-      text: 'PENDING_APPROVAL',
-      status: 'pending',
-      note: 'Costa Blanca is described as the service territory upstream; the exact published wording is not approved.',
-    }),
+    icon: 'tax',
+    value: claim({ text: '20 years', status: 'confirmed', source: 'credential-register.csv CR-002' }),
+    note: claim({ text: 'inside Spain’s tax administration', status: 'confirmed', source: TEMPLATE }),
   },
   {
-    label: 'Languages',
-    value: claim({
-      text: 'PENDING_APPROVAL',
-      status: 'pending',
-      note: 'English is the primary acquisition language; the full published language list is not confirmed.',
-    }),
+    icon: 'clock',
+    value: claim({ text: 'Fast turnaround', status: 'pending', note: 'Template shows "Análisis en 48 h". No turnaround is confirmed.' }),
+    note: claim({ text: 'from the first information you send', status: 'proposal', source: TEMPLATE }),
   },
   {
-    label: 'Response time',
-    value: claim({ text: 'PENDING_APPROVAL', status: 'pending', note: 'No measured figure exists.' }),
-  },
-  {
-    label: 'Buyers advised',
-    value: claim({
-      text: 'PENDING_APPROVAL',
-      status: 'pending',
-      note: 'A volume claim was explicitly deprioritised upstream: the differential proof is the published method, not client volume.',
-    }),
-  },
-  {
-    label: 'Paid by',
-    value: claim({
-      text: 'The buyer only',
-      status: 'confirmed',
-      source: 'strategy/master/decisions-log.md 2026-07-27; PROJECT-STATUS.md independence model confirmed 2026-08-13',
-      note: 'The remuneration model is confirmed. The formal contractual scope remains pending.',
-    }),
+    icon: 'financialModel',
+    value: claim({ text: 'Full financial model', status: 'proposal', source: TEMPLATE }),
+    note: claim({ text: 'with scenarios and risk analysis', status: 'proposal', source: TEMPLATE }),
   },
 ] as const;
 
-export const problem = {
-  eyebrow: claim({ text: 'The decision', status: 'proposal' }),
-  heading: claim({
-    text: 'The brochure answers a different question than the one you are actually asking.',
-    status: 'proposal',
-  }),
-  intro: claim({
-    text: 'A listing tells you what a property costs. It does not tell you what it costs you, what it returns, or what happens if your assumptions are wrong.',
-    status: 'proposal',
-    review: 'financial',
-  }),
-  tensions: [
+/** Template script: "Más que propiedades. Mejores decisiones." */
+export const trustScript = claim({
+  text: 'More than properties. Better decisions.',
+  status: 'proposal',
+  source: TEMPLATE,
+});
+
+export const approach = {
+  /** "POR QUÉ EXISTIMOS" */
+  eyebrow: claim({ text: 'Why we exist', status: 'proposal', source: TEMPLATE }),
+  /** "Un puente entre oportunidades y tranquilidad." */
+  title: claim({ text: 'A bridge between opportunity and peace of mind.', status: 'proposal', source: TEMPLATE }),
+  /** "Existimos para ayudar a compradores internacionales a tomar decisiones de inversión informadas en la Costa Blanca, combinando análisis riguroso, experiencia fiscal y acompañamiento personal. Creemos en una forma más transparente, inteligente y humana de invertir en España." */
+  body: [
     claim({
-      text: 'You are comparing properties across regions whose purchase taxes are not the same, using a headline price that excludes most of what you will actually pay.',
+      text: 'We exist to help international buyers make informed investment decisions on the Costa Blanca, combining rigorous analysis, tax experience and personal support.',
       status: 'proposal',
-      review: 'tax',
-      note: 'Directionally supported by the Buyer System scope, but any specific tax statement needs review.',
-    }),
-    claim({
-      text: 'The figure that decides your tax is not always the price you agreed. Spain can tax the higher of the agreed price, the declared value and the cadastral reference value.',
-      status: 'proposal',
-      review: 'tax',
-      source: 'Buyer System docs/FISCAL_SOURCE_REGISTER.md — RDL 1/1993 art. 10.2',
-      note: 'Sourced upstream, but a published tax statement requires competent review and a jurisdiction note.',
-    }),
-    claim({
-      text: 'Everyone advising you on the purchase is paid when the purchase happens. You are the one left holding the outcome.',
-      status: 'proposal',
-      note: 'Consistent with the approved independence position. Wording not approved.',
-    }),
-    claim({
-      text: 'The arras deposit turns a maybe into a commitment with a penalty attached, and it is usually signed before anyone has modelled the numbers.',
-      status: 'proposal',
-      review: 'legal',
-    }),
-    claim({
-      text: 'Waiting is not neutral: deposits, exchange rates and mortgage offers all have dates on them.',
-      status: 'proposal',
+      source: TEMPLATE,
       review: 'financial',
-      note: 'Must not become an urgency device. The brand principle is Calm Evidence.',
+    }),
+    claim({
+      text: 'We believe in a more transparent, more intelligent and more human way of investing in Spain.',
+      status: 'proposal',
+      source: TEMPLATE,
     }),
   ],
-} as const;
-
-export const decisionDoors = {
-  eyebrow: claim({ text: 'Where you are', status: 'proposal' }),
-  heading: claim({ text: 'Start from the decision you are actually facing.', status: 'proposal' }),
-  doors: [
+  /** Template image card: "COSTA BLANCA · Vivir. Invertir. Pertenecer." */
+  territoryLabel: claim({ text: 'Costa Blanca', status: 'proposal', source: TEMPLATE }),
+  territoryScript: claim({ text: 'Live. Invest. Belong.', status: 'proposal', source: TEMPLATE }),
+  objections: [
     {
-      id: 'specific-property',
-      title: claim({ text: 'I have a specific property in mind', status: 'proposal' }),
-      body: claim({
-        text: 'You want to know whether the numbers hold before you commit to it.',
-        status: 'proposal',
-      }),
-      action: claim({ text: 'Review the investment', status: 'proposal' }),
+      icon: 'analysis',
+      title: claim({ text: 'Buying on emotion', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'The view sells the property. The numbers decide whether it was a good decision.', status: 'proposal' }),
     },
     {
-      id: 'comparing',
-      title: claim({ text: 'I am comparing several opportunities', status: 'proposal' }),
-      body: claim({
-        text: 'You want the same method applied to each one, so the comparison means something.',
-        status: 'proposal',
-      }),
-      action: claim({ text: 'See how the review works', status: 'proposal' }),
+      icon: 'document',
+      title: claim({ text: 'Trusting the brochure', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Marketing material states a headline price and an optimistic occupancy. Neither is a commitment.', status: 'proposal', review: 'financial' }),
     },
     {
-      id: 'costs',
-      title: claim({ text: 'I need to understand my real costs first', status: 'proposal' }),
+      icon: 'financialModel',
+      title: claim({ text: 'Overstating the return', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Gross yield ignores the costs that land on you. Net is the figure worth comparing.', status: 'proposal', review: 'returns' }),
+    },
+    {
+      icon: 'taxOverlay',
+      title: claim({ text: 'Not calculating the tax', status: 'proposal', source: TEMPLATE }),
       body: claim({
-        text: 'You want the cash and tax picture before you talk to anyone.',
+        text: 'Spain can tax the higher of the agreed price, the declared value and the cadastral reference value.',
         status: 'proposal',
+        review: 'tax',
+        source: 'Buyer System FISCAL_SOURCE_REGISTER.md — RDL 1/1993 art. 10.2',
       }),
-      action: claim({ text: 'Calculate what you would actually need', status: 'proposal' }),
+    },
+    {
+      icon: 'risk',
+      title: claim({ text: 'Never modelling scenarios', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'One set of assumptions is a hope. Several, including the uncomfortable ones, is an analysis.', status: 'proposal', review: 'financial' }),
+    },
+    {
+      icon: 'clock',
+      title: claim({ text: 'Finding the risk too late', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'The deposit turns a maybe into a commitment with a penalty attached.', status: 'proposal', review: 'legal' }),
     },
   ],
 } as const;
 
-export const visualProof = {
-  eyebrow: claim({ text: 'The mechanism', status: 'proposal' }),
-  heading: claim({ text: 'What the review actually produces.', status: 'proposal' }),
-  intro: claim({
-    text: 'Not an opinion about the property. A model you can interrogate, with the assumptions written down and the limits stated.',
-    status: 'proposal',
-  }),
-  /**
-   * Scenario names only. No figures: every number here would be an invented
-   * financial result. The panels render as structured placeholders.
-   */
-  scenarios: [
+export const doors = {
+  /** "ELIGE TU PUNTO DE PARTIDA" */
+  eyebrow: claim({ text: 'Choose your starting point', status: 'proposal', source: TEMPLATE }),
+  /** "Dos caminos. Un mismo objetivo: una inversión bien fundamentada." */
+  title: claim({ text: 'Two paths. One goal: an investment built on evidence.', status: 'proposal', source: TEMPLATE }),
+  /** Template script: "Oportunidades tangibles. Decisiones con confianza." */
+  script: claim({ text: 'Tangible opportunities. Decisions with confidence.', status: 'proposal', source: TEMPLATE }),
+  items: [
     {
-      id: 'base',
-      label: claim({ text: 'Base case', status: 'proposal' }),
-      description: claim({
-        text: 'Your stated assumptions, costed end to end.',
+      id: 'have-property',
+      visual: 'built' as const,
+      /** "TRAIGO UNA PROPIEDAD" */
+      title: claim({ text: 'I have a property in mind', status: 'proposal', source: TEMPLATE }),
+      eyebrow: claim({ text: 'Analysis', status: 'proposal' }),
+      /** "Analizamos la propiedad que ya tienes en mente con un enfoque técnico, fiscal y financiero." */
+      body: claim({
+        text: 'We analyse the property you already have in mind with a technical, tax and financial approach.',
         status: 'proposal',
-        review: 'financial',
+        source: TEMPLATE,
       }),
+      points: [
+        claim({ text: 'Complete analysis', status: 'proposal', source: TEMPLATE, note: 'Template says "en 48 h"; the timing is withheld.' }),
+        claim({ text: 'Viability report', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Risks and opportunities', status: 'proposal', source: TEMPLATE }),
+      ],
+      /** "ANALIZAR MI PROPIEDAD" */
+      cta: claim({ text: 'Analyse my property', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'stress',
-      label: claim({ text: 'Under stress', status: 'proposal' }),
-      description: claim({
-        text: 'What changes when occupancy, costs or rates move against you.',
+      id: 'opportunities',
+      visual: 'coast' as const,
+      /** "QUIERO VER OPORTUNIDADES" */
+      title: claim({ text: 'I want to see opportunities', status: 'proposal', source: TEMPLATE }),
+      eyebrow: claim({ text: 'Selection', status: 'proposal' }),
+      /** "Te mostramos una selección de oportunidades que encajan con tus objetivos de inversión." */
+      body: claim({
+        text: 'We show you a selection of opportunities that fit your investment objectives.',
         status: 'proposal',
-        review: 'financial',
+        source: TEMPLATE,
       }),
+      points: [
+        claim({ text: 'Pre-analysed properties', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Filtered by return and risk', status: 'proposal', source: TEMPLATE, review: 'returns' }),
+        claim({ text: 'Access to off-market opportunities', status: 'proposal', source: TEMPLATE }),
+      ],
+      /** "VER OPORTUNIDADES" */
+      cta: claim({ text: 'See opportunities', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'exit',
-      label: claim({ text: 'On exit', status: 'proposal' }),
-      description: claim({
-        text: 'What you keep after the costs of selling, on your stated horizon.',
+      id: 'talk',
+      visual: 'plot' as const,
+      title: claim({ text: 'I want to talk first', status: 'proposal' }),
+      eyebrow: claim({ text: 'Orientation', status: 'proposal' }),
+      body: claim({
+        text: 'You are earlier than that. Understand how the process works, and use the free calculators, before paying for anything.',
         status: 'proposal',
-        review: 'financial',
+        note: 'Third door added for CRO. Not in the two-door template.',
       }),
+      points: [
+        claim({ text: 'No obligation and no fee to talk', status: 'proposal' }),
+        claim({ text: 'Plain answers on scope and limits', status: 'proposal' }),
+        claim({ text: 'Free calculators you can use now', status: 'proposal' }),
+      ],
+      cta: claim({ text: 'Talk to Sarah first', status: 'proposal' }),
     },
   ],
-  artefacts: [
-    claim({ text: 'Full cost build-up from the agreed price to money actually leaving your account', status: 'proposal', review: 'financial' }),
-    claim({ text: 'Sensitivity to the assumptions that move the outcome most', status: 'proposal', review: 'financial' }),
-    claim({ text: 'The risks found, and which are material to this decision', status: 'proposal' }),
-    claim({ text: 'A written recommendation you can act on or ignore', status: 'proposal' }),
+} as const;
+
+export const assetTypes = {
+  /** "TIPOS DE ACTIVOS" */
+  eyebrow: claim({ text: 'Asset types', status: 'proposal', source: TEMPLATE }),
+  /** "Distintas estrategias. Un mismo análisis riguroso." */
+  title: claim({ text: 'Different strategies. One rigorous analysis.', status: 'proposal', source: TEMPLATE }),
+  items: [
+    {
+      id: 'residential',
+      icon: 'property' as const,
+      visual: 'built' as const,
+      /** "RESIDENCIAL — Analizamos para uso propio o alquiler" */
+      title: claim({ text: 'Residential', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Analysed for your own use or for letting.', status: 'proposal', source: TEMPLATE }),
+      analysed: claim({ text: 'Purchase and running costs, occupancy assumptions, net position after tax.', status: 'proposal', review: 'financial' }),
+      risk: claim({ text: 'Licence, community and habitability constraints.', status: 'proposal', review: 'legal' }),
+      deliverable: claim({ text: 'Cost build-up and net-yield model', status: 'proposal' }),
+      cta: claim({ text: 'See opportunities', status: 'proposal', source: TEMPLATE }),
+    },
+    {
+      id: 'land',
+      icon: 'land' as const,
+      visual: 'plot' as const,
+      /** "SUELO — Terrenos con potencial de desarrollo" */
+      title: claim({ text: 'Land', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Plots with development potential.', status: 'proposal', source: TEMPLATE }),
+      analysed: claim({ text: 'Planning status, buildable area, programme and cost to permit.', status: 'proposal', review: 'legal' }),
+      risk: claim({ text: 'Classification, access and services.', status: 'proposal', review: 'legal' }),
+      deliverable: claim({ text: 'Feasibility note and risk register', status: 'proposal' }),
+      cta: claim({ text: 'See opportunities', status: 'proposal', source: TEMPLATE }),
+    },
+    {
+      id: 'commercial',
+      icon: 'commercial' as const,
+      visual: 'district' as const,
+      /** "COMERCIAL — Locales, oficinas y activos en renta" */
+      title: claim({ text: 'Commercial', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Retail units, offices and let assets.', status: 'proposal', source: TEMPLATE }),
+      analysed: claim({ text: 'Lease terms, tenant quality, indexation and void assumptions.', status: 'proposal', review: 'financial' }),
+      risk: claim({ text: 'Covenant strength and reinstatement obligations.', status: 'proposal', review: 'legal' }),
+      deliverable: claim({ text: 'Income model and lease summary', status: 'proposal' }),
+      cta: claim({ text: 'See opportunities', status: 'proposal', source: TEMPLATE }),
+    },
+    {
+      id: 'redevelopment',
+      icon: 'redevelopment' as const,
+      visual: 'works' as const,
+      /** "REDEVELOPMENT — Activo con potencial de revalorización" */
+      title: claim({ text: 'Redevelopment', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Assets with potential to be repositioned.', status: 'proposal', source: TEMPLATE, review: 'returns', note: 'Template says "potencial de revalorización"; "revalorización" softened to avoid implying a return.' }),
+      analysed: claim({ text: 'Works budget, contingency, programme and exit assumptions.', status: 'proposal', review: 'financial' }),
+      risk: claim({ text: 'Cost overrun and permitting delay.', status: 'proposal' }),
+      deliverable: claim({ text: 'Budget model with downside cases', status: 'proposal' }),
+      cta: claim({ text: 'See opportunities', status: 'proposal', source: TEMPLATE }),
+    },
   ],
 } as const;
 
 export const process = {
-  eyebrow: claim({ text: 'How it runs', status: 'proposal' }),
-  heading: claim({ text: 'Five stages, and what you hold at the end of each.', status: 'proposal' }),
-  stages: [
+  /** "CÓMO ANALIZAMOS" */
+  eyebrow: claim({ text: 'How we analyse', status: 'proposal', source: TEMPLATE }),
+  /** "Un proceso claro. Decisiones con fundamento." */
+  title: claim({ text: 'A clear process. Decisions with a basis.', status: 'proposal', source: TEMPLATE }),
+  /** Template script: "Datos hoy. Tranquilidad mañana." */
+  script: claim({ text: 'Data today. Peace of mind tomorrow.', status: 'proposal', source: TEMPLATE }),
+  steps: [
     {
-      id: 'intake',
-      title: claim({ text: 'Intake', status: 'proposal' }),
-      what: claim({ text: 'You send the listing, your assumptions and your horizon.', status: 'proposal' }),
-      deliverable: claim({ text: 'A written scope of what will and will not be assessed.', status: 'proposal' }),
-      decision: claim({ text: 'Whether this property is worth the full review.', status: 'proposal' }),
-      duration: claim({ text: 'PENDING_APPROVAL', status: 'pending', note: 'No confirmed turnaround.' }),
+      id: 'market-screen',
+      icon: 'market' as const,
+      title: claim({ text: 'Market screen', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Market analysis and comparables.', status: 'proposal', source: TEMPLATE }),
+      deliverable: claim({ text: 'Market report', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'review',
-      title: claim({ text: 'Document review', status: 'proposal' }),
-      what: claim({ text: 'The paperwork behind the listing is read, not skimmed.', status: 'proposal', review: 'legal' }),
-      deliverable: claim({ text: 'The list of what is missing or inconsistent.', status: 'proposal' }),
-      decision: claim({ text: 'What to ask the seller before going further.', status: 'proposal' }),
-      duration: claim({ text: 'PENDING_APPROVAL', status: 'pending' }),
+      id: 'due-diligence',
+      icon: 'dueDiligence' as const,
+      title: claim({ text: 'Due diligence', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Legal, technical and planning review.', status: 'proposal', source: TEMPLATE, review: 'legal' }),
+      deliverable: claim({ text: 'Risk checklist', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'model',
-      title: claim({ text: 'Financial model', status: 'proposal' }),
-      what: claim({ text: 'Costs, taxes, financing and scenarios are modelled from your figures.', status: 'proposal', review: 'financial' }),
-      deliverable: claim({ text: 'The model, with every assumption visible and editable.', status: 'proposal' }),
-      decision: claim({ text: 'Whether the numbers support the price being asked.', status: 'proposal' }),
-      duration: claim({ text: 'PENDING_APPROVAL', status: 'pending' }),
+      id: 'financial-modelling',
+      icon: 'financialModel' as const,
+      title: claim({ text: 'Financial modelling', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Scenarios and return analysis.', status: 'proposal', source: TEMPLATE, review: 'financial' }),
+      deliverable: claim({ text: 'Working model', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'recommendation',
-      title: claim({ text: 'Recommendation', status: 'proposal' }),
-      what: claim({ text: 'A clear position: proceed, renegotiate, or walk away.', status: 'proposal' }),
-      deliverable: claim({ text: 'A written recommendation with its reasoning and its limits.', status: 'proposal' }),
-      decision: claim({ text: 'The actual decision.', status: 'proposal' }),
-      duration: claim({ text: 'PENDING_APPROVAL', status: 'pending' }),
+      id: 'tax-overlay',
+      icon: 'taxOverlay' as const,
+      title: claim({ text: 'Tax overlay', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Tax treatment for non-residents.', status: 'proposal', source: TEMPLATE, review: 'tax', note: 'Template says "Optimización fiscal"; "optimisation" implies an outcome, so it is stated as treatment.' }),
+      deliverable: claim({ text: 'Tax report', status: 'proposal', source: TEMPLATE }),
     },
     {
-      id: 'next',
-      title: claim({ text: 'Next step', status: 'proposal' }),
-      what: claim({ text: 'If you proceed, the purchase is handled as one file rather than five conversations.', status: 'proposal' }),
-      deliverable: claim({ text: 'A handover into the purchase process.', status: 'proposal' }),
-      decision: claim({ text: 'How the transaction is run.', status: 'proposal' }),
-      duration: claim({ text: 'PENDING_APPROVAL', status: 'pending' }),
+      id: 'decision-report',
+      icon: 'report' as const,
+      title: claim({ text: 'Decision report', status: 'proposal', source: TEMPLATE }),
+      body: claim({ text: 'Conclusions and recommendation.', status: 'proposal', source: TEMPLATE }),
+      deliverable: claim({ text: 'Final report', status: 'proposal', source: TEMPLATE }),
     },
   ],
 } as const;
 
-export const benefits = {
-  eyebrow: claim({ text: 'Why it is built this way', status: 'proposal' }),
-  heading: claim({ text: 'Each choice exists to remove a specific risk.', status: 'proposal' }),
+export const report = {
+  /** "PREVIEW DEL INFORME COMPLETO" */
+  eyebrow: claim({ text: 'Preview of the full report', status: 'proposal', source: TEMPLATE }),
+  /** "Informes claros, visuales y orientados a la toma de decisiones." */
+  title: claim({ text: 'Clear, visual reports built for decisions.', status: 'proposal', source: TEMPLATE }),
+  subtitle: claim({
+    text: 'Every panel below shows the format of the deliverable using illustrative sample values. None of it is a client result, a projection or a benchmark.',
+    status: 'confirmed',
+    source: 'docs/phase-2-visual-implementation-contract.md §5',
+  }),
+  /** Template: "Resumen de la inversión — Villa en Altea — €850.000 — 6,8% — 5 años" */
+  summary: {
+    title: claim({ text: 'Investment summary', status: 'proposal', source: TEMPLATE }),
+    property: claim({ text: 'Sample villa, Costa Blanca', status: 'proposal', note: 'Template names "Villa en Altea". A specific town is not claimed.' }),
+    rows: [
+      { label: claim({ text: 'Purchase price', status: 'proposal', source: TEMPLATE }), value: '€850,000' },
+      { label: claim({ text: 'Net yield', status: 'proposal', source: TEMPLATE }), value: '6.0%' },
+      { label: claim({ text: 'Horizon', status: 'proposal', source: TEMPLATE }), value: '5 years' },
+    ],
+    status: claim({ text: 'Report status', status: 'proposal' }),
+    statusValue: claim({ text: 'Sample', status: 'proposal' }),
+  },
+  cards: [
+    { id: 'cash-flow', title: claim({ text: 'Annual cash flows', status: 'proposal', source: TEMPLATE }), note: claim({ text: 'Income against costs, year by year.', status: 'proposal', review: 'financial' }) },
+    { id: 'distribution', title: claim({ text: 'Distribution of outcomes', status: 'proposal', source: TEMPLATE }), note: claim({ text: 'Where the result lands across many runs.', status: 'proposal', review: 'financial' }) },
+    { id: 'seasonality', title: claim({ text: 'Income seasonality', status: 'proposal', source: TEMPLATE }), note: claim({ text: 'How letting income moves across the year.', status: 'proposal', review: 'financial' }) },
+    { id: 'risk', title: claim({ text: 'Risk assessment', status: 'proposal', source: TEMPLATE }), note: claim({ text: 'Named risks, rated and explained.', status: 'proposal' }) },
+  ],
+  /** Template risk rows: mercado, regulatorio, liquidez, construcción, fiscal. Ratings withheld. */
+  risks: [
+    { label: claim({ text: 'Market', status: 'proposal', source: TEMPLATE }), value: 'Sample' },
+    { label: claim({ text: 'Regulatory', status: 'proposal', source: TEMPLATE }), value: 'Sample' },
+    { label: claim({ text: 'Liquidity', status: 'proposal', source: TEMPLATE }), value: 'Sample' },
+    { label: claim({ text: 'Construction', status: 'proposal', source: TEMPLATE }), value: 'Sample' },
+    { label: claim({ text: 'Tax', status: 'proposal', source: TEMPLATE }), value: 'Sample' },
+  ],
+  /** "PDF profesional · Modelo en Excel · Escenarios y sensibilidad" */
+  deliverables: [
+    { icon: 'document' as const, text: claim({ text: 'Professional PDF', status: 'proposal', source: TEMPLATE }) },
+    { icon: 'financialModel' as const, text: claim({ text: 'Spreadsheet model', status: 'proposal', source: TEMPLATE }) },
+    { icon: 'risk' as const, text: claim({ text: 'Scenarios and sensitivity', status: 'proposal', source: TEMPLATE }) },
+  ],
+  /** "VER INFORME DE EJEMPLO" */
+  cta: claim({ text: 'See a sample report', status: 'proposal', source: TEMPLATE, note: 'No sample report asset exists yet.' }),
+  /** "Informe completo y personalizado para cada propiedad." */
+  ctaNote: claim({ text: 'A complete report, personalised for each property.', status: 'proposal', source: TEMPLATE }),
+} as const;
+
+export const scenarios = {
+  /** "ESCENARIOS, RIESGO Y RENTABILIDAD" */
+  eyebrow: claim({ text: 'Scenarios, risk and return', status: 'proposal', source: TEMPLATE }),
+  /** "Lo que realmente importa." */
+  kicker: claim({ text: 'What really matters.', status: 'proposal', source: TEMPLATE }),
+  /** "Las suposiciones y el riesgo a la baja importan más que las promesas del folleto." */
+  title: claim({ text: 'Assumptions and downside risk matter more than brochure promises.', status: 'proposal', source: TEMPLATE, review: 'financial' }),
+  /** "Analizamos múltiples escenarios, estrés de mercado y sensibilidad a variables clave como precio, ocupación, costes y fiscalidad. Nuestro objetivo es evitar sorpresas y ayudarte a entender el verdadero potencial de cada inversión." */
+  body: claim({
+    text: 'We model multiple scenarios, stress the market assumptions and test sensitivity to the variables that move the answer: price, occupancy, costs and tax. The aim is to avoid surprises and help you understand what each investment can really do.',
+    status: 'proposal',
+    source: TEMPLATE,
+    review: 'financial',
+  }),
+  /** Template script: "Invertir bien también es saber qué puede salir mal." */
+  script: claim({ text: 'Investing well also means knowing what can go wrong.', status: 'proposal', source: TEMPLATE }),
+  chartTitle: claim({ text: 'Projected net position by scenario', status: 'proposal', source: TEMPLATE }),
+  legend: [
+    { key: 'optimistic', label: claim({ text: 'Optimistic', status: 'proposal', source: TEMPLATE }) },
+    { key: 'base', label: claim({ text: 'Base', status: 'proposal', source: TEMPLATE }) },
+    { key: 'pessimistic', label: claim({ text: 'Pessimistic', status: 'proposal', source: TEMPLATE }) },
+  ],
   items: [
-    {
-      feature: claim({ text: 'Paid only by you', status: 'confirmed', source: 'decisions-log.md 2026-07-27' }),
-      benefit: claim({ text: 'No one pays for a particular answer.', status: 'proposal' }),
-      outcome: claim({ text: 'A recommendation to walk away costs the same as one to proceed.', status: 'proposal' }),
-      risk: claim({ text: 'Removes the incentive to close the transaction regardless of merit.', status: 'proposal' }),
-    },
-    {
-      feature: claim({ text: 'Assumptions written down', status: 'proposal' }),
-      benefit: claim({ text: 'You can challenge the model instead of trusting it.', status: 'proposal' }),
-      outcome: claim({ text: 'You can re-run the decision when a figure changes.', status: 'proposal' }),
-      risk: claim({ text: 'Removes the risk of a confident number with a hidden assumption behind it.', status: 'proposal' }),
-    },
-    {
-      feature: claim({ text: 'Stated limits', status: 'proposal' }),
-      benefit: claim({ text: 'What the review does not cover is named explicitly.', status: 'proposal' }),
-      outcome: claim({ text: 'You know which questions still need a specialist.', status: 'proposal' }),
-      risk: claim({ text: 'Removes false completeness.', status: 'proposal' }),
-    },
-    {
-      feature: claim({ text: 'Tax read before the commitment', status: 'proposal', review: 'tax' }),
-      benefit: claim({ text: 'The cost of buying is understood before the deposit.', status: 'proposal', review: 'tax' }),
-      outcome: claim({ text: 'Fewer figures change after the point where changing your mind is expensive.', status: 'proposal' }),
-      risk: claim({ text: 'Removes the most common source of post-arras surprise.', status: 'proposal', review: 'tax' }),
-    },
+    { icon: 'market' as const, title: claim({ text: 'Scenarios', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Optimistic, base and pessimistic.', status: 'proposal', source: TEMPLATE, review: 'financial' }) },
+    { icon: 'risk' as const, title: claim({ text: 'Risk', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Sensitivity analysis.', status: 'proposal', source: TEMPLATE, review: 'financial' }) },
+    { icon: 'financialModel' as const, title: claim({ text: 'Net return', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'After every cost.', status: 'proposal', source: TEMPLATE, review: 'returns' }) },
+    { icon: 'exit' as const, title: claim({ text: 'Exit', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Strategy and investment horizon.', status: 'proposal', source: TEMPLATE, review: 'financial' }) },
   ],
 } as const;
 
 export const authority = {
-  eyebrow: claim({ text: 'Who reviews it', status: 'proposal' }),
-  heading: claim({ text: 'Sarah Katerina', status: 'confirmed', source: 'Brand name' }),
+  /** "EL CONOCIMIENTO DETRÁS DE CADA DECISIÓN" */
+  eyebrow: claim({ text: 'The knowledge behind every decision', status: 'proposal', source: TEMPLATE }),
+  /** "Experiencia, independencia y un enfoque personal." */
+  title: claim({ text: 'Experience, independence and a personal approach.', status: 'proposal', source: TEMPLATE }),
+  /** "Con más de 20 años dentro de la administración fiscal y una profunda experiencia en el mercado inmobiliario de la Costa Blanca, ayudo a compradores internacionales a invertir con claridad y confianza." */
   body: claim({
-    text: 'PENDING_APPROVAL — biography, credentials and experience require a claims dossier with source, date, permission and scope before publication.',
-    status: 'pending',
-    source: 'website/01-audits/00-website-audit-master-2026-09.md §3 P0 "Validar claims"',
+    text: 'With 20 years inside Spain’s tax administration and deep experience of the Costa Blanca property market, I help international buyers invest with clarity and confidence.',
+    status: 'proposal',
+    source: TEMPLATE,
+    review: 'tax',
+    note: 'Template says "más de 20 años". The confirmed credential is exactly 20 years, so "más de" is dropped.',
   }),
-  methodNote: claim({
-    text: 'The differential proof is the published method, not the number of clients.',
-    status: 'confirmed',
-    source: 'strategy/master/decisions-log.md 2026-08-05',
-  }),
-  limits: [
-    claim({
-      text: 'A review is not a valuation, a survey, or a substitute for your own legal representation.',
-      status: 'proposal',
-      review: 'legal',
-    }),
-    claim({
-      text: 'Tax treatment depends on your residence, the region and your circumstances, and changes over time.',
-      status: 'proposal',
-      review: 'tax',
-    }),
-    claim({
-      text: 'No projected return is a promise. Models describe assumptions, not outcomes.',
-      status: 'proposal',
-      review: 'returns',
-    }),
+  imageAlt: claim({ text: 'Portrait of Sarah Katerina.', status: 'confirmed', source: 'AUTH-SK-002' }),
+  /** Template: "20+ años de experiencia · Enfoque independiente · Visión fiscal y financiera · Acompañamiento personalizado" */
+  points: [
+    { icon: 'tax' as const, text: claim({ text: '20 years of experience', status: 'confirmed', source: 'credential-register.csv CR-002' }) },
+    { icon: 'independence' as const, text: claim({ text: 'Independent approach', status: 'confirmed', source: 'decisions-log.md 2026-07-27' }) },
+    { icon: 'analysis' as const, text: claim({ text: 'Tax and financial view in one place', status: 'proposal', source: TEMPLATE, review: 'tax' }) },
+    { icon: 'buyer' as const, text: claim({ text: 'Personal support throughout', status: 'proposal', source: TEMPLATE }) },
   ],
-  portraitIntent: claim({
-    text: 'Authorised photograph of Sarah.',
-    status: 'blocked',
-    note: 'No authorised photograph exists in this repository. Synthetic imagery may not be used as documentary evidence.',
+  /** Template quote: "Inversiones más inteligentes. Vidas más plenas." */
+  quote: claim({ text: 'Smarter investments. Fuller lives.', status: 'proposal', source: TEMPLATE }),
+  signaturePending: claim({
+    text: 'Signature asset pending',
+    status: 'pending',
+    note: 'The template shows a handwritten signature. No signature asset exists and one may not be drawn.',
   }),
+  /** "CONOCER A SARAH" */
+  cta: claim({ text: 'Meet Sarah', status: 'proposal', source: TEMPLATE }),
+  limits: [
+    claim({ text: 'An analysis is not a valuation, a building survey or legal representation.', status: 'proposal', review: 'legal' }),
+    claim({ text: 'Tax treatment depends on your residence, the region and your circumstances.', status: 'proposal', review: 'tax' }),
+    claim({ text: 'No modelled figure is a promise. Models describe assumptions, not outcomes.', status: 'proposal', review: 'returns' }),
+  ],
 } as const;
 
 export const cases = {
-  eyebrow: claim({ text: 'Evidence', status: 'proposal' }),
-  heading: claim({ text: 'Cases', status: 'proposal' }),
-  intro: claim({
-    text: 'Each case would state the situation, the decision, the outcome and the limits of what it proves. None is published until the client has given written permission and the figures have been verified.',
+  /** "TRES OPERACIONES. TRES DECISIONES." */
+  eyebrow: claim({ text: 'Three operations. Three decisions.', status: 'proposal', source: TEMPLATE }),
+  title: claim({ text: 'Case studies', status: 'proposal' }),
+  /** Template subtitle is "Resultados reales. Historias reales." — a claim about having results. */
+  subtitle: claim({
+    text: 'Each case states the asset, the location, the decision taken and the result. None is published until the client has given written permission and the figures have been verified.',
     status: 'proposal',
+    note: 'Template subtitle "Resultados reales. Historias reales." is not reproduced: it asserts results that are not yet evidenced.',
   }),
-  /** Three structural slots. No invented outcomes. */
-  placeholders: [
-    claim({ text: 'CASE STUDY PLACEHOLDER — PENDING_APPROVAL', status: 'blocked', note: 'Requires written client permission, verified figures and a date.' }),
-    claim({ text: 'CASE STUDY PLACEHOLDER — PENDING_APPROVAL', status: 'blocked' }),
-    claim({ text: 'CASE STUDY PLACEHOLDER — PENDING_APPROVAL', status: 'blocked' }),
+  /** "VER MÁS CASOS DE ESTUDIO" */
+  cta: claim({ text: 'View case studies', status: 'proposal', source: TEMPLATE }),
+  items: [
+    {
+      id: 'case-1',
+      visual: 'built' as const,
+      assetType: claim({ text: 'Refurbished villa', status: 'proposal', source: TEMPLATE }),
+      decision: claim({ text: 'Decision: proceed after renegotiation', status: 'proposal' }),
+      metric: claim({ text: 'Capital growth', status: 'proposal', source: TEMPLATE }),
+      period: claim({ text: 'Period pending', status: 'pending' }),
+    },
+    {
+      id: 'case-2',
+      visual: 'district' as const,
+      assetType: claim({ text: 'Apartment for letting', status: 'proposal', source: TEMPLATE }),
+      decision: claim({ text: 'Decision: proceed on the base case', status: 'proposal' }),
+      metric: claim({ text: 'Net yield', status: 'proposal', source: TEMPLATE }),
+      period: claim({ text: 'Period pending', status: 'pending' }),
+    },
+    {
+      id: 'case-3',
+      visual: 'plot' as const,
+      assetType: claim({ text: 'Land with development', status: 'proposal', source: TEMPLATE }),
+      decision: claim({ text: 'Decision: proceed with staged permits', status: 'proposal' }),
+      metric: claim({ text: 'Estimated return', status: 'proposal', source: TEMPLATE }),
+      period: claim({ text: 'Period pending', status: 'pending' }),
+    },
+  ],
+  locationPending: claim({ text: 'Location pending', status: 'pending' }),
+  permissionPending: claim({ text: 'Awaiting client permission', status: 'blocked' }),
+} as const;
+
+export const journey = {
+  /** "ACOMPAÑAMIENTO EN TODA LA OPERACIÓN" */
+  eyebrow: claim({ text: 'Support across the whole operation', status: 'proposal', source: TEMPLATE }),
+  /** "Un ecosistema completo para una inversión sin fricciones." */
+  title: claim({ text: 'A complete ecosystem for a frictionless investment.', status: 'proposal', source: TEMPLATE }),
+  /** Template script: "Un único interlocutor. Todo bajo control." */
+  script: claim({ text: 'One point of contact. Everything under control.', status: 'proposal', source: TEMPLATE }),
+  steps: [
+    { icon: 'analyse' as const, title: claim({ text: 'Analyse', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Study and feasibility.', status: 'proposal', source: TEMPLATE }) },
+    { icon: 'buy' as const, title: claim({ text: 'Buy', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Support through the negotiation.', status: 'proposal', source: TEMPLATE }) },
+    { icon: 'declare' as const, title: claim({ text: 'Declare', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Tax and legal handling.', status: 'proposal', source: TEMPLATE, review: 'tax' }) },
+    { icon: 'own' as const, title: claim({ text: 'Own', status: 'proposal', source: TEMPLATE }), body: claim({ text: 'Support with the management.', status: 'proposal', source: TEMPLATE }) },
   ],
 } as const;
 
 export const faq = {
-  eyebrow: claim({ text: 'Before you ask', status: 'proposal' }),
-  heading: claim({ text: 'The questions that actually come up.', status: 'proposal' }),
+  /** "PREGUNTAS FRECUENTES" */
+  eyebrow: claim({ text: 'Quick answers', status: 'proposal', source: TEMPLATE }),
+  /** "Respuestas a las dudas más comunes." */
+  title: claim({ text: 'Answers to the most common questions.', status: 'proposal', source: TEMPLATE }),
   items: [
     {
-      id: 'price',
-      question: claim({ text: 'What does the review cost?', status: 'proposal' }),
-      answer: claim({
-        text: 'PENDING_APPROVAL — a price exists in the upstream documentation but has not been approved for publication here.',
-        status: 'pending',
-        review: 'financial',
-        note: 'See docs/phase-2-decision-gate.md D2-04.',
-      }),
+      id: 'foreign-only',
+      question: claim({ text: 'Do you only work with foreign buyers?', status: 'proposal', source: TEMPLATE }),
+      answer: claim({ text: 'The service is built around international buyers, who face the rules, costs and paperwork of a market that was not written for them.', status: 'proposal' }),
     },
     {
       id: 'time',
-      question: claim({ text: 'How long does it take?', status: 'proposal' }),
-      answer: claim({ text: 'PENDING_APPROVAL — no turnaround is confirmed for publication.', status: 'pending' }),
+      question: claim({ text: 'How long does the analysis take?', status: 'proposal', source: TEMPLATE }),
+      answer: claim({ text: 'Turnaround is not confirmed for publication yet.', status: 'pending' }),
     },
     {
-      id: 'language',
-      question: claim({ text: 'Which languages can I work in?', status: 'proposal' }),
+      id: 'includes',
+      /** Template answer: "El informe incluye análisis de mercado, due diligence, modelo financiero, análisis fiscal, escenarios de riesgo y una recomendación final." */
+      question: claim({ text: 'What does the report include?', status: 'proposal', source: TEMPLATE }),
       answer: claim({
-        text: 'English is the primary working language. The full published list is PENDING_APPROVAL.',
-        status: 'pending',
-        source: 'decisions-log.md 2026-07-27 (English as primary acquisition language)',
-      }),
-    },
-    {
-      id: 'remote',
-      question: claim({ text: 'Can this be done without me being in Spain?', status: 'proposal' }),
-      answer: claim({
-        text: 'PENDING_APPROVAL — remote scope, powers of attorney and identification requirements need legal review before being described.',
-        status: 'pending',
-        review: 'legal',
-      }),
-    },
-    {
-      id: 'scope',
-      question: claim({ text: 'What is not included?', status: 'proposal' }),
-      answer: claim({
-        text: 'A review is not a valuation, a building survey or legal representation. Where a question needs a specialist, it is named rather than absorbed.',
+        text: 'Market analysis, due diligence, a financial model, tax analysis, risk scenarios and a final recommendation.',
         status: 'proposal',
-        review: 'legal',
+        source: TEMPLATE,
+        review: 'financial',
       }),
+    },
+    {
+      id: 'purchase-support',
+      question: claim({ text: 'Do you support the purchase itself?', status: 'proposal', source: TEMPLATE }),
+      answer: claim({ text: 'Yes — negotiation, tax and legal handling, and support once the property is yours.', status: 'proposal', source: TEMPLATE, review: 'legal' }),
+    },
+    {
+      id: 'cost',
+      question: claim({ text: 'What does the service cost?', status: 'proposal', source: TEMPLATE }),
+      answer: claim({ text: 'Pricing is not approved for publication yet.', status: 'pending', review: 'financial' }),
+    },
+    {
+      id: 'rental',
+      question: claim({ text: 'Do you also manage the letting?', status: 'proposal', source: TEMPLATE }),
+      answer: claim({ text: 'Management is not part of this service and is not offered here.', status: 'proposal', note: 'Property Management is HOLD upstream (D-06).' }),
+    },
+    {
+      id: 'tax',
+      question: claim({ text: 'How does this work with tax?', status: 'proposal' }),
+      answer: claim({ text: 'Tax treatment is reviewed as part of the analysis. Published statements need competent review, a jurisdiction note and a date.', status: 'pending', review: 'tax' }),
     },
     {
       id: 'independence',
       question: claim({ text: 'How do I know the advice is independent?', status: 'proposal' }),
       answer: claim({
-        text: 'Payment comes only from you. No commission, fee or incentive is accepted from sellers, developers or agencies, and no exclusivity agreement exists with any of them.',
+        text: 'Payment comes only from you. No commission, fee or incentive is accepted from sellers, developers or agencies.',
         status: 'confirmed',
-        source: 'strategy/master/decisions-log.md 2026-07-27; PROJECT-STATUS.md, independence model confirmed by the project owner 2026-08-13',
-        note: 'The remuneration model is confirmed. The formal client mandate and contractual scope remain pending Sarah’s confirmation and are deliberately not described.',
-      }),
-    },
-    {
-      id: 'tax',
-      question: claim({ text: 'Will you tell me what tax I will pay?', status: 'proposal' }),
-      answer: claim({
-        text: 'PENDING_APPROVAL — any published statement about tax treatment requires competent review, a jurisdiction note, an effective date and a disclaimer.',
-        status: 'pending',
-        review: 'tax',
-      }),
-    },
-    {
-      id: 'documents',
-      question: claim({ text: 'What do you need from me?', status: 'proposal' }),
-      answer: claim({
-        text: 'The listing, your own assumptions, your horizon, and whatever documentation the seller has provided so far.',
-        status: 'proposal',
-      }),
-    },
-    {
-      id: 'risk',
-      question: claim({ text: 'What if the answer is that I should not buy it?', status: 'proposal' }),
-      answer: claim({
-        text: 'That is a valid result of the review and costs the same as any other. Nothing about how the work is paid for depends on the transaction happening.',
-        status: 'proposal',
-        note: 'Rests on the confirmed independence model; wording not approved.',
-      }),
-    },
-    {
-      id: 'next',
-      question: claim({ text: 'What happens after the review?', status: 'proposal' }),
-      answer: claim({
-        text: 'You decide. If you proceed, the purchase can be handled as a single file rather than a set of disconnected conversations.',
-        status: 'proposal',
+        source: 'decisions-log.md 2026-07-27; independence model confirmed 2026-08-13',
       }),
     },
   ],
+  legalNote: claim({
+    text: 'Answers about tax, legal scope, timing and pricing are provisional and subject to professional review.',
+    status: 'confirmed',
+    source: 'AGENTS.md §11',
+  }),
+} as const;
+
+export const buyerSystem = {
+  eyebrow: claim({ text: 'Before you pay for anything', status: 'proposal' }),
+  title: claim({ text: 'Start with the free calculations.', status: 'proposal' }),
+  subtitle: claim({
+    text: 'Three tools that answer a question without asking for anything first. No email, no form, no commitment.',
+    status: 'proposal',
+  }),
 } as const;
 
 export const finalCta = {
-  eyebrow: claim({ text: 'Next step', status: 'proposal' }),
-  heading: claim({ text: 'Start with the numbers.', status: 'proposal' }),
+  /** "TU INVERSIÓN MERECE UN ANÁLISIS PROFESIONAL" */
+  eyebrow: claim({ text: 'Your investment deserves a professional analysis', status: 'proposal', source: TEMPLATE }),
+  /** "Hablemos de tu próxima inversión." */
+  title: claim({ text: 'Let’s talk about your next investment.', status: 'proposal', source: TEMPLATE }),
+  /** Template: "Sin compromiso · Respuesta en 1 día laborable" */
   body: claim({
-    text: 'You can begin with the free calculations and decide afterwards whether a full review is worth it. Nothing commits you to anything.',
+    text: 'No obligation.',
     status: 'proposal',
+    source: TEMPLATE,
+    note: 'Template adds "Respuesta en 1 día laborable". The response time is not confirmed, so it is withheld.',
   }),
-  primaryCta: claim({ text: 'Calculate your real cash needed', status: 'proposal' }),
-  secondaryCta: claim({ text: 'Talk to Sarah first', status: 'proposal' }),
-  alternativeNote: claim({
-    text: 'PENDING_APPROVAL — email and messaging contact channels are not confirmed.',
+  /** "SOLICITAR ANÁLISIS" / "HABLAR PRIMERO" */
+  primaryCta: claim({ text: 'Request an analysis', status: 'proposal', source: TEMPLATE }),
+  secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
+  /** Template script: "Mismas preguntas. Mejores decisiones." */
+  script: claim({ text: 'Same questions. Better decisions.', status: 'proposal', source: TEMPLATE }),
+  note: claim({ text: 'Contact channels and response times are not confirmed.', status: 'pending' }),
+} as const;
+
+export const footer = {
+  /** "Inversión inmobiliaria con criterio. Costa Blanca, España." */
+  description: claim({
+    text: 'Property investment with judgement. Costa Blanca, Spain.',
+    status: 'proposal',
+    source: TEMPLATE,
+  }),
+  groups: [
+    {
+      /** "SERVICIOS" */
+      title: 'Services',
+      links: [
+        claim({ text: 'Property analysis', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Investment opportunities', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Tax advisory', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Purchase support', status: 'proposal', source: TEMPLATE }),
+      ],
+    },
+    {
+      /** "INSIGHTS" */
+      title: 'Insights',
+      links: [
+        claim({ text: 'Guides and resources', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Market analysis', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Tax updates', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Client stories', status: 'proposal', source: TEMPLATE }),
+      ],
+    },
+    {
+      /** "SOBRE SARAH" */
+      title: 'About Sarah',
+      links: [
+        claim({ text: 'My story', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Method', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Values', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Contact', status: 'proposal', source: TEMPLATE }),
+      ],
+    },
+    {
+      /** "LEGAL" */
+      title: 'Legal',
+      links: [
+        claim({ text: 'Legal notice', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Privacy policy', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Terms of use', status: 'proposal', source: TEMPLATE }),
+        claim({ text: 'Cookie policy', status: 'proposal', source: TEMPLATE }),
+      ],
+    },
+  ],
+  /** Template: "© 2024 Sarah Katerina Investment. Todos los derechos reservados." */
+  copyright: claim({
+    text: 'Sarah Katerina. Internal preview, not for distribution.',
+    status: 'pending',
+    note: 'Template names a legal entity and a year. The entity is NEEDS_DECISION upstream, so neither is reproduced.',
+  }),
+  routesNote: claim({
+    text: 'Navigation is laid out as approved; the destination routes are not built yet.',
     status: 'pending',
   }),
 } as const;
 
 export const seo = {
-  title: 'Investment review — visual prototype',
+  title: 'Property investment analysis in the Costa Blanca',
   description:
-    'Internal visual prototype of an investment advisory landing for Sarah Katerina. Provisional copy, not approved for production.',
+    'Independent property investment analysis for international buyers in the Costa Blanca: financial modelling, due diligence and a tax overlay in one decision report. Internal visual preview, not approved for production.',
 } as const;

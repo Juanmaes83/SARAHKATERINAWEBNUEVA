@@ -159,3 +159,78 @@ For each statement: approve as written, rewrite, or reject.
 4. Record the approval here.
 
 No agent may perform step 3.
+
+---
+
+## 8. Phase 2C — template copy adopted (2026-09-21)
+
+Juanma approved the Investment template as the copy source. The template is in
+Spanish; this route is English. Each string below is a faithful editorial
+translation preserving intent, structure and rhythm.
+
+Every one is classified `proposal` with `source: 'Investment template — approved
+copy source (Juanma, 2026-09-21)'`. Approved as a copy *source* is not the same
+as approved for *publication*: the landing remains a preview.
+
+### Headlines and sections
+
+| Template (ES) | Adaptation (EN) | Note |
+|---|---|---|
+| INVERSIÓN CON SENTIDO | Investment with purpose | — |
+| Propiedades. Datos. Decisiones más inteligentes. | Properties. Data. Smarter decisions. | — |
+| Asesoramiento independiente para compradores extranjeros en la Costa Blanca. Análisis, fiscalidad y acompañamiento completo para invertir con seguridad y rentabilidad. | Independent advice for foreign buyers on the Costa Blanca. Property investment analysis, tax and full support, so you invest with confidence. | **"y rentabilidad" dropped** — promising returns is a financial claim |
+| HABLAR CON SARAH / VER CÓMO FUNCIONA | Talk to Sarah / See how it works | — |
+| POR QUÉ EXISTIMOS · Un puente entre oportunidades y tranquilidad. | Why we exist · A bridge between opportunity and peace of mind. | — |
+| Existimos para ayudar a compradores internacionales… forma más transparente, inteligente y humana de invertir en España. | We exist to help international buyers… a more transparent, more intelligent and more human way of investing in Spain. | Split into two paragraphs for rhythm |
+| ELIGE TU PUNTO DE PARTIDA · Dos caminos. Un mismo objetivo: una inversión bien fundamentada. | Choose your starting point · Two paths. One goal: an investment built on evidence. | — |
+| TRAIGO UNA PROPIEDAD · Analizamos la propiedad que ya tienes en mente con un enfoque técnico, fiscal y financiero. | I have a property in mind · We analyse the property you already have in mind with a technical, tax and financial approach. | — |
+| QUIERO VER OPORTUNIDADES · Te mostramos una selección de oportunidades que encajan con tus objetivos de inversión. | I want to see opportunities · We show you a selection of opportunities that fit your investment objectives. | — |
+| TIPOS DE ACTIVOS · Distintas estrategias. Un mismo análisis riguroso. | Asset types · Different strategies. One rigorous analysis. | — |
+| RESIDENCIAL / SUELO / COMERCIAL / REDEVELOPMENT | Residential / Land / Commercial / Redevelopment | "potencial de revalorización" softened to "potential to be repositioned" |
+| CÓMO ANALIZAMOS · Un proceso claro. Decisiones con fundamento. | How we analyse · A clear process. Decisions with a basis. | — |
+| Market Screen / Due Diligence / Modelo Financiero / Capa Fiscal / Informe de Decisión | Market screen / Due diligence / Financial modelling / Tax overlay / Decision report | "Optimización fiscal" → "Tax treatment": optimisation implies an outcome |
+| PREVIEW DEL INFORME COMPLETO · Informes claros, visuales y orientados a la toma de decisiones. | Preview of the full report · Clear, visual reports built for decisions. | — |
+| ESCENARIOS, RIESGO Y RENTABILIDAD · Las suposiciones y el riesgo a la baja importan más que las promesas del folleto. | Scenarios, risk and return · Assumptions and downside risk matter more than brochure promises. | — |
+| EL CONOCIMIENTO DETRÁS DE CADA DECISIÓN · Experiencia, independencia y un enfoque personal. | The knowledge behind every decision · Experience, independence and a personal approach. | — |
+| Con más de 20 años dentro de la administración fiscal… | With 20 years inside Spain's tax administration… | **"más de" dropped** — the confirmed credential is exactly 20 years |
+| TRES OPERACIONES. TRES DECISIONES. | Three operations. Three decisions. | — |
+| Resultados reales. Historias reales. | *Not reproduced* | Asserts results that are not evidenced; replaced with a permission statement |
+| ACOMPAÑAMIENTO EN TODA LA OPERACIÓN · Un ecosistema completo para una inversión sin fricciones. | Support across the whole operation · A complete ecosystem for a frictionless investment. | — |
+| ANALIZAR / COMPRAR / DECLARAR / OPERAR | Analyse / Buy / Declare / Own | — |
+| PREGUNTAS FRECUENTES · Respuestas a las dudas más comunes. | Quick answers · Answers to the most common questions. | Eyebrow uses the brief's "Quick answers" |
+| El informe incluye análisis de mercado, due diligence, modelo financiero, análisis fiscal, escenarios de riesgo y una recomendación final. | Market analysis, due diligence, a financial model, tax analysis, risk scenarios and a final recommendation. | — |
+| TU INVERSIÓN MERECE UN ANÁLISIS PROFESIONAL · Hablemos de tu próxima inversión. | Your investment deserves a professional analysis · Let's talk about your next investment. | — |
+| Sin compromiso · Respuesta en 1 día laborable | No obligation. | **Response time withheld** — not confirmed |
+| SOLICITAR ANÁLISIS / HABLAR PRIMERO | Request an analysis / Talk first | — |
+| Inversión inmobiliaria con criterio. Costa Blanca, España. | Property investment with judgement. Costa Blanca, Spain. | — |
+| © 2024 Sarah Katerina Investment. Todos los derechos reservados. | *Not reproduced* | Names a legal entity that is NEEDS_DECISION upstream |
+
+### Editorial script accents
+
+Reused verbatim in translation, set in the display serif italic because no
+script typeface is governed.
+
+| Template | Adaptation |
+|---|---|
+| A better life, a smarter investment. | *(already English, unchanged)* |
+| Más que propiedades. Mejores decisiones. | More than properties. Better decisions. |
+| Oportunidades tangibles. Decisiones con confianza. | Tangible opportunities. Decisions with confidence. |
+| Datos hoy. Tranquilidad mañana. | Data today. Peace of mind tomorrow. |
+| Invertir bien también es saber qué puede salir mal. | Investing well also means knowing what can go wrong. |
+| Inversiones más inteligentes. Vidas más plenas. | Smarter investments. Fuller lives. |
+| Un único interlocutor. Todo bajo control. | One point of contact. Everything under control. |
+| Mismas preguntas. Mejores decisiones. | Same questions. Better decisions. |
+| COSTA BLANCA · Vivir. Invertir. Pertenecer. | Costa Blanca · Live. Invest. Belong. |
+
+### Figures in the template that are NOT reproduced
+
+`160+ compradores` · `Análisis en 48 h` · `€850.000` · `+42%` · `6,1%` ·
+`2,8x` · the three testimonial quotes · the three client countries
+(United Kingdom, Germany, Netherlands) · `Respuesta en 1 día laborable` ·
+the five risk ratings · the Monte Carlo percentiles.
+
+`6,8%` and `€24.500` appear only as clearly tagged illustrative samples
+(`6.0%`, `€24,000`), never as the template's exact figures.
+
+Enforced by test: no currency figure, no percentage, no guarantee, no
+uniqueness claim and no held naming may appear in a classified claim.
