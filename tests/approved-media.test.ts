@@ -56,6 +56,9 @@ describe('approved media registry', () => {
     const taxHero = read(resolve(root, 'components/web/TaxHero.tsx'));
     expect(taxHero).toContain('media={APPROVED_MEDIA.taxHero}');
     expect(taxHero).not.toContain('media={APPROVED_MEDIA.territoryCoast}');
+    expect(taxHero).not.toContain('TerritoryVisual');
+    expect((taxHero.match(/<Image\b/g) ?? []).length).toBe(1);
+    expect(taxHero).toContain('singleHeroFrame');
   });
 
   it('uses the approved Property Purchase final CTA image', () => {

@@ -59,3 +59,19 @@ The owner clarified the next media replacement:
 4. The change is Preview-only. No navigation, copy, CTA destination, Buyer
    System connection, production metadata, DNS or production deployment is
    authorised by this correction.
+
+
+## Owner correction — duplicate Tax Advisory hero and Property Purchase crop
+
+Applied as a separate Preview-only correction:
+
+- Tax Advisory now renders a single `Services_14` image in the hero. The
+  duplicated companion image has been removed and the surviving visual uses the
+  wider 3:2 treatment formerly occupied by the second image.
+- Property Purchase now uses the same wide authority composition as Tax Advisory:
+  two columns at desktop, the editorial image spans the content height, and its
+  focal point is centred. This prevents `Services_Especial` from being squeezed
+  into the previous narrow third column.
+- Playwright/Chromium review is required at desktop and mobile widths before
+  any merge. No navigation, copy, production, DNS or Buyer System behaviour is
+  changed.

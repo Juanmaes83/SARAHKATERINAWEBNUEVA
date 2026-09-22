@@ -3,7 +3,6 @@ import { Container } from '@/components/layout/Container';
 import { WebButton } from './WebButton';
 import { TaxSnapshotCard } from './TaxSnapshotCard';
 import { Icon, type IconName } from './icons/Icon';
-import { TerritoryVisual } from './TerritoryVisual';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/tax-advisory';
@@ -78,12 +77,13 @@ export function TaxHero() {
 
         <RevealOnScroll order={1} className={shared.visual}>
           <figure className={shared.figure}>
-            <div className={shared.frame}>
+            <div className={`${shared.frame} ${styles.singleHeroFrame}`}>
               {/*
                 PHASE 2E — approved Tax Advisory hero (inventory §11, item 1).
-                The same owner-selected Services_14 visual is intentionally reused in the
-                companion slot so the Tax Advisory hero reads as one coherent
-                editorial composition.
+                The owner-selected Services_14 visual is the single Tax Advisory
+                hero image for this Preview. The duplicated companion slot has
+                been removed; this frame now uses the wider crop that previously
+                belonged to the second visual.
               */}
               <Image
                 src={heroMedia.src}
@@ -124,15 +124,6 @@ export function TaxHero() {
               </span>
             </div>
 
-            <div className={shared.territory}>
-              <TerritoryVisual
-                variant="coast"
-                tone="navy"
-                label={hero.locationLabel.text}
-                media={APPROVED_MEDIA.taxHero}
-                sizes="(max-width: 1023px) 60vw, 22vw"
-              />
-            </div>
 
             <div className={shared.dashboard}>
               <TaxSnapshotCard />

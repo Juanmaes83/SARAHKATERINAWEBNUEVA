@@ -361,3 +361,19 @@
     gap: var(--sk-space-32);
   }
 }
+
+
+/* Phase 2E visual correction — 2026-09-22.
+ * Tax Advisory had the same Services_14 image twice in the hero stack.
+ * The surviving image uses the former companion's wider 3:2 treatment so
+ * there is one centred visual with the dashboard below it, not two duplicates.
+ */
+.singleHeroFrame {
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 1024px) {
+  .singleHeroFrame {
+    aspect-ratio: 3 / 2;
+  }
+}
