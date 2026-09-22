@@ -306,3 +306,48 @@ Este documento quedará aprobado cuando Juanma confirme:
 
 Hasta esa aprobación, Claude Code no debe sustituir automáticamente todos los
 placeholders ni modificar la composición de las tres landings.
+
+
+---
+
+## 11. Registro de aprobación humana
+
+**Aprobado por Juanma:** 2026-09-22
+
+Queda aprobado el bloque de selección e implementación provisional de medios:
+
+1. Heroes provisionales:
+   - Investment: `sarahkaterina_Services_12.png`
+   - Tax Advisory: `sarahkaterina_home.png`
+   - Property Purchase: `sarahkaterina_home2.png`
+2. Visuales de propiedades y asset types:
+   - `sarahkaterina_Services 8.png`
+   - `sarahkaterina_Services_9.png`
+   - `sarahkaterina_Services_10.png`
+3. Visuales de territorio y CTA:
+   - `sarahkaterina_LifeStyle_1.png`
+   - `sarahkaterina_LifeStyle_6.png`
+4. Visuales de proceso y análisis:
+   - `sarahkaterina_services_1.png`
+   - `sarahkaterina_services_2.png`
+   - `sarahkaterina_contacto_2.png`
+   - `sarahkaterina_services_6.png`
+5. Uso provisional permitido de imágenes con logo o copy incrustado.
+6. Se mantiene el retrato auténtico actual de Sarah como autoridad.
+7. `sarahkaterina_testimonios_clientes.png` queda excluida hasta disponer de
+   permisos, evidencias y copy aprobado.
+8. No se incorpora vídeo todavía. Se implementan imágenes y se dejan los slots
+   preparados para vídeo futuro.
+
+### Alcance explícitamente excluido de esta entrega
+
+La navegación premium, el menú inspirado en ThreeUI, el scrollspy y las
+transiciones de navegación **no forman parte de esta implementación**. Se
+trabajarán en una fase posterior, después de revisar visualmente las imágenes
+integradas.
+
+### Condición de uso
+
+La aprobación es visual y provisional para previews. No autoriza publicación,
+indexación ni producción. Las imágenes deberán poder sustituirse por versiones
+retocadas sin cambiar la arquitectura ni los slots de las landings.
