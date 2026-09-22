@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { Icon } from './icons/Icon';
-import { footer } from '@/content/en/investment';
+import { footer as investmentFooter } from '@/content/en/investment';
+import type { Claim } from '@/lib/content/claims';
 import { siteConfig } from '@/lib/seo/config';
 import logo from '@/public/brand/sarah-katerina-logo.png';
 import styles from './WebFooter.module.css';
@@ -15,8 +16,22 @@ import styles from './WebFooter.module.css';
  * but it is now stated once, quietly, instead of eighteen times.
  *
  * Links are rendered as text rather than anchors, so nothing 404s.
+ *
+ * SHARED ACROSS LANDINGS. The content is a prop so Tax Advisory can supply its
+ * own column titles, links and descriptor without a second footer component
+ * existing. It defaults to the Investment content, so `/preview/investment`
+ * behaves exactly as before.
  */
-export function WebFooter() {
+export interface WebFooterContent {
+  readonly description: Claim;
+  readonly groups: readonly { readonly title: string; readonly links: readonly Claim[] }[];
+  readonly copyright: Claim;
+  readonly routesNote: Claim;
+}
+
+export function WebFooter({ content = investmentFooter }: { content?: WebFooterContent } = {}) {
+  const footer = content;
+
   return (
     <footer className={styles.footer} data-surface="dark">
       <Container>

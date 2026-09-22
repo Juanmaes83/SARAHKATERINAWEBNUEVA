@@ -3,7 +3,7 @@
 import { useId, useState } from 'react';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon } from './icons/Icon';
-import { faq } from '@/content/en/investment';
+import { faq as investmentFaq } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import styles from './WebFaq.module.css';
 
@@ -61,8 +61,24 @@ function FaqItem({ question, answer }: { question: string; answer: Claim }) {
  * Independent disclosures rather than a single-select accordion: a reader
  * comparing two answers should not have one close the other. Native buttons,
  * so keyboard and screen-reader behaviour is the platform's.
+ *
+ * SHARED ACROSS LANDINGS. The content is a prop so Tax Advisory supplies its
+ * own questions through the same component, with the same disclosure
+ * behaviour, markup and styling. Defaults to the Investment content.
  */
-export function WebFaq() {
+export interface WebFaqContent {
+  readonly eyebrow: Claim;
+  readonly title: Claim;
+  readonly items: readonly {
+    readonly id: string;
+    readonly question: Claim;
+    readonly answer: Claim;
+  }[];
+  readonly legalNote: Claim;
+}
+
+export function WebFaq({ content = investmentFaq }: { content?: WebFaqContent } = {}) {
+  const faq = content;
   return (
     <WebSection surface="ivory" id="faq">
       <WebSectionHeader eyebrow={faq.eyebrow.text} title={faq.title.text} centered rule />

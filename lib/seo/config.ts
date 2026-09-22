@@ -74,3 +74,19 @@ export function isLaboratoryRoute(path: string): boolean {
 export function absoluteUrl(path: string): string {
   return new URL(path, siteConfig.url).toString();
 }
+
+/**
+ * Routes that render their own header, main landmark and footer instead of the
+ * shared application chrome.
+ *
+ * A landing is a whole composition, not a body slotted between the internal
+ * preview chrome: the Tax Advisory preview has its own brand lockup, its own
+ * navigation model and its own footer. Declaring the route here — rather than
+ * nesting a second <header> and <footer> inside <main> — keeps exactly one
+ * banner, one main and one contentinfo landmark in the document.
+ */
+export const SELF_CHROMED_ROUTES = ['/preview/tax-advisory'] as const;
+
+export function isSelfChromed(path: string): boolean {
+  return SELF_CHROMED_ROUTES.some((route) => path === route || path.startsWith(`${route}/`));
+}
