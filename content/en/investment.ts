@@ -28,9 +28,9 @@ import { claim, type Claim } from '@/lib/content/claims';
 const TEMPLATE = 'Investment template — approved copy source (Juanma, 2026-09-21)';
 
 export const PROTOTYPE_NOTICE = {
-  label: 'PHASE 2C — VISUAL FIDELITY IMPLEMENTATION READY FOR HUMAN REVIEW',
+  label: 'PHASE 2E — APPROVED MEDIA IN PREVIEW · READY FOR HUMAN REVIEW',
   body: claim({
-    text: 'Copy is taken from the approved Investment template. Figures on the dashboards are illustrative samples, cases are withheld pending permission, and nothing on this page is approved for production.',
+    text: 'Approved media placed in Preview only. Copy is from the approved Investment template, dashboard figures are illustrative samples, cases are withheld pending permission, and nothing on this page is approved for publication or production.',
     status: 'confirmed',
     source: 'docs/phase-2-visual-implementation-contract.md §9',
   }),

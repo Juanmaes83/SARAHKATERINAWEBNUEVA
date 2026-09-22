@@ -4,6 +4,7 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
+import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
   SampleColumnChart,
@@ -28,6 +29,19 @@ import {
 } from '@/content/en/investment';
 import { isPublishable } from '@/lib/content/claims';
 import styles from './WebBands.module.css';
+
+/**
+ * PHASE 2E — approved imagery per asset card.
+ *
+ * `land` and `commercial` are absent on purpose: no image in the approved 1–8
+ * block depicts a plot or a commercial asset, and borrowing a residential
+ * photograph for them would misrepresent the category. Those cards keep the
+ * schematic and are listed in `PENDING_MEDIA_SLOTS`.
+ */
+const ASSET_MEDIA: Partial<Record<string, ApprovedMedia>> = {
+  residential: APPROVED_MEDIA.assetResidential,
+  redevelopment: APPROVED_MEDIA.assetArchitecture,
+};
 
 /* --- TRUST STRIP ---------------------------------------------------------- */
 
@@ -82,7 +96,13 @@ export function ApproachBand() {
         </div>
 
         <RevealOnScroll order={1}>
-          <TerritoryVisual variant="coast" label={approach.territoryLabel.text} tone="navy" />
+          <TerritoryVisual
+            variant="coast"
+            label={approach.territoryLabel.text}
+            tone="navy"
+            media={APPROVED_MEDIA.processAnalysis}
+            sizes="(max-width: 1023px) 100vw, 40vw"
+          />
           <p className={styles.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {approach.territoryScript.text}
           </p>
@@ -167,7 +187,18 @@ export function AssetTypesBand() {
         {assetTypes.items.map((item, index) => (
           <RevealOnScroll key={item.id} order={index} className={styles.mediaCard}>
             <div className={styles.mediaCardMedia}>
-              <TerritoryVisual variant={item.visual} tone="navy" />
+              {/*
+                PHASE 2E — approved property imagery (inventory §11, item 2).
+                Only Residential and Redevelopment are filled: no approved
+                image depicts land or a commercial asset, so those two cards
+                keep the schematic rather than borrow a misleading photograph.
+              */}
+              <TerritoryVisual
+                variant={item.visual}
+                tone="navy"
+                media={ASSET_MEDIA[item.id]}
+                sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+              />
               <span className={styles.cardIcon}>
                 <Icon name={item.icon} />
               </span>
@@ -261,7 +292,12 @@ export function ReportBand() {
           </div>
 
           <div className={styles.summaryVisual}>
-            <TerritoryVisual variant="built" tone="sand" />
+            <TerritoryVisual
+              variant="built"
+              tone="sand"
+              media={APPROVED_MEDIA.assetPlan}
+              sizes="(max-width: 767px) 100vw, 20vw"
+            />
           </div>
 
           <dl className={styles.summaryRows}>
@@ -568,7 +604,13 @@ export function FinalCtaBand() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1}>
-          <TerritoryVisual variant="coast" label="Costa Blanca" tone="navy" />
+          <TerritoryVisual
+            variant="coast"
+            label="Costa Blanca"
+            tone="navy"
+            media={APPROVED_MEDIA.territoryContact}
+            sizes="(max-width: 1023px) 100vw, 40vw"
+          />
           <p className={`${styles.script} ${styles.scriptOnDark}`} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {finalCta.script.text}
           </p>

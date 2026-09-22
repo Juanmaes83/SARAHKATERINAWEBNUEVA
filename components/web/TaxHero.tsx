@@ -4,10 +4,10 @@ import { WebButton } from './WebButton';
 import { TaxSnapshotCard } from './TaxSnapshotCard';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
+import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/tax-advisory';
 import { isPublishable } from '@/lib/content/claims';
-import portrait from '@/public/sarah/sk-real-1.jpg';
 import shared from './WebHero.module.css';
 import styles from './TaxBands.module.css';
 
@@ -32,6 +32,8 @@ import styles from './TaxBands.module.css';
  * declared schematic instead.
  */
 export function TaxHero() {
+  const heroMedia = APPROVED_MEDIA.taxHero;
+
   return (
     <section className={shared.hero} id="top">
       <Container className={shared.grid}>
@@ -77,13 +79,19 @@ export function TaxHero() {
         <RevealOnScroll order={1} className={shared.visual}>
           <figure className={shared.figure}>
             <div className={shared.frame}>
+              {/*
+                PHASE 2E — approved Tax Advisory hero (inventory §11, item 1).
+                The authentic portrait remains the authority image further down
+                the page, as the approval requires.
+              */}
               <Image
-                src={portrait}
-                alt={hero.imageAlt.text}
+                src={heroMedia.src}
+                alt={heroMedia.alt}
                 className={shared.image}
+                fill
                 priority
                 sizes="(max-width: 1023px) 100vw, 46vw"
-                placeholder="blur"
+                style={{ objectPosition: heroMedia.focal }}
               />
               <span className={shared.scrim} aria-hidden="true" />
               <span className={shared.locationPin}>
@@ -116,7 +124,13 @@ export function TaxHero() {
             </div>
 
             <div className={shared.territory}>
-              <TerritoryVisual variant="coast" tone="navy" label={hero.locationLabel.text} />
+              <TerritoryVisual
+                variant="coast"
+                tone="navy"
+                label={hero.locationLabel.text}
+                media={APPROVED_MEDIA.territoryContact}
+                sizes="(max-width: 1023px) 60vw, 22vw"
+              />
             </div>
 
             <div className={shared.dashboard}>

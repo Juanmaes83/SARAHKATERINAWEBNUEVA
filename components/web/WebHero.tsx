@@ -6,8 +6,8 @@ import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/investment';
+import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { isPublishable } from '@/lib/content/claims';
-import portrait from '@/public/sarah/sk-real-1.jpg';
 import styles from './WebHero.module.css';
 
 /**
@@ -30,6 +30,8 @@ import styles from './WebHero.module.css';
  * aspect ratios are already correct.
  */
 export function WebHero() {
+  const heroMedia = APPROVED_MEDIA.investmentHero;
+
   return (
     <section className={styles.hero} id="top">
       <Container className={styles.grid}>
@@ -75,13 +77,20 @@ export function WebHero() {
         <RevealOnScroll order={1} className={styles.visual}>
           <figure className={styles.figure}>
             <div className={styles.frame}>
+              {/*
+                PHASE 2E — approved hero image (inventory §11, item 1).
+                `sk-real-1` moves out of the hero; the authentic portrait
+                remains the authority image further down the page, which is
+                what the approval requires.
+              */}
               <Image
-                src={portrait}
-                alt={hero.imageAlt.text}
+                src={heroMedia.src}
+                alt={heroMedia.alt}
                 className={styles.image}
+                fill
                 priority
                 sizes="(max-width: 1023px) 100vw, 46vw"
-                placeholder="blur"
+                style={{ objectPosition: heroMedia.focal }}
               />
               <span className={styles.scrim} aria-hidden="true" />
               <span className={styles.locationPin}>
@@ -92,7 +101,13 @@ export function WebHero() {
 
             {/* Place signal, declared as a schematic rather than faked. */}
             <div className={styles.territory}>
-              <TerritoryVisual variant="coast" tone="navy" label="Costa Blanca" />
+              <TerritoryVisual
+                variant="coast"
+                tone="navy"
+                label="Costa Blanca"
+                media={APPROVED_MEDIA.territoryCoast}
+                sizes="(max-width: 1023px) 60vw, 22vw"
+              />
             </div>
 
             <div className={styles.dashboard}>

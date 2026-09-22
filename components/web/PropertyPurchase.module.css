@@ -200,9 +200,23 @@
   background: var(--sk-web-white);
 }
 
+/* One column on the narrowest screens. At 320px two columns left ~144px each,
+   which the icon plus the credential text overflowed and the band clipped. */
 .wideInner {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 360px) {
+  .wideInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The flex child holding the label and the sentence must be allowed to
+   shrink, or its longest word sets the column width. */
+.trustItem > div {
+  min-width: 0;
 }
 
 .trustItem {

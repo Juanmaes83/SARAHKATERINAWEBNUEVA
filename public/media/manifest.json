@@ -1,0 +1,110 @@
+[
+  {
+    "id": "investment-hero",
+    "source": "IMAGES/sarahkaterina_Services_12.png",
+    "original": "1536x1024",
+    "web": "1536x1024",
+    "cropped": false,
+    "originalKB": 2270,
+    "webKB": 91
+  },
+  {
+    "id": "tax-hero",
+    "source": "IMAGES/sarahkaterina_home.png",
+    "original": "1344x752",
+    "web": "1344x752",
+    "cropped": false,
+    "originalKB": 1394,
+    "webKB": 29
+  },
+  {
+    "id": "purchase-hero",
+    "source": "IMAGES/sarahkaterina_home2.png",
+    "original": "1376x768",
+    "web": "1376x768",
+    "cropped": false,
+    "originalKB": 1954,
+    "webKB": 54
+  },
+  {
+    "id": "asset-residential",
+    "source": "IMAGES/sarahkaterina_Services 8.png",
+    "original": "2752x1536",
+    "web": "2000x922",
+    "cropped": true,
+    "originalKB": 5902,
+    "webKB": 159
+  },
+  {
+    "id": "asset-architecture",
+    "source": "IMAGES/sarahkaterina_Services_9.png",
+    "original": "2752x1536",
+    "web": "2000x1116",
+    "cropped": false,
+    "originalKB": 9129,
+    "webKB": 223
+  },
+  {
+    "id": "asset-plan",
+    "source": "IMAGES/sarahkaterina_Services_10.png",
+    "original": "2752x1536",
+    "web": "2000x1116",
+    "cropped": false,
+    "originalKB": 5193,
+    "webKB": 107
+  },
+  {
+    "id": "territory-coast",
+    "source": "sarahkaterina_LifeStyle_1.png",
+    "original": "2752x1536",
+    "web": "2000x1116",
+    "cropped": false,
+    "originalKB": 5890,
+    "webKB": 167
+  },
+  {
+    "id": "territory-contact",
+    "source": "IMAGES/sarahkaterina_LifeStyle_6.png",
+    "original": "1376x768",
+    "web": "1376x768",
+    "cropped": false,
+    "originalKB": 2182,
+    "webKB": 78
+  },
+  {
+    "id": "process-analysis",
+    "source": "IMAGES/sarahkaterina_services_1.png",
+    "original": "1376x768",
+    "web": "1376x768",
+    "cropped": false,
+    "originalKB": 1898,
+    "webKB": 51
+  },
+  {
+    "id": "process-presentation",
+    "source": "IMAGES/sarahkaterina_services_2.png",
+    "original": "1681x936",
+    "web": "1681x936",
+    "cropped": false,
+    "originalKB": 1940,
+    "webKB": 97
+  },
+  {
+    "id": "report-interior",
+    "source": "IMAGES/sarahkaterina_contacto_2.png",
+    "original": "2752x1536",
+    "web": "2000x1116",
+    "cropped": false,
+    "originalKB": 7202,
+    "webKB": 74
+  },
+  {
+    "id": "process-model",
+    "source": "sarahkaterina_services_6.png",
+    "original": "2752x1536",
+    "web": "2000x1116",
+    "cropped": false,
+    "originalKB": 5328,
+    "webKB": 101
+  }
+]

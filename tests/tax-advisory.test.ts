@@ -520,11 +520,16 @@ describe('imported assets', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('gives every static image import an alt from the content module', () => {
+  it('gives every image an alt from a governed source, never a literal', () => {
+    // Phase 2E moved photographic alt text into lib/media/approved-media.ts so
+    // it travels with the image rather than with the copy. Either source is
+    // acceptable; a hardcoded string in the component is not.
     for (const source of [heroSource, bandsSource]) {
       if (source.includes('<Image')) {
-        expect(source).toMatch(/alt=\{[^}]*imageAlt/);
+        expect(source).toMatch(/alt=\{[^}]*(imageAlt|Media\.alt)/);
       }
+      // No literal alt="..." anywhere.
+      expect(source).not.toMatch(/alt="[^"]+"/);
     }
   });
 
