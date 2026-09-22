@@ -35,7 +35,16 @@ const entries = Object.values(APPROVED_MEDIA);
 
 describe('approved media registry', () => {
   it('registers only images approved in the Phase 2E inventory', () => {
-    expect(entries.length).toBe(12);
+    // 12 from the Phase 2E approval, plus the Investment authority portrait
+    // requested in the 2026-09-22 visual corrections.
+    expect(entries.length).toBe(13);
+  });
+
+  it('uses the exact approved file for the Investment authority portrait', () => {
+    const authority = APPROVED_MEDIA.investmentAuthority;
+    expect(authority.source).toBe('IMAGES/sarahkaterina_home.png');
+    // The near-miss files must never be substituted for it.
+    expect(authority.source).not.toMatch(/home[23]/);
   });
 
   it('ships a web derivative for every registered entry', () => {

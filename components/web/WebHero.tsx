@@ -3,7 +3,6 @@ import { Container } from '@/components/layout/Container';
 import { WebButton } from './WebButton';
 import { DashboardCard } from './DashboardCard';
 import { Icon, type IconName } from './icons/Icon';
-import { TerritoryVisual } from './TerritoryVisual';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/investment';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
@@ -21,13 +20,15 @@ import styles from './WebHero.module.css';
  * a generated image passed off as real, and the template screenshot itself.
  *
  * So the zone carries all four signals the brief asks for, honestly:
- *   1. Sarah — the authentic portrait, AUTH-SK-001;
- *   2. place — a conceptual coastline schematic, declared as a schematic;
+ *   1. Sarah — the approved hero photograph;
+ *   2. place — the location pin and the copy, not a second image;
  *   3. the dashboard — illustrative sample figures, labelled;
  *   4. decision signals — the credential row under the CTAs.
  *
- * Replace the schematic with real photography when it exists; the slot and
- * aspect ratios are already correct.
+ * The small coastline thumbnail that used to sit over the photograph was
+ * removed on 2026-09-22 after visual review: it fought the portrait for
+ * attention and its baked-in wordmark was clipped. The frame now reads as one
+ * composition, so nothing was left behind in its place.
  */
 export function WebHero() {
   const heroMedia = APPROVED_MEDIA.investmentHero;
@@ -97,17 +98,6 @@ export function WebHero() {
                 <Icon name="pin" size="sm" />
                 {hero.locationLabel.text}
               </span>
-            </div>
-
-            {/* Place signal, declared as a schematic rather than faked. */}
-            <div className={styles.territory}>
-              <TerritoryVisual
-                variant="coast"
-                tone="navy"
-                label="Costa Blanca"
-                media={APPROVED_MEDIA.territoryCoast}
-                sizes="(max-width: 1023px) 60vw, 22vw"
-              />
             </div>
 
             <div className={styles.dashboard}>

@@ -106,5 +106,14 @@
     "cropped": false,
     "originalKB": 5328,
     "webKB": 101
+  },
+  {
+    "id": "sarah-authority",
+    "source": "IMAGES/sarahkaterina_home.png",
+    "original": "1344x752",
+    "web": "1344x752",
+    "cropped": false,
+    "originalKB": 1394,
+    "webKB": 43
   }
 ]

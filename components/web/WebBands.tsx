@@ -12,7 +12,6 @@ import {
   SampleScenarios,
   SampleSeasonality,
 } from './SampleChart';
-import portrait from '@/public/sarah/sk-real-2.jpg';
 import {
   approach,
   assetTypes,
@@ -421,18 +420,27 @@ export function ScenariosBand() {
 /* --- AUTHORITY (navy) ---------------------------------------------------------- */
 
 export function AuthorityBand() {
+  const authorityMedia = APPROVED_MEDIA.investmentAuthority;
+
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
         <RevealOnScroll>
           <div className={styles.portraitFrame}>
-            {/* AUTH-SK-002 — authentic identity reference, colour frontal. */}
+            {/*
+              Approved 2026-09-22: `IMAGES/sarahkaterina_home.png`, the only
+              asset with that exact base name. It replaces AUTH-SK-002 here.
+              No crop is applied — Sarah is seated with both hands in frame, so
+              the frame is 3:2 rather than portrait, matching every other media
+              frame on this page.
+            */}
             <Image
-              src={portrait}
-              alt={authority.imageAlt.text}
+              src={authorityMedia.src}
+              alt={authorityMedia.alt}
               className={styles.portraitImage}
-              sizes="(max-width: 767px) 100vw, 30vw"
-              placeholder="blur"
+              fill
+              sizes="(max-width: 767px) 100vw, 42vw"
+              style={{ objectPosition: authorityMedia.focal }}
             />
           </div>
         </RevealOnScroll>
@@ -501,34 +509,68 @@ export function CasesBand() {
       />
       <div className={styles.grid3}>
         {cases.items.map((item, index) => (
-          <RevealOnScroll key={item.id} order={index} className={styles.mediaCard}>
+          <RevealOnScroll
+            key={item.id}
+            order={index}
+            className={`${styles.mediaCard} ${styles.caseCard}`}
+          >
             <div className={styles.mediaCardMedia}>
               <TerritoryVisual variant={item.visual} tone="navy" />
+              {/* The asset type is the card's strongest available fact, so it
+                  leads, over the visual, the way a real case would. */}
+              <span className={styles.caseType}>{item.assetType.text}</span>
             </div>
-            <div className={styles.mediaCardBody}>
-              <h3 className={styles.cardTitle}>{item.assetType.text}</h3>
-              <p className={styles.caseMeta}>
-                <Icon name="pin" size="sm" />
-                <span>{cases.locationPending.text}</span>
-              </p>
-              <p className={styles.cardText}>{item.decision.text}</p>
 
-              <div className={styles.caseResult}>
-                <div>
-                  <p className={styles.caseMetricLabel}>{item.metric.text}</p>
-                  <span
-                    className={styles.caseWithheld}
-                    role="img"
-                    aria-label="Result withheld pending client permission and verification"
-                  />
-                </div>
-                <span className={styles.casePermission}>
-                  <Icon name="check" size="sm" />
-                  {item.period.text}
+            <div className={styles.mediaCardBody}>
+              <div className={styles.caseHeadRow}>
+                <h3 className={styles.cardTitle}>{item.metric.text}</h3>
+                <span className={styles.caseIndex} aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
 
-              <p className={styles.caseMeta}>{cases.permissionPending.text}</p>
+              <dl className={styles.caseFacts}>
+                <div className={styles.caseFact}>
+                  <dt>
+                    <Icon name="pin" size="sm" />
+                    Location
+                  </dt>
+                  <dd>{cases.locationPending.text}</dd>
+                </div>
+                <div className={styles.caseFact}>
+                  <dt>
+                    <Icon name="analysis" size="sm" />
+                    Decision
+                  </dt>
+                  <dd>{item.decision.text}</dd>
+                </div>
+                <div className={styles.caseFact}>
+                  <dt>
+                    <Icon name="report" size="sm" />
+                    Result
+                  </dt>
+                  <dd>
+                    {/* A withheld rule, never a fabricated number. */}
+                    <span
+                      className={styles.caseWithheld}
+                      role="img"
+                      aria-label="Result withheld pending client permission and verification"
+                    />
+                  </dd>
+                </div>
+                <div className={styles.caseFact}>
+                  <dt>
+                    <Icon name="clock" size="sm" />
+                    Period
+                  </dt>
+                  <dd>{item.period.text}</dd>
+                </div>
+              </dl>
+
+              <p className={styles.casePermission}>
+                <Icon name="check" size="sm" />
+                <span>{cases.permissionPending.text}</span>
+              </p>
             </div>
           </RevealOnScroll>
         ))}

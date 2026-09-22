@@ -52,10 +52,12 @@
   }
 }
 
+/* Two entries since the 2026-09-22 de-duplication, so they get room rather
+   than being stretched across four narrow columns. */
 @media (min-width: 1024px) {
   .trustGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: var(--sk-space-32);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sk-space-64);
   }
 }
 
@@ -801,30 +803,33 @@
 
 @media (min-width: 768px) {
   .authorityGrid {
-    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--sk-space-48);
   }
 }
 
 @media (min-width: 1024px) {
   .authorityGrid {
-    grid-template-columns: 0.62fr 1.38fr;
+    /* Wider image column: the portrait is now landscape, so it needs room to
+       breathe beside the copy rather than being squeezed into a sliver. */
+    grid-template-columns: 0.92fr 1.08fr;
     gap: var(--sk-space-64);
   }
 }
 
+/* NOTE: stretching the frame to the copy column's height was tried and
+   reverted — `height: 100%` on a stretched grid item fed back into the parent
+   and produced ~50 overflowing elements at 1024px and above. The frame keeps
+   its 3:2 ratio and the surrounding space reads as editorial air. */
+
+/* 3:2, matching every other media frame on the page. The portrait ratio it
+   replaced forced a crop that cut an arm out of the seated composition. */
 .portraitFrame {
   position: relative;
   overflow: hidden;
   border-radius: var(--sk-radius-card);
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
   background-color: var(--sk-web-navy);
-}
-
-@media (min-width: 768px) {
-  .portraitFrame {
-    aspect-ratio: 4 / 5;
-  }
 }
 
 .portraitImage {
@@ -873,8 +878,11 @@
   width: var(--sk-space-48);
   height: var(--sk-space-48);
   border-radius: var(--sk-radius-pill);
+  /* Filled rather than outlined: on the navy band the hairline border left the
+     icons floating with too little separation from the ground. */
+  background-color: var(--sk-web-navy);
   border: var(--sk-border-standard-width) var(--sk-border-standard-style)
-    var(--sk-web-navy-line);
+    var(--sk-web-gold-on-dark);
   color: var(--sk-web-gold-on-dark);
 }
 
@@ -914,50 +922,103 @@
   color: var(--sk-web-muted-on-dark);
 }
 
-/* --- cases ------------------------------------------------------------------- */
+/* --- cases ------------------------------------------------------------------
+ * A premium slot system waiting for real cases, not a broken section. Every
+ * field is present and aligned; the ones that need permission read as withheld
+ * rather than missing.
+ * --------------------------------------------------------------------------- */
 
-.caseMeta {
+.caseCard {
+  position: relative;
+}
+
+/* Asset type over the visual: the card's strongest available fact leads. */
+.caseType {
+  position: absolute;
+  inset-block-end: var(--sk-space-16);
+  inset-inline-start: var(--sk-space-16);
+  padding: var(--sk-space-4) var(--sk-space-16);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.caseHeadRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  padding-block-end: var(--sk-space-16);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.caseIndex {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--sk-web-tracking-caps);
+  color: var(--sk-web-gold);
+}
+
+/* A definition list, so every card lines up field for field. */
+.caseFacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  margin: 0;
+}
+
+.caseFact {
+  display: grid;
+  /* Token-composed, so every card's fields align on the same column. */
+  grid-template-columns: calc(var(--sk-space-80) + var(--sk-space-48)) 1fr;
+  align-items: baseline;
+  gap: var(--sk-space-16);
+}
+
+.caseFact dt {
   display: flex;
   align-items: center;
   gap: var(--sk-space-8);
   margin: 0;
   font-family: var(--sk-type-legal-family);
   font-size: var(--sk-type-legal-size);
-  color: var(--sk-web-muted);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
 }
 
-.caseResult {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--sk-space-16);
-  margin-block-start: auto;
-  padding-block-start: var(--sk-space-16);
-  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
-    var(--sk-web-border);
-}
-
-.caseMetricLabel {
+.caseFact dd {
   margin: 0;
-  font-family: var(--sk-type-legal-family);
-  font-size: var(--sk-type-legal-size);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-font-line-height-caption);
   color: var(--sk-web-muted);
 }
 
-/* The result is a withheld rule, never a fabricated number. */
+/* The withheld result. Deliberately a rule, never a number. */
 .caseWithheld {
   display: block;
   width: var(--sk-space-64);
   height: var(--sk-space-8);
-  margin-block-start: var(--sk-space-4);
   border-radius: var(--sk-radius-button);
   background-color: var(--sk-web-border);
 }
 
 .casePermission {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: var(--sk-space-4);
+  gap: var(--sk-space-8);
+  margin: auto 0 0;
+  padding-block-start: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
   font-family: var(--sk-type-legal-family);
   font-size: var(--sk-type-legal-size);
   color: var(--sk-web-gold);
