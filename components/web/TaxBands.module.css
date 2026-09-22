@@ -369,6 +369,6 @@
  * Sarah and the tax-agency panel remain visible without a forced portrait crop.
  * The compound selector intentionally outranks WebHero's desktop 3:4 rule.
  */
-:global(.WebHero_frame).singleHeroFrame {
+.singleHeroFrame.singleHeroFrame {
   aspect-ratio: 3 / 2;
 }
