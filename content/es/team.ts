@@ -73,6 +73,15 @@ export const teamEs = {
       body: 'Igor trabaja en desarrollo de negocio y nuevas oportunidades, ayudando a mantener a la práctica atenta a formas relevantes de apoyar a compradores internacionales.',
     },
   ],
+  network: {
+    eyebrow: 'Un contexto profesional más amplio',
+    title: 'Las buenas decisiones rara vez se toman de forma aislada.',
+    body: [
+      'Un equipo del lado del comprador también debe reconocer dónde termina su función y hace falta otra perspectiva profesional.',
+      'El encargo del comprador permanece en el centro de la conversación. La función, relación y alcance de cualquier especialista deben confirmarse para cada expediente antes de confiar en ellos.',
+    ],
+    reviewLabel: 'MEDIO PROVISIONAL — SOLO PARA REVISIÓN VISUAL HUMANA',
+  },
   process: [
     ['01', 'Tu idea y primera conversación', 'Sarah · Oscar'],
     ['02', 'Criterios de búsqueda y selección', 'Oscar · Sarah'],

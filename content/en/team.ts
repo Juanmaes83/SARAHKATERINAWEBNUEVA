@@ -138,6 +138,20 @@ export const profiles: readonly TeamProfile[] = [
   },
 ] as const;
 
+export const network = {
+  eyebrow: 'A wider professional context',
+  title: 'Good decisions are rarely made in isolation.',
+  body: [
+    'A buyer-side team also needs to recognise where its own role stops and another professional perspective is needed.',
+    'The buyer’s brief remains the centre of the conversation. Any specialist role, relationship and scope must be confirmed for the individual file before it is relied upon.',
+  ],
+  imageAlt:
+    'Two women in a professional event setting beside display materials; their identities and the visible organisations are not assigned in this preview.',
+  reviewLabel: 'PROVISIONAL MEDIA — HUMAN VISUAL REVIEW ONLY',
+  caption:
+    'This photograph is included only to evaluate editorial composition. Visible people, organisations and messages are not identified, endorsed or presented as partners or clients.',
+} as const;
+
 export interface ProcessStep {
   readonly number: string;
   readonly title: string;

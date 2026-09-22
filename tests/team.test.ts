@@ -31,6 +31,23 @@ describe('team editorial preview', () => {
     expect(editorial).not.toMatch(/<img\b/);
   });
 
+  it('preserves the full-width hero composition and places provisional network media correctly', () => {
+    const css = read('components/web/TeamEditorial.module.css');
+    expect(editorial).toContain("teamHero from '@/public/team/optimized/team-hero.webp'");
+    expect(editorial).toContain("teamNetwork from '@/public/team/optimized/team-network.webp'");
+    expect(css).toMatch(/\.heroFrame\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9/s);
+    expect(css).toMatch(/\.heroImage\s*\{[^}]*object-fit:\s*contain/s);
+    expect(css).not.toMatch(/\.heroImage\s*\{[^}]*object-fit:\s*cover/s);
+
+    const teamPosition = editorial.indexOf('<TeamBand />');
+    const networkPosition = editorial.indexOf('<NetworkBand />');
+    const processPosition = editorial.indexOf('<ProcessBand />');
+    expect(teamPosition).toBeGreaterThan(-1);
+    expect(networkPosition).toBeGreaterThan(teamPosition);
+    expect(processPosition).toBeGreaterThan(networkPosition);
+    expect(content).toContain('PROVISIONAL MEDIA \u2014 HUMAN VISUAL REVIEW ONLY');
+  });
+
   it('keeps identity and held-service boundaries explicit', () => {
     expect(content).toContain("name: 'Igor'");
     expect(content).toContain("name: 'Oscar'");

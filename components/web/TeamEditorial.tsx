@@ -12,12 +12,14 @@ import {
   hero,
   independence,
   introduction,
+  network,
   paths,
   process,
   profiles,
 } from '@/content/en/team';
 import teamHero from '@/public/team/optimized/team-hero.webp';
 import teamGroup from '@/public/team/optimized/team-group.webp';
+import teamNetwork from '@/public/team/optimized/team-network.webp';
 import officeWorkspace from '@/public/team/optimized/office-workspace.webp';
 import officeSign from '@/public/team/optimized/office-sign.webp';
 import sarahPortrait from '@/public/sarah/sk-real-1.jpg';
@@ -49,13 +51,11 @@ function TeamHero() {
                 <Image
                   src={teamHero}
                   alt={hero.imageAlt}
-                  fill
                   priority
                   placeholder="blur"
                   sizes="(max-width: 767px) 100vw, (max-width: 1023px) 92vw, 50vw"
                   className={styles.heroImage}
                 />
-                <div className={styles.heroScrim} aria-hidden="true" />
               </div>
               <figcaption className={styles.heroCaption}>{hero.caption}</figcaption>
             </figure>
@@ -63,6 +63,38 @@ function TeamHero() {
         </div>
       </Container>
     </section>
+  );
+}
+
+function NetworkBand() {
+  return (
+    <WebSection surface="navySoft" id="network">
+      <div className={styles.networkGrid}>
+        <RevealOnScroll className={styles.networkMedia}>
+          <figure className={styles.networkFigure}>
+            <div className={styles.networkFrame}>
+              <Image
+                src={teamNetwork}
+                alt={network.imageAlt}
+                placeholder="blur"
+                sizes="(max-width: 767px) 100vw, 44vw"
+                className={styles.networkImage}
+              />
+            </div>
+            <figcaption>{network.caption}</figcaption>
+          </figure>
+        </RevealOnScroll>
+
+        <RevealOnScroll order={1} className={styles.networkCopy}>
+          <p className={styles.provisionalLabel}>{network.reviewLabel}</p>
+          <p className={styles.darkEyebrow}>{network.eyebrow}</p>
+          <h2>{network.title}</h2>
+          {network.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </RevealOnScroll>
+      </div>
+    </WebSection>
   );
 }
 
@@ -323,6 +355,7 @@ export function TeamEditorial() {
       <IntroductionBand />
       <PathsBand />
       <TeamBand />
+      <NetworkBand />
       <ProcessBand />
       <IndependenceBand />
       <AftercareBand />
