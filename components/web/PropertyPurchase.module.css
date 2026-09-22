@@ -200,9 +200,23 @@
   background: var(--sk-web-white);
 }
 
+/* One column on the narrowest screens. At 320px two columns left ~144px each,
+   which the icon plus the credential text overflowed and the band clipped. */
 .wideInner {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 360px) {
+  .wideInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The flex child holding the label and the sentence must be allowed to
+   shrink, or its longest word sets the column width. */
+.trustItem > div {
+  min-width: 0;
 }
 
 .trustItem {
@@ -773,18 +787,22 @@
 .authorityGrid {
   color: var(--sk-web-on-dark);
 }
+
 .portraitFrame {
+  position: relative;
   overflow: hidden;
-  min-height: calc(var(--sk-space-80) * 4);
-  border-radius: var(--sk-radius-card);
+  min-height: clamp(360px, 42vw, 620px);
+  border-radius: 0;
   background: var(--sk-web-navy);
 }
+
 .portrait {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: 50% 50%;
 }
+
 .authorityCopy h2 {
   margin: 0;
   color: var(--sk-web-on-dark);
@@ -1020,8 +1038,18 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .authorityGrid {
-    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.1fr) minmax(0, 0.9fr);
-    align-items: stretch;
+    /* Match the approved Tax Advisory authority composition: a wide editorial
+       image beside one content column. The previous three-column layout made
+       this image too narrow and cropped Services_Especial aggressively. */
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: var(--sk-space-64);
+    align-items: start;
+  }
+
+  .portraitFrame {
+    grid-row: 1 / span 2;
+    min-height: 0;
+    aspect-ratio: 1376 / 768;
   }
   .journey {
     grid-template-columns: repeat(4, minmax(0, 1fr));

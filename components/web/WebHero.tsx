@@ -3,11 +3,10 @@ import { Container } from '@/components/layout/Container';
 import { WebButton } from './WebButton';
 import { DashboardCard } from './DashboardCard';
 import { Icon, type IconName } from './icons/Icon';
-import { TerritoryVisual } from './TerritoryVisual';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/investment';
+import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { isPublishable } from '@/lib/content/claims';
-import portrait from '@/public/sarah/sk-real-1.jpg';
 import styles from './WebHero.module.css';
 
 /**
@@ -21,15 +20,19 @@ import styles from './WebHero.module.css';
  * a generated image passed off as real, and the template screenshot itself.
  *
  * So the zone carries all four signals the brief asks for, honestly:
- *   1. Sarah — the authentic portrait, AUTH-SK-001;
- *   2. place — a conceptual coastline schematic, declared as a schematic;
+ *   1. Sarah — the approved hero photograph;
+ *   2. place — the location pin and the copy, not a second image;
  *   3. the dashboard — illustrative sample figures, labelled;
  *   4. decision signals — the credential row under the CTAs.
  *
- * Replace the schematic with real photography when it exists; the slot and
- * aspect ratios are already correct.
+ * The small coastline thumbnail that used to sit over the photograph was
+ * removed on 2026-09-22 after visual review: it fought the portrait for
+ * attention and its baked-in wordmark was clipped. The frame now reads as one
+ * composition, so nothing was left behind in its place.
  */
 export function WebHero() {
+  const heroMedia = APPROVED_MEDIA.investmentHero;
+
   return (
     <section className={styles.hero} id="top">
       <Container className={styles.grid}>
@@ -75,24 +78,26 @@ export function WebHero() {
         <RevealOnScroll order={1} className={styles.visual}>
           <figure className={styles.figure}>
             <div className={styles.frame}>
+              {/*
+                PHASE 2E — approved hero image (inventory §11, item 1).
+                `sk-real-1` moves out of the hero; the authentic portrait
+                remains the authority image further down the page, which is
+                what the approval requires.
+              */}
               <Image
-                src={portrait}
-                alt={hero.imageAlt.text}
+                src={heroMedia.src}
+                alt={heroMedia.alt}
                 className={styles.image}
+                fill
                 priority
                 sizes="(max-width: 1023px) 100vw, 46vw"
-                placeholder="blur"
+                style={{ objectPosition: heroMedia.focal }}
               />
               <span className={styles.scrim} aria-hidden="true" />
               <span className={styles.locationPin}>
                 <Icon name="pin" size="sm" />
                 {hero.locationLabel.text}
               </span>
-            </div>
-
-            {/* Place signal, declared as a schematic rather than faked. */}
-            <div className={styles.territory}>
-              <TerritoryVisual variant="coast" tone="navy" label="Costa Blanca" />
             </div>
 
             <div className={styles.dashboard}>

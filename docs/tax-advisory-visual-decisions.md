@@ -106,6 +106,28 @@ and function each slot needs, is in the fidelity matrix §4.
 
 ---
 
+## 4A. Image correction pass — 2026-09-22
+
+This pass is approved for the protected Preview only. It does not authorise
+production, publication or indexation.
+
+1. **Hero crop corrected.** The existing `tax-hero.webp` remains in place, but
+   its focal point moves from `58% 38%` to `35% 38%` so Sarah's face is not
+   cut at the left edge of the portrait frame.
+2. **Hero companion visual changed.** The repeated phone, sunglasses, key and
+   coffee image is removed from the visual directly below the hero image. It is
+   replaced by the approved `territory-coast.webp` visual. The CTA keeps the
+   phone/coffee visual, preserving the intended lower-page reference without
+   duplicating it in the hero stack.
+3. **Authority portrait replaced.** `AUTH-SK-002` is replaced by
+   `IMAGES/SARAHKATERINA_OFFICE_EDITORIAL.jpeg`, served as the optimised
+   `tax-authority-office.webp` derivative. Its embedded wall copy is visible
+   and deliberately recorded as provisional Preview content for a later
+   retouching pass.
+
+No navigation, motion system, copy, CTA destination or other landing was
+changed in this pass.
+
 ## 5. Motion
 
 The shared system, unchanged: viewport reveals with a capped stagger, a

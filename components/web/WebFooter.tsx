@@ -4,7 +4,7 @@ import { Icon } from './icons/Icon';
 import { footer as investmentFooter } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import { siteConfig } from '@/lib/seo/config';
-import logo from '@/public/brand/sarah-katerina-logo.png';
+import logo from '@/public/brand/sarah-katerina-logo-light.png';
 import styles from './WebFooter.module.css';
 
 /**
@@ -38,13 +38,11 @@ export function WebFooter({ content = investmentFooter }: { content?: WebFooterC
         <div className={styles.top}>
           <div className={styles.brandBlock}>
             {/*
-              BRAND-001 on an ivory plate. The mark may not be recoloured, and
-              its near-black "Katerina" would disappear on navy, so the plate
-              preserves the asset exactly while keeping it legible.
+              Approved light footer mark. The original logo remains untouched;
+              this transparent variant preserves the teal accent and uses ivory
+              for the wordmark so it is legible directly on the shared navy footer.
             */}
-            <span className={styles.logoPlate}>
-              <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="200px" />
-            </span>
+            <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="200px" />
             <p className={styles.description}>{footer.description.text}</p>
           </div>
 

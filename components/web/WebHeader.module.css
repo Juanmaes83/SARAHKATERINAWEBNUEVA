@@ -203,7 +203,10 @@
   gap: var(--sk-space-16);
 }
 
-@media (min-width: 1024px) {
+/* 1100px, not 1024px. With seven nav items, the language switch and the gold
+   CTA, the desktop row overflowed by a few pixels at exactly 1024. The mobile
+   menu is used up to 1100 instead. */
+@media (min-width: 1100px) {
   .nav,
   .actions {
     display: flex;
