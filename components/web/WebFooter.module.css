@@ -31,36 +31,22 @@
   align-items: flex-start;
 }
 
-/* BRAND BLOCK
+/* Reversed light mark for the shared navy footer.
  *
- * The logo is used exactly as supplied, including its teal accent: the mark
- * may not be recoloured, redrawn or replaced by text
- * (AUTHENTIC-REFERENCE-REGISTER.md). Its near-black "Katerina" would vanish on
- * navy, so it needs a light ground.
- *
- * Review flagged the previous treatment as a plate stuck onto the footer. It
- * is now a deliberate brand block: full width of its column, padded on the
- * same rhythm as the link columns, aligned to the same baseline, and closed
- * with a gold rule that ties it to the rest of the footer. */
-.logoPlate {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: var(--sk-space-24);
-  border-radius: var(--sk-radius-card);
-  background-color: var(--sk-web-ivory);
-  border-block-end: var(--sk-border-accent-width) var(--sk-border-standard-style)
-    var(--sk-web-gold);
-}
-
+ * The transparent asset preserves the supplied geometry and teal accent. The
+ * ivory wordmark is the approved treatment for dark surfaces; no background
+ * plate, recolouring of the mark or local redraw is used.
+ */
 .logo {
-  height: var(--sk-space-32);
+  display: block;
+  height: var(--sk-space-48);
   width: auto;
+  max-width: 100%;
 }
 
 @media (min-width: 1024px) {
   .logo {
-    height: var(--sk-space-48);
+    height: var(--sk-space-64);
   }
 }
 
