@@ -75,9 +75,9 @@ Only the portrait changed. Title, body, claims, bullets, quote, limits and the n
 
 ### Footer
 
-The logo is unchanged — canonical `BRAND-001`, not recoloured, redrawn, deformed or replaced by text. Its near-black "Katerina" would vanish on navy, so it still needs a light ground.
+The shared footer now uses `public/brand/sarah-katerina-logo-light.png`, a transparent high-resolution variant created from the approved mark. The original `BRAND-001` remains untouched. The variant preserves the original geometry and teal accent while converting only the dark wordmark to ivory for legibility on navy.
 
-The previous ivory plate read as something stuck on. It is now a **deliberate brand block**: full width of its column, padded on the footer's own 24px rhythm, aligned with the link columns and closed by a 3px gold rule that ties it to the rest of the footer. The logo scales from 32px to 48px at 1024px. Footer architecture and navigation are otherwise unchanged.
+The ivory plate has been removed. The logo now sits directly on the navy footer with the same shared component used by Investment, Tax Advisory and Property Purchase. Footer architecture and navigation are otherwise unchanged.
 
 ---
 
