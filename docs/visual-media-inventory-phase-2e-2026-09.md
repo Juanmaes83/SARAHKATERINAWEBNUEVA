@@ -6,8 +6,9 @@
 **Alcance:** Investment, Tax Advisory y Property Purchase
 
 Este documento inventaría los medios disponibles para enriquecer visualmente las tres
-landings. No autoriza todavía su implementación ni su publicación. La selección
-final, el crop, el retoque y el uso público requieren revisión visual humana.
+landings. La implementación provisional de los medios aprobados 1–8 queda autorizada
+exclusivamente en Preview. No autoriza su publicación, indexación ni producción. La
+selección final, el crop, el retoque y el uso público requieren revisión visual humana.
 
 ---
 
