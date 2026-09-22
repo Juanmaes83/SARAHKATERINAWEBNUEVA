@@ -1,23 +1,26 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
-**Last updated:** 2026-09-21
+**Last updated:** 2026-09-22  
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION
 
 This file tracks the state of the website product. Strategic status lives
 upstream in [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina)
-`PROJECT-STATUS.md`, which this repository does not duplicate or override.
+NaNPROJECT-STATUS.md`, which this repository does not duplicate or override.
 
 ## Phases
 
 | Phase | Scope | State |
 |---|---|---|
 | 1 — Technical foundation | Tokens, components, chrome, SEO scaffolding, analytics contract, CI | **MERGED** (PR #1) |
-| 2A — Structural prototype | Investment landing grammar, claims classification, Buyer System boundary | **MERGED** (PR #2) |
-| 2 — Visual governance | Decision gate, implementation contract, asset manifest | **MERGED** (PR #3) |
-| 2B — Visual implementation | Scoped ivory/navy/gold palette, real assets, dashboards, motion, copy | **READY FOR HUMAN REVIEW** — this PR |
-| 2C — Visual review and correction | Juanma reviews the Vercel preview and corrects | **REQUIRED BEFORE MERGE** |
-| 3 — Buyer System integration | Events, consent, lead-capture decision | Blocked on upstream decisions |
-| 4 — Production gate | SEO, accessibility, performance, legal, migration | Later |
+| 2A — Structural prototype | Investment landing grammar, claims classification, Buyer System boundary | **MERGED** |
+| 2 — Visual governance | Decision gate, implementation contract, asset manifest | **MERGED** |
+| 2B/2C — Investment visual implementation | Template-led composition, approved palette, governed assets, shared web layer and visual review | **MERGED — CANONICAL VISUAL BASE** |
+| 2D — Tax Advisory convergence | Tax Advisory adapted to Investment's canonical visual layer | **MERGED — VISUAL BASE READY** |
+| 2D — Property Purchase convergence | Property Purchase adapted to Investment's canonical visual layer | **MERGED — VISUAL BASE READY** (PR #8) |
+| 2E — Premium media, motion and visual refinement | Images, video, crops, transitions, effects, responsive polish and CRO refinement across all three routes | **NEXT** |
+| 2F — Cross-landing visual QA | Template comparison and shared regression review at mobile and desktop widths | **AFTER 2E — HUMAN GATE** |
+| 3 — Buyer System integration | Events, consent, lead-capture decision and approved public destinations | Blocked on upstream decisions |
+| 4 — Production gate | SEO, accessibility, performance, legal, content approval and migration | Later |
 
 ## Routes
 
@@ -25,32 +28,60 @@ upstream in [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkate
 |---|---|---|
 | `/` | Repository overview, canonical brand chrome | No |
 | `/foundation` | Component laboratory, canonical tokens | No — ever |
-| `/preview/investment` | Investment visual implementation, scoped web palette | No — ever, while under `/preview` |
+| `/preview/investment` | Canonical Investment visual base | No — ever, while under `/preview` |
+| `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment | No — ever, while under `/preview` |
+| `/preview/property-purchase` | Property Purchase visual base adapted to Investment | No — ever, while under `/preview` |
 
-Nothing may be promoted out of `/preview` until the production landing priority
-is decided (`docs/phase-2-decision-gate.md`, D2-01).
+Juanma has approved all three preview routes as visual bases for continued
+implementation. This is a continuation approval, not production or publication
+approval. Nothing may be promoted out of `/preview` until the production
+landing priority is decided (`docs/phase-2-decision-gate.md`, D2-01).
 
 ## Design systems in use
 
-Two coexisting layers, deliberately:
+One shared website layer is now canonical for all three landing routes:
 
 - **Canonical** (`app/tokens.css`, byte-identical to upstream) — used by `/`
   and `/foundation`. Never edited here.
 - **Scoped website palette** (`app/web-tokens.css`, `--sk-web-*`) — ivory,
-  navy, gold, approved 2026-09-21 for this repository only. Additive.
+  navy and gold, approved for this repository only. It is shared by
+  Investment, Tax Advisory and Property Purchase.
+- **Shared web primitives** — `components/web/*`, shared chrome, icons,
+  charts, disclosure patterns and motion foundation. Landing-specific sections
+  may extend the layer but may not duplicate its token, header, footer or button
+  systems.
+
+The next branch for the approved enrichment work is
+ `feat/phase-2e-premium-media-motion-2026-09-22`.
 
 ## Open decisions
 
-See `docs/phase-2-decision-gate.md` §5 and
-`docs/phase-2b-visual-implementation.md` §8.
+Production decisions remain open in `docs/phase-2-decision-gate.md` and the
+landing-specific visual decision documents.
 
-The most urgent are: production landing priority, the logo treatment on dark
-surfaces and its teal-versus-gold discrepancy, whether a Costa Blanca
-photograph is commissioned, and the location of lead capture.
+The visual bases are approved for continuation, but the following still require
+Juanma's review before they are treated as final:
+
+- selected photographs and videos, their provenance, slot assignment, crop and
+  retouch;
+- final logo treatment on light and dark surfaces;
+- replacement of schematic or illustrative placeholders where an authentic
+  asset is available;
+- final CTA destinations, Buyer System origin and any functional capture;
+- legal entity, contact details, testimonials, cases, prices, timelines and
+  other claims;
+- production host, indexation, accessibility/performance and migration gates.
+
+## Current handoff
+
+Phase 2E is the active next workstream. Juanma can supply or retouch media while
+implementation work stays confined to this repository and the shared web layer.
+Every media or motion change must be previewed at mobile and desktop widths and
+visually reviewed by Juanma before merge.
 
 ## Absolute rules
 
 - No secrets, ever.
 - The mother repository and the Buyer System are read-only.
 - No production deployment, no domain, no DNS.
-- Every visual change requires Juanma's human review before merge.
+- Every visual change requires Juanma's human review before merge
