@@ -134,24 +134,24 @@ Automated, on every run:
 - The `converged web layer` suite fails if a second `--sk-web-*` declaration,
   a second header/footer/button, or a re-declared navy or gold ever reappears.
 
-Manual, this run — **both routes measured with the same script, at 320 / 375 /
+Manual, this run — **all three routes measured with the same script, at 320 / 375 /
 390 / 768 / 1024 / 1440**:
 
-| Check                                                              | `/preview/tax-advisory` | `/preview/investment` |
-| ------------------------------------------------------------------ | ----------------------- | --------------------- |
-| Horizontal overflow                                                | none at any width       | none at any width     |
-| Elements left hidden after scroll                                  | 0                       | 0                     |
-| `h1` / header / main / footer                                      | 1 / 1 / 1 / 1           | 1 / 1 / 1 / 1         |
-| Heading-level skips                                                | 0                       | 0                     |
-| Images without `alt`                                               | 0                       | 0                     |
-| Interactive targets below 24×24 (WCAG 2.2 AA)                      | 0                       | 0                     |
-| Keyboard stops without a focus ring                                | 0 of 12                 | 0 of 12               |
-| Mobile menu: dialog, scroll lock, focus trap, Escape, focus return | all pass                | all pass              |
-| FAQ: `aria-expanded`, labelled region, independent disclosures     | all pass                | all pass              |
-| `prefers-reduced-motion`: hidden / animating                       | 0 / 0                   | 0 / 0                 |
-| WCAG AA text pairings                                              | 3 failing / 49          | 3 failing / 50        |
+| Check | `/preview/investment` | `/preview/tax-advisory` | `/preview/property-purchase` |
+|---|---:|---:|---:|
+| Horizontal overflow | none | none | none |
+| Elements left hidden after scroll | 0 | 0 | 0 |
+| One H1 / header / main / footer | yes | yes | yes |
+| Heading-level skips | 0 | 0 | 0 |
+| Images without `alt` | 0 | 0 | 0 |
+| Interactive targets below 44×44 px | 0 | 0 | 0 |
+| Keyboard/focus and mobile-menu checks | pass | pass | pass |
+| FAQ independent disclosures | pass | pass | pass |
+| `prefers-reduced-motion`: hidden / animating | 0 / 0 | 0 / 0 | 0 / 0 |
 
-The two landings behave identically. That is the intended result.
+The three landing implementations now share the same web layer and are
+registered as the visual bases for the next enrichment phase. This does not
+approve their media, copy claims or production destinations for publication.
 
 ### The three canonical contrast near-misses are resolved
 
@@ -216,8 +216,9 @@ button or a second icon set. The tests will fail, and so will the review.
 
 - The Tax Advisory template's gold is lighter than the canonical gold. Visual
   intent preserved, exact hue not. Worth confirming at the visual gate.
-- Property Purchase still needs approved photography, governed case evidence,
-  live CTA/Buyer System destinations and Juanma's visual review.
+- Property Purchase has passed Juanma's human visual review as a visual base for
+  continuation. It still needs approved photography/video, governed case
+  evidence, live CTA/Buyer System destinations and production approval.
 
 ## 9. PR #8 conflict resolution
 
@@ -247,3 +248,24 @@ The deployed Preview additionally verifies canonical and Open Graph URLs
 against its generated `VERCEL_URL` when `NEXT_PUBLIC_SITE_URL` is absent. This
 is deployment-scoped metadata only: no production domain or DNS setting is
 created or changed.
+
+
+## 10. Baseline acceptance and next workstream
+
+On 2026-09-22 Juanma accepted the three coordinated routes as visual
+implementation bases:
+
+- `/preview/investment` — canonical visual base;
+- `/preview/tax-advisory` — adapted to the canonical base;
+- `/preview/property-purchase` — adapted to the canonical base.
+
+This acceptance closes the current structural convergence gate. It is not
+approval for production, publication, indexation, legal claims or migration.
+The next workstream is **Phase 2E — Premium Media, Motion & Visual Refinement**.
+
+Phase 2E will import selected media from the mother repository only after each
+asset has documented provenance, route/slot assignment, crop and treatment.
+It will extend the shared motion foundation with purposeful transitions and
+effects, preserve `prefers-reduced-motion`, and keep all three routes on the
+same tokens, chrome and component layer. Juanma's visual review remains
+mandatory before each merge.
