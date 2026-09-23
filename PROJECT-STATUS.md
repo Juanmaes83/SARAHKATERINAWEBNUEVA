@@ -107,6 +107,37 @@ The approved visual-media/crop pass is now merged into `main`:
 
 The work remains preview-only: no production publication, custom domain, DNS, indexation or Buyer System connection was enabled. The next workstream is motion, transitions and effects.
 
+## Analytics status (2026-09-23)
+
+Documentation only. Source of the facts and the full reconciliation:
+`Juanmaes83/sarahkaterina` → `analytics/ga4-social-ads-reconciliation-2026-09-23.md`.
+
+- **The currently published website** (not this repository) has a Google
+  Analytics property with real historical data, confirmed by the project owner.
+  Its reports, configuration, instrumentation and data quality have not been inspected or technically verified.
+- **This repository contains no active connection to that property or to any
+  other analytics destination.** Its analytics adapter is `noop`
+  (`lib/analytics/track.ts`) and sends no events. No externally injected
+  runtime analytics configuration has been verified. Metrics of the published
+  site must not be attributed to this site.
+- The typed contract in `lib/analytics/events.ts` follows the Buyer System brief
+  (`calculator_start`, `lead_capture_submit`, `booking_start`, `booking_complete`…).
+  It differs from the strategic measurement plan (`lead_form_submitted`,
+  `appointment_completed`, `calculator_started`…) and from the Phase 0 spec
+  (`form_submit`, `booking_completed`…). **Defining an event here does not send it
+  to GA4.** The final taxonomy is a human decision and must be reconciled with
+  the master plan before any implementation.
+- No credential, Measurement ID, GTM container, pixel or token may be copied into
+  this repository. A `G-…` Measurement ID identifies the data stream to which an
+  implementation may send events. It is a public identifier and does not grant
+  read access to GA4 reports; that access is managed outside the repository.
+- No PII, and no tax, cadastral, health, disability or family data, may ever
+  become an analytics or advertising parameter.
+- Social Ads has no historical data for Sarah Katerina; any future campaign is a
+  learning experiment from a historical baseline of its own.
+- Connecting analytics, publishing this site, indexing it or connecting the
+  domain each require explicit human approval.
+
 ## Deployment and publication boundary
 
 GitHub integration may create Vercel deployments with a `production` target after merges or direct pushes to `main`. That infrastructure event is not publication approval. There is no approved custom domain, DNS change or indexation, and the site remains controlled preview/noindex until the production gates are explicitly closed.
