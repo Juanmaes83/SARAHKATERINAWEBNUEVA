@@ -1,0 +1,357 @@
+/* ===========================================================================
+ * Sample report explorer — Phase 2E. Lives on the navy report band.
+ * Tokens only. Two layouts:
+ *   - before hydration / no JS: every panel stacked as a card grid;
+ *   - enhanced: tab list · active panel · aside (desktop), stacked on phones.
+ * =========================================================================== */
+
+.explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+}
+
+/* --- static fallback: all panels visible ---------------------------------- */
+
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .stage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  min-width: 0;
+  padding: var(--sk-space-24);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-ink);
+}
+
+/* An author `display` would otherwise beat the UA rule for [hidden]. */
+.panel[hidden] {
+  display: none;
+}
+
+.panelHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+}
+
+.panelCount {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--sk-web-tracking-caps);
+  color: var(--sk-web-gold);
+}
+
+.panelTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-ink);
+}
+
+.panelNote {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-muted);
+}
+
+.panelBody {
+  min-width: 0;
+}
+
+/* The decision the panel supports — the reason the panel exists. */
+.decision {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+  padding: var(--sk-space-16);
+  border-inline-start: 2px solid var(--sk-web-gold);
+  background-color: var(--sk-web-ivory);
+}
+
+.decisionLabel {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-strong);
+}
+
+.decisionText {
+  margin: 0;
+  font-family: var(--sk-type-body-family);
+  font-size: var(--sk-type-body-size);
+  line-height: var(--sk-type-body-line-height);
+  color: var(--sk-web-ink);
+}
+
+.illustrative {
+  align-self: flex-start;
+  margin-block-start: auto;
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-pill);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+.aside {
+  min-width: 0;
+}
+
+/* --- enhanced: one panel at a time ------------------------------------------ */
+
+.enhanced .stage {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.enhanced .panel {
+  padding: var(--sk-space-24);
+}
+
+@media (min-width: 1024px) {
+  .enhanced {
+    grid-template-columns:
+      calc(var(--sk-space-80) * 3.5) minmax(0, 1fr)
+      calc(var(--sk-space-80) * 3);
+    gap: var(--sk-space-32);
+    align-items: start;
+  }
+
+  .enhanced .panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-areas:
+      'head head'
+      'body decision'
+      'body tag';
+    gap: var(--sk-space-24) var(--sk-space-32);
+    padding: var(--sk-space-32);
+    min-height: calc(var(--sk-space-80) * 5);
+  }
+
+  .enhanced .panel[hidden] {
+    display: none;
+  }
+
+  .enhanced .panelHead {
+    grid-area: head;
+  }
+
+  .enhanced .panelBody {
+    grid-area: body;
+    align-self: center;
+  }
+
+  .enhanced .decision {
+    grid-area: decision;
+    align-self: start;
+  }
+
+  .enhanced .illustrative {
+    grid-area: tag;
+    align-self: end;
+  }
+}
+
+/* --- tab list: the report's own thread ------------------------------------- */
+
+.tablist {
+  position: relative;
+  display: flex;
+  gap: var(--sk-space-8);
+  margin: 0;
+  padding-block-end: var(--sk-space-16);
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.tablist::-webkit-scrollbar {
+  display: none;
+}
+
+/* Track and gold progress, horizontal on phones. */
+.tablist::before,
+.tablist::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 2px;
+  background-color: var(--sk-web-navy-line);
+}
+
+.tablist::after {
+  background-color: var(--sk-web-gold-on-dark);
+  transform-origin: left center;
+  transform: scaleX(var(--sk-report-progress, 0));
+  transition: transform var(--sk-web-motion-reveal) var(--sk-web-motion-ease);
+}
+
+.tab {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-button);
+  background: transparent;
+  color: var(--sk-web-muted-on-dark);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition:
+    color var(--sk-web-motion-quick) var(--sk-web-motion-ease),
+    border-color var(--sk-web-motion-quick) var(--sk-web-motion-ease),
+    background-color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.tab:hover {
+  color: var(--sk-web-on-dark);
+  border-color: var(--sk-web-gold-on-dark);
+}
+
+.tab[aria-selected='true'] {
+  color: var(--sk-web-on-dark);
+  border-color: var(--sk-web-gold-on-dark);
+  background-color: var(--sk-web-navy-soft);
+}
+
+.tabIndex {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--sk-space-32);
+  height: var(--sk-space-32);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold-on-dark);
+  border-radius: var(--sk-radius-pill);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-variant-numeric: tabular-nums;
+  color: var(--sk-web-gold-on-dark);
+  background-color: var(--sk-web-navy);
+}
+
+.tab[aria-selected='true'] .tabIndex {
+  background-color: var(--sk-web-gold-on-dark);
+  color: var(--sk-web-navy);
+}
+
+.tabText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+  min-width: 0;
+}
+
+.tabTitle {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-font-line-height-compact);
+  white-space: nowrap;
+}
+
+/* Phones show the title only; the note is in the panel itself. */
+.tabNote {
+  display: none;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+  color: var(--sk-web-muted-on-dark);
+}
+
+@media (min-width: 1024px) {
+  .tablist {
+    flex-direction: column;
+    gap: var(--sk-space-4);
+    padding-block-end: 0;
+    padding-inline-start: var(--sk-space-16);
+    overflow: visible;
+  }
+
+  /* The thread runs down the list; the gold fills to the active panel. */
+  .tablist::before,
+  .tablist::after {
+    inset-block: var(--sk-space-24);
+    inset-inline: 0 auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .tablist::after {
+    transform-origin: center top;
+    transform: scaleY(var(--sk-report-progress, 0));
+  }
+
+  .tab {
+    align-items: flex-start;
+    width: 100%;
+    padding: var(--sk-space-16);
+    border-color: transparent;
+  }
+
+  .tabTitle {
+    white-space: normal;
+  }
+
+  .tabNote {
+    display: block;
+  }
+}
+
+/* --- motion ----------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .enhanced .panel:not([hidden]) {
+    animation: sk-report-in var(--sk-web-motion-reveal) var(--sk-web-motion-ease) backwards;
+  }
+}
+
+@keyframes sk-report-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sk-web-motion-distance));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tab,
+  .tablist::after {
+    transition: none;
+  }
+}

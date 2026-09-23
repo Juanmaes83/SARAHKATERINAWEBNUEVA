@@ -21,6 +21,8 @@ import {
   trust,
   worries,
 } from '@/content/en/property-purchase';
+import entrance from '@/components/motion/Entrance.module.css';
+import { cn } from '@/lib/utils/cn';
 import styles from './PropertyPurchase.module.css';
 
 function PlaceholderMedia({
@@ -29,8 +31,14 @@ function PlaceholderMedia({
   media,
   priority = false,
   sizes,
+  className,
+  unveil = false,
 }: {
   label: string;
+  /** Large editorial slots only — see TerritoryVisual. */
+  unveil?: boolean;
+  /** Slot modifier, e.g. the hero's native-ratio frame. */
+  className?: string;
   variant?: 'built' | 'coast' | 'district' | 'plot';
   /**
    * PHASE 2E — an approved photograph for this slot. When absent the
@@ -42,12 +50,13 @@ function PlaceholderMedia({
   sizes?: string;
 }) {
   return (
-    <div className={styles.placeholderMedia}>
+    <div className={cn(styles.placeholderMedia, className)}>
       <TerritoryVisual
         variant={variant}
         tone="navy"
         media={media}
         priority={priority}
+        unveil={unveil}
         {...(sizes ? { sizes } : {})}
       />
       {/* The label only reports a gap; once an image lands it is redundant. */}
@@ -70,7 +79,7 @@ export function PurchaseHero() {
   return (
     <section id="top" className={styles.hero} data-surface="light">
       <div className={styles.heroGrid}>
-        <RevealOnScroll className={styles.heroCopy}>
+        <RevealOnScroll className={cn(styles.heroCopy, entrance.copy)}>
           <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
           <h1 className={styles.heroTitle}>
             {hero.title.text} <em>{hero.accent.text}</em>
@@ -95,19 +104,33 @@ export function PurchaseHero() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1} className={styles.heroVisual}>
-          <PlaceholderMedia
-            label={hero.visualTitle.text}
-            variant="coast"
-            media={APPROVED_MEDIA.purchaseHero}
-            priority
-            sizes="(max-width: 1023px) 100vw, 48vw"
-          />
-          <div className={styles.heroVisualCopy}>
-            <p>{hero.visualBody.text}</p>
-            <span>
-              <Icon name="play" /> Video requires approval
-            </span>
-          </div>
+          {/*
+            PHASE 2E ART DIRECTION — the photograph is shown whole, at its
+            native 1376:768 ratio. It carries its own brand line and mark on
+            the right and the key handover at the centre; the navy note that
+            used to sit on top of the image covered the first and, on phones,
+            the second. The note now closes the frame from below, so photograph
+            and caption read as one file card and nothing is layered over the
+            artwork.
+          */}
+          <figure className={styles.heroFigure}>
+            <div className={entrance.media}>
+              <PlaceholderMedia
+                label={hero.visualTitle.text}
+                variant="coast"
+                media={APPROVED_MEDIA.purchaseHero}
+                priority
+                sizes="(max-width: 1023px) 100vw, 52vw"
+                className={styles.heroMedia}
+              />
+            </div>
+            <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
+              <p>{hero.visualBody.text}</p>
+              <span>
+                <Icon name="play" /> Video requires approval
+              </span>
+            </figcaption>
+          </figure>
           <p className={styles.heroScript}>{hero.script.text}</p>
         </RevealOnScroll>
       </div>
@@ -193,6 +216,7 @@ export function AudienceBand() {
               variant="built"
               media={APPROVED_MEDIA.assetResidential}
               sizes="(max-width: 1023px) 100vw, 40vw"
+              unveil
             />
             <p className={styles.script}>{audience.script.text}</p>
           </div>
@@ -255,6 +279,16 @@ export function OneFileBand() {
   );
 }
 
+/**
+ * Illustrative file state, read from the stage's own label. Shown as a mark
+ * plus the word, never by colour alone.
+ */
+function stageState(status: string): 'done' | 'active' | 'pending' {
+  if (/prepared|complete|done/i.test(status)) return 'done';
+  if (/review|progress/i.test(status)) return 'active';
+  return 'pending';
+}
+
 export function FileTrackerBand() {
   return (
     <WebSection surface="soft" tight>
@@ -263,13 +297,35 @@ export function FileTrackerBand() {
         <span>Documents, keys and decisions kept in sequence.</span>
       </div>
       <div className={styles.trackerLayout}>
+        {/*
+          PHASE 2E — the page's signature moment. On desktop the seven stages
+          are joined by one gold connector that draws stage to stage as the
+          file comes into view: the "one file" promise shown as a sequence
+          rather than stated. `stageIndex` feeds the per-stage delay; the
+          content itself is never hidden longer than the canonical reveal.
+        */}
         <ol className={styles.fileTracker}>
           {fileStages.map((stage, index) => (
-            <RevealOnScroll as="li" order={index} key={stage.id} className={styles.fileStage}>
-              <span className={styles.stageDot}>{stage.code}</span>
-              <h3>{stage.title}</h3>
-              <p>{stage.body}</p>
-              <span className={styles.stageStatus}>{stage.status}</span>
+            <RevealOnScroll
+              as="li"
+              order={index}
+              key={stage.id}
+              className={styles.fileStage}
+              style={{ ['--sk-stage-index' as string]: index }}
+            >
+              <span className={styles.stageDot} aria-hidden="true">
+                {stageState(stage.status) === 'done' ? <Icon name="check" size="sm" /> : stage.code}
+              </span>
+              <div className={styles.stageCard}>
+                <h3>
+                  <span className={styles.stageCode}>{stage.code}</span> {stage.title}
+                </h3>
+                <p>{stage.body}</p>
+                <span className={styles.stageStatus} data-state={stageState(stage.status)}>
+                  <span className={styles.stageStatusMark} aria-hidden="true" />
+                  {stage.status}
+                </span>
+              </div>
             </RevealOnScroll>
           ))}
         </ol>
@@ -293,21 +349,35 @@ export function FileTrackerBand() {
 export function ProcessBand() {
   return (
     <WebSection surface="white" id="process">
+      {/*
+        PHASE 2E (brief §7): own eyebrow — "The file, front to back" now
+        appears once, on the tracker above. The six phases are joined card to
+        card by the approved thread; each states what it produces.
+      */}
       <WebSectionHeader
-        eyebrow={process.eyebrow.text}
+        eyebrow={process.stepsEyebrow.text}
         title={process.title.text}
         subtitle={process.subtitle.text}
         rule
       />
       <ol className={styles.processGrid}>
         {process.steps.map((step, index) => (
-          <RevealOnScroll as="li" order={index % 3} key={step.title} className={styles.processCard}>
+          <RevealOnScroll
+            as="li"
+            order={index % 3}
+            key={step.title}
+            className={styles.processCard}
+            style={{ ['--sk-stage-index' as string]: index % 3 }}
+          >
             <span className={styles.processNumber}>{String(index + 1).padStart(2, '0')}</span>
             <Icon name={step.icon} size="lg" />
             <div>
               <h3>{step.title}</h3>
               <p>{step.body}</p>
-              <strong>{step.deliverable}</strong>
+              <p className={styles.processDeliverable}>
+                <span className={styles.processDeliverableLabel}>Deliverable</span>{' '}
+                {step.deliverable}
+              </p>
             </div>
           </RevealOnScroll>
         ))}
@@ -340,12 +410,18 @@ export function BeforeSignBand() {
         <RevealOnScroll order={1} className={styles.decisionPanel}>
           <p className={styles.eyebrow}>{beforeSign.eyebrow.text}</p>
           <h2>{beforeSign.title.text}</h2>
+          {/* PHASE 2E (brief §7): the decision leads — three outcomes, one
+              marked as the illustrative recommendation, stated in words. */}
           <p className={styles.decisionLabel}>{beforeSign.recommendation.text}</p>
-          <div className={styles.decisionOptions}>
-            {beforeSign.actions.map((action) => (
-              <span key={action}>{action}</span>
+          <ul className={styles.decisionOptions}>
+            {beforeSign.actions.map((action, index) => (
+              <li key={action} data-selected={index === 1 ? 'true' : undefined}>
+                <span className={styles.decisionMark} aria-hidden="true" />
+                <span>{action}</span>
+                {index === 1 ? <span className={styles.decisionTag}>Illustrative pick</span> : null}
+              </li>
             ))}
-          </div>
+          </ul>
         </RevealOnScroll>
         <RevealOnScroll order={2} className={styles.beforeSignCta}>
           <ul>
@@ -422,9 +498,13 @@ export function ServicesBand() {
                     </li>
                   ))}
                 </ul>
-                <WebLinkButton href="#faq" variant="primary" arrow>
-                  {service.cta}
-                </WebLinkButton>
+                {/* Card-level actions are quiet across the system; the gold
+                    fill is reserved for section-level decisions. */}
+                <div className={styles.serviceCta}>
+                  <WebLinkButton href="#faq" variant="quiet" arrow>
+                    {service.cta}
+                  </WebLinkButton>
+                </div>
               </div>
             </RevealOnScroll>
           ))}
@@ -452,7 +532,7 @@ export function AuthorityBand() {
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
-        <RevealOnScroll className={styles.portraitFrame}>
+        <RevealOnScroll variant="unveil" className={styles.portraitFrame}>
           <Image
             src={authorityMedia.src}
             alt={authorityMedia.alt}
@@ -559,11 +639,12 @@ export function FinalCtaBand() {
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.finalVisual}>
           <PlaceholderMedia
-          label="Costa Blanca panorama pending"
-          variant="coast"
-          media={APPROVED_MEDIA.purchaseFinalContact}
-          sizes="(max-width: 1023px) 100vw, 45vw"
-        />
+            label="Costa Blanca panorama pending"
+            variant="coast"
+            media={APPROVED_MEDIA.purchaseFinalContact}
+            sizes="(max-width: 1023px) 100vw, 45vw"
+            unveil
+          />
           <p>{finalCta.script.text}</p>
         </RevealOnScroll>
       </div>

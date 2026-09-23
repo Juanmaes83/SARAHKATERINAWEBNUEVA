@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import { Fragment } from 'react';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
+import { ReportExplorer } from './ReportExplorer';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
@@ -82,29 +82,35 @@ export function TrustBand() {
 export function ApproachBand() {
   return (
     <WebSection surface="ivory" id="services">
-      <div className={styles.splitWide}>
-        <div>
-          <WebSectionHeader eyebrow={approach.eyebrow.text} title={approach.title.text} rule />
-          <RevealOnScroll order={1} className={styles.stack16}>
-            {approach.body.map((paragraph) => (
-              <p key={paragraph.text} className={styles.bodyText}>
-                {paragraph.text}
-              </p>
-            ))}
-          </RevealOnScroll>
-        </div>
-
-        <RevealOnScroll order={1}>
+      {/*
+        PHASE 2E (brief §4, reference "Investment 1"): one editorial strip —
+        promise, then explanation, then the territory as supporting evidence —
+        read left to right. The objections follow as what the method resolves.
+      */}
+      <div className={styles.approachLead}>
+        <WebSectionHeader
+          eyebrow={approach.eyebrow.text}
+          title={approach.title.text}
+          rule
+          className={styles.approachHeader}
+        />
+        <RevealOnScroll order={1} className={styles.approachBody}>
+          {approach.body.map((paragraph) => (
+            <p key={paragraph.text} className={styles.bodyText}>
+              {paragraph.text}
+            </p>
+          ))}
+        </RevealOnScroll>
+        <RevealOnScroll order={2} className={styles.approachMedia}>
           <TerritoryVisual
             variant="coast"
             label={approach.territoryLabel.text}
             tone="navy"
             media={APPROVED_MEDIA.processAnalysis}
-            sizes="(max-width: 1023px) 100vw, 40vw"
+            sizes="(max-width: 1023px) 100vw, 30vw"
+            unveil
           />
-          <p className={styles.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
-            {approach.territoryScript.text}
-          </p>
+          <p className={styles.script}>{approach.territoryScript.text}</p>
         </RevealOnScroll>
       </div>
 
@@ -118,9 +124,7 @@ export function ApproachBand() {
           >
             <Icon name={objection.icon as IconName} className={styles.objectionIcon} />
             <div>
-              <span className={styles.objectionIndex}>
-                {String(index + 1).padStart(2, '0')}
-              </span>
+              <span className={styles.objectionIndex}>{String(index + 1).padStart(2, '0')}</span>
               <h3 className={styles.objectionTitle}>{objection.title.text}</h3>
               <p className={styles.cardText}>{objection.body.text}</p>
             </div>
@@ -133,19 +137,40 @@ export function ApproachBand() {
 
 /* --- DECISION DOORS -------------------------------------------------------- */
 
+/**
+ * PHASE 2E — approved photographs for the two primary doors (brief §4).
+ * "I have a property in mind" shows one property read as a plan; "I want to
+ * see opportunities" shows a finished interior. Both use their compact crop,
+ * so no baked-in lockup is cut.
+ */
+const DOOR_MEDIA: Partial<Record<string, ApprovedMedia>> = {
+  'have-property': APPROVED_MEDIA.assetPlan,
+  opportunities: APPROVED_MEDIA.reportInterior,
+};
+
 export function DoorsBand() {
+  const primary = doors.items.slice(0, 2);
+  const secondary = doors.items.slice(2);
+
   return (
     <WebSection surface="white">
       <WebSectionHeader eyebrow={doors.eyebrow.text} title={doors.title.text} centered rule />
-      <div className={styles.grid3}>
-        {doors.items.map((door, index) => (
-          <RevealOnScroll key={door.id} order={index} className={styles.mediaCard}>
-            <div className={styles.mediaCardMedia}>
-              <TerritoryVisual variant={door.visual} tone="navy" />
+
+      {/* Two decisions, side by side — the template's "two paths". */}
+      <div className={styles.doorsPrimary}>
+        {primary.map((door, index) => (
+          <RevealOnScroll key={door.id} order={index} className={styles.door}>
+            <div className={styles.doorMedia}>
+              <TerritoryVisual
+                variant={door.visual}
+                tone="navy"
+                media={DOOR_MEDIA[door.id]}
+                sizes="(max-width: 1023px) 100vw, 22vw"
+              />
             </div>
-            <div className={styles.mediaCardBody}>
+            <div className={styles.doorBody}>
               <p className={styles.cardEyebrow}>{door.eyebrow.text}</p>
-              <h3 className={styles.cardTitle}>{door.title.text}</h3>
+              <h3 className={styles.doorTitle}>{door.title.text}</h3>
               <p className={styles.cardText}>{door.body.text}</p>
               <ul className={styles.checks}>
                 {door.points.map((point) => (
@@ -155,7 +180,7 @@ export function DoorsBand() {
                   </li>
                 ))}
               </ul>
-              <div className={styles.cardFoot}>
+              <div className={styles.doorAction}>
                 <WebButton variant="primary" arrow>
                   {door.cta.text}
                 </WebButton>
@@ -164,7 +189,36 @@ export function DoorsBand() {
           </RevealOnScroll>
         ))}
       </div>
-      <RevealOnScroll order={3} style={{ marginBlockStart: 'var(--sk-space-32)' }}>
+
+      {/*
+        The third, CRO-added path stays, as the quieter alternative the brief
+        asks for: one row and a quiet action, no competing gold button.
+      */}
+      {secondary.map((door) => (
+        <RevealOnScroll key={door.id} order={2} className={styles.doorSecondary}>
+          <span className={styles.toolIcon} aria-hidden="true">
+            <Icon name="buyer" />
+          </span>
+          <div className={styles.doorSecondaryText}>
+            <p className={styles.cardEyebrow}>{door.eyebrow.text}</p>
+            <h3 className={styles.cardTitle}>{door.title.text}</h3>
+            <p className={styles.cardText}>{door.body.text}</p>
+          </div>
+          <ul className={styles.doorSecondaryPoints}>
+            {door.points.map((point) => (
+              <li key={point.text} className={styles.check}>
+                <Icon name="check" size="sm" className={styles.checkIcon} />
+                <span>{point.text}</span>
+              </li>
+            ))}
+          </ul>
+          <WebButton variant="quiet" arrow>
+            {door.cta.text}
+          </WebButton>
+        </RevealOnScroll>
+      ))}
+
+      <RevealOnScroll order={3} className={styles.doorsScript}>
         <p className={styles.script}>{doors.script.text}</p>
       </RevealOnScroll>
     </WebSection>
@@ -184,7 +238,11 @@ export function AssetTypesBand() {
       />
       <div className={styles.grid4}>
         {assetTypes.items.map((item, index) => (
-          <RevealOnScroll key={item.id} order={index} className={styles.mediaCard}>
+          <RevealOnScroll
+            key={item.id}
+            order={index}
+            className={`${styles.mediaCard} ${styles.assetCard}`}
+          >
             <div className={styles.mediaCardMedia}>
               {/*
                 PHASE 2E — approved property imagery (inventory §11, item 2).
@@ -196,6 +254,7 @@ export function AssetTypesBand() {
                 variant={item.visual}
                 tone="navy"
                 media={ASSET_MEDIA[item.id]}
+                ratio="16 / 9"
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
               />
               <span className={styles.cardIcon}>
@@ -203,21 +262,26 @@ export function AssetTypesBand() {
               </span>
             </div>
             <div className={styles.mediaCardBody}>
-              <h3 className={styles.cardTitle}>{item.title.text}</h3>
-              <p className={styles.cardText}>{item.body.text}</p>
+              {/* Category first, then one line — the brief's priority. */}
+              <div className={styles.assetHead}>
+                <h3 className={styles.cardTitle}>{item.title.text}</h3>
+                <p className={styles.assetLine}>{item.body.text}</p>
+              </div>
 
-              <div className={styles.factRow}>
-                <p className={styles.factLabel}>Analysed</p>
-                <p className={styles.factValue}>{item.analysed.text}</p>
-              </div>
-              <div className={styles.factRow}>
-                <p className={styles.factLabel}>Main risk</p>
-                <p className={styles.factValue}>{item.risk.text}</p>
-              </div>
-              <div className={styles.factRow}>
-                <p className={styles.factLabel}>Deliverable</p>
-                <p className={styles.factValue}>{item.deliverable.text}</p>
-              </div>
+              <dl className={styles.assetFacts}>
+                <div className={styles.assetFact}>
+                  <dt className={styles.factLabel}>Analysed</dt>
+                  <dd className={styles.factValue}>{item.analysed.text}</dd>
+                </div>
+                <div className={styles.assetFact}>
+                  <dt className={styles.factLabel}>Main risk</dt>
+                  <dd className={styles.factValue}>{item.risk.text}</dd>
+                </div>
+                <div className={styles.assetFact}>
+                  <dt className={styles.factLabel}>Deliverable</dt>
+                  <dd className={styles.factValue}>{item.deliverable.text}</dd>
+                </div>
+              </dl>
 
               <div className={styles.cardFoot}>
                 <WebButton variant="quiet" arrow>
@@ -238,20 +302,36 @@ export function ProcessBand() {
   return (
     <WebSection surface="soft" id="process">
       <WebSectionHeader eyebrow={process.eyebrow.text} title={process.title.text} centered rule />
+      {/*
+        Method + deliverable per step (brief §4). Horizontal thread on
+        desktop; a vertical sequence on phones and tablets, so no line ever
+        runs falsely between two rows.
+      */}
       <ol className={styles.timeline}>
         {process.steps.map((step, index) => (
-          <RevealOnScroll key={step.id} as="li" order={index} className={styles.step}>
+          <RevealOnScroll
+            key={step.id}
+            as="li"
+            order={index}
+            className={styles.step}
+            style={{ ['--sk-stage-index' as string]: index }}
+          >
             <span className={styles.stepNumber} aria-hidden="true">
               {index + 1}
             </span>
-            <span className={styles.stepIcon}>
-              <Icon name={step.icon} />
-            </span>
-            <h3 className={styles.stepTitle}>{step.title.text}</h3>
+            <div className={styles.stepHead}>
+              <span className={styles.stepIcon}>
+                <Icon name={step.icon} />
+              </span>
+              <h3 className={styles.stepTitle}>{step.title.text}</h3>
+            </div>
             <p className={styles.cardText}>{step.body.text}</p>
             <p className={styles.stepDeliverable}>
               <Icon name="document" size="sm" className={styles.stepDeliverableIcon} />
-              <span>{step.deliverable.text}</span>
+              <span>
+                <span className={styles.stepDeliverableLabel}>Deliverable</span>{' '}
+                {step.deliverable.text}
+              </span>
             </p>
           </RevealOnScroll>
         ))}
@@ -272,34 +352,27 @@ const REPORT_CHARTS: Record<string, React.ReactNode> = {
 };
 
 export function ReportBand() {
-  return (
-    <WebSection surface="navy" id="report">
-      <WebSectionHeader
-        eyebrow={report.eyebrow.text}
-        title={report.title.text}
-        subtitle={report.subtitle.text}
-        centered
-        rule
-      />
-
-      <div className={styles.reportLayout}>
-        {/* Panel 1 — the investment summary the template leads with. */}
-        <RevealOnScroll className={styles.reportCard}>
-          <div className={styles.reportCardHead}>
-            <h3 className={styles.reportCardTitle}>{report.summary.title.text}</h3>
-            <p className={styles.reportCardNote}>{report.summary.property.text}</p>
-          </div>
-
+  const panels = [
+    {
+      id: 'summary',
+      title: report.summary.title.text,
+      note: report.summary.note.text,
+      decision: report.decisions.summary.text,
+      body: (
+        <div className={styles.summaryPanel}>
           <div className={styles.summaryVisual}>
             <TerritoryVisual
               variant="built"
               tone="sand"
               media={APPROVED_MEDIA.assetPlan}
-              sizes="(max-width: 767px) 100vw, 20vw"
+              sizes="(max-width: 767px) 100vw, 24vw"
             />
           </div>
-
           <dl className={styles.summaryRows}>
+            <div className={styles.summaryRow}>
+              <dt className={styles.summaryLabel}>Property</dt>
+              <dd className={styles.summaryValue}>{report.summary.property.text}</dd>
+            </div>
             {report.summary.rows.map((row) => (
               <div key={row.label.text} className={styles.summaryRow}>
                 <dt className={styles.summaryLabel}>{row.label.text}</dt>
@@ -311,52 +384,67 @@ export function ReportBand() {
               <dd className={styles.summaryValue}>{report.summary.statusValue.text}</dd>
             </div>
           </dl>
+        </div>
+      ),
+    },
+    ...report.cards.map((card) => ({
+      id: card.id,
+      title: card.title.text,
+      note: card.note.text,
+      decision: report.decisions[card.id].text,
+      body:
+        card.id === 'risk' ? (
+          <ul className={styles.riskList}>
+            {report.risks.map((risk) => (
+              <li key={risk.label.text} className={styles.riskRow}>
+                <span>{risk.label.text}</span>
+                <span className={styles.riskValue}>{risk.value}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          REPORT_CHARTS[card.id]
+        ),
+    })),
+  ];
 
-          <span className={styles.illustrativeTag}>Illustrative</span>
-        </RevealOnScroll>
+  return (
+    <WebSection surface="navy" id="report">
+      <WebSectionHeader
+        eyebrow={report.eyebrow.text}
+        title={report.title.text}
+        subtitle={report.subtitle.text}
+        centered
+        rule
+      />
 
-        {/* Panels 2–5 */}
-        {report.cards.map((card, index) => (
-          <RevealOnScroll key={card.id} order={index + 1} className={styles.reportCard}>
-            <div className={styles.reportCardHead}>
-              <h3 className={styles.reportCardTitle}>{card.title.text}</h3>
-              <p className={styles.reportCardNote}>{card.note.text}</p>
-            </div>
-
-            {card.id === 'risk' ? (
-              <ul className={styles.riskList}>
-                {report.risks.map((risk) => (
-                  <li key={risk.label.text} className={styles.riskRow}>
-                    <span>{risk.label.text}</span>
-                    <span className={styles.riskValue}>{risk.value}</span>
+      {/*
+        PHASE 2E (brief §6): a sample report to walk through, one panel at a
+        time, each stating the decision it supports. Every panel still renders
+        without JavaScript; every figure stays labelled illustrative.
+      */}
+      <RevealOnScroll>
+        <ReportExplorer
+          label={report.explorerLabel.text}
+          panels={panels}
+          aside={
+            <div className={styles.reportSide}>
+              <WebButton variant="primary" onDark arrow>
+                {report.cta.text}
+              </WebButton>
+              <p className={styles.ctaNote}>{report.ctaNote.text}</p>
+              <ul className={styles.reportDeliverables}>
+                {report.deliverables.map((deliverable) => (
+                  <li key={deliverable.text.text} className={styles.deliverable}>
+                    <Icon name={deliverable.icon} size="sm" className={styles.deliverableIcon} />
+                    <span>{deliverable.text.text}</span>
                   </li>
                 ))}
               </ul>
-            ) : (
-              REPORT_CHARTS[card.id]
-            )}
-
-            <span className={styles.illustrativeTag}>Illustrative</span>
-          </RevealOnScroll>
-        ))}
-      </div>
-
-      <div className={styles.reportAside}>
-        <ul className={styles.deliverables}>
-          {report.deliverables.map((deliverable) => (
-            <li key={deliverable.text.text} className={styles.deliverable}>
-              <Icon name={deliverable.icon} size="sm" className={styles.deliverableIcon} />
-              <span>{deliverable.text.text}</span>
-            </li>
-          ))}
-        </ul>
-        <div className={styles.reportCtaBlock}>
-          <WebButton variant="primary" onDark arrow>
-            {report.cta.text}
-          </WebButton>
-          <p className={styles.ctaNote}>{report.ctaNote.text}</p>
-        </div>
-      </div>
+            </div>
+          }
+        />
+      </RevealOnScroll>
     </WebSection>
   );
 }
@@ -391,11 +479,7 @@ export function ScenariosBand() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1} className={styles.stack24}>
-          <WebSectionHeader
-            eyebrow={scenarios.eyebrow.text}
-            title={scenarios.title.text}
-            rule
-          />
+          <WebSectionHeader eyebrow={scenarios.eyebrow.text} title={scenarios.title.text} rule />
           <p className={styles.bodyText}>{scenarios.body.text}</p>
 
           <ul className={styles.scenarioList}>
@@ -425,7 +509,7 @@ export function AuthorityBand() {
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
-        <RevealOnScroll>
+        <RevealOnScroll variant="unveil">
           <div className={styles.portraitFrame}>
             {/*
               Approved 2026-09-22: `IMAGES/sarahkaterina_home.png`, the only
@@ -500,55 +584,50 @@ export function AuthorityBand() {
 export function CasesBand() {
   return (
     <WebSection surface="ivory">
-      <WebSectionHeader
-        eyebrow={cases.eyebrow.text}
-        title={cases.title.text}
-        subtitle={cases.subtitle.text}
-        centered
-        rule
-      />
-      <div className={styles.grid3}>
+      {/*
+        PHASE 2E (brief §5, reference "Investment 3"): the cases read as a
+        case file — operation, place, the decision taken, then the result —
+        rather than a gallery of empty cards. Results stay withheld: a rule,
+        never a number, until permission and verification exist.
+      */}
+      <div className={styles.casesHead}>
+        <WebSectionHeader
+          eyebrow={cases.eyebrow.text}
+          title={cases.title.text}
+          subtitle={cases.subtitle.text}
+          rule
+          className={styles.casesHeader}
+        />
+        <div className={styles.casesAction}>
+          <WebButton variant="secondary" arrow>
+            {cases.cta.text}
+          </WebButton>
+        </div>
+      </div>
+
+      <ol className={styles.caseLedger}>
         {cases.items.map((item, index) => (
-          <RevealOnScroll
-            key={item.id}
-            order={index}
-            className={`${styles.mediaCard} ${styles.caseCard}`}
-          >
-            <div className={styles.mediaCardMedia}>
+          <RevealOnScroll key={item.id} as="li" order={index} className={styles.caseRow}>
+            <div className={styles.caseVisual}>
               <TerritoryVisual variant={item.visual} tone="navy" />
-              {/* The asset type is the card's strongest available fact, so it
-                  leads, over the visual, the way a real case would. */}
-              <span className={styles.caseType}>{item.assetType.text}</span>
+              <span className={styles.caseNumber} aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
             </div>
 
-            <div className={styles.mediaCardBody}>
-              <div className={styles.caseHeadRow}>
-                <h3 className={styles.cardTitle}>{item.metric.text}</h3>
-                <span className={styles.caseIndex} aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-              </div>
+            <div className={styles.caseMain}>
+              <h3 className={styles.caseTitle}>{item.assetType.text}</h3>
+              <p className={styles.caseLocation}>
+                <Icon name="pin" size="sm" />
+                <span>{cases.locationPending.text}</span>
+              </p>
+              <p className={styles.caseDecision}>{item.decision.text}</p>
+            </div>
 
-              <dl className={styles.caseFacts}>
-                <div className={styles.caseFact}>
-                  <dt>
-                    <Icon name="pin" size="sm" />
-                    Location
-                  </dt>
-                  <dd>{cases.locationPending.text}</dd>
-                </div>
-                <div className={styles.caseFact}>
-                  <dt>
-                    <Icon name="analysis" size="sm" />
-                    Decision
-                  </dt>
-                  <dd>{item.decision.text}</dd>
-                </div>
-                <div className={styles.caseFact}>
-                  <dt>
-                    <Icon name="report" size="sm" />
-                    Result
-                  </dt>
+            <div className={styles.caseResult}>
+              <dl className={styles.caseResultList}>
+                <div className={styles.caseResultRow}>
+                  <dt>{item.metric.text}</dt>
                   <dd>
                     {/* A withheld rule, never a fabricated number. */}
                     <span
@@ -558,15 +637,14 @@ export function CasesBand() {
                     />
                   </dd>
                 </div>
-                <div className={styles.caseFact}>
+                <div className={styles.caseResultRow}>
                   <dt>
                     <Icon name="clock" size="sm" />
-                    Period
+                    <span className="sk-visually-hidden">Period</span>
                   </dt>
                   <dd>{item.period.text}</dd>
                 </div>
               </dl>
-
               <p className={styles.casePermission}>
                 <Icon name="check" size="sm" />
                 <span>{cases.permissionPending.text}</span>
@@ -574,12 +652,7 @@ export function CasesBand() {
             </div>
           </RevealOnScroll>
         ))}
-      </div>
-      <div style={{ marginBlockStart: 'var(--sk-space-32)', textAlign: 'center' }}>
-        <WebButton variant="secondary" arrow>
-          {cases.cta.text}
-        </WebButton>
-      </div>
+      </ol>
     </WebSection>
   );
 }
@@ -590,31 +663,31 @@ export function JourneyBand() {
   return (
     <WebSection surface="soft" tight>
       <WebSectionHeader eyebrow={journey.eyebrow.text} title={journey.title.text} centered />
-      <ol className={styles.chain}>
+      {/*
+        PHASE 2E (brief §5): one chain, joined by the approved gold thread,
+        instead of four boxes separated by arrows. Each stage: an action and
+        what it resolves.
+      */}
+      <ol className={styles.journeyChain}>
         {journey.steps.map((step, index) => (
-          <Fragment key={step.title.text}>
-            <RevealOnScroll
-              as="li"
-              order={index}
-              className={styles.chainItem}
-            >
-              <span className={styles.chainIcon}>
-                <Icon name={step.icon} />
-              </span>
-              <div>
-                <p className={styles.chainLabel}>{step.title.text}</p>
-                <p className={styles.cardText}>{step.body.text}</p>
-              </div>
-            </RevealOnScroll>
-            {index < journey.steps.length - 1 ? (
-              <li key={`${step.title.text}-arrow`} className={styles.chainArrow} aria-hidden="true">
-                <Icon name="arrow" size="sm" />
-              </li>
-            ) : null}
-          </Fragment>
+          <RevealOnScroll
+            key={step.title.text}
+            as="li"
+            order={index}
+            className={styles.journeyStep}
+            style={{ ['--sk-stage-index' as string]: index }}
+          >
+            <span className={styles.chainIcon}>
+              <Icon name={step.icon} />
+            </span>
+            <div>
+              <p className={styles.chainLabel}>{step.title.text}</p>
+              <p className={styles.cardText}>{step.body.text}</p>
+            </div>
+          </RevealOnScroll>
         ))}
       </ol>
-      <RevealOnScroll order={2} style={{ marginBlockStart: 'var(--sk-space-24)' }}>
+      <RevealOnScroll order={2} className={styles.journeyScript}>
         <p className={styles.script}>{journey.script.text}</p>
       </RevealOnScroll>
     </WebSection>
@@ -652,8 +725,12 @@ export function FinalCtaBand() {
             tone="navy"
             media={APPROVED_MEDIA.territoryContact}
             sizes="(max-width: 1023px) 100vw, 40vw"
+            unveil
           />
-          <p className={`${styles.script} ${styles.scriptOnDark}`} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
+          <p
+            className={`${styles.script} ${styles.scriptOnDark}`}
+            style={{ marginBlockStart: 'var(--sk-space-16)' }}
+          >
             {finalCta.script.text}
           </p>
         </RevealOnScroll>

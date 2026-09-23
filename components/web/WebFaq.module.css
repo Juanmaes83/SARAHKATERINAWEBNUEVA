@@ -17,8 +17,7 @@
   border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
   background-color: var(--sk-web-white);
   overflow: hidden;
-  transition: border-color var(--sk-motion-interaction-duration)
-    var(--sk-motion-interaction-ease);
+  transition: border-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
 }
 
 .item:hover {
@@ -81,6 +80,28 @@
   padding: 0 var(--sk-space-24) var(--sk-space-24);
 }
 
+/* Phase 2E: the answer arrives under its question instead of snapping in.
+   The panel is mounted fully legible; the animation only eases its first
+   frames, and closing stays instant so a reader scanning answers never waits.
+   The open item also holds the gold edge, so the open answer is findable at a
+   glance in a two-column list. */
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    animation: sk-faq-open var(--sk-web-motion-reveal) var(--sk-web-motion-ease) backwards;
+  }
+}
+
+.item:has(.trigger[aria-expanded='true']) {
+  border-color: var(--sk-web-gold);
+}
+
+@keyframes sk-faq-open {
+  from {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--sk-web-motion-distance)));
+  }
+}
+
 .answer {
   margin: 0;
   font-family: var(--sk-type-body-small-family);
@@ -111,4 +132,35 @@
   text-align: center;
   max-width: var(--sk-layout-measure-reading);
   margin-inline: auto;
+}
+
+/* --- Phase 2E: light appearance (Investment, Tax, Property) ----------------- */
+
+@media (min-width: 1024px) {
+  .light {
+    column-gap: var(--sk-space-64);
+    row-gap: 0;
+  }
+}
+
+.light {
+  row-gap: 0;
+}
+
+.light .item {
+  border: 0;
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.light .trigger,
+.light .panel {
+  padding-inline: 0;
+}
+
+.light .item:hover,
+.light .item:has(.trigger[aria-expanded='true']) {
+  border-color: var(--sk-web-gold);
 }

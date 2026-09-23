@@ -43,3 +43,35 @@ and density reference for `/preview/team`. It is documentation only and must
 never be served as page photography or treated as a source of approved copy,
 figures or testimonials. Its provenance is recorded in
 `docs/team-asset-record.md`.
+
+## Phase 2E premium experience — `phase-2e/`
+
+Captured 2026-09-23 against local production builds, Chromium via Playwright,
+`deviceScaleFactor: 1`:
+
+- `*-before.jpg` — `origin/main` at `69d030c`, served from a separate worktree;
+- `*-after.jpg` — `feat/phase-2e-premium-media-motion-2026-09-22`.
+
+Routes: investment, tax-advisory, property-purchase, team; widths 375 and 1440.
+
+**Captured live, not as a full-page bitmap.** Each viewport-sized segment is
+scrolled into view and given 1.7s to settle before it is photographed, exactly
+as a reader would meet it, then stitched. A full-page bitmap photographs
+off-screen regions whose animations never ran, which showed half-drawn
+timelines that do not exist on the live page. The sticky header is made static
+for the capture so it appears once. Every capture asserted zero horizontal
+overflow and zero elements left at opacity 0.
+
+`motion-*-filmstrip.jpg` — five frames each (times in ms after load or after
+scrolling the section into view) of the three signature sequences: Investment
+hero entrance (60/250/450/700/1100), Tax calendar sweep (80/300/550/850/1400),
+Property file tracker (80/400/800/1200/1900). Motion cannot be judged from
+stills; they document the order, not the feel. Judge on the Preview.
+
+## Phase 2E visual content upgrade — `phase-2e-content/`
+
+Captured 2026-10-23, same live method as `phase-2e/`. Routes: investment,
+property-purchase, tax-advisory (Team out of scope); widths 375 and 1440.
+`before` = `4f196e5` (PR #21 head, served from a temporary worktree),
+`after` = the visual content upgrade. Every capture asserted zero overflow and
+zero content left at opacity 0.

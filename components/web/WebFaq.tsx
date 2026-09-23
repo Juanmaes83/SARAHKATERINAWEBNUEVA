@@ -77,12 +77,20 @@ export interface WebFaqContent {
   readonly legalNote: Claim;
 }
 
-export function WebFaq({ content = investmentFaq }: { content?: WebFaqContent } = {}) {
+/**
+ * `appearance` — Phase 2E (brief 2026-10-23, §5): `light` drops the boxed
+ * cards for hairline-separated rows, the lighter grouping of the reference.
+ * Opt-in, so Team keeps its current FAQ untouched.
+ */
+export function WebFaq({
+  content = investmentFaq,
+  appearance = 'boxed',
+}: { content?: WebFaqContent; appearance?: 'boxed' | 'light' } = {}) {
   const faq = content;
   return (
     <WebSection surface="ivory" id="faq">
       <WebSectionHeader eyebrow={faq.eyebrow.text} title={faq.title.text} centered rule />
-      <div className={styles.grid}>
+      <div className={appearance === 'light' ? `${styles.grid} ${styles.light}` : styles.grid}>
         {faq.items.map((item) => (
           <FaqItem key={item.id} question={item.question.text} answer={item.answer} />
         ))}

@@ -570,6 +570,9 @@ export const process = {
  * report band does.
  * ======================================================================== */
 
+/** Copy added by the Phase 2E visual content upgrade. Pending Juanma's review. */
+const PHASE_2E_REPORT = 'Phase 2E proposed copy (brief 2026-10-23) — pending Juanma';
+
 export const report = {
   /** "PREVIEW DEL INFORME FISCAL" */
   eyebrow: claim({ text: 'Preview of the tax report', status: 'proposal', source: TEMPLATE }),
@@ -610,7 +613,50 @@ export const report = {
     ],
     status: claim({ text: 'Filing status', status: 'proposal', source: TEMPLATE }),
     statusValue: claim({ text: 'Up to date', status: 'proposal', source: TEMPLATE }),
+    note: claim({
+      text: 'Your position in one figure, and what it is made of.',
+      status: 'proposal',
+      review: 'tax',
+      note: PHASE_2E_REPORT,
+    }),
   },
+
+  /**
+   * Phase 2E report explorer (brief 2026-10-23, §8): the decision each panel
+   * supports — exposure, calendar, treaty, breakdown. Proposed copy that
+   * describes a panel's purpose; it states no tax position or outcome.
+   */
+  decisions: {
+    summary: claim({
+      text: 'How much Spain may ask of you in a year, before anything is filed.',
+      status: 'proposal',
+      review: 'tax',
+      note: PHASE_2E_REPORT,
+    }),
+    calendar: claim({
+      text: 'What has to be ready, and in which month, so nothing becomes a late filing.',
+      status: 'proposal',
+      review: 'tax',
+      note: PHASE_2E_REPORT,
+    }),
+    treaty: claim({
+      text: 'Where relief may apply between Spain and your country of residence, so the same income is not taxed twice.',
+      status: 'proposal',
+      review: 'tax',
+      note: PHASE_2E_REPORT,
+    }),
+    breakdown: claim({
+      text: 'Which line drives the total, and which obligations are worth reviewing first.',
+      status: 'proposal',
+      review: 'tax',
+      note: PHASE_2E_REPORT,
+    }),
+  },
+  explorerLabel: claim({
+    text: 'Sample tax report panels',
+    status: 'proposal',
+    note: PHASE_2E_REPORT,
+  }),
 
   /** Panels 2–4 — "Calendario fiscal anual", "Convenio", "Desglose". */
   cards: [

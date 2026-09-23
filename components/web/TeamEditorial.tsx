@@ -23,6 +23,8 @@ import teamNetwork from '@/public/team/optimized/team-network.webp';
 import officeWorkspace from '@/public/team/optimized/office-workspace.webp';
 import officeSign from '@/public/team/optimized/office-sign.webp';
 import sarahPortrait from '@/public/sarah/sk-real-1.jpg';
+import entrance from '@/components/motion/Entrance.module.css';
+import { cn } from '@/lib/utils/cn';
 import styles from './TeamEditorial.module.css';
 
 function TeamHero() {
@@ -30,7 +32,7 @@ function TeamHero() {
     <section id="top" className={styles.hero} data-surface="light">
       <Container>
         <div className={styles.heroGrid}>
-          <RevealOnScroll className={styles.heroCopy}>
+          <RevealOnScroll className={cn(styles.heroCopy, entrance.copy)}>
             <p className={styles.eyebrow}>{hero.eyebrow}</p>
             <h1 className={styles.heroTitle}>{hero.title}</h1>
             <p className={styles.heroLead}>{hero.lead}</p>
@@ -47,7 +49,9 @@ function TeamHero() {
 
           <RevealOnScroll order={1} className={styles.heroVisual}>
             <figure className={styles.heroFigure}>
-              <div className={styles.heroFrame}>
+              {/* The frame opens on arrival; the photograph is never cropped —
+                  all three people stay whole (object-fit: contain, 16:9). */}
+              <div className={cn(styles.heroFrame, entrance.media)}>
                 <Image
                   src={teamHero}
                   alt={hero.imageAlt}
@@ -70,7 +74,7 @@ function NetworkBand() {
   return (
     <WebSection surface="navySoft" id="network">
       <div className={styles.networkGrid}>
-        <RevealOnScroll className={styles.networkMedia}>
+        <RevealOnScroll variant="unveil" className={styles.networkMedia}>
           <figure className={styles.networkFigure}>
             <div className={styles.networkFrame}>
               <Image
@@ -169,7 +173,7 @@ function TeamBand() {
       />
 
       <div className={styles.sarahGrid}>
-        <RevealOnScroll className={styles.sarahPortrait}>
+        <RevealOnScroll variant="unveil" className={styles.sarahPortrait}>
           <Image
             src={sarahPortrait}
             alt="Sarah Katerina in an authentic studio portrait."
@@ -198,7 +202,7 @@ function TeamBand() {
         ))}
       </div>
 
-      <RevealOnScroll className={styles.groupFigure}>
+      <RevealOnScroll variant="unveil" className={styles.groupFigure}>
         <figure>
           <div className={styles.groupFrame}>
             <Image
@@ -231,7 +235,13 @@ function ProcessBand() {
       />
       <ol className={styles.timeline}>
         {process.map((step, index) => (
-          <RevealOnScroll as="li" key={step.number} order={index} className={styles.timelineItem}>
+          <RevealOnScroll
+            as="li"
+            key={step.number}
+            order={index}
+            className={styles.timelineItem}
+            style={{ ['--sk-stage-index' as string]: index }}
+          >
             <span className={styles.stepNumber}>{step.number}</span>
             <div className={styles.stepCard}>
               <p className={styles.stepPeople}>{step.people}</p>
@@ -266,7 +276,7 @@ function IndependenceBand() {
             ))}
           </ul>
         </RevealOnScroll>
-        <RevealOnScroll order={1}>
+        <RevealOnScroll order={1} variant="unveil">
           <figure className={styles.officeFigure}>
             <div className={styles.officeFrame}>
               <Image
@@ -292,7 +302,7 @@ function AftercareBand() {
   return (
     <WebSection surface="soft" id="ownership">
       <div className={styles.aftercareGrid}>
-        <RevealOnScroll>
+        <RevealOnScroll variant="unveil">
           <figure className={styles.signFigure}>
             <div className={styles.signFrame}>
               <Image

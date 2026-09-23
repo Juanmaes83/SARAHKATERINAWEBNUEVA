@@ -15,9 +15,7 @@ function walk(dir: string, acc: string[] = []): string[] {
   return acc;
 }
 
-const sourceFiles = ['app', 'components', 'lib', 'content'].flatMap((d) =>
-  walk(resolve(root, d)),
-);
+const sourceFiles = ['app', 'components', 'lib', 'content'].flatMap((d) => walk(resolve(root, d)));
 const read = (f: string) => readFileSync(f, 'utf8');
 
 /**
@@ -43,18 +41,29 @@ describe('approved media registry', () => {
   it('uses the exact approved shared authority image on all three landings', () => {
     const authority = APPROVED_MEDIA.authorityEditorial;
     expect(authority.source).toBe('IMAGES/sarahkaterina_Services_Especial.png');
-    expect(authority.src).toBe('/media/authority-editorial.png');
+    // Phase 2E grade: served as the graded derivative of the same approved file.
+    expect(authority.ungradedSrc).toBe('/media/authority-editorial.png');
+    expect(authority.src).toBe('/media/graded/authority-editorial.webp');
     expect(authority.source).not.toMatch(/home|sk-real/);
-    expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
-    expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
-    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
+    expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain(
+      'APPROVED_MEDIA.authorityEditorial',
+    );
+    expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain(
+      'APPROVED_MEDIA.authorityEditorial',
+    );
+    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain(
+      'APPROVED_MEDIA.authorityEditorial',
+    );
   });
 
   it('uses Services_14 for both Tax Advisory hero media slots', () => {
     expect(APPROVED_MEDIA.taxHero.source).toBe('IMAGES/sarahkaterina_Services_14.png');
-    expect(APPROVED_MEDIA.taxHero.src).toBe('/media/tax-services-14.png');
+    expect(APPROVED_MEDIA.taxHero.ungradedSrc).toBe('/media/tax-services-14.png');
+    expect(APPROVED_MEDIA.taxHero.src).toBe('/media/graded/tax-hero.webp');
     const taxHero = read(resolve(root, 'components/web/TaxHero.tsx'));
-    expect(taxHero).toContain('media={APPROVED_MEDIA.taxHero}');
+    // PR #20 reads the entry once (`const heroMedia = APPROVED_MEDIA.taxHero`)
+    // and renders it with next/image directly.
+    expect(taxHero).toContain('APPROVED_MEDIA.taxHero');
     expect(taxHero).not.toContain('media={APPROVED_MEDIA.territoryCoast}');
     expect(taxHero).not.toContain('TerritoryVisual');
     expect((taxHero.match(/<Image\b/g) ?? []).length).toBe(1);
@@ -63,7 +72,24 @@ describe('approved media registry', () => {
 
   it('uses the approved Property Purchase final CTA image', () => {
     expect(APPROVED_MEDIA.purchaseFinalContact.source).toBe('sarahkaterina_Contacto.png');
-    expect(APPROVED_MEDIA.purchaseFinalContact.src).toBe('/media/purchase-final-contact.png');
+    expect(APPROVED_MEDIA.purchaseFinalContact.ungradedSrc).toBe(
+      '/media/purchase-final-contact.png',
+    );
+    expect(APPROVED_MEDIA.purchaseFinalContact.src).toBe(
+      '/media/graded/purchase-final-contact.webp',
+    );
+  });
+
+  it('serves every entry through the common Phase 2E grade, keeping the ungraded derivative', () => {
+    for (const m of entries) {
+      expect(m.grade, m.id).toBe('sk-editorial-v1');
+      expect(m.src, m.id).toBe(`/media/graded/${m.id}.webp`);
+      expect(m.ungradedSrc, m.id).toBeTruthy();
+      expect(
+        existsSync(resolve(root, 'public', (m.ungradedSrc ?? '').replace(/^\//, ''))),
+        m.id,
+      ).toBe(true);
+    }
   });
 
   it('ships a web derivative for every registered entry', () => {
@@ -87,7 +113,7 @@ describe('approved media registry', () => {
       .filter((m) => m.kb > 250 && !previewSourceAssets.has(m.src));
     expect(heavy).toEqual([]);
     for (const src of previewSourceAssets) {
-      expect(entries.find((m) => m.src === src)?.note).toMatch(/Preview-only/);
+      expect(entries.find((m) => (m.ungradedSrc ?? m.src) === src)?.note).toMatch(/Preview-only/);
     }
   });
 
@@ -142,14 +168,13 @@ describe('approved media registry', () => {
 describe('excluded media', () => {
   it('never references the testimonials image', () => {
     // Excluded by the approval itself (item 7): no permissions, no evidence.
-    const offenders = sourceFiles
-      .filter((f) => /testimonios_clientes/.test(readCode(f)))
-      .map(rel);
+    const offenders = sourceFiles.filter((f) => /testimonios_clientes/.test(readCode(f))).map(rel);
     expect(offenders).toEqual([]);
   });
 
   it('references no media file outside the approved registry', () => {
-    const approvedPaths = new Set(entries.map((m) => m.src));
+    // The registry also names each ungraded derivative (Phase 2E grade).
+    const approvedPaths = new Set(entries.flatMap((m) => [m.src, m.ungradedSrc ?? m.src]));
     const offenders: string[] = [];
     for (const file of sourceFiles) {
       for (const match of readCode(file).matchAll(/['"](\/media\/[^'"]+)['"]/g)) {
@@ -172,7 +197,9 @@ describe('excluded media', () => {
 
   it('does not retain the superseded authority portraits as active consumers', () => {
     expect(
-      sourceFiles.filter((f) => /APPROVED_MEDIA\.(investmentAuthority|taxAuthority)/.test(readCode(f))),
+      sourceFiles.filter((f) =>
+        /APPROVED_MEDIA\.(investmentAuthority|taxAuthority)/.test(readCode(f)),
+      ),
     ).toEqual([]);
   });
 });

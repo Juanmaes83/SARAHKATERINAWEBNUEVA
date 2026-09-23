@@ -67,12 +67,26 @@
 }
 
 /* Draws the line on entry. Purely presentational; the shape is already in the
-   DOM and the chart is labelled, so nothing is hidden from a reader. */
+   DOM and the chart is labelled, so nothing is hidden from a reader.
+
+   PHASE 2E — the draw now waits until the chart is actually seen. It used to
+   run on page load, so every chart below the fold had finished long before
+   anyone scrolled to it. While the nearest RevealOnScroll ancestor is
+   `pending` the animation is paused at its first frame; it plays when that
+   ancestor arrives. Without script there is no `pending` state, so it simply
+   plays on load as before. The shapes are sample data and carry no figures:
+   only the drawing of an illustrative line is animated, never a value. */
 @media (prefers-reduced-motion: no-preference) {
   .animated {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: sk-draw 900ms var(--sk-motion-reveal-ease) forwards;
+    animation: sk-draw var(--sk-web-motion-settle) var(--sk-web-motion-ease)
+      var(--sk-web-motion-quick) forwards;
+  }
+
+  :global([data-reveal='pending']) .animated,
+  :global([data-reveal='pending']) .grow {
+    animation-play-state: paused;
   }
 
   .grow {

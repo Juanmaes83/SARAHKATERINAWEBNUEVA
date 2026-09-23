@@ -49,6 +49,19 @@ export interface TerritoryVisualProps {
   sizes?: string;
   /** Aspect ratio override, e.g. '16 / 9'. Defaults to the 3:2 slot. */
   ratio?: string;
+  /**
+   * `compact` (default) applies the image's `compactCrop` when it has one, so
+   * a baked-in lockup leaves the frame instead of being cut in half. `full`
+   * shows the whole composition, for slots large enough to carry the lockup.
+   */
+  crop?: 'compact' | 'full';
+  /**
+   * Large editorial media only: the frame opens from its lower edge when the
+   * nearest RevealOnScroll ancestor arrives. Cards never set this — their
+   * photograph only settles, so a grid of cards does not become a grid of
+   * competing effects.
+   */
+  unveil?: boolean;
 }
 
 const LABELS: Record<TerritoryVariant, string> = {
@@ -92,10 +105,17 @@ function Shape({ variant }: { variant: TerritoryVariant }) {
       return (
         <>
           {/* Sea */}
-          <path className={styles.water} d="M0 96 C 50 88, 96 108, 146 100 S 208 84, 240 92 V160 H0 Z" />
+          <path
+            className={styles.water}
+            d="M0 96 C 50 88, 96 108, 146 100 S 208 84, 240 92 V160 H0 Z"
+          />
           <path className={styles.waterLine} d="M0 96 C 50 88, 96 108, 146 100 S 208 84, 240 92" />
           {[110, 124, 138].map((y) => (
-            <path key={y} className={styles.swell} d={`M${y - 80} ${y} h30 M${y - 30} ${y + 6} h44`} />
+            <path
+              key={y}
+              className={styles.swell}
+              d={`M${y - 80} ${y} h30 M${y - 30} ${y + 6} h44`}
+            />
           ))}
           <path className={styles.accent} d="M168 66 l10 -18 10 18z" />
           <circle className={styles.marker} cx="178" cy="72" r="3" />
@@ -160,6 +180,8 @@ export function TerritoryVisual({
   priority = false,
   sizes = '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw',
   ratio,
+  crop = 'compact',
+  unveil = false,
 }: TerritoryVisualProps) {
   const style = ratio ? { aspectRatio: ratio } : undefined;
 
@@ -167,8 +189,12 @@ export function TerritoryVisual({
   // slot — the frame, the ratio, the label — is unchanged, so swapping a
   // retouched file in later needs no layout work.
   if (media) {
+    const compact = crop === 'compact' ? media.compactCrop : undefined;
     return (
-      <div className={cn(styles.frame, styles[tone], className)} style={style}>
+      <div
+        className={cn(styles.frame, styles[tone], unveil && styles.unveil, className)}
+        style={style}
+      >
         <Image
           src={media.src}
           alt={media.alt}
@@ -176,7 +202,17 @@ export function TerritoryVisual({
           sizes={sizes}
           priority={priority}
           className={styles.photo}
-          style={{ objectPosition: media.focal }}
+          // Hook for card-level hover and reveal choreography.
+          data-media-photo=""
+          style={{
+            objectPosition: media.focal,
+            ...(compact
+              ? {
+                  transformOrigin: compact.origin,
+                  ['--sk-crop-scale' as string]: compact.scale,
+                }
+              : {}),
+          }}
         />
         {label ? (
           <>

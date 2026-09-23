@@ -151,20 +151,47 @@
   text-transform: uppercase;
 }
 
+/* PHASE 2E — the hero photograph at its native ratio, nothing over it. The
+   frame keeps its top corners; the caption below closes it, so the two read
+   as one card. */
+.heroFigure {
+  margin: 0;
+}
+
+.placeholderMedia.heroMedia {
+  aspect-ratio: 1376 / 768;
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.heroMedia > :first-child {
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
 .heroVisualCopy {
-  position: absolute;
-  inset-block-start: var(--sk-space-16);
-  inset-inline-end: var(--sk-space-16);
-  width: min(55%, var(--sk-layout-measure-reading));
-  padding: var(--sk-space-16);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-on-dark);
-  border-radius: var(--sk-radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  padding: var(--sk-space-16) var(--sk-space-24);
+  border-end-start-radius: var(--sk-radius-card);
+  border-end-end-radius: var(--sk-radius-card);
   background: var(--sk-web-navy);
   color: var(--sk-web-on-dark);
 }
 
+@media (min-width: 768px) {
+  .heroVisualCopy {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sk-space-24);
+  }
+}
+
 .heroVisualCopy p {
-  margin: 0 0 var(--sk-space-8);
+  margin: 0;
+  max-width: var(--sk-web-measure-lead);
   font-family: var(--sk-type-body-small-family);
   font-size: var(--sk-type-body-small-size);
   line-height: var(--sk-type-body-small-line-height);
@@ -172,6 +199,7 @@
 
 .heroVisualCopy span {
   display: flex;
+  flex: none;
   align-items: center;
   gap: var(--sk-space-8);
   color: var(--sk-web-gold-on-dark);
@@ -207,7 +235,9 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 360px) {
+/* Two columns only once each can hold the icon, a two-word label and its
+   note without breaking every word onto its own line (it did at 375px). */
+@media (min-width: 600px) {
   .wideInner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -226,8 +256,21 @@
   min-width: 0;
   min-height: calc(var(--sk-space-80) + var(--sk-space-16));
   padding: var(--sk-space-16);
-  border-inline-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+  /* Single column: rows are separated horizontally, not by a right edge. */
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
     var(--sk-web-border);
+}
+
+.trustItem:last-child {
+  border-block-end: 0;
+}
+
+@media (min-width: 600px) {
+  .trustItem {
+    border-block-end: 0;
+    border-inline-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+      var(--sk-web-border);
+  }
 }
 
 .trustItem svg {
@@ -256,6 +299,10 @@
 .beforeSignGrid,
 .servicesLayout {
   display: grid;
+  /* Explicit track: an implicit auto column let the longest line set the
+     width, and on phones the Before-you-sign cards ran past the edge
+     (hidden, not wrapped, by the section's overflow). */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--sk-space-32);
 }
 
@@ -638,22 +685,6 @@
   color: var(--sk-web-muted-on-dark);
   font-size: var(--sk-type-body-small-size);
 }
-.decisionOptions {
-  display: grid;
-  gap: var(--sk-space-8);
-}
-.decisionOptions span {
-  padding: var(--sk-space-8) var(--sk-space-16);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-navy-line);
-  border-radius: var(--sk-radius-button);
-  color: var(--sk-web-muted-on-dark);
-  text-align: center;
-  text-transform: uppercase;
-}
-.decisionOptions span:nth-child(2) {
-  border-color: var(--sk-web-gold-on-dark);
-  color: var(--sk-web-gold-on-dark);
-}
 .beforeSignCta {
   display: flex;
   flex-direction: column;
@@ -712,6 +743,13 @@
 .serviceCard:hover,
 .caseCard:hover {
   transform: translateY(calc(var(--sk-space-4) * -1));
+}
+/* Phase 2E: the photograph leans in under the pointer, inside its frame. */
+.serviceCard:hover [data-media-photo] {
+  transform: scale(calc(var(--sk-crop-scale, 1) * var(--sk-web-motion-hover-scale)));
+}
+.serviceCard:focus-within {
+  border-color: var(--sk-web-gold);
 }
 .popular {
   position: absolute;
@@ -791,7 +829,7 @@
 .portraitFrame {
   position: relative;
   overflow: hidden;
-  min-height: clamp(360px, 42vw, 620px);
+  min-height: clamp(calc(var(--sk-space-80) * 4.5), 42vw, calc(var(--sk-space-80) * 8));
   border-radius: 0;
   background: var(--sk-web-navy);
 }
@@ -946,9 +984,15 @@
 }
 
 @media (min-width: 768px) {
+  /* Side by side, a label never breaks inside its button; the second button
+     moves to its own line instead. */
   .buttonRow {
     flex-direction: row;
+    flex-wrap: wrap;
     width: auto;
+  }
+  .buttonRow > * {
+    white-space: nowrap;
   }
   .calculatorRibbon {
     grid-template-columns: auto 1fr auto;
@@ -970,10 +1014,13 @@
 }
 
 @media (min-width: 1024px) {
+  /* The eyebrow used to sit flush under the header (padding-block: 0). The
+     hero now breathes like the other landings and centres its two columns. */
   .heroGrid {
     grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-    min-height: calc(var(--sk-space-80) * 7);
-    padding-block: 0;
+    align-items: center;
+    gap: var(--sk-space-64);
+    padding-block: var(--sk-space-64) var(--sk-space-80);
   }
   .wideInner {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1015,6 +1062,27 @@
   }
   .fileStage:last-child::before {
     display: none;
+  }
+  /* Signature sequence: each connector draws towards the next stage, one
+     after another, and each stage's marker lands as its connector arrives.
+     Keyed to RevealOnScroll's data-reveal, so without script or with reduced
+     motion the finished line is simply there. */
+  .fileStage::before {
+    transform-origin: left center;
+  }
+  .fileStage[data-reveal='pending']::before {
+    transform: scaleX(0);
+  }
+  .fileStage[data-reveal='shown']::before {
+    animation: sk-connect var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+      calc(
+        var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0) + var(--sk-web-motion-quick)
+      )
+      backwards;
+  }
+  .fileStage[data-reveal='shown'] .stageDot {
+    animation: sk-land var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+      calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0)) backwards;
   }
   .stageDot {
     position: relative;
@@ -1074,4 +1142,361 @@
     transition: none;
     transform: none;
   }
+}
+
+/* --- Phase 2E: service card action, sequence keyframes --------------------- */
+
+.serviceCta {
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-8);
+}
+
+@keyframes sk-connect {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes sk-land {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fileStage::before,
+  .fileStage .stageDot {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===========================================================================
+ * PHASE 2E — VISUAL CONTENT UPGRADE (brief 2026-10-23, §7)
+ * Reference: "MEJORAR Y COMPARAR CONTENIDO PROPERTY PURCHASE". Rebuilt on the
+ * shared layer; the reference is never used as an asset.
+ * =========================================================================== */
+
+/* --- One file: the capabilities read as parts of the same file ------------- */
+
+.oneFileCopy .checkList {
+  position: relative;
+  gap: var(--sk-space-16);
+}
+
+.oneFileCopy .checkList::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-8);
+  inset-inline-start: calc(var(--sk-space-8) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+}
+
+.oneFileCopy .checkList svg {
+  position: relative;
+  background-color: var(--sk-web-white);
+}
+
+/* --- File tracker: one rail, seven stages ------------------------------------ */
+
+.fileTracker {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-16);
+}
+
+.fileStage {
+  display: grid;
+  grid-template-columns: var(--sk-space-32) minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.stageDot {
+  position: relative;
+  z-index: 1;
+  grid-row: auto;
+  border: 2px solid var(--sk-web-gold);
+  background: var(--sk-web-white);
+  color: var(--sk-web-gold-strong);
+  font-weight: var(--sk-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.fileStage:has([data-state='done']) .stageDot {
+  background: var(--sk-web-gold);
+  color: var(--sk-web-white);
+}
+
+.fileStage:has([data-state='active']) .stageDot {
+  border-color: var(--sk-web-ink);
+  background: var(--sk-web-ink);
+  color: var(--sk-web-white);
+}
+
+/* Vertical rail on phones and tablets: dot to dot, through the gap. */
+.fileStage:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-32) calc(-1 * var(--sk-space-16));
+  inset-inline-start: calc(var(--sk-space-16) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+}
+
+.stageCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  min-width: 0;
+  padding: var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background: var(--sk-web-white);
+}
+
+.stageCode {
+  display: block;
+  color: var(--sk-web-gold-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.stageStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-8);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+/* Status mark: filled (done), half (in review), ring (pending). Always
+   accompanied by the word. */
+.stageStatusMark {
+  display: inline-block;
+  flex: none;
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  border: 2px solid var(--sk-web-muted);
+  border-radius: var(--sk-radius-pill);
+}
+
+.stageStatus[data-state='done'] {
+  color: var(--sk-web-gold-strong);
+}
+
+.stageStatus[data-state='done'] .stageStatusMark {
+  border-color: var(--sk-web-gold);
+  background: var(--sk-web-gold);
+}
+
+.stageStatus[data-state='active'] {
+  color: var(--sk-web-ink);
+}
+
+.stageStatus[data-state='active'] .stageStatusMark {
+  border-color: var(--sk-web-ink);
+  background: linear-gradient(90deg, var(--sk-web-ink) 50%, transparent 50%);
+}
+
+@media (min-width: 1024px) {
+  .fileTracker {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: var(--sk-space-8);
+  }
+
+  .fileStage {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sk-space-16);
+    padding: 0;
+  }
+
+  .fileStage:not(:last-child)::after {
+    display: none;
+  }
+
+  /* The rail: from this dot's centre to the next one, across the gap. */
+  .fileStage::before {
+    inset-block-start: calc(var(--sk-space-16) - 1px);
+    inset-inline-start: var(--sk-space-16);
+    width: calc(100% + var(--sk-space-8));
+    height: 2px;
+    opacity: 0.6;
+  }
+
+  .stageCard {
+    flex: 1;
+  }
+}
+
+/* --- Six phases, joined card to card ---------------------------------------- */
+
+.processCard {
+  position: relative;
+}
+
+.processDeliverable {
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+}
+
+.processDeliverableLabel {
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-strong);
+}
+
+/* Below desktop: one column, connector running down from each number. */
+.processCard:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  inset-block: 100% calc(-1 * var(--sk-space-16));
+  inset-inline-start: calc(var(--sk-space-24) + var(--sk-space-24) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .processGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .processGrid {
+    gap: var(--sk-space-24);
+  }
+
+  /* Desktop: rows of three, the thread crossing each gap at number height,
+     never from the end of one row to the start of the next. */
+  .processCard:not(:last-child)::after {
+    inset-block: calc(var(--sk-space-24) + var(--sk-space-24) - 1px) auto;
+    inset-inline: 100% auto;
+    width: var(--sk-space-24);
+    height: 2px;
+  }
+
+  .processCard:nth-child(3n)::after {
+    display: none;
+  }
+}
+
+.processCard[data-reveal='shown']::after {
+  animation: sk-connect var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0) + var(--sk-web-motion-reveal))
+    backwards;
+}
+
+/* --- Before you sign: the decision leads -------------------------------------- */
+
+.decisionOptions {
+  display: grid;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.decisionOptions li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-16);
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-button);
+  color: var(--sk-web-muted-on-dark);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.decisionOptions li[data-selected='true'] {
+  border-color: var(--sk-web-gold-on-dark);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+}
+
+.decisionMark {
+  display: inline-block;
+  flex: none;
+  width: var(--sk-space-16);
+  height: var(--sk-space-16);
+  border: 2px solid var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-pill);
+}
+
+.decisionOptions li[data-selected='true'] .decisionMark {
+  border-color: var(--sk-web-gold-on-dark);
+  background: radial-gradient(circle, var(--sk-web-gold-on-dark) 45%, transparent 50%);
+}
+
+.decisionTag {
+  margin-inline-start: auto;
+  padding: 0 var(--sk-space-8);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold-on-dark);
+  border-radius: var(--sk-radius-pill);
+  color: var(--sk-web-gold-on-dark);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+}
+
+.reportMock ul {
+  gap: 0;
+}
+
+.reportMock li {
+  padding-block: var(--sk-space-8);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+  color: var(--sk-web-on-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .processCard::after {
+    animation: none !important;
+  }
+}
+
+/* The seven stages take the full width; document control becomes a strip
+   below them. Beside the rail it left each card ~96px wide and broke
+   "Registration" mid-word. */
+@media (min-width: 1024px) {
+  .trackerLayout.trackerLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .documentControl {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--sk-space-32);
+  }
+
+  .documentControl h3 {
+    margin: 0;
+  }
+
+  .documentControl ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.fileStage h3 {
+  overflow-wrap: normal;
+  hyphens: manual;
 }

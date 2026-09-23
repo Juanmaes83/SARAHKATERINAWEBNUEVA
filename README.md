@@ -40,10 +40,10 @@ refinement across all three routes.
 
 ## 3. Relationship with the other repositories
 
-| Repository | Role | This repo's relationship |
-|---|---|---|
-| [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina) | Strategic and brand source of truth | **Read-only.** Decisions, tokens and governance are consumed from it. Never modified from here. |
-| [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System) | Calculators and buyer tools | **Read-only.** Interfaces may be prepared here. The system is never rebuilt or vendored here. |
+| Repository                                                                                            | Role                                | This repo's relationship                                                                        |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina)                             | Strategic and brand source of truth | **Read-only.** Decisions, tokens and governance are consumed from it. Never modified from here. |
+| [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System) | Calculators and buyer tools         | **Read-only.** Interfaces may be prepared here. The system is never rebuilt or vendored here.   |
 
 ## 4. Source of truth
 
@@ -53,37 +53,37 @@ refinement across all three routes.
 
 Documents consulted for this phase:
 
-| Document | Status as declared upstream |
-|---|---|
-| `README.md` | Repository map |
-| `PROJECT-STATUS.md` | Operational status (L5) |
-| `strategy/master/decisions-log.md` | **Decision authority (L1)** |
-| `brand-system/SOURCE-HIERARCHY.md` | Conflict-resolution authority |
-| `brand-system/governance/decision-status-model.md` | Status vocabulary |
-| `brand-system/README.md` | Brand OS overview |
-| `brand-system/tokens/` (`README.md`, `tokens.json`, `tokens.css`) | **Canonical token layer (L2)** |
-| `brand-system/foundations/` (colour, typography, layout-grid, spacing, surfaces, accessibility, interaction, visual principles, iconography, signatures) | Canonical foundations (L2) |
-| `brand-system/qa/contrast-matrix.md` | Verified WCAG ratios |
-| `brand-system/COMPONENT-REGISTRY.md`, `DECISION-SUPERSESSION-REGISTER.md` | Component and supersession registers |
-| `website/README.md` | Website knowledge index (CANONICAL) |
-| `website/01-audits/00-website-audit-master-2026-09.md` | CANONICAL CONSOLIDATED BASELINE |
-| `website/01-audits/seo-final-audit-2026-09.md` | CANONICAL FINAL BASELINE — VERIFICATION GATE REQUIRED |
-| `website/02-activation/buyer-system-lead-magnet-strategy-2026-09.md` | ACTIVE OPERATIONAL BRIEF |
-| website/02-activation/new-website-landings-proposal-2026-09.md | **VISUAL PROPOSAL / IMPLEMENTATION REFERENCE FOR PHASE 2 — NOT CANONICAL — NOT APPROVED FOR PRODUCTION** |
+| Document                                                                                                                                                 | Status as declared upstream                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `README.md`                                                                                                                                              | Repository map                                                                                           |
+| `PROJECT-STATUS.md`                                                                                                                                      | Operational status (L5)                                                                                  |
+| `strategy/master/decisions-log.md`                                                                                                                       | **Decision authority (L1)**                                                                              |
+| `brand-system/SOURCE-HIERARCHY.md`                                                                                                                       | Conflict-resolution authority                                                                            |
+| `brand-system/governance/decision-status-model.md`                                                                                                       | Status vocabulary                                                                                        |
+| `brand-system/README.md`                                                                                                                                 | Brand OS overview                                                                                        |
+| `brand-system/tokens/` (`README.md`, `tokens.json`, `tokens.css`)                                                                                        | **Canonical token layer (L2)**                                                                           |
+| `brand-system/foundations/` (colour, typography, layout-grid, spacing, surfaces, accessibility, interaction, visual principles, iconography, signatures) | Canonical foundations (L2)                                                                               |
+| `brand-system/qa/contrast-matrix.md`                                                                                                                     | Verified WCAG ratios                                                                                     |
+| `brand-system/COMPONENT-REGISTRY.md`, `DECISION-SUPERSESSION-REGISTER.md`                                                                                | Component and supersession registers                                                                     |
+| `website/README.md`                                                                                                                                      | Website knowledge index (CANONICAL)                                                                      |
+| `website/01-audits/00-website-audit-master-2026-09.md`                                                                                                   | CANONICAL CONSOLIDATED BASELINE                                                                          |
+| `website/01-audits/seo-final-audit-2026-09.md`                                                                                                           | CANONICAL FINAL BASELINE — VERIFICATION GATE REQUIRED                                                    |
+| `website/02-activation/buyer-system-lead-magnet-strategy-2026-09.md`                                                                                     | ACTIVE OPERATIONAL BRIEF                                                                                 |
+| website/02-activation/new-website-landings-proposal-2026-09.md                                                                                           | **VISUAL PROPOSAL / IMPLEMENTATION REFERENCE FOR PHASE 2 — NOT CANONICAL — NOT APPROVED FOR PRODUCTION** |
 
 ### Design token provenance
 
 `app/tokens.css` and `lib/tokens/tokens.json` are **byte-for-byte copies** of
 the canonical token layer. They must never be edited here.
 
-| Field | Value |
-|---|---|
-| Source repository | `Juanmaes83/sarahkaterina` |
-| Source paths | `brand-system/tokens/tokens.json`, `brand-system/tokens/tokens.css` |
-| Token version | `0.1.0` (`D3 canonical token layer`) |
-| Source commit | `5a88f91062c2597b39b81c0bfba22dfc7afa8c67` |
-| `tokens.json` git blob SHA | `6370626ca0a53c05d92bd80f749c67172bed171c` |
-| `tokens.css` git blob SHA | `623716c1722f5abea97c4aadd448baa0401e79ac` |
+| Field                      | Value                                                               |
+| -------------------------- | ------------------------------------------------------------------- |
+| Source repository          | `Juanmaes83/sarahkaterina`                                          |
+| Source paths               | `brand-system/tokens/tokens.json`, `brand-system/tokens/tokens.css` |
+| Token version              | `0.1.0` (`D3 canonical token layer`)                                |
+| Source commit              | `5a88f91062c2597b39b81c0bfba22dfc7afa8c67`                          |
+| `tokens.json` git blob SHA | `6370626ca0a53c05d92bd80f749c67172bed171c`                          |
+| `tokens.css` git blob SHA  | `623716c1722f5abea97c4aadd448baa0401e79ac`                          |
 
 `tests/tokens-parity.test.ts` recomputes the blob hash and re-derives every CSS
 variable from the JSON, so any drift from the source of truth fails CI.
@@ -117,43 +117,46 @@ mean that any route is approved for production, publication or migration.
 
 All three routes render through one shared web layer and one token file:
 
-| Concern | Single source |
-|---|---|
-| Website palette | `app/web-tokens.css` |
-| Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*` |
-| Motion foundation | `components/motion/RevealOnScroll.tsx` |
-| Landing-specific composition | Each route's content and section module, without duplicate chrome or tokens |
+| Concern                                                            | Single source                                                               |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| Website palette                                                    | `app/web-tokens.css`                                                        |
+| Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*`                                                          |
+| Motion foundation                                                  | `components/motion/RevealOnScroll.tsx`                                      |
+| Landing-specific composition                                       | Each route's content and section module, without duplicate chrome or tokens |
 
 A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
 and the converged web-layer tests fail if a second `--sk-web-*` declaration, a
 second header, footer or button, or a re-declared navy or gold ever reappears.
 The next branch is `feat/phase-2e-premium-media-motion-2026-09-22`.
 
-| Document | What it records |
-|---|---|
-| `docs/shared-web-layer-convergence.md` | What is canonical, what was removed, what each landing still owns, how Investment is verified, how the next landing is added |
-| `docs/tax-advisory-fidelity-matrix.md` | Section-by-section comparison against the Tax Advisory template |
-| `docs/tax-advisory-visual-decisions.md` | Every judgement call, and what needs Juanma's decision |
-| `docs/tax-advisory-asset-record.md` | Asset provenance, hashes, crops, and the assets still missing |
-| `docs/property-purchase-fidelity-matrix.md` | Section-by-section comparison against the Property Purchase template |
-| `docs/property-purchase-asset-map.md` | Property Purchase asset provenance and placement map |
-| `docs/property-purchase-visual-decisions.md` | Property Purchase visual decisions and remaining production gates |
-| `docs/phase-2e-navigation-architecture.md` | ThreeUI-informed navigation reference; documentation only, not yet implemented |
-| `docs/visual-media-inventory-phase-2e-2026-09.md` | Approved provisional media selection, provenance, slots and exclusions for Phase 2E |
-| `docs/phase-2e-media-corrections-merged-2026-09-22.md` | Merged media/crop pass, visual verification and handoff to motion |
+| Document                                               | What it records                                                                                                                                          |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/shared-web-layer-convergence.md`                 | What is canonical, what was removed, what each landing still owns, how Investment is verified, how the next landing is added                             |
+| `docs/tax-advisory-fidelity-matrix.md`                 | Section-by-section comparison against the Tax Advisory template                                                                                          |
+| `docs/tax-advisory-visual-decisions.md`                | Every judgement call, and what needs Juanma's decision                                                                                                   |
+| `docs/tax-advisory-asset-record.md`                    | Asset provenance, hashes, crops, and the assets still missing                                                                                            |
+| `docs/property-purchase-fidelity-matrix.md`            | Section-by-section comparison against the Property Purchase template                                                                                     |
+| `docs/property-purchase-asset-map.md`                  | Property Purchase asset provenance and placement map                                                                                                     |
+| `docs/property-purchase-visual-decisions.md`           | Property Purchase visual decisions and remaining production gates                                                                                        |
+| `docs/phase-2e-navigation-architecture.md`             | ThreeUI-informed navigation reference; the active section, sticky header and menu-closes-on-selection parts are implemented in the Phase 2E premium pass |
+| `docs/visual-media-inventory-phase-2e-2026-09.md`      | Approved provisional media selection, provenance, slots and exclusions for Phase 2E                                                                      |
+| `docs/phase-2e-media-corrections-merged-2026-09-22.md` | Merged media/crop pass, visual verification and handoff to motion                                                                                        |
+| `docs/phase-2e-premium-experience.md`                  | Phase 2E premium pass: creative direction, audit, WOW map, per-landing decisions, QA evidence, human decisions pending                                   |
+| `docs/phase-2e-motion-system.md`                       | Motion tokens, intensity levels, shared primitives, reduced-motion/no-JS behaviour and rejection criteria                                                |
+| `docs/phase-2e-visual-content-upgrade.md`              | Brief 2026-10-23: reference-to-section mapping, report explorer, common image grade, QA and pending decisions                                            |
 
 ## 6. Stack
 
-| Choice | Why |
-|---|---|
-| Next.js 15 (App Router) | Required framework; static generation for every current route. |
-| TypeScript (strict, `noUncheckedIndexedAccess`) | Type errors fail the build and CI. |
-| React 19 | Next.js 15 default. |
-| **CSS Modules over token custom properties** | The canonical consumption contract forbids raw hex, arbitrary spacing, new radii and local focus rules. CSS Modules reading `--sk-*` enforce that directly and add no dependency. |
-| Zod | Environment validation only — the one real data boundary in this phase. |
-| Vitest | Token parity and governance tests. |
-| ESLint + Prettier | Lint and format gates. |
-| `next/font` | Self-hosts Fraunces and Inter; no third-party font request. |
+| Choice                                          | Why                                                                                                                                                                               |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Next.js 15 (App Router)                         | Required framework; static generation for every current route.                                                                                                                    |
+| TypeScript (strict, `noUncheckedIndexedAccess`) | Type errors fail the build and CI.                                                                                                                                                |
+| React 19                                        | Next.js 15 default.                                                                                                                                                               |
+| **CSS Modules over token custom properties**    | The canonical consumption contract forbids raw hex, arbitrary spacing, new radii and local focus rules. CSS Modules reading `--sk-*` enforce that directly and add no dependency. |
+| Zod                                             | Environment validation only — the one real data boundary in this phase.                                                                                                           |
+| Vitest                                          | Token parity and governance tests.                                                                                                                                                |
+| ESLint + Prettier                               | Lint and format gates.                                                                                                                                                            |
+| `next/font`                                     | Self-hosts Fraunces and Inter; no third-party font request.                                                                                                                       |
 
 Phase 1 deliberately avoided GSAP and third-party motion dependencies. Phase 2
 must implement the approved motion direction with GSAP or a native equivalent
@@ -171,14 +174,14 @@ npm run dev                  # http://localhost:3000
 
 Routes:
 
-| Route | What it is |
-|---|---|
-| `/` | Overview |
-| `/foundation` | Internal component laboratory. Never indexable. |
-| `/preview/investment` | Canonical Investment visual base |
-| `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment |
-| `/preview/property-purchase` | Property Purchase visual base adapted to Investment |
-| `/preview/team` | Editorial team page; buyer-side roles and process preview |
+| Route                        | What it is                                                |
+| ---------------------------- | --------------------------------------------------------- |
+| `/`                          | Overview                                                  |
+| `/foundation`                | Internal component laboratory. Never indexable.           |
+| `/preview/investment`        | Canonical Investment visual base                          |
+| `/preview/tax-advisory`      | Tax Advisory visual base adapted to Investment            |
+| `/preview/property-purchase` | Property Purchase visual base adapted to Investment       |
+| `/preview/team`              | Editorial team page; buyer-side roles and process preview |
 
 Everything under `/preview` is `noindex, nofollow` at three independent
 layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
@@ -237,22 +240,22 @@ confirmed. Until then, calculator entry points remain visibly pending.
 
 ## 12. What needs human approval
 
-| Item | State | Why it is blocked |
-|---|---|---|
-| Canonical production host | **OPEN CONFLICT** | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0. |
-| Logo / wordmark asset | AVAILABLE REFERENCE — BASE IMPORTED | The governed authentic mark is already imported for the three visual bases. Final light/dark treatment, lockup selection and any retouch remain subject to Juanma's visual approval. Ask rather than recolouring or redrawing the mark. |
-| Institutional descriptor | `NEEDS_DECISION` | Must not be chosen silently. |
-| `Property Decision Advisor` | `TEST` + `INTERNAL_TEST_ONLY` | Not usable in public output. |
-| Legal entity, address, company number | NOT CONFIRMED | Rendered as `PENDING_APPROVAL` slots. |
-| Email, telephone, social profiles | NOT CONFIRMED | Rendered as `PENDING_APPROVAL` slots. |
-| `--sk-app-text-muted` | `PENDING_APPROVAL` | No approved value; a guard test forbids its use. |
-| Primary breakpoint (768px) | `PENDING_APPROVAL` | Upstream leaves 768 vs 900 `DEFERRED-NONBLOCKING`. Implementation decision, reversible in one place. |
-| Public navigation / IA | `PENDING_APPROVAL` | `BUY / INVEST / OWN` is internal architecture, not a navbar. |
-| Any commercial CTA copy | NOT APPROVED | Per-intent CTAs are an open P0. |
-| Property Management / VITA Host | `HOLD` | D-06 unexecuted; excluded entirely. |
-| AI crawler policy | `Propuesta` | Awaiting legal input; no directive invented. |
-| Photography and video of Sarah | ASSETS AVAILABLE / PREMIUM ENRICHMENT IN PROGRESS | Authentic references exist upstream. Each image or video must be assigned to a landing slot, carry provenance, receive the correct crop/treatment and be reviewed by Juanma. If a selection or video treatment is unclear, ask rather than choosing silently. |
-| Any metric, claim, case or testimonial | NOT APPROVED | Requires source, date, permission, scope and legal review. Visual proof may be shown as a clearly labelled demo/preview; it must not imply a verified result. |
+| Item                                   | State                                             | Why it is blocked                                                                                                                                                                                                                                             |
+| -------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Canonical production host              | **OPEN CONFLICT**                                 | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0.                                                                                                              |
+| Logo / wordmark asset                  | AVAILABLE REFERENCE — BASE IMPORTED               | The governed authentic mark is already imported for the three visual bases. Final light/dark treatment, lockup selection and any retouch remain subject to Juanma's visual approval. Ask rather than recolouring or redrawing the mark.                       |
+| Institutional descriptor               | `NEEDS_DECISION`                                  | Must not be chosen silently.                                                                                                                                                                                                                                  |
+| `Property Decision Advisor`            | `TEST` + `INTERNAL_TEST_ONLY`                     | Not usable in public output.                                                                                                                                                                                                                                  |
+| Legal entity, address, company number  | NOT CONFIRMED                                     | Rendered as `PENDING_APPROVAL` slots.                                                                                                                                                                                                                         |
+| Email, telephone, social profiles      | NOT CONFIRMED                                     | Rendered as `PENDING_APPROVAL` slots.                                                                                                                                                                                                                         |
+| `--sk-app-text-muted`                  | `PENDING_APPROVAL`                                | No approved value; a guard test forbids its use.                                                                                                                                                                                                              |
+| Primary breakpoint (768px)             | `PENDING_APPROVAL`                                | Upstream leaves 768 vs 900 `DEFERRED-NONBLOCKING`. Implementation decision, reversible in one place.                                                                                                                                                          |
+| Public navigation / IA                 | `PENDING_APPROVAL`                                | `BUY / INVEST / OWN` is internal architecture, not a navbar.                                                                                                                                                                                                  |
+| Any commercial CTA copy                | NOT APPROVED                                      | Per-intent CTAs are an open P0.                                                                                                                                                                                                                               |
+| Property Management / VITA Host        | `HOLD`                                            | D-06 unexecuted; excluded entirely.                                                                                                                                                                                                                           |
+| AI crawler policy                      | `Propuesta`                                       | Awaiting legal input; no directive invented.                                                                                                                                                                                                                  |
+| Photography and video of Sarah         | ASSETS AVAILABLE / PREMIUM ENRICHMENT IN PROGRESS | Authentic references exist upstream. Each image or video must be assigned to a landing slot, carry provenance, receive the correct crop/treatment and be reviewed by Juanma. If a selection or video treatment is unclear, ask rather than choosing silently. |
+| Any metric, claim, case or testimonial | NOT APPROVED                                      | Requires source, date, permission, scope and legal review. Visual proof may be shown as a clearly labelled demo/preview; it must not imply a verified result.                                                                                                 |
 
 ## 13. What must not be published
 
@@ -266,17 +269,17 @@ confirmed. Until then, calculator entry points remain visibly pending.
 
 ## 14. Roadmap
 
-| Phase | Scope | State |
-|---|---|---|
-| 1 — Technical foundation | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory | MERGED |
-| 2A — Landing Experience System | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype | MERGED |
-| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer | MERGED — CANONICAL VISUAL BASE |
-| 2D — Tax Advisory and Property Purchase convergence | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives | MERGED — THREE VISUAL BASES READY |
-| 2E — Premium media, motion and visual refinement | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO remain | IN PROGRESS — MEDIA/CROP PASS MERGED; MOTION NEXT |
-| 2F — Cross-landing visual QA | Compare all three routes against their templates at mobile and desktop widths; resolve shared regressions | AFTER 2E — HUMAN GATE |
-| 3 — Functional integration | Buyer System production URL, live calculator links, events, consent and lead-capture decision | BLOCKED ON PRODUCT DECISIONS |
-| 4 — Production hardening | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval | AFTER 2E/2F/3 |
-| 5 — Migration | Domain, redirects, indexation and production cutover | LAST GATE |
+| Phase                                                     | Scope                                                                                                                                           | State                                             |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                               | MERGED                                            |
+| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                            | MERGED                                            |
+| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                                 | MERGED — CANONICAL VISUAL BASE                    |
+| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                         | MERGED — THREE VISUAL BASES READY                 |
+| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO remain | IN PROGRESS — MEDIA/CROP PASS MERGED; MOTION NEXT |
+| 2F — Cross-landing visual QA                              | Compare all three routes against their templates at mobile and desktop widths; resolve shared regressions                                       | AFTER 2E — HUMAN GATE                             |
+| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                                   | BLOCKED ON PRODUCT DECISIONS                      |
+| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                                   | AFTER 2E/2F/3                                     |
+| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                            | LAST GATE                                         |
 
 Phase 2E is the next implementation block, not a production release. Its
 acceptance requires documented media provenance, intentional responsive crops,
@@ -287,15 +290,16 @@ The full Phase 2 implementation contract is in
 docs/phase-2-visual-implementation-contract.md.
 
 ---
+
 ## 15. Permitted environment variables
 
 Only these three. All are public; none is a secret.
 
-| Variable | Default | Purpose |
-|---|---|---|
-| `NEXT_PUBLIC_SITE_MODE` | `preview` | `preview` or `production`. |
-| `NEXT_PUBLIC_SITE_INDEXABLE` | `false` | Master indexing switch. Indexing also requires `production` mode. |
-| `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | Origin for canonical, OG and sitemap URLs. |
+| Variable                     | Default                 | Purpose                                                           |
+| ---------------------------- | ----------------------- | ----------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_MODE`      | `preview`               | `preview` or `production`.                                        |
+| `NEXT_PUBLIC_SITE_INDEXABLE` | `false`                 | Master indexing switch. Indexing also requires `production` mode. |
+| `NEXT_PUBLIC_SITE_URL`       | `http://localhost:3000` | Origin for canonical, OG and sitemap URLs.                        |
 
 Every default is the safe one, so a missing or malformed variable can never
 accidentally publish the site. See `.env.example`.
@@ -311,18 +315,17 @@ appears.
 
 ---
 
-
 ---
 
 ## Routes and design systems
 
-| Route | Purpose | Chrome | Palette | Indexable |
-|---|---|---|---|---|
-| `/` | Repository overview | `AppChrome` | Canonical | No |
-| `/foundation` | Component laboratory | `AppChrome` | Canonical | No — ever |
-| `/preview/investment` | Investment canonical visual base | `WebHeader` / `WebFooter` | Scoped `--sk-web-*` | No — ever, while under `/preview` |
-| `/preview/tax-advisory` | Tax Advisory visual base | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
-| `/preview/property-purchase` | Property Purchase visual base | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
+| Route                        | Purpose                          | Chrome                    | Palette                    | Indexable                         |
+| ---------------------------- | -------------------------------- | ------------------------- | -------------------------- | --------------------------------- |
+| `/`                          | Repository overview              | `AppChrome`               | Canonical                  | No                                |
+| `/foundation`                | Component laboratory             | `AppChrome`               | Canonical                  | No — ever                         |
+| `/preview/investment`        | Investment canonical visual base | `WebHeader` / `WebFooter` | Scoped `--sk-web-*`        | No — ever, while under `/preview` |
+| `/preview/tax-advisory`      | Tax Advisory visual base         | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/property-purchase` | Property Purchase visual base    | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 
 Two token layers coexist deliberately:
 

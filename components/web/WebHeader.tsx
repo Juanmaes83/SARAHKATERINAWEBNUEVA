@@ -53,6 +53,7 @@ export function WebHeader({
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [locale, setLocale] = useState<'en' | 'es'>('en');
+  const [current, setCurrent] = useState<string | null>(null);
   const panelId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -67,6 +68,41 @@ export function WebHeader({
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // PHASE 2E — orientation. The in-page link whose section the reader is in
+  // carries aria-current="location" and the gold underline, so the header
+  // always says where you are. The section counts as current once its top has
+  // passed the upper third of the viewport. rAF-throttled and passive; it only
+  // reads positions, never moves the page.
+  useEffect(() => {
+    const ids = nav
+      .map((item) => (item.href.startsWith('#') ? item.href.slice(1) : null))
+      .filter((id): id is string => Boolean(id));
+    if (ids.length === 0) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const line = window.innerHeight / 3;
+      let active: string | null = null;
+      for (const id of ids) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= line) active = id;
+      }
+      setCurrent(active);
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, [nav]);
 
   // Modal behaviour for the mobile panel: Escape closes, Tab is trapped, focus
   // returns to the trigger, and the page behind does not scroll.
@@ -149,7 +185,11 @@ export function WebHeader({
           <ul className={styles.navList}>
             {nav.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} className={styles.navLink}>
+                <Link
+                  href={item.href}
+                  className={styles.navLink}
+                  aria-current={current && item.href === `#${current}` ? 'location' : undefined}
+                >
                   {item.label}
                 </Link>
               </li>
@@ -196,6 +236,11 @@ export function WebHeader({
         </button>
       </Container>
 
+      {/* Reading progress — the gold thread along the header's lower edge.
+          Pure CSS, bound to the document's scroll; decorative, so hidden from
+          assistive technology. */}
+      <span className={styles.progress} aria-hidden="true" />
+
       {open ? (
         <div
           ref={panelRef}
@@ -216,7 +261,14 @@ export function WebHeader({
             <ul className={styles.panelList}>
               {nav.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className={styles.panelLink}>
+                  {/* Following an in-page link closes the dialog, so the
+                      reader lands on the section instead of behind the panel. */}
+                  <Link
+                    href={item.href}
+                    className={styles.panelLink}
+                    aria-current={current && item.href === `#${current}` ? 'location' : undefined}
+                    onClick={close}
+                  >
                     {item.label}
                   </Link>
                 </li>

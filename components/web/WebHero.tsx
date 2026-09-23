@@ -7,6 +7,8 @@ import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/investment';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { isPublishable } from '@/lib/content/claims';
+import entrance from '@/components/motion/Entrance.module.css';
+import { cn } from '@/lib/utils/cn';
 import styles from './WebHero.module.css';
 
 /**
@@ -29,6 +31,11 @@ import styles from './WebHero.module.css';
  * removed on 2026-09-22 after visual review: it fought the portrait for
  * attention and its baked-in wordmark was clipped. The frame now reads as one
  * composition, so nothing was left behind in its place.
+ *
+ * PHASE 2E MOTION — the hero is the page's one composed arrival (CSS only,
+ * `components/motion/Entrance.module.css`): the copy rises line by line, the
+ * portrait's frame opens, and the snapshot card lands last over the photograph.
+ * On scroll-out the card drifts slightly ahead of the photograph for depth.
  */
 export function WebHero() {
   const heroMedia = APPROVED_MEDIA.investmentHero;
@@ -36,7 +43,7 @@ export function WebHero() {
   return (
     <section className={styles.hero} id="top">
       <Container className={styles.grid}>
-        <RevealOnScroll className={styles.copy}>
+        <RevealOnScroll className={cn(styles.copy, entrance.copy)}>
           <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
 
           {/* The single h1 of the page. */}
@@ -77,7 +84,7 @@ export function WebHero() {
 
         <RevealOnScroll order={1} className={styles.visual}>
           <figure className={styles.figure}>
-            <div className={styles.frame}>
+            <div className={cn(styles.frame, entrance.media)}>
               {/*
                 PHASE 2E — approved hero image (inventory §11, item 1).
                 `sk-real-1` moves out of the hero; the authentic portrait
@@ -100,8 +107,10 @@ export function WebHero() {
               </span>
             </div>
 
-            <div className={styles.dashboard}>
-              <DashboardCard />
+            <div className={cn(styles.dashboard, entrance.float)}>
+              <div className={entrance.depthFront}>
+                <DashboardCard />
+              </div>
             </div>
           </figure>
         </RevealOnScroll>

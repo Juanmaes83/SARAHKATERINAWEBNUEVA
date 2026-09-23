@@ -37,9 +37,9 @@ export const hero = {
   secondaryCta: claim({ text: 'See how it works', status: 'proposal', source: TEMPLATE }),
   visualTitle: claim({ text: 'Image / video hero', status: 'pending' }),
   visualBody: claim({
-    text: 'International buyer, Costa Blanca property and Sarah reviewing documents.',
-    status: 'pending',
-    note: 'No approved real image or video exists for this slot.',
+    text: 'Sarah hands over the keys to an international buyer in a Costa Blanca apartment.',
+    status: 'proposal',
+    note: 'Phase 2E (brief 2026-10-23): caption now describes the approved image — a key handover — instead of a document review. Hero video slot stays reserved.',
   }),
   script: claim({
     text: 'A secure purchase. A new life in Spain.',
@@ -240,7 +240,17 @@ export const fileStages = [
 ] as const;
 
 export const process = {
+  /** Used once, by the file tracker. */
   eyebrow: claim({ text: 'The file, front to back', status: 'proposal', source: TEMPLATE }),
+  /**
+   * Phase 2E (brief 2026-10-23): the six-step process used to repeat the
+   * tracker's eyebrow on the very next section. It gets its own.
+   */
+  stepsEyebrow: claim({
+    text: 'From first call to signature',
+    status: 'proposal',
+    note: 'Phase 2E proposed eyebrow replacing the duplicated "The file, front to back". Pending Juanma.',
+  }),
   title: claim({ text: 'End-to-end, in ordered steps.', status: 'proposal', source: TEMPLATE }),
   subtitle: claim({
     text: 'A visible sequence for a purchase without loose ends.',

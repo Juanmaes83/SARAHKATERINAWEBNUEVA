@@ -8,9 +8,51 @@
   transition: box-shadow var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
 }
 
-/* Set by script once the page has scrolled. Purely a depth cue. */
+/* Set by script once the page has scrolled. Purely a depth cue: the bar
+   lifts off the page and lets the content behind it read through faintly.
+   Height never changes, so nothing below it moves. */
 .scrolled {
   box-shadow: var(--sk-web-shadow-card);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .scrolled {
+    background-color: color-mix(in srgb, var(--sk-web-ivory) 90%, transparent);
+    backdrop-filter: blur(var(--sk-space-16));
+  }
+}
+
+/* Reading progress — the gold thread. Bound natively to the document scroll;
+   it never drives or holds the scroll. Absent where scroll-driven animation
+   is unsupported and under reduced motion, rather than drawn as a static bar
+   that would mean nothing. */
+.progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .progress {
+      display: block;
+      position: absolute;
+      inset-inline: 0;
+      inset-block-end: calc(-1 * var(--sk-border-standard-width));
+      height: 2px;
+      background-color: var(--sk-web-gold);
+      transform-origin: left center;
+      animation: sk-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+@keyframes sk-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 .inner {
@@ -87,7 +129,9 @@
 }
 
 .navLink:hover::after,
-.navLink[aria-current='page']::after {
+.navLink:focus-visible::after,
+.navLink[aria-current='page']::after,
+.navLink[aria-current='location']::after {
   transform: scaleX(1);
 }
 
@@ -201,6 +245,48 @@
   display: flex;
   flex-direction: column;
   gap: var(--sk-space-16);
+}
+
+.panelLink[aria-current='location'] {
+  color: var(--sk-web-gold-strong);
+}
+
+/* Phase 2E: the dialog arrives rather than appearing. Short enough that a
+   tap-then-tap reader never waits on it; nothing is hidden once it ends. */
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    animation: sk-panel-in var(--sk-web-motion-reveal) var(--sk-web-motion-ease) backwards;
+  }
+
+  .panelList > li {
+    animation: sk-panel-item var(--sk-web-motion-reveal) var(--sk-web-motion-ease) backwards;
+  }
+
+  .panelList > li:nth-child(2) {
+    animation-delay: var(--sk-web-motion-stagger);
+  }
+  .panelList > li:nth-child(3) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 2);
+  }
+  .panelList > li:nth-child(4) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 3);
+  }
+  .panelList > li:nth-child(n + 5) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 4);
+  }
+}
+
+@keyframes sk-panel-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sk-panel-item {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sk-web-motion-distance));
+  }
 }
 
 /* 1100px, not 1024px. With seven nav items, the language switch and the gold

@@ -16,6 +16,7 @@ import {
   TaxServicesBand,
 } from '@/components/web/TaxBands';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
+import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { PROTOTYPE_NOTICE, faq, footer, headerCta, nav, seo } from '@/content/en/tax-advisory';
 
@@ -28,24 +29,26 @@ export const metadata: Metadata = buildMetadata({
 
 export default function TaxAdvisoryPage() {
   return (
-    <>
+    // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
+    <RevealLineProvider line="reading-zone">
       <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
       <WebHeader nav={nav} ctaLabel={headerCta.text} />
 
       <TaxHero />
       <TaxContextBand />
-      <TaxCalendarBand />
+      {/* Phase 2E (brief §8): what is reviewed, then when — then the report. */}
       <TaxProcessBand />
+      <TaxCalendarBand />
       <TaxReportBand />
       <TaxConcernsBand />
       <TaxServicesBand />
       <TaxAuthorityBand />
       <TaxCasesBand />
       <TaxJourneyBand />
-      <WebFaq content={faq} />
+      <WebFaq content={faq} appearance="light" />
       <TaxFinalCtaBand />
       <WebFooter content={footer} />
-    </>
+    </RevealLineProvider>
   );
 }

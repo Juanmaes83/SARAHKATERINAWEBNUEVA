@@ -47,6 +47,29 @@ export interface ApprovedMedia {
   readonly embeddedText?: string;
   /** Anything a reviewer needs to know before this ships anywhere. */
   readonly note?: string;
+  /**
+   * PHASE 2E ART DIRECTION — the frame used in compact slots (cards, report
+   * thumbnails, split-section media).
+   *
+   * Several images carry a baked-in lockup along their lower edge. At card
+   * size it was cut in half by the slot ("arah", "Katerin…") or sat under the
+   * card's icon chip, which reads as a cropping error and repeats the brand
+   * the header already carries. A compact crop enlarges the image from a
+   * fixed origin just enough that the lockup leaves the frame entirely. The
+   * rule is binary: a lockup is either shown whole or not at all.
+   *
+   * `scale` is applied as a CSS transform; `origin` is its transform-origin.
+   * Originals are untouched; this is presentation only.
+   */
+  readonly compactCrop?: { readonly scale: number; readonly origin: string };
+  /**
+   * PHASE 2E COMMON GRADE (brief 2026-10-23, §9). `src` now serves the graded
+   * derivative produced by `scripts/grade-media.mjs`; this is the ungraded web
+   * derivative it was made from, kept in place and untouched.
+   */
+  readonly ungradedSrc?: string;
+  /** Name of the grade applied to `src`, e.g. `sk-editorial-v1`. */
+  readonly grade?: string;
 }
 
 function media(entry: ApprovedMedia): ApprovedMedia {
@@ -67,7 +90,9 @@ export const APPROVED_MEDIA = {
 
   investmentHero: media({
     id: 'investment-hero',
-    src: '/media/investment-hero.webp',
+    src: '/media/graded/investment-hero.webp',
+    ungradedSrc: '/media/investment-hero.webp',
+    grade: 'sk-editorial-v1',
     width: 1536,
     height: 1024,
     alt: 'Sarah Katerina standing in a dark panelled interior beside a large screen showing an interior visualisation.',
@@ -81,9 +106,11 @@ export const APPROVED_MEDIA = {
 
   taxHero: media({
     id: 'tax-hero',
-    src: '/media/tax-services-14.png',
-    width: 1376,
-    height: 768,
+    src: '/media/graded/tax-hero.webp',
+    ungradedSrc: '/media/tax-services-14.png',
+    grade: 'sk-editorial-v1',
+    width: 1536,
+    height: 1024,
     alt: 'A warm editorial scene featuring Sarah Katerina in a dark interior, framed with brand and service imagery.',
     focal: '50% 50%',
     source: 'IMAGES/sarahkaterina_Services_14.png',
@@ -93,7 +120,9 @@ export const APPROVED_MEDIA = {
 
   purchaseHero: media({
     id: 'purchase-hero',
-    src: '/media/purchase-hero.webp',
+    src: '/media/graded/purchase-hero.webp',
+    ungradedSrc: '/media/purchase-hero.webp',
+    grade: 'sk-editorial-v1',
     width: 1376,
     height: 768,
     alt: 'Sarah Katerina handing a set of keys to another person in a bright apartment overlooking the sea.',
@@ -112,9 +141,11 @@ export const APPROVED_MEDIA = {
    */
   authorityEditorial: media({
     id: 'authority-editorial',
-    src: '/media/authority-editorial.png',
-    width: 1376,
-    height: 768,
+    src: '/media/graded/authority-editorial.webp',
+    ungradedSrc: '/media/authority-editorial.png',
+    grade: 'sk-editorial-v1',
+    width: 1677,
+    height: 938,
     alt: 'Sarah Katerina in a warm editorial interior, framed by a dark room and soft practical lighting.',
     focal: '50% 50%',
     source: 'IMAGES/sarahkaterina_Services_Especial.png',
@@ -126,7 +157,9 @@ export const APPROVED_MEDIA = {
 
   assetResidential: media({
     id: 'asset-residential',
-    src: '/media/asset-residential.webp',
+    src: '/media/graded/asset-residential.webp',
+    ungradedSrc: '/media/asset-residential.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 922,
     alt: 'A bright kitchen and living space, half rendered and half drawn as architectural plans.',
@@ -134,35 +167,44 @@ export const APPROVED_MEDIA = {
     source: 'IMAGES/sarahkaterina_Services 8.png',
     embeddedText: EMBEDDED_LOCKUP,
     note: 'CROPPED. The original carries an "ARCHITECTURAL DIGEST" masthead across the top. That is a real publication, and showing it would imply a feature that does not exist, so the top 17.5% is removed. See docs/phase-2e-media-implementation.md §3.',
+    compactCrop: { scale: 1.3, origin: '50% 0%' },
   }),
 
   assetArchitecture: media({
     id: 'asset-architecture',
-    src: '/media/asset-architecture.webp',
+    src: '/media/graded/asset-architecture.webp',
+    ungradedSrc: '/media/asset-architecture.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'Hands adjusting a detailed architectural model of a house on a studio table.',
     focal: '50% 45%',
     source: 'IMAGES/sarahkaterina_Services_9.png',
     embeddedText: EMBEDDED_LOCKUP,
+    compactCrop: { scale: 1.3, origin: '50% 0%' },
   }),
 
   assetPlan: media({
     id: 'asset-plan',
-    src: '/media/asset-plan.webp',
+    src: '/media/graded/asset-plan.webp',
+    ungradedSrc: '/media/asset-plan.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'A three-dimensional cutaway floor plan of an apartment, seen from above.',
     focal: '55% 45%',
     source: 'IMAGES/sarahkaterina_Services_10.png',
     embeddedText: EMBEDDED_LOCKUP,
+    compactCrop: { scale: 1.55, origin: '80% 0%' },
   }),
 
   /* --- territory / CTA --------------------------------------------------- */
 
   territoryCoast: media({
     id: 'territory-coast',
-    src: '/media/territory-coast.webp',
+    src: '/media/graded/territory-coast.webp',
+    ungradedSrc: '/media/territory-coast.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'A ceramic jar resting on white pebbles on a Mediterranean shoreline.',
@@ -175,7 +217,9 @@ export const APPROVED_MEDIA = {
 
   territoryContact: media({
     id: 'territory-contact',
-    src: '/media/territory-contact.webp',
+    src: '/media/graded/territory-contact.webp',
+    ungradedSrc: '/media/territory-contact.webp',
+    grade: 'sk-editorial-v1',
     width: 1376,
     height: 768,
     alt: 'A marble table with a phone, sunglasses, a key and a cup of coffee in dappled light.',
@@ -186,9 +230,11 @@ export const APPROVED_MEDIA = {
 
   purchaseFinalContact: media({
     id: 'purchase-final-contact',
-    src: '/media/purchase-final-contact.png',
-    width: 1376,
-    height: 768,
+    src: '/media/graded/purchase-final-contact.webp',
+    ungradedSrc: '/media/purchase-final-contact.png',
+    grade: 'sk-editorial-v1',
+    width: 2000,
+    height: 1116,
     alt: 'A warm editorial tabletop scene with a branded contact presentation, viewed from above.',
     focal: '50% 50%',
     source: 'sarahkaterina_Contacto.png',
@@ -200,7 +246,9 @@ export const APPROVED_MEDIA = {
 
   processAnalysis: media({
     id: 'process-analysis',
-    src: '/media/process-analysis.webp',
+    src: '/media/graded/process-analysis.webp',
+    ungradedSrc: '/media/process-analysis.webp',
+    grade: 'sk-editorial-v1',
     width: 1376,
     height: 768,
     alt: 'A dark meeting room at dusk with a floating screen and documents laid out on the table.',
@@ -211,28 +259,38 @@ export const APPROVED_MEDIA = {
 
   processPresentation: media({
     id: 'process-presentation',
-    src: '/media/process-presentation.webp',
+    src: '/media/graded/process-presentation.webp',
+    ungradedSrc: '/media/process-presentation.webp',
+    grade: 'sk-editorial-v1',
     width: 1681,
     height: 936,
     alt: 'A warm living room with a wall-mounted screen showing a website layout, looking out to the sea.',
     focal: '45% 45%',
     source: 'IMAGES/sarahkaterina_services_2.png',
+    embeddedText:
+      'On-screen mock website: the brand name followed by a "Group" suffix, a phone number, a twenty-years-in-the-tax-administration line and "160+ foreign buyers trusted us since 2024". Book spines read KINFOLK and CHANEL; a shelf label reads VUITTON.',
+    note: 'PHASE 2E AUDIT — BLOCKER BEFORE PRODUCTION. The baked-in screen asserts an unverified client metric, an unconfirmed phone number and the "Group" naming held by D-06, and the room shows third-party brand names. Illegible at the sizes used in Preview, but still published pixels. Needs a retouched derivative or a replacement; owner decision.',
   }),
 
   reportInterior: media({
     id: 'report-interior',
-    src: '/media/report-interior.webp',
+    src: '/media/graded/report-interior.webp',
+    ungradedSrc: '/media/report-interior.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'A quiet grey interior with a sofa and tall windows, and a glass panel resting on the floor.',
     focal: '50% 45%',
     source: 'IMAGES/sarahkaterina_contacto_2.png',
     embeddedText: EMBEDDED_LOCKUP,
+    compactCrop: { scale: 1.4, origin: '50% 0%' },
   }),
 
   processModel: media({
     id: 'process-model',
-    src: '/media/process-model.webp',
+    src: '/media/graded/process-model.webp',
+    ungradedSrc: '/media/process-model.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'Two people examining a small building model and a set of plans on a counter in a bright apartment.',
@@ -252,10 +310,24 @@ export type ApprovedMediaKey = keyof typeof APPROVED_MEDIA;
  * carried forward.
  */
 export const PENDING_MEDIA_SLOTS = [
-  { slot: 'Investment · decision doors', reason: 'No approved image per door; the inventory lists Services 8/9 as an alternative, not a selection.' },
-  { slot: 'Investment · cases', reason: 'Case imagery is blocked until permissions and evidence exist.' },
-  { slot: 'Tax Advisory · problem/context', reason: 'LifeStyle_5 is Group B, not in the approved 1–8 block.' },
+  {
+    slot: 'Investment · decision doors',
+    reason:
+      'No approved image per door; the inventory lists Services 8/9 as an alternative, not a selection.',
+  },
+  {
+    slot: 'Investment · cases',
+    reason: 'Case imagery is blocked until permissions and evidence exist.',
+  },
+  {
+    slot: 'Tax Advisory · problem/context',
+    reason: 'LifeStyle_5 is Group B, not in the approved 1–8 block.',
+  },
   { slot: 'Property Purchase · cases', reason: 'Same permission block as Investment.' },
-  { slot: 'All landings · hero video', reason: 'No video exists in the repository. Slots keep the same aspect ratio so a video can drop in later without structural change.' },
+  {
+    slot: 'All landings · hero video',
+    reason:
+      'No video exists in the repository. Slots keep the same aspect ratio so a video can drop in later without structural change.',
+  },
   { slot: 'All landings · Open Graph image', reason: 'Requires an approved composition.' },
 ] as const;

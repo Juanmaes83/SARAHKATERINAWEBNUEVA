@@ -594,3 +594,82 @@
     transform: none;
   }
 }
+
+/* --- Phase 2E ---------------------------------------------------------------
+ *
+ * HERO — at desktop widths the copy column was too narrow for the two hero
+ * actions side by side, so "Meet the team" dropped under the primary action
+ * and the pair read as a vertical list. From 1280px the copy column takes just
+ * enough width (~620px) for both actions on one line; the photograph keeps its
+ * full 16:9 composition.
+ *
+ * JOURNEY — Team's thread is the human one: a single line that joins the five
+ * stages once the first stage arrives, with each numeral landing in turn. It
+ * runs down the page on phones and across it on desktop. Keyed to the items'
+ * RevealOnScroll state, so it is inert without script or with reduced motion.
+ * ------------------------------------------------------------------------ */
+
+@media (min-width: 1280px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: var(--sk-space-48);
+  }
+}
+
+.timeline::before {
+  transform-origin: center top;
+}
+
+.timeline:has(> [data-reveal='pending']:first-child)::before {
+  transform: scaleY(0);
+}
+
+.timeline:has(> [data-reveal='shown']:first-child)::before {
+  animation: sk-team-thread-down var(--sk-web-motion-settle) var(--sk-web-motion-ease) backwards;
+}
+
+.timelineItem[data-reveal='shown'] .stepNumber {
+  animation: sk-team-land var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0)) backwards;
+}
+
+@media (min-width: 1024px) {
+  .timeline::before {
+    transform-origin: left center;
+  }
+
+  .timeline:has(> [data-reveal='pending']:first-child)::before {
+    transform: scaleX(0);
+  }
+
+  .timeline:has(> [data-reveal='shown']:first-child)::before {
+    animation-name: sk-team-thread-across;
+  }
+}
+
+@keyframes sk-team-thread-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes sk-team-thread-across {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes sk-team-land {
+  from {
+    scale: 0.6;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::before,
+  .timelineItem .stepNumber {
+    animation: none !important;
+    transform: none !important;
+  }
+}
