@@ -357,13 +357,60 @@
  * unaffected.
  * ------------------------------------------------------------------------ */
 
+/* PHASE 2E FIX — the rule above never applied: it has the same specificity
+ * as the shared five-column `.timeline` rule, and WebBands.module.css is
+ * emitted after this file, so the page still rendered 5 + 1 with an orphan.
+ * The doubled class wins on specificity instead of on load order. The thread
+ * is also re-cut per row: it starts at the centre of the first step and ends
+ * at the centre of the third in each row of three. */
 @media (min-width: 1024px) {
-  .timelineSix {
+  .timelineSix.timelineSix {
+    --sk-timeline-gap: var(--sk-space-32);
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--sk-space-32);
+    gap: var(--sk-space-48) var(--sk-timeline-gap);
+  }
+
+  .timelineSix > li:nth-child(3n + 1)::before {
+    inset-inline-start: 50%;
+  }
+
+  .timelineSix > li:nth-child(3n)::before {
+    inset-inline-end: 50%;
   }
 }
 
+/* PHASE 2E FIX — four report panels, four columns. The shared report grid
+ * has five, which left an empty fifth column on the navy band. */
+@media (min-width: 1024px) {
+  .reportLayoutFour.reportLayoutFour {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* --- Phase 2E: the year falls into order ------------------------------------
+ * Each bar sweeps from its first month to its last, one row after another.
+ * Linear-feeling and exact rather than springy: Tax Advisory's register is
+ * precision. Keyed to the chart's RevealOnScroll state.
+ * ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  .calendarChart[data-reveal='pending'] .bar {
+    transform: scaleX(0);
+  }
+
+  .calendarChart[data-reveal='shown'] .bar {
+    transform-origin: left center;
+    animation: sk-sweep var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+      calc(var(--sk-web-motion-stagger) * 2 * var(--sk-stage-index, 0) + var(--sk-web-motion-quick))
+      backwards;
+  }
+}
+
+@keyframes sk-sweep {
+  from {
+    transform: scaleX(0);
+  }
+}
 
 /* Phase 2E visual correction — 2026-09-22.
  * The surviving Services_14 image uses the source asset's native 3:2

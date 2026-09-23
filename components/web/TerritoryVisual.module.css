@@ -30,6 +30,11 @@
    every breakpoint from 320px up. */
 .photo {
   object-fit: cover;
+  /* Compact art-direction crop (see ApprovedMedia.compactCrop). Every other
+     transform on a photograph — hover, reveal settle — multiplies this value
+     rather than replacing it, so the crop holds through every state. */
+  transform: scale(var(--sk-crop-scale, 1));
+  transition: transform var(--sk-web-motion-settle) var(--sk-web-motion-ease);
 }
 
 /* --- drawing layers ------------------------------------------------------- */
@@ -153,4 +158,43 @@
   letter-spacing: var(--sk-web-tracking-caps);
   text-transform: uppercase;
   opacity: 0.65;
+}
+
+/* --- Phase 2E: arrival ------------------------------------------------------
+ * Keyed to the nearest RevealOnScroll ancestor (`data-reveal`). Without script
+ * or with reduced motion that attribute never appears, so none of this runs
+ * and the photograph is simply there.
+ *
+ *   every photograph   settles from a slight scale (ambient, 800ms);
+ *   `unveil` frames    also open from the lower edge (500ms).
+ * ------------------------------------------------------------------------ */
+
+:global([data-reveal='shown']) .photo {
+  animation: sk-tv-settle var(--sk-web-motion-settle) var(--sk-web-motion-ease)
+    var(--sk-reveal-delay, 0ms) backwards;
+}
+
+:global([data-reveal='shown']) .unveil {
+  animation: sk-tv-unveil var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+    var(--sk-reveal-delay, 0ms) backwards;
+}
+
+@keyframes sk-tv-settle {
+  from {
+    transform: scale(calc(var(--sk-crop-scale, 1) * var(--sk-web-motion-media-scale)));
+  }
+}
+
+@keyframes sk-tv-unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .unveil {
+    animation: none !important;
+    transition: none;
+  }
 }

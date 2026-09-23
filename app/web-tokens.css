@@ -97,4 +97,32 @@
    */
   --sk-web-shadow-card: 0 18px 50px rgba(11, 26, 38, 0.1);
   --sk-web-shadow-float: 0 24px 70px rgba(11, 26, 38, 0.22);
+
+  /* --- motion — PHASE 2E PROPOSAL (PENDING_APPROVAL) ---------------------
+   * No new motion value is invented here. Every duration is the canonical
+   * `--sk-motion-*` value or an explicit multiple of it, every distance is a
+   * canonical motion or spacing token, and there is exactly one easing curve:
+   * the canonical standard ease. The multiples keep every movement inside
+   * the 150–500ms band set by docs/landing-experience-system.md §6; the one
+   * exception, `settle`, only ever scales an image that is already visible,
+   * so no content waits on it.
+   *
+   * Rationale and rejection criteria: docs/phase-2e-motion-system.md.
+   */
+  --sk-web-motion-ease: var(--sk-motion-ease-standard);
+  /* 150ms — feedback: hover, press, focus, disclosure markers. */
+  --sk-web-motion-quick: var(--sk-motion-duration-fast);
+  /* 400ms — the canonical reveal. */
+  --sk-web-motion-reveal: var(--sk-motion-duration-reveal);
+  /* 500ms — contract ceiling. Hero entrance, media unveil, drawn rules. */
+  --sk-web-motion-unveil: calc(var(--sk-motion-duration-reveal) * 1.25);
+  /* 800ms — ambient image settle only. Never gates legibility. */
+  --sk-web-motion-settle: calc(var(--sk-motion-duration-reveal) * 2);
+  /* 60ms — stagger step, the value RevealOnScroll already used in script. */
+  --sk-web-motion-stagger: calc(var(--sk-motion-duration-fast) * 0.4);
+  --sk-web-motion-distance: var(--sk-motion-distance-reveal);
+  --sk-web-motion-distance-hero: var(--sk-space-24);
+  /* Unitless scale factors for media. Kept small on purpose. */
+  --sk-web-motion-media-scale: 1.06;
+  --sk-web-motion-hover-scale: 1.03;
 }

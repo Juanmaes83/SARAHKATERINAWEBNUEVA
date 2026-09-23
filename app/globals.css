@@ -63,13 +63,20 @@ select {
  * =========================================================================== */
 
 html {
-  /* Mobile-first: no horizontal page scroll at any supported width. */
+  /* Mobile-first: no horizontal page scroll at any supported width.
+     PHASE 2E FIX — `clip`, not `hidden`. With `hidden` on both html and body,
+     body became a scroll container that never scrolls, so every
+     `position: sticky` element (the header) silently stopped sticking. `clip`
+     removes the overflow without creating a scroll container. `hidden` stays
+     as the fallback for browsers without `clip`. */
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100svh;
   overflow-x: hidden;
+  overflow-x: clip;
   background-color: var(--sk-app-background-primary);
   color: var(--sk-app-text-primary);
   font-family: var(--sk-type-body-family);
@@ -159,6 +166,22 @@ a {
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+/* ===========================================================================
+ * IN-PAGE NAVIGATION (Phase 2E)
+ * Anchor jumps glide instead of cutting, and land below the sticky header
+ * rather than under it. Reduced motion keeps the instant jump (below).
+ * =========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+main [id] {
+  scroll-margin-block-start: calc(var(--sk-space-80) + var(--sk-space-16));
 }
 
 /* ===========================================================================

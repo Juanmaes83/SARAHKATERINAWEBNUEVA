@@ -1,0 +1,101 @@
+/* ===========================================================================
+ * First-viewport entrance — Phase 2E motion system.
+ *
+ * The one place a landing is allowed a composed "arrival". It is CSS only, so
+ * it runs from the first paint without waiting for JavaScript, and it can never
+ * leave content hidden: every animation has `backwards` fill and a finite
+ * duration, and reduced motion removes it outright (including the delays,
+ * which the global reduced-motion rule does not neutralise on its own).
+ *
+ * Choreography (docs/phase-2e-motion-system.md §4):
+ *
+ *   copy     children rise in sequence, one stagger step apart, 500ms each.
+ *   media    the photograph's frame opens from its lower edge while the image
+ *            settles; starts two steps in, so the headline leads.
+ *   float    a proof card (snapshot, dashboard, caption) arrives last and
+ *            lands over the media — the moment the composition "locks".
+ *
+ * Total, first paint to rest: ~0.9s. Nothing waits on a scroll position.
+ * =========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  .copy > * {
+    animation: sk-entrance-rise var(--sk-web-motion-unveil) var(--sk-web-motion-ease) backwards;
+  }
+
+  .copy > :nth-child(2) {
+    animation-delay: var(--sk-web-motion-stagger);
+  }
+  .copy > :nth-child(3) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 2);
+  }
+  .copy > :nth-child(4) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 3);
+  }
+  .copy > :nth-child(5) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 4);
+  }
+  .copy > :nth-child(n + 6) {
+    animation-delay: calc(var(--sk-web-motion-stagger) * 5);
+  }
+
+  .media {
+    animation: sk-entrance-unveil var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+      calc(var(--sk-web-motion-stagger) * 2) backwards;
+  }
+
+  .media img {
+    animation: sk-entrance-settle var(--sk-web-motion-settle) var(--sk-web-motion-ease)
+      calc(var(--sk-web-motion-stagger) * 2) backwards;
+  }
+
+  .float {
+    animation: sk-entrance-rise var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+      calc(var(--sk-web-motion-stagger) * 7) backwards;
+  }
+}
+
+@keyframes sk-entrance-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sk-web-motion-distance-hero));
+  }
+}
+
+@keyframes sk-entrance-unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+@keyframes sk-entrance-settle {
+  from {
+    transform: scale(calc(var(--sk-crop-scale, 1) * var(--sk-web-motion-media-scale)));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Depth — scroll-linked, native, no script.
+ *
+ * As the hero leaves the viewport the proof card drifts up a little faster
+ * than the photograph behind it, so the two read as layers rather than one
+ * flat block. It is bound to the hero's own exit (`view()`), never to the
+ * page, so it cannot hold or redirect the scroll. Browsers without
+ * scroll-driven animations simply render the static composition.
+ * ------------------------------------------------------------------------ */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .depthFront {
+      animation: sk-depth-front linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+  }
+}
+
+@keyframes sk-depth-front {
+  to {
+    transform: translateY(calc(-1 * var(--sk-space-48)));
+  }
+}

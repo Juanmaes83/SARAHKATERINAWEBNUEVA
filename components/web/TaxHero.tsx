@@ -8,6 +8,8 @@ import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/tax-advisory';
 import { isPublishable } from '@/lib/content/claims';
 import shared from './WebHero.module.css';
+import entrance from '@/components/motion/Entrance.module.css';
+import { cn } from '@/lib/utils/cn';
 import styles from './TaxBands.module.css';
 
 /**
@@ -29,7 +31,7 @@ export function TaxHero() {
   return (
     <section className={shared.hero} id="top">
       <Container className={shared.grid}>
-        <RevealOnScroll className={shared.copy}>
+        <RevealOnScroll className={cn(shared.copy, entrance.copy)}>
           <p className={shared.eyebrow}>{hero.eyebrow.text}</p>
 
           {/* The single h1 of the page. */}
@@ -82,7 +84,7 @@ export function TaxHero() {
                 </span>
               </div>
 
-              <div className={`${shared.frame} ${styles.singleHeroFrame}`}>
+              <div className={cn(shared.frame, styles.singleHeroFrame, entrance.media)}>
                 {/*
                   The approved image already contains its own tax-agency copy
                   and visual labels. Keep one information layer: do not overlay
@@ -101,7 +103,7 @@ export function TaxHero() {
               </div>
             </div>
 
-            <div className={`${shared.dashboard} ${styles.detachedDashboard}`}>
+            <div className={cn(shared.dashboard, styles.detachedDashboard, entrance.float)}>
               <TaxSnapshotCard />
             </div>
           </figure>

@@ -1,15 +1,22 @@
-/* Persistent, non-dismissible status banner.
+/* Non-dismissible status banner.
    The prototype status is not a footnote: it must be visible wherever the
-   reader enters the page and wherever they stop scrolling. */
+   reader enters the page.
+
+   PHASE 2E — it now scrolls away with the page, as it always did in practice:
+   the global `overflow-x: hidden` kept every sticky element from sticking, so
+   every approved capture shows it scrolling. With that fixed, a sticky banner
+   would stack under the sticky header — up to ~240px of chrome on a phone.
+   The persistent preview signal while scrolling is the footer's
+   "Preview · Noindex" badge plus the noindex headers. Whether the banner
+   should persist is recorded as a human decision in
+   docs/phase-2e-premium-experience.md. */
 
 .banner {
-  position: sticky;
-  inset-block-start: 0;
+  position: relative;
   z-index: var(--sk-app-z-sticky);
   background-color: var(--sk-web-navy);
   color: var(--sk-web-on-dark);
-  border-block-end: var(--sk-border-accent-width) var(--sk-border-standard-style)
-    var(--sk-web-gold);
+  border-block-end: var(--sk-border-accent-width) var(--sk-border-standard-style) var(--sk-web-gold);
 }
 
 .inner {

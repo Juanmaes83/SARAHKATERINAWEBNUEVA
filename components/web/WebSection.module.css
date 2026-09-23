@@ -132,3 +132,35 @@
 .navySoft .rule {
   background-color: var(--sk-web-gold-on-dark);
 }
+
+/* --- Phase 2E: the gold thread ----------------------------------------------
+ * The short rule under a section title draws itself once the title has
+ * arrived — the smallest instance of the thread that runs through the header
+ * progress line and the process timelines. Keyed to the header's own
+ * RevealOnScroll state, so it is inert without script or with reduced motion.
+ * ------------------------------------------------------------------------ */
+
+.rule {
+  transform-origin: left center;
+}
+
+.centered .rule {
+  transform-origin: center;
+}
+
+.header[data-reveal='shown'] .rule {
+  animation: sk-rule-draw var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+    calc(var(--sk-reveal-delay, 0ms) + var(--sk-web-motion-reveal) * 0.5) backwards;
+}
+
+@keyframes sk-rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header .rule {
+    animation: none;
+  }
+}

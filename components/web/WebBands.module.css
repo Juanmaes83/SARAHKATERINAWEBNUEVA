@@ -46,7 +46,10 @@
   gap: var(--sk-space-24);
 }
 
-@media (min-width: 375px) {
+/* Two columns once each entry can hold its label on one or two lines. At
+   375px two columns broke "International buyers" and its note into a narrow
+   stack of single words. */
+@media (min-width: 600px) {
   .trustGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -142,9 +145,21 @@
   color: var(--sk-web-muted-on-dark);
 }
 
-.stack16 { display: flex; flex-direction: column; gap: var(--sk-space-16); }
-.stack24 { display: flex; flex-direction: column; gap: var(--sk-space-24); }
-.stack32 { display: flex; flex-direction: column; gap: var(--sk-space-32); }
+.stack16 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+.stack24 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+}
+.stack32 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-32);
+}
 
 /* --- objections ----------------------------------------------------------- */
 
@@ -227,19 +242,44 @@
 
 /* --- cards ---------------------------------------------------------------- */
 
-.grid2 { display: grid; grid-template-columns: 1fr; gap: var(--sk-space-24); }
-.grid3 { display: grid; grid-template-columns: 1fr; gap: var(--sk-space-24); }
-.grid4 { display: grid; grid-template-columns: 1fr; gap: var(--sk-space-24); }
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-24);
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-24);
+}
+.grid4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sk-space-24);
+}
 
 @media (min-width: 768px) {
-  .grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sk-space-32); }
-  .grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+  .grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1024px) {
-  .grid3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sk-space-32); }
-  .grid4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sk-space-24); }
+  .grid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+  .grid4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sk-space-24);
+  }
 }
 
 /* A card that leads with a visual, as every card in the template does. */
@@ -263,9 +303,25 @@
   transform: translateY(-2px);
 }
 
+/* The photograph leans in a little under the pointer, inside its frame. It
+   multiplies the compact crop, so a hidden lockup never slides back in. */
+.mediaCard:hover [data-media-photo] {
+  transform: scale(calc(var(--sk-crop-scale, 1) * var(--sk-web-motion-hover-scale)));
+}
+
+/* Keyboard parity: a focused action inside the card gets the same feedback. */
+.mediaCard:focus-within {
+  border-color: var(--sk-web-gold);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .mediaCard:hover {
     transform: none;
+  }
+
+  .mediaCard:hover [data-media-photo] {
+    transform: scale(var(--sk-crop-scale, 1));
   }
 }
 
@@ -406,8 +462,9 @@
 
 @media (min-width: 1024px) {
   .timeline {
+    --sk-timeline-gap: var(--sk-space-24);
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: var(--sk-space-24);
+    gap: var(--sk-timeline-gap);
   }
 }
 
@@ -419,19 +476,63 @@
   padding-block-start: var(--sk-space-48);
 }
 
-/* Progress rule, drawn behind the numbers on desktop. */
+/* Progress rule, drawn behind the numbers on desktop.
+ *
+ * PHASE 2E — "the gold thread". Each segment now runs on through the column
+ * gap to the next step, so the method reads as one continuous line, and it is
+ * gold rather than border-grey: the same thread that draws under every section
+ * title and along the header while the page is read. When the step arrives it
+ * draws left to right, one step after another (`--sk-stage-index`), and the
+ * numeral lands as its segment reaches it. Nothing waits on it: the step's
+ * text is already there.
+ */
 @media (min-width: 1024px) {
   .step::before {
     content: '';
     position: absolute;
     inset-block-start: var(--sk-space-16);
-    inset-inline: 0;
+    inset-inline: 0 calc(-1 * var(--sk-timeline-gap, var(--sk-space-24)));
     height: 2px;
-    background-color: var(--sk-web-border);
+    background-color: var(--sk-web-gold);
+    opacity: 0.45;
+    transform-origin: left center;
   }
 
-  .step:first-child::before { inset-inline-start: 50%; }
-  .step:last-child::before { inset-inline-end: 50%; }
+  .step:first-child::before {
+    inset-inline-start: 50%;
+  }
+  .step:last-child::before {
+    inset-inline-end: 50%;
+  }
+
+  .step[data-reveal='pending']::before {
+    transform: scaleX(0);
+  }
+
+  .step[data-reveal='shown']::before {
+    animation: sk-thread var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+      calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0)) backwards;
+  }
+}
+
+.step[data-reveal='shown'] .stepNumber {
+  animation: sk-land var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0)) backwards;
+}
+
+@keyframes sk-thread {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* `scale`, not `transform`, so it composes with the numeral's centring
+   translate instead of replacing it mid-animation. */
+@keyframes sk-land {
+  from {
+    scale: 0.6;
+    opacity: 0;
+  }
 }
 
 .stepNumber {
@@ -470,6 +571,11 @@
   .stepNumber,
   .step:hover .stepNumber {
     transition: none;
+  }
+
+  .step::before,
+  .step .stepNumber {
+    animation: none !important;
   }
 }
 
@@ -752,9 +858,15 @@
   border-radius: var(--sk-radius-button);
 }
 
-.legendOptimistic { background-color: var(--sk-web-gold); }
-.legendBase { background-color: var(--sk-web-ink); }
-.legendPessimistic { background-color: var(--sk-web-muted); }
+.legendOptimistic {
+  background-color: var(--sk-web-gold);
+}
+.legendBase {
+  background-color: var(--sk-web-ink);
+}
+.legendPessimistic {
+  background-color: var(--sk-web-muted);
+}
 
 .scenarioList {
   display: grid;
@@ -818,7 +930,7 @@
 .portraitFrame {
   position: relative;
   overflow: hidden;
-  min-height: clamp(360px, 42vw, 620px);
+  min-height: clamp(calc(var(--sk-space-80) * 4.5), 42vw, calc(var(--sk-space-80) * 8));
   border-radius: 0;
   background-color: var(--sk-web-navy);
 }
@@ -872,8 +984,7 @@
   /* Filled rather than outlined: on the navy band the hairline border left the
      icons floating with too little separation from the ground. */
   background-color: var(--sk-web-navy);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
-    var(--sk-web-gold-on-dark);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold-on-dark);
   color: var(--sk-web-gold-on-dark);
 }
 
@@ -1049,8 +1160,7 @@
   border-radius: var(--sk-radius-card);
   border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
   background-color: var(--sk-web-white);
-  transition: border-color var(--sk-motion-interaction-duration)
-    var(--sk-motion-interaction-ease);
+  transition: border-color var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
 }
 
 .chainItem:hover {

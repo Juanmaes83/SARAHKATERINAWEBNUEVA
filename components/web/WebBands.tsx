@@ -101,6 +101,7 @@ export function ApproachBand() {
             tone="navy"
             media={APPROVED_MEDIA.processAnalysis}
             sizes="(max-width: 1023px) 100vw, 40vw"
+            unveil
           />
           <p className={styles.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {approach.territoryScript.text}
@@ -118,9 +119,7 @@ export function ApproachBand() {
           >
             <Icon name={objection.icon as IconName} className={styles.objectionIcon} />
             <div>
-              <span className={styles.objectionIndex}>
-                {String(index + 1).padStart(2, '0')}
-              </span>
+              <span className={styles.objectionIndex}>{String(index + 1).padStart(2, '0')}</span>
               <h3 className={styles.objectionTitle}>{objection.title.text}</h3>
               <p className={styles.cardText}>{objection.body.text}</p>
             </div>
@@ -240,7 +239,13 @@ export function ProcessBand() {
       <WebSectionHeader eyebrow={process.eyebrow.text} title={process.title.text} centered rule />
       <ol className={styles.timeline}>
         {process.steps.map((step, index) => (
-          <RevealOnScroll key={step.id} as="li" order={index} className={styles.step}>
+          <RevealOnScroll
+            key={step.id}
+            as="li"
+            order={index}
+            className={styles.step}
+            style={{ ['--sk-stage-index' as string]: index }}
+          >
             <span className={styles.stepNumber} aria-hidden="true">
               {index + 1}
             </span>
@@ -391,11 +396,7 @@ export function ScenariosBand() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1} className={styles.stack24}>
-          <WebSectionHeader
-            eyebrow={scenarios.eyebrow.text}
-            title={scenarios.title.text}
-            rule
-          />
+          <WebSectionHeader eyebrow={scenarios.eyebrow.text} title={scenarios.title.text} rule />
           <p className={styles.bodyText}>{scenarios.body.text}</p>
 
           <ul className={styles.scenarioList}>
@@ -425,7 +426,7 @@ export function AuthorityBand() {
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
-        <RevealOnScroll>
+        <RevealOnScroll variant="unveil">
           <div className={styles.portraitFrame}>
             {/*
               Approved 2026-09-22: `IMAGES/sarahkaterina_home.png`, the only
@@ -593,11 +594,7 @@ export function JourneyBand() {
       <ol className={styles.chain}>
         {journey.steps.map((step, index) => (
           <Fragment key={step.title.text}>
-            <RevealOnScroll
-              as="li"
-              order={index}
-              className={styles.chainItem}
-            >
+            <RevealOnScroll as="li" order={index} className={styles.chainItem}>
               <span className={styles.chainIcon}>
                 <Icon name={step.icon} />
               </span>
@@ -652,8 +649,12 @@ export function FinalCtaBand() {
             tone="navy"
             media={APPROVED_MEDIA.territoryContact}
             sizes="(max-width: 1023px) 100vw, 40vw"
+            unveil
           />
-          <p className={`${styles.script} ${styles.scriptOnDark}`} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
+          <p
+            className={`${styles.script} ${styles.scriptOnDark}`}
+            style={{ marginBlockStart: 'var(--sk-space-16)' }}
+          >
             {finalCta.script.text}
           </p>
         </RevealOnScroll>

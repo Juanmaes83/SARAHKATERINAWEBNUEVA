@@ -55,13 +55,15 @@
   transition: transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
 }
 
-.button:hover .arrow {
+.button:hover .arrow,
+.button:focus-visible .arrow {
   transform: translateX(var(--sk-space-4));
 }
 
 @media (prefers-reduced-motion: reduce) {
   .arrow,
-  .button:hover .arrow {
+  .button:hover .arrow,
+  .button:focus-visible .arrow {
     transition: none;
     transform: none;
   }

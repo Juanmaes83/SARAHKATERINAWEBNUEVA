@@ -47,6 +47,21 @@ export interface ApprovedMedia {
   readonly embeddedText?: string;
   /** Anything a reviewer needs to know before this ships anywhere. */
   readonly note?: string;
+  /**
+   * PHASE 2E ART DIRECTION — the frame used in compact slots (cards, report
+   * thumbnails, split-section media).
+   *
+   * Several images carry a baked-in lockup along their lower edge. At card
+   * size it was cut in half by the slot ("arah", "Katerin…") or sat under the
+   * card's icon chip, which reads as a cropping error and repeats the brand
+   * the header already carries. A compact crop enlarges the image from a
+   * fixed origin just enough that the lockup leaves the frame entirely. The
+   * rule is binary: a lockup is either shown whole or not at all.
+   *
+   * `scale` is applied as a CSS transform; `origin` is its transform-origin.
+   * Originals are untouched; this is presentation only.
+   */
+  readonly compactCrop?: { readonly scale: number; readonly origin: string };
 }
 
 function media(entry: ApprovedMedia): ApprovedMedia {
@@ -134,6 +149,7 @@ export const APPROVED_MEDIA = {
     source: 'IMAGES/sarahkaterina_Services 8.png',
     embeddedText: EMBEDDED_LOCKUP,
     note: 'CROPPED. The original carries an "ARCHITECTURAL DIGEST" masthead across the top. That is a real publication, and showing it would imply a feature that does not exist, so the top 17.5% is removed. See docs/phase-2e-media-implementation.md §3.',
+    compactCrop: { scale: 1.3, origin: '50% 0%' },
   }),
 
   assetArchitecture: media({
@@ -145,6 +161,7 @@ export const APPROVED_MEDIA = {
     focal: '50% 45%',
     source: 'IMAGES/sarahkaterina_Services_9.png',
     embeddedText: EMBEDDED_LOCKUP,
+    compactCrop: { scale: 1.3, origin: '50% 0%' },
   }),
 
   assetPlan: media({
@@ -156,6 +173,7 @@ export const APPROVED_MEDIA = {
     focal: '55% 45%',
     source: 'IMAGES/sarahkaterina_Services_10.png',
     embeddedText: EMBEDDED_LOCKUP,
+    compactCrop: { scale: 1.55, origin: '80% 0%' },
   }),
 
   /* --- territory / CTA --------------------------------------------------- */
@@ -217,6 +235,9 @@ export const APPROVED_MEDIA = {
     alt: 'A warm living room with a wall-mounted screen showing a website layout, looking out to the sea.',
     focal: '45% 45%',
     source: 'IMAGES/sarahkaterina_services_2.png',
+    embeddedText:
+      'On-screen mock website: the brand name followed by a "Group" suffix, a phone number, a twenty-years-in-the-tax-administration line and "160+ foreign buyers trusted us since 2024". Book spines read KINFOLK and CHANEL; a shelf label reads VUITTON.',
+    note: 'PHASE 2E AUDIT — BLOCKER BEFORE PRODUCTION. The baked-in screen asserts an unverified client metric, an unconfirmed phone number and the "Group" naming held by D-06, and the room shows third-party brand names. Illegible at the sizes used in Preview, but still published pixels. Needs a retouched derivative or a replacement; owner decision.',
   }),
 
   reportInterior: media({
@@ -228,6 +249,7 @@ export const APPROVED_MEDIA = {
     focal: '50% 45%',
     source: 'IMAGES/sarahkaterina_contacto_2.png',
     embeddedText: EMBEDDED_LOCKUP,
+    compactCrop: { scale: 1.4, origin: '50% 0%' },
   }),
 
   processModel: media({
@@ -252,10 +274,24 @@ export type ApprovedMediaKey = keyof typeof APPROVED_MEDIA;
  * carried forward.
  */
 export const PENDING_MEDIA_SLOTS = [
-  { slot: 'Investment · decision doors', reason: 'No approved image per door; the inventory lists Services 8/9 as an alternative, not a selection.' },
-  { slot: 'Investment · cases', reason: 'Case imagery is blocked until permissions and evidence exist.' },
-  { slot: 'Tax Advisory · problem/context', reason: 'LifeStyle_5 is Group B, not in the approved 1–8 block.' },
+  {
+    slot: 'Investment · decision doors',
+    reason:
+      'No approved image per door; the inventory lists Services 8/9 as an alternative, not a selection.',
+  },
+  {
+    slot: 'Investment · cases',
+    reason: 'Case imagery is blocked until permissions and evidence exist.',
+  },
+  {
+    slot: 'Tax Advisory · problem/context',
+    reason: 'LifeStyle_5 is Group B, not in the approved 1–8 block.',
+  },
   { slot: 'Property Purchase · cases', reason: 'Same permission block as Investment.' },
-  { slot: 'All landings · hero video', reason: 'No video exists in the repository. Slots keep the same aspect ratio so a video can drop in later without structural change.' },
+  {
+    slot: 'All landings · hero video',
+    reason:
+      'No video exists in the repository. Slots keep the same aspect ratio so a video can drop in later without structural change.',
+  },
   { slot: 'All landings · Open Graph image', reason: 'Requires an approved composition.' },
 ] as const;

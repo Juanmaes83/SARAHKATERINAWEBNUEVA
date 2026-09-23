@@ -121,6 +121,7 @@ export function TaxContextBand() {
             tone="navy"
             media={APPROVED_MEDIA.processPresentation}
             sizes="(max-width: 1023px) 100vw, 40vw"
+            unveil
           />
           <p className={shared.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {context.script.text}
@@ -162,7 +163,14 @@ export function TaxCalendarBand() {
       <WebSectionHeader eyebrow={calendar.eyebrow.text} title={calendar.title.text} centered rule />
 
       <div className={styles.calendarLayout}>
-        <RevealOnScroll className={styles.calendarChart}>
+        {/*
+          PHASE 2E — Tax Advisory's signature moment. The chart arrives without
+          any lift (`fade`: precision, not flourish), then each obligation's
+          bar sweeps along the month axis, row after row, so the year visibly
+          "falls into order". Positions are the same illustrative ones as
+          before; no date or period is stated or animated.
+        */}
+        <RevealOnScroll variant="fade" className={styles.calendarChart}>
           <div className={styles.months} aria-hidden="true">
             <span />
             {calendar.months.map((month, index) => (
@@ -173,8 +181,12 @@ export function TaxCalendarBand() {
           </div>
 
           <ul className={styles.calendarRows}>
-            {calendar.rows.map((row) => (
-              <li key={row.id} className={styles.calendarRow}>
+            {calendar.rows.map((row, rowIndex) => (
+              <li
+                key={row.id}
+                className={styles.calendarRow}
+                style={{ ['--sk-stage-index' as string]: rowIndex }}
+              >
                 <span className={styles.calendarLabel}>{row.label.text}</span>
                 <span className={styles.track}>
                   <span
@@ -195,7 +207,13 @@ export function TaxCalendarBand() {
         </RevealOnScroll>
 
         <RevealOnScroll order={1} className={styles.calendarAside}>
-          <span className={shared.cardIcon}>
+          {/*
+            PHASE 2E FIX — this chip used `cardIcon`, which is absolutely
+            positioned for media cards. The aside is not positioned, so the
+            chip escaped to the page's top-left corner and, on phones, sat on
+            top of the hero's third credential. It is now an in-flow chip.
+          */}
+          <span className={shared.toolIcon}>
             <Icon name="clock" />
           </span>
           <p className={shared.cardEyebrow}>{calendar.aside.eyebrow.text}</p>
@@ -219,7 +237,13 @@ export function TaxProcessBand() {
       <WebSectionHeader eyebrow={process.eyebrow.text} title={process.title.text} centered rule />
       <ol className={`${shared.timeline} ${styles.timelineSix}`}>
         {process.steps.map((step, index) => (
-          <RevealOnScroll key={step.id} as="li" order={index} className={shared.step}>
+          <RevealOnScroll
+            key={step.id}
+            as="li"
+            order={index}
+            className={shared.step}
+            style={{ ['--sk-stage-index' as string]: index % 3 }}
+          >
             <span className={shared.stepNumber} aria-hidden="true">
               {index + 1}
             </span>
@@ -255,7 +279,7 @@ export function TaxReportBand() {
         rule
       />
 
-      <div className={shared.reportLayout}>
+      <div className={`${shared.reportLayout} ${styles.reportLayoutFour}`}>
         {/* Panel 1 — the exposure summary the template leads with. */}
         <RevealOnScroll className={shared.reportCard}>
           <div className={shared.reportCardHead}>
@@ -356,6 +380,7 @@ export function TaxConcernsBand() {
             tone="navy"
             media={APPROVED_MEDIA.processAnalysis}
             sizes="(max-width: 1023px) 100vw, 40vw"
+            unveil
           />
           <p className={shared.script} style={{ marginBlockStart: 'var(--sk-space-16)' }}>
             {concerns.script.text}
@@ -454,7 +479,7 @@ export function TaxAuthorityBand() {
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={shared.authorityGrid}>
-        <RevealOnScroll>
+        <RevealOnScroll variant="unveil">
           <div className={shared.portraitFrame}>
             {/* Owner-selected editorial authority image — Preview only. */}
             <Image
@@ -637,6 +662,7 @@ export function TaxFinalCtaBand() {
             tone="navy"
             media={APPROVED_MEDIA.territoryContact}
             sizes="(max-width: 1023px) 100vw, 40vw"
+            unveil
           />
           <p
             className={`${shared.script} ${shared.scriptOnDark}`}

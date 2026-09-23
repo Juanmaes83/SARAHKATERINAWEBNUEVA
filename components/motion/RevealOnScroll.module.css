@@ -1,22 +1,80 @@
-/* Canonical motion tokens only: 400ms reveal, standard easing, 10px distance. */
-
-.reveal {
-  transition:
-    opacity var(--sk-motion-reveal-duration) var(--sk-motion-reveal-ease),
-    transform var(--sk-motion-reveal-duration) var(--sk-motion-reveal-ease);
-}
+/* ===========================================================================
+ * Scroll reveal — Phase 2E motion system.
+ *
+ * Tokens only: --sk-web-motion-* (app/web-tokens.css), each derived from the
+ * canonical --sk-motion-* layer. See docs/phase-2e-motion-system.md.
+ *
+ * Every arrival is a one-shot animation with `backwards` fill: the from-state
+ * holds during the stagger delay, and once the animation ends the element
+ * returns to its own styles, so a card's hover lift or a component's own
+ * transition is never overridden.
+ * =========================================================================== */
 
 /* Applied only once JavaScript has confirmed it can also remove it. */
 .hidden {
   opacity: 0;
-  transform: translateY(var(--sk-motion-reveal-distance));
+}
+
+/* `none` reports state to its children but never hides itself. */
+.none.hidden {
+  opacity: 1;
+}
+
+.play.rise {
+  animation: sk-rise var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    var(--sk-reveal-delay, 0ms) backwards;
+}
+
+.play.fade {
+  animation: sk-fade var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    var(--sk-reveal-delay, 0ms) backwards;
+}
+
+/* The frame opens from its lower edge; the photograph inside settles from a
+   slight scale. The image is legible the moment the frame opens — the settle
+   is ambient and never gates reading. */
+.play.unveil {
+  animation: sk-unveil var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+    var(--sk-reveal-delay, 0ms) backwards;
+}
+
+.play.unveil img {
+  animation: sk-settle var(--sk-web-motion-settle) var(--sk-web-motion-ease)
+    var(--sk-reveal-delay, 0ms) backwards;
+}
+
+@keyframes sk-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sk-web-motion-distance));
+  }
+}
+
+@keyframes sk-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes sk-unveil {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+@keyframes sk-settle {
+  from {
+    transform: scale(calc(var(--sk-crop-scale, 1) * var(--sk-web-motion-media-scale)));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
   .hidden {
     opacity: 1;
-    transform: none;
-    transition: none;
+  }
+
+  .play,
+  .play img {
+    animation: none;
   }
 }
