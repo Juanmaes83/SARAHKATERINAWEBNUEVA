@@ -139,7 +139,7 @@ describe('common grade', () => {
       images: { id: string; kb: number }[];
     };
     expect(manifest.grade.name).toBe('sk-editorial-v1');
-    expect(manifest.images.length).toBe(14);
+    expect(manifest.images.length).toBe(20);
     expect(manifest.images.filter((image) => image.kb > 250)).toEqual([]);
     // Reads web derivatives only; the originals are never an input.
     expect(code(read('scripts/grade-media.mjs'))).not.toMatch(/IMAGES\//);

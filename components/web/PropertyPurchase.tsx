@@ -214,7 +214,9 @@ export function AudienceBand() {
             <PlaceholderMedia
               label={audience.mediaLabel.text}
               variant="built"
-              media={APPROVED_MEDIA.assetResidential}
+              // PHASE 2E (2026-10-23): an editorial advisory scene replaces the
+              // half-drawn kitchen — this band is about buyer-side guidance.
+              media={APPROVED_MEDIA.advisorClientOne}
               sizes="(max-width: 1023px) 100vw, 40vw"
               unveil
             />

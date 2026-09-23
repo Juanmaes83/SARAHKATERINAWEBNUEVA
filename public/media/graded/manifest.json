@@ -296,6 +296,126 @@
         136,
         119
       ]
+    },
+    {
+      "id": "property-in-mind",
+      "input": "public/media/property-in-mind.webp",
+      "output": "public/media/graded/property-in-mind.webp",
+      "size": "1200x800",
+      "kb": 230,
+      "warmthBefore": 1.144,
+      "warmthAfter": 1.147,
+      "temperatureGain": 0.9903,
+      "meanBefore": [
+        109,
+        107,
+        95
+      ],
+      "meanAfter": [
+        107,
+        106,
+        93
+      ]
+    },
+    {
+      "id": "investment-opportunities",
+      "input": "public/media/investment-opportunities.webp",
+      "output": "public/media/graded/investment-opportunities.webp",
+      "size": "1280x853",
+      "kb": 199,
+      "warmthBefore": 1.128,
+      "warmthAfter": 1.142,
+      "temperatureGain": 0.9937,
+      "meanBefore": [
+        137,
+        132,
+        121
+      ],
+      "meanAfter": [
+        136,
+        130,
+        119
+      ]
+    },
+    {
+      "id": "asset-land",
+      "input": "public/media/asset-land.webp",
+      "output": "public/media/graded/asset-land.webp",
+      "size": "1280x720",
+      "kb": 239,
+      "warmthBefore": 1.024,
+      "warmthAfter": 1.085,
+      "temperatureGain": 1.018,
+      "meanBefore": [
+        123,
+        123,
+        120
+      ],
+      "meanAfter": [
+        125,
+        122,
+        115
+      ]
+    },
+    {
+      "id": "asset-commercial",
+      "input": "public/media/asset-commercial.webp",
+      "output": "public/media/graded/asset-commercial.webp",
+      "size": "1280x720",
+      "kb": 169,
+      "warmthBefore": 1.377,
+      "warmthAfter": 1.259,
+      "temperatureGain": 0.9453,
+      "meanBefore": [
+        150,
+        131,
+        109
+      ],
+      "meanAfter": [
+        141,
+        130,
+        112
+      ]
+    },
+    {
+      "id": "advisor-client-one",
+      "input": "public/media/advisor-client-one.webp",
+      "output": "public/media/graded/advisor-client-one.webp",
+      "size": "1536x1024",
+      "kb": 85,
+      "warmthBefore": 1.312,
+      "warmthAfter": 1.228,
+      "temperatureGain": 0.9569,
+      "meanBefore": [
+        151,
+        131,
+        115
+      ],
+      "meanAfter": [
+        144,
+        129,
+        117
+      ]
+    },
+    {
+      "id": "advisor-client-two",
+      "input": "public/media/advisor-client-two.webp",
+      "output": "public/media/graded/advisor-client-two.webp",
+      "size": "1672x941",
+      "kb": 107,
+      "warmthBefore": 1.199,
+      "warmthAfter": 1.174,
+      "temperatureGain": 0.9788,
+      "meanBefore": [
+        148,
+        131,
+        124
+      ],
+      "meanAfter": [
+        144,
+        130,
+        123
+      ]
     }
   ]
 }

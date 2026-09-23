@@ -124,5 +124,63 @@
     "cropped": false,
     "originalKB": 6988,
     "webKB": 6988
+  },
+  {
+    "id": "property-in-mind",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Property in mind.png",
+    "original": "1536x1024",
+    "web": "1200x800",
+    "cropped": false,
+    "originalKB": 3231,
+    "webKB": 234,
+    "note": "Resized to 1200px wide: largest rendering is ~384 CSS px (~770 px at 2x); keeps the graded file under the 250 KB budget."
+  },
+  {
+    "id": "investment-opportunities",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Opportunities.png",
+    "original": "1536x1024",
+    "web": "1280x853",
+    "cropped": false,
+    "originalKB": 2906,
+    "webKB": 206,
+    "note": "Resized to 1280px wide: largest rendering is ~384 CSS px (~770 px at 2x); keeps the graded file under the 250 KB budget."
+  },
+  {
+    "id": "asset-land",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Land.png",
+    "original": "1672x941",
+    "web": "1280x720",
+    "cropped": false,
+    "originalKB": 3082,
+    "webKB": 242,
+    "note": "Resized to 1280px wide: largest rendering is ~384 CSS px (~770 px at 2x); keeps the graded file under the 250 KB budget."
+  },
+  {
+    "id": "asset-commercial",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Commercial.png",
+    "original": "1672x941",
+    "web": "1280x720",
+    "cropped": false,
+    "originalKB": 2649,
+    "webKB": 177,
+    "note": "Resized to 1280px wide: largest rendering is ~384 CSS px (~770 px at 2x); keeps the graded file under the 250 KB budget."
+  },
+  {
+    "id": "advisor-client-one",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 1.png",
+    "original": "1536x1024",
+    "web": "1536x1024",
+    "cropped": false,
+    "originalKB": 1952,
+    "webKB": 94
+  },
+  {
+    "id": "advisor-client-two",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 2.png",
+    "original": "1672x941",
+    "web": "1672x941",
+    "cropped": false,
+    "originalKB": 1987,
+    "webKB": 117
   }
 ]

@@ -32,13 +32,16 @@ import styles from './WebBands.module.css';
 /**
  * PHASE 2E — approved imagery per asset card.
  *
- * `land` and `commercial` are absent on purpose: no image in the approved 1–8
- * block depicts a plot or a commercial asset, and borrowing a residential
- * photograph for them would misrepresent the category. Those cards keep the
- * schematic and are listed in `PENDING_MEDIA_SLOTS`.
+ * All four categories now have their own photograph. Land and Commercial were
+ * schematic until the owner supplied category-specific images on 2026-10-23
+ * (`IMAGES/MEJORAS 23 OCTUBRE/Land.png`, `Commercial.png`); a residential
+ * photograph was never borrowed for them. Any card without an entry here
+ * still falls back to the schematic.
  */
 const ASSET_MEDIA: Partial<Record<string, ApprovedMedia>> = {
   residential: APPROVED_MEDIA.assetResidential,
+  land: APPROVED_MEDIA.assetLand,
+  commercial: APPROVED_MEDIA.assetCommercial,
   redevelopment: APPROVED_MEDIA.assetArchitecture,
 };
 
@@ -106,8 +109,9 @@ export function ApproachBand() {
             variant="coast"
             label={approach.territoryLabel.text}
             tone="navy"
-            media={APPROVED_MEDIA.processAnalysis}
+            media={APPROVED_MEDIA.advisorClientTwo}
             sizes="(max-width: 1023px) 100vw, 30vw"
+            ratio="16 / 9"
             unveil
           />
           <p className={styles.script}>{approach.territoryScript.text}</p>
@@ -138,14 +142,15 @@ export function ApproachBand() {
 /* --- DECISION DOORS -------------------------------------------------------- */
 
 /**
- * PHASE 2E — approved photographs for the two primary doors (brief §4).
- * "I have a property in mind" shows one property read as a plan; "I want to
- * see opportunities" shows a finished interior. Both use their compact crop,
- * so no baked-in lockup is cut.
+ * PHASE 2E — a photograph made for each primary door (owner-supplied
+ * 2026-10-23). "I have a property in mind": someone walking up to one
+ * particular building. "I want to see opportunities": someone looking out over
+ * a whole town. From 1280px the image sits in a narrow column beside the text,
+ * so each entry carries a `compactFocal` that keeps the person in frame.
  */
 const DOOR_MEDIA: Partial<Record<string, ApprovedMedia>> = {
-  'have-property': APPROVED_MEDIA.assetPlan,
-  opportunities: APPROVED_MEDIA.reportInterior,
+  'have-property': APPROVED_MEDIA.propertyInMind,
+  opportunities: APPROVED_MEDIA.investmentOpportunities,
 };
 
 export function DoorsBand() {
@@ -245,10 +250,9 @@ export function AssetTypesBand() {
           >
             <div className={styles.mediaCardMedia}>
               {/*
-                PHASE 2E — approved property imagery (inventory §11, item 2).
-                Only Residential and Redevelopment are filled: no approved
-                image depicts land or a commercial asset, so those two cards
-                keep the schematic rather than borrow a misleading photograph.
+                PHASE 2E — one category-specific photograph per card (see
+                ASSET_MEDIA). The schematic remains the fallback for any
+                card without an approved image.
               */}
               <TerritoryVisual
                 variant={item.visual}

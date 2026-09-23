@@ -35,7 +35,8 @@ describe('approved media registry', () => {
   it('registers only images approved in the Phase 2E inventory', () => {
     // 12 from the Phase 2E approval, plus the shared authority image
     // and the Property Purchase final CTA image.
-    expect(entries.length).toBe(14);
+    // + six owner-supplied October 2026 images (tests/october-media.test.ts).
+    expect(entries.length).toBe(20);
   });
 
   it('uses the exact approved shared authority image on all three landings', () => {
