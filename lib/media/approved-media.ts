@@ -62,6 +62,14 @@ export interface ApprovedMedia {
    * Originals are untouched; this is presentation only.
    */
   readonly compactCrop?: { readonly scale: number; readonly origin: string };
+  /**
+   * PHASE 2E COMMON GRADE (brief 2026-10-23, §9). `src` now serves the graded
+   * derivative produced by `scripts/grade-media.mjs`; this is the ungraded web
+   * derivative it was made from, kept in place and untouched.
+   */
+  readonly ungradedSrc?: string;
+  /** Name of the grade applied to `src`, e.g. `sk-editorial-v1`. */
+  readonly grade?: string;
 }
 
 function media(entry: ApprovedMedia): ApprovedMedia {
@@ -82,7 +90,9 @@ export const APPROVED_MEDIA = {
 
   investmentHero: media({
     id: 'investment-hero',
-    src: '/media/investment-hero.webp',
+    src: '/media/graded/investment-hero.webp',
+    ungradedSrc: '/media/investment-hero.webp',
+    grade: 'sk-editorial-v1',
     width: 1536,
     height: 1024,
     alt: 'Sarah Katerina standing in a dark panelled interior beside a large screen showing an interior visualisation.',
@@ -96,9 +106,11 @@ export const APPROVED_MEDIA = {
 
   taxHero: media({
     id: 'tax-hero',
-    src: '/media/tax-services-14.png',
-    width: 1376,
-    height: 768,
+    src: '/media/graded/tax-hero.webp',
+    ungradedSrc: '/media/tax-services-14.png',
+    grade: 'sk-editorial-v1',
+    width: 1536,
+    height: 1024,
     alt: 'A warm editorial scene featuring Sarah Katerina in a dark interior, framed with brand and service imagery.',
     focal: '50% 50%',
     source: 'IMAGES/sarahkaterina_Services_14.png',
@@ -108,7 +120,9 @@ export const APPROVED_MEDIA = {
 
   purchaseHero: media({
     id: 'purchase-hero',
-    src: '/media/purchase-hero.webp',
+    src: '/media/graded/purchase-hero.webp',
+    ungradedSrc: '/media/purchase-hero.webp',
+    grade: 'sk-editorial-v1',
     width: 1376,
     height: 768,
     alt: 'Sarah Katerina handing a set of keys to another person in a bright apartment overlooking the sea.',
@@ -127,9 +141,11 @@ export const APPROVED_MEDIA = {
    */
   authorityEditorial: media({
     id: 'authority-editorial',
-    src: '/media/authority-editorial.png',
-    width: 1376,
-    height: 768,
+    src: '/media/graded/authority-editorial.webp',
+    ungradedSrc: '/media/authority-editorial.png',
+    grade: 'sk-editorial-v1',
+    width: 1677,
+    height: 938,
     alt: 'Sarah Katerina in a warm editorial interior, framed by a dark room and soft practical lighting.',
     focal: '50% 50%',
     source: 'IMAGES/sarahkaterina_Services_Especial.png',
@@ -141,7 +157,9 @@ export const APPROVED_MEDIA = {
 
   assetResidential: media({
     id: 'asset-residential',
-    src: '/media/asset-residential.webp',
+    src: '/media/graded/asset-residential.webp',
+    ungradedSrc: '/media/asset-residential.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 922,
     alt: 'A bright kitchen and living space, half rendered and half drawn as architectural plans.',
@@ -154,7 +172,9 @@ export const APPROVED_MEDIA = {
 
   assetArchitecture: media({
     id: 'asset-architecture',
-    src: '/media/asset-architecture.webp',
+    src: '/media/graded/asset-architecture.webp',
+    ungradedSrc: '/media/asset-architecture.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'Hands adjusting a detailed architectural model of a house on a studio table.',
@@ -166,7 +186,9 @@ export const APPROVED_MEDIA = {
 
   assetPlan: media({
     id: 'asset-plan',
-    src: '/media/asset-plan.webp',
+    src: '/media/graded/asset-plan.webp',
+    ungradedSrc: '/media/asset-plan.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'A three-dimensional cutaway floor plan of an apartment, seen from above.',
@@ -180,7 +202,9 @@ export const APPROVED_MEDIA = {
 
   territoryCoast: media({
     id: 'territory-coast',
-    src: '/media/territory-coast.webp',
+    src: '/media/graded/territory-coast.webp',
+    ungradedSrc: '/media/territory-coast.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'A ceramic jar resting on white pebbles on a Mediterranean shoreline.',
@@ -193,7 +217,9 @@ export const APPROVED_MEDIA = {
 
   territoryContact: media({
     id: 'territory-contact',
-    src: '/media/territory-contact.webp',
+    src: '/media/graded/territory-contact.webp',
+    ungradedSrc: '/media/territory-contact.webp',
+    grade: 'sk-editorial-v1',
     width: 1376,
     height: 768,
     alt: 'A marble table with a phone, sunglasses, a key and a cup of coffee in dappled light.',
@@ -204,9 +230,11 @@ export const APPROVED_MEDIA = {
 
   purchaseFinalContact: media({
     id: 'purchase-final-contact',
-    src: '/media/purchase-final-contact.png',
-    width: 1376,
-    height: 768,
+    src: '/media/graded/purchase-final-contact.webp',
+    ungradedSrc: '/media/purchase-final-contact.png',
+    grade: 'sk-editorial-v1',
+    width: 2000,
+    height: 1116,
     alt: 'A warm editorial tabletop scene with a branded contact presentation, viewed from above.',
     focal: '50% 50%',
     source: 'sarahkaterina_Contacto.png',
@@ -218,7 +246,9 @@ export const APPROVED_MEDIA = {
 
   processAnalysis: media({
     id: 'process-analysis',
-    src: '/media/process-analysis.webp',
+    src: '/media/graded/process-analysis.webp',
+    ungradedSrc: '/media/process-analysis.webp',
+    grade: 'sk-editorial-v1',
     width: 1376,
     height: 768,
     alt: 'A dark meeting room at dusk with a floating screen and documents laid out on the table.',
@@ -229,7 +259,9 @@ export const APPROVED_MEDIA = {
 
   processPresentation: media({
     id: 'process-presentation',
-    src: '/media/process-presentation.webp',
+    src: '/media/graded/process-presentation.webp',
+    ungradedSrc: '/media/process-presentation.webp',
+    grade: 'sk-editorial-v1',
     width: 1681,
     height: 936,
     alt: 'A warm living room with a wall-mounted screen showing a website layout, looking out to the sea.',
@@ -242,7 +274,9 @@ export const APPROVED_MEDIA = {
 
   reportInterior: media({
     id: 'report-interior',
-    src: '/media/report-interior.webp',
+    src: '/media/graded/report-interior.webp',
+    ungradedSrc: '/media/report-interior.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'A quiet grey interior with a sofa and tall windows, and a glass panel resting on the floor.',
@@ -254,7 +288,9 @@ export const APPROVED_MEDIA = {
 
   processModel: media({
     id: 'process-model',
-    src: '/media/process-model.webp',
+    src: '/media/graded/process-model.webp',
+    ungradedSrc: '/media/process-model.webp',
+    grade: 'sk-editorial-v1',
     width: 2000,
     height: 1116,
     alt: 'Two people examining a small building model and a set of plans on a counter in a bright apartment.',

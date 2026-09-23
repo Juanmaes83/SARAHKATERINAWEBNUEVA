@@ -1,0 +1,301 @@
+{
+  "grade": {
+    "name": "sk-editorial-v1",
+    "warmthTarget": 1.1,
+    "warmthPull": 0.5,
+    "warmthCap": 0.06,
+    "contrast": 1.04,
+    "blackFloor": 4,
+    "whitePoint": [
+      251,
+      249,
+      245
+    ],
+    "saturation": 0.97,
+    "webpQuality": 82,
+    "maxWidth": 2000
+  },
+  "generated": "2026-09-23",
+  "images": [
+    {
+      "id": "investment-hero",
+      "input": "public/media/investment-hero.webp",
+      "output": "public/media/graded/investment-hero.webp",
+      "size": "1536x1024",
+      "kb": 85,
+      "warmthBefore": 1.581,
+      "warmthAfter": 1.437,
+      "temperatureGain": 0.94,
+      "meanBefore": [
+        80,
+        65,
+        51
+      ],
+      "meanAfter": [
+        75,
+        64,
+        52
+      ]
+    },
+    {
+      "id": "tax-hero",
+      "input": "public/media/tax-services-14.png",
+      "output": "public/media/graded/tax-hero.webp",
+      "size": "1536x1024",
+      "kb": 135,
+      "warmthBefore": 1.473,
+      "warmthAfter": 1.336,
+      "temperatureGain": 0.94,
+      "meanBefore": [
+        86,
+        72,
+        59
+      ],
+      "meanAfter": [
+        80,
+        71,
+        60
+      ]
+    },
+    {
+      "id": "purchase-hero",
+      "input": "public/media/purchase-hero.webp",
+      "output": "public/media/graded/purchase-hero.webp",
+      "size": "1376x768",
+      "kb": 54,
+      "warmthBefore": 1.248,
+      "warmthAfter": 1.196,
+      "temperatureGain": 0.969,
+      "meanBefore": [
+        134,
+        122,
+        107
+      ],
+      "meanAfter": [
+        129,
+        121,
+        108
+      ]
+    },
+    {
+      "id": "authority-editorial",
+      "input": "public/media/authority-editorial.png",
+      "output": "public/media/graded/authority-editorial.webp",
+      "size": "1677x938",
+      "kb": 51,
+      "warmthBefore": 1.264,
+      "warmthAfter": 1.213,
+      "temperatureGain": 0.9658,
+      "meanBefore": [
+        90,
+        80,
+        71
+      ],
+      "meanAfter": [
+        86,
+        79,
+        71
+      ]
+    },
+    {
+      "id": "asset-residential",
+      "input": "public/media/asset-residential.webp",
+      "output": "public/media/graded/asset-residential.webp",
+      "size": "2000x922",
+      "kb": 160,
+      "warmthBefore": 1.136,
+      "warmthAfter": 1.14,
+      "temperatureGain": 0.992,
+      "meanBefore": [
+        179,
+        169,
+        157
+      ],
+      "meanAfter": [
+        176,
+        167,
+        155
+      ]
+    },
+    {
+      "id": "asset-architecture",
+      "input": "public/media/asset-architecture.webp",
+      "output": "public/media/graded/asset-architecture.webp",
+      "size": "2000x1116",
+      "kb": 220,
+      "warmthBefore": 1.358,
+      "warmthAfter": 1.253,
+      "temperatureGain": 0.9488,
+      "meanBefore": [
+        146,
+        129,
+        107
+      ],
+      "meanAfter": [
+        138,
+        128,
+        110
+      ]
+    },
+    {
+      "id": "asset-plan",
+      "input": "public/media/asset-plan.webp",
+      "output": "public/media/graded/asset-plan.webp",
+      "size": "2000x1116",
+      "kb": 107,
+      "warmthBefore": 1.03,
+      "warmthAfter": 1.089,
+      "temperatureGain": 1.0165,
+      "meanBefore": [
+        181,
+        179,
+        176
+      ],
+      "meanAfter": [
+        183,
+        177,
+        168
+      ]
+    },
+    {
+      "id": "territory-coast",
+      "input": "public/media/territory-coast.webp",
+      "output": "public/media/graded/territory-coast.webp",
+      "size": "2000x1116",
+      "kb": 164,
+      "warmthBefore": 1.045,
+      "warmthAfter": 1.098,
+      "temperatureGain": 1.0128,
+      "meanBefore": [
+        172,
+        168,
+        165
+      ],
+      "meanAfter": [
+        174,
+        166,
+        159
+      ]
+    },
+    {
+      "id": "territory-contact",
+      "input": "public/media/territory-contact.webp",
+      "output": "public/media/graded/territory-contact.webp",
+      "size": "1376x768",
+      "kb": 76,
+      "warmthBefore": 1.185,
+      "warmthAfter": 1.164,
+      "temperatureGain": 0.9816,
+      "meanBefore": [
+        182,
+        168,
+        153
+      ],
+      "meanAfter": [
+        178,
+        166,
+        153
+      ]
+    },
+    {
+      "id": "purchase-final-contact",
+      "input": "public/media/purchase-final-contact.png",
+      "output": "public/media/graded/purchase-final-contact.webp",
+      "size": "2000x1116",
+      "kb": 156,
+      "warmthBefore": 1.277,
+      "warmthAfter": 1.225,
+      "temperatureGain": 0.9633,
+      "meanBefore": [
+        59,
+        51,
+        46
+      ],
+      "meanAfter": [
+        56,
+        51,
+        45
+      ]
+    },
+    {
+      "id": "process-analysis",
+      "input": "public/media/process-analysis.webp",
+      "output": "public/media/graded/process-analysis.webp",
+      "size": "1376x768",
+      "kb": 49,
+      "warmthBefore": 1.171,
+      "warmthAfter": 1.162,
+      "temperatureGain": 0.9845,
+      "meanBefore": [
+        62,
+        56,
+        53
+      ],
+      "meanAfter": [
+        60,
+        55,
+        52
+      ]
+    },
+    {
+      "id": "process-presentation",
+      "input": "public/media/process-presentation.webp",
+      "output": "public/media/graded/process-presentation.webp",
+      "size": "1681x936",
+      "kb": 95,
+      "warmthBefore": 1.585,
+      "warmthAfter": 1.433,
+      "temperatureGain": 0.94,
+      "meanBefore": [
+        107,
+        85,
+        67
+      ],
+      "meanAfter": [
+        99,
+        84,
+        69
+      ]
+    },
+    {
+      "id": "report-interior",
+      "input": "public/media/report-interior.webp",
+      "output": "public/media/graded/report-interior.webp",
+      "size": "2000x1116",
+      "kb": 74,
+      "warmthBefore": 1.024,
+      "warmthAfter": 1.087,
+      "temperatureGain": 1.0181,
+      "meanBefore": [
+        158,
+        156,
+        155
+      ],
+      "meanAfter": [
+        161,
+        154,
+        148
+      ]
+    },
+    {
+      "id": "process-model",
+      "input": "public/media/process-model.webp",
+      "output": "public/media/graded/process-model.webp",
+      "size": "2000x1116",
+      "kb": 100,
+      "warmthBefore": 1.353,
+      "warmthAfter": 1.246,
+      "temperatureGain": 0.9495,
+      "meanBefore": [
+        157,
+        137,
+        116
+      ],
+      "meanAfter": [
+        149,
+        136,
+        119
+      ]
+    }
+  ]
+}
