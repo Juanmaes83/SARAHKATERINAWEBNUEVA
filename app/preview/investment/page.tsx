@@ -60,7 +60,7 @@ export default function InvestmentPage() {
       <AuthorityBand />
       <CasesBand />
       <JourneyBand />
-      <WebFaq />
+      <WebFaq appearance="light" />
       <FinalCtaBand />
       <WebFooter />
     </>

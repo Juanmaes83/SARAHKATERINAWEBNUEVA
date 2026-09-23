@@ -45,6 +45,8 @@ export interface WebSectionHeaderProps {
   subtitle?: string;
   centered?: boolean;
   rule?: boolean;
+  /** Layout hook for composed section heads (e.g. a header beside body copy). */
+  className?: string;
 }
 
 export function WebSectionHeader({
@@ -53,9 +55,10 @@ export function WebSectionHeader({
   subtitle,
   centered = false,
   rule = false,
+  className,
 }: WebSectionHeaderProps) {
   return (
-    <RevealOnScroll className={cn(styles.header, centered && styles.centered)}>
+    <RevealOnScroll className={cn(styles.header, centered && styles.centered, className)}>
       {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
       <h2 className={styles.title}>{title}</h2>
       {rule ? <hr className={styles.rule} /> : null}

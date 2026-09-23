@@ -190,7 +190,8 @@ describe('investment is unaffected', () => {
     // WebFooter and WebFaq became configurable in Phase 2D. Investment passes
     // no prop, so it must still default to its own content.
     expect(investmentPage).toMatch(/<WebFooter\s*\/>/);
-    expect(investmentPage).toMatch(/<WebFaq\s*\/>/);
+    // Phase 2E: an `appearance` prop is allowed; a `content` prop is not.
+    expect(investmentPage).toMatch(/<WebFaq(\s+appearance="light")?\s*\/>/);
     expect(read('components/web/WebFooter.tsx')).toContain('content = investmentFooter');
     expect(read('components/web/WebFaq.tsx')).toContain('content = investmentFaq');
   });
@@ -217,8 +218,9 @@ describe('tax advisory composition', () => {
       // hero's credential row (docs/tax-advisory-visual-decisions.md, "One
       // trust strip"). Asserted absent below so it cannot silently return.
       'TaxContextBand',
-      'TaxCalendarBand',
+      // Phase 2E brief (2026-10-23) §8: process (what) before calendar (when).
       'TaxProcessBand',
+      'TaxCalendarBand',
       'TaxReportBand',
       'TaxConcernsBand',
       'TaxServicesBand',
@@ -463,8 +465,12 @@ describe('tax advisory content — suppressed from the template', () => {
 
   it('labels every illustrative surface', () => {
     // Sample figures are permitted on dashboard surfaces only when labelled.
+    // Phase 2E: the report panels moved into the shared ReportExplorer, which
+    // labels every panel itself; the calendar keeps its own tag.
     const tagCount = (bandsSource.match(/illustrativeTag/g) ?? []).length;
-    expect(tagCount).toBeGreaterThanOrEqual(3);
+    expect(tagCount).toBeGreaterThanOrEqual(1);
+    expect(bandsSource).toContain('<ReportExplorer');
+    expect(read('components/web/ReportExplorer.tsx')).toMatch(/>Illustrative</);
     expect(read('components/web/TaxSnapshotCard.tsx')).toContain('Illustrative');
     expect(taxAdvisory.heroSnapshot.foot.text).toMatch(/Sample figures/);
     expect(taxAdvisory.heroSnapshot.foot.text).toMatch(/Not a client result/);

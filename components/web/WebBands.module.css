@@ -454,12 +454,6 @@
   padding: 0;
 }
 
-@media (min-width: 768px) {
-  .timeline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
 @media (min-width: 1024px) {
   .timeline {
     --sk-timeline-gap: var(--sk-space-24);
@@ -1301,4 +1295,654 @@
   height: var(--sk-space-8);
   border-radius: var(--sk-radius-pill);
   background-color: var(--sk-web-gold);
+}
+
+/* ===========================================================================
+ * PHASE 2E — VISUAL CONTENT UPGRADE (brief 2026-10-23)
+ * References: IMAGES/MEJORAS 23 OCTUBRE/. Rebuilt in HTML/CSS on the shared
+ * layer; nothing from the reference is used as an asset.
+ * =========================================================================== */
+
+/* --- Approach: promise | explanation | territory ---------------------------- */
+
+.approachLead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+  align-items: center;
+}
+
+.approachHeader {
+  margin-block-end: 0;
+}
+
+/* The promise carries the section through width, not size: the display step
+   belongs to the hero alone, so the title keeps the h2 size and takes the
+   full first column to read in three calm lines. */
+.approachHeader h2 {
+  max-width: none;
+}
+
+.approachBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+.approachMedia {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .approachLead {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: var(--sk-space-48);
+  }
+
+  /* A hairline between the promise and its explanation, as in the reference. */
+  .approachBody {
+    padding-inline-start: var(--sk-space-48);
+    border-inline-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+      var(--sk-web-border);
+  }
+}
+
+/* --- Doors: two decisions + a quiet third path ------------------------------ */
+
+.doorsPrimary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+}
+
+.door {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+  transition:
+    border-color var(--sk-web-motion-quick) var(--sk-web-motion-ease),
+    box-shadow var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.door:hover,
+.door:focus-within {
+  border-color: var(--sk-web-gold);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.door:hover [data-media-photo] {
+  transform: scale(calc(var(--sk-crop-scale, 1) * var(--sk-web-motion-hover-scale)));
+}
+
+.doorMedia {
+  position: relative;
+  min-width: 0;
+}
+
+.doorMedia > div {
+  border-radius: 0;
+}
+
+.doorBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+}
+
+.doorTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-font-weight-medium);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-ink);
+}
+
+.doorAction {
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-8);
+}
+
+/* The decision label never breaks inside its button once there is room. */
+@media (min-width: 768px) {
+  .doorAction > * {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .doorsPrimary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Image beside the decision, as in the reference. */
+  .door {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  }
+
+  .doorMedia > div {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+.doorSecondary {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--sk-space-16) var(--sk-space-24);
+  align-items: start;
+  margin-block-start: var(--sk-space-24);
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) dashed var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+}
+
+.doorSecondaryText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+}
+
+.doorSecondaryPoints {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8) var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doorSecondary > :last-child {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+@media (min-width: 1024px) {
+  .doorSecondary {
+    grid-template-columns: auto minmax(0, 1.2fr) minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .doorSecondaryPoints {
+    grid-column: auto;
+    flex-direction: column;
+  }
+
+  .doorSecondary > :last-child {
+    grid-column: auto;
+  }
+}
+
+.doorsScript {
+  margin-block-start: var(--sk-space-32);
+}
+
+@media (min-width: 1024px) {
+  .doorsScript {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+/* --- Asset types: category first, facts compact ---------------------------- */
+
+.assetHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+}
+
+.assetLine {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-ink);
+}
+
+.assetFacts {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-web-ivory);
+}
+
+.assetFact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+  padding-block: var(--sk-space-8);
+}
+
+.assetFact + .assetFact {
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.assetFact dd {
+  margin: 0;
+}
+
+.assetCard .mediaCardBody {
+  gap: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .assetCard .mediaCardBody {
+    padding: var(--sk-space-24);
+  }
+}
+
+/* --- Process: method + deliverable; vertical sequence below desktop -------- */
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-16);
+}
+
+.stepDeliverableLabel {
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-strong);
+}
+
+@media (max-width: 1023px) {
+  .timeline {
+    gap: var(--sk-space-32);
+  }
+
+  .step {
+    padding-block-start: 0;
+    padding-inline-start: var(--sk-space-64);
+  }
+
+  /* One vertical thread from each numeral to the next. Never between rows,
+     because there are no rows here. */
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    inset-block: var(--sk-space-32) calc(-1 * var(--sk-space-32));
+    inset-inline-start: calc(var(--sk-space-16) - 1px);
+    width: 2px;
+    background-color: var(--sk-web-gold);
+    opacity: 0.45;
+    transform-origin: center top;
+  }
+
+  .step[data-reveal='pending']::after {
+    transform: scaleY(0);
+  }
+
+  .step[data-reveal='shown']::after {
+    animation: sk-thread-down var(--sk-web-motion-unveil) var(--sk-web-motion-ease)
+      var(--sk-web-motion-reveal) backwards;
+  }
+}
+
+@keyframes sk-thread-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+/* --- Report explorer aside and summary --------------------------------------- */
+
+.summaryPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-16);
+}
+
+/* Side by side only while the panel is full width; inside the desktop
+   explorer the body column is narrow, so image and rows stack. */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .summaryPanel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+}
+
+.reportSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding-block-start: var(--sk-space-24);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+}
+
+@media (min-width: 1024px) {
+  .reportSide {
+    padding-block-start: 0;
+    border-block-start: 0;
+  }
+}
+
+.reportDeliverables {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  list-style: none;
+  margin: var(--sk-space-8) 0 0;
+  padding: var(--sk-space-16) 0 0;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+}
+
+/* --- Cases: a case file, not a gallery --------------------------------------- */
+
+.casesHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+  margin-block-end: var(--sk-space-48);
+}
+
+.casesHeader {
+  margin-block-end: 0;
+}
+
+@media (min-width: 1024px) {
+  .casesHead {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.caseLedger {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.caseRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+}
+
+.caseVisual {
+  position: relative;
+}
+
+.caseVisual > div {
+  border-radius: 0;
+}
+
+.caseNumber {
+  position: absolute;
+  inset-block-start: var(--sk-space-16);
+  inset-inline-start: var(--sk-space-16);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  line-height: 1;
+  color: var(--sk-web-gold-on-dark);
+}
+
+.caseMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  padding: var(--sk-space-24);
+}
+
+.caseTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-font-weight-medium);
+  color: var(--sk-web-ink);
+}
+
+.caseLocation {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+/* The decision is the case's editorial line. */
+.caseDecision {
+  margin: var(--sk-space-8) 0 0;
+  padding-inline-start: var(--sk-space-16);
+  border-inline-start: 2px solid var(--sk-web-gold);
+  font-family: var(--sk-type-quote-family);
+  font-style: italic;
+  font-size: var(--sk-type-body-size);
+  line-height: var(--sk-type-body-line-height);
+  color: var(--sk-web-ink);
+}
+
+.caseResult {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background-color: var(--sk-web-ivory);
+}
+
+.caseResultList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  margin: 0;
+}
+
+.caseResultRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+}
+
+.caseResultRow dt {
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+.caseResultRow dd {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  color: var(--sk-web-muted);
+}
+
+.caseResult .casePermission {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .caseRow {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .caseVisual {
+    grid-row: span 2;
+  }
+
+  .caseVisual > div {
+    height: 100%;
+    aspect-ratio: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .caseRow {
+    grid-template-columns:
+      calc(var(--sk-space-80) * 3.5) minmax(0, 1fr)
+      calc(var(--sk-space-80) * 3.5);
+  }
+
+  .caseVisual {
+    grid-row: auto;
+  }
+
+  .caseResult {
+    justify-content: center;
+    border-block-start: 0;
+    border-inline-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+      var(--sk-web-border);
+  }
+
+  .caseMain {
+    justify-content: center;
+    padding: var(--sk-space-32);
+  }
+}
+
+/* --- Journey: one chain on the gold thread ----------------------------------- */
+
+.journeyChain {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* The thread: vertical on phones, across the icons on desktop. */
+.journeyChain::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-24);
+  inset-inline-start: calc(var(--sk-space-24) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+  transform-origin: center top;
+}
+
+.journeyStep {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sk-space-16);
+}
+
+.journeyStep .chainIcon {
+  position: relative;
+  z-index: var(--sk-app-z-raised);
+  outline: var(--sk-space-8) solid var(--sk-web-ivory-soft);
+}
+
+.journeyStep[data-reveal='shown'] .chainIcon {
+  animation: sk-land var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0)) backwards;
+}
+
+.journeyChain:has(> [data-reveal='pending']:first-child)::before {
+  transform: scaleY(0);
+}
+
+.journeyChain:has(> [data-reveal='shown']:first-child)::before {
+  animation: sk-thread-down var(--sk-web-motion-settle) var(--sk-web-motion-ease) backwards;
+}
+
+@media (min-width: 1024px) {
+  .journeyChain {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+
+  .journeyChain::before {
+    inset-block: calc(var(--sk-space-24) - 1px) auto;
+    /* From the first icon's centre to the last one's. */
+    inset-inline: var(--sk-space-24) calc(25% - var(--sk-space-48));
+    width: auto;
+    height: 2px;
+    transform-origin: left center;
+  }
+
+  .journeyChain:has(> [data-reveal='pending']:first-child)::before {
+    transform: scaleX(0);
+  }
+
+  .journeyChain:has(> [data-reveal='shown']:first-child)::before {
+    animation-name: sk-thread;
+  }
+
+  .journeyStep {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.journeyScript {
+  margin-block-start: var(--sk-space-32);
+}
+
+@media (min-width: 1024px) {
+  .journeyScript {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step::after,
+  .journeyChain::before,
+  .journeyStep .chainIcon {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .door:hover [data-media-photo] {
+    transform: scale(var(--sk-crop-scale, 1));
+  }
+}
+
+/* --- Boxed step (Tax Advisory areas, brief §8) ------------------------------
+ * The card hangs from the approved thread: the numeral stays on the line, the
+ * box holds what is reviewed and what the client receives. */
+
+.stepBox {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+  transition: border-color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.step:hover .stepBox {
+  border-color: var(--sk-web-gold);
 }

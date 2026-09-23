@@ -133,3 +133,34 @@
   max-width: var(--sk-layout-measure-reading);
   margin-inline: auto;
 }
+
+/* --- Phase 2E: light appearance (Investment, Tax, Property) ----------------- */
+
+@media (min-width: 1024px) {
+  .light {
+    column-gap: var(--sk-space-64);
+    row-gap: 0;
+  }
+}
+
+.light {
+  row-gap: 0;
+}
+
+.light .item {
+  border: 0;
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.light .trigger,
+.light .panel {
+  padding-inline: 0;
+}
+
+.light .item:hover,
+.light .item:has(.trigger[aria-expanded='true']) {
+  border-color: var(--sk-web-gold);
+}

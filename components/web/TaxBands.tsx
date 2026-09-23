@@ -3,6 +3,7 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
+import { ReportExplorer } from './ReportExplorer';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { SampleColumnChart, SampleDistribution } from './SampleChart';
@@ -247,15 +248,24 @@ export function TaxProcessBand() {
             <span className={shared.stepNumber} aria-hidden="true">
               {index + 1}
             </span>
-            <span className={shared.stepIcon}>
-              <Icon name={step.icon} />
-            </span>
-            <h3 className={shared.stepTitle}>{step.title.text}</h3>
-            <p className={shared.cardText}>{step.body.text}</p>
-            <p className={shared.stepDeliverable}>
-              <Icon name="document" size="sm" className={shared.stepDeliverableIcon} />
-              <span>{step.deliverable.text}</span>
-            </p>
+            {/* PHASE 2E (brief §8): each area as a card — what is reviewed,
+                what you receive — hanging from the approved thread. */}
+            <div className={shared.stepBox}>
+              <div className={shared.stepHead}>
+                <span className={shared.stepIcon}>
+                  <Icon name={step.icon} />
+                </span>
+                <h3 className={shared.stepTitle}>{step.title.text}</h3>
+              </div>
+              <p className={shared.cardText}>{step.body.text}</p>
+              <p className={shared.stepDeliverable}>
+                <Icon name="document" size="sm" className={shared.stepDeliverableIcon} />
+                <span>
+                  <span className={shared.stepDeliverableLabel}>Deliverable</span>{' '}
+                  {step.deliverable.text}
+                </span>
+              </p>
+            </div>
           </RevealOnScroll>
         ))}
       </ol>
@@ -269,34 +279,27 @@ export function TaxProcessBand() {
 /* --- REPORT PREVIEW (navy) -------------------------------------------------- */
 
 export function TaxReportBand() {
-  return (
-    <WebSection surface="navy" id="report">
-      <WebSectionHeader
-        eyebrow={report.eyebrow.text}
-        title={report.title.text}
-        subtitle={report.subtitle.text}
-        centered
-        rule
-      />
-
-      <div className={`${shared.reportLayout} ${styles.reportLayoutFour}`}>
-        {/* Panel 1 — the exposure summary the template leads with. */}
-        <RevealOnScroll className={shared.reportCard}>
-          <div className={shared.reportCardHead}>
-            <h3 className={shared.reportCardTitle}>{report.summary.title.text}</h3>
-            <p className={shared.reportCardNote}>{report.summary.property.text}</p>
-          </div>
-
+  const panels = [
+    {
+      id: 'summary',
+      title: report.summary.title.text,
+      note: report.summary.note.text,
+      decision: report.decisions.summary.text,
+      body: (
+        <div className={shared.summaryPanel}>
           <div className={shared.summaryVisual}>
             <TerritoryVisual
               variant="built"
               tone="sand"
               media={APPROVED_MEDIA.reportInterior}
-              sizes="(max-width: 767px) 100vw, 20vw"
+              sizes="(max-width: 767px) 100vw, 24vw"
             />
           </div>
-
           <dl className={shared.summaryRows}>
+            <div className={shared.summaryRow}>
+              <dt className={shared.summaryLabel}>Profile</dt>
+              <dd className={shared.summaryValue}>{report.summary.property.text}</dd>
+            </div>
             {report.summary.rows.map((row) => (
               <div key={row.label.text} className={shared.summaryRow}>
                 <dt className={shared.summaryLabel}>{row.label.text}</dt>
@@ -308,54 +311,70 @@ export function TaxReportBand() {
               <dd className={shared.summaryValue}>{report.summary.statusValue.text}</dd>
             </div>
           </dl>
+        </div>
+      ),
+    },
+    ...report.cards.map((card) => ({
+      id: card.id,
+      title: card.title.text,
+      note: card.note.text,
+      decision: report.decisions[card.id].text,
+      body:
+        card.id === 'breakdown' ? (
+          <ul className={shared.riskList}>
+            {report.breakdown.map((row) => (
+              <li key={row.label.text} className={shared.riskRow}>
+                <span>{row.label.text}</span>
+                <span className={shared.riskValue}>{row.value}</span>
+              </li>
+            ))}
+          </ul>
+        ) : card.id === 'calendar' ? (
+          <SampleColumnChart label="Obligations across the year" />
+        ) : (
+          <SampleDistribution label="Relief under the double taxation treaty" />
+        ),
+    })),
+  ];
 
-          <span className={shared.illustrativeTag}>Illustrative</span>
-        </RevealOnScroll>
+  return (
+    <WebSection surface="navy" id="report">
+      <WebSectionHeader
+        eyebrow={report.eyebrow.text}
+        title={report.title.text}
+        subtitle={report.subtitle.text}
+        centered
+        rule
+      />
 
-        {/* Panels 2–4 */}
-        {report.cards.map((card, index) => (
-          <RevealOnScroll key={card.id} order={index + 1} className={shared.reportCard}>
-            <div className={shared.reportCardHead}>
-              <h3 className={shared.reportCardTitle}>{card.title.text}</h3>
-              <p className={shared.reportCardNote}>{card.note.text}</p>
-            </div>
-
-            {card.id === 'breakdown' ? (
-              <ul className={shared.riskList}>
-                {report.breakdown.map((row) => (
-                  <li key={row.label.text} className={shared.riskRow}>
-                    <span>{row.label.text}</span>
-                    <span className={shared.riskValue}>{row.value}</span>
+      {/*
+        PHASE 2E (brief §8): the same explorable sample report as Investment,
+        organised around four decisions — exposure, calendar, treaty,
+        breakdown. Values stay the approved illustrative samples; nothing from
+        the reference image is copied.
+      */}
+      <RevealOnScroll>
+        <ReportExplorer
+          label={report.explorerLabel.text}
+          panels={panels}
+          aside={
+            <div className={shared.reportSide}>
+              <WebButton variant="primary" onDark arrow>
+                {report.cta.text}
+              </WebButton>
+              <p className={shared.ctaNote}>{report.ctaNote.text}</p>
+              <ul className={shared.reportDeliverables}>
+                {report.deliverables.map((deliverable) => (
+                  <li key={deliverable.text.text} className={shared.deliverable}>
+                    <Icon name={deliverable.icon} size="sm" className={shared.deliverableIcon} />
+                    <span>{deliverable.text.text}</span>
                   </li>
                 ))}
               </ul>
-            ) : card.id === 'calendar' ? (
-              <SampleColumnChart label="Obligations across the year" />
-            ) : (
-              <SampleDistribution label="Relief under the double taxation treaty" />
-            )}
-
-            <span className={shared.illustrativeTag}>Illustrative</span>
-          </RevealOnScroll>
-        ))}
-      </div>
-
-      <div className={shared.reportAside}>
-        <ul className={shared.deliverables}>
-          {report.deliverables.map((deliverable) => (
-            <li key={deliverable.text.text} className={shared.deliverable}>
-              <Icon name={deliverable.icon} size="sm" className={shared.deliverableIcon} />
-              <span>{deliverable.text.text}</span>
-            </li>
-          ))}
-        </ul>
-        <div className={shared.reportCtaBlock}>
-          <WebButton variant="primary" onDark arrow>
-            {report.cta.text}
-          </WebButton>
-          <p className={shared.ctaNote}>{report.ctaNote.text}</p>
-        </div>
-      </div>
+            </div>
+          }
+        />
+      </RevealOnScroll>
     </WebSection>
   );
 }

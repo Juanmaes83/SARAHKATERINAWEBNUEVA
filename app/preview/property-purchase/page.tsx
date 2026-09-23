@@ -50,7 +50,7 @@ export default function PropertyPurchasePage() {
       <AuthorityBand />
       <CasesBand />
       <JourneyBand />
-      <WebFaq content={faq} />
+      <WebFaq content={faq} appearance="light" />
       <FinalCtaBand />
       <WebFooter content={footer} />
     </>

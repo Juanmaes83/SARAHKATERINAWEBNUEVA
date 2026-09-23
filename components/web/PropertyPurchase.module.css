@@ -299,6 +299,10 @@
 .beforeSignGrid,
 .servicesLayout {
   display: grid;
+  /* Explicit track: an implicit auto column let the longest line set the
+     width, and on phones the Before-you-sign cards ran past the edge
+     (hidden, not wrapped, by the section's overflow). */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--sk-space-32);
 }
 
@@ -680,22 +684,6 @@
   margin: 0;
   color: var(--sk-web-muted-on-dark);
   font-size: var(--sk-type-body-small-size);
-}
-.decisionOptions {
-  display: grid;
-  gap: var(--sk-space-8);
-}
-.decisionOptions span {
-  padding: var(--sk-space-8) var(--sk-space-16);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-navy-line);
-  border-radius: var(--sk-radius-button);
-  color: var(--sk-web-muted-on-dark);
-  text-align: center;
-  text-transform: uppercase;
-}
-.decisionOptions span:nth-child(2) {
-  border-color: var(--sk-web-gold-on-dark);
-  color: var(--sk-web-gold-on-dark);
 }
 .beforeSignCta {
   display: flex;
@@ -1182,4 +1170,333 @@
     animation: none !important;
     transform: none !important;
   }
+}
+
+/* ===========================================================================
+ * PHASE 2E — VISUAL CONTENT UPGRADE (brief 2026-10-23, §7)
+ * Reference: "MEJORAR Y COMPARAR CONTENIDO PROPERTY PURCHASE". Rebuilt on the
+ * shared layer; the reference is never used as an asset.
+ * =========================================================================== */
+
+/* --- One file: the capabilities read as parts of the same file ------------- */
+
+.oneFileCopy .checkList {
+  position: relative;
+  gap: var(--sk-space-16);
+}
+
+.oneFileCopy .checkList::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-8);
+  inset-inline-start: calc(var(--sk-space-8) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+}
+
+.oneFileCopy .checkList svg {
+  position: relative;
+  background-color: var(--sk-web-white);
+}
+
+/* --- File tracker: one rail, seven stages ------------------------------------ */
+
+.fileTracker {
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-16);
+}
+
+.fileStage {
+  display: grid;
+  grid-template-columns: var(--sk-space-32) minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.stageDot {
+  position: relative;
+  z-index: 1;
+  grid-row: auto;
+  border: 2px solid var(--sk-web-gold);
+  background: var(--sk-web-white);
+  color: var(--sk-web-gold-strong);
+  font-weight: var(--sk-font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.fileStage:has([data-state='done']) .stageDot {
+  background: var(--sk-web-gold);
+  color: var(--sk-web-white);
+}
+
+.fileStage:has([data-state='active']) .stageDot {
+  border-color: var(--sk-web-ink);
+  background: var(--sk-web-ink);
+  color: var(--sk-web-white);
+}
+
+/* Vertical rail on phones and tablets: dot to dot, through the gap. */
+.fileStage:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-32) calc(-1 * var(--sk-space-16));
+  inset-inline-start: calc(var(--sk-space-16) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+}
+
+.stageCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  min-width: 0;
+  padding: var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background: var(--sk-web-white);
+}
+
+.stageCode {
+  display: block;
+  color: var(--sk-web-gold-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.stageStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-8);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+/* Status mark: filled (done), half (in review), ring (pending). Always
+   accompanied by the word. */
+.stageStatusMark {
+  display: inline-block;
+  flex: none;
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  border: 2px solid var(--sk-web-muted);
+  border-radius: var(--sk-radius-pill);
+}
+
+.stageStatus[data-state='done'] {
+  color: var(--sk-web-gold-strong);
+}
+
+.stageStatus[data-state='done'] .stageStatusMark {
+  border-color: var(--sk-web-gold);
+  background: var(--sk-web-gold);
+}
+
+.stageStatus[data-state='active'] {
+  color: var(--sk-web-ink);
+}
+
+.stageStatus[data-state='active'] .stageStatusMark {
+  border-color: var(--sk-web-ink);
+  background: linear-gradient(90deg, var(--sk-web-ink) 50%, transparent 50%);
+}
+
+@media (min-width: 1024px) {
+  .fileTracker {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: var(--sk-space-8);
+  }
+
+  .fileStage {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sk-space-16);
+    padding: 0;
+  }
+
+  .fileStage:not(:last-child)::after {
+    display: none;
+  }
+
+  /* The rail: from this dot's centre to the next one, across the gap. */
+  .fileStage::before {
+    inset-block-start: calc(var(--sk-space-16) - 1px);
+    inset-inline-start: var(--sk-space-16);
+    width: calc(100% + var(--sk-space-8));
+    height: 2px;
+    opacity: 0.6;
+  }
+
+  .stageCard {
+    flex: 1;
+  }
+}
+
+/* --- Six phases, joined card to card ---------------------------------------- */
+
+.processCard {
+  position: relative;
+}
+
+.processDeliverable {
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-font-line-height-caption);
+}
+
+.processDeliverableLabel {
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-strong);
+}
+
+/* Below desktop: one column, connector running down from each number. */
+.processCard:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  inset-block: 100% calc(-1 * var(--sk-space-16));
+  inset-inline-start: calc(var(--sk-space-24) + var(--sk-space-24) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .processGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .processGrid {
+    gap: var(--sk-space-24);
+  }
+
+  /* Desktop: rows of three, the thread crossing each gap at number height,
+     never from the end of one row to the start of the next. */
+  .processCard:not(:last-child)::after {
+    inset-block: calc(var(--sk-space-24) + var(--sk-space-24) - 1px) auto;
+    inset-inline: 100% auto;
+    width: var(--sk-space-24);
+    height: 2px;
+  }
+
+  .processCard:nth-child(3n)::after {
+    display: none;
+  }
+}
+
+.processCard[data-reveal='shown']::after {
+  animation: sk-connect var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0) + var(--sk-web-motion-reveal))
+    backwards;
+}
+
+/* --- Before you sign: the decision leads -------------------------------------- */
+
+.decisionOptions {
+  display: grid;
+  gap: var(--sk-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.decisionOptions li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sk-space-16);
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-button);
+  color: var(--sk-web-muted-on-dark);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.decisionOptions li[data-selected='true'] {
+  border-color: var(--sk-web-gold-on-dark);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+}
+
+.decisionMark {
+  display: inline-block;
+  flex: none;
+  width: var(--sk-space-16);
+  height: var(--sk-space-16);
+  border: 2px solid var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-pill);
+}
+
+.decisionOptions li[data-selected='true'] .decisionMark {
+  border-color: var(--sk-web-gold-on-dark);
+  background: radial-gradient(circle, var(--sk-web-gold-on-dark) 45%, transparent 50%);
+}
+
+.decisionTag {
+  margin-inline-start: auto;
+  padding: 0 var(--sk-space-8);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold-on-dark);
+  border-radius: var(--sk-radius-pill);
+  color: var(--sk-web-gold-on-dark);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+}
+
+.reportMock ul {
+  gap: 0;
+}
+
+.reportMock li {
+  padding-block: var(--sk-space-8);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-navy-line);
+  color: var(--sk-web-on-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .processCard::after {
+    animation: none !important;
+  }
+}
+
+/* The seven stages take the full width; document control becomes a strip
+   below them. Beside the rail it left each card ~96px wide and broke
+   "Registration" mid-word. */
+@media (min-width: 1024px) {
+  .trackerLayout.trackerLayout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .documentControl {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: var(--sk-space-32);
+  }
+
+  .documentControl h3 {
+    margin: 0;
+  }
+
+  .documentControl ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.fileStage h3 {
+  overflow-wrap: normal;
+  hyphens: manual;
 }

@@ -35,15 +35,16 @@ export default function TaxAdvisoryPage() {
 
       <TaxHero />
       <TaxContextBand />
-      <TaxCalendarBand />
+      {/* Phase 2E (brief §8): what is reviewed, then when — then the report. */}
       <TaxProcessBand />
+      <TaxCalendarBand />
       <TaxReportBand />
       <TaxConcernsBand />
       <TaxServicesBand />
       <TaxAuthorityBand />
       <TaxCasesBand />
       <TaxJourneyBand />
-      <WebFaq content={faq} />
+      <WebFaq content={faq} appearance="light" />
       <TaxFinalCtaBand />
       <WebFooter content={footer} />
     </>

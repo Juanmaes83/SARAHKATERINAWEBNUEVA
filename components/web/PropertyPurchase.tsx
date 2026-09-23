@@ -279,6 +279,16 @@ export function OneFileBand() {
   );
 }
 
+/**
+ * Illustrative file state, read from the stage's own label. Shown as a mark
+ * plus the word, never by colour alone.
+ */
+function stageState(status: string): 'done' | 'active' | 'pending' {
+  if (/prepared|complete|done/i.test(status)) return 'done';
+  if (/review|progress/i.test(status)) return 'active';
+  return 'pending';
+}
+
 export function FileTrackerBand() {
   return (
     <WebSection surface="soft" tight>
@@ -303,10 +313,19 @@ export function FileTrackerBand() {
               className={styles.fileStage}
               style={{ ['--sk-stage-index' as string]: index }}
             >
-              <span className={styles.stageDot}>{stage.code}</span>
-              <h3>{stage.title}</h3>
-              <p>{stage.body}</p>
-              <span className={styles.stageStatus}>{stage.status}</span>
+              <span className={styles.stageDot} aria-hidden="true">
+                {stageState(stage.status) === 'done' ? <Icon name="check" size="sm" /> : stage.code}
+              </span>
+              <div className={styles.stageCard}>
+                <h3>
+                  <span className={styles.stageCode}>{stage.code}</span> {stage.title}
+                </h3>
+                <p>{stage.body}</p>
+                <span className={styles.stageStatus} data-state={stageState(stage.status)}>
+                  <span className={styles.stageStatusMark} aria-hidden="true" />
+                  {stage.status}
+                </span>
+              </div>
             </RevealOnScroll>
           ))}
         </ol>
@@ -330,21 +349,35 @@ export function FileTrackerBand() {
 export function ProcessBand() {
   return (
     <WebSection surface="white" id="process">
+      {/*
+        PHASE 2E (brief §7): own eyebrow — "The file, front to back" now
+        appears once, on the tracker above. The six phases are joined card to
+        card by the approved thread; each states what it produces.
+      */}
       <WebSectionHeader
-        eyebrow={process.eyebrow.text}
+        eyebrow={process.stepsEyebrow.text}
         title={process.title.text}
         subtitle={process.subtitle.text}
         rule
       />
       <ol className={styles.processGrid}>
         {process.steps.map((step, index) => (
-          <RevealOnScroll as="li" order={index % 3} key={step.title} className={styles.processCard}>
+          <RevealOnScroll
+            as="li"
+            order={index % 3}
+            key={step.title}
+            className={styles.processCard}
+            style={{ ['--sk-stage-index' as string]: index % 3 }}
+          >
             <span className={styles.processNumber}>{String(index + 1).padStart(2, '0')}</span>
             <Icon name={step.icon} size="lg" />
             <div>
               <h3>{step.title}</h3>
               <p>{step.body}</p>
-              <strong>{step.deliverable}</strong>
+              <p className={styles.processDeliverable}>
+                <span className={styles.processDeliverableLabel}>Deliverable</span>{' '}
+                {step.deliverable}
+              </p>
             </div>
           </RevealOnScroll>
         ))}
@@ -377,12 +410,18 @@ export function BeforeSignBand() {
         <RevealOnScroll order={1} className={styles.decisionPanel}>
           <p className={styles.eyebrow}>{beforeSign.eyebrow.text}</p>
           <h2>{beforeSign.title.text}</h2>
+          {/* PHASE 2E (brief §7): the decision leads — three outcomes, one
+              marked as the illustrative recommendation, stated in words. */}
           <p className={styles.decisionLabel}>{beforeSign.recommendation.text}</p>
-          <div className={styles.decisionOptions}>
-            {beforeSign.actions.map((action) => (
-              <span key={action}>{action}</span>
+          <ul className={styles.decisionOptions}>
+            {beforeSign.actions.map((action, index) => (
+              <li key={action} data-selected={index === 1 ? 'true' : undefined}>
+                <span className={styles.decisionMark} aria-hidden="true" />
+                <span>{action}</span>
+                {index === 1 ? <span className={styles.decisionTag}>Illustrative pick</span> : null}
+              </li>
             ))}
-          </div>
+          </ul>
         </RevealOnScroll>
         <RevealOnScroll order={2} className={styles.beforeSignCta}>
           <ul>
