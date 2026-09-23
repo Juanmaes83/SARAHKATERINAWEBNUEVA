@@ -28,9 +28,9 @@ import { claim, type Claim } from '@/lib/content/claims';
 const TEMPLATE = 'Investment template — approved copy source (Juanma, 2026-09-21)';
 
 export const PROTOTYPE_NOTICE = {
-  label: 'PHASE 2C — VISUAL FIDELITY IMPLEMENTATION READY FOR HUMAN REVIEW',
+  label: 'PHASE 2E — APPROVED MEDIA IN PREVIEW · READY FOR HUMAN REVIEW',
   body: claim({
-    text: 'Copy is taken from the approved Investment template. Figures on the dashboards are illustrative samples, cases are withheld pending permission, and nothing on this page is approved for production.',
+    text: 'Approved media placed in Preview only. Copy is from the approved Investment template, dashboard figures are illustrative samples, cases are withheld pending permission, and nothing on this page is approved for publication or production.',
     status: 'confirmed',
     source: 'docs/phase-2-visual-implementation-contract.md §9',
   }),
@@ -52,18 +52,18 @@ export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', sour
 
 export const hero = {
   /** "INVERSIÓN CON SENTIDO" */
-  eyebrow: claim({ text: 'Investment with purpose', status: 'proposal', source: TEMPLATE }),
+  eyebrow: claim({ text: 'Investment with judgement', status: 'proposal', source: TEMPLATE }),
   /** "Propiedades. Datos. Decisiones más inteligentes." */
-  heading: claim({ text: 'Properties. Data. Smarter decisions.', status: 'proposal', source: TEMPLATE }),
+  heading: claim({ text: 'Properties. Data. Better decisions.', status: 'proposal', source: TEMPLATE }),
   /** "Asesoramiento independiente para compradores extranjeros en la Costa Blanca. Análisis, fiscalidad y acompañamiento completo para invertir con seguridad y rentabilidad." */
   lead: claim({
-    text: 'Independent advice for foreign buyers on the Costa Blanca. Property investment analysis, tax and full support, so you invest with confidence.',
+    text: 'Independent property investment analysis for international buyers in the Costa Blanca. Financial modelling, due diligence and a tax overlay, brought together into one decision report — before the deposit, not after it.',
     status: 'proposal',
     source: TEMPLATE,
     review: 'financial',
-    note: 'The template ends "…con seguridad y rentabilidad". "Rentabilidad" is dropped: promising returns is a financial claim.',
+    note: 'Approved hero wording restored on 2026-09-22. It carries no return promise, so the "rentabilidad" concern that shortened the earlier draft does not apply.',
   }),
-  primaryCta: claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE }),
+  primaryCta: claim({ text: 'Request an analysis', status: 'proposal', source: TEMPLATE }),
   /** "VER CÓMO FUNCIONA" */
   secondaryCta: claim({ text: 'See how it works', status: 'proposal', source: TEMPLATE }),
   /** Template script accent: "A better life, a smarter investment." — already English. */
@@ -123,7 +123,21 @@ export const heroDashboard = {
   }),
 } as const;
 
-/** Template trust strip. Two of four figures are not confirmed. */
+/**
+ * Trust strip.
+ *
+ * REDUCED on 2026-09-22. The hero already states "20 years", "Buyer-side only"
+ * and "Full financial model"; repeating them in the band immediately below was
+ * the duplication the visual review flagged.
+ *
+ * Only what the hero does not say remains. No credential was invented to
+ * refill the band — the instruction was to shorten it rather than pad it — so
+ * the strip is now two entries plus the editorial line, with more air.
+ *
+ * Both remaining values are `pending`: the template's "160+ compradores" and
+ * "Análisis en 48 h" are unconfirmed figures. They render with a discreet
+ * pending mark, never as facts.
+ */
 export const trustStrip: readonly {
   icon: string;
   value: Claim;
@@ -135,19 +149,9 @@ export const trustStrip: readonly {
     note: claim({ text: 'advised across the Costa Blanca', status: 'proposal', source: TEMPLATE }),
   },
   {
-    icon: 'tax',
-    value: claim({ text: '20 years', status: 'confirmed', source: 'credential-register.csv CR-002' }),
-    note: claim({ text: 'inside Spain’s tax administration', status: 'confirmed', source: TEMPLATE }),
-  },
-  {
     icon: 'clock',
     value: claim({ text: 'Fast turnaround', status: 'pending', note: 'Template shows "Análisis en 48 h". No turnaround is confirmed.' }),
     note: claim({ text: 'from the first information you send', status: 'proposal', source: TEMPLATE }),
-  },
-  {
-    icon: 'financialModel',
-    value: claim({ text: 'Full financial model', status: 'proposal', source: TEMPLATE }),
-    note: claim({ text: 'with scenarios and risk analysis', status: 'proposal', source: TEMPLATE }),
   },
 ] as const;
 

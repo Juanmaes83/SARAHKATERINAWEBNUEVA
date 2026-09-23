@@ -3,35 +3,29 @@ import { Container } from '@/components/layout/Container';
 import { WebButton } from './WebButton';
 import { TaxSnapshotCard } from './TaxSnapshotCard';
 import { Icon, type IconName } from './icons/Icon';
-import { TerritoryVisual } from './TerritoryVisual';
+import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { hero } from '@/content/en/tax-advisory';
 import { isPublishable } from '@/lib/content/claims';
-import portrait from '@/public/sarah/sk-real-1.jpg';
 import shared from './WebHero.module.css';
 import styles from './TaxBands.module.css';
 
 /**
  * Tax Advisory hero.
  *
- * CONVERGENCE: this deliberately imports `WebHero.module.css`, the Investment
- * hero's stylesheet, rather than defining its own. The two templates share the
- * same hero composition — copy left, portrait right, a navy data card over the
- * image — so reusing the stylesheet is what guarantees the brief's
- * requirement that the hero keep the same ratio, scale, crop, position,
- * balance with the copy, visual weight and mobile behaviour as the canonical
- * base. Nothing about the hero geometry is re-specified here.
+ * The hero keeps the shared Investment composition: editorial copy on the left
+ * and one visual column on the right. Tax-specific metadata sits in normal
+ * document flow above the image, while the illustrative snapshot is rendered
+ * below it. Nothing is positioned over Sarah's face and no HTML labels repeat
+ * text already embedded in the approved image.
  *
- * Only two things are additive and Tax-Advisory-specific, both from its own
- * template: the stack of labelled document spines, and the pending intro-video
- * marker. Those live in `TaxBands.module.css`.
- *
- * MEDIA: AUTH-SK-001, the authentic portrait, used directly. The template's
- * hero is a generated desk-and-coastline scene; AGENTS.md §2 forbids
- * fabricating a photograph of Sarah, so the place signal is carried by a
- * declared schematic instead.
+ * MEDIA: the owner-selected Services_14 editorial image is used in the
+ * protected Preview. The asset remains subject to the later production
+ * derivative and retouching pass.
  */
 export function TaxHero() {
+  const heroMedia = APPROVED_MEDIA.taxHero;
+
   return (
     <section className={shared.hero} id="top">
       <Container className={shared.grid}>
@@ -76,50 +70,38 @@ export function TaxHero() {
 
         <RevealOnScroll order={1} className={shared.visual}>
           <figure className={shared.figure}>
-            <div className={shared.frame}>
-              <Image
-                src={portrait}
-                alt={hero.imageAlt.text}
-                className={shared.image}
-                priority
-                sizes="(max-width: 1023px) 100vw, 46vw"
-                placeholder="blur"
-              />
-              <span className={shared.scrim} aria-hidden="true" />
-              <span className={shared.locationPin}>
-                <Icon name="pin" size="sm" />
-                {hero.locationLabel.text}
-              </span>
+            <div className={styles.heroMedia}>
+              <div className={styles.mediaMeta} aria-label="Hero media details">
+                <span className={styles.mediaMetaItem}>
+                  <Icon name="pin" size="sm" />
+                  {hero.locationLabel.text}
+                </span>
+                <span className={`${styles.mediaMetaItem} ${styles.mediaMetaPending}`}>
+                  <Icon name="play" size="sm" />
+                  {hero.videoPending.text}
+                </span>
+              </div>
 
-              {/*
-                The template layers labelled document spines across the hero.
-                Kept as typography: a photograph of paperwork would be
-                fabricated, the labels carry the same information.
-              */}
-              <ul className={styles.documents}>
-                {hero.documents.map((document) => (
-                  <li key={document.text} className={styles.document}>
-                    {document.text}
-                  </li>
-                ))}
-              </ul>
-
-              {/*
-                The template offers a one-minute intro video. No approved video
-                asset exists and one may not be substituted, so the affordance
-                is present and marked rather than faked.
-              */}
-              <span className={styles.videoSlot}>
-                <Icon name="play" size="sm" />
-                {hero.videoPending.text}
-              </span>
+              <div className={`${shared.frame} ${styles.singleHeroFrame}`}>
+                {/*
+                  The approved image already contains its own tax-agency copy
+                  and visual labels. Keep one information layer: do not overlay
+                  duplicate document chips on top of the artwork.
+                */}
+                <Image
+                  src={heroMedia.src}
+                  alt={heroMedia.alt}
+                  className={shared.image}
+                  fill
+                  priority
+                  sizes="(max-width: 1023px) 100vw, 46vw"
+                  style={{ objectPosition: heroMedia.focal }}
+                />
+                <span className={shared.scrim} aria-hidden="true" />
+              </div>
             </div>
 
-            <div className={shared.territory}>
-              <TerritoryVisual variant="coast" tone="navy" label={hero.locationLabel.text} />
-            </div>
-
-            <div className={shared.dashboard}>
+            <div className={`${shared.dashboard} ${styles.detachedDashboard}`}>
               <TaxSnapshotCard />
             </div>
           </figure>

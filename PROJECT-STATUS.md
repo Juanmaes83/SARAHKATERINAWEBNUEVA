@@ -5,7 +5,7 @@
 
 This file tracks the state of the website product. Strategic status lives
 upstream in [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina)
-NaNPROJECT-STATUS.md`, which this repository does not duplicate or override.
+PROJECT-STATUS.md`, which this repository does not duplicate or override.
 
 ## Phases
 
@@ -17,7 +17,7 @@ NaNPROJECT-STATUS.md`, which this repository does not duplicate or override.
 | 2B/2C — Investment visual implementation | Template-led composition, approved palette, governed assets, shared web layer and visual review | **MERGED — CANONICAL VISUAL BASE** |
 | 2D — Tax Advisory convergence | Tax Advisory adapted to Investment's canonical visual layer | **MERGED — VISUAL BASE READY** |
 | 2D — Property Purchase convergence | Property Purchase adapted to Investment's canonical visual layer | **MERGED — VISUAL BASE READY** (PR #8) |
-| 2E — Premium media, motion and visual refinement | Images, video, crops, transitions, effects, responsive polish and CRO refinement across all three routes | **NEXT** |
+| 2E — Premium media, motion and visual refinement | Approved images and shared crops implemented across all three routes; motion, transitions, effects, responsive polish and CRO remain | **IN PROGRESS — MEDIA/CROP PASS MERGED; MOTION NEXT** |
 | 2F — Cross-landing visual QA | Template comparison and shared regression review at mobile and desktop widths | **AFTER 2E — HUMAN GATE** |
 | 3 — Buyer System integration | Events, consent, lead-capture decision and approved public destinations | Blocked on upstream decisions |
 | 4 — Production gate | SEO, accessibility, performance, legal, content approval and migration | Later |
@@ -31,6 +31,7 @@ NaNPROJECT-STATUS.md`, which this repository does not duplicate or override.
 | `/preview/investment` | Canonical Investment visual base | No — ever, while under `/preview` |
 | `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment | No — ever, while under `/preview` |
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment | No — ever, while under `/preview` |
+| `/preview/team` | Editorial team page for buyer-side roles and process | No — ever, while under `/preview` |
 
 Juanma has approved all three preview routes as visual bases for continued
 implementation. This is a continuation approval, not production or publication
@@ -74,14 +75,29 @@ Juanma's review before they are treated as final:
 
 ## Current handoff
 
-Phase 2E is the active next workstream. Juanma can supply or retouch media while
-implementation work stays confined to this repository and the shared web layer.
-Every media or motion change must be previewed at mobile and desktop widths and
-visually reviewed by Juanma before merge.
+Phase 2E remains the active workstream. The approved media/crop pass is merged
+(PR #16 and PR #17); the next implementation block is motion, transitions and
+effects. Juanma can continue supplying or retouching media while implementation
+stays confined to this repository and the shared web layer. Every new motion or
+visual change must be previewed at mobile and desktop widths and visually
+reviewed by Juanma before merge.
+
+## Phase 2E merge record
+
+The approved visual-media/crop pass is now merged into `main`:
+
+- **PR #16** — approved media across Investment, Tax Advisory and Property Purchase. Merge commit: `b24ca2b31af85ff89ccff5cbee15ca67e675d322`.
+- **PR #17** — Tax Advisory single-image hero with native 3:2 framing and widened Property Purchase authority composition. Merge commit: `bf040eb1545fb00c2c158be81363373473145737`.
+
+The work remains preview-only: no production publication, custom domain, DNS, indexation or Buyer System connection was enabled. The next workstream is motion, transitions and effects.
+
+## Deployment and publication boundary
+
+GitHub integration may create Vercel deployments with a `production` target after merges or direct pushes to `main`. That infrastructure event is not publication approval. There is no approved custom domain, DNS change or indexation, and the site remains controlled preview/noindex until the production gates are explicitly closed.
 
 ## Absolute rules
 
 - No secrets, ever.
 - The mother repository and the Buyer System are read-only.
-- No production deployment, no domain, no DNS.
+- No production publication, custom domain, DNS change or indexation.
 - Every visual change requires Juanma's human review before merge

@@ -1,6 +1,6 @@
 # Sarah Katerina — New Website
 
-> **Status: THREE VISUAL BASES APPROVED FOR CONTINUATION · PHASE 2E PREMIUM ENRICHMENT NEXT · NOT PRODUCTION**
+> **Status: THREE VISUAL BASES APPROVED · PHASE 2E MEDIA/CROP PASS MERGED · MOTION NEXT · NOT PRODUCTION**
 >
 > Juanma has approved the three merged landing implementations as visual bases for continued work. This is not approval for publication, indexing, migration or finished marketing. The application remains **not indexable by default**.
 
@@ -103,7 +103,9 @@ PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
 PHASE 2B/2C INVESTMENT VISUAL IMPLEMENTATION MERGED — CANONICAL VISUAL BASE
 PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — VISUAL BASE READY
 PHASE 2D PROPERTY PURCHASE CONVERGED ONTO THAT BASE — VISUAL BASE READY
-THREE LANDING BASES APPROVED BY JUANMA FOR PREMIUM ENRICHMENT
+PHASE 2E APPROVED MEDIA AND CROPS MERGED ACROSS THREE LANDINGS
+THREE LANDING BASES APPROVED BY JUANMA FOR CONTINUED PREMIUM ENRICHMENT
+PHASE 2E MOTION / TRANSITIONS / EFFECTS — NEXT
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
@@ -136,6 +138,9 @@ The next branch is `feat/phase-2e-premium-media-motion-2026-09-22`.
 | `docs/property-purchase-fidelity-matrix.md` | Section-by-section comparison against the Property Purchase template |
 | `docs/property-purchase-asset-map.md` | Property Purchase asset provenance and placement map |
 | `docs/property-purchase-visual-decisions.md` | Property Purchase visual decisions and remaining production gates |
+| `docs/phase-2e-navigation-architecture.md` | ThreeUI-informed navigation reference; documentation only, not yet implemented |
+| `docs/visual-media-inventory-phase-2e-2026-09.md` | Approved provisional media selection, provenance, slots and exclusions for Phase 2E |
+| `docs/phase-2e-media-corrections-merged-2026-09-22.md` | Merged media/crop pass, visual verification and handoff to motion |
 
 ## 6. Stack
 
@@ -173,6 +178,7 @@ Routes:
 | `/preview/investment` | Canonical Investment visual base |
 | `/preview/tax-advisory` | Tax Advisory visual base adapted to Investment |
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment |
+| `/preview/team` | Editorial team page; buyer-side roles and process preview |
 
 Everything under `/preview` is `noindex, nofollow` at three independent
 layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
@@ -266,7 +272,7 @@ confirmed. Until then, calculator entry points remain visibly pending.
 | 2A — Landing Experience System | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype | MERGED |
 | 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer | MERGED — CANONICAL VISUAL BASE |
 | 2D — Tax Advisory and Property Purchase convergence | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives | MERGED — THREE VISUAL BASES READY |
-| 2E — Premium media, motion and visual refinement | Import selected media, replace approved placeholders, refine crops, video, transitions, effects, responsive rhythm, CRO and visual polish across all three landings | NEXT |
+| 2E — Premium media, motion and visual refinement | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO remain | IN PROGRESS — MEDIA/CROP PASS MERGED; MOTION NEXT |
 | 2F — Cross-landing visual QA | Compare all three routes against their templates at mobile and desktop widths; resolve shared regressions | AFTER 2E — HUMAN GATE |
 | 3 — Functional integration | Buyer System production URL, live calculator links, events, consent and lead-capture decision | BLOCKED ON PRODUCT DECISIONS |
 | 4 — Production hardening | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval | AFTER 2E/2F/3 |

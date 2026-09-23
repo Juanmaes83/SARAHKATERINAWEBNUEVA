@@ -106,6 +106,39 @@ and function each slot needs, is in the fidelity matrix §4.
 
 ---
 
+## 4A. Hero information hierarchy correction — 2026-09-22
+
+This pass is approved for the protected Preview only. It does not authorise
+production, publication or indexation.
+
+The visual review found four competing information layers in the Tax Advisory
+hero: copy embedded in the approved Services_14 artwork, duplicate HTML
+document labels, two HTML indicators placed over the artwork, and the
+illustrative snapshot card floating over the image. That hierarchy made the
+hero noisy and placed metadata over Sarah's face.
+
+The correction is:
+
+1. **One artwork layer.** The approved Services_14 image remains the single Tax
+   Advisory hero image. Its embedded tax-agency copy is retained. The duplicate
+   HTML labels `Agencia Tributaria`, `Modelo 210` and
+   `Non-resident taxation` are removed.
+2. **Metadata moved outside the image.** The `Costa Blanca` and
+   `Intro video in production` indicators remain available as normal-flow
+   metadata chips above the image. They are not absolutely positioned and
+   cannot cover the subject.
+3. **Snapshot separated.** The illustrative Tax Exposure Snapshot is rendered
+   below the image in normal document flow. It no longer overlaps, obscures or
+   visually competes with the artwork.
+4. **One trust strip.** The repeated `TaxTrustBand` below the hero is removed.
+   The three hero signals remain as the single trust/credential strip for this
+   landing.
+5. **No forced crop change.** The surviving image keeps the approved native
+   3:2 treatment, preserving both Sarah and the tax-agency composition.
+
+This is a hierarchy and layout correction only. No copy, navigation, motion
+system, CTA destination, other landing or production asset was changed.
+
 ## 5. Motion
 
 The shared system, unchanged: viewport reveals with a capped stagger, a

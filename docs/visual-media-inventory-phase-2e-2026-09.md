@@ -1,13 +1,14 @@
 # Inventario visual de medios — Fase 2E
 
-**Estado:** BORRADOR PARA REVISIÓN Y APROBACIÓN DE JUANMA  
+**Estado:** APROBADO PARA IMPLEMENTACIÓN PROVISIONAL EN PREVIEW · NO PRODUCCIÓN  
 **Fecha:** 2026-09-22  
 **Rama:** `feat/phase-2e-premium-media-motion-2026-09-22`  
 **Alcance:** Investment, Tax Advisory y Property Purchase
 
 Este documento inventaría los medios disponibles para enriquecer visualmente las tres
-landings. No autoriza todavía su implementación ni su publicación. La selección
-final, el crop, el retoque y el uso público requieren revisión visual humana.
+landings. La implementación provisional de los medios aprobados 1–8 queda autorizada
+exclusivamente en Preview. No autoriza su publicación, indexación ni producción. La
+selección final, el crop, el retoque y el uso público requieren revisión visual humana.
 
 ---
 
@@ -294,21 +295,20 @@ los encuadres aprobados y no volver a recortar de forma arbitraria.
 
 ---
 
-## 10. Criterio de aprobación de este inventario
+## 10. Estado de aprobación
 
-Este documento quedará aprobado cuando Juanma confirme:
+Juanma aprobó el bloque de implementación provisional registrado en §11:
 
-- las imágenes primarias por landing;
-- las imágenes que pasan a fallback;
-- las piezas que quedan excluidas;
-- el uso provisional de logos/copy incrustado;
-- si se mantiene el placeholder de vídeo o se inicia producción.
+- se implementan provisionalmente los puntos 1–8;
+- el punto 9 queda excluido;
+- no se incorpora vídeo todavía;
+- la navegación premium queda fuera de esta entrega.
 
-Hasta esa aprobación, Claude Code no debe sustituir automáticamente todos los
-placeholders ni modificar la composición de las tres landings.
+Esta aprobación permite trabajar en previews y no autoriza publicación, indexación,
+producción ni uso de las piezas como prueba de clientes, inmuebles, resultados o
+testimonios. El retoque final, el crop definitivo, el alt text y la validación
+visual de cada integración siguen siendo gates antes de producción.
 
-
----
 
 ## 11. Registro de aprobación humana
 

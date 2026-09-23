@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { cn } from '@/lib/utils/cn';
+import type { ApprovedMedia } from '@/lib/media/approved-media';
 import styles from './TerritoryVisual.module.css';
 
 /**
@@ -32,6 +34,21 @@ export interface TerritoryVisualProps {
   label?: string;
   /** Deepens the ground for use on light bands. */
   tone?: 'navy' | 'sand';
+  /**
+   * PHASE 2E — an approved photograph for this slot.
+   *
+   * When supplied, the photograph replaces the schematic. When it is absent
+   * the schematic still draws, so every slot that has no approved image keeps
+   * working exactly as before and the gap stays visible rather than becoming a
+   * blank box. See `lib/media/approved-media.ts`.
+   */
+  media?: ApprovedMedia;
+  /** Priority-load this image. Set on the single hero image of a page. */
+  priority?: boolean;
+  /** Responsive `sizes` hint. Defaults to a full-width-then-half assumption. */
+  sizes?: string;
+  /** Aspect ratio override, e.g. '16 / 9'. Defaults to the 3:2 slot. */
+  ratio?: string;
 }
 
 const LABELS: Record<TerritoryVariant, string> = {
@@ -139,9 +156,40 @@ export function TerritoryVisual({
   className,
   label,
   tone = 'navy',
+  media,
+  priority = false,
+  sizes = '(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw',
+  ratio,
 }: TerritoryVisualProps) {
+  const style = ratio ? { aspectRatio: ratio } : undefined;
+
+  // An approved photograph replaces the drawing. Everything else about the
+  // slot — the frame, the ratio, the label — is unchanged, so swapping a
+  // retouched file in later needs no layout work.
+  if (media) {
+    return (
+      <div className={cn(styles.frame, styles[tone], className)} style={style}>
+        <Image
+          src={media.src}
+          alt={media.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          className={styles.photo}
+          style={{ objectPosition: media.focal }}
+        />
+        {label ? (
+          <>
+            <span className={styles.labelScrim} aria-hidden="true" />
+            <span className={styles.label}>{label}</span>
+          </>
+        ) : null}
+      </div>
+    );
+  }
+
   return (
-    <div className={cn(styles.frame, styles[tone], className)}>
+    <div className={cn(styles.frame, styles[tone], className)} style={style}>
       <svg
         viewBox="0 0 240 160"
         preserveAspectRatio="xMidYMid slice"
