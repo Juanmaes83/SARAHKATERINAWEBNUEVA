@@ -132,7 +132,11 @@ describe('converged web layer', () => {
     const classes = [...taxCss.matchAll(/^\.([a-zA-Z0-9_]+)/gm)].map((m) => m[1]);
     // Small by construction: anything the shared layer expresses is used from
     // the shared layer, not restated here.
-    expect(classes.length).toBeLessThan(30);
+    // Raised from < 30 to <= 31: PR #20 legitimately added the hero media
+    // metadata row and the detached snapshot, and every rule here is in use.
+    // Phase 2E motion rules live inside a reduced-motion media query and add
+    // nothing to this count. The forbidden-class check below is the real guard.
+    expect(classes.length).toBeLessThanOrEqual(31);
     // And it must not redefine chrome the shared system owns.
     for (const forbidden of ['button', 'header', 'footer', 'card', 'section']) {
       expect(classes).not.toContain(forbidden);
@@ -209,7 +213,9 @@ describe('tax advisory composition', () => {
       'PrototypeBanner',
       'WebHeader',
       'TaxHero',
-      'TaxTrustBand',
+      // No TaxTrustBand: removed on purpose by PR #20 because it repeated the
+      // hero's credential row (docs/tax-advisory-visual-decisions.md, "One
+      // trust strip"). Asserted absent below so it cannot silently return.
       'TaxContextBand',
       'TaxCalendarBand',
       'TaxProcessBand',
@@ -227,6 +233,7 @@ describe('tax advisory composition', () => {
     expect(positions.filter((p) => p.at === -1).map((p) => p.name)).toEqual([]);
     const rendered = positions.map((p) => p.at);
     expect(rendered).toEqual([...rendered].sort((a, b) => a - b));
+    expect(pageSource).not.toContain('<TaxTrustBand');
   });
 
   it('composes context and audience as the template does — one band', () => {
@@ -526,7 +533,8 @@ describe('imported assets', () => {
     // acceptable; a hardcoded string in the component is not.
     for (const source of [heroSource, bandsSource]) {
       if (source.includes('<Image')) {
-        expect(source).toMatch(/alt=\{[^}]*(imageAlt|Media\.alt)/);
+        // `heroMedia.alt` or `APPROVED_MEDIA.<key>.alt` — both read the registry.
+        expect(source).toMatch(/alt=\{[^}]*(imageAlt|Media\.alt|APPROVED_MEDIA\.\w+\.alt)/);
       }
       // No literal alt="..." anywhere.
       expect(source).not.toMatch(/alt="[^"]+"/);

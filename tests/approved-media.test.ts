@@ -15,9 +15,7 @@ function walk(dir: string, acc: string[] = []): string[] {
   return acc;
 }
 
-const sourceFiles = ['app', 'components', 'lib', 'content'].flatMap((d) =>
-  walk(resolve(root, d)),
-);
+const sourceFiles = ['app', 'components', 'lib', 'content'].flatMap((d) => walk(resolve(root, d)));
 const read = (f: string) => readFileSync(f, 'utf8');
 
 /**
@@ -45,16 +43,24 @@ describe('approved media registry', () => {
     expect(authority.source).toBe('IMAGES/sarahkaterina_Services_Especial.png');
     expect(authority.src).toBe('/media/authority-editorial.png');
     expect(authority.source).not.toMatch(/home|sk-real/);
-    expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
-    expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
-    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain('APPROVED_MEDIA.authorityEditorial');
+    expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain(
+      'APPROVED_MEDIA.authorityEditorial',
+    );
+    expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain(
+      'APPROVED_MEDIA.authorityEditorial',
+    );
+    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain(
+      'APPROVED_MEDIA.authorityEditorial',
+    );
   });
 
   it('uses Services_14 for both Tax Advisory hero media slots', () => {
     expect(APPROVED_MEDIA.taxHero.source).toBe('IMAGES/sarahkaterina_Services_14.png');
     expect(APPROVED_MEDIA.taxHero.src).toBe('/media/tax-services-14.png');
     const taxHero = read(resolve(root, 'components/web/TaxHero.tsx'));
-    expect(taxHero).toContain('media={APPROVED_MEDIA.taxHero}');
+    // PR #20 reads the entry once (`const heroMedia = APPROVED_MEDIA.taxHero`)
+    // and renders it with next/image directly.
+    expect(taxHero).toContain('APPROVED_MEDIA.taxHero');
     expect(taxHero).not.toContain('media={APPROVED_MEDIA.territoryCoast}');
     expect(taxHero).not.toContain('TerritoryVisual');
     expect((taxHero.match(/<Image\b/g) ?? []).length).toBe(1);
@@ -142,9 +148,7 @@ describe('approved media registry', () => {
 describe('excluded media', () => {
   it('never references the testimonials image', () => {
     // Excluded by the approval itself (item 7): no permissions, no evidence.
-    const offenders = sourceFiles
-      .filter((f) => /testimonios_clientes/.test(readCode(f)))
-      .map(rel);
+    const offenders = sourceFiles.filter((f) => /testimonios_clientes/.test(readCode(f))).map(rel);
     expect(offenders).toEqual([]);
   });
 
@@ -172,7 +176,9 @@ describe('excluded media', () => {
 
   it('does not retain the superseded authority portraits as active consumers', () => {
     expect(
-      sourceFiles.filter((f) => /APPROVED_MEDIA\.(investmentAuthority|taxAuthority)/.test(readCode(f))),
+      sourceFiles.filter((f) =>
+        /APPROVED_MEDIA\.(investmentAuthority|taxAuthority)/.test(readCode(f)),
+      ),
     ).toEqual([]);
   });
 });
