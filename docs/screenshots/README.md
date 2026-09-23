@@ -67,3 +67,11 @@ scrolling the section into view) of the three signature sequences: Investment
 hero entrance (60/250/450/700/1100), Tax calendar sweep (80/300/550/850/1400),
 Property file tracker (80/400/800/1200/1900). Motion cannot be judged from
 stills; they document the order, not the feel. Judge on the Preview.
+
+## Phase 2E visual content upgrade — `phase-2e-content/`
+
+Captured 2026-10-23, same live method as `phase-2e/`. Routes: investment,
+property-purchase, tax-advisory (Team out of scope); widths 375 and 1440.
+`before` = `4f196e5` (PR #21 head, served from a temporary worktree),
+`after` = the visual content upgrade. Every capture asserted zero overflow and
+zero content left at opacity 0.

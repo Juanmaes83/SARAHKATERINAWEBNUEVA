@@ -143,6 +143,7 @@ The next branch is `feat/phase-2e-premium-media-motion-2026-09-22`.
 | `docs/phase-2e-media-corrections-merged-2026-09-22.md` | Merged media/crop pass, visual verification and handoff to motion                                                                                        |
 | `docs/phase-2e-premium-experience.md`                  | Phase 2E premium pass: creative direction, audit, WOW map, per-landing decisions, QA evidence, human decisions pending                                   |
 | `docs/phase-2e-motion-system.md`                       | Motion tokens, intensity levels, shared primitives, reduced-motion/no-JS behaviour and rejection criteria                                                |
+| `docs/phase-2e-visual-content-upgrade.md`              | Brief 2026-10-23: reference-to-section mapping, report explorer, common image grade, QA and pending decisions                                            |
 
 ## 6. Stack
 

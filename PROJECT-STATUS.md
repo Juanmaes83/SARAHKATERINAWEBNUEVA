@@ -1,6 +1,6 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
-**Last updated:** 2026-09-23  
+**Last updated:** 2026-10-23  
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION
 
 This file tracks the state of the website product. Strategic status lives
@@ -74,6 +74,13 @@ Juanma's review before they are treated as final:
 - production host, indexation, accessibility/performance and migration gates.
 
 ## Current handoff
+
+**2026-10-23 — visual content upgrade delivered for review** (brief
+`IMAGES/MEJORAS 23 OCTUBRE/`): Investment, Property Purchase and Tax Advisory
+sections rebuilt against the five references, shared `ReportExplorer`, common
+image grade `sk-editorial-v1`, Property duplicate eyebrow and caption fixed.
+Team untouched. Same Draft PR #21, not merged. Details:
+[`docs/phase-2e-visual-content-upgrade.md`](docs/phase-2e-visual-content-upgrade.md).
 
 **2026-09-23 — premium experience pass delivered for review.** Branch
 `feat/phase-2e-premium-media-motion-2026-09-22`, Draft PR, not merged. Creative
