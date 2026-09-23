@@ -18,6 +18,7 @@ import {
   TrustBand,
 } from '@/components/web/WebBands';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
+import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { PROTOTYPE_NOTICE, headerCta, nav, seo } from '@/content/en/investment';
 
@@ -43,7 +44,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function InvestmentPage() {
   return (
-    <>
+    // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
+    <RevealLineProvider line="reading-zone">
       <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
       <WebHeader nav={nav} ctaLabel={headerCta.text} />
@@ -63,6 +65,6 @@ export default function InvestmentPage() {
       <WebFaq appearance="light" />
       <FinalCtaBand />
       <WebFooter />
-    </>
+    </RevealLineProvider>
   );
 }

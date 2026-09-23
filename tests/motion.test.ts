@@ -88,7 +88,8 @@ describe('reveal safety', () => {
   });
 
   it('keeps the fast-scroll and print safety nets', () => {
-    expect(reveal).toContain("addEventListener('scroll', onScroll, { passive: true })");
+    expect(reveal).toContain("addEventListener('scroll', check, { passive: true })");
+    expect(reveal).toContain("addEventListener('resize', check, { passive: true })");
     expect(reveal).toContain("addEventListener('beforeprint', reveal)");
   });
 
@@ -144,5 +145,47 @@ describe('no animated figures', () => {
       )
       .map(rel);
     expect(offenders).toEqual([]);
+  });
+});
+
+describe('reveal line — one rule for every trigger path', () => {
+  const reveal = read('components/motion/RevealOnScroll.tsx');
+  const rule = read('components/motion/revealLine.ts');
+
+  it('observer and scroll fallback both ask the same rule', () => {
+    const calls = reveal.match(/hasReachedRevealLine\(node!?, line\(\)\)/g) ?? [];
+    expect(calls.length).toBe(2);
+    expect(reveal).toContain('rootMargin: revealRootMargin(line())');
+    // The old disagreeing triggers are gone.
+    expect(reveal).not.toContain("'0px 0px -10% 0px'");
+    expect(reveal).not.toMatch(/box\.top < window\.innerHeight/);
+  });
+
+  it('uses no timer to postpone arrivals', () => {
+    expect(reveal).not.toMatch(/setTimeout/);
+    expect(rule).not.toMatch(/setTimeout/);
+  });
+
+  it('places the line in the reading zone (70–78%) and keeps the page end reachable', async () => {
+    const { readingZoneLine, revealRootMargin, EDGE_LINE } =
+      await import('../components/motion/revealLine');
+    for (const width of [320, 375, 390, 768, 1024, 1440]) {
+      const line = readingZoneLine(width);
+      expect(line).toBeGreaterThanOrEqual(0.7);
+      expect(line).toBeLessThanOrEqual(0.78);
+    }
+    expect(revealRootMargin(0.72)).toBe('0px 0px -28% 0px');
+    expect(revealRootMargin(EDGE_LINE)).toBe('0px 0px -0% 0px');
+    expect(rule).toMatch(/atPageEnd/);
+  });
+
+  it('opts in the three service landings only; Team keeps the edge line', () => {
+    for (const page of ['investment', 'tax-advisory', 'property-purchase']) {
+      expect(read(`app/preview/${page}/page.tsx`)).toContain(
+        '<RevealLineProvider line="reading-zone">',
+      );
+    }
+    expect(read('app/preview/team/page.tsx')).not.toContain('RevealLineProvider');
+    expect(read('components/web/TeamEditorial.tsx')).not.toContain('RevealLineProvider');
   });
 });

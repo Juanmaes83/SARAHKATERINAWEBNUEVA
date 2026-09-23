@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
+import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { WebFaq } from '@/components/web/WebFaq';
 import { WebFooter } from '@/components/web/WebFooter';
 import { WebHeader } from '@/components/web/WebHeader';
@@ -30,7 +31,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function PropertyPurchasePage() {
   return (
-    <>
+    // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
+    <RevealLineProvider line="reading-zone">
       <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
       <WebHeader
         nav={nav}
@@ -53,6 +55,6 @@ export default function PropertyPurchasePage() {
       <WebFaq content={faq} appearance="light" />
       <FinalCtaBand />
       <WebFooter content={footer} />
-    </>
+    </RevealLineProvider>
   );
 }

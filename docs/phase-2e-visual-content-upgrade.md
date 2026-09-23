@@ -198,3 +198,15 @@ Captures: `docs/screenshots/phase-2e-content/<route>-<375|1440>-<before|after>.j
 - The grade is a global, mild correction; hero-level retouching (skin, sky,
   embedded-text cleanup) still needs a human retoucher.
 - Door photographs are reused assets, not commissioned for the slot.
+
+---
+
+## 8. Follow-up 2026-10-23 — reveal timing
+
+Arrivals on the three service landings fired at the viewport edge (median
+≈ 99 % of its height) because the scroll fallback and the observer used
+different triggers. One central rule now decides (`components/motion/revealLine.ts`):
+arrivals start when a block reaches **78 %** of the viewport on phones and
+**72 %** from 768 px, so they are still finishing as the reader arrives. Team
+is not opted in and keeps its timing. Measurements, method and filmstrips:
+[`phase-2e-motion-system.md` §4.1](phase-2e-motion-system.md).

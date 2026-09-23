@@ -1,7 +1,7 @@
 # Phase 2E — Motion system
 
 Status: **PROPOSAL — PENDING JUANMA'S VISUAL APPROVAL**
-Updated: 2026-09-23
+Updated: 2026-10-23
 Branch: `feat/phase-2e-premium-media-motion-2026-09-22`
 Companion: [`phase-2e-premium-experience.md`](phase-2e-premium-experience.md) (creative direction, audit, QA)
 
@@ -97,6 +97,64 @@ competing effects.
   that attribute, so it is inert without script or with reduced motion.
 - Keeps the fast-scroll safety net (rAF scroll check) and the `beforeprint`
   reveal.
+
+### 4.1 The reveal line — when an arrival starts (2026-10-23)
+
+**Problem, measured.** Arrivals fired while the block was still at the bottom
+edge of the screen, so the movement was over before the reader got there. On
+all three service landings, at 375 and 1440 px, an element's top was at
+**96–101 % of the viewport height (median ≈ 99 %)** when it switched to
+`data-reveal="shown"` (Playwright, steady wheel scroll, every armed element).
+
+**Cause.** Two triggers disagreed. The `IntersectionObserver` used
+`rootMargin: '0px 0px -10% 0px'` (≈ 90 %), but the rAF scroll fallback
+revealed anything with `top < window.innerHeight` (100 %) — and on any real
+scroll the fallback always won. Because `data-reveal="shown"` also starts every
+descendant (title rules, gold threads, connectors, calendar bars, charts), all
+of them ran early too.
+
+**Fix — one rule.** `components/motion/revealLine.ts` defines the reveal line
+and `hasReachedRevealLine(node, line)`: _true once the element's top reaches
+the line, or — at the very end of the page, where nothing can scroll higher —
+once it is on screen._ Every path asks this one function: the observer (whose
+`rootMargin` is derived from the same line, so it wakes at the right moment),
+the scroll and resize fallback (fast scroll, anchor jumps), elements mounted
+after hydration, and QA/captures, which read the page's line from
+`<html data-sk-reveal-line>`. There is no timer and no global delay.
+
+| Viewport | Line     | Why                                                                         |
+| -------- | -------- | --------------------------------------------------------------------------- |
+| < 768 px | **78 %** | Short screens and large thumb scrolls; the sticky header already takes ~8 % |
+| ≥ 768 px | **72 %** | Taller viewports; the block must be well inside the reading zone            |
+
+Opt-in by page through `<RevealLineProvider line="reading-zone">` on
+Investment, Tax Advisory and Property Purchase. Every other page — **Team**
+included — keeps the edge line (`1`), which reproduces the effective timing it
+already had, now with one rule instead of two.
+
+**Unchanged:** the hydration rule (anything on screen when the script arrives
+is never hidden — no flicker), stagger, reduced motion (never armed), no-JS
+(never armed), `beforeprint`.
+
+**Measured after** (same method):
+
+| Route @ width                 | Reveal position (median, p10–p90) | Arrival end vs block centre reaching mid-screen at 800 px/s (median) |
+| ----------------------------- | --------------------------------- | -------------------------------------------------------------------- |
+| Investment @375               | 77 % (75–79)                      | −4 ms (finishing as the reader arrives)                              |
+| Investment @1440              | 71 % (70–73)                      | −25 ms                                                               |
+| Tax Advisory @375             | 77 % (75–79)                      | −3 ms                                                                |
+| Tax Advisory @1440            | 70 % (69–72)                      | −53 ms                                                               |
+| Property Purchase @375        | 77 % (75–79)                      | −17 ms                                                               |
+| Property Purchase @1440       | 71 % (70–72)                      | −30 ms                                                               |
+| Team @375 / @1440 (unchanged) | 99 % / 98 %                       | —                                                                    |
+
+Negative = the base arrival finishes just as the block's centre reaches the
+middle of the screen; descendant sequences (threads, bars, connectors) are
+still running then. Same number of elements revealed before and after; zero
+elements left hidden at 320–1440 px, after fast scroll, after anchor jumps,
+without JavaScript and with reduced motion. Filmstrips:
+`docs/screenshots/phase-2e-content/reveal-line-{375,1440}-before-after.jpg`
+(top row before, bottom row after; frames at block top 95 → 45 %).
 
 ### `components/motion/Entrance.module.css` (new)
 
