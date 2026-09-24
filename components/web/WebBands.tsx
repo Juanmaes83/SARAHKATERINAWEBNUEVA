@@ -4,6 +4,7 @@ import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
+import { ArtworkFigure } from './ArtworkFigure';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
@@ -581,6 +582,21 @@ export function AuthorityBand() {
 
 /* --- CASES ---------------------------------------------------------------------- */
 
+/**
+ * PHASE 2F — the owner-approved artwork per case, in the brief's fixed order
+ * (§4.1). Keyed by case id so the mapping cannot drift with array order. Each
+ * image is an illustrative analysis composition: the case copy and its
+ * withheld evidence state below remain authoritative.
+ */
+const CASE_MEDIA: Record<(typeof cases.items)[number]['id'], ApprovedMedia> = {
+  'case-1': APPROVED_MEDIA.caseRefurbishedVilla,
+  'case-2': APPROVED_MEDIA.caseApartmentLetting,
+  'case-3': APPROVED_MEDIA.caseLandDevelopment,
+};
+
+/** Evidence state shown under each case artwork. Governance label, not a claim. */
+const ILLUSTRATIVE_NOTE = 'Illustrative analysis · not a client case';
+
 export function CasesBand() {
   return (
     <WebSection surface="ivory">
@@ -609,13 +625,19 @@ export function CasesBand() {
         {cases.items.map((item, index) => (
           <RevealOnScroll key={item.id} as="li" order={index} className={styles.caseRow}>
             <div className={styles.caseVisual}>
-              <TerritoryVisual variant={item.visual} tone="navy" />
-              <span className={styles.caseNumber} aria-hidden="true">
-                {String(index + 1).padStart(2, '0')}
-              </span>
+              <ArtworkFigure
+                media={CASE_MEDIA[item.id]}
+                title={`${item.assetType.text} — illustrative analysis`}
+                note={ILLUSTRATIVE_NOTE}
+                sizes="(max-width: 1023px) 100vw, 60vw"
+              />
             </div>
 
             <div className={styles.caseMain}>
+              {/* Off the artwork: its corners carry text of their own. */}
+              <span className={styles.caseNumber} aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
               <h3 className={styles.caseTitle}>{item.assetType.text}</h3>
               <p className={styles.caseLocation}>
                 <Icon name="pin" size="sm" />

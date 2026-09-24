@@ -70,6 +70,13 @@ export interface ApprovedMedia {
   readonly ungradedSrc?: string;
   /** Name of the grade applied to `src`, e.g. `sk-editorial-v1`. */
   readonly grade?: string;
+  /**
+   * PHASE 2F — the image is an illustrative analysis composition (a staged
+   * scene with an editorial overlay), never evidence of a client, property,
+   * document or outcome. Slots that show one must keep an "illustrative"
+   * statement in their own HTML.
+   */
+  readonly illustrative?: true;
 }
 
 function media(entry: ApprovedMedia): ApprovedMedia {
@@ -298,6 +305,129 @@ export const APPROVED_MEDIA = {
     source: 'sarahkaterina_services_6.png',
     embeddedText: EMBEDDED_LOCKUP,
   }),
+
+  /* --- Phase 2F: approved case and One File imagery ----------------------
+   * Seven owner-approved images, mapped slot by slot in the Phase 2F brief
+   * §4. Each is an illustrative composition: a staged scene with an analysis
+   * overlay baked in. Shown whole, never cropped, never as a client case.
+   */
+
+  caseRefurbishedVilla: media({
+    id: 'case-refurbished-villa',
+    src: '/media/graded/case-refurbished-villa.webp',
+    ungradedSrc: '/media/case-refurbished-villa.webp',
+    grade: 'sk-editorial-v1',
+    width: 1600,
+    height: 900,
+    alt: 'Illustrative analysis of a refurbished villa with a pool: callouts mark acquisition, renovation scope, contingency and exit scenarios beside a decision-model panel.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Investment Refurbished villa.png',
+    embeddedText: 'Callouts and a "Decision model" panel; footer "Illustrative analysis".',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 cb109107f2b869be…. Slot: Investment · Case studies · 01 Refurbished villa.',
+  }),
+
+  caseApartmentLetting: media({
+    id: 'case-apartment-letting',
+    src: '/media/graded/case-apartment-letting.webp',
+    ungradedSrc: '/media/case-apartment-letting.webp',
+    grade: 'sk-editorial-v1',
+    width: 1600,
+    height: 900,
+    alt: 'Illustrative rental analysis of a sea-view apartment living room: callouts mark seasonality, community, management and operating costs beside a rental-analysis panel.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Investment Apartment for letting.png',
+    embeddedText: 'Callouts and a "Rental analysis" panel; footer "Illustrative analysis".',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 a420f8a056b04806…. Slot: Investment · Case studies · 02 Apartment for letting.',
+  }),
+
+  caseLandDevelopment: media({
+    id: 'case-land-development',
+    src: '/media/graded/case-land-development.webp',
+    ungradedSrc: '/media/case-land-development.webp',
+    grade: 'sk-editorial-v1',
+    width: 1200,
+    height: 679,
+    alt: 'Illustrative feasibility review of a coastal hillside plot: an outlined boundary, road access and utilities over an aerial view, beside a feasibility panel.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Investment Land with development.png',
+    embeddedText:
+      '"Know before you buy" headline and a "Feasibility review" panel with indicative areas, percentages and permit timings; footer "All data indicative. Subject to official verification."',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 9e79c9aced7bd0db…. Slot: Investment · Case studies · 03 Land with development. The baked-in figures are indicative artwork, not a claim: none is reproduced in HTML. 1200px wide to meet the 250 KB budget; smallest text checked legible.',
+  }),
+
+  purchaseFiscalExposure: media({
+    id: 'purchase-fiscal-exposure',
+    src: '/media/graded/purchase-fiscal-exposure.webp',
+    ungradedSrc: '/media/purchase-fiscal-exposure.webp',
+    grade: 'sk-editorial-v1',
+    width: 1200,
+    height: 900,
+    alt: 'Illustrative ownership-tax overview of a modern villa with a pool: callouts mark purchase taxation, annual obligations, ownership structure and potential exposure.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Property Purchase Fiscal exposure identified.png',
+    embeddedText:
+      '"Ownership taxes in context" headline, callouts and an "Estimated ownership picture" panel; footer "Illustrative analysis".',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 5dbac0b376178489…. Slot: Property Purchase · Three avoided mistakes · Fiscal exposure identified. 1200px wide (native 1448) to meet the 250 KB budget.',
+  }),
+
+  purchaseClauseRenegotiated: media({
+    id: 'purchase-clause-renegotiated',
+    src: '/media/graded/purchase-clause-renegotiated.webp',
+    ungradedSrc: '/media/purchase-clause-renegotiated.webp',
+    grade: 'sk-editorial-v1',
+    width: 1600,
+    height: 905,
+    alt: 'Illustrative still life of purchase paperwork on a desk: a document folder, floor plan, sale contract, tax sheet, translation, checklist, notary diary and keys.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Property Purchase Problematic clause renegotiated.png',
+    embeddedText:
+      'Generated sample documents in Spanish (contract, fiscal sheet, translation, checklist); the fiscal sheet shows sample amounts.',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 7c7f01baccf3b470…. Slot: Property Purchase · Three avoided mistakes · Problematic clause renegotiated. The documents are generated props, not genuine legal or fiscal documents.',
+  }),
+
+  purchaseRemoteCompleted: media({
+    id: 'purchase-remote-completed',
+    src: '/media/graded/purchase-remote-completed.webp',
+    ungradedSrc: '/media/purchase-remote-completed.webp',
+    grade: 'sk-editorial-v1',
+    width: 1600,
+    height: 905,
+    alt: 'Illustrative coordination scene: a woman at a laptop on a terrace table beside a six-step property journey and a participants timeline.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Property Purchase Remote purchase completed.png',
+    embeddedText:
+      '"Your Property Journey" timeline, participants list and branded props ("Sarah Katerina property coordination").',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 544b3d23a1f1e4fb…. Slot: Property Purchase · Three avoided mistakes · Remote purchase completed. The person is not identified in text.',
+  }),
+
+  purchaseOneFile: media({
+    id: 'purchase-one-file',
+    src: '/media/graded/purchase-one-file.webp',
+    ungradedSrc: '/media/purchase-one-file.webp',
+    grade: 'sk-editorial-v1',
+    width: 1600,
+    height: 905,
+    alt: 'Illustrative purchase file laid out on a desk: a folder, floor plan, sale contract, fiscal sheet, certified translation, checklist, notary diary and keys.',
+    // Shown whole at its own ratio: the overlay is the content. No crop.
+    focal: '50% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/One file. From viewing to keys.png',
+    embeddedText:
+      'Generated sample documents in Spanish (contract, fiscal sheet, translation, checklist).',
+    illustrative: true,
+    note: 'Owner-approved for Preview in docs/phase-2f-approved-images-and-scroll-hero-video.md (2026-09-23). Generated editorial artwork; generation method and rights record not in the repository — confirm before production. Source sha256 d5e0dbc2d1d24c90…. Slot: Property Purchase · One file. From viewing to keys (replaces the illustrative still life). The documents are generated props, not genuine legal or fiscal documents.',
+  }),
 } as const satisfies Record<string, ApprovedMedia>;
 
 export type ApprovedMediaKey = keyof typeof APPROVED_MEDIA;
@@ -316,18 +446,13 @@ export const PENDING_MEDIA_SLOTS = [
       'No approved image per door; the inventory lists Services 8/9 as an alternative, not a selection.',
   },
   {
-    slot: 'Investment · cases',
-    reason: 'Case imagery is blocked until permissions and evidence exist.',
-  },
-  {
     slot: 'Tax Advisory · problem/context',
     reason: 'LifeStyle_5 is Group B, not in the approved 1–8 block.',
   },
-  { slot: 'Property Purchase · cases', reason: 'Same permission block as Investment.' },
   {
-    slot: 'All landings · hero video',
+    slot: 'Team · hero video',
     reason:
-      'No video exists in the repository. Slots keep the same aspect ratio so a video can drop in later without structural change.',
+      'Deliberate exception (Phase 2F brief §6.5): the authentic team photograph stays; no approved video represents the team. A future candidate needs its own visual, provenance and rights review.',
   },
   { slot: 'All landings · Open Graph image', reason: 'Requires an approved composition.' },
 ] as const;

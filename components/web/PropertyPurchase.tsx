@@ -6,6 +6,9 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
+import { HERO_VIDEO } from '@/lib/media/hero-video';
+import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
+import { ArtworkFigure } from './ArtworkFigure';
 import {
   audience,
   authority,
@@ -77,64 +80,59 @@ const SERVICE_MEDIA: readonly ApprovedMedia[] = [
 
 export function PurchaseHero() {
   return (
-    <section id="top" className={styles.hero} data-surface="light">
-      <div className={styles.heroGrid}>
-        <RevealOnScroll className={cn(styles.heroCopy, entrance.copy)}>
-          <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
-          <h1 className={styles.heroTitle}>
-            {hero.title.text} <em>{hero.accent.text}</em>
-          </h1>
-          <p className={styles.heroBody}>{hero.body.text}</p>
-          <div className={styles.buttonRow}>
-            <WebLinkButton href="#services" variant="primary" arrow>
-              {hero.primaryCta.text}
-            </WebLinkButton>
-            <WebLinkButton href="#process" variant="secondary" arrow>
-              {hero.secondaryCta.text}
-            </WebLinkButton>
-          </div>
-          <ul className={styles.heroProofs}>
-            {hero.proofs.map((item) => (
-              <li key={item.text}>
-                <Icon name="check" size="sm" />
-                {item.text}
-              </li>
-            ))}
-          </ul>
-        </RevealOnScroll>
-
-        <RevealOnScroll order={1} className={styles.heroVisual}>
-          {/*
-            PHASE 2E ART DIRECTION — the photograph is shown whole, at its
-            native 1376:768 ratio. It carries its own brand line and mark on
-            the right and the key handover at the centre; the navy note that
-            used to sit on top of the image covered the first and, on phones,
-            the second. The note now closes the frame from below, so photograph
-            and caption read as one file card and nothing is layered over the
-            artwork.
-          */}
-          <figure className={styles.heroFigure}>
-            <div className={entrance.media}>
-              <PlaceholderMedia
-                label={hero.visualTitle.text}
-                variant="coast"
-                media={APPROVED_MEDIA.purchaseHero}
-                priority
-                sizes="(max-width: 1023px) 100vw, 52vw"
-                className={styles.heroMedia}
-              />
+    <ScrubStage>
+      <section id="top" className={styles.hero} data-surface="light">
+        <div className={styles.heroGrid}>
+          <RevealOnScroll className={cn(styles.heroCopy, entrance.copy)}>
+            <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
+            <h1 className={styles.heroTitle}>
+              {hero.title.text} <em>{hero.accent.text}</em>
+            </h1>
+            <p className={styles.heroBody}>{hero.body.text}</p>
+            <div className={styles.buttonRow}>
+              <WebLinkButton href="#services" variant="primary" arrow>
+                {hero.primaryCta.text}
+              </WebLinkButton>
+              <WebLinkButton href="#process" variant="secondary" arrow>
+                {hero.secondaryCta.text}
+              </WebLinkButton>
             </div>
-            <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
-              <p>{hero.visualBody.text}</p>
-              <span>
-                <Icon name="play" /> Video requires approval
-              </span>
-            </figcaption>
-          </figure>
-          <p className={styles.heroScript}>{hero.script.text}</p>
-        </RevealOnScroll>
-      </div>
-    </section>
+            <ul className={styles.heroProofs}>
+              {hero.proofs.map((item) => (
+                <li key={item.text}>
+                  <Icon name="check" size="sm" />
+                  {item.text}
+                </li>
+              ))}
+            </ul>
+          </RevealOnScroll>
+
+          <RevealOnScroll order={1} className={styles.heroVisual}>
+            {/*
+            PHASE 2F — the owner-approved scroll video (`HERO_VIDEO.purchase`):
+            Sarah in the buyer's advisory position at a meeting table. Shown
+            whole at its 16:9 ratio; nothing is layered over the footage. The
+            navy note closes the frame from below, as before, so video and
+            caption read as one file card. The other people are editorial
+            participants and are never identified.
+          */}
+            <figure className={styles.heroFigure}>
+              <ScrubVideo
+                video={HERO_VIDEO.purchase}
+                className={cn(styles.heroVideo, entrance.media)}
+              />
+              <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
+                <p>{hero.visualBody.text}</p>
+                <span>
+                  <Icon name="play" /> Video requires approval
+                </span>
+              </figcaption>
+            </figure>
+            <p className={styles.heroScript}>{hero.script.text}</p>
+          </RevealOnScroll>
+        </div>
+      </section>
+    </ScrubStage>
   );
 }
 
@@ -227,35 +225,23 @@ export function AudienceBand() {
   );
 }
 
-function FileStillLife() {
-  const notes = ['NIE prepared', 'Title checked', 'Tax route', 'Notary ready', 'Contract reviewed'];
-  return (
-    <div
-      className={styles.fileStill}
-      role="img"
-      aria-label="Illustrative purchase file with ordered document cards."
-    >
-      <div className={styles.folder}>
-        <span>SK</span>
-        <strong>Property purchase</strong>
-        <small>Your file</small>
-      </div>
-      {notes.map((note, index) => (
-        <span key={note} className={styles.fileNote} data-note={index}>
-          {note}
-        </span>
-      ))}
-      <span className={styles.illustrative}>Illustrative</span>
-    </div>
-  );
-}
-
 export function OneFileBand() {
   return (
     <WebSection surface="white">
       <div className={styles.oneFileGrid}>
         <RevealOnScroll>
-          <FileStillLife />
+          {/*
+            PHASE 2F — the approved "One file" artwork (brief §4.3) replaces the
+            drawn folder-and-notes still life: one coordinated record, laid out
+            as a real desk would be. Its labels are in the picture, so none is
+            repeated in HTML; the copy beside it carries the meaning.
+          */}
+          <ArtworkFigure
+            media={APPROVED_MEDIA.purchaseOneFile}
+            title={`${oneFile.title.text} — illustrative`}
+            note="Illustrative · sample documents, not genuine ones"
+            sizes="(max-width: 1023px) 100vw, 50vw"
+          />
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.oneFileCopy}>
           <p className={styles.eyebrow}>{oneFile.eyebrow.text}</p>
@@ -566,6 +552,18 @@ export function AuthorityBand() {
   );
 }
 
+/**
+ * PHASE 2F — the owner-approved artwork per avoided mistake (brief §4.2),
+ * keyed by the card's own title so the mapping cannot drift. Each is an
+ * illustrative composition; the card's copy and withheld result below remain
+ * authoritative, and no person, document or outcome is presented as real.
+ */
+const CASE_ARTWORK: Record<(typeof cases.items)[number]['title'], ApprovedMedia> = {
+  'Fiscal exposure identified': APPROVED_MEDIA.purchaseFiscalExposure,
+  'Problematic clause renegotiated': APPROVED_MEDIA.purchaseClauseRenegotiated,
+  'Remote purchase completed': APPROVED_MEDIA.purchaseRemoteCompleted,
+};
+
 export function CasesBand() {
   return (
     <WebSection surface="ivory">
@@ -573,9 +571,11 @@ export function CasesBand() {
       <div className={styles.caseGrid}>
         {cases.items.map((item, index) => (
           <RevealOnScroll key={item.title} order={index} className={styles.caseCard}>
-            <PlaceholderMedia
-              label="Client image withheld"
-              variant={index === 0 ? 'built' : index === 1 ? 'coast' : 'district'}
+            <ArtworkFigure
+              media={CASE_ARTWORK[item.title]}
+              title={`${item.title} — illustrative`}
+              note="Illustrative · not a client case"
+              sizes="(max-width: 1023px) 100vw, 58vw"
             />
             <div>
               <span>Case slot - permission required</span>

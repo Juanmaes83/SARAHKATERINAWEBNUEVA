@@ -234,3 +234,31 @@
     margin-inline-end: var(--sk-space-48);
   }
 }
+
+/* --- Phase 2F: scroll-scrubbed video visual ---------------------------------
+ * The footage carries its own labels and mark, so nothing overlaps it: the
+ * location line sits above the frame and the snapshot card below it. */
+
+.videoCaption {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: 0 0 var(--sk-space-16);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+.dashboard.dashboardBelow {
+  margin-block-start: var(--sk-space-16);
+}
+
+@media (min-width: 1024px) {
+  .dashboard.dashboardBelow {
+    margin-block-start: var(--sk-space-24);
+    margin-inline-start: var(--sk-space-32);
+    margin-inline-end: 0;
+  }
+}

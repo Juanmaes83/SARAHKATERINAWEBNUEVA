@@ -124,5 +124,75 @@
     "cropped": false,
     "originalKB": 6988,
     "webKB": 6988
+  },
+  {
+    "id": "case-refurbished-villa",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Investment Refurbished villa.png",
+    "original": "1672x941",
+    "web": "1600x900",
+    "cropped": false,
+    "originalKB": 2489,
+    "webKB": 251,
+    "note": "Resized to 1600px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
+  },
+  {
+    "id": "case-apartment-letting",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Investment Apartment for letting.png",
+    "original": "1672x941",
+    "web": "1600x900",
+    "cropped": false,
+    "originalKB": 2338,
+    "webKB": 211,
+    "note": "Resized to 1600px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
+  },
+  {
+    "id": "case-land-development",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Investment Land with development.png",
+    "original": "2688x1520",
+    "web": "1200x679",
+    "cropped": false,
+    "originalKB": 7557,
+    "webKB": 239,
+    "note": "Resized to 1200px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
+  },
+  {
+    "id": "purchase-fiscal-exposure",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Property Purchase Fiscal exposure identified.png",
+    "original": "1448x1086",
+    "web": "1200x900",
+    "cropped": false,
+    "originalKB": 2665,
+    "webKB": 256,
+    "note": "Resized to 1200px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
+  },
+  {
+    "id": "purchase-clause-renegotiated",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Property Purchase Problematic clause renegotiated.png",
+    "original": "2688x1520",
+    "web": "1600x905",
+    "cropped": false,
+    "originalKB": 6201,
+    "webKB": 162,
+    "note": "Resized to 1600px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
+  },
+  {
+    "id": "purchase-remote-completed",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/Property Purchase Remote purchase completed.png",
+    "original": "2688x1520",
+    "web": "1600x905",
+    "cropped": false,
+    "originalKB": 5532,
+    "webKB": 139,
+    "note": "Resized to 1600px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
+  },
+  {
+    "id": "purchase-one-file",
+    "source": "IMAGES/MEJORAS 23 OCTUBRE/One file. From viewing to keys.png",
+    "original": "2688x1520",
+    "web": "1600x905",
+    "cropped": false,
+    "originalKB": 6563,
+    "webKB": 153,
+    "note": "Resized to 1600px wide, no crop: the embedded analysis must stay whole. Width chosen so the graded file stays within the 250 KB budget with its smallest text legible."
   }
 ]

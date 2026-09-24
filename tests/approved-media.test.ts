@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { APPROVED_MEDIA, PENDING_MEDIA_SLOTS } from '../lib/media/approved-media';
+import { HERO_VIDEO } from '../lib/media/hero-video';
 
 const root = resolve(__dirname, '..');
 const rel = (f: string) => relative(root, f).replace(/\\/g, '/');
@@ -34,8 +35,9 @@ const entries = Object.values(APPROVED_MEDIA);
 describe('approved media registry', () => {
   it('registers only images approved in the Phase 2E inventory', () => {
     // 12 from the Phase 2E approval, plus the shared authority image
-    // and the Property Purchase final CTA image.
-    expect(entries.length).toBe(14);
+    // and the Property Purchase final CTA image, plus the seven Phase 2F
+    // case and One File images (docs/phase-2f-approved-images-and-scroll-hero-video.md §4).
+    expect(entries.length).toBe(21);
   });
 
   it('uses the exact approved shared authority image on all three landings', () => {
@@ -56,18 +58,17 @@ describe('approved media registry', () => {
     );
   });
 
-  it('uses Services_14 for both Tax Advisory hero media slots', () => {
+  it('keeps Services_14 registered and gives the Tax hero its approved scroll video', () => {
+    // The former hero image stays registered, untouched (brief §12: do not
+    // delete approved assets); Phase 2F places the approved video in the hero.
     expect(APPROVED_MEDIA.taxHero.source).toBe('IMAGES/sarahkaterina_Services_14.png');
     expect(APPROVED_MEDIA.taxHero.ungradedSrc).toBe('/media/tax-services-14.png');
     expect(APPROVED_MEDIA.taxHero.src).toBe('/media/graded/tax-hero.webp');
     const taxHero = read(resolve(root, 'components/web/TaxHero.tsx'));
-    // PR #20 reads the entry once (`const heroMedia = APPROVED_MEDIA.taxHero`)
-    // and renders it with next/image directly.
-    expect(taxHero).toContain('APPROVED_MEDIA.taxHero');
-    expect(taxHero).not.toContain('media={APPROVED_MEDIA.territoryCoast}');
+    expect(taxHero).toContain('<ScrubVideo video={HERO_VIDEO.tax}');
     expect(taxHero).not.toContain('TerritoryVisual');
-    expect((taxHero.match(/<Image\b/g) ?? []).length).toBe(1);
-    expect(taxHero).toContain('singleHeroFrame');
+    // One information layer: no image or chip laid over the footage.
+    expect(taxHero).not.toMatch(/<Image\b/);
   });
 
   it('uses the approved Property Purchase final CTA image', () => {
@@ -173,8 +174,15 @@ describe('excluded media', () => {
   });
 
   it('references no media file outside the approved registry', () => {
-    // The registry also names each ungraded derivative (Phase 2E grade).
-    const approvedPaths = new Set(entries.flatMap((m) => [m.src, m.ungradedSrc ?? m.src]));
+    // The registry also names each ungraded derivative (Phase 2E grade), and
+    // Phase 2F adds the hero video registry: cuts and posters.
+    const heroPaths = Object.values(HERO_VIDEO).flatMap((v) =>
+      [v.desktop, v.mobile].flatMap((c) => [c.src, c.posterStart, c.posterEnd]),
+    );
+    const approvedPaths = new Set([
+      ...entries.flatMap((m) => [m.src, m.ungradedSrc ?? m.src]),
+      ...heroPaths,
+    ]);
     const offenders: string[] = [];
     for (const file of sourceFiles) {
       for (const match of readCode(file).matchAll(/['"](\/media\/[^'"]+)['"]/g)) {
@@ -185,13 +193,16 @@ describe('excluded media', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('embeds no video', () => {
-    // Item 8: slots are prepared, nothing is embedded.
-    // Case-sensitive `<video`, so the `VideoPlaceholder` component — which is
-    // a reserved slot, not an embed — does not trip the check.
+  it('embeds video only through the approved hero video registry', () => {
+    // Item 8 held every video slot empty. Phase 2F (brief §6–7) places three
+    // approved hero videos: only the registry may name a video file, and only
+    // the scroll-scrub primitive may render one. Case-sensitive `<video`, so
+    // the `VideoPlaceholder` reserved slot does not trip the check.
+    const allowed = new Set(['lib/media/hero-video.ts', 'components/motion/ScrubVideo.tsx']);
     const offenders = sourceFiles
       .filter((f) => /<video[\s/>]|\.mp4|\.webm/.test(readCode(f)))
-      .map(rel);
+      .map(rel)
+      .filter((f) => !allowed.has(f));
     expect(offenders).toEqual([]);
   });
 

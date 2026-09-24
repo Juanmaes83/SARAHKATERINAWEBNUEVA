@@ -63,9 +63,11 @@ describe('Property Purchase corrections', () => {
     expect(purchaseProcess.stepsEyebrow.text).not.toBe(purchaseProcess.eyebrow.text);
   });
 
-  it('captions the hero image as the key handover it shows', () => {
-    expect(purchaseHero.visualBody.text).toMatch(/keys/i);
-    expect(purchaseHero.visualBody.text).not.toMatch(/reviewing documents/i);
+  it('captions the hero visual as what it shows, without identifying anyone else', () => {
+    // Phase 2F: the hero is the buyer-side meeting video; the caption follows it.
+    expect(purchaseHero.visualBody.text).toMatch(/Sarah/);
+    expect(purchaseHero.visualBody.text).toMatch(/buyer’s side/);
+    expect(purchaseHero.visualBody.text).not.toMatch(/client|an international buyer|keys/i);
   });
 });
 
@@ -139,7 +141,8 @@ describe('common grade', () => {
       images: { id: string; kb: number }[];
     };
     expect(manifest.grade.name).toBe('sk-editorial-v1');
-    expect(manifest.images.length).toBe(14);
+    // 14 Phase 2E images plus the seven Phase 2F case and One File images.
+    expect(manifest.images.length).toBe(21);
     expect(manifest.images.filter((image) => image.kb > 250)).toEqual([]);
     // Reads web derivatives only; the originals are never an input.
     expect(code(read('scripts/grade-media.mjs'))).not.toMatch(/IMAGES\//);

@@ -169,6 +169,12 @@
   border-end-end-radius: 0;
 }
 
+/* Phase 2F: the hero video closes onto the navy note below it. */
+.heroFigure .heroVideo {
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
 .heroVisualCopy {
   display: flex;
   flex-direction: column;
@@ -395,78 +401,6 @@
   color: var(--sk-web-muted);
 }
 
-.fileStill {
-  position: relative;
-  min-height: calc(var(--sk-space-80) * 4);
-  overflow: hidden;
-  border-radius: var(--sk-radius-card);
-  background: var(--sk-web-ivory-soft);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
-}
-.folder {
-  position: absolute;
-  z-index: 1;
-  inset-block: var(--sk-space-48) var(--sk-space-24);
-  inset-inline: 21%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sk-space-8);
-  padding: var(--sk-space-24);
-  background: var(--sk-web-navy);
-  color: var(--sk-web-on-dark);
-  border-radius: var(--sk-radius-card);
-  box-shadow: var(--sk-web-shadow-float);
-  text-align: center;
-  text-transform: uppercase;
-}
-.folder span {
-  font-family: var(--sk-type-h2-family);
-  font-size: var(--sk-type-h2-size);
-  color: var(--sk-web-gold-on-dark);
-}
-.folder strong {
-  font-family: var(--sk-type-eyebrow-family);
-  letter-spacing: var(--sk-web-tracking-caps);
-}
-.folder small {
-  color: var(--sk-web-muted-on-dark);
-  letter-spacing: var(--sk-web-tracking-caps);
-}
-.fileNote {
-  position: absolute;
-  z-index: 0;
-  padding: var(--sk-space-16);
-  background: var(--sk-web-white);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
-  color: var(--sk-web-muted);
-  font-size: var(--sk-type-legal-size);
-}
-.fileNote[data-note='0'] {
-  inset-block-start: var(--sk-space-24);
-  inset-inline-start: var(--sk-space-16);
-}
-.fileNote[data-note='1'] {
-  inset-block-end: var(--sk-space-24);
-  inset-inline-start: var(--sk-space-16);
-}
-.fileNote[data-note='2'] {
-  inset-block-start: var(--sk-space-16);
-  inset-inline-end: var(--sk-space-16);
-}
-.fileNote[data-note='3'] {
-  inset-block-end: var(--sk-space-24);
-  inset-inline-end: var(--sk-space-16);
-}
-.fileNote[data-note='4'] {
-  inset-block-start: 45%;
-  inset-inline-start: var(--sk-space-8);
-}
-.fileStill .illustrative {
-  inset-block: auto var(--sk-space-8);
-  inset-inline: auto var(--sk-space-8);
-}
 .checkList {
   display: grid;
   gap: var(--sk-space-8);
@@ -730,6 +664,12 @@
   grid-template-columns: 1fr;
   gap: var(--sk-space-24);
 }
+
+/* Phase 2F: one avoided mistake per row, the artwork at its own ratio beside
+ * the card copy, so the analysis in the picture stays readable. */
+.caseGrid {
+  gap: var(--sk-space-32);
+}
 .serviceCard,
 .caseCard {
   position: relative;
@@ -780,7 +720,7 @@
   font-size: var(--sk-type-h3-size);
 }
 .serviceBody p,
-.caseCard p {
+.caseCard > div:last-child p {
   margin: 0;
   color: var(--sk-web-muted);
   font-size: var(--sk-type-body-small-size);
@@ -883,16 +823,14 @@
   line-height: var(--sk-type-h3-line-height);
 }
 
-.caseCard > .placeholderMedia {
-  border-radius: 0;
-}
-.caseCard span {
+/* Scoped to the card copy: the artwork figure has its own caption and dialog. */
+.caseCard > div:last-child > span {
   color: var(--sk-web-gold);
   font-size: var(--sk-type-legal-size);
   text-transform: uppercase;
   letter-spacing: var(--sk-web-tracking-caps);
 }
-.caseCard strong {
+.caseCard > div:last-child > strong {
   color: var(--sk-web-muted);
   font-size: var(--sk-type-body-small-size);
 }
@@ -998,8 +936,7 @@
     grid-template-columns: auto 1fr auto;
   }
   .processGrid,
-  .serviceGrid,
-  .caseGrid {
+  .serviceGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .worryList {
@@ -1101,9 +1038,13 @@
   .servicesLayout {
     grid-template-columns: minmax(0, 3fr) minmax(calc(var(--sk-space-80) * 3), 1fr);
   }
-  .serviceGrid,
-  .caseGrid {
+  .serviceGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .caseCard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    align-items: center;
   }
   .authorityGrid {
     /* Match the approved Tax Advisory authority composition: a wide editorial

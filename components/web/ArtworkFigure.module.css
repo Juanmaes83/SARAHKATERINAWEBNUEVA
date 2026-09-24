@@ -1,0 +1,171 @@
+/* ===========================================================================
+ * Artwork figure — Phase 2F. The image at its own ratio, nothing over it;
+ * note and enlarge control below; a native modal dialog for the fine print.
+ * Tokens only.
+ * =========================================================================== */
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--sk-web-navy-soft);
+  cursor: zoom-in;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-8) var(--sk-space-16);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background-color: var(--sk-web-ivory);
+}
+
+.note {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-strong);
+}
+
+.enlarge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  padding: 0 var(--sk-space-8);
+  border: 0;
+  background: transparent;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: var(--sk-space-4);
+  cursor: pointer;
+}
+
+/* Four corner ticks: "expand", drawn with borders. */
+.enlargeGlyph {
+  display: inline-block;
+  width: calc(var(--sk-space-16) * 0.75);
+  height: calc(var(--sk-space-16) * 0.75);
+  border: 2px solid currentColor;
+  border-radius: var(--sk-radius-button);
+}
+
+/* --- dialog ------------------------------------------------------------------ */
+
+.dialog {
+  width: min(96vw, calc(var(--sk-space-80) * 20));
+  max-width: none;
+  max-height: 94vh;
+  padding: 0;
+  border: 0;
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-ivory);
+  color: var(--sk-web-ink);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+.dialog::backdrop {
+  background-color: var(--sk-web-navy);
+  opacity: 0.86;
+}
+
+.dialogInner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-16);
+}
+
+.dialogHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+}
+
+.dialogTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  color: var(--sk-web-ink);
+}
+
+.close {
+  flex: none;
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-button);
+  background: transparent;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Phones: the artwork scrolls sideways inside the dialog at a readable size
+ * rather than shrinking its fine print to nothing. */
+.dialogFrame {
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.dialogImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.scrollHint {
+  display: none;
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  color: var(--sk-web-muted);
+}
+
+@media (max-width: 767px) {
+  .scrollHint {
+    display: block;
+  }
+
+  .dialogImage {
+    width: auto;
+    max-width: none;
+    height: 70vh;
+  }
+}
+
+.dialogNote {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-strong);
+}

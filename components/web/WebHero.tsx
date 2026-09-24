@@ -1,11 +1,11 @@
-import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { WebButton } from './WebButton';
 import { DashboardCard } from './DashboardCard';
 import { Icon, type IconName } from './icons/Icon';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
+import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
 import { hero } from '@/content/en/investment';
-import { APPROVED_MEDIA } from '@/lib/media/approved-media';
+import { HERO_VIDEO } from '@/lib/media/hero-video';
 import { isPublishable } from '@/lib/content/claims';
 import entrance from '@/components/motion/Entrance.module.css';
 import { cn } from '@/lib/utils/cn';
@@ -34,87 +34,75 @@ import styles from './WebHero.module.css';
  *
  * PHASE 2E MOTION — the hero is the page's one composed arrival (CSS only,
  * `components/motion/Entrance.module.css`): the copy rises line by line, the
- * portrait's frame opens, and the snapshot card lands last over the photograph.
- * On scroll-out the card drifts slightly ahead of the photograph for depth.
+ * visual's frame opens, and the snapshot card lands last.
+ *
+ * PHASE 2F — the visual is the Costa Blanca territory film, scrubbed by
+ * scroll (`ScrubVideo`): the coast, then the four routes for investment. The
+ * footage carries its own town labels, panel and mark, so nothing may sit on
+ * it: the location line moves above the frame and the snapshot card below
+ * it, touching but never overlapping.
  */
 export function WebHero() {
-  const heroMedia = APPROVED_MEDIA.investmentHero;
-
   return (
-    <section className={styles.hero} id="top">
-      <Container className={styles.grid}>
-        <RevealOnScroll className={cn(styles.copy, entrance.copy)}>
-          <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
+    <ScrubStage>
+      <section className={styles.hero} id="top">
+        <Container className={styles.grid}>
+          <RevealOnScroll className={cn(styles.copy, entrance.copy)}>
+            <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
 
-          {/* The single h1 of the page. */}
-          <h1 className={styles.heading}>{hero.heading.text}</h1>
+            {/* The single h1 of the page. */}
+            <h1 className={styles.heading}>{hero.heading.text}</h1>
 
-          <p className={styles.lead}>{hero.lead.text}</p>
+            <p className={styles.lead}>{hero.lead.text}</p>
 
-          <div className={styles.ctas}>
-            <WebButton variant="primary" arrow>
-              {hero.primaryCta.text}
-            </WebButton>
-            <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
-          </div>
+            <div className={styles.ctas}>
+              <WebButton variant="primary" arrow>
+                {hero.primaryCta.text}
+              </WebButton>
+              <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
+            </div>
 
-          <dl className={styles.signals}>
-            {hero.signals.map((signal) => (
-              <div key={signal.value.text} className={styles.signal}>
-                <Icon name={signal.icon as IconName} className={styles.signalIcon} />
-                <div>
-                  <dt className={styles.signalValue}>
-                    {signal.value.text}
-                    {!isPublishable(signal.value) ? (
-                      <span
-                        className={styles.pendingDot}
-                        role="img"
-                        aria-label="figure pending approval"
-                      />
-                    ) : null}
-                  </dt>
-                  <dd className={styles.signalNote}>{signal.note.text}</dd>
+            <dl className={styles.signals}>
+              {hero.signals.map((signal) => (
+                <div key={signal.value.text} className={styles.signal}>
+                  <Icon name={signal.icon as IconName} className={styles.signalIcon} />
+                  <div>
+                    <dt className={styles.signalValue}>
+                      {signal.value.text}
+                      {!isPublishable(signal.value) ? (
+                        <span
+                          className={styles.pendingDot}
+                          role="img"
+                          aria-label="figure pending approval"
+                        />
+                      ) : null}
+                    </dt>
+                    <dd className={styles.signalNote}>{signal.note.text}</dd>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </dl>
+              ))}
+            </dl>
 
-          <p className={styles.script}>{hero.script.text}</p>
-        </RevealOnScroll>
+            <p className={styles.script}>{hero.script.text}</p>
+          </RevealOnScroll>
 
-        <RevealOnScroll order={1} className={styles.visual}>
-          <figure className={styles.figure}>
-            <div className={cn(styles.frame, entrance.media)}>
-              {/*
-                PHASE 2E — approved hero image (inventory §11, item 1).
-                `sk-real-1` moves out of the hero; the authentic portrait
-                remains the authority image further down the page, which is
-                what the approval requires.
-              */}
-              <Image
-                src={heroMedia.src}
-                alt={heroMedia.alt}
-                className={styles.image}
-                fill
-                priority
-                sizes="(max-width: 1023px) 100vw, 46vw"
-                style={{ objectPosition: heroMedia.focal }}
-              />
-              <span className={styles.scrim} aria-hidden="true" />
-              <span className={styles.locationPin}>
+          <RevealOnScroll order={1} className={styles.visual}>
+            <figure className={styles.figure}>
+              <p className={styles.videoCaption}>
                 <Icon name="pin" size="sm" />
                 {hero.locationLabel.text}
-              </span>
-            </div>
+              </p>
+              <ScrubVideo video={HERO_VIDEO.investment} className={entrance.media} />
 
-            <div className={cn(styles.dashboard, entrance.float)}>
-              <div className={entrance.depthFront}>
-                <DashboardCard />
+              <div className={cn(styles.dashboard, styles.dashboardBelow, entrance.float)}>
+                <div className={entrance.depthFront}>
+                  <DashboardCard />
+                </div>
               </div>
-            </div>
-          </figure>
-        </RevealOnScroll>
-      </Container>
-    </section>
+            </figure>
+          </RevealOnScroll>
+        </Container>
+      </section>
+    </ScrubStage>
   );
 }

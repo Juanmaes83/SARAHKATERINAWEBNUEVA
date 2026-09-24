@@ -1690,14 +1690,12 @@
   border-radius: 0;
 }
 
+/* Phase 2F: in the text column, off the artwork (its corners carry text). */
 .caseNumber {
-  position: absolute;
-  inset-block-start: var(--sk-space-16);
-  inset-inline-start: var(--sk-space-16);
   font-family: var(--sk-type-h2-family);
   font-size: var(--sk-type-h2-size);
   line-height: 1;
-  color: var(--sk-web-gold-on-dark);
+  color: var(--sk-web-gold);
 }
 
 .caseMain {
@@ -1785,36 +1783,18 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
+/* Phase 2F: the case artwork is an analysis to be read, so it takes the wide
+ * column at its own ratio; below 1024px the row stacks and it takes the full
+ * width. The former 280px thumbnail column made the overlays unreadable. */
+@media (min-width: 1024px) {
   .caseRow {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
   }
 
   .caseVisual {
     grid-row: span 2;
-  }
-
-  .caseVisual > div {
-    height: 100%;
-    aspect-ratio: auto;
-  }
-}
-
-@media (min-width: 1024px) {
-  .caseRow {
-    grid-template-columns:
-      calc(var(--sk-space-80) * 3.5) minmax(0, 1fr)
-      calc(var(--sk-space-80) * 3.5);
-  }
-
-  .caseVisual {
-    grid-row: auto;
-  }
-
-  .caseResult {
-    justify-content: center;
-    border-block-start: 0;
-    border-inline-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    border-inline-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
       var(--sk-web-border);
   }
 
