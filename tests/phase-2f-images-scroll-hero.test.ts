@@ -155,7 +155,11 @@ describe('1–4. approved images', () => {
 
 describe('5–10, 13. hero videos', () => {
   const HEROES = [
-    ['investment', 'components/web/WebHero.tsx', 'VIDEOS/MAPA CIUDADES OPORTUNIDADES.mp4'],
+    [
+      'investment',
+      'components/web/WebHero.tsx',
+      'VIDEOS/TAX ADVISORY HERO REPLACEMENT.mp4',
+    ],
     [
       'purchase',
       'components/web/PropertyPurchase.tsx',
