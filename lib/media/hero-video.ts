@@ -56,30 +56,30 @@ function heroVideo(entry: HeroVideo): HeroVideo {
 
 export const HERO_VIDEO = {
   investment: heroVideo({
-    id: 'investment-territory',
+    id: 'investment-hillside-development',
     route: '/preview/investment',
     desktop: {
-      src: '/media/hero/investment-territory-desktop.mp4',
-      width: 1208,
+      src: '/media/hero/tax-ownership-replacement-desktop.mp4',
+      width: 1280,
       height: 720,
-      bytes: 3635360,
-      posterStart: '/media/hero/investment-territory-desktop-start.webp',
-      posterEnd: '/media/hero/investment-territory-desktop-end.webp',
+      bytes: 7821655,
+      posterStart: '/media/hero/tax-ownership-replacement-desktop-start.webp',
+      posterEnd: '/media/hero/tax-ownership-replacement-desktop-end.webp',
     },
     mobile: {
-      src: '/media/hero/investment-territory-mobile.mp4',
-      width: 560,
-      height: 720,
-      bytes: 1591227,
-      posterStart: '/media/hero/investment-territory-mobile-start.webp',
-      posterEnd: '/media/hero/investment-territory-mobile-end.webp',
+      src: '/media/hero/tax-ownership-replacement-mobile.mp4',
+      width: 854,
+      height: 480,
+      bytes: 3349768,
+      posterStart: '/media/hero/tax-ownership-replacement-mobile-start.webp',
+      posterEnd: '/media/hero/tax-ownership-replacement-mobile-end.webp',
     },
-    duration: 5.04,
+    duration: 10.08,
     posterAlt:
-      'A relief map of the Costa Blanca coast with its towns marked and a panel listing four routes for investment: residential, land, commercial and redevelopment.',
-    source: 'VIDEOS/MAPA CIUDADES OPORTUNIDADES.mp4',
-    sourceSha256: '466a498b5e41bbe75562dad788b62763143f332411f3085eda9386eda0540f2e',
-    note: `${PROVENANCE} Desktop: crop 1208×720 from x=72, which removes a duplicated compass rose and keeps every label and the brand mark. Mobile: portrait window 560×720 from x=440, which keeps all six town labels and the panel legible on a phone. Not official cartography.`,
+      'An aerial view of contemporary white hillside villas, landscaped terraces and swimming pools in warm evening light.',
+    source: 'VIDEOS/TAX ADVISORY HERO REPLACEMENT.mp4',
+    sourceSha256: '4dc31d8c10d424c4ced1d2954df41c9b1aa742501b55e5db1c5fcd1dee150ed1',
+    note: `${PROVENANCE} Owner selected this film on 2026-09-24 to replace the repeated map in the Investment hero. Full 16:9 frame for both cuts. The territorial map remains in the Asset Types band, where it explains location and investment routes without repeating the hero.`,
   }),
 
   purchase: heroVideo({
