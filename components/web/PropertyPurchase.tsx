@@ -6,6 +6,9 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
+import { APPROVED_VIDEO } from '@/lib/media/approved-video';
+import { PURCHASE_VOICES } from '@/content/en/buyer-voices';
+import { BuyerVoices } from './BuyerVoices';
 import {
   audience,
   authority,
@@ -566,26 +569,33 @@ export function AuthorityBand() {
   );
 }
 
+/**
+ * PHASE 2F: the three permission-gated case slots become one fabric banner
+ * that carries a buyer's voice per case. No voice is cleared yet, so every
+ * slot says so on its own surface; the case titles and withheld-outcome notes
+ * are the approved copy, unchanged. The images are editorial, never the buyer.
+ *
+ * Chosen so that the text baked into each image stays whole and correctly
+ * spelled beside the video window. Most approved images carry a caption at
+ * the bottom edge ("…property sistem…") that the window would cut: assetPlan,
+ * assetResidential, assetArchitecture, territoryCoast and reportInterior.
+ */
+const VOICE_IMAGES: readonly ApprovedMedia[] = [
+  APPROVED_MEDIA.processAnalysis,
+  APPROVED_MEDIA.investmentHero,
+  APPROVED_MEDIA.territoryContact,
+];
+
 export function CasesBand() {
   return (
-    <WebSection surface="ivory">
+    <WebSection surface="ivory" id="voices" className={styles.voicesSection}>
       <WebSectionHeader eyebrow={cases.eyebrow.text} title={cases.title.text} centered rule />
-      <div className={styles.caseGrid}>
-        {cases.items.map((item, index) => (
-          <RevealOnScroll key={item.title} order={index} className={styles.caseCard}>
-            <PlaceholderMedia
-              label="Client image withheld"
-              variant={index === 0 ? 'built' : index === 1 ? 'coast' : 'district'}
-            />
-            <div>
-              <span>Case slot - permission required</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              <strong>Result withheld</strong>
-            </div>
-          </RevealOnScroll>
-        ))}
-      </div>
+      <BuyerVoices
+        slots={PURCHASE_VOICES}
+        images={VOICE_IMAGES}
+        video={APPROVED_VIDEO.territoryLoop}
+        notes={cases.items.map((item) => item.body)}
+      />
       <div className={styles.centerAction}>
         <WebLinkButton href="#faq" variant="primary" arrow>
           {cases.cta.text}

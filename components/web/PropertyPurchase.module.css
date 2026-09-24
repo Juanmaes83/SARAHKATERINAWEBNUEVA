@@ -724,14 +724,12 @@
 .servicesLayout {
   align-items: start;
 }
-.serviceGrid,
-.caseGrid {
+.serviceGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--sk-space-24);
 }
-.serviceCard,
-.caseCard {
+.serviceCard {
   position: relative;
   overflow: hidden;
   border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
@@ -740,8 +738,7 @@
   box-shadow: var(--sk-web-shadow-card);
   transition: transform var(--sk-motion-interaction-duration) var(--sk-motion-interaction-ease);
 }
-.serviceCard:hover,
-.caseCard:hover {
+.serviceCard:hover {
   transform: translateY(calc(var(--sk-space-4) * -1));
 }
 /* Phase 2E: the photograph leans in under the pointer, inside its frame. */
@@ -763,8 +760,7 @@
   font-weight: var(--sk-font-weight-semibold);
   text-transform: uppercase;
 }
-.serviceBody,
-.caseCard > div:last-child {
+.serviceBody {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -772,15 +768,13 @@
   padding: var(--sk-space-24);
 }
 .serviceBody h3,
-.caseCard h3,
 .scopePanel h3 {
   margin: 0;
   color: var(--sk-web-ink);
   font-family: var(--sk-type-h3-family);
   font-size: var(--sk-type-h3-size);
 }
-.serviceBody p,
-.caseCard p {
+.serviceBody p {
   margin: 0;
   color: var(--sk-web-muted);
   font-size: var(--sk-type-body-small-size);
@@ -883,19 +877,6 @@
   line-height: var(--sk-type-h3-line-height);
 }
 
-.caseCard > .placeholderMedia {
-  border-radius: 0;
-}
-.caseCard span {
-  color: var(--sk-web-gold);
-  font-size: var(--sk-type-legal-size);
-  text-transform: uppercase;
-  letter-spacing: var(--sk-web-tracking-caps);
-}
-.caseCard strong {
-  color: var(--sk-web-muted);
-  font-size: var(--sk-type-body-small-size);
-}
 .centerAction {
   display: flex;
   justify-content: center;
@@ -998,8 +979,7 @@
     grid-template-columns: auto 1fr auto;
   }
   .processGrid,
-  .serviceGrid,
-  .caseGrid {
+  .serviceGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .worryList {
@@ -1101,8 +1081,7 @@
   .servicesLayout {
     grid-template-columns: minmax(0, 3fr) minmax(calc(var(--sk-space-80) * 3), 1fr);
   }
-  .serviceGrid,
-  .caseGrid {
+  .serviceGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .authorityGrid {
@@ -1137,8 +1116,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .processCard,
-  .serviceCard,
-  .caseCard {
+  .serviceCard {
     transition: none;
     transform: none;
   }
@@ -1499,4 +1477,12 @@
 .fileStage h3 {
   overflow-wrap: normal;
   hyphens: manual;
+}
+
+/* --- Phase 2F: buyer voices ------------------------------------------------ */
+
+/* The fabric banner's canvas overhangs its stage; clip it at the page edge so
+ * a pulled corner never widens the page. Vertical overflow stays visible. */
+.voicesSection {
+  overflow-x: clip;
 }
