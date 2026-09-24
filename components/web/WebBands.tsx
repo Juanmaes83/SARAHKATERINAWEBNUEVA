@@ -40,6 +40,8 @@ import styles from './WebBands.module.css';
  */
 const ASSET_MEDIA: Partial<Record<string, ApprovedMedia>> = {
   residential: APPROVED_MEDIA.assetResidential,
+  land: APPROVED_MEDIA.assetLand,
+  commercial: APPROVED_MEDIA.assetCommercial,
   redevelopment: APPROVED_MEDIA.assetArchitecture,
 };
 
@@ -107,7 +109,7 @@ export function ApproachBand() {
             variant="coast"
             label={approach.territoryLabel.text}
             tone="navy"
-            media={APPROVED_MEDIA.processAnalysis}
+            media={APPROVED_MEDIA.advisorClientTwo}
             sizes="(max-width: 1023px) 100vw, 30vw"
             unveil
           />
@@ -145,8 +147,8 @@ export function ApproachBand() {
  * so no baked-in lockup is cut.
  */
 const DOOR_MEDIA: Partial<Record<string, ApprovedMedia>> = {
-  'have-property': APPROVED_MEDIA.assetPlan,
-  opportunities: APPROVED_MEDIA.reportInterior,
+  'have-property': APPROVED_MEDIA.propertyInMind,
+  opportunities: APPROVED_MEDIA.investmentOpportunities,
 };
 
 export function DoorsBand() {

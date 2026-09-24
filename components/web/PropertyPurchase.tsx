@@ -212,7 +212,7 @@ export function AudienceBand() {
             <PlaceholderMedia
               label={audience.mediaLabel.text}
               variant="built"
-              media={APPROVED_MEDIA.assetResidential}
+              media={APPROVED_MEDIA.advisorClientOne}
               sizes="(max-width: 1023px) 100vw, 40vw"
               unveil
             />

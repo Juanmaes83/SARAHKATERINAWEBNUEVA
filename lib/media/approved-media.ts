@@ -63,6 +63,13 @@ export interface ApprovedMedia {
    */
   readonly compactCrop?: { readonly scale: number; readonly origin: string };
   /**
+   * `object-position` for narrow or portrait slots (e.g. the Investment door
+   * image beside its text from 1280px), where the default focal would crop the
+   * subject out. Used only when a slot renders with `crop="compact"`, which is
+   * the default. Slots at the image's own ratio show the whole frame anyway.
+   */
+  readonly compactFocal?: string;
+  /**
    * PHASE 2E COMMON GRADE (brief 2026-10-23, §9). `src` now serves the graded
    * derivative produced by `scripts/grade-media.mjs`; this is the ungraded web
    * derivative it was made from, kept in place and untouched.
@@ -306,6 +313,93 @@ export const APPROVED_MEDIA = {
     embeddedText: EMBEDDED_LOCKUP,
   }),
 
+  /* --- October 2026 additions (brief 2026-10-23) --------------------------
+   * Six owner-supplied images from `IMAGES/MEJORAS 23 OCTUBRE/`. Originals are untouched; web
+   * derivatives live in `public/media/`, graded copies in `public/media/graded/`.
+   * None depicts a real client, transaction or outcome.
+   */
+
+  propertyInMind: media({
+    id: 'property-in-mind',
+    src: '/media/graded/property-in-mind.webp',
+    ungradedSrc: '/media/property-in-mind.webp',
+    grade: 'sk-editorial-v1',
+    width: 1200,
+    height: 800,
+    alt: 'A woman with a woven bag walks along a stone path towards a white apartment building among olive trees and lavender.',
+    focal: '45% 50%',
+    // The walker is at the far left; a portrait crop keeps her and the building.
+    compactFocal: '8% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Property in mind.png',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I have a property in mind".',
+  }),
+
+  investmentOpportunities: media({
+    id: 'investment-opportunities',
+    src: '/media/graded/investment-opportunities.webp',
+    ungradedSrc: '/media/investment-opportunities.webp',
+    grade: 'sk-editorial-v1',
+    width: 1280,
+    height: 853,
+    alt: 'A woman leans on a stone wall looking out over the rooftops of a Mediterranean coastal town, with mountains and the sea beyond.',
+    focal: '50% 50%',
+    compactFocal: '12% 50%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Opportunities.png',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I want to see opportunities". The town is not named: no specific location is claimed.',
+  }),
+
+  assetLand: media({
+    id: 'asset-land',
+    src: '/media/graded/asset-land.webp',
+    ungradedSrc: '/media/asset-land.webp',
+    grade: 'sk-editorial-v1',
+    width: 1280,
+    height: 720,
+    alt: 'An open hillside of dry grass and olive trees overlooking a small town, with a mountain range on the horizon.',
+    focal: '50% 55%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Land.png',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Land. Illustrates the category only; not a specific plot, and says nothing about its planning status.',
+  }),
+
+  assetCommercial: media({
+    id: 'asset-commercial',
+    src: '/media/graded/asset-commercial.webp',
+    ungradedSrc: '/media/asset-commercial.webp',
+    grade: 'sk-editorial-v1',
+    width: 1280,
+    height: 720,
+    alt: 'An empty ground-floor retail unit with a wide glazed frontage, set in a stone-clad building with balconies above.',
+    focal: '45% 55%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/Commercial.png',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Commercial. Illustrates the category only; not a specific asset or tenancy.',
+  }),
+
+  advisorClientOne: media({
+    id: 'advisor-client-one',
+    src: '/media/graded/advisor-client-one.webp',
+    ungradedSrc: '/media/advisor-client-one.webp',
+    grade: 'sk-editorial-v1',
+    width: 1536,
+    height: 1024,
+    alt: 'An editorial advisory scene: Sarah Katerina goes through printed documents with a person seated across a wooden table.',
+    focal: '55% 35%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 1.png',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Property Purchase · AudienceBand. The other person is not presented as a real client; no case, testimonial or outcome is implied. The file name "CLIENTE" is not carried into any public text.',
+  }),
+
+  advisorClientTwo: media({
+    id: 'advisor-client-two',
+    src: '/media/graded/advisor-client-two.webp',
+    ungradedSrc: '/media/advisor-client-two.webp',
+    grade: 'sk-editorial-v1',
+    width: 1672,
+    height: 941,
+    alt: 'An editorial advisory scene: Sarah Katerina reviews floor plans in a folder with two people at a table in a bright apartment.',
+    focal: '50% 40%',
+    source: 'IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 2.png',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · ApproachBand, shown at its native 16:9 so no face is cropped. The two people are not presented as real clients; no case, testimonial or outcome is implied.',
+  }),
+
   /* --- Phase 2F: approved case and One File imagery ----------------------
    * Seven owner-approved images, mapped slot by slot in the Phase 2F brief
    * §4. Each is an illustrative composition: a staged scene with an analysis
@@ -440,11 +534,6 @@ export type ApprovedMediaKey = keyof typeof APPROVED_MEDIA;
  * carried forward.
  */
 export const PENDING_MEDIA_SLOTS = [
-  {
-    slot: 'Investment · decision doors',
-    reason:
-      'No approved image per door; the inventory lists Services 8/9 as an alternative, not a selection.',
-  },
   {
     slot: 'Tax Advisory · problem/context',
     reason: 'LifeStyle_5 is Group B, not in the approved 1–8 block.',

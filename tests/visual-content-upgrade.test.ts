@@ -142,7 +142,7 @@ describe('common grade', () => {
     };
     expect(manifest.grade.name).toBe('sk-editorial-v1');
     // 14 Phase 2E images plus the seven Phase 2F case and One File images.
-    expect(manifest.images.length).toBe(21);
+    expect(manifest.images.length).toBe(27);
     expect(manifest.images.filter((image) => image.kb > 250)).toEqual([]);
     // Reads web derivatives only; the originals are never an input.
     expect(code(read('scripts/grade-media.mjs'))).not.toMatch(/IMAGES\//);
