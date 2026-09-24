@@ -1,0 +1,564 @@
+{
+ "summary": {
+  "route": "investment",
+  "w": 390,
+  "first": {
+   "at": "start",
+   "y": 0,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  },
+  "last": {
+   "at": "down",
+   "y": 1380,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -260,
+   "frameBottom": 180,
+   "src": "investment-territory-mobile.mp4"
+  },
+  "mid": {
+   "y": 660,
+   "state": "ready",
+   "t": 2.36,
+   "d": 5.04,
+   "frameTop": 460,
+   "frameBottom": 900,
+   "src": "investment-territory-mobile.mp4"
+  },
+  "final": {
+   "y": 1020,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": 100,
+   "frameBottom": 540,
+   "src": "investment-territory-mobile.mp4"
+  },
+  "maxT": 5,
+  "monotonicDown": true,
+  "monotonicUp": true,
+  "endUp": {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  },
+  "rapid": {
+   "at": "rapid-return",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  },
+  "videos": [
+   "investment-territory-mobile.mp4"
+  ],
+  "overflow": 0,
+  "errors": []
+ },
+ "steps": [
+  {
+   "at": "start",
+   "y": 0,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 60,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1060,
+   "frameBottom": 1500,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 120,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1000,
+   "frameBottom": 1440,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 180,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 940,
+   "frameBottom": 1380,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 240,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 880,
+   "frameBottom": 1320,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 300,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 820,
+   "frameBottom": 1260,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 360,
+   "state": "poster",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 760,
+   "frameBottom": 1200,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 420,
+   "state": "ready",
+   "t": 0.47,
+   "d": 5.04,
+   "frameTop": 700,
+   "frameBottom": 1140,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 480,
+   "state": "ready",
+   "t": 0.94,
+   "d": 5.04,
+   "frameTop": 647,
+   "frameBottom": 1087,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 540,
+   "state": "ready",
+   "t": 1.39,
+   "d": 5.04,
+   "frameTop": 581,
+   "frameBottom": 1021,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 600,
+   "state": "ready",
+   "t": 1.89,
+   "d": 5.04,
+   "frameTop": 520,
+   "frameBottom": 960,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 660,
+   "state": "ready",
+   "t": 2.36,
+   "d": 5.04,
+   "frameTop": 460,
+   "frameBottom": 900,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 720,
+   "state": "ready",
+   "t": 2.84,
+   "d": 5.04,
+   "frameTop": 400,
+   "frameBottom": 840,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 780,
+   "state": "ready",
+   "t": 3.31,
+   "d": 5.04,
+   "frameTop": 340,
+   "frameBottom": 780,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 840,
+   "state": "ready",
+   "t": 3.78,
+   "d": 5.04,
+   "frameTop": 280,
+   "frameBottom": 720,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 900,
+   "state": "ready",
+   "t": 4.26,
+   "d": 5.04,
+   "frameTop": 220,
+   "frameBottom": 660,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 960,
+   "state": "ready",
+   "t": 4.73,
+   "d": 5.04,
+   "frameTop": 160,
+   "frameBottom": 600,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1020,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": 100,
+   "frameBottom": 540,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1080,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": 40,
+   "frameBottom": 480,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1140,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -20,
+   "frameBottom": 420,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1200,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -80,
+   "frameBottom": 360,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1260,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -140,
+   "frameBottom": 300,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1320,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -200,
+   "frameBottom": 240,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1380,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -260,
+   "frameBottom": 180,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1320,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -200,
+   "frameBottom": 240,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1260,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -140,
+   "frameBottom": 300,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1200,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -80,
+   "frameBottom": 360,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1140,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": -20,
+   "frameBottom": 420,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1080,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": 40,
+   "frameBottom": 480,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1020,
+   "state": "ready",
+   "t": 5,
+   "d": 5.04,
+   "frameTop": 100,
+   "frameBottom": 540,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 960,
+   "state": "ready",
+   "t": 4.73,
+   "d": 5.04,
+   "frameTop": 160,
+   "frameBottom": 600,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 900,
+   "state": "ready",
+   "t": 4.26,
+   "d": 5.04,
+   "frameTop": 220,
+   "frameBottom": 660,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 840,
+   "state": "ready",
+   "t": 3.78,
+   "d": 5.04,
+   "frameTop": 280,
+   "frameBottom": 720,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 780,
+   "state": "ready",
+   "t": 3.31,
+   "d": 5.04,
+   "frameTop": 340,
+   "frameBottom": 780,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 720,
+   "state": "ready",
+   "t": 2.84,
+   "d": 5.04,
+   "frameTop": 400,
+   "frameBottom": 840,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 660,
+   "state": "ready",
+   "t": 2.36,
+   "d": 5.04,
+   "frameTop": 460,
+   "frameBottom": 900,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 600,
+   "state": "ready",
+   "t": 1.89,
+   "d": 5.04,
+   "frameTop": 520,
+   "frameBottom": 960,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 540,
+   "state": "ready",
+   "t": 1.41,
+   "d": 5.04,
+   "frameTop": 580,
+   "frameBottom": 1020,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 480,
+   "state": "ready",
+   "t": 0.94,
+   "d": 5.04,
+   "frameTop": 640,
+   "frameBottom": 1080,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 420,
+   "state": "ready",
+   "t": 0.47,
+   "d": 5.04,
+   "frameTop": 700,
+   "frameBottom": 1140,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 360,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 760,
+   "frameBottom": 1200,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 300,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 820,
+   "frameBottom": 1260,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 240,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 880,
+   "frameBottom": 1320,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 180,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 940,
+   "frameBottom": 1380,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 120,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1000,
+   "frameBottom": 1440,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 60,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1060,
+   "frameBottom": 1500,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  },
+  {
+   "at": "rapid-return",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 5.04,
+   "frameTop": 1120,
+   "frameBottom": 1560,
+   "src": "investment-territory-mobile.mp4"
+  }
+ ]
+}

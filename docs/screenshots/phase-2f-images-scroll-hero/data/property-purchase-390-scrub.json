@@ -1,0 +1,564 @@
+{
+ "summary": {
+  "route": "property-purchase",
+  "w": 390,
+  "first": {
+   "at": "start",
+   "y": 0,
+   "state": "poster",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  "last": {
+   "at": "down",
+   "y": 1380,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -599,
+   "frameBottom": -397,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  "mid": {
+   "y": 360,
+   "state": "ready",
+   "t": 5.34,
+   "d": 10.04,
+   "frameTop": 421,
+   "frameBottom": 623,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  "final": {
+   "y": 660,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 121,
+   "frameBottom": 323,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  "maxT": 10,
+  "monotonicDown": true,
+  "monotonicUp": true,
+  "endUp": {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  "rapid": {
+   "at": "rapid-return",
+   "y": 0,
+   "state": "ready",
+   "t": 0.01,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  "videos": [
+   "purchase-buyer-side-mobile.mp4"
+  ],
+  "overflow": 0,
+  "errors": []
+ },
+ "steps": [
+  {
+   "at": "start",
+   "y": 0,
+   "state": "poster",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 60,
+   "state": "ready",
+   "t": 0.61,
+   "d": 10.04,
+   "frameTop": 721,
+   "frameBottom": 923,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 120,
+   "state": "ready",
+   "t": 1.55,
+   "d": 10.04,
+   "frameTop": 661,
+   "frameBottom": 863,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 180,
+   "state": "ready",
+   "t": 2.5,
+   "d": 10.04,
+   "frameTop": 601,
+   "frameBottom": 803,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 240,
+   "state": "ready",
+   "t": 3.45,
+   "d": 10.04,
+   "frameTop": 541,
+   "frameBottom": 743,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 300,
+   "state": "ready",
+   "t": 4.4,
+   "d": 10.04,
+   "frameTop": 481,
+   "frameBottom": 683,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 360,
+   "state": "ready",
+   "t": 5.34,
+   "d": 10.04,
+   "frameTop": 421,
+   "frameBottom": 623,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 420,
+   "state": "ready",
+   "t": 6.29,
+   "d": 10.04,
+   "frameTop": 361,
+   "frameBottom": 563,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 480,
+   "state": "ready",
+   "t": 7.24,
+   "d": 10.04,
+   "frameTop": 301,
+   "frameBottom": 503,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 540,
+   "state": "ready",
+   "t": 8.19,
+   "d": 10.04,
+   "frameTop": 241,
+   "frameBottom": 443,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 600,
+   "state": "ready",
+   "t": 9.14,
+   "d": 10.04,
+   "frameTop": 181,
+   "frameBottom": 383,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 660,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 121,
+   "frameBottom": 323,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 720,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 61,
+   "frameBottom": 263,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 780,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 1,
+   "frameBottom": 203,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 840,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -59,
+   "frameBottom": 143,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 900,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -119,
+   "frameBottom": 83,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 960,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -179,
+   "frameBottom": 23,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1020,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -239,
+   "frameBottom": -37,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1080,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -299,
+   "frameBottom": -97,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1140,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -359,
+   "frameBottom": -157,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1200,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -419,
+   "frameBottom": -217,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1260,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -479,
+   "frameBottom": -277,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1320,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -539,
+   "frameBottom": -337,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "down",
+   "y": 1380,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -599,
+   "frameBottom": -397,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1320,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -539,
+   "frameBottom": -337,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1260,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -479,
+   "frameBottom": -277,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1200,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -419,
+   "frameBottom": -217,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1140,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -359,
+   "frameBottom": -157,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1080,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -299,
+   "frameBottom": -97,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 1020,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -239,
+   "frameBottom": -37,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 960,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -179,
+   "frameBottom": 23,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 900,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -119,
+   "frameBottom": 83,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 840,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -59,
+   "frameBottom": 143,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 780,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 1,
+   "frameBottom": 203,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 720,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 61,
+   "frameBottom": 263,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 660,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 121,
+   "frameBottom": 323,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 600,
+   "state": "ready",
+   "t": 9.14,
+   "d": 10.04,
+   "frameTop": 181,
+   "frameBottom": 383,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 540,
+   "state": "ready",
+   "t": 8.19,
+   "d": 10.04,
+   "frameTop": 241,
+   "frameBottom": 443,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 480,
+   "state": "ready",
+   "t": 7.24,
+   "d": 10.04,
+   "frameTop": 301,
+   "frameBottom": 503,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 420,
+   "state": "ready",
+   "t": 6.29,
+   "d": 10.04,
+   "frameTop": 361,
+   "frameBottom": 563,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 360,
+   "state": "ready",
+   "t": 5.34,
+   "d": 10.04,
+   "frameTop": 421,
+   "frameBottom": 623,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 300,
+   "state": "ready",
+   "t": 4.4,
+   "d": 10.04,
+   "frameTop": 481,
+   "frameBottom": 683,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 240,
+   "state": "ready",
+   "t": 3.45,
+   "d": 10.04,
+   "frameTop": 541,
+   "frameBottom": 743,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 180,
+   "state": "ready",
+   "t": 2.5,
+   "d": 10.04,
+   "frameTop": 601,
+   "frameBottom": 803,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 120,
+   "state": "ready",
+   "t": 1.55,
+   "d": 10.04,
+   "frameTop": 661,
+   "frameBottom": 863,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 60,
+   "state": "ready",
+   "t": 0.61,
+   "d": 10.04,
+   "frameTop": 721,
+   "frameBottom": 923,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  },
+  {
+   "at": "rapid-return",
+   "y": 0,
+   "state": "ready",
+   "t": 0.01,
+   "d": 10.04,
+   "frameTop": 781,
+   "frameBottom": 983,
+   "src": "purchase-buyer-side-mobile.mp4"
+  }
+ ]
+}
