@@ -1,0 +1,69 @@
+{
+ "reduced_banner_1440": {
+  "mode": "static",
+  "videoPaused": true,
+  "t": 0,
+  "compositionOpacity": "1"
+ },
+ "reduced_map_1440": {
+  "film": "poster",
+  "control": "Play"
+ },
+ "reduced_banner_375": {
+  "mode": "static",
+  "videoPaused": true,
+  "t": 0,
+  "compositionOpacity": "1"
+ },
+ "reduced_map_375": {
+  "film": "poster",
+  "control": "Play"
+ },
+ "nowebgl_banner": {
+  "mode": "static",
+  "videoPaused": false,
+  "t": 1.71,
+  "compositionOpacity": "1"
+ },
+ "nojs_banner_1440": {
+  "slots": 10
+ },
+ "nojs_map_1440": {
+  "controls": 0
+ },
+ "nojs_banner_375": {
+  "slots": 10
+ },
+ "nojs_map_375": {
+  "controls": 0
+ },
+ "kbd_tabs": {
+  "selected": "02Problematic clause renegotiatedOutcome",
+  "focused": "tab",
+  "bannerTopic": "Problematic clause renegotiated"
+ },
+ "kbd_banner": {
+  "focusedStage": "interactive banner",
+  "focusRing": "solid 2px",
+  "pixelsChanged": true
+ },
+ "tab_switch": {
+  "hiddenPaused": true,
+  "visiblePlaying": true
+ },
+ "pause_control": {
+  "paused": true,
+  "label": "Play motion and video"
+ },
+ "zoom200_overflow_investment": 0,
+ "zoom200_overflow_property-purchase": 0,
+ "slow_map_early": {
+  "film": "poster",
+  "control": null
+ },
+ "slow_map_late": {
+  "film": "ended",
+  "control": "Replay"
+ },
+ "errors": []
+}
