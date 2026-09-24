@@ -325,7 +325,7 @@ describe('publication and held subjects', () => {
         '2bbc549317d4f5c3d77cd4201597e46df19bb9b566b01f6b7e172f5859c550a0',
       'content/en/tax-advisory.ts':
         '90ae70dfac4aa9b81cc0c830488bb856b43ba2a452c473c4be4a0a0964d3ac42',
-      'content/en/team.ts': '30af3c250db0db7b31fea13b2dbd16000900a6207e0fd1d6990a968db3dae858',
+      'content/en/team.ts': '3986f6d699d8e68cd8fc33191d814758651e820e892b30f18d4e8be41e1b40c6',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
