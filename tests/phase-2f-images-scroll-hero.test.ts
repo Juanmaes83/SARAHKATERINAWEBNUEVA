@@ -165,12 +165,11 @@ describe('5–10, 13. hero videos', () => {
       'components/web/PropertyPurchase.tsx',
       'VIDEOS/SARAH KATERINA SIEMPRE DEL LADO DEL COMPRADOR.mp4',
     ],
-    ['tax', 'components/web/TaxHero.tsx', 'VIDEOS/BIENES RACIES QUE CRECEN.mp4'],
+    ['tax', 'components/web/TaxHero.tsx', 'VIDEOS/TAX ADVISORY HERO SECTION.mp4'],
   ] as const;
 
   it.each(HEROES)('the %s hero scrubs its approved source', (key, component, source) => {
     const v = HERO_VIDEO[key];
-    // The source name is kept exactly as it exists, including "RACIES".
     expect(v.source).toBe(source);
     expect(sha256(v.source)).toBe(v.sourceSha256);
     expect(read(component)).toContain(`<ScrubVideo`);
@@ -269,12 +268,12 @@ describe('7, 11, 12, 14. boundaries', () => {
     expect(read('content/en/investment.ts')).toContain(
       "text: 'Properties. Data. Better decisions.'",
     );
-    expect(read('content/en/tax-advisory.ts')).toContain("text: 'Intro video in production'");
+    expect(read('content/en/tax-advisory.ts')).toContain("text: 'Tax exposure overview'");
   });
 
   it('keeps Tax and Team regressions controlled', () => {
     const tax = read('components/web/TaxHero.tsx');
-    // The explainer-video pending chip and the detached snapshot stay.
+    // The approved hero label and detached snapshot stay.
     expect(tax).toContain('hero.videoPending.text');
     expect(tax).toContain('<TaxSnapshotCard />');
     const team = read('components/web/TeamEditorial.tsx');
