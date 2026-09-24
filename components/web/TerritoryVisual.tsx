@@ -205,7 +205,7 @@ export function TerritoryVisual({
           // Hook for card-level hover and reveal choreography.
           data-media-photo=""
           style={{
-            objectPosition: media.focal,
+            objectPosition: (crop === 'compact' ? media.compactFocal : undefined) ?? media.focal,
             ...(compact
               ? {
                   transformOrigin: compact.origin,

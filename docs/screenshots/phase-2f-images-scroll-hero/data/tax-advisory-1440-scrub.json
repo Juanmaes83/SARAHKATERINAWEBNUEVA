@@ -1,0 +1,394 @@
+{
+ "summary": {
+  "route": "tax-advisory",
+  "w": 1440,
+  "first": {
+   "at": "start",
+   "y": 0,
+   "state": "poster",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 280,
+   "frameBottom": 587,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  "last": {
+   "at": "down",
+   "y": 900,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -80,
+   "frameBottom": 227,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  "mid": {
+   "y": 360,
+   "state": "ready",
+   "t": 4.8,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  "final": {
+   "y": 660,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 160,
+   "frameBottom": 467,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  "maxT": 10,
+  "monotonicDown": true,
+  "monotonicUp": true,
+  "endUp": {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 280,
+   "frameBottom": 587,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  "rapid": {
+   "at": "rapid-return",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 280,
+   "frameBottom": 587,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  "videos": [
+   "tax-ownership-costs-desktop.mp4"
+  ],
+  "overflow": 0,
+  "errors": []
+ },
+ "steps": [
+  {
+   "at": "start",
+   "y": 0,
+   "state": "poster",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 280,
+   "frameBottom": 587,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 60,
+   "state": "poster",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 220,
+   "frameBottom": 527,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 120,
+   "state": "ready",
+   "t": 0.35,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 180,
+   "state": "ready",
+   "t": 1.46,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 240,
+   "state": "ready",
+   "t": 2.57,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 300,
+   "state": "ready",
+   "t": 3.69,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 360,
+   "state": "ready",
+   "t": 4.8,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 420,
+   "state": "ready",
+   "t": 5.91,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 480,
+   "state": "ready",
+   "t": 7.02,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 540,
+   "state": "ready",
+   "t": 8.13,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 600,
+   "state": "ready",
+   "t": 9.24,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 660,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 160,
+   "frameBottom": 467,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 720,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 100,
+   "frameBottom": 407,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 780,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 40,
+   "frameBottom": 347,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 840,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -20,
+   "frameBottom": 287,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "down",
+   "y": 900,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -80,
+   "frameBottom": 227,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 840,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": -20,
+   "frameBottom": 287,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 780,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 40,
+   "frameBottom": 347,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 720,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 100,
+   "frameBottom": 407,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 660,
+   "state": "ready",
+   "t": 10,
+   "d": 10.04,
+   "frameTop": 160,
+   "frameBottom": 467,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 600,
+   "state": "ready",
+   "t": 9.24,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 540,
+   "state": "ready",
+   "t": 8.13,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 480,
+   "state": "ready",
+   "t": 7.02,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 420,
+   "state": "ready",
+   "t": 5.91,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 360,
+   "state": "ready",
+   "t": 4.8,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 300,
+   "state": "ready",
+   "t": 3.69,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 240,
+   "state": "ready",
+   "t": 2.57,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 180,
+   "state": "ready",
+   "t": 1.46,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 120,
+   "state": "ready",
+   "t": 0.35,
+   "d": 10.04,
+   "frameTop": 179,
+   "frameBottom": 486,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 60,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 220,
+   "frameBottom": 527,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "up",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 280,
+   "frameBottom": 587,
+   "src": "tax-ownership-costs-desktop.mp4"
+  },
+  {
+   "at": "rapid-return",
+   "y": 0,
+   "state": "ready",
+   "t": 0,
+   "d": 10.04,
+   "frameTop": 280,
+   "frameBottom": 587,
+   "src": "tax-ownership-costs-desktop.mp4"
+  }
+ ]
+}

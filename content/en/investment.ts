@@ -480,6 +480,66 @@ export const assetTypes = {
   ],
 } as const;
 
+/** Copy added with the territory map film (Phase 2F). Pending Juanma's review. */
+const PHASE_2F = 'Phase 2F proposed copy (brief 2026-09-23) — pending Juanma';
+
+/**
+ * The territory map film that opens the asset types band. It reads place,
+ * asset, analysis and decision as one chain, so the four cards below read as
+ * the analysis of each kind of asset rather than as a catalogue.
+ */
+export const territoryMap = {
+  label: claim({ text: 'Costa Blanca', status: 'proposal', source: PHASE_2F }),
+  title: claim({
+    text: 'Where it is, what it is, and whether it deserves to go further.',
+    status: 'proposal',
+    source: PHASE_2F,
+  }),
+  steps: [
+    {
+      id: 'place',
+      title: claim({ text: 'Place', status: 'proposal', source: PHASE_2F }),
+      body: claim({
+        text: 'The Costa Blanca coast, north to south, as the map shows it.',
+        status: 'proposal',
+        source: PHASE_2F,
+      }),
+    },
+    {
+      id: 'asset',
+      title: claim({ text: 'Asset', status: 'proposal', source: PHASE_2F }),
+      body: claim({
+        text: 'Four kinds of asset, each with its own risks.',
+        status: 'proposal',
+        source: PHASE_2F,
+      }),
+    },
+    {
+      id: 'analysis',
+      title: claim({ text: 'Analysis', status: 'proposal', source: PHASE_2F }),
+      body: claim({
+        text: 'One method for all four: costs, tax, risk and exit.',
+        status: 'proposal',
+        source: PHASE_2F,
+      }),
+    },
+    {
+      id: 'decision',
+      title: claim({ text: 'Decision', status: 'proposal', source: PHASE_2F }),
+      body: claim({
+        text: 'Whether the opportunity is worth pursuing, before you commit.',
+        status: 'proposal',
+        source: PHASE_2F,
+      }),
+    },
+  ],
+  disclaimer: claim({
+    text: 'Illustrative relief map, not official cartography. It shows where the analysis applies and the kinds of asset it covers — not properties for sale, and not a forecast.',
+    status: 'proposal',
+    source: PHASE_2F,
+  }),
+} as const;
+
 export const process = {
   /** "CÓMO ANALIZAMOS" */
   eyebrow: claim({ text: 'How we analyse', status: 'proposal', source: TEMPLATE }),

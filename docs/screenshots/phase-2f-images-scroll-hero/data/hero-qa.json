@@ -1,0 +1,329 @@
+{
+ "investment": {
+  "reducedMotion": {
+   "state": "poster",
+   "poster": "investment-territory-desktop-end.webp",
+   "posterLoaded": true,
+   "videoSrc": null,
+   "runway": "auto",
+   "overlayImg": 0,
+   "videoRequests": 0
+  },
+  "noJs": {
+   "poster": "investment-territory-mobile-end.webp",
+   "loaded": true,
+   "ctas": 27,
+   "overflow": 0
+  },
+  "delayedMetadata": {
+   "early": {
+    "state": "poster",
+    "poster": "investment-territory-desktop-start.webp",
+    "posterLoaded": true,
+    "videoSrc": "/media/hero/investment-territory-desktop.mp4",
+    "runway": "540px",
+    "overlayImg": 0
+   },
+   "late": {
+    "state": "ready",
+    "poster": "investment-territory-desktop-start.webp",
+    "posterLoaded": true,
+    "videoSrc": "/media/hero/investment-territory-desktop.mp4",
+    "runway": "540px",
+    "overlayImg": 0
+   }
+  },
+  "failedVideo": {
+   "state": "failed",
+   "poster": "investment-territory-desktop-start.webp",
+   "posterLoaded": true,
+   "videoSrc": "/media/hero/investment-territory-desktop.mp4",
+   "runway": "0",
+   "overlayImg": 1
+  },
+  "keyboard": {
+   "firstTab": "Skip to content",
+   "stops": [
+    "A:|solid 2px",
+    "BUTTON:Menu|solid 2px",
+    "BUTTON:Request an analysis→|solid 2px",
+    "BUTTON:See how it works|solid 2px",
+    "BUTTON:Analyse my property→|solid 2px",
+    "BUTTON:See opportunities→|solid 2px",
+    "BUTTON:Talk to Sarah first→|solid 2px",
+    "BUTTON:See opportunities→|solid 2px",
+    "BUTTON:See opportunities→|solid 2px",
+    "BUTTON:See opportunities→|solid 2px",
+    "BUTTON:See opportunities→|solid 2px",
+    "BUTTON:01Investment summaryTh|solid 2px"
+   ],
+   "videoInTabOrder": false,
+   "menuOpen": true,
+   "ctaHref": "Request an analysis→",
+   "afterCtaHash": "",
+   "errors": []
+  }
+ },
+ "property-purchase": {
+  "reducedMotion": {
+   "state": "poster",
+   "poster": "purchase-buyer-side-desktop-end.webp",
+   "posterLoaded": true,
+   "videoSrc": null,
+   "runway": "auto",
+   "overlayImg": 0,
+   "videoRequests": 0
+  },
+  "noJs": {
+   "poster": "purchase-buyer-side-mobile-end.webp",
+   "loaded": true,
+   "ctas": 22,
+   "overflow": 0
+  },
+  "delayedMetadata": {
+   "early": {
+    "state": "poster",
+    "poster": "purchase-buyer-side-desktop-start.webp",
+    "posterLoaded": true,
+    "videoSrc": "/media/hero/purchase-buyer-side-desktop.mp4",
+    "runway": "540px",
+    "overlayImg": 0
+   },
+   "late": {
+    "state": "ready",
+    "poster": "purchase-buyer-side-desktop-start.webp",
+    "posterLoaded": true,
+    "videoSrc": "/media/hero/purchase-buyer-side-desktop.mp4",
+    "runway": "540px",
+    "overlayImg": 0
+   }
+  },
+  "failedVideo": {
+   "state": "failed",
+   "poster": "purchase-buyer-side-desktop-start.webp",
+   "posterLoaded": true,
+   "videoSrc": "/media/hero/purchase-buyer-side-desktop.mp4",
+   "runway": "0",
+   "overlayImg": 1
+  },
+  "keyboard": {
+   "firstTab": "Skip to content",
+   "stops": [
+    "A:|solid 2px",
+    "BUTTON:Menu|solid 2px",
+    "A:Start my purchase file|solid 2px",
+    "A:See how it works→|solid 2px",
+    "BUTTON:View full size: One fi|solid 2px",
+    "A:See what we handle→|solid 2px",
+    "A:Request a purchase rev|solid 2px",
+    "A:Request roadmap→|solid 2px",
+    "A:Request support→|solid 2px",
+    "A:Request review→|solid 2px",
+    "A:Meet Sarah→|solid 2px",
+    "BUTTON:View full size: Fiscal|solid 2px"
+   ],
+   "videoInTabOrder": false,
+   "menuOpen": true,
+   "ctaHref": "#services",
+   "afterCtaHash": "#services",
+   "errors": []
+  }
+ },
+ "tax-advisory": {
+  "reducedMotion": {
+   "state": "poster",
+   "poster": "tax-ownership-costs-desktop-end.webp",
+   "posterLoaded": true,
+   "videoSrc": null,
+   "runway": "auto",
+   "overlayImg": 0,
+   "videoRequests": 0
+  },
+  "noJs": {
+   "poster": "tax-ownership-costs-mobile-end.webp",
+   "loaded": true,
+   "ctas": 25,
+   "overflow": 0
+  },
+  "delayedMetadata": {
+   "early": {
+    "state": "poster",
+    "poster": "tax-ownership-costs-desktop-start.webp",
+    "posterLoaded": true,
+    "videoSrc": "/media/hero/tax-ownership-costs-desktop.mp4",
+    "runway": "540px",
+    "overlayImg": 0
+   },
+   "late": {
+    "state": "ready",
+    "poster": "tax-ownership-costs-desktop-start.webp",
+    "posterLoaded": true,
+    "videoSrc": "/media/hero/tax-ownership-costs-desktop.mp4",
+    "runway": "540px",
+    "overlayImg": 0
+   }
+  },
+  "failedVideo": {
+   "state": "failed",
+   "poster": "tax-ownership-costs-desktop-start.webp",
+   "posterLoaded": true,
+   "videoSrc": "/media/hero/tax-ownership-costs-desktop.mp4",
+   "runway": "0",
+   "overlayImg": 1
+  },
+  "keyboard": {
+   "firstTab": "Skip to content",
+   "stops": [
+    "A:|solid 2px",
+    "BUTTON:Menu|solid 2px",
+    "BUTTON:Map my tax exposure→|solid 2px",
+    "BUTTON:See how it works|solid 2px",
+    "BUTTON:Create my tax map→|solid 2px",
+    "BUTTON:01Your tax exposureYou|solid 2px",
+    "SECTION:01 / 04Your tax exposu|solid 2px",
+    "BUTTON:Request a tax review→|solid 2px",
+    "BUTTON:Review my situation→|solid 2px",
+    "BUTTON:Understand my obligati|solid 2px",
+    "BUTTON:Review before I commit|solid 2px",
+    "BUTTON:About Sarah→|solid 2px"
+   ],
+   "videoInTabOrder": false,
+   "menuOpen": true,
+   "ctaHref": "Map my tax exposure→",
+   "afterCtaHash": "",
+   "errors": []
+  }
+ },
+ "overflow": {
+  "investment@320": 0,
+  "investment@375": 0,
+  "investment@390": 0,
+  "investment@768": 0,
+  "investment@1024": 0,
+  "investment@1280": 0,
+  "investment@1440": 0,
+  "property-purchase@320": 0,
+  "property-purchase@375": 0,
+  "property-purchase@390": 0,
+  "property-purchase@768": 0,
+  "property-purchase@1024": 0,
+  "property-purchase@1280": 0,
+  "property-purchase@1440": 0,
+  "tax-advisory@320": 0,
+  "tax-advisory@375": 0,
+  "tax-advisory@390": 0,
+  "tax-advisory@768": 0,
+  "tax-advisory@1024": 0,
+  "tax-advisory@1280": 0,
+  "tax-advisory@1440": 0,
+  "team@320": 0,
+  "team@375": 0,
+  "team@390": 0,
+  "team@768": 0,
+  "team@1024": 0,
+  "team@1280": 0,
+  "team@1440": 0
+ },
+ "performance": {
+  "investment@desktop": {
+   "loadMs": 124,
+   "lcp": {
+    "t": 324,
+    "el": "IMG.ScrubVideo_poster__M3gEV",
+    "url": "investment-territory-desktop-start.webp"
+   },
+   "cls": 0.0086,
+   "videoRequests": [
+    "investment-territory-desktop.mp4"
+   ],
+   "videoBytes": 3635360
+  },
+  "investment@mobile-4g": {
+   "loadMs": 1914,
+   "lcp": {
+    "t": 1588,
+    "el": "P.WebHero_lead__SMUF6",
+    "url": ""
+   },
+   "cls": 0,
+   "videoRequests": [
+    "investment-territory-mobile.mp4"
+   ],
+   "videoBytes": 1591227
+  },
+  "property-purchase@desktop": {
+   "loadMs": 118,
+   "lcp": {
+    "t": 312,
+    "el": "IMG.ScrubVideo_poster__M3gEV",
+    "url": "purchase-buyer-side-desktop-start.webp"
+   },
+   "cls": 0.0005,
+   "videoRequests": [
+    "purchase-buyer-side-desktop.mp4"
+   ],
+   "videoBytes": 3369887
+  },
+  "property-purchase@mobile-4g": {
+   "loadMs": 1822,
+   "lcp": {
+    "t": 1552,
+    "el": "P.PropertyPurchase_heroBody__f4Pk4",
+    "url": ""
+   },
+   "cls": 0,
+   "videoRequests": [
+    "purchase-buyer-side-mobile.mp4"
+   ],
+   "videoBytes": 1921968
+  },
+  "tax-advisory@desktop": {
+   "loadMs": 109,
+   "lcp": {
+    "t": 312,
+    "el": "IMG.ScrubVideo_poster__M3gEV",
+    "url": "tax-ownership-costs-desktop-start.webp"
+   },
+   "cls": 0.0005,
+   "videoRequests": [
+    "tax-ownership-costs-desktop.mp4"
+   ],
+   "videoBytes": 3908866
+  },
+  "tax-advisory@mobile-4g": {
+   "loadMs": 1879,
+   "lcp": {
+    "t": 1512,
+    "el": "P.WebHero_lead__SMUF6",
+    "url": ""
+   },
+   "cls": 0,
+   "videoRequests": [
+    "tax-ownership-costs-mobile.mp4"
+   ],
+   "videoBytes": 1895065
+  },
+  "team@desktop": {
+   "loadMs": 109,
+   "lcp": {
+    "t": 288,
+    "el": "IMG.TeamEditorial_heroImage__nI58f",
+    "url": "image?url=%2F_next%2Fstatic%2Fmedia%2Fteam-hero.da1e2d57.webp&w=750&q=75"
+   },
+   "cls": 0.0139,
+   "videoRequests": [],
+   "videoBytes": 0
+  },
+  "team@mobile-4g": {
+   "loadMs": 1757,
+   "lcp": {
+    "t": 1552,
+    "el": "P.TeamEditorial_heroLead__wugw3",
+    "url": ""
+   },
+   "cls": 0,
+   "videoRequests": [],
+   "videoBytes": 0
+  }
+ }
+}

@@ -1,0 +1,253 @@
+/* ===========================================================================
+ * Buyer voices — Phase 2F. Banner beside its index; stacked on phones.
+ * Tokens only.
+ * =========================================================================== */
+
+.voices {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .voices {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--sk-space-64);
+    align-items: center;
+  }
+}
+
+.bannerColumn {
+  min-width: 0;
+  max-width: calc(var(--sk-space-80) * 7.5);
+  width: 100%;
+  justify-self: center;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-24);
+  min-width: 0;
+}
+
+.label {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+/* --- index of voices -------------------------------------------------------- */
+
+.list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  width: 100%;
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-16) 0;
+  border: 0;
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background: transparent;
+  color: var(--sk-web-ink);
+  font: inherit;
+  text-align: start;
+}
+
+button.item {
+  cursor: pointer;
+}
+
+/* The active voice: a gold thread on the leading edge. */
+.item::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-8);
+  inset-inline-start: calc(var(--sk-space-16) * -1);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: transform var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.item[aria-selected='true']::before {
+  transform: scaleY(1);
+}
+
+.itemIndex {
+  flex: none;
+  padding-block-start: var(--sk-space-4);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--sk-web-tracking-caps);
+  color: var(--sk-web-gold);
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+  min-width: 0;
+}
+
+.itemTitle {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-muted);
+  transition: color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.item[aria-selected='true'] .itemTitle,
+button.item:hover .itemTitle,
+li.item .itemTitle {
+  color: var(--sk-web-ink);
+}
+
+.itemNote {
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-muted);
+}
+
+.itemStatus {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+@media (max-width: 899px) {
+  .item::before {
+    inset-inline-start: 0;
+    inset-block: auto 0;
+    inset-inline-end: 0;
+    width: auto;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .item[aria-selected='true']::before {
+    transform: scaleX(1);
+  }
+}
+
+/* --- controls ----------------------------------------------------------------- */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-button);
+  background: transparent;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.control:hover {
+  background-color: var(--sk-web-gold-wash);
+}
+
+.pauseGlyph {
+  display: inline-block;
+  width: var(--sk-space-8);
+  height: calc(var(--sk-space-16) * 0.75);
+  border-inline: 2px solid currentColor;
+}
+
+.playGlyph {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-block: calc(var(--sk-space-8) * 0.75) solid transparent;
+  border-inline-start: var(--sk-space-8) solid currentColor;
+}
+
+.hint {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-muted);
+}
+
+.hintKeys {
+  display: block;
+  font-size: var(--sk-type-legal-size);
+}
+
+/* --- requirements --------------------------------------------------------------- */
+
+.requirements {
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+}
+
+.requirements summary {
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-16);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  color: var(--sk-web-ink);
+  cursor: pointer;
+}
+
+.requirements ol {
+  display: grid;
+  gap: var(--sk-space-8);
+  margin: 0;
+  padding: 0 var(--sk-space-16) var(--sk-space-16) var(--sk-space-32);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item::before,
+  .itemTitle,
+  .control {
+    transition: none;
+  }
+}

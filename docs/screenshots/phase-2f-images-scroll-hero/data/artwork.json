@@ -1,0 +1,122 @@
+{
+ "investment-cases-1440": [
+  {
+   "src": "/media/graded/case-refurbished-villa.webp",
+   "shown": "687x387",
+   "natural": "864x486",
+   "ratioDelta": 0
+  },
+  {
+   "src": "/media/graded/case-apartment-letting.webp",
+   "shown": "687x387",
+   "natural": "864x486",
+   "ratioDelta": 0
+  },
+  {
+   "src": "/media/graded/case-land-development.webp",
+   "shown": "687x389",
+   "natural": "864x488",
+   "ratioDelta": 0.003
+  }
+ ],
+ "purchase-cases-1440": [
+  {
+   "src": "/media/graded/purchase-fiscal-exposure.webp",
+   "shown": "688x516",
+   "natural": "835x626",
+   "ratioDelta": 0.001
+  },
+  {
+   "src": "/media/graded/purchase-clause-renegotiated.webp",
+   "shown": "688x389",
+   "natural": "835x472",
+   "ratioDelta": 0.001
+  },
+  {
+   "src": "/media/graded/purchase-remote-completed.webp",
+   "shown": "688x389",
+   "natural": "835x472",
+   "ratioDelta": 0.001
+  }
+ ],
+ "purchase-one-file-1440": [
+  {
+   "src": "/media/graded/purchase-one-file.webp",
+   "shown": "568x321",
+   "natural": "720x407",
+   "ratioDelta": 0.001
+  }
+ ],
+ "dialog-1440": {
+  "opened": {
+   "open": true,
+   "focus": "Close",
+   "label": "Refurbished villa — illustrative analysis"
+  },
+  "closed": {
+   "open": false,
+   "focus": "View full size: Refurbished villa — illu"
+  }
+ },
+ "overflow-1440": 0,
+ "investment-cases-390": [
+  {
+   "src": "/media/graded/case-refurbished-villa.webp",
+   "shown": "340x191",
+   "natural": "390x219",
+   "ratioDelta": 0.003
+  },
+  {
+   "src": "/media/graded/case-apartment-letting.webp",
+   "shown": "340x191",
+   "natural": "390x219",
+   "ratioDelta": 0.003
+  },
+  {
+   "src": "/media/graded/case-land-development.webp",
+   "shown": "340x192",
+   "natural": "390x220",
+   "ratioDelta": 0.005
+  }
+ ],
+ "purchase-cases-390": [
+  {
+   "src": "/media/graded/purchase-fiscal-exposure.webp",
+   "shown": "340x255",
+   "natural": "390x292",
+   "ratioDelta": 0.002
+  },
+  {
+   "src": "/media/graded/purchase-clause-renegotiated.webp",
+   "shown": "340x192",
+   "natural": "390x220",
+   "ratioDelta": 0.005
+  },
+  {
+   "src": "/media/graded/purchase-remote-completed.webp",
+   "shown": "340x192",
+   "natural": "390x220",
+   "ratioDelta": 0.005
+  }
+ ],
+ "purchase-one-file-390": [
+  {
+   "src": "/media/graded/purchase-one-file.webp",
+   "shown": "342x193",
+   "natural": "390x220",
+   "ratioDelta": 0.005
+  }
+ ],
+ "dialog-390": {
+  "opened": {
+   "open": true,
+   "focus": "Close",
+   "label": "Refurbished villa — illustrative analysis"
+  },
+  "closed": {
+   "open": false,
+   "focus": "View full size: Refurbished villa — illu"
+  }
+ },
+ "overflow-390": 0
+}

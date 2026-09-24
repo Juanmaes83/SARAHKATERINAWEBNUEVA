@@ -15,7 +15,7 @@
     "webpQuality": 82,
     "maxWidth": 2000
   },
-  "generated": "2026-09-23",
+  "generated": "2026-09-24",
   "images": [
     {
       "id": "investment-hero",
@@ -295,6 +295,266 @@
         149,
         136,
         119
+      ]
+    },
+    {
+      "id": "case-refurbished-villa",
+      "input": "public/media/case-refurbished-villa.webp",
+      "output": "public/media/graded/case-refurbished-villa.webp",
+      "size": "1600x900",
+      "kb": 242,
+      "warmthBefore": 0.987,
+      "warmthAfter": 1.065,
+      "temperatureGain": 1.0275,
+      "meanBefore": [
+        100,
+        105,
+        102
+      ],
+      "meanAfter": [
+        102,
+        104,
+        96
+      ]
+    },
+    {
+      "id": "case-apartment-letting",
+      "input": "public/media/case-apartment-letting.webp",
+      "output": "public/media/graded/case-apartment-letting.webp",
+      "size": "1600x900",
+      "kb": 197,
+      "warmthBefore": 1.348,
+      "warmthAfter": 1.248,
+      "temperatureGain": 0.9504,
+      "meanBefore": [
+        130,
+        110,
+        96
+      ],
+      "meanAfter": [
+        123,
+        109,
+        99
+      ]
+    },
+    {
+      "id": "case-land-development",
+      "input": "public/media/case-land-development.webp",
+      "output": "public/media/graded/case-land-development.webp",
+      "size": "1200x679",
+      "kb": 232,
+      "warmthBefore": 0.952,
+      "warmthAfter": 1.05,
+      "temperatureGain": 1.0367,
+      "meanBefore": [
+        87,
+        100,
+        92
+      ],
+      "meanAfter": [
+        90,
+        99,
+        86
+      ]
+    },
+    {
+      "id": "purchase-fiscal-exposure",
+      "input": "public/media/purchase-fiscal-exposure.webp",
+      "output": "public/media/graded/purchase-fiscal-exposure.webp",
+      "size": "1200x900",
+      "kb": 249,
+      "warmthBefore": 0.799,
+      "warmthAfter": 0.92,
+      "temperatureGain": 1.06,
+      "meanBefore": [
+        100,
+        120,
+        125
+      ],
+      "meanAfter": [
+        106,
+        118,
+        115
+      ]
+    },
+    {
+      "id": "purchase-clause-renegotiated",
+      "input": "public/media/purchase-clause-renegotiated.webp",
+      "output": "public/media/graded/purchase-clause-renegotiated.webp",
+      "size": "1600x905",
+      "kb": 153,
+      "warmthBefore": 1.042,
+      "warmthAfter": 1.095,
+      "temperatureGain": 1.0136,
+      "meanBefore": [
+        140,
+        135,
+        134
+      ],
+      "meanAfter": [
+        141,
+        133,
+        129
+      ]
+    },
+    {
+      "id": "purchase-remote-completed",
+      "input": "public/media/purchase-remote-completed.webp",
+      "output": "public/media/graded/purchase-remote-completed.webp",
+      "size": "1600x905",
+      "kb": 130,
+      "warmthBefore": 1.092,
+      "warmthAfter": 1.121,
+      "temperatureGain": 1.0017,
+      "meanBefore": [
+        99,
+        96,
+        90
+      ],
+      "meanAfter": [
+        98,
+        95,
+        87
+      ]
+    },
+    {
+      "id": "purchase-one-file",
+      "input": "public/media/purchase-one-file.webp",
+      "output": "public/media/graded/purchase-one-file.webp",
+      "size": "1600x905",
+      "kb": 140,
+      "warmthBefore": 1.111,
+      "warmthAfter": 1.134,
+      "temperatureGain": 0.9975,
+      "meanBefore": [
+        153,
+        144,
+        138
+      ],
+      "meanAfter": [
+        153,
+        142,
+        135
+      ]
+    },
+    {
+      "id": "property-in-mind",
+      "input": "public/media/property-in-mind.webp",
+      "output": "public/media/graded/property-in-mind.webp",
+      "size": "1200x800",
+      "kb": 230,
+      "warmthBefore": 1.144,
+      "warmthAfter": 1.147,
+      "temperatureGain": 0.9903,
+      "meanBefore": [
+        109,
+        107,
+        95
+      ],
+      "meanAfter": [
+        107,
+        106,
+        93
+      ]
+    },
+    {
+      "id": "investment-opportunities",
+      "input": "public/media/investment-opportunities.webp",
+      "output": "public/media/graded/investment-opportunities.webp",
+      "size": "1280x853",
+      "kb": 199,
+      "warmthBefore": 1.128,
+      "warmthAfter": 1.142,
+      "temperatureGain": 0.9937,
+      "meanBefore": [
+        137,
+        132,
+        121
+      ],
+      "meanAfter": [
+        136,
+        130,
+        119
+      ]
+    },
+    {
+      "id": "asset-land",
+      "input": "public/media/asset-land.webp",
+      "output": "public/media/graded/asset-land.webp",
+      "size": "1280x720",
+      "kb": 239,
+      "warmthBefore": 1.024,
+      "warmthAfter": 1.085,
+      "temperatureGain": 1.018,
+      "meanBefore": [
+        123,
+        123,
+        120
+      ],
+      "meanAfter": [
+        125,
+        122,
+        115
+      ]
+    },
+    {
+      "id": "asset-commercial",
+      "input": "public/media/asset-commercial.webp",
+      "output": "public/media/graded/asset-commercial.webp",
+      "size": "1280x720",
+      "kb": 169,
+      "warmthBefore": 1.377,
+      "warmthAfter": 1.259,
+      "temperatureGain": 0.9453,
+      "meanBefore": [
+        150,
+        131,
+        109
+      ],
+      "meanAfter": [
+        141,
+        130,
+        112
+      ]
+    },
+    {
+      "id": "advisor-client-one",
+      "input": "public/media/advisor-client-one.webp",
+      "output": "public/media/graded/advisor-client-one.webp",
+      "size": "1536x1024",
+      "kb": 85,
+      "warmthBefore": 1.312,
+      "warmthAfter": 1.228,
+      "temperatureGain": 0.9569,
+      "meanBefore": [
+        151,
+        131,
+        115
+      ],
+      "meanAfter": [
+        144,
+        129,
+        117
+      ]
+    },
+    {
+      "id": "advisor-client-two",
+      "input": "public/media/advisor-client-two.webp",
+      "output": "public/media/graded/advisor-client-two.webp",
+      "size": "1672x941",
+      "kb": 107,
+      "warmthBefore": 1.199,
+      "warmthAfter": 1.174,
+      "temperatureGain": 0.9788,
+      "meanBefore": [
+        148,
+        131,
+        124
+      ],
+      "meanAfter": [
+        144,
+        130,
+        123
       ]
     }
   ]

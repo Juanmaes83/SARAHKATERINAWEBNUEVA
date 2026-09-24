@@ -161,11 +161,11 @@ export const hero = {
 
   locationLabel: claim({ text: 'Costa Blanca', status: 'proposal', source: TEMPLATE }),
 
-  /** Template: "VER VÍDEO (1 MIN)". No approved video asset exists. */
+  /** Describes the approved scroll-controlled hero film. */
   videoPending: claim({
-    text: 'Intro video in production',
-    status: 'pending',
-    source: 'docs/phase-2-decision-gate.md §5 — final video selection or production still open',
+    text: 'Tax exposure overview',
+    status: 'confirmed',
+    source: 'Owner-approved hero film, 2026-09-24',
   }),
 } as const;
 

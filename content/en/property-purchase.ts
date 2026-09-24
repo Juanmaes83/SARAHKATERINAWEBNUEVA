@@ -37,9 +37,9 @@ export const hero = {
   secondaryCta: claim({ text: 'See how it works', status: 'proposal', source: TEMPLATE }),
   visualTitle: claim({ text: 'Image / video hero', status: 'pending' }),
   visualBody: claim({
-    text: 'Sarah hands over the keys to an international buyer in a Costa Blanca apartment.',
+    text: 'Sarah at the head of the table, on the buyer’s side of the purchase.',
     status: 'proposal',
-    note: 'Phase 2E (brief 2026-10-23): caption now describes the approved image — a key handover — instead of a document review. Hero video slot stays reserved.',
+    note: 'Phase 2F: the caption describes the approved hero video (Sarah at a meeting table). The previous caption described the former key-handover image and named the other person a buyer; the people in the footage are editorial participants and are not identified.',
   }),
   script: claim({
     text: 'A secure purchase. A new life in Spain.',

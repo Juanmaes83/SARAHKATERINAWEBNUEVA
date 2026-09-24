@@ -1,0 +1,270 @@
+/* ===========================================================================
+ * Fabric banner — Phase 2F. Tokens only.
+ *
+ * The stage is the space the cloth may move in; the composition is the
+ * banner at rest. The canvas covers the stage, so the fabric can lift, swing
+ * and stretch beyond the banner's own edge without being clipped by it.
+ * =========================================================================== */
+
+.stage {
+  position: relative;
+  /* Room to move: sides and below; the top is the rod. */
+  padding: 6% 9% 12%;
+  outline-offset: var(--sk-space-4);
+}
+
+/* Phones: the banner takes the width; the canvas overhang still gives the
+ * cloth room to swing. */
+@media (max-width: 767px) {
+  .stage {
+    padding: 8% 5% 10%;
+  }
+}
+
+/* The banner's rest box: carries the rod, which must stay visible when the
+ * composition itself turns transparent. */
+.hang {
+  position: relative;
+}
+
+/* --- the rod: the banner hangs from it ------------------------------------ */
+
+.rod {
+  position: absolute;
+  z-index: 2;
+  inset-block-start: calc(var(--sk-space-4) * -1);
+  inset-inline: calc(var(--sk-space-16) * -1);
+  height: var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-navy);
+  box-shadow: var(--sk-web-shadow-card);
+  pointer-events: none;
+}
+
+.rod::before,
+.rod::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  width: var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-gold-on-dark);
+}
+
+.rod::before {
+  inset-inline-start: 0;
+}
+
+.rod::after {
+  inset-inline-end: 0;
+}
+
+/* --- the composition: the banner at rest, and the whole fallback ---------- */
+
+.composition {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  aspect-ratio: 4 / 5;
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-ink);
+  box-shadow: var(--sk-web-shadow-float);
+  transition: opacity var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.photo {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background-color: var(--sk-web-ivory-soft);
+}
+
+.photoImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoTag {
+  position: absolute;
+  inset-block-start: var(--sk-space-8);
+  inset-inline-start: var(--sk-space-8);
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+/* The video window overlaps the photograph's lower right corner. */
+.videoWindow {
+  position: relative;
+  z-index: 1;
+  align-self: flex-end;
+  width: 52%;
+  aspect-ratio: 16 / 9;
+  margin-block-start: -20%;
+  margin-inline-end: calc(var(--sk-space-8) * -1);
+  overflow: hidden;
+  border: var(--sk-space-4) solid var(--sk-web-ivory);
+  background-color: var(--sk-web-navy);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoNote {
+  margin: 0;
+  align-self: flex-end;
+  max-width: 60%;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+  color: var(--sk-web-muted);
+  text-align: end;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+.counter {
+  white-space: nowrap;
+}
+
+.topic {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-ink);
+}
+
+.quote {
+  display: flex;
+  gap: var(--sk-space-8);
+  margin: 0;
+}
+
+.mark {
+  flex: none;
+  font-family: var(--sk-font-family-display);
+  font-size: calc(var(--sk-type-h3-size) * 2);
+  line-height: 1;
+  color: var(--sk-web-gold);
+}
+
+.quoteText {
+  margin: 0;
+  font-family: var(--sk-font-family-display);
+  font-size: var(--sk-type-body-size);
+  font-style: italic;
+  line-height: var(--sk-type-body-line-height);
+  color: var(--sk-web-muted);
+}
+
+.attribution {
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-muted);
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sk-space-16);
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.stamp {
+  padding: var(--sk-space-4) var(--sk-space-8);
+  white-space: nowrap;
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-pill);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold);
+}
+
+.logo {
+  display: block;
+  flex: none;
+  width: calc(var(--sk-space-80) + var(--sk-space-24));
+  height: auto;
+}
+
+/* --- the live fabric -------------------------------------------------------- */
+
+/* The canvas overhangs the stage so a pulled corner is never cut by the
+ * banner's own box; the band clips it horizontally at the page edge. It never
+ * takes input: the stage does, so the content around stays clickable. */
+.canvas {
+  position: absolute;
+  /* A replaced element keeps its intrinsic size under `inset`; size it. */
+  inset-block-start: -4%;
+  inset-inline-start: -22%;
+  width: 144%;
+  /* The global media reset caps canvases at 100%; this one overhangs on purpose. */
+  max-width: none;
+  height: 120%;
+  z-index: 1;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.stage[data-mode='fabric'] {
+  cursor: grab;
+  /* Vertical swipes keep scrolling the page; sideways drags take the cloth. */
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.stage[data-mode='fabric'][data-holding] {
+  cursor: grabbing;
+}
+
+.stage[data-mode='fabric'] .canvas {
+  visibility: visible;
+}
+
+.stage[data-mode='fabric'] .composition {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .composition {
+    transition: none;
+  }
+}
