@@ -4,6 +4,7 @@ import { WebFooter } from '@/components/web/WebFooter';
 import { WebHero } from '@/components/web/WebHero';
 import { WebFaq } from '@/components/web/WebFaq';
 import { ToolsBand } from '@/components/web/ToolsBand';
+import { ServiceJourney } from '@/components/web/ServiceJourney';
 import {
   ApproachBand,
   AssetTypesBand,
@@ -62,6 +63,8 @@ export default function InvestmentPage() {
       <AuthorityBand />
       <CasesBand />
       <JourneyBand />
+      {/* Phase 2G: where the operation continues — purchase, tax, the team. */}
+      <ServiceJourney page="investment" />
       <WebFaq appearance="light" />
       <FinalCtaBand />
       <WebFooter />

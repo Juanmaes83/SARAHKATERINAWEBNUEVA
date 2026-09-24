@@ -50,8 +50,8 @@ describe('team editorial preview', () => {
 
   it('keeps identity and held-service boundaries explicit', () => {
     expect(content).toContain("name: 'Igor'");
-    expect(content).toContain("name: 'Oscar'");
-    expect(content).not.toMatch(/Oscar\s+[A-Z]/);
+    expect(content).toContain("name: 'Óscar'");
+    expect(content).not.toMatch(/Óscar\s+[A-Z]/);
     expect(editorial).toMatch(/no fourth person or individual identity\s+is inferred/);
     expect([content, editorial].join('\n')).not.toMatch(
       /VITA Host|Property Management|Sarah Katerina Group/,

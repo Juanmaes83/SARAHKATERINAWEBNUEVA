@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
-import { resolveEntryPoint, type BuyerSystemExperienceKey } from '@/lib/buyer-system/links';
 import { WebLinkButton } from './WebButton';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
@@ -12,6 +11,9 @@ import { BuyerVoices } from './BuyerVoices';
 import { HERO_VIDEO } from '@/lib/media/hero-video';
 import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
 import { ArtworkFigure } from './ArtworkFigure';
+import { BuyerToolRibbon } from './BuyerToolRibbon';
+import { PlayOnceVideo } from '@/components/motion/PlayOnceVideo';
+import { SERVICE_ROUTES } from '@/content/en/service-journey';
 import {
   audience,
   authority,
@@ -19,6 +21,7 @@ import {
   cases,
   fileStages,
   finalCta,
+  goodIdea,
   hero,
   journey,
   oneFile,
@@ -157,42 +160,6 @@ export function PurchaseTrustBand() {
   );
 }
 
-function CalculatorRibbon({
-  toolKey,
-  location,
-}: {
-  toolKey: BuyerSystemExperienceKey;
-  location: string;
-}) {
-  const entry = resolveEntryPoint(toolKey);
-  return (
-    <aside className={styles.calculatorRibbon} aria-label={`${entry.experience.label} calculator`}>
-      <span className={styles.calculatorIcon}>
-        <Icon name="financialModel" />
-      </span>
-      <div>
-        <p className={styles.calculatorKicker}>Buyer System entry point</p>
-        <h3>{entry.experience.question}</h3>
-        <p>{entry.experience.scope}</p>
-      </div>
-      {entry.href ? (
-        <a
-          className={styles.calculatorLink}
-          href={entry.href}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Open calculator <Icon name="arrow" size="sm" />
-          <span className="sk-visually-hidden"> (opens in a new tab)</span>
-        </a>
-      ) : (
-        <span className={styles.calculatorPending}>Controlled preview state</span>
-      )}
-      <span className="sk-visually-hidden">Placement: {location}</span>
-    </aside>
-  );
-}
-
 export function AudienceBand() {
   return (
     <WebSection surface="ivory" id="services">
@@ -223,7 +190,70 @@ export function AudienceBand() {
           </div>
         </RevealOnScroll>
       </div>
-      <CalculatorRibbon toolKey="purchaseTax" location="after trust and audience" />
+      <BuyerToolRibbon
+        toolKey="purchaseTax"
+        sourcePage={SERVICE_ROUTES.purchase}
+        moment="Before the file opens: what Spain charges on the purchase itself."
+      />
+    </WebSection>
+  );
+}
+
+/**
+ * PHASE 2G — "Good idea, bad execution". The owner's brand film sits between
+ * who the service is for and how the one file works: the idea first, then the
+ * four points where it can fail, then (next band) the file that holds them.
+ *
+ * The film plays once, silent, when it reaches the reading line and rests on
+ * its last frame; it is not a second hero and has no copy over it. Its footage
+ * carries no text, so none is repeated here; the HTML carries the argument.
+ */
+export function GoodIdeaBand() {
+  return (
+    <WebSection surface="soft" id="good-idea">
+      <div className={styles.goodIdeaGrid}>
+        <RevealOnScroll className={styles.goodIdeaCopy}>
+          <p className={styles.eyebrow}>{goodIdea.eyebrow.text}</p>
+          <h2 className={styles.sectionTitle}>{goodIdea.title.text}</h2>
+          <p className={styles.lead}>{goodIdea.body.text}</p>
+        </RevealOnScroll>
+        <RevealOnScroll order={1} className={styles.goodIdeaFilm}>
+          <figure>
+            <PlayOnceVideo
+              video={APPROVED_VIDEO.purchaseGoodIdea}
+              name="the film"
+              sizes="(max-width: 1023px) 100vw, 58vw"
+            />
+            <figcaption className={styles.goodIdeaNote}>{goodIdea.note.text}</figcaption>
+          </figure>
+        </RevealOnScroll>
+      </div>
+
+      <div className={styles.goodIdeaPoints}>
+        <p className={styles.goodIdeaKicker}>{goodIdea.pointsTitle.text}</p>
+        <ol className={styles.goodIdeaList}>
+          {goodIdea.points.map((point, index) => (
+            <RevealOnScroll
+              as="li"
+              key={point.id}
+              order={index}
+              className={styles.goodIdeaPoint}
+              style={{ ['--sk-stage-index' as string]: index }}
+            >
+              <span className={styles.goodIdeaIndex} aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3>{point.title.text}</h3>
+              <p>{point.body.text}</p>
+              {'link' in point ? (
+                <WebLinkButton href={SERVICE_ROUTES.tax} variant="quiet" arrow>
+                  {point.link}
+                </WebLinkButton>
+              ) : null}
+            </RevealOnScroll>
+          ))}
+        </ol>
+      </div>
     </WebSection>
   );
 }
@@ -371,7 +401,11 @@ export function ProcessBand() {
           </RevealOnScroll>
         ))}
       </ol>
-      <CalculatorRibbon toolKey="realCashNeeded" location="after purchase process" />
+      <BuyerToolRibbon
+        toolKey="realCashNeeded"
+        sourcePage={SERVICE_ROUTES.purchase}
+        moment="With the process in view: the cash the purchase needs, beyond the headline price."
+      />
     </WebSection>
   );
 }

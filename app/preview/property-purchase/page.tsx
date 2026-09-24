@@ -11,6 +11,7 @@ import {
   CasesBand,
   FileTrackerBand,
   FinalCtaBand,
+  GoodIdeaBand,
   JourneyBand,
   OneFileBand,
   ProcessBand,
@@ -21,6 +22,7 @@ import {
 } from '@/components/web/PropertyPurchase';
 import { PROTOTYPE_NOTICE, faq, footer, headerCta, nav, seo } from '@/content/en/property-purchase';
 import { buildMetadata } from '@/lib/seo/metadata';
+import { ServiceJourney } from '@/components/web/ServiceJourney';
 
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -43,6 +45,8 @@ export default function PropertyPurchasePage() {
       <PurchaseHero />
       <PurchaseTrustBand />
       <AudienceBand />
+      {/* Phase 2G: the idea, and where it can fail — before the file that holds it. */}
+      <GoodIdeaBand />
       <OneFileBand />
       <FileTrackerBand />
       <ProcessBand />
@@ -52,6 +56,7 @@ export default function PropertyPurchasePage() {
       <AuthorityBand />
       <CasesBand />
       <JourneyBand />
+      <ServiceJourney page="purchase" />
       <WebFaq content={faq} appearance="light" />
       <FinalCtaBand />
       <WebFooter content={footer} />

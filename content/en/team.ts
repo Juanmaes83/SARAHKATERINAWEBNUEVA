@@ -122,14 +122,14 @@ export const profiles: readonly TeamProfile[] = [
     featured: true,
   },
   {
-    name: 'Elsa Quiros Perez',
+    name: 'Elsa Quirós Pérez',
     area: 'Administration and administrative tasks',
     body: 'Elsa supports the documents, coordination and administrative tasks that keep the file moving, including relevant owner-stage matters within the agreed scope.',
   },
   {
-    name: 'Oscar',
+    name: 'Óscar',
     area: 'Commercial accompaniment and property selection',
-    body: 'Oscar accompanies the commercial side of the search and helps select properties against the buyer’s brief, without turning the shortlist into a seller-led recommendation.',
+    body: 'Óscar accompanies the commercial side of the search and helps select properties against the buyer’s brief, without turning the shortlist into a seller-led recommendation.',
   },
   {
     name: 'Igor',
@@ -164,7 +164,7 @@ export const process: readonly ProcessStep[] = [
   {
     number: '01',
     title: 'Your idea and first conversation',
-    people: 'Sarah · Oscar',
+    people: 'Sarah · Óscar',
     body: 'The team clarifies how you want to use the property, where you are in the decision and what must be understood before a search starts.',
     verification:
       'Personal tax, legal or financing questions are identified for specialist review.',
@@ -172,14 +172,14 @@ export const process: readonly ProcessStep[] = [
   {
     number: '02',
     title: 'Search criteria and selection',
-    people: 'Oscar · Sarah',
-    body: 'Oscar shapes the property search around the brief. Sarah keeps purchase costs, tax questions and the buyer-side criteria visible as options are compared.',
+    people: 'Óscar · Sarah',
+    body: 'Óscar shapes the property search around the brief. Sarah keeps purchase costs, tax questions and the buyer-side criteria visible as options are compared.',
     verification: 'Listings and seller material are treated as inputs, not proof.',
   },
   {
     number: '03',
     title: 'Evidence before commitment',
-    people: 'Sarah · Oscar · external professionals as needed',
+    people: 'Sarah · Óscar · external professionals as needed',
     body: 'The promising option is tested against the decision: property fit, costs, ownership intentions and the risks already visible from the available information.',
     verification:
       'Lawyers, surveyors, architects, valuers, tax or finance professionals verify matters within their competence.',
@@ -187,7 +187,7 @@ export const process: readonly ProcessStep[] = [
   {
     number: '04',
     title: 'Purchase coordination',
-    people: 'Sarah · Oscar · Elsa',
+    people: 'Sarah · Óscar · Elsa',
     body: 'The commercial, cost and administrative threads stay connected as the transaction advances, with responsibilities made explicit rather than assumed.',
     verification:
       'Contracts, title, planning, finance and technical condition require the appropriate independent checks.',

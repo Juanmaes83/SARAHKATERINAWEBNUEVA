@@ -4,6 +4,7 @@
  * The companion of `approved-media.ts` for moving images. Every entry records
  * the untouched original it was cut from, what was changed and where it plays.
  * Nothing here is approved for production; it is placed in Preview only.
+ * Phase 2G adds one brand film to Property Purchase (`purchaseGoodIdea`).
  *
  * All derivatives are silent: the original carries a quiet music bed that
  * adds nothing to a muted, inline, autoplaying clip, and a muted clip is the
@@ -100,5 +101,31 @@ export const APPROVED_VIDEO = {
     description: 'A slow relief-map view of the southern Costa Blanca around Torrevieja.',
     source: ORIGINAL,
     note: `${PROVENANCE} Cut: crop 480×270 from x=196, y=444, played forward then reversed. Slot: Property Purchase · buyer voices banner, video window placeholder.`,
+  }),
+
+  /**
+   * Phase 2G (docs/phase-2g-connected-service-journey.md). The brand film
+   * "BUENA IDEA_MALA EJECUCIÓN": a buyer leaves a grey, wintry home, makes a
+   * call, flies over the coast, arrives in Alicante, is handed keys and walks
+   * into the sea. The film shows the idea, not a failure; the band around it
+   * names what decides whether the idea becomes a good purchase.
+   *
+   * Full 16:9 frame, no crop, no text in the footage. The original's English
+   * voice-over is not carried (silent derivative, like every clip here).
+   */
+  purchaseGoodIdea: video({
+    id: 'purchase-good-idea',
+    sources: [
+      { src: '/media/video/purchase-good-idea.webm', type: 'video/webm' },
+      { src: '/media/video/purchase-good-idea.mp4', type: 'video/mp4' },
+    ],
+    poster: '/media/video/purchase-good-idea-poster.webp',
+    width: 1280,
+    height: 720,
+    duration: 10.04,
+    description:
+      'A short film: someone leaves a grey, rainy home and makes a phone call, a plane crosses the coast at sunset, Alicante appears from the air, keys are handed over in a bright room above the sea, and bare feet walk into the shallow water.',
+    source: 'VIDEOS/BUENA IDEA_MALA EJECUCIÓN.mp4',
+    note: 'Owner-supplied brand film, copied unchanged from Juanmaes83/sarahkaterina `VIDEOS DE MARCA/BUENA IDEA_MALA EJECUCIÓN.mp4` (git blob 31312fba73e924ac8a27891f676c0527b9e4d9de, SHA-256 24b0e14b8ae9b19cbb6f02c7c39fd74faed7b7d4d4e5fd4f6fa334a0732a273e) on 2026-09-24 for Preview. Generated footage; generation method and rights record are not in the repository — confirm before production. The people are editorial participants, not clients, team members or sellers. Cut: full frame 1280×720, audio removed, VP9 and H.264 at about 0.7 Mbit/s. Slot: Property Purchase · "Good idea, bad execution" band, between the audience band and the one-file band.',
   }),
 } as const satisfies Record<string, ApprovedVideo>;

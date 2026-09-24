@@ -3,6 +3,7 @@ import { Container } from '@/components/layout/Container';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { WebButton, WebLinkButton } from './WebButton';
 import { WebFaq } from './WebFaq';
+import { ServiceJourney } from './ServiceJourney';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon } from './icons/Icon';
 import {
@@ -369,6 +370,8 @@ export function TeamEditorial() {
       <ProcessBand />
       <IndependenceBand />
       <AftercareBand />
+      {/* Phase 2G: back to the service that matches the reader's need. */}
+      <ServiceJourney page="team" />
       <WebFaq content={faq} />
       <FinalCtaBand />
     </div>
