@@ -22,10 +22,10 @@ import styles from './TaxBands.module.css';
  * text already embedded in the approved image.
  *
  * MEDIA — PHASE 2F: the owner-approved scroll video (`HERO_VIDEO.tax`)
- * turns the villa into a legible system of purchase taxes, ongoing costs and
- * ownership risk, with Sarah beside it. The footage carries those labels
- * itself, so no chip is laid over it. The "intro video" pending chip above the
- * frame is a different asset (the template's one-minute explainer) and stays.
+ * turns the villa into a legible system of purchase taxes, legal checks,
+ * ownership risk and recurring obligations. The footage carries those labels
+ * itself, so no duplicate HTML labels are laid over the frame. The metadata
+ * above it identifies the approved tax-exposure overview.
  * The former hero image (`APPROVED_MEDIA.taxHero`) remains registered.
  */
 export function TaxHero() {
