@@ -3,6 +3,7 @@ import { join, relative, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { APPROVED_MEDIA, PENDING_MEDIA_SLOTS } from '../lib/media/approved-media';
 import { HERO_VIDEO } from '../lib/media/hero-video';
+import { APPROVED_VIDEO } from '../lib/media/approved-video';
 
 const root = resolve(__dirname, '..');
 const rel = (f: string) => relative(root, f).replace(/\\/g, '/');
@@ -179,9 +180,14 @@ describe('excluded media', () => {
     const heroPaths = Object.values(HERO_VIDEO).flatMap((v) =>
       [v.desktop, v.mobile].flatMap((c) => [c.src, c.posterStart, c.posterEnd]),
     );
+    const territoryPaths = Object.values(APPROVED_VIDEO).flatMap((v) => [
+      v.poster,
+      ...v.sources.map((source) => source.src),
+    ]);
     const approvedPaths = new Set([
       ...entries.flatMap((m) => [m.src, m.ungradedSrc ?? m.src]),
       ...heroPaths,
+      ...territoryPaths,
     ]);
     const offenders: string[] = [];
     for (const file of sourceFiles) {
@@ -198,7 +204,13 @@ describe('excluded media', () => {
     // approved hero videos: only the registry may name a video file, and only
     // the scroll-scrub primitive may render one. Case-sensitive `<video`, so
     // the `VideoPlaceholder` reserved slot does not trip the check.
-    const allowed = new Set(['lib/media/hero-video.ts', 'components/motion/ScrubVideo.tsx']);
+    const allowed = new Set([
+      'lib/media/hero-video.ts',
+      'components/motion/ScrubVideo.tsx',
+      'lib/media/approved-video.ts',
+      'components/web/TerritoryMapFilm.tsx',
+      'components/web/banner/FabricBanner.tsx',
+    ]);
     const offenders = sourceFiles
       .filter((f) => /<video[\s/>]|\.mp4|\.webm/.test(readCode(f)))
       .map(rel)

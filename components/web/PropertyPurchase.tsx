@@ -6,6 +6,9 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
+import { APPROVED_VIDEO } from '@/lib/media/approved-video';
+import { PURCHASE_VOICES } from '@/content/en/buyer-voices';
+import { BuyerVoices } from './BuyerVoices';
 import { HERO_VIDEO } from '@/lib/media/hero-video';
 import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
 import { ArtworkFigure } from './ArtworkFigure';
@@ -558,6 +561,17 @@ export function AuthorityBand() {
  * illustrative composition; the card's copy and withheld result below remain
  * authoritative, and no person, document or outcome is presented as real.
  */
+const VOICE_IMAGES: readonly ApprovedMedia[] = [
+  APPROVED_MEDIA.processAnalysis,
+  APPROVED_MEDIA.investmentHero,
+  APPROVED_MEDIA.territoryContact,
+];
+
+/**
+ * Interactive testimonial preview. The approved case artwork remains above;
+ * this separate banner demonstrates the future buyer-voice experience without
+ * inventing a quote, identity or outcome.
+ */
 const CASE_ARTWORK: Record<(typeof cases.items)[number]['title'], ApprovedMedia> = {
   'Fiscal exposure identified': APPROVED_MEDIA.purchaseFiscalExposure,
   'Problematic clause renegotiated': APPROVED_MEDIA.purchaseClauseRenegotiated,
@@ -585,6 +599,14 @@ export function CasesBand() {
             </div>
           </RevealOnScroll>
         ))}
+      </div>
+      <div className={styles.voicesSection}>
+        <BuyerVoices
+          slots={PURCHASE_VOICES}
+          images={VOICE_IMAGES}
+          video={APPROVED_VIDEO.territoryLoop}
+          notes={cases.items.map((item) => item.body)}
+        />
       </div>
       <div className={styles.centerAction}>
         <WebLinkButton href="#faq" variant="primary" arrow>

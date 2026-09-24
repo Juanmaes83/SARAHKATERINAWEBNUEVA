@@ -1441,3 +1441,11 @@
   overflow-wrap: normal;
   hyphens: manual;
 }
+
+
+/* Consolidated review: the interactive buyer-voice fabric sits below the
+ * approved case artwork. A pulled corner must never widen the page. */
+.voicesSection {
+  overflow-x: clip;
+  margin-block-start: var(--sk-space-64);
+}

@@ -4,6 +4,7 @@ import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
+import { TerritoryMapFilm } from './TerritoryMapFilm';
 import { ArtworkFigure } from './ArtworkFigure';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
@@ -239,6 +240,7 @@ export function AssetTypesBand() {
         centered
         rule
       />
+      <TerritoryMapFilm />
       <div className={styles.grid4}>
         {assetTypes.items.map((item, index) => (
           <RevealOnScroll
