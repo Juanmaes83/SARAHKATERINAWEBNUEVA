@@ -147,8 +147,8 @@ describe('team layer — named responsibilities, never restated', () => {
     expect(band).toContain("import { profiles } from '@/content/en/team'");
     expect(profiles.map((p) => p.name)).toEqual([
       'Sarah Katerina',
-      'Elsa Quiros Perez',
-      'Oscar',
+      'Elsa Quirós Pérez',
+      'Óscar',
       'Igor',
     ]);
     const areas = profiles.map((p) => p.area).join(' | ');
