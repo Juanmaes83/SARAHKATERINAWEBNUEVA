@@ -148,6 +148,79 @@ export const audience = {
   }),
 } as const;
 
+/**
+ * Phase 2G — "Good idea, bad execution" band around the owner's brand film
+ * (`APPROVED_VIDEO.purchaseGoodIdea`). The footage carries no text, so nothing
+ * here repeats it. Its voice-over is not published: the derivative is silent.
+ * All copy is new: `proposal`, pending Sarah's review.
+ */
+const PHASE_2G = 'Phase 2G connected journey proposal, 2026-09-24';
+
+export const goodIdea = {
+  eyebrow: claim({ text: 'Good idea, bad execution', status: 'proposal', source: PHASE_2G }),
+  title: claim({
+    text: 'A good idea can still become a bad purchase.',
+    status: 'proposal',
+    source: PHASE_2G,
+  }),
+  body: claim({
+    text: 'A call, a flight, a set of keys: the idea of a life in Spain fits into a few seconds. Whether it becomes a good purchase is decided in the part the film leaves out, and that part is worked from the buyer’s side.',
+    status: 'proposal',
+    source: PHASE_2G,
+  }),
+  pointsTitle: claim({
+    text: 'Where a good idea usually goes wrong',
+    status: 'proposal',
+    source: PHASE_2G,
+  }),
+  points: [
+    {
+      id: 'review',
+      title: claim({ text: 'Review', status: 'proposal', source: PHASE_2G }),
+      body: claim({
+        text: 'The property, its documents and its legal position are checked before money is committed, not after.',
+        status: 'proposal',
+        source: PHASE_2G,
+        review: 'legal',
+      }),
+    },
+    {
+      id: 'negotiation',
+      title: claim({ text: 'Negotiation', status: 'proposal', source: PHASE_2G }),
+      body: claim({
+        text: 'Price, conditions and clauses are negotiated for the buyer instead of accepted as first offered.',
+        status: 'proposal',
+        source: PHASE_2G,
+      }),
+    },
+    {
+      id: 'tax',
+      title: claim({ text: 'Tax', status: 'proposal', source: PHASE_2G }),
+      body: claim({
+        text: 'Purchase tax and the obligations of owning are understood before signing, when they can still shape the decision.',
+        status: 'proposal',
+        source: PHASE_2G,
+        review: 'tax',
+      }),
+      link: 'How tax advisory fits in',
+    },
+    {
+      id: 'execution',
+      title: claim({ text: 'Execution', status: 'proposal', source: PHASE_2G }),
+      body: claim({
+        text: 'Deadlines, payments, signatures and keys follow one coordinated file rather than separate hand-offs.',
+        status: 'proposal',
+        source: PHASE_2G,
+      }),
+    },
+  ],
+  note: claim({
+    text: 'Generated brand film shown silent. The people in it are editorial participants, not clients.',
+    status: 'confirmed',
+    source: 'lib/media/approved-video.ts — purchaseGoodIdea provenance',
+  }),
+} as const;
+
 export const oneFile = {
   eyebrow: claim({ text: 'One file. One team.', status: 'proposal', source: TEMPLATE }),
   title: claim({ text: 'One file. From viewing to keys.', status: 'proposal', source: TEMPLATE }),

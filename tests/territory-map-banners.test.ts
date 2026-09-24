@@ -50,7 +50,13 @@ describe('approved video — registry and derivatives', () => {
         // A web budget: the heaviest cut stays under a megabyte.
         expect(statSync(file).size / 1024).toBeLessThanOrEqual(1024);
       }
-      expect(v.note).toMatch(/not official cartography/);
+      // The map cuts carry the cartography caveat; the Phase 2G brand film is
+      // not a map and carries its own generated-footage provenance instead.
+      if (v.source === 'VIDEOS/MAPA CIUDADES OPORTUNIDADES.mp4') {
+        expect(v.note).toMatch(/not official cartography/);
+      } else {
+        expect(v.note).toMatch(/Generated footage/);
+      }
       expect(v.description.length).toBeGreaterThan(40);
     },
   );

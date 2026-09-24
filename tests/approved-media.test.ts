@@ -212,6 +212,8 @@ describe('excluded media', () => {
       'lib/media/approved-video.ts',
       'components/web/TerritoryMapFilm.tsx',
       'components/web/banner/FabricBanner.tsx',
+      // Phase 2G: the play-once film primitive (Property Purchase brand film).
+      'components/motion/PlayOnceVideo.tsx',
     ]);
     const offenders = sourceFiles
       .filter((f) => /<video[\s/>]|\.mp4|\.webm/.test(readCode(f)))

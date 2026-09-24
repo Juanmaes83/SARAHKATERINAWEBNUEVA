@@ -25,8 +25,7 @@
   gap: var(--sk-space-16);
 }
 
-.eyebrow,
-.calculatorKicker {
+.eyebrow {
   margin: 0;
   color: var(--sk-web-gold);
   font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
@@ -343,62 +342,6 @@
 }
 .audienceMedia {
   margin-block-start: var(--sk-space-24);
-}
-
-.calculatorRibbon {
-  display: grid;
-  gap: var(--sk-space-16);
-  align-items: center;
-  margin-block-start: var(--sk-space-48);
-  padding: var(--sk-space-24);
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
-    var(--sk-web-border-strong);
-  border-radius: var(--sk-radius-card);
-  background: var(--sk-web-white);
-  box-shadow: var(--sk-web-shadow-card);
-}
-.calculatorIcon {
-  display: grid;
-  place-items: center;
-  width: var(--sk-space-48);
-  height: var(--sk-space-48);
-  border-radius: var(--sk-radius-pill);
-  background: var(--sk-web-gold-wash);
-  color: var(--sk-web-gold);
-}
-.calculatorRibbon h3 {
-  margin: var(--sk-space-4) 0;
-  font-family: var(--sk-type-h3-family);
-  font-size: var(--sk-type-h3-size);
-  color: var(--sk-web-ink);
-}
-.calculatorRibbon p {
-  margin: 0;
-  color: var(--sk-web-muted);
-  font-size: var(--sk-type-body-small-size);
-  line-height: var(--sk-type-body-small-line-height);
-}
-.calculatorLink,
-.calculatorPending {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--sk-space-8);
-  min-height: var(--sk-layout-touch-target-min);
-  padding: var(--sk-space-8) var(--sk-space-16);
-  border-radius: var(--sk-radius-button);
-  font-family: var(--sk-type-button-family);
-  font-size: var(--sk-type-button-size);
-  font-weight: var(--sk-type-button-weight);
-  text-decoration: none;
-}
-.calculatorLink {
-  background: var(--sk-web-gold);
-  color: var(--sk-web-white);
-}
-.calculatorPending {
-  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
-  color: var(--sk-web-muted);
 }
 
 .checkList {
@@ -932,9 +875,6 @@
   .buttonRow > * {
     white-space: nowrap;
   }
-  .calculatorRibbon {
-    grid-template-columns: auto 1fr auto;
-  }
   .processGrid,
   .serviceGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1442,10 +1382,119 @@
   hyphens: manual;
 }
 
-
 /* Consolidated review: the interactive buyer-voice fabric sits below the
  * approved case artwork. A pulled corner must never widen the page. */
 .voicesSection {
   overflow-x: clip;
   margin-block-start: var(--sk-space-64);
+}
+
+/* ===========================================================================
+ * PHASE 2G — "Good idea, bad execution" band.
+ * Copy beside the film from 1024px; the four failure points follow as one
+ * ruled ledger, so the band reads as an argument, not a set of cards.
+ * =========================================================================== */
+
+.goodIdeaGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+  align-items: center;
+}
+
+.goodIdeaCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+}
+
+.goodIdeaFilm figure {
+  margin: 0;
+}
+
+.goodIdeaNote {
+  margin-block-start: var(--sk-space-8);
+  color: var(--sk-web-muted);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+}
+
+.goodIdeaPoints {
+  margin-block-start: var(--sk-space-48);
+}
+
+.goodIdeaKicker {
+  margin: 0 0 var(--sk-space-16);
+  color: var(--sk-web-gold);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.goodIdeaList {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border-strong);
+}
+
+.goodIdeaPoint {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  padding-block: var(--sk-space-24);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.goodIdeaIndex {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--sk-web-tracking-caps);
+  color: var(--sk-web-gold);
+}
+
+.goodIdeaPoint h3 {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-ink);
+}
+
+.goodIdeaPoint p {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+@media (min-width: 768px) {
+  .goodIdeaList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .goodIdeaGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sk-space-64);
+  }
+
+  .goodIdeaList {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .goodIdeaPoint {
+    padding-inline-end: var(--sk-space-16);
+  }
 }

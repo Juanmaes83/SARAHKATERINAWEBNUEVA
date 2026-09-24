@@ -3,6 +3,7 @@ import { WebHeader } from '@/components/web/WebHeader';
 import { WebFooter } from '@/components/web/WebFooter';
 import { WebFaq } from '@/components/web/WebFaq';
 import { TaxHero } from '@/components/web/TaxHero';
+import { ServiceJourney } from '@/components/web/ServiceJourney';
 import {
   TaxAuthorityBand,
   TaxCalendarBand,
@@ -46,6 +47,7 @@ export default function TaxAdvisoryPage() {
       <TaxAuthorityBand />
       <TaxCasesBand />
       <TaxJourneyBand />
+      <ServiceJourney page="tax" />
       <WebFaq content={faq} appearance="light" />
       <TaxFinalCtaBand />
       <WebFooter content={footer} />

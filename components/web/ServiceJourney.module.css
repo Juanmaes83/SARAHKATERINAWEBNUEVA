@@ -1,0 +1,308 @@
+/* ===========================================================================
+ * Connected service journey — Phase 2G. Tokens only.
+ *
+ * Three stations on one gold thread (vertical on phones, across the markers
+ * from 1024px), the same grammar as the landings' own journey chains. The
+ * reader's station is a white card; the others stay open on the ivory
+ * ground, each with its reason and its link. The team layer closes the band
+ * as a ruled ledger of names and responsibilities.
+ * =========================================================================== */
+
+.route {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The thread runs through the markers' centres. */
+.route::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-24);
+  inset-inline-start: calc(var(--sk-space-24) - 1px);
+  width: 2px;
+  background-color: var(--sk-web-gold);
+  opacity: 0.45;
+  transform-origin: center top;
+}
+
+.station {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-8);
+  min-width: 0;
+  padding-inline-start: calc(var(--sk-space-48) + var(--sk-space-16));
+  padding-block-end: var(--sk-space-8);
+}
+
+.marker {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  z-index: var(--sk-app-z-raised);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sk-space-48);
+  height: var(--sk-space-48);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-ivory);
+  color: var(--sk-web-gold);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--sk-web-tracking-caps);
+  /* Keeps the thread from touching the numeral. */
+  outline: var(--sk-space-8) solid var(--sk-web-ivory);
+}
+
+.station[data-current] .marker {
+  border-color: var(--sk-web-navy);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+}
+
+.stage {
+  margin: 0;
+  color: var(--sk-web-gold);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-ink);
+}
+
+.reason,
+.question {
+  margin: 0;
+  max-width: var(--sk-web-measure-lead);
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.question {
+  color: var(--sk-web-ink);
+  font-style: italic;
+}
+
+.here {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: 0;
+  color: var(--sk-web-navy);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.hereMark {
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-gold);
+}
+
+.link {
+  margin-block-start: auto;
+}
+
+/* --- team layer -------------------------------------------------------------- */
+
+.team {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+  margin-block-start: var(--sk-space-48);
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.teamHead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+}
+
+.teamTitle {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  color: var(--sk-web-ink);
+}
+
+.teamBody {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.people {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border-strong);
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-4);
+  padding-block: var(--sk-space-16);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.personName {
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-body-size);
+  font-weight: var(--sk-font-weight-semibold);
+}
+
+.personArea {
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+/* --- motion: the thread draws once the first station is revealed ------------- */
+
+.station[data-reveal='shown'] .marker {
+  animation: sk-journey-land var(--sk-web-motion-reveal) var(--sk-web-motion-ease)
+    calc(var(--sk-web-motion-reveal) * 0.5 * var(--sk-stage-index, 0)) backwards;
+}
+
+.route:has(> [data-reveal='pending']:first-child)::before {
+  transform: scaleY(0);
+}
+
+.route:has(> [data-reveal='shown']:first-child)::before {
+  animation: sk-journey-thread-down var(--sk-web-motion-settle) var(--sk-web-motion-ease) backwards;
+}
+
+@keyframes sk-journey-land {
+  from {
+    scale: 0.6;
+    opacity: 0;
+  }
+}
+
+@keyframes sk-journey-thread-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes sk-journey-thread {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* --- layout --------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .people {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .route {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sk-space-32);
+  }
+
+  .route::before {
+    inset-block: calc(var(--sk-space-24) - 1px) auto;
+    /* From the first marker's centre to the last one's. */
+    inset-inline: var(--sk-space-24) calc(100% / 3 - var(--sk-space-24));
+    width: auto;
+    height: 2px;
+    transform-origin: left center;
+  }
+
+  .route:has(> [data-reveal='pending']:first-child)::before {
+    transform: scaleX(0);
+  }
+
+  .route:has(> [data-reveal='shown']:first-child)::before {
+    animation-name: sk-journey-thread;
+  }
+
+  .station {
+    padding-inline-start: 0;
+    padding-block-start: calc(var(--sk-space-48) + var(--sk-space-24));
+  }
+
+  /* The reader's station: a white card whose top edge runs along the thread,
+     so its marker sits pinned on the edge like the others sit on the line. */
+  .station[data-current] {
+    isolation: isolate;
+    padding: calc(var(--sk-space-48) + var(--sk-space-24)) var(--sk-space-24) var(--sk-space-24);
+  }
+
+  .station[data-current]::before {
+    content: '';
+    position: absolute;
+    inset: var(--sk-space-24) 0 0;
+    z-index: -1;
+    border-radius: var(--sk-radius-card);
+    background-color: var(--sk-web-white);
+    box-shadow: var(--sk-web-shadow-card);
+  }
+
+  .station[data-current] .marker {
+    inset-inline-start: var(--sk-space-24);
+    outline-color: var(--sk-web-white);
+  }
+
+  .team {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--sk-space-48);
+    padding: var(--sk-space-32);
+    align-items: start;
+  }
+
+  .people {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route::before,
+  .station .marker {
+    animation: none !important;
+    transform: none !important;
+  }
+}

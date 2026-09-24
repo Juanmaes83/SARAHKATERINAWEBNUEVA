@@ -1,0 +1,115 @@
+/* ===========================================================================
+ * Buyer System entry point — shared by Property Purchase and Tax Advisory.
+ * Promoted from PropertyPurchase.module.css (`.calculatorRibbon`) in Phase 2G.
+ * Tokens only.
+ * =========================================================================== */
+
+.ribbon {
+  display: grid;
+  gap: var(--sk-space-16);
+  align-items: center;
+  margin-block-start: var(--sk-space-48);
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border-strong);
+  border-radius: var(--sk-radius-card);
+  background: var(--sk-web-white);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: var(--sk-space-48);
+  height: var(--sk-space-48);
+  border-radius: var(--sk-radius-pill);
+  background: var(--sk-web-gold-wash);
+  color: var(--sk-web-gold);
+}
+
+.copy {
+  min-width: 0;
+}
+
+.kicker {
+  margin: 0;
+  color: var(--sk-web-gold);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.question {
+  margin: var(--sk-space-4) 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  color: var(--sk-web-ink);
+}
+
+.moment,
+.scope,
+.pendingNote {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.moment {
+  margin-block-end: var(--sk-space-8);
+  color: var(--sk-web-ink);
+}
+
+.action {
+  display: grid;
+  gap: var(--sk-space-8);
+  justify-items: start;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sk-space-8);
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border-radius: var(--sk-radius-button);
+  font-family: var(--sk-type-button-family);
+  font-size: var(--sk-type-button-size);
+  font-weight: var(--sk-type-button-weight);
+  text-decoration: none;
+  background: var(--sk-web-gold);
+  color: var(--sk-web-white);
+}
+
+.link:hover {
+  background: var(--sk-web-gold-strong);
+}
+
+/* A status, not a control: no button shape, a mark plus words (never colour alone). */
+.pending {
+  display: inline-flex;
+  margin: 0;
+  align-items: center;
+  gap: var(--sk-space-8);
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.pendingMark {
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-pill);
+}
+
+@media (min-width: 768px) {
+  .ribbon {
+    grid-template-columns: auto minmax(0, 2fr) minmax(0, 1fr);
+  }
+}

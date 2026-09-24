@@ -23,6 +23,8 @@ import {
   trustStrip,
 } from '@/content/en/tax-advisory';
 import shared from './WebBands.module.css';
+import { BuyerToolRibbon } from './BuyerToolRibbon';
+import { SERVICE_ROUTES, TAX_CALENDAR_TOOL } from '@/content/en/service-journey';
 
 /**
  * PHASE 2E — approved imagery for the Tax Advisory service cards.
@@ -226,6 +228,21 @@ export function TaxCalendarBand() {
           </div>
         </RevealOnScroll>
       </div>
+
+      {/*
+        PHASE 2G — the purchase-tax entry point documented for this moment
+        (docs/buyer-system-integration.md, placement table): the calendar has
+        just shown the one-off tax paid on purchase, so a reader who has not
+        bought yet can see it for their own case. Resolved only through the
+        Buyer System adapter; pending until the base URL is approved.
+      */}
+      <RevealOnScroll>
+        <BuyerToolRibbon
+          toolKey={TAX_CALENDAR_TOOL.key}
+          sourcePage={SERVICE_ROUTES.tax}
+          moment={TAX_CALENDAR_TOOL.moment.text}
+        />
+      </RevealOnScroll>
     </WebSection>
   );
 }

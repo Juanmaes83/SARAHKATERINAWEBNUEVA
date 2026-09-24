@@ -1,0 +1,318 @@
+[
+  {
+    "label": "investment@320",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/property-purchase",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "investment@390",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/property-purchase",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "investment@768",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/property-purchase",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "investment@1024",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/property-purchase",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "investment@1440",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/property-purchase",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "purchase@320",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "purchase@390",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "purchase@768",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "purchase@1024",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "purchase@1440",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "tax@320",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "tax@390",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "tax@768",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "tax@1024",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "tax@1440",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/team#team"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "team@320",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/tax-advisory"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "team@390",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/tax-advisory"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "team@768",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/tax-advisory"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "team@1024",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/tax-advisory"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "team@1440",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "emptyHrefs": 0,
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/property-purchase",
+      "/preview/tax-advisory"
+    ],
+    "consoleErrors": []
+  },
+  {
+    "label": "film states",
+    "before": "poster",
+    "s1": "playing",
+    "s2": "playing",
+    "s3": "ended",
+    "endedControl": "Replay the film",
+    "afterReplay": "playing"
+  },
+  {
+    "label": "reduced motion",
+    "state": "poster",
+    "videoRequested": false
+  },
+  {
+    "label": "no JS",
+    "journeyLinks": [
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team#team"
+    ],
+    "buttons": 0
+  },
+  {
+    "label": "video failure",
+    "state": "failed",
+    "pageErrors": []
+  },
+  {
+    "label": "slow network (video delayed 6 s)",
+    "stateAfter1_5s": "poster"
+  },
+  {
+    "label": "keyboard focus (journey link)",
+    "outline": "solid 2px offset 2px"
+  },
+  {
+    "label": "mobile menu",
+    "expanded": "true"
+  },
+  {
+    "label": "zoom 200% investment",
+    "overflow": 0
+  },
+  {
+    "label": "zoom 200% purchase",
+    "overflow": 0
+  },
+  {
+    "label": "zoom 200% tax",
+    "overflow": 0
+  },
+  {
+    "label": "zoom 200% team",
+    "overflow": 0
+  }
+]
