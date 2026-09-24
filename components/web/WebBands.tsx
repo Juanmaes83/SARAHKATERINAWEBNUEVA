@@ -4,6 +4,7 @@ import { WebButton } from './WebButton';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
+import { TerritoryMapFilm } from './TerritoryMapFilm';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
@@ -236,6 +237,11 @@ export function AssetTypesBand() {
         centered
         rule
       />
+      {/*
+        PHASE 2F: the territory map film leads the band. It names the place and
+        the four kinds of asset; the cards below then show how each is analysed.
+      */}
+      <TerritoryMapFilm />
       <div className={styles.grid4}>
         {assetTypes.items.map((item, index) => (
           <RevealOnScroll

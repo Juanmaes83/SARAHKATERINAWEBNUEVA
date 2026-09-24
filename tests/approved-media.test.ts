@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { APPROVED_MEDIA, PENDING_MEDIA_SLOTS } from '../lib/media/approved-media';
+import { APPROVED_VIDEO } from '../lib/media/approved-video';
 
 const root = resolve(__dirname, '..');
 const rel = (f: string) => relative(root, f).replace(/\\/g, '/');
@@ -174,7 +175,15 @@ describe('excluded media', () => {
 
   it('references no media file outside the approved registry', () => {
     // The registry also names each ungraded derivative (Phase 2E grade).
-    const approvedPaths = new Set(entries.flatMap((m) => [m.src, m.ungradedSrc ?? m.src]));
+    // Phase 2F adds the approved video registry: its sources and posters.
+    const videoPaths = Object.values(APPROVED_VIDEO).flatMap((v) => [
+      v.poster,
+      ...v.sources.map((s) => s.src),
+    ]);
+    const approvedPaths = new Set([
+      ...entries.flatMap((m) => [m.src, m.ungradedSrc ?? m.src]),
+      ...videoPaths,
+    ]);
     const offenders: string[] = [];
     for (const file of sourceFiles) {
       for (const match of readCode(file).matchAll(/['"](\/media\/[^'"]+)['"]/g)) {
@@ -185,13 +194,21 @@ describe('excluded media', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('embeds no video', () => {
-    // Item 8: slots are prepared, nothing is embedded.
-    // Case-sensitive `<video`, so the `VideoPlaceholder` component — which is
-    // a reserved slot, not an embed — does not trip the check.
+  it('embeds video only from the approved video registry', () => {
+    // Item 8 held every video slot empty. Phase 2F (owner brief 2026-09-23)
+    // places the territory map film and its loop: the only video allowed is
+    // what `lib/media/approved-video.ts` registers, rendered by the two
+    // components that own it. Case-sensitive `<video`, so the
+    // `VideoPlaceholder` component — a reserved slot — does not trip it.
+    const players = new Set([
+      'components/web/TerritoryMapFilm.tsx',
+      'components/web/banner/FabricBanner.tsx',
+      'lib/media/approved-video.ts',
+    ]);
     const offenders = sourceFiles
       .filter((f) => /<video[\s/>]|\.mp4|\.webm/.test(readCode(f)))
-      .map(rel);
+      .map(rel)
+      .filter((f) => !players.has(f));
     expect(offenders).toEqual([]);
   });
 
