@@ -134,5 +134,5 @@ export const HERO_VIDEO = {
     source: 'VIDEOS/TAX ADVISORY HERO SECTION.mp4',
     sourceSha256: '2b180b1dab81f05e541207377c86d1ae6555cf751bc8539b8a271120094fd720',
     note: `${PROVENANCE} Owner selected this film on 2026-09-24 for the Tax Advisory hero. The source is cropped minimally to 16:9 for both cuts. Its embedded labels describe purchase tax, legal checks, ownership/title risk, hidden buying cost, annual costs and ongoing obligations; no duplicate HTML labels are placed over it.`,
-
+  }),
 } as const satisfies Record<string, HeroVideo>;
