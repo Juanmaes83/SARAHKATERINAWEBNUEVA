@@ -35,10 +35,10 @@ const entries = Object.values(APPROVED_MEDIA);
 
 describe('approved media registry', () => {
   it('registers only images approved in the Phase 2E inventory', () => {
-    // 12 from the Phase 2E approval, plus the shared authority image
-    // and the Property Purchase final CTA image, plus the seven Phase 2F
-    // case and One File images (docs/phase-2f-approved-images-and-scroll-hero-video.md §4).
-    expect(entries.length).toBe(21);
+    // 12 from the Phase 2E approval, plus the shared authority image,
+    // the Property Purchase final CTA image, seven Phase 2F case/One File
+    // images, and six approved October additions consolidated from PR #23.
+    expect(entries.length).toBe(27);
   });
 
   it('uses the exact approved shared authority image on all three landings', () => {
@@ -160,7 +160,9 @@ describe('approved media registry', () => {
   });
 
   it('tracks the slots that are still schematic', () => {
-    expect(PENDING_MEDIA_SLOTS.length).toBeGreaterThan(3);
+    // The consolidation resolves every approved slot; only the three Tax
+    // Advisory case images remain pending because no approved originals exist.
+    expect(PENDING_MEDIA_SLOTS).toHaveLength(3);
     for (const slot of PENDING_MEDIA_SLOTS) {
       expect(slot.reason.length).toBeGreaterThan(20);
     }
