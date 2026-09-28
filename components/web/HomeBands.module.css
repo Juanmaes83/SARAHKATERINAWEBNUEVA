@@ -1,0 +1,237 @@
+/* ===========================================================================
+ * Preview Home — structures the shared web layer has no equivalent of.
+ * Tokens only. Everything else comes from WebHero.module.css and
+ * WebBands.module.css.
+ * =========================================================================== */
+
+/* --- hero: the team photograph, whole, at 16:9 ------------------------------ */
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.heroFigure {
+  margin: 0;
+}
+
+.heroFrame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-navy-soft);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.caption {
+  margin-block-start: var(--sk-space-16);
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-muted);
+}
+
+/* --- tools ------------------------------------------------------------------ */
+
+.tools {
+  display: grid;
+  gap: var(--sk-space-24);
+}
+
+.toolRibbon {
+  margin-block-start: 0;
+}
+
+/* --- what Sarah does (navy) -------------------------------------------------- */
+
+.steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-navy-line);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-navy-soft);
+}
+
+.step h3 {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  color: var(--sk-web-on-dark);
+}
+
+.step p {
+  margin: 0;
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+  color: var(--sk-web-muted-on-dark);
+}
+
+.stepIcon {
+  display: grid;
+  place-items: center;
+  width: var(--sk-space-48);
+  height: var(--sk-space-48);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold-on-dark);
+  border-radius: var(--sk-radius-pill);
+  color: var(--sk-web-gold-on-dark);
+}
+
+/* --- financing and renovation ------------------------------------------------ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sk-space-16);
+  padding: var(--sk-space-32);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h3-size);
+  color: var(--sk-web-ink);
+}
+
+/* A status, not a control: a mark plus words, never colour alone. */
+.pendingNote {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sk-space-8);
+  margin: 0;
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  color: var(--sk-web-muted);
+}
+
+.pendingMark {
+  flex: none;
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-pill);
+}
+
+/* --- team -------------------------------------------------------------------- */
+
+.people {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .people {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.person {
+  padding: var(--sk-space-16) var(--sk-space-24);
+  border-inline-start: 2px solid var(--sk-web-gold);
+  background-color: var(--sk-web-white);
+}
+
+.personName {
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-body-size);
+  color: var(--sk-web-ink);
+}
+
+.personArea {
+  margin: var(--sk-space-4) 0 0;
+  font-family: var(--sk-type-caption-family);
+  font-size: var(--sk-type-caption-size);
+  color: var(--sk-web-muted);
+}
+
+/* --- final CTA (navy soft) ---------------------------------------------------- */
+
+.darkEyebrow {
+  margin: 0 0 var(--sk-space-16);
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+  color: var(--sk-web-gold-on-dark);
+}
+
+.darkTitle {
+  margin: 0 0 var(--sk-space-16);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  line-height: var(--sk-type-h2-line-height);
+  color: var(--sk-web-on-dark);
+}
+
+.darkLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  color: var(--sk-web-on-dark);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+}
+
+/* --- grid overrides of the shared bands (doubled class: wins regardless of
+ * stylesheet order) ----------------------------------------------------------- */
+
+/* Three trust items, one row on desktop. */
+@media (min-width: 1024px) {
+  .trustGrid.trustGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Four worries: two by two, never an orphan. */
+@media (min-width: 768px) {
+  .worries.worries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The final CTA stacks its button, note and link. */
+.ctaActions.ctaActions {
+  flex-direction: column;
+  align-items: flex-start;
+}

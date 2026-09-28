@@ -1,7 +1,7 @@
 # Buyer System — integration contract
 
-**Status:** ACTIVE TECHNICAL BRIEF — integration prepared, not connected
-**Date:** 2026-09-21
+**Status:** ACTIVE TECHNICAL BRIEF — origin authorised (2026-09-28); links active on the Home PR's Vercel Preview only; production environment not configured
+**Date:** 2026-09-21 · **Updated:** 2026-09-28 (§6)
 **Upstream:** [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System) — **read-only**
 
 This repository does not rebuild, vendor, fork or copy any Buyer System code.
@@ -11,7 +11,7 @@ Integration is by link and by a typed adapter boundary only.
 
 ## 1. What actually exists upstream
 
-Verified by reading the repository on 2026-09-21. This section is fact, not plan.
+Verified by reading the repository on 2026-09-21, and again on 2026-09-28 against `main` at `c197ed2`: the three routes exist as `app/page.tsx`, `app/real-cash-needed/page.tsx` and `app/asking-price/page.tsx`. This section is fact, not plan.
 
 | Experience                                                | Route                                          | Status                                                                   | Scope                                                                                                                                    |
 | --------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -100,16 +100,16 @@ after the user returns? Nothing is built until this is answered.
 
 Per the activation brief, adjusted for what exists:
 
-| Surface             | Experience       | Moment                              | Buildable today                                                                                                             |
-| ------------------- | ---------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Investment          | Asking Price     | Before the paid analysis            | **No** — `limited-go`, needs Sarah + legal                                                                                  |
-| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | Yes, once the base URL is approved                                                                                          |
-| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — lead variant (`BuyerToolBand`); pending until B-01                                     |
-| Property Purchase   | Real Cash Needed | After process, before the final CTA | Yes, once the base URL is approved                                                                                          |
-| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — moved from after the calendar (Phase 2G) at Juanma's request; `BuyerToolBand`; pending |
-| Tax Advisory        | Tax Exposure     | Bridge to the diagnostic            | **No** — does not exist                                                                                                     |
-| Home                | Hub entry        | After the trust strip               | Yes, once the base URL is approved                                                                                          |
-| Property Management | None             | —                                   | Held: D-06 unexecuted                                                                                                       |
+| Surface             | Experience       | Moment                              | Buildable today                                                                                                                                                 |
+| ------------------- | ---------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Investment          | Asking Price     | Before the paid analysis            | **No** — `limited-go`, needs Sarah + legal                                                                                                                      |
+| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | Yes, once the base URL is approved                                                                                                                              |
+| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — lead variant (`BuyerToolBand`); pending until B-01                                                                         |
+| Property Purchase   | Real Cash Needed | After process, before the final CTA | Yes, once the base URL is approved                                                                                                                              |
+| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — moved from after the calendar (Phase 2G) at Juanma's request; `BuyerToolBand`; pending                                     |
+| Tax Advisory        | Tax Exposure     | Bridge to the diagnostic            | **No** — does not exist                                                                                                                                         |
+| Home                | Hub entry        | After the trust strip               | **Implemented** on `/preview/home` (PR for `feat/preview-home-calculators`): Purchase Tax and Real Cash Needed ribbons; Asking Price and Tax Exposure not shown |
+| Property Management | None             | —                                   | Held: D-06 unexecuted                                                                                                                                           |
 
 ### Flow as implemented in the prototype
 
@@ -128,25 +128,50 @@ unanswered product question.
 
 ## 4. What would unblock a real connection
 
-| #    | Needed                                                                                                                                                    | From whom         |
-| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| B-01 | The Buyer System's **production URL**, confirmed                                                                                                          | Sarah / Juanma    |
-| B-02 | Decision on **where lead capture lives** (§2)                                                                                                             | Sarah             |
-| B-03 | Approval to link **Asking Price** publicly                                                                                                                | Sarah + legal     |
-| B-04 | Whether a **Tax Exposure** experience is commissioned                                                                                                     | Sarah             |
-| B-05 | An approved **query-parameter contract** if landing context should prefill a calculator — noting the upstream brief forbids buyer amounts in a public URL | Both repositories |
-| B-06 | Approved **analytics vendor and consent mechanism** before any event leaves the browser                                                                   | Sarah             |
+| #    | Needed                                                                                                                                                                               | From whom         |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| B-01 | ~~The Buyer System's production URL, confirmed~~ — **authorised by Juanma on 2026-09-28**: `https://sarah-katerina-buyer-system.vercel.app` (§6). Production environment still unset | —                 |
+| B-02 | Decision on **where lead capture lives** (§2)                                                                                                                                        | Sarah             |
+| B-03 | Approval to link **Asking Price** publicly                                                                                                                                           | Sarah + legal     |
+| B-04 | Whether a **Tax Exposure** experience is commissioned                                                                                                                                | Sarah             |
+| B-05 | An approved **query-parameter contract** if landing context should prefill a calculator — noting the upstream brief forbids buyer amounts in a public URL                            | Both repositories |
+| B-06 | Approved **analytics vendor and consent mechanism** before any event leaves the browser                                                                                              | Sarah             |
 
-Until B-01 is supplied, `NEXT_PUBLIC_BUYER_SYSTEM_URL` stays unset and every
-entry point renders as pending. That is the intended default, not a bug.
+Wherever `NEXT_PUBLIC_BUYER_SYSTEM_URL` is unset, every entry point renders as
+pending. That is the intended default, not a bug. B-02 to B-06 remain open.
 
 ---
 
 ## 5. Environment variable
 
-| Variable                       | Default   | Purpose                                                                                                             |
-| ------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_BUYER_SYSTEM_URL` | _(unset)_ | Origin of the deployed Buyer System. Unset renders every entry point as `PENDING_APPROVAL`. Public, never a secret. |
+| Variable                       | Default   | Purpose                                                                                                                                                                                                                                 |
+| ------------------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_BUYER_SYSTEM_URL` | _(unset)_ | Origin of the deployed Buyer System. Unset renders every entry point as `PENDING_APPROVAL`. Public, never a secret. There is **no default in code** (`lib/buyer-system/links.ts`); the value lives only in the Vercel environment (§6). |
 
 No API key, token or shared secret is involved. The integration is outbound
 links only.
+
+---
+
+## 6. Origin and activation — 2026-09-28
+
+**Origin checked** (read-only; no secret printed):
+
+| Check                                                              | Result                                                                                                                                                             |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Upstream repository homepage                                       | `https://sarah-katerina-buyer-system.vercel.app`                                                                                                                   |
+| GitHub deployments, `Production`                                   | Latest: `c197ed2` (the current `main`), 2026-07-29, state `success`, served by the Vercel project `sarah-katerina-buyer-system`, target `production`, status Ready |
+| `https://sarah-katerina-buyer-system.vercel.app`                   | `/` 200 · `/real-cash-needed` 200 · `/asking-price` 200 · `/purchase-tax` 404 (as expected: purchase tax is the root)                                              |
+| The immutable deployment URL                                       | Behind Vercel SSO (302), so it is not usable as a public destination                                                                                               |
+| `www.sarahkaterina.com/buyer-system`                               | 404; `sarahkaterina.com/buyer-system` redirects there. No custom-domain origin exists                                                                              |
+| GitHub Pages (`juanmaes83.github.io/Sarah-Katerina-Buyer-System/`) | 404; the Pages site no longer exists                                                                                                                               |
+
+**Authorisation.** Juanma authorised `https://sarah-katerina-buyer-system.vercel.app` as the Buyer System's public origin on 2026-09-28. It is the Vercel production alias — stable while that project and alias exist — and not a per-deployment preview URL. No domain was invented.
+
+**Where it is configured.** Only as `NEXT_PUBLIC_BUYER_SYSTEM_URL` in the Vercel **Preview** environment, scoped to the branch `feat/preview-home-calculators`. It is not set for Production, for other branches, or in `.env.example`. Setting it for Production is a separate step that belongs to the production gate, not to this preview.
+
+**What that activates on that Preview.** Purchase Tax (`/`) and Real Cash Needed (`/real-cash-needed`) render as outbound links from Home, Tax Advisory, Property Purchase and the Investment tools band. Asking Price stays "Coming soon" and is never a link (`limited-go`); Tax Exposure is never rendered (`not-built`). Links carry no query string, amount or personal data; the only event is the existing no-op `calculator_start`.
+
+**Finding for the Buyer System owners (not changed here).** The production alias serves `/asking-price` publicly, while that experience's upstream status is `NEXT — LIMITED GO` ("Publish only to Vercel Preview … before any production release"). This website does not link it. Whether it should be reachable on the production alias is for the Buyer System repository to decide.
+
+Still open: B-02 lead capture, B-03 Asking Price, B-04 Tax Exposure, B-05 prefill contract, B-06 analytics and consent.
