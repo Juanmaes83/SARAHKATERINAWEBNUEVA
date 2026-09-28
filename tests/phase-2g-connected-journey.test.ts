@@ -105,6 +105,8 @@ describe('journey routes are real and never empty', () => {
         ['app/preview/property-purchase/page.tsx', 'purchase'],
         ['app/preview/tax-advisory/page.tsx', 'tax'],
         ['components/web/TeamEditorial.tsx', 'team'],
+        // The preview Home reuses the Team variant ("where to start"): docs/home-preview.md.
+        ['components/web/HomeBands.tsx', 'team'],
       ].sort(),
     );
   });
@@ -234,7 +236,8 @@ describe('Buyer System — adapter only', () => {
     const ribbons = sourceFiles
       .flatMap((f) => [...readFileSync(f, 'utf8').matchAll(/toolKey="(\w+)"/g)].map((m) => m[1]))
       .sort();
-    expect(ribbons).toEqual(['purchaseTax', 'realCashNeeded']);
+    // Property Purchase (realCashNeeded) and the preview Home (both live tools).
+    expect([...new Set(ribbons)]).toEqual(['purchaseTax', 'realCashNeeded']);
     const offenders = sourceFiles
       .filter((f) => /^(app|components)\//.test(rel(f)))
       .filter((f) => /taxExposure|tax-exposure/.test(code(readFileSync(f, 'utf8'))))
