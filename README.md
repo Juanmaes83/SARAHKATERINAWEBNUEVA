@@ -1,10 +1,10 @@
 # Sarah Katerina — New Website
 
-> **Status (2026-09-28): FOUR PREVIEW LANDINGS · `main` = PHASES 2E, 2F AND 2G MERGED · PHASE 2H IN DRAFT PR #30 · HUMAN VISUAL REVIEW OF 2F–2H PENDING · NOT PRODUCTION**
+> **Status (2026-09-28): FOUR PREVIEW LANDINGS · PHASES 2E–2H CLOSED · VISUAL STATE OF THE FOUR ROUTES APPROVED BY JUANMA (2026-09-28) · NOT PRODUCTION · NOINDEX**
 >
-> Juanma has approved Investment, Tax Advisory and Property Purchase as visual bases for continued work; Team is a merged editorial preview without an equivalent approval record. None of this is approval for publication, indexing, migration or finished marketing, and a merge is not a visual approval. The application remains **not indexable by default**.
+> Juanma visually approved the present state of the four `/preview` landings — Investment, Tax Advisory, Property Purchase and Team — on **2026-09-28**. That approval is visual only: it is not approval for production, the domain, DNS, migration, indexation or publication, and it resolves none of the open asset, evidence, permission, tax/legal review, rights or decision items (`docs/phase-2h-juanma-review.md` §10.4). The application remains **not indexable by default**.
 >
-> CI note: on PR #30 GitHub Actions did not start for the first commit `a07b808` (run 36446539003): both jobs were not started — _"The job was not started because an Actions budget is preventing further use."_ — an account budget limit, not a code failure. The later runs executed and passed: `9ee623a` (run 36446708091, queued at 15:51 UTC, ran at 16:10) and `551e058` (run 36449311876) — "Lint, typecheck, test and build" and "Secret and env hygiene" both `success`. The QA set was also run locally (`docs/phase-2h-juanma-review.md` §9).
+> CI: {{CI_LINE}}
 
 ---
 
@@ -26,10 +26,9 @@ and composition are the explicit implementation reference for Phase 2.
 The merged base contains four preview landings — Investment, Tax Advisory,
 Property Purchase and Team — on one shared web layer. Investment is the
 canonical visual base; the others adapt their own content and structures to it.
-Phases 2E (premium media and motion), 2F (approved imagery and hero videos) and
-2G (connected service journey) are merged; Phase 2H (Juanma's review of the four
-landings) is in Draft PR #30. The human visual review of 2F, 2G and 2H is still
-open.
+Phases 2E (premium media and motion), 2F (approved imagery and hero videos), 2G
+(connected service journey) and 2H (Sarah's review of the four landings,
+PR #30) are closed. Their visual state was approved by Juanma on 2026-09-28.
 
 ## 2. What this repository is not
 
@@ -107,24 +106,21 @@ PHASE 2A VISUAL SYSTEM / STRUCTURAL PROTOTYPE MERGED
 PHASE 2B/2C INVESTMENT VISUAL IMPLEMENTATION MERGED — CANONICAL VISUAL BASE
 PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — VISUAL BASE READY
 PHASE 2D PROPERTY PURCHASE CONVERGED ONTO THAT BASE — VISUAL BASE READY
-PHASE 2E APPROVED MEDIA AND CROPS MERGED ACROSS THREE LANDINGS
-THREE LANDING BASES APPROVED BY JUANMA FOR CONTINUED PREMIUM ENRICHMENT
-PHASE 2E PREMIUM EXPERIENCE AND MOTION MERGED (PR #21)
+TEAM EDITORIAL PREVIEW MERGED (PR #19)
+PHASE 2E PREMIUM MEDIA, MOTION AND VISUAL CONTENT UPGRADE MERGED (PR #16, #17, #21)
 PHASE 2F CASE IMAGERY, HERO VIDEOS, MAP FILM AND FABRIC BANNER MERGED (PR #23–#28)
 PHASE 2G CONNECTED SERVICE JOURNEY MERGED (PR #29)
-TEAM EDITORIAL PREVIEW MERGED (PR #19) — NO BASE APPROVAL RECORDED
-PHASE 2H JUANMA'S REVIEW OF THE FOUR LANDINGS — DRAFT PR #30, NOT MERGED
-HUMAN VISUAL REVIEW OF 2F, 2G AND 2H STILL PENDING
-PR #30 CI: FIRST RUN NOT STARTED (ACTIONS BUDGET); LATER RUNS PASSED
+PHASE 2H SARAH'S REVIEW OF THE FOUR LANDINGS — CLOSED (PR #30)
+VISUAL STATE OF THE FOUR PREVIEW ROUTES APPROVED BY JUANMA — 2026-09-28
+OPEN: ASSETS, CASE EVIDENCE, SOUND RIGHTS/CAPTIONS, BUYER SYSTEM URL, PRODUCTION GATES
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
 **Investment is the canonical visual base of the website layer.** Investment,
 Tax Advisory and Property Purchase are registered as the three approved visual
-implementation bases. That approval covers continued enrichment and
-cross-landing refinement; it does **not** mean that any route is approved for
-production, publication or migration, and it does not approve the later phases
-visually.
+implementation bases, and on 2026-09-28 Juanma approved the present visual state
+of all four `/preview` routes, Team included. Neither approval means that any
+route is approved for production, publication or migration.
 
 All four `/preview` routes render through one shared web layer and one token file:
 
@@ -138,8 +134,8 @@ All four `/preview` routes render through one shared web layer and one token fil
 A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
 and the converged web-layer tests fail if a second `--sk-web-*` declaration, a
 second header, footer or button, or a re-declared navy or gold ever reappears.
-The current branch is `feat/phase-2h-juanma-review-four-landings` (Draft PR;
-see `docs/phase-2h-juanma-review.md`).
+Phase 2H was delivered on `feat/phase-2h-juanma-review-four-landings` (PR #30);
+see `docs/phase-2h-juanma-review.md`.
 
 | Document                                                 | What it records                                                                                                                                          |
 | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -158,7 +154,7 @@ see `docs/phase-2h-juanma-review.md`).
 | `docs/phase-2e-visual-content-upgrade.md`                | Brief `IMAGES/MEJORAS 23 OCTUBRE/` (work of 2026-09-23, merged in PR #21): reference-to-section mapping, report explorer, common image grade, QA         |
 | `docs/phase-2f-images-and-scroll-hero-implementation.md` | Phase 2F case imagery and hero videos (hero sources later replaced by the owner; see its top note)                                                       |
 | `docs/phase-2g-connected-service-journey.md`             | Phase 2G connected journey, Good-idea film, Buyer System placements                                                                                      |
-| `docs/phase-2h-juanma-review.md`                         | Phase 2H: Juanma's review of the four landings — matrix, implemented changes, copy proposals, audio audit, pending assets and decisions                  |
+| `docs/phase-2h-juanma-review.md`                         | Phase 2H: Sarah's review of the four landings — matrix, copy adaptations, audio audit, closing record, open assets and decisions                         |
 
 ## 6. Stack
 
@@ -284,26 +280,24 @@ confirmed. Until then, calculator entry points remain visibly pending.
 
 ## 14. Roadmap
 
-| Phase                                                     | Scope                                                                                                                                    | State                                  |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                 |
-| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                 |
-| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE         |
-| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY      |
-| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                 |
-| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — HUMAN VISUAL REVIEW PENDING   |
-| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — HUMAN VISUAL REVIEW PENDING   |
-| 2H — Juanma's review of the four landings                 | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | DRAFT PR — HUMAN VISUAL REVIEW PENDING |
-| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                            | BLOCKED ON PRODUCT DECISIONS           |
-| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER THE 2F–2H VISUAL REVIEW AND 3    |
-| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                              |
+| Phase                                                     | Scope                                                                                                                                    | State                                              |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                             |
+| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                             |
+| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE                     |
+| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY                  |
+| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                             |
+| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — VISUAL STATE APPROVED 2026-09-28          |
+| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — VISUAL STATE APPROVED 2026-09-28          |
+| 2H — Sarah's review of the four landings                  | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | CLOSED (PR #30) — VISUAL STATE APPROVED 2026-09-28 |
+| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                            | BLOCKED ON PRODUCT DECISIONS                       |
+| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 3 AND THE PRODUCTION GATES                   |
+| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                                          |
 
-None of the Phase 2 blocks is a production release. Acceptance of 2F, 2G and
-2H still requires documented media provenance, intentional responsive crops,
-purposeful motion with `prefers-reduced-motion`, no unlabelled placeholders in
-approved slots, and Juanma's visual review on the preview. The open decisions
-and missing assets from Juanma's review are in `docs/phase-2h-juanma-review.md`
-§6 and §8.
+None of the Phase 2 blocks is a production release. The visual state of the
+four preview routes was approved by Juanma on 2026-09-28. Production still
+requires the gates in phase 4, and the open decisions and missing assets from
+Sarah's review are in `docs/phase-2h-juanma-review.md` §6, §8 and §10.4.
 
 The full Phase 2 implementation contract is in
 docs/phase-2-visual-implementation-contract.md.
@@ -368,7 +362,11 @@ and desktop widths, **before** it is considered accepted or merged. The three
 landing bases are accepted for continuation, but every later media, motion,
 copy or composition change (Phases 2E–2H, and Team) still requires the same
 human gate. A merge, a green test run or a Vercel deployment is not that
-review. Review instructions are
+review.
+
+**Recorded:** 2026-09-28 — Juanma approved the present visual state of
+`/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase` and
+`/preview/team`. Visual only; not production. Review instructions are
 recorded in the relevant landing fidelity/visual-decision documents and the
 Phase 2 implementation contract.
 

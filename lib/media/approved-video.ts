@@ -16,6 +16,38 @@ export interface VideoSource {
   readonly type: 'video/webm' | 'video/mp4';
 }
 
+/**
+ * Sound for a film — Phase 2H closing (Sarah asked for the Property Purchase
+ * "Good idea, bad execution" film with sound; the silent heroes are out of
+ * scope). A film carries sound only when every condition is met: rights and
+ * generation record, a human-reviewed caption file and Sarah's approval of the
+ * spoken line. Until then it is `unpublished` and no audio file is served.
+ */
+export interface CaptionTrack {
+  /** WebVTT under public/. */
+  readonly src: string;
+  readonly srclang: 'en';
+  readonly label: string;
+  /** Who listened and corrected the transcript, and when. Required. */
+  readonly reviewedBy: string;
+  readonly reviewedOn: string;
+}
+
+export type Soundtrack =
+  | {
+      readonly status: 'unpublished';
+      /** Exactly what is missing, one line each. */
+      readonly blockers: readonly string[];
+    }
+  | {
+      readonly status: 'published';
+      /** Same cut WITH its audio track, in the same order as `sources`. */
+      readonly sources: readonly VideoSource[];
+      readonly captions: CaptionTrack;
+      /** Record of Sarah's approval of the spoken line. */
+      readonly approval: string;
+    };
+
 export interface ApprovedVideo {
   readonly id: string;
   /** Preferred first: WebM (smaller), then MP4 for every other browser. */
@@ -31,6 +63,8 @@ export interface ApprovedVideo {
   /** Untouched original, relative to the repository root. */
   readonly source: string;
   readonly note: string;
+  /** Optional sound. Absent means the film is silent by design. */
+  readonly soundtrack?: Soundtrack;
 }
 
 const ORIGINAL = 'VIDEOS/MAPA CIUDADES OPORTUNIDADES.mp4';
@@ -127,5 +161,16 @@ export const APPROVED_VIDEO = {
       'A short film: someone leaves a grey, rainy home and makes a phone call, a plane crosses the coast at sunset, Alicante appears from the air, keys are handed over in a bright room above the sea, and bare feet walk into the shallow water.',
     source: 'VIDEOS/BUENA IDEA_MALA EJECUCIÓN.mp4',
     note: 'Owner-supplied brand film, copied unchanged from Juanmaes83/sarahkaterina `VIDEOS DE MARCA/BUENA IDEA_MALA EJECUCIÓN.mp4` (git blob 31312fba73e924ac8a27891f676c0527b9e4d9de, SHA-256 24b0e14b8ae9b19cbb6f02c7c39fd74faed7b7d4d4e5fd4f6fa334a0732a273e) on 2026-09-24 for Preview. Generated footage; generation method and rights record are not in the repository — confirm before production. The people are editorial participants, not clients, team members or sellers. Cut: full frame 1280×720, audio removed, VP9 and H.264 at about 0.7 Mbit/s. Slot: Property Purchase · "Good idea, bad execution" band, between the audience band and the one-file band.',
+    // Sarah asked for this film with sound (REVISION WEB-property-purchase.docx).
+    // The source is verifiable (blob and SHA-256 above); the rest is not yet
+    // on record, so the sound stays unpublished and no voiced file is served.
+    soundtrack: {
+      status: 'unpublished',
+      blockers: [
+        'Rights and generation record for the footage and the voice-over: not in either repository (docs/phase-2g-connected-service-journey.md, G-02).',
+        'Human-reviewed captions: only a machine transcript exists (faster-whisper small, 2026-09-28); docs/phase-2h/captions-draft/purchase-good-idea.en.draft.vtt has not been listened to and corrected by a person.',
+        'Sarah’s approval of the spoken line ("…with the right person beside you the dream becomes a decision…"), which is new brand copy.',
+      ],
+    },
   }),
 } as const satisfies Record<string, ApprovedVideo>;

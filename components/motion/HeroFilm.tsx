@@ -10,7 +10,7 @@ import styles from './HeroFilm.module.css';
 /**
  * Hero film — Phase 2H motion primitive (docs/phase-2h-juanma-review.md §A).
  *
- * Juanma's review asked the Investment and Property Purchase hero videos to
+ * Sarah's review asked the Investment and Property Purchase hero videos to
  * move without depending on scroll. This is the Phase 2F hero (`ScrubVideo`)
  * with the scroll mapping replaced by one muted playback:
  *
@@ -247,14 +247,21 @@ export function HeroFilm({ video, name, className }: HeroFilmProps) {
       ) : null}
 
       {enhanced && state !== 'failed' ? (
-        <button type="button" className={film.control} onClick={toggle} aria-label={control.label}>
-          {state === 'playing' ? (
-            <span className={film.pauseGlyph} aria-hidden="true" />
-          ) : (
-            <Icon name="play" size="sm" />
-          )}
-          <span>{control.text}</span>
-        </button>
+        <div className={film.controlGroup}>
+          <button
+            type="button"
+            className={film.control}
+            onClick={toggle}
+            aria-label={control.label}
+          >
+            {state === 'playing' ? (
+              <span className={film.pauseGlyph} aria-hidden="true" />
+            ) : (
+              <Icon name="play" size="sm" />
+            )}
+            <span>{control.text}</span>
+          </button>
+        </div>
       ) : null}
     </div>
   );

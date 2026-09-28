@@ -45,7 +45,7 @@ export default function PropertyPurchasePage() {
         ctaHref="#services-options"
       />
       <PurchaseHero />
-      {/* Phase 2H (Juanma's review): the purchase-tax tool, at the start of the page. */}
+      {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
       <BuyerToolBand
         toolKey="purchaseTax"
         sourcePage={SERVICE_ROUTES.purchase}

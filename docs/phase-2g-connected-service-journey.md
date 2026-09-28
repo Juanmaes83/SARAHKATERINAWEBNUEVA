@@ -1,8 +1,8 @@
 # Phase 2G — Connected service journey
 
-**Status:** PREVIEW — **merged to `main` in PR #29** (`edc47f0`); Juanma's human visual review still pending. Not approved for production.
+**Status:** PREVIEW — **merged to `main` in PR #29** (`edc47f0`); present visual state approved by Juanma on 2026-09-28 (with Phase 2H). Not approved for production.
 
-> **Phase 2H update (2026-09-28, `docs/phase-2h-juanma-review.md`):** the Tax Advisory Purchase Tax ribbon moved from after the calendar to directly under the hero (Juanma's review); the Investment journey title is now Juanma's proposed line; the Good-idea band carries Juanma's title and body; G-04 is resolved on `main` (accents restored by the owner, `47a377f`). The 2G film's voice-over remains unpublished (§5 of the 2H record).
+> **Phase 2H update (2026-09-28, `docs/phase-2h-juanma-review.md`):** the Tax Advisory Purchase Tax ribbon moved from after the calendar to directly under the hero (Sarah's review); the Investment journey title is now Sarah's line; the Good-idea band carries Sarah's title and body; G-04 is resolved on `main` (accents restored by the owner, `47a377f`). The 2G film's voice-over remains unpublished; the sound capability exists but its soundtrack is `unpublished` until rights, human-reviewed captions and Sarah's approval are on record (§5 of the 2H record).
 > **Date:** 2026-09-24
 > **Base:** `main` at `2a200ed` (merge of PR #28)
 > **Scope:** `/preview/investment`, `/preview/property-purchase`, `/preview/tax-advisory`, `/preview/team`. `app/page.tsx` (Foundation) is untouched.

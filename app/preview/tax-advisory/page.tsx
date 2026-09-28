@@ -39,7 +39,7 @@ export default function TaxAdvisoryPage() {
       <WebHeader nav={nav} ctaLabel={headerCta.text} />
 
       <TaxHero />
-      {/* Phase 2H (Juanma's review): the purchase-tax tool, at the start of the page. */}
+      {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
       <BuyerToolBand
         toolKey={TAX_LEAD_TOOL.key}
         sourcePage={SERVICE_ROUTES.tax}

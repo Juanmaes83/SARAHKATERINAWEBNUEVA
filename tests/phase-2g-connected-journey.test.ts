@@ -183,7 +183,7 @@ describe('Buyer System — adapter only', () => {
     expect(readers).toEqual(['lib/buyer-system/links.ts']);
   });
 
-  // Phase 2H (Juanma's review): purchase tax moves from after the tax calendar
+  // Phase 2H (Sarah's review): purchase tax moves from after the tax calendar
   // to directly under the hero, on Tax Advisory and on Property Purchase.
   it.each([
     ['app/preview/tax-advisory/page.tsx', '<TaxHero />', '<TaxContextBand />'],
@@ -332,7 +332,8 @@ describe('publication and held subjects', () => {
   });
 
   // Phase 2H (docs/phase-2h-juanma-review.md): tax-advisory.ts, team.ts and
-  // property-purchase.ts were changed deliberately to carry Juanma's review
+  // (closing: Sarah's copy marked confirmed on 2026-09-28)
+  // property-purchase.ts were changed deliberately to carry Sarah's review
   // copy, all `proposal`. Their hashes are re-recorded here so any further,
   // unreviewed edit still fails this test.
   it('leaves the protected content files unchanged', () => {
@@ -341,8 +342,8 @@ describe('publication and held subjects', () => {
       'content/en/investment.ts':
         '2bbc549317d4f5c3d77cd4201597e46df19bb9b566b01f6b7e172f5859c550a0',
       'content/en/tax-advisory.ts':
-        'cdb4d92552f5f8ba5e3d0ff2446ba57810b2a9eeee2e845a28a0b7070772a213',
-      'content/en/team.ts': '761a0ce67a237ff813aac07b31a512daeaf1bf48abe396220f96ac2400708bd8',
+        '3edee0d6f572406dae370d8f0d46707840ec44f2a02f5dc81b0d24af6f5397e6',
+      'content/en/team.ts': '17cba45a7351650a1dd949e909cd0d829ffa0d3631eadedd91762e7cfb5949b2',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
@@ -356,7 +357,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '86ca71b1ab6dcbdaedd0bad1af0c0e951d0b6dc9bd0aa9321f1ccb363b1e67a1',
+      '595f8da189e9f54099aa182fa4f86ea8bc77dd1e98fc4716337b66f10d09e2e7',
     );
   });
 });

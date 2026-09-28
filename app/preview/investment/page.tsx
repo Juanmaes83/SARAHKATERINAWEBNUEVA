@@ -55,7 +55,7 @@ export default function InvestmentPage() {
 
         <WebHero />
         <TrustBand />
-        {/* Phase 2H (Juanma's review): Sarah's authority block at the start of the page. */}
+        {/* Phase 2H (Sarah's review): Sarah's authority block at the start of the page. */}
         <AuthorityBand />
         <ApproachBand />
         <DoorsBand />

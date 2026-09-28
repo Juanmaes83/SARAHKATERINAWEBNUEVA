@@ -49,7 +49,7 @@ describe('team editorial preview', () => {
   });
 
   it('keeps identity and held-service boundaries explicit', () => {
-    // Phase 2H: full names supplied by Juanma; no other surname is added.
+    // Phase 2H: full names supplied by Sarah; no other surname is added.
     expect(content).toContain("name: 'Igor Veselov'");
     expect(content).toContain("name: 'Óscar Gonzalez'");
     expect(content).toContain("name: 'Elsa Quirós Pérez'");
@@ -59,7 +59,7 @@ describe('team editorial preview', () => {
     expect(editorial).not.toMatch(/team-member|portrait-(elsa|oscar|igor)/i);
   });
 
-  it('removes the two blocks Juanma asked to remove, keeping the independence claim', () => {
+  it('removes the two blocks Sarah asked to remove, keeping the independence claim', () => {
     expect(editorial).not.toContain('function IndependenceBand');
     expect(editorial).not.toContain('office-sign.webp');
     expect(editorial).not.toContain('office-workspace.webp');

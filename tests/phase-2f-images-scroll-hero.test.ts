@@ -164,7 +164,7 @@ describe('5–10, 13. hero videos', () => {
     ['tax', 'components/web/TaxHero.tsx', 'VIDEOS/TAX ADVISORY HERO SECTION.mp4'],
   ] as const;
 
-  // Phase 2H (Juanma's review): Investment and Property Purchase play their
+  // Phase 2H (Sarah's review): Investment and Property Purchase play their
   // film once, independently of scroll; Tax Advisory keeps the Phase 2F scrub.
   it.each(HEROES)(
     'the %s hero moves its approved source as registered',
@@ -299,7 +299,7 @@ describe('7, 11, 12, 14. boundaries', () => {
 
   it('changes no hero copy, claim or CTA in the three landings', () => {
     // Phase 2F changed only the Property Purchase hero caption. Phase 2H
-    // replaces the Property Purchase headline with Juanma's proposal (marked
+    // replaces the Property Purchase headline with Sarah's copy (marked
     // `proposal`); the CTAs and the other two headlines are unchanged.
     const purchase = read('content/en/property-purchase.ts');
     expect(purchase).toContain("text: 'Buy with peace of mind:'");

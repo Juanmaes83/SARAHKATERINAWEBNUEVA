@@ -8,7 +8,7 @@
  * without JavaScript or on failure.
  *
  * PLAYBACK — each entry says how its hero moves:
- *   - `play-once` (Investment, Property Purchase — Juanma's review, 2026-09):
+ *   - `play-once` (Investment, Property Purchase — Sarah's review, 2026-09):
  *     `HeroFilm` plays the clip once, muted, independently of scroll, and
  *     rests on its final frame, with a visible Pause / Play / Replay control.
  *   - `scrub` (Tax Advisory, unchanged from Phase 2F): `ScrubVideo` maps the

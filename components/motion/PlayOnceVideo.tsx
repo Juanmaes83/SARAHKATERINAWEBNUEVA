@@ -46,12 +46,23 @@ export interface PlayOnceVideoProps {
  *  - Leaving the tab pauses it; coming back resumes it.
  *  - The `<video>` is decorative for assistive technology; the poster's alt
  *    text carries the content, and the surrounding HTML carries the meaning.
+ *
+ * SOUND (Phase 2H closing) — only when the registry entry's `soundtrack` is
+ * `published` (rights, human-reviewed captions and Sarah's approval on
+ * record). Then the voiced cut is served, it still starts muted, a second
+ * control turns sound on and off (`aria-pressed`), and the reviewed WebVTT
+ * captions show while sound is on. While the soundtrack is `unpublished`
+ * nothing of this renders and the silent cut is served.
  */
 export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceVideoProps) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<FilmState>('poster');
   const [enhanced, setEnhanced] = useState(false);
+  const [soundOn, setSoundOn] = useState(false);
+  // Sound exists only once the registry says it is published.
+  const sound = clip.soundtrack?.status === 'published' ? clip.soundtrack : null;
+  const sources = sound ? sound.sources : clip.sources;
   const resumeOnReturn = useRef(false);
 
   useEffect(() => {
@@ -134,6 +145,22 @@ export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceV
     void video.play().catch(() => undefined);
   };
 
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video || !sound) return;
+    const next = !soundOn;
+    video.muted = !next;
+    const track = video.textTracks[0];
+    if (track) track.mode = next ? 'showing' : 'hidden';
+    setSoundOn(next);
+    // Turning sound on is a request to hear the film: start it if it is not running.
+    if (next && state !== 'playing') {
+      if (state === 'ended') video.currentTime = 0;
+      fetchClip(video);
+      void video.play().catch(() => undefined);
+    }
+  };
+
   const control =
     state === 'playing'
       ? { label: `Pause ${name}`, text: 'Pause' }
@@ -165,28 +192,51 @@ export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceV
         preload="none"
         disablePictureInPicture
         disableRemotePlayback
-        aria-hidden="true"
+        // Decorative while silent; with published sound the voice and its
+        // captions are content, so the element is not hidden.
+        aria-hidden={sound ? undefined : 'true'}
         tabIndex={-1}
       >
-        {clip.sources.map((s) => (
+        {sources.map((s) => (
           <source key={s.src} src={s.src} type={s.type} />
         ))}
+        {sound ? (
+          <track
+            kind="captions"
+            src={sound.captions.src}
+            srcLang={sound.captions.srclang}
+            label={sound.captions.label}
+          />
+        ) : null}
       </video>
 
       {enhanced && state !== 'failed' ? (
-        <button
-          type="button"
-          className={styles.control}
-          onClick={toggle}
-          aria-label={control.label}
-        >
-          {state === 'playing' ? (
-            <span className={styles.pauseGlyph} aria-hidden="true" />
-          ) : (
-            <Icon name="play" size="sm" />
-          )}
-          <span>{control.text}</span>
-        </button>
+        <div className={styles.controlGroup}>
+          {sound ? (
+            <button
+              type="button"
+              className={styles.control}
+              onClick={toggleSound}
+              aria-pressed={soundOn}
+              aria-label={`Sound for ${name}`}
+            >
+              <span>{soundOn ? 'Sound off' : 'Sound on'}</span>
+            </button>
+          ) : null}
+          <button
+            type="button"
+            className={styles.control}
+            onClick={toggle}
+            aria-label={control.label}
+          >
+            {state === 'playing' ? (
+              <span className={styles.pauseGlyph} aria-hidden="true" />
+            ) : (
+              <Icon name="play" size="sm" />
+            )}
+            <span>{control.text}</span>
+          </button>
+        </div>
       ) : null}
     </div>
   );

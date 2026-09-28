@@ -91,7 +91,7 @@ export function BuyerToolRibbon({
 
 /**
  * Phase 2H — the Buyer System entry point as its own band, directly under a
- * hero (Juanma's review: "put the calculator at the start of the page").
+ * hero (Sarah's review: "put the calculator at the start of the page").
  * It is the same ribbon, resolved by the same adapter: a link only when the
  * Buyer System base URL is approved, an honest pending state until then.
  */

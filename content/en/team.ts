@@ -3,11 +3,12 @@ import type { IconName } from '@/components/web/icons/Icon';
 
 const USER_BRIEF = 'Project owner brief, 2026-09-22';
 /**
- * Phase 2H — Juanma's review (REVISION WEB. Team.docx, 2026-09): headlines,
- * the team introduction and the full names of Óscar and Igor. Headlines and
- * introduction are `proposal`, pending Sarah. docs/phase-2h-juanma-review.md §E.
+ * Phase 2H — Sarah's review (REVISION WEB. Team.docx, 2026-09): headlines,
+ * the team introduction and the full names of Óscar and Igor. Her headlines and
+ * introduction are `confirmed` (accepted by Juanma, 2026-09-28); English
+ * adaptations in docs/phase-2h-juanma-review.md §10.2.
  */
-const JUANMA_REVIEW = 'Phase 2H — Juanma review 2026-09 (REVISION WEB. Team.docx)';
+const SARAH_APPROVED = "Sarah's review (REVISION WEB. Team.docx), accepted by Juanma 2026-09-28";
 const STRATEGIC_SOURCE =
   'Juanmaes83/sarahkaterina README.md and PROJECT-STATUS.md, independence model confirmed 2026-08-13';
 
@@ -66,22 +67,22 @@ export const introduction = {
 } as const;
 
 /**
- * "Different plans. The same discipline before commitment." Juanma: "Objetivos
+ * "Different plans. The same discipline before commitment." Sarah: "Objetivos
  * diferentes. La misma revisión antes de firmar."
  */
 export const pathsHeader = {
   eyebrow: 'Three starting points',
   title: claim({
     text: 'Different goals. The same review before signing.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
+    status: 'confirmed',
+    source: SARAH_APPROVED,
   }),
   subtitle:
     'The work begins with the life or use you are planning—not with a property someone wants to sell.',
 } as const;
 
 /**
- * "Four functions, connected around the buyer." Juanma did not understand it
+ * "Four functions, connected around the buyer." Sarah did not understand it
  * and replaced title and introduction. The former subtitle ("The photographs
  * show three people…") is removed at his request: no photograph is attached to
  * a name, each portrait slot below is labelled pending, and the group photograph
@@ -91,13 +92,13 @@ export const teamHeader = {
   eyebrow: 'The people around your decision',
   title: claim({
     text: 'Buying a home is easy. Buying it well is something else.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
+    status: 'confirmed',
+    source: SARAH_APPROVED,
   }),
   intro: claim({
     text: 'Sarah looks at your goals, the real cost of the purchase and the tax side, so you can make one well-informed decision. She leads the whole advisory process and, when a case calls for it, works with specialist professionals.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
+    status: 'confirmed',
+    source: SARAH_APPROVED,
     note: 'Consistent with Sarah’s confirmed area below (tax, purchase costs and buyer advisory) and with the page’s rule that specialist matters go to qualified professionals.',
   }),
 } as const;
@@ -155,7 +156,7 @@ export interface TeamProfile {
   readonly body: string;
   readonly featured?: boolean;
   /**
-   * Individual portrait. Phase 2H: Juanma asked for one photograph beside each
+   * Individual portrait. Phase 2H: Sarah asked for one photograph beside each
    * profile. None is in either repository for Elsa, Óscar or Igor (the only
    * individual photographs found, EQUIPO_SARAHKATERINA4–6 upstream, show one
    * person and are not labelled with a name), so the slot stays `pending`
@@ -180,7 +181,7 @@ export const profiles: readonly TeamProfile[] = [
     portrait: 'pending',
   },
   {
-    // Full name from Juanma (2026-09): "Oscar Gonzalez". The first-name accent
+    // Full name from Sarah's review (2026-09): "Oscar Gonzalez". The first-name accent
     // is the owner-confirmed legal spelling already in this file; the surname
     // is written exactly as supplied (whether it takes an accent is pending).
     name: 'Óscar Gonzalez',
@@ -189,7 +190,7 @@ export const profiles: readonly TeamProfile[] = [
     portrait: 'pending',
   },
   {
-    // Full name from Juanma (2026-09), as supplied.
+    // Full name from Sarah's review (2026-09), as supplied.
     name: 'Igor Veselov',
     area: 'Business development and new opportunities',
     body: 'Igor works on business development and new opportunities, helping the practice keep sight of relevant ways to support international buyers.',
@@ -262,7 +263,7 @@ export const process: readonly ProcessStep[] = [
 ] as const;
 
 /**
- * Phase 2H: the "The buyer is the client." band is removed at Juanma's request.
+ * Phase 2H: the "The buyer is the client." band is removed at Sarah's request (relayed by Juanma).
  * The confirmed independence statement stays in this object and is still
  * rendered by the FAQ answer ("Are you working for me or for the seller?").
  */

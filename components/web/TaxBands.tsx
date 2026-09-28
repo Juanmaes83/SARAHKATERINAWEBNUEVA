@@ -590,7 +590,7 @@ export function TaxCasesBand() {
 
               <div className={shared.caseResult}>
                 <div>
-                  {/* Phase 2H: Juanma's proposed result, never shown as a verified fact. */}
+                  {/* Phase 2H: Sarah's proposed result, never shown as a verified fact. */}
                   <p className={shared.caseMetricLabel}>{item.metric.text}</p>
                   <p className={shared.caseMeta}>{cases.evidencePending.text}</p>
                   <span

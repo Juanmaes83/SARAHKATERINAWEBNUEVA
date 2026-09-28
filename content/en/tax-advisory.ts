@@ -574,12 +574,16 @@ export const process = {
 const PHASE_2E_REPORT = 'Phase 2E proposed copy (brief 2026-10-23) — pending Juanma';
 
 /**
- * Phase 2H — Juanma's review of this page (REVISION WEB-Tax advisory.docx,
- * 2026-09). Plain-language rewrites and his supplied copy, all `proposal`,
- * every tax line still flagged for competent review. The before/after of each
- * string is in docs/phase-2h-juanma-review.md §C.
+ * Phase 2H — Sarah's review of this page (REVISION WEB-Tax advisory.docx,
+ * 2026-09). Her supplied copy is `confirmed` (accepted by Juanma, 2026-09-28)
+ * unless it carries a tax review; plain-language rewrites drafted here stay
+ * `proposal`; case results stay `unverified`. Before/after in
+ * docs/phase-2h-juanma-review.md §C and §10.2.
  */
-const JUANMA_REVIEW = 'Phase 2H — Juanma review 2026-09 (REVISION WEB-Tax advisory.docx)';
+const JUANMA_REVIEW =
+  "Phase 2H — Sarah's review (REVISION WEB-Tax advisory.docx), relayed by Juanma";
+const SARAH_APPROVED =
+  "Sarah's review (REVISION WEB-Tax advisory.docx), accepted by Juanma 2026-09-28";
 
 export const report = {
   /** "PREVIEW DEL INFORME FISCAL" */
@@ -783,7 +787,7 @@ export const report = {
 
 export const concerns = {
   /**
-   * Template: "LO QUE DEJAS DE PREOCUPARTE POR". Phase 2H: Juanma found the
+   * Template: "LO QUE DEJAS DE PREOCUPARTE POR". Phase 2H: Sarah found the
    * phrase incomplete and confusing and replaced it with "Todo lo que dejas en
    * nuestras manos". The six items are rewritten to match the new title: what
    * is handed over, not what is feared. `proposal`; scope and every tax line
@@ -793,8 +797,8 @@ export const concerns = {
   eyebrow: claim({ text: 'In our hands', status: 'proposal', source: JUANMA_REVIEW }),
   title: claim({
     text: 'Everything you leave in our hands.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
+    status: 'confirmed',
+    source: SARAH_APPROVED,
   }),
   /** "Menos incertidumbre. Más tiempo para disfrutar de lo que realmente importa." */
   body: claim({
@@ -1113,7 +1117,7 @@ export const authority = {
 export const cases = {
   eyebrow: claim({ text: 'Real cases', status: 'proposal', source: JUANMA_REVIEW }),
   /**
-   * Template: "Three files. Three avoided mistakes." Phase 2H: Juanma found
+   * Template: "Three files. Three avoided mistakes." Phase 2H: Sarah found
    * "files" unclear and supplied the whole section. "Real" stays a proposal:
    * no case is evidenced in the repository yet.
    */
@@ -1124,14 +1128,14 @@ export const cases = {
   }),
   subtitle: claim({
     text: 'This is how we work. Each client’s details stay confidential until they authorise us in writing to publish them and the figures are verified.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
-    note: 'Juanma’s line, with "in writing" and "the figures are verified" kept from the confirmed AGENTS.md §2/§11 wording.',
+    status: 'confirmed',
+    source: SARAH_APPROVED,
+    note: 'Sarah’s line, with "in writing" and "the figures are verified" kept from the confirmed AGENTS.md §2/§11 wording.',
   }),
-  /** Replaces the "Schematic" badge on the case drawings (Juanma: "ILUSTRACIÓN"). */
-  visualBadge: claim({ text: 'Illustration', status: 'proposal', source: JUANMA_REVIEW }),
+  /** Replaces the "Schematic" badge on the case drawings (Sarah: "ILUSTRACIÓN"). */
+  visualBadge: claim({ text: 'Illustration', status: 'confirmed', source: SARAH_APPROVED }),
   /**
-   * Card copy supplied by Juanma. The results he wrote ("Penalty avoided",
+   * Card copy supplied by Sarah. The results she wrote ("Penalty avoided",
    * "Position regularised", "Taxes and costs planned") are `unverified`: each
    * card shows it as the proposed result, with the value withheld and an
    * explicit "evidence and tax review pending" line. None is a fact until the
@@ -1144,8 +1148,8 @@ export const cases = {
       visual: 'built' as const,
       profile: claim({
         text: 'Non-resident owner with a holiday let',
-        status: 'proposal',
-        source: JUANMA_REVIEW,
+        status: 'confirmed',
+        source: SARAH_APPROVED,
       }),
       decision: claim({
         text: 'We spotted a risk in their situation and put it in order before it could become a penalty.',
@@ -1159,15 +1163,15 @@ export const cases = {
         source: JUANMA_REVIEW,
         review: 'tax',
       }),
-      period: claim({ text: 'Year confidential', status: 'pending', source: JUANMA_REVIEW }),
+      period: claim({ text: 'Year confidential', status: 'pending', source: SARAH_APPROVED }),
     },
     {
       id: 'seller',
       visual: 'works' as const,
       profile: claim({
         text: 'Non-resident owner with Modelo 210 outstanding',
-        status: 'proposal',
-        source: JUANMA_REVIEW,
+        status: 'confirmed',
+        source: SARAH_APPROVED,
       }),
       decision: claim({
         text: 'We brought their outstanding returns and paperwork up to date.',
@@ -1181,12 +1185,12 @@ export const cases = {
         source: JUANMA_REVIEW,
         review: 'tax',
       }),
-      period: claim({ text: 'Year confidential', status: 'pending', source: JUANMA_REVIEW }),
+      period: claim({ text: 'Year confidential', status: 'pending', source: SARAH_APPROVED }),
     },
     {
       id: 'buyer',
       visual: 'plot' as const,
-      profile: claim({ text: 'Off-plan purchase', status: 'proposal', source: JUANMA_REVIEW }),
+      profile: claim({ text: 'Off-plan purchase', status: 'confirmed', source: SARAH_APPROVED }),
       decision: claim({
         text: 'Before signing, the client knew every tax on the purchase and the long-term costs.',
         status: 'proposal',
@@ -1194,7 +1198,7 @@ export const cases = {
         review: 'tax',
       }),
       /**
-       * Juanma's correction: a new home bought from the developer normally pays
+       * Sarah's correction: a new home bought from the developer normally pays
        * VAT (IVA) and stamp duty (AJD), not transfer tax (ITP); only a resale
        * off plan would carry ITP. The former "ITP and wealth position planned"
        * named a tax the case may not have had, so the result is now
@@ -1207,7 +1211,7 @@ export const cases = {
         source: JUANMA_REVIEW,
         review: 'tax',
       }),
-      period: claim({ text: 'Year confidential', status: 'pending', source: JUANMA_REVIEW }),
+      period: claim({ text: 'Year confidential', status: 'pending', source: SARAH_APPROVED }),
     },
   ],
   locationPending: claim({ text: 'Location withheld', status: 'pending' }),
@@ -1218,17 +1222,17 @@ export const cases = {
     source: 'AGENTS.md §2, §10 and §11',
   }),
   /**
-   * Juanma proposed "Publicado con autorización escrita del cliente y cifras
+   * Sarah proposed "Publicado con autorización escrita del cliente y cifras
    * verificadas" as a statement of fact. No permission or verified figure is on
    * record, so the conditional wording stays until one is.
    */
   permissionPending: claim({
     text: 'Published only with written client permission and verified figures.',
     status: 'blocked',
-    note: 'The template names Altea, Jávea and Moraira with years, nationalities and amounts. All invented. Phase 2H: Juanma’s affirmative version ("Published with the client’s written permission and verified figures") becomes usable only once both exist for a case.',
+    note: 'The template names Altea, Jávea and Moraira with years, nationalities and amounts. All invented. Phase 2H: Sarah’s affirmative version ("Published with the client’s written permission and verified figures") becomes usable only once both exist for a case.',
   }),
-  /** Juanma: "DESCUBRE CÓMO TRABAJAMOS". */
-  cta: claim({ text: 'Discover how we work', status: 'proposal', source: JUANMA_REVIEW }),
+  /** Sarah: "DESCUBRE CÓMO TRABAJAMOS". */
+  cta: claim({ text: 'Discover how we work', status: 'confirmed', source: SARAH_APPROVED }),
 } as const;
 
 /* ===========================================================================

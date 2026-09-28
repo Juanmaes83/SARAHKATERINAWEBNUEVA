@@ -195,7 +195,7 @@ function TeamBand() {
       <div className={styles.profileGrid}>
         {team.map((profile, index) => (
           <RevealOnScroll key={profile.name} order={index} className={styles.profileCard}>
-            {/* Phase 2H: one portrait per profile, as Juanma asked. No named,
+            {/* Phase 2H: one portrait per profile, as Sarah asked. No named,
                 approved photograph exists yet, so the slot says so; a face is
                 never assigned from a group photograph or by appearance. */}
             <div
@@ -271,7 +271,7 @@ function ProcessBand() {
 }
 
 /**
- * Phase 2H: the office-sign photograph is removed at Juanma's request
+ * Phase 2H: the office-sign photograph is removed at Sarah's request
  * ("Quita esta imagen"); the band keeps its copy, now on its own.
  */
 function AftercareBand() {

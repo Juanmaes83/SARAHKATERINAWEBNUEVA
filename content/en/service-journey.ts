@@ -18,7 +18,8 @@ import type { BuyerSystemExperienceKey } from '@/lib/buyer-system/links';
  */
 
 const SOURCE = 'Phase 2G connected journey proposal, 2026-09-24';
-const JUANMA_REVIEW = 'Phase 2H — Juanma review 2026-09 (REVISION WEB-*.docx)';
+const JUANMA_REVIEW = "Phase 2H — Sarah's review (REVISION WEB-*.docx), relayed by Juanma";
+const SARAH_APPROVED = "Sarah's review (REVISION WEB-*.docx), accepted by Juanma 2026-09-28";
 
 export const SERVICE_ROUTES = {
   investment: '/preview/investment',
@@ -87,9 +88,9 @@ export const JOURNEY: Record<ServiceKey, JourneyBridge> = {
     eyebrow: 'Your next step',
     title: claim({
       text: 'An opportunity is only good if it fits your goals, not the goals of the person selling it.',
-      status: 'proposal',
-      source: JUANMA_REVIEW,
-      note: 'Proposed by Juanma (REVISION WEB-investment.docx) to replace the Phase 2G line, which he found made no sense. Pending Sarah.',
+      status: 'confirmed',
+      source: SARAH_APPROVED,
+      note: 'Proposed by Sarah (REVISION WEB-investment.docx) to replace the Phase 2G line, which she found made no sense. Pending Sarah.',
     }),
     intro: claim({
       text: 'When the analysis shows it fits, the next questions are how to buy it well and what owning it will involve.',
@@ -256,7 +257,7 @@ export const TEAM_LAYER = {
  * Buyer System moments beyond the Investment tools band and the purchase
  * ribbons. One entry: Tax Advisory, directly under the hero.
  *
- * Phase 2G placed it after the tax calendar. Juanma's review (2026-09) asked
+ * Phase 2G placed it after the tax calendar. Sarah's review (2026-09) asked
  * for the purchase tax and costs tool "big, at the start of the page", so
  * Phase 2H moves it under the hero (docs/buyer-system-integration.md,
  * placement table). It is still the only Purchase Tax entry on the page.
@@ -273,7 +274,7 @@ export const TAX_LEAD_TOOL: ToolMoment = {
     text: 'Tax that is not looked at before signing is usually found later, when it is harder and dearer to put right. See what the purchase itself costs in tax, for your own case, first.',
     status: 'proposal',
     source:
-      'Phase 2H — Juanma review 2026-09 (REVISION WEB-Tax advisory.docx: pain point, calculator first)',
+      "Phase 2H — Sarah's review (REVISION WEB-Tax advisory.docx: pain point, calculator first)",
     review: 'tax',
   }),
 };

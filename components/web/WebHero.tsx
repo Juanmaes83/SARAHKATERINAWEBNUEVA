@@ -42,7 +42,7 @@ import styles from './WebHero.module.css';
  * it: the location line moves above the frame and the snapshot card below
  * it, touching but never overlapping.
  *
- * PHASE 2H (Juanma's review) — the film plays once, muted, without depending
+ * PHASE 2H (Sarah's review) — the film plays once, muted, without depending
  * on scroll (`HeroFilm`), and the visual column is wider from 1024px
  * ("the video is too small").
  */

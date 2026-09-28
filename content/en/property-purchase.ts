@@ -4,11 +4,15 @@ const TEMPLATE =
   'Property Purchase template - approved Phase 2 visual and editorial source (Juanma, 2026-09-21)';
 
 /**
- * Phase 2H — Juanma's review (REVISION WEB-property-purchase.docx, 2026-09).
- * His headlines and film copy, adapted to English. All `proposal`, pending
- * Sarah; before/after and scope checks in docs/phase-2h-juanma-review.md §D.
+ * Phase 2H — Sarah's review (REVISION WEB-property-purchase.docx, 2026-09).
+ * Her headlines and film copy, adapted to English: `confirmed` (accepted by
+ * Juanma, 2026-09-28) except where legal review is flagged; lines drafted here
+ * stay `proposal`. Adaptations in docs/phase-2h-juanma-review.md §10.2.
  */
-const JUANMA_REVIEW = 'Phase 2H — Juanma review 2026-09 (REVISION WEB-property-purchase.docx)';
+const JUANMA_REVIEW =
+  "Phase 2H — Sarah's review (REVISION WEB-property-purchase.docx), relayed by Juanma";
+const SARAH_APPROVED =
+  "Sarah's review (REVISION WEB-property-purchase.docx), accepted by Juanma 2026-09-28";
 
 export const PROTOTYPE_NOTICE = {
   label: 'Property Purchase visual preview',
@@ -33,12 +37,12 @@ export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', sour
 export const hero = {
   eyebrow: claim({ text: 'Buying property in Spain', status: 'proposal', source: TEMPLATE }),
   /**
-   * Was "The buying process, handled as one file." Juanma: "Compra con total
+   * Was "The buying process, handled as one file." Sarah: "Compra con total
    * tranquilidad: nosotros coordinamos cada paso." "Total" is dropped so the
    * line describes the service (coordination), not a guaranteed state of mind.
    */
-  title: claim({ text: 'Buy with peace of mind:', status: 'proposal', source: JUANMA_REVIEW }),
-  accent: claim({ text: 'we coordinate every step.', status: 'proposal', source: JUANMA_REVIEW }),
+  title: claim({ text: 'Buy with peace of mind:', status: 'confirmed', source: SARAH_APPROVED }),
+  accent: claim({ text: 'we coordinate every step.', status: 'confirmed', source: SARAH_APPROVED }),
   body: claim({
     text: 'Independent support for international buyers who want to purchase in Spain with clarity, control and calm. From the first viewing to the keys, the whole file stays connected.',
     status: 'proposal',
@@ -117,7 +121,7 @@ export const trust = [
 export const audience = {
   eyebrow: claim({ text: 'Who this service is for', status: 'proposal', source: TEMPLATE }),
   /**
-   * Was "Buy in Spain without chasing the paperwork." Juanma: "Nosotros
+   * Was "Buy in Spain without chasing the paperwork." Sarah: "Nosotros
    * gestionamos el papeleo; tú eliges tu casa." Scope check for Sarah: the
    * service coordinates the purchase paperwork; notarial, registry and legal
    * acts remain with the professionals competent for them.
@@ -178,7 +182,7 @@ const PHASE_2G = 'Phase 2G connected journey proposal, 2026-09-24';
 export const goodIdea = {
   eyebrow: claim({ text: 'Good idea, bad execution', status: 'proposal', source: PHASE_2G }),
   /**
-   * Phase 2H: Juanma found "A good idea can still become a bad purchase."
+   * Phase 2H: Sarah found "A good idea can still become a bad purchase."
    * contradictory and supplied both lines ("Lo que parece una gran oportunidad
    * puede esconder una mala compra" / "El sueño cabe en un instante…"). Each
    * service named in the body is in scope on this page: review (the Review
@@ -188,13 +192,13 @@ export const goodIdea = {
    */
   title: claim({
     text: 'What looks like a great opportunity can hide a bad purchase.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
+    status: 'confirmed',
+    source: SARAH_APPROVED,
   }),
   body: claim({
     text: 'A dream fits into a moment: a call, a flight, a set of keys in your hand. Making it real without surprises takes more: checking every detail, negotiating well and protecting your investment. That is what we take care of.',
-    status: 'proposal',
-    source: JUANMA_REVIEW,
+    status: 'confirmed',
+    source: SARAH_APPROVED,
   }),
   pointsTitle: claim({
     text: 'Where an opportunity usually goes wrong',
