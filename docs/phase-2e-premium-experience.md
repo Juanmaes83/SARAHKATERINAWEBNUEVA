@@ -9,6 +9,8 @@ Routes: `/preview/investment` · `/preview/tax-advisory` ·
 `/preview/property-purchase` · `/preview/team`
 Motion rulebook: [`phase-2e-motion-system.md`](phase-2e-motion-system.md)
 
+> **Merge state (checked 2026-09-28):** merged to `main` with PR #21 (`c8eb579`, 2026-09-23). The human visual review is still pending; nothing here is approved.
+
 Everything stays under `/preview` with `noindex, nofollow`. No production,
 domain, DNS, indexation, form, CTA destination, claim, figure, testimonial or
 video was added or changed.

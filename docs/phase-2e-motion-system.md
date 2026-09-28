@@ -5,6 +5,8 @@ Updated: 2026-10-23
 Branch: `feat/phase-2e-premium-media-motion-2026-09-22`
 Companion: [`phase-2e-premium-experience.md`](phase-2e-premium-experience.md) (creative direction, audit, QA)
 
+> **Merge state (checked 2026-09-28):** merged to `main` with PR #21 (`c8eb579`, 2026-09-23). The human visual review is still pending; nothing here is approved. The "2026-10-23" dates in this record are not calendar dates of the work: git shows it was committed on 2026-09-23; "23 OCTUBRE" is the name of the brief's folder.
+
 This document is the rulebook for every movement on the four preview landings
 (`/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase`,
 `/preview/team`). It extends — it does not replace — the motion contract in

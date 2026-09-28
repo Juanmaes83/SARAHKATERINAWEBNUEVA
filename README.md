@@ -1,8 +1,10 @@
 # Sarah Katerina — New Website
 
-> **Status: FOUR PREVIEW LANDINGS · PHASES 2E, 2F AND 2G MERGED · PHASE 2H (JUANMA'S REVIEW) IN DRAFT PR · HUMAN VISUAL REVIEW PENDING · NOT PRODUCTION**
+> **Status (2026-09-28): FOUR PREVIEW LANDINGS · `main` = PHASES 2E, 2F AND 2G MERGED · PHASE 2H IN DRAFT PR #30 · HUMAN VISUAL REVIEW OF 2F–2H PENDING · NOT PRODUCTION**
 >
-> Juanma has approved the three merged landing implementations as visual bases for continued work. This is not approval for publication, indexing, migration or finished marketing. The application remains **not indexable by default**.
+> Juanma has approved Investment, Tax Advisory and Property Purchase as visual bases for continued work; Team is a merged editorial preview without an equivalent approval record. None of this is approval for publication, indexing, migration or finished marketing, and a merge is not a visual approval. The application remains **not indexable by default**.
+>
+> CI note: GitHub Actions did not run on PR #30 — the jobs were not started because the account's Actions budget was exhausted. The QA set was run locally instead (`docs/phase-2h-juanma-review.md` §9).
 
 ---
 
@@ -21,11 +23,13 @@ proposal in website/nueva web/, especially the Investment composition. The
 proposal is not a production approval, but its architecture, rhythm, hierarchy
 and composition are the explicit implementation reference for Phase 2.
 
-The merged base now contains three coordinated visual implementations:
-Investment, Tax Advisory and Property Purchase. Investment is the canonical
-shared visual layer; the other two adapt their template-specific content and
-structures to it. Phase 2E now focuses on premium media, motion and visual
-refinement across all three routes.
+The merged base contains four preview landings — Investment, Tax Advisory,
+Property Purchase and Team — on one shared web layer. Investment is the
+canonical visual base; the others adapt their own content and structures to it.
+Phases 2E (premium media and motion), 2F (approved imagery and hero videos) and
+2G (connected service journey) are merged; Phase 2H (Juanma's review of the four
+landings) is in Draft PR #30. The human visual review of 2F, 2G and 2H is still
+open.
 
 ## 2. What this repository is not
 
@@ -108,25 +112,28 @@ THREE LANDING BASES APPROVED BY JUANMA FOR CONTINUED PREMIUM ENRICHMENT
 PHASE 2E PREMIUM EXPERIENCE AND MOTION MERGED (PR #21)
 PHASE 2F CASE IMAGERY, HERO VIDEOS, MAP FILM AND FABRIC BANNER MERGED (PR #23–#28)
 PHASE 2G CONNECTED SERVICE JOURNEY MERGED (PR #29)
-PHASE 2H JUANMA'S REVIEW OF THE FOUR LANDINGS — DRAFT PR, NOT MERGED
+TEAM EDITORIAL PREVIEW MERGED (PR #19) — NO BASE APPROVAL RECORDED
+PHASE 2H JUANMA'S REVIEW OF THE FOUR LANDINGS — DRAFT PR #30, NOT MERGED
 HUMAN VISUAL REVIEW OF 2F, 2G AND 2H STILL PENDING
+GITHUB ACTIONS NOT RUN ON PR #30 (ACTIONS BUDGET) — QA RUN LOCALLY
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
 **Investment is the canonical visual base of the website layer.** Investment,
-Tax Advisory and Property Purchase are now registered as the three approved
-visual implementation bases for the next workstream. This approval means they
-are ready for premium enrichment and cross-landing refinement; it does **not**
-mean that any route is approved for production, publication or migration.
+Tax Advisory and Property Purchase are registered as the three approved visual
+implementation bases. That approval covers continued enrichment and
+cross-landing refinement; it does **not** mean that any route is approved for
+production, publication or migration, and it does not approve the later phases
+visually.
 
-All three routes render through one shared web layer and one token file:
+All four `/preview` routes render through one shared web layer and one token file:
 
-| Concern                                                            | Single source                                                               |
-| ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| Website palette                                                    | `app/web-tokens.css`                                                        |
-| Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*`                                                          |
-| Motion foundation                                                  | `components/motion/RevealOnScroll.tsx`                                      |
-| Landing-specific composition                                       | Each route's content and section module, without duplicate chrome or tokens |
+| Concern                                                            | Single source                                                                                        |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| Website palette                                                    | `app/web-tokens.css`                                                                                 |
+| Sections, hero, buttons, cards, icons, charts, header, footer, FAQ | `components/web/*`                                                                                   |
+| Motion foundation                                                  | `components/motion/*` (`RevealOnScroll`, `ScrubVideo`, `PlayOnceVideo`; `HeroFilm` on the 2H branch) |
+| Landing-specific composition                                       | Each route's content and section module, without duplicate chrome or tokens                          |
 
 A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
 and the converged web-layer tests fail if a second `--sk-web-*` declaration, a
@@ -148,7 +155,7 @@ see `docs/phase-2h-juanma-review.md`).
 | `docs/phase-2e-media-corrections-merged-2026-09-22.md`   | Merged media/crop pass, visual verification and handoff to motion                                                                                        |
 | `docs/phase-2e-premium-experience.md`                    | Phase 2E premium pass: creative direction, audit, WOW map, per-landing decisions, QA evidence, human decisions pending                                   |
 | `docs/phase-2e-motion-system.md`                         | Motion tokens, intensity levels, shared primitives, reduced-motion/no-JS behaviour and rejection criteria                                                |
-| `docs/phase-2e-visual-content-upgrade.md`                | Brief 2026-10-23: reference-to-section mapping, report explorer, common image grade, QA and pending decisions                                            |
+| `docs/phase-2e-visual-content-upgrade.md`                | Brief `IMAGES/MEJORAS 23 OCTUBRE/` (work of 2026-09-23, merged in PR #21): reference-to-section mapping, report explorer, common image grade, QA         |
 | `docs/phase-2f-images-and-scroll-hero-implementation.md` | Phase 2F case imagery and hero videos (hero sources later replaced by the owner; see its top note)                                                       |
 | `docs/phase-2g-connected-service-journey.md`             | Phase 2G connected journey, Good-idea film, Buyer System placements                                                                                      |
 | `docs/phase-2h-juanma-review.md`                         | Phase 2H: Juanma's review of the four landings — matrix, implemented changes, copy proposals, audio audit, pending assets and decisions                  |
@@ -248,22 +255,22 @@ confirmed. Until then, calculator entry points remain visibly pending.
 
 ## 12. What needs human approval
 
-| Item                                   | State                                             | Why it is blocked                                                                                                                                                                                                                                             |
-| -------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Canonical production host              | **OPEN CONFLICT**                                 | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0.                                                                                                              |
-| Logo / wordmark asset                  | AVAILABLE REFERENCE — BASE IMPORTED               | The governed authentic mark is already imported for the three visual bases. Final light/dark treatment, lockup selection and any retouch remain subject to Juanma's visual approval. Ask rather than recolouring or redrawing the mark.                       |
-| Institutional descriptor               | `NEEDS_DECISION`                                  | Must not be chosen silently.                                                                                                                                                                                                                                  |
-| `Property Decision Advisor`            | `TEST` + `INTERNAL_TEST_ONLY`                     | Not usable in public output.                                                                                                                                                                                                                                  |
-| Legal entity, address, company number  | NOT CONFIRMED                                     | Rendered as `PENDING_APPROVAL` slots.                                                                                                                                                                                                                         |
-| Email, telephone, social profiles      | NOT CONFIRMED                                     | Rendered as `PENDING_APPROVAL` slots.                                                                                                                                                                                                                         |
-| `--sk-app-text-muted`                  | `PENDING_APPROVAL`                                | No approved value; a guard test forbids its use.                                                                                                                                                                                                              |
-| Primary breakpoint (768px)             | `PENDING_APPROVAL`                                | Upstream leaves 768 vs 900 `DEFERRED-NONBLOCKING`. Implementation decision, reversible in one place.                                                                                                                                                          |
-| Public navigation / IA                 | `PENDING_APPROVAL`                                | `BUY / INVEST / OWN` is internal architecture, not a navbar.                                                                                                                                                                                                  |
-| Any commercial CTA copy                | NOT APPROVED                                      | Per-intent CTAs are an open P0.                                                                                                                                                                                                                               |
-| Property Management / VITA Host        | `HOLD`                                            | D-06 unexecuted; excluded entirely.                                                                                                                                                                                                                           |
-| AI crawler policy                      | `Propuesta`                                       | Awaiting legal input; no directive invented.                                                                                                                                                                                                                  |
-| Photography and video of Sarah         | ASSETS AVAILABLE / PREMIUM ENRICHMENT IN PROGRESS | Authentic references exist upstream. Each image or video must be assigned to a landing slot, carry provenance, receive the correct crop/treatment and be reviewed by Juanma. If a selection or video treatment is unclear, ask rather than choosing silently. |
-| Any metric, claim, case or testimonial | NOT APPROVED                                      | Requires source, date, permission, scope and legal review. Visual proof may be shown as a clearly labelled demo/preview; it must not imply a verified result.                                                                                                 |
+| Item                                   | State                                 | Why it is blocked                                                                                                                                                                                                                                                                                                          |
+| -------------------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Canonical production host              | **OPEN CONFLICT**                     | `decisions-log.md` (2026-08-05) approved non-www; the 2026-09-16 verification found production redirecting to www and left it "Abierta" as a P0.                                                                                                                                                                           |
+| Logo / wordmark asset                  | AVAILABLE REFERENCE — BASE IMPORTED   | The governed authentic mark is already imported for the three visual bases. Final light/dark treatment, lockup selection and any retouch remain subject to Juanma's visual approval. Ask rather than recolouring or redrawing the mark.                                                                                    |
+| Institutional descriptor               | `NEEDS_DECISION`                      | Must not be chosen silently.                                                                                                                                                                                                                                                                                               |
+| `Property Decision Advisor`            | `TEST` + `INTERNAL_TEST_ONLY`         | Not usable in public output.                                                                                                                                                                                                                                                                                               |
+| Legal entity, address, company number  | NOT CONFIRMED                         | Rendered as `PENDING_APPROVAL` slots.                                                                                                                                                                                                                                                                                      |
+| Email, telephone, social profiles      | NOT CONFIRMED                         | Rendered as `PENDING_APPROVAL` slots.                                                                                                                                                                                                                                                                                      |
+| `--sk-app-text-muted`                  | `PENDING_APPROVAL`                    | No approved value; a guard test forbids its use.                                                                                                                                                                                                                                                                           |
+| Primary breakpoint (768px)             | `PENDING_APPROVAL`                    | Upstream leaves 768 vs 900 `DEFERRED-NONBLOCKING`. Implementation decision, reversible in one place.                                                                                                                                                                                                                       |
+| Public navigation / IA                 | `PENDING_APPROVAL`                    | `BUY / INVEST / OWN` is internal architecture, not a navbar.                                                                                                                                                                                                                                                               |
+| Any commercial CTA copy                | NOT APPROVED                          | Per-intent CTAs are an open P0.                                                                                                                                                                                                                                                                                            |
+| Property Management / VITA Host        | `HOLD`                                | D-06 unexecuted; excluded entirely.                                                                                                                                                                                                                                                                                        |
+| AI crawler policy                      | `Propuesta`                           | Awaiting legal input; no directive invented.                                                                                                                                                                                                                                                                               |
+| Photography and video of Sarah         | ASSETS AVAILABLE · SOME SLOTS BLOCKED | Authentic references exist upstream. Each image or video must be assigned to a landing slot, carry provenance, receive the correct crop/treatment and be reviewed by Juanma. Missing: a natural authority portrait, warmer team photos and named individual portraits (2H, A-01–A-04). Voice-overs unpublished (2H, V-01). |
+| Any metric, claim, case or testimonial | NOT APPROVED                          | Requires source, date, permission, scope and legal review. Visual proof may be shown as a clearly labelled demo/preview; it must not imply a verified result.                                                                                                                                                              |
 
 ## 13. What must not be published
 
@@ -288,13 +295,15 @@ confirmed. Until then, calculator entry points remain visibly pending.
 | 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — HUMAN VISUAL REVIEW PENDING   |
 | 2H — Juanma's review of the four landings                 | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | DRAFT PR — HUMAN VISUAL REVIEW PENDING |
 | 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                            | BLOCKED ON PRODUCT DECISIONS           |
-| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 2E/2F/3                          |
+| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER THE 2F–2H VISUAL REVIEW AND 3    |
 | 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                              |
 
-Phase 2E is the next implementation block, not a production release. Its
-acceptance requires documented media provenance, intentional responsive crops,
-purposeful motion with `prefers-reduced-motion`, no major placeholders in
-approved slots, and Juanma's visual review before merge.
+None of the Phase 2 blocks is a production release. Acceptance of 2F, 2G and
+2H still requires documented media provenance, intentional responsive crops,
+purposeful motion with `prefers-reduced-motion`, no unlabelled placeholders in
+approved slots, and Juanma's visual review on the preview. The open decisions
+and missing assets from Juanma's review are in `docs/phase-2h-juanma-review.md`
+§6 and §8.
 
 The full Phase 2 implementation contract is in
 docs/phase-2-visual-implementation-contract.md.
@@ -336,6 +345,7 @@ appears.
 | `/preview/investment`        | Investment canonical visual base | `WebHeader` / `WebFooter` | Scoped `--sk-web-*`        | No — ever, while under `/preview` |
 | `/preview/tax-advisory`      | Tax Advisory visual base         | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 | `/preview/property-purchase` | Property Purchase visual base    | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/team`              | Team editorial preview           | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 
 Two token layers coexist deliberately:
 
@@ -355,8 +365,10 @@ lets the two systems coexist without one bleeding into the other.
 
 Every visual change requires Juanma's review on the Vercel preview, at mobile
 and desktop widths, **before** it is considered accepted or merged. The three
-landing bases are accepted for continuation, but each Phase 2E media, motion or
-composition change still requires the same human gate. Review instructions are
+landing bases are accepted for continuation, but every later media, motion,
+copy or composition change (Phases 2E–2H, and Team) still requires the same
+human gate. A merge, a green test run or a Vercel deployment is not that
+review. Review instructions are
 recorded in the relevant landing fidelity/visual-decision documents and the
 Phase 2 implementation contract.
 
