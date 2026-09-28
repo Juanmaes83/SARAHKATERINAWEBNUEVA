@@ -1,0 +1,162 @@
+[
+  {
+    "route": "investment",
+    "viewport": "mobile",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [
+      {
+        "src": "http://localhost:4891/media/hero/investment-film-mobile.mp4",
+        "paused": true,
+        "t": 1.52,
+        "muted": true,
+        "state": "paused"
+      },
+      {
+        "src": "http://localhost:4891/media/video/territory-map-tall.webm",
+        "paused": true,
+        "t": 5.04,
+        "muted": true,
+        "state": "ended"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "route": "tax-advisory",
+    "viewport": "mobile",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [
+      {
+        "src": "http://localhost:4891/media/hero/tax-advisory-costs-mobile.mp4",
+        "paused": true,
+        "t": 0,
+        "muted": true,
+        "state": "ready"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "route": "property-purchase",
+    "viewport": "mobile",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [
+      {
+        "src": "http://localhost:4891/media/hero/purchase-film-mobile.mp4",
+        "paused": true,
+        "t": 1.64,
+        "muted": true,
+        "state": "paused"
+      },
+      {
+        "src": "http://localhost:4891/media/video/purchase-good-idea.webm",
+        "paused": true,
+        "t": 10.04,
+        "muted": true,
+        "state": "ended"
+      },
+      {
+        "src": "http://localhost:4891/media/video/territory-loop.webm",
+        "paused": true,
+        "t": 1.91,
+        "muted": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "route": "team",
+    "viewport": "mobile",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [],
+    "errors": []
+  },
+  {
+    "route": "investment",
+    "viewport": "desktop",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [
+      {
+        "src": "http://localhost:4891/media/hero/investment-film-desktop.mp4",
+        "paused": false,
+        "t": 5.53,
+        "muted": true,
+        "state": "playing"
+      },
+      {
+        "src": "http://localhost:4891/media/video/territory-map-wide.webm",
+        "paused": true,
+        "t": 5.04,
+        "muted": true,
+        "state": "ended"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "route": "tax-advisory",
+    "viewport": "desktop",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [
+      {
+        "src": "http://localhost:4891/media/hero/tax-advisory-costs-desktop.mp4",
+        "paused": true,
+        "t": 0,
+        "muted": true,
+        "state": "ready"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "route": "property-purchase",
+    "viewport": "desktop",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [
+      {
+        "src": "http://localhost:4891/media/hero/purchase-film-desktop.mp4",
+        "paused": false,
+        "t": 4.65,
+        "muted": true,
+        "state": "playing"
+      },
+      {
+        "src": "http://localhost:4891/media/video/purchase-good-idea.webm",
+        "paused": true,
+        "t": 10.04,
+        "muted": true,
+        "state": "ended"
+      },
+      {
+        "src": "http://localhost:4891/media/video/territory-loop.webm",
+        "paused": true,
+        "t": 2,
+        "muted": true
+      }
+    ],
+    "errors": []
+  },
+  {
+    "route": "team",
+    "viewport": "desktop",
+    "overflow": 0,
+    "h1": 1,
+    "robots": "noindex, nofollow",
+    "videos": [],
+    "errors": []
+  }
+]

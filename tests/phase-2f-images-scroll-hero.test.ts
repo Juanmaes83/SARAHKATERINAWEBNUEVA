@@ -155,11 +155,7 @@ describe('1–4. approved images', () => {
 
 describe('5–10, 13. hero videos', () => {
   const HEROES = [
-    [
-      'investment',
-      'components/web/WebHero.tsx',
-      'VIDEOS/TAX ADVISORY HERO REPLACEMENT.mp4',
-    ],
+    ['investment', 'components/web/WebHero.tsx', 'VIDEOS/TAX ADVISORY HERO REPLACEMENT.mp4'],
     [
       'purchase',
       'components/web/PropertyPurchase.tsx',
@@ -168,13 +164,56 @@ describe('5–10, 13. hero videos', () => {
     ['tax', 'components/web/TaxHero.tsx', 'VIDEOS/TAX ADVISORY HERO SECTION.mp4'],
   ] as const;
 
-  it.each(HEROES)('the %s hero scrubs its approved source', (key, component, source) => {
-    const v = HERO_VIDEO[key];
-    expect(v.source).toBe(source);
-    expect(sha256(v.source)).toBe(v.sourceSha256);
-    expect(read(component)).toContain(`<ScrubVideo`);
-    expect(read(component)).toContain(`HERO_VIDEO.${key}`);
-    expect(read(component)).toContain('<ScrubStage>');
+  // Phase 2H (Juanma's review): Investment and Property Purchase play their
+  // film once, independently of scroll; Tax Advisory keeps the Phase 2F scrub.
+  it.each(HEROES)(
+    'the %s hero moves its approved source as registered',
+    (key, component, source) => {
+      const v = HERO_VIDEO[key];
+      expect(v.source).toBe(source);
+      expect(sha256(v.source)).toBe(v.sourceSha256);
+      const markup = read(component);
+      expect(markup).toContain(`HERO_VIDEO.${key}`);
+      if (v.playback === 'play-once') {
+        expect(markup).toContain('<HeroFilm');
+        expect(markup).not.toMatch(/<ScrubVideo|<ScrubStage/);
+      } else {
+        expect(markup).toContain('<ScrubVideo');
+        expect(markup).toContain('<ScrubStage>');
+      }
+    },
+  );
+
+  it('plays the Investment and Property Purchase heroes, and scrubs only Tax Advisory', () => {
+    expect(HERO_VIDEO.investment.playback).toBe('play-once');
+    expect(HERO_VIDEO.purchase.playback).toBe('play-once');
+    expect(HERO_VIDEO.tax.playback).toBe('scrub');
+  });
+
+  it('plays the hero film once, muted, visibly controllable and never by scroll', () => {
+    const source = code(read('components/motion/HeroFilm.tsx'));
+    expect(source).toMatch(/<video[\s\S]*?muted[\s\S]*?playsInline[\s\S]*?aria-hidden="true"/);
+    expect(source).toContain('tabIndex={-1}');
+    expect(source).toMatch(/preload="none"/);
+    // No attribute starts it, loops it or exposes native controls.
+    expect(source).not.toMatch(/\bautoPlay\b|\bloop\b|\bcontrols\b/);
+    // Nothing reads the scroll position.
+    expect(source).not.toMatch(/'scroll'|scrollY|getBoundingClientRect/);
+    // Attached after load, only with motion allowed; released on unmount.
+    expect(source).toContain(
+      "const MOTION = '(prefers-reduced-motion: no-preference) and (scripting: enabled)'",
+    );
+    expect(source).toContain("window.addEventListener('load', attach, { once: true })");
+    expect(source).toContain("el.removeAttribute('src')");
+    // Pauses off screen and in a hidden tab; a visible control (WCAG 2.2.2).
+    expect(source).toContain('new IntersectionObserver');
+    expect(source).toContain('visibilitychange');
+    expect(source).toMatch(/<button[\s\S]*?aria-label=\{control\.label\}/);
+    for (const label of ['`Pause ${name}`', '`Replay ${name}`', '`Play ${name}`']) {
+      expect(source).toContain(label);
+    }
+    // The fallback <img> without motion or scripting is the final frame.
+    expect(source).toMatch(/<img\s+className=\{styles\.poster\}\s+src=\{desktop\.posterEnd\}/);
   });
 
   it('uses each hero video exactly once, and no two heroes share one', () => {
@@ -259,11 +298,11 @@ describe('7, 11, 12, 14. boundaries', () => {
   });
 
   it('changes no hero copy, claim or CTA in the three landings', () => {
-    // The only content change is the Property Purchase hero caption, which
-    // described the former image; it now describes the video without
-    // identifying anyone.
+    // Phase 2F changed only the Property Purchase hero caption. Phase 2H
+    // replaces the Property Purchase headline with Juanma's proposal (marked
+    // `proposal`); the CTAs and the other two headlines are unchanged.
     const purchase = read('content/en/property-purchase.ts');
-    expect(purchase).toContain("text: 'The buying process,'");
+    expect(purchase).toContain("text: 'Buy with peace of mind:'");
     expect(purchase).toContain("text: 'Start my purchase file'");
     expect(read('content/en/investment.ts')).toContain(
       "text: 'Properties. Data. Better decisions.'",

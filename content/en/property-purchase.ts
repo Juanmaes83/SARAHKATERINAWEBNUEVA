@@ -3,6 +3,13 @@ import { claim } from '@/lib/content/claims';
 const TEMPLATE =
   'Property Purchase template - approved Phase 2 visual and editorial source (Juanma, 2026-09-21)';
 
+/**
+ * Phase 2H — Juanma's review (REVISION WEB-property-purchase.docx, 2026-09).
+ * His headlines and film copy, adapted to English. All `proposal`, pending
+ * Sarah; before/after and scope checks in docs/phase-2h-juanma-review.md §D.
+ */
+const JUANMA_REVIEW = 'Phase 2H — Juanma review 2026-09 (REVISION WEB-property-purchase.docx)';
+
 export const PROTOTYPE_NOTICE = {
   label: 'Property Purchase visual preview',
   body: claim({
@@ -25,8 +32,13 @@ export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', sour
 
 export const hero = {
   eyebrow: claim({ text: 'Buying property in Spain', status: 'proposal', source: TEMPLATE }),
-  title: claim({ text: 'The buying process,', status: 'proposal', source: TEMPLATE }),
-  accent: claim({ text: 'handled as one file.', status: 'proposal', source: TEMPLATE }),
+  /**
+   * Was "The buying process, handled as one file." Juanma: "Compra con total
+   * tranquilidad: nosotros coordinamos cada paso." "Total" is dropped so the
+   * line describes the service (coordination), not a guaranteed state of mind.
+   */
+  title: claim({ text: 'Buy with peace of mind:', status: 'proposal', source: JUANMA_REVIEW }),
+  accent: claim({ text: 'we coordinate every step.', status: 'proposal', source: JUANMA_REVIEW }),
   body: claim({
     text: 'Independent support for international buyers who want to purchase in Spain with clarity, control and calm. From the first viewing to the keys, the whole file stays connected.',
     status: 'proposal',
@@ -104,10 +116,17 @@ export const trust = [
 
 export const audience = {
   eyebrow: claim({ text: 'Who this service is for', status: 'proposal', source: TEMPLATE }),
+  /**
+   * Was "Buy in Spain without chasing the paperwork." Juanma: "Nosotros
+   * gestionamos el papeleo; tú eliges tu casa." Scope check for Sarah: the
+   * service coordinates the purchase paperwork; notarial, registry and legal
+   * acts remain with the professionals competent for them.
+   */
   title: claim({
-    text: 'Buy in Spain without chasing the paperwork.',
+    text: 'We handle the paperwork. You choose your home.',
     status: 'proposal',
-    source: TEMPLATE,
+    source: JUANMA_REVIEW,
+    review: 'legal',
   }),
   body: claim({
     text: 'Buyer-side guidance for international clients who want an orderly purchase, without surprises and with full visibility before commitment.',
@@ -158,20 +177,29 @@ const PHASE_2G = 'Phase 2G connected journey proposal, 2026-09-24';
 
 export const goodIdea = {
   eyebrow: claim({ text: 'Good idea, bad execution', status: 'proposal', source: PHASE_2G }),
+  /**
+   * Phase 2H: Juanma found "A good idea can still become a bad purchase."
+   * contradictory and supplied both lines ("Lo que parece una gran oportunidad
+   * puede esconder una mala compra" / "El sueño cabe en un instante…"). Each
+   * service named in the body is in scope on this page: review (the Review
+   * point and the purchase file), negotiation (the Negotiation point and
+   * "Renegotiate" in Before you sign), protecting the investment (the buyer-side
+   * checks before commitment). "Protect" describes the work, not a guarantee.
+   */
   title: claim({
-    text: 'A good idea can still become a bad purchase.',
+    text: 'What looks like a great opportunity can hide a bad purchase.',
     status: 'proposal',
-    source: PHASE_2G,
+    source: JUANMA_REVIEW,
   }),
   body: claim({
-    text: 'A call, a flight, a set of keys: the idea of a life in Spain fits into a few seconds. Whether it becomes a good purchase is decided in the part the film leaves out, and that part is worked from the buyer’s side.',
+    text: 'A dream fits into a moment: a call, a flight, a set of keys in your hand. Making it real without surprises takes more: checking every detail, negotiating well and protecting your investment. That is what we take care of.',
     status: 'proposal',
-    source: PHASE_2G,
+    source: JUANMA_REVIEW,
   }),
   pointsTitle: claim({
-    text: 'Where a good idea usually goes wrong',
+    text: 'Where an opportunity usually goes wrong',
     status: 'proposal',
-    source: PHASE_2G,
+    source: JUANMA_REVIEW,
   }),
   points: [
     {

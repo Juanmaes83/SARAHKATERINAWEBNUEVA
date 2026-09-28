@@ -1,6 +1,6 @@
 # Sarah Katerina — New Website
 
-> **Status: THREE VISUAL BASES APPROVED · PHASE 2E MEDIA/CROP PASS MERGED · MOTION NEXT · NOT PRODUCTION**
+> **Status: FOUR PREVIEW LANDINGS · PHASES 2E, 2F AND 2G MERGED · PHASE 2H (JUANMA'S REVIEW) IN DRAFT PR · HUMAN VISUAL REVIEW PENDING · NOT PRODUCTION**
 >
 > Juanma has approved the three merged landing implementations as visual bases for continued work. This is not approval for publication, indexing, migration or finished marketing. The application remains **not indexable by default**.
 
@@ -105,7 +105,11 @@ PHASE 2D TAX ADVISORY CONVERGED ONTO THAT BASE — VISUAL BASE READY
 PHASE 2D PROPERTY PURCHASE CONVERGED ONTO THAT BASE — VISUAL BASE READY
 PHASE 2E APPROVED MEDIA AND CROPS MERGED ACROSS THREE LANDINGS
 THREE LANDING BASES APPROVED BY JUANMA FOR CONTINUED PREMIUM ENRICHMENT
-PHASE 2E MOTION / TRANSITIONS / EFFECTS — NEXT
+PHASE 2E PREMIUM EXPERIENCE AND MOTION MERGED (PR #21)
+PHASE 2F CASE IMAGERY, HERO VIDEOS, MAP FILM AND FABRIC BANNER MERGED (PR #23–#28)
+PHASE 2G CONNECTED SERVICE JOURNEY MERGED (PR #29)
+PHASE 2H JUANMA'S REVIEW OF THE FOUR LANDINGS — DRAFT PR, NOT MERGED
+HUMAN VISUAL REVIEW OF 2F, 2G AND 2H STILL PENDING
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
@@ -127,23 +131,27 @@ All three routes render through one shared web layer and one token file:
 A second visual architecture is not permitted. `tests/tax-advisory.test.ts`
 and the converged web-layer tests fail if a second `--sk-web-*` declaration, a
 second header, footer or button, or a re-declared navy or gold ever reappears.
-The next branch is `feat/phase-2e-premium-media-motion-2026-09-22`.
+The current branch is `feat/phase-2h-juanma-review-four-landings` (Draft PR;
+see `docs/phase-2h-juanma-review.md`).
 
-| Document                                               | What it records                                                                                                                                          |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `docs/shared-web-layer-convergence.md`                 | What is canonical, what was removed, what each landing still owns, how Investment is verified, how the next landing is added                             |
-| `docs/tax-advisory-fidelity-matrix.md`                 | Section-by-section comparison against the Tax Advisory template                                                                                          |
-| `docs/tax-advisory-visual-decisions.md`                | Every judgement call, and what needs Juanma's decision                                                                                                   |
-| `docs/tax-advisory-asset-record.md`                    | Asset provenance, hashes, crops, and the assets still missing                                                                                            |
-| `docs/property-purchase-fidelity-matrix.md`            | Section-by-section comparison against the Property Purchase template                                                                                     |
-| `docs/property-purchase-asset-map.md`                  | Property Purchase asset provenance and placement map                                                                                                     |
-| `docs/property-purchase-visual-decisions.md`           | Property Purchase visual decisions and remaining production gates                                                                                        |
-| `docs/phase-2e-navigation-architecture.md`             | ThreeUI-informed navigation reference; the active section, sticky header and menu-closes-on-selection parts are implemented in the Phase 2E premium pass |
-| `docs/visual-media-inventory-phase-2e-2026-09.md`      | Approved provisional media selection, provenance, slots and exclusions for Phase 2E                                                                      |
-| `docs/phase-2e-media-corrections-merged-2026-09-22.md` | Merged media/crop pass, visual verification and handoff to motion                                                                                        |
-| `docs/phase-2e-premium-experience.md`                  | Phase 2E premium pass: creative direction, audit, WOW map, per-landing decisions, QA evidence, human decisions pending                                   |
-| `docs/phase-2e-motion-system.md`                       | Motion tokens, intensity levels, shared primitives, reduced-motion/no-JS behaviour and rejection criteria                                                |
-| `docs/phase-2e-visual-content-upgrade.md`              | Brief 2026-10-23: reference-to-section mapping, report explorer, common image grade, QA and pending decisions                                            |
+| Document                                                 | What it records                                                                                                                                          |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docs/shared-web-layer-convergence.md`                   | What is canonical, what was removed, what each landing still owns, how Investment is verified, how the next landing is added                             |
+| `docs/tax-advisory-fidelity-matrix.md`                   | Section-by-section comparison against the Tax Advisory template                                                                                          |
+| `docs/tax-advisory-visual-decisions.md`                  | Every judgement call, and what needs Juanma's decision                                                                                                   |
+| `docs/tax-advisory-asset-record.md`                      | Asset provenance, hashes, crops, and the assets still missing                                                                                            |
+| `docs/property-purchase-fidelity-matrix.md`              | Section-by-section comparison against the Property Purchase template                                                                                     |
+| `docs/property-purchase-asset-map.md`                    | Property Purchase asset provenance and placement map                                                                                                     |
+| `docs/property-purchase-visual-decisions.md`             | Property Purchase visual decisions and remaining production gates                                                                                        |
+| `docs/phase-2e-navigation-architecture.md`               | ThreeUI-informed navigation reference; the active section, sticky header and menu-closes-on-selection parts are implemented in the Phase 2E premium pass |
+| `docs/visual-media-inventory-phase-2e-2026-09.md`        | Approved provisional media selection, provenance, slots and exclusions for Phase 2E                                                                      |
+| `docs/phase-2e-media-corrections-merged-2026-09-22.md`   | Merged media/crop pass, visual verification and handoff to motion                                                                                        |
+| `docs/phase-2e-premium-experience.md`                    | Phase 2E premium pass: creative direction, audit, WOW map, per-landing decisions, QA evidence, human decisions pending                                   |
+| `docs/phase-2e-motion-system.md`                         | Motion tokens, intensity levels, shared primitives, reduced-motion/no-JS behaviour and rejection criteria                                                |
+| `docs/phase-2e-visual-content-upgrade.md`                | Brief 2026-10-23: reference-to-section mapping, report explorer, common image grade, QA and pending decisions                                            |
+| `docs/phase-2f-images-and-scroll-hero-implementation.md` | Phase 2F case imagery and hero videos (hero sources later replaced by the owner; see its top note)                                                       |
+| `docs/phase-2g-connected-service-journey.md`             | Phase 2G connected journey, Good-idea film, Buyer System placements                                                                                      |
+| `docs/phase-2h-juanma-review.md`                         | Phase 2H: Juanma's review of the four landings — matrix, implemented changes, copy proposals, audio audit, pending assets and decisions                  |
 
 ## 6. Stack
 
@@ -269,17 +277,19 @@ confirmed. Until then, calculator entry points remain visibly pending.
 
 ## 14. Roadmap
 
-| Phase                                                     | Scope                                                                                                                                           | State                                             |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                               | MERGED                                            |
-| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                            | MERGED                                            |
-| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                                 | MERGED — CANONICAL VISUAL BASE                    |
-| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                         | MERGED — THREE VISUAL BASES READY                 |
-| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO remain | IN PROGRESS — MEDIA/CROP PASS MERGED; MOTION NEXT |
-| 2F — Cross-landing visual QA                              | Compare all three routes against their templates at mobile and desktop widths; resolve shared regressions                                       | AFTER 2E — HUMAN GATE                             |
-| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                                   | BLOCKED ON PRODUCT DECISIONS                      |
-| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                                   | AFTER 2E/2F/3                                     |
-| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                            | LAST GATE                                         |
+| Phase                                                     | Scope                                                                                                                                    | State                                  |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                 |
+| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                 |
+| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE         |
+| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY      |
+| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                 |
+| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — HUMAN VISUAL REVIEW PENDING   |
+| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — HUMAN VISUAL REVIEW PENDING   |
+| 2H — Juanma's review of the four landings                 | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | DRAFT PR — HUMAN VISUAL REVIEW PENDING |
+| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                            | BLOCKED ON PRODUCT DECISIONS           |
+| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 2E/2F/3                          |
+| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                              |
 
 Phase 2E is the next implementation block, not a production release. Its
 acceptance requires documented media provenance, intentional responsive crops,

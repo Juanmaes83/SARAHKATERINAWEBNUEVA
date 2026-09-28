@@ -9,7 +9,7 @@ import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import { PURCHASE_VOICES } from '@/content/en/buyer-voices';
 import { BuyerVoices } from './BuyerVoices';
 import { HERO_VIDEO } from '@/lib/media/hero-video';
-import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
+import { HeroFilm } from '@/components/motion/HeroFilm';
 import { ArtworkFigure } from './ArtworkFigure';
 import { BuyerToolRibbon } from './BuyerToolRibbon';
 import { PlayOnceVideo } from '@/components/motion/PlayOnceVideo';
@@ -86,59 +86,60 @@ const SERVICE_MEDIA: readonly ApprovedMedia[] = [
 
 export function PurchaseHero() {
   return (
-    <ScrubStage>
-      <section id="top" className={styles.hero} data-surface="light">
-        <div className={styles.heroGrid}>
-          <RevealOnScroll className={cn(styles.heroCopy, entrance.copy)}>
-            <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
-            <h1 className={styles.heroTitle}>
-              {hero.title.text} <em>{hero.accent.text}</em>
-            </h1>
-            <p className={styles.heroBody}>{hero.body.text}</p>
-            <div className={styles.buttonRow}>
-              <WebLinkButton href="#services" variant="primary" arrow>
-                {hero.primaryCta.text}
-              </WebLinkButton>
-              <WebLinkButton href="#process" variant="secondary" arrow>
-                {hero.secondaryCta.text}
-              </WebLinkButton>
-            </div>
-            <ul className={styles.heroProofs}>
-              {hero.proofs.map((item) => (
-                <li key={item.text}>
-                  <Icon name="check" size="sm" />
-                  {item.text}
-                </li>
-              ))}
-            </ul>
-          </RevealOnScroll>
+    <section id="top" className={styles.hero} data-surface="light">
+      <div className={styles.heroGrid}>
+        <RevealOnScroll className={cn(styles.heroCopy, entrance.copy)}>
+          <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
+          <h1 className={styles.heroTitle}>
+            {hero.title.text} <em>{hero.accent.text}</em>
+          </h1>
+          <p className={styles.heroBody}>{hero.body.text}</p>
+          <div className={styles.buttonRow}>
+            <WebLinkButton href="#services" variant="primary" arrow>
+              {hero.primaryCta.text}
+            </WebLinkButton>
+            <WebLinkButton href="#process" variant="secondary" arrow>
+              {hero.secondaryCta.text}
+            </WebLinkButton>
+          </div>
+          <ul className={styles.heroProofs}>
+            {hero.proofs.map((item) => (
+              <li key={item.text}>
+                <Icon name="check" size="sm" />
+                {item.text}
+              </li>
+            ))}
+          </ul>
+        </RevealOnScroll>
 
-          <RevealOnScroll order={1} className={styles.heroVisual}>
-            {/*
-            PHASE 2F — the owner-approved scroll video (`HERO_VIDEO.purchase`):
+        <RevealOnScroll order={1} className={styles.heroVisual}>
+          {/*
+            PHASE 2F — the owner-approved hero video (`HERO_VIDEO.purchase`):
             Sarah in the buyer's advisory position at a meeting table. Shown
             whole at its 16:9 ratio; nothing is layered over the footage. The
             navy note closes the frame from below, as before, so video and
             caption read as one file card. The other people are editorial
             participants and are never identified.
+            PHASE 2H — it plays once, muted, without depending on scroll
+            (`HeroFilm`). The source's voice-over is not published.
           */}
-            <figure className={styles.heroFigure}>
-              <ScrubVideo
-                video={HERO_VIDEO.purchase}
-                className={cn(styles.heroVideo, entrance.media)}
-              />
-              <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
-                <p>{hero.visualBody.text}</p>
-                <span>
-                  <Icon name="play" /> Video requires approval
-                </span>
-              </figcaption>
-            </figure>
-            <p className={styles.heroScript}>{hero.script.text}</p>
-          </RevealOnScroll>
-        </div>
-      </section>
-    </ScrubStage>
+          <figure className={styles.heroFigure}>
+            <HeroFilm
+              video={HERO_VIDEO.purchase}
+              name="the hero film"
+              className={cn(styles.heroVideo, entrance.media)}
+            />
+            <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
+              <p>{hero.visualBody.text}</p>
+              <span>
+                <Icon name="play" /> Video requires approval
+              </span>
+            </figcaption>
+          </figure>
+          <p className={styles.heroScript}>{hero.script.text}</p>
+        </RevealOnScroll>
+      </div>
+    </section>
   );
 }
 
@@ -190,11 +191,6 @@ export function AudienceBand() {
           </div>
         </RevealOnScroll>
       </div>
-      <BuyerToolRibbon
-        toolKey="purchaseTax"
-        sourcePage={SERVICE_ROUTES.purchase}
-        moment="Before the file opens: what Spain charges on the purchase itself."
-      />
     </WebSection>
   );
 }

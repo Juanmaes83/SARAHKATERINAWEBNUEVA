@@ -83,6 +83,15 @@
   color: var(--sk-web-gold-on-dark);
 }
 
+/* Phase 2H — gold restraint (Juanma's review of Investment: "the gold is in
+ * excess"). On a page marked `data-accent="restrained"`, section eyebrows on
+ * light bands move from gold to the approved muted ink (7.24:1 on ivory), so
+ * gold is left for CTAs, rules, icons and the script accents. Dark bands keep
+ * their gold-on-dark eyebrow. No token changes. */
+:global([data-accent='restrained']) [data-surface='light'] .eyebrow {
+  color: var(--sk-web-muted);
+}
+
 .title {
   margin: 0;
   font-family: var(--sk-type-h2-family);

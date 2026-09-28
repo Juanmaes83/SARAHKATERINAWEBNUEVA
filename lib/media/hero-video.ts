@@ -1,18 +1,28 @@
 /**
- * Hero scroll videos — Phase 2F (docs/phase-2f-approved-images-and-scroll-hero-video.md).
+ * Hero videos — Phase 2F (docs/phase-2f-approved-images-and-scroll-hero-video.md),
+ * playback revised in Phase 2H (docs/phase-2h-juanma-review.md §A).
  *
  * One entry per service landing hero. The page's own H1, lead and CTAs stay
- * HTML; the video is supporting media, scrubbed by scroll (never played),
- * decorative for assistive technology, with a poster before it is ready and
- * in place of it under reduced motion, without JavaScript or on failure.
+ * HTML; the video is supporting media, decorative for assistive technology,
+ * with a poster before it is ready and in place of it under reduced motion,
+ * without JavaScript or on failure.
  *
- * DERIVATIVES — H.264 High, yuv420p, `+faststart`, **no audio track**, a
- * keyframe every 6 frames (0.25 s at 24 fps) and no B-frames, so a seek to any
- * `currentTime` decodes at most five frames: scrubbing stays responsive.
+ * PLAYBACK — each entry says how its hero moves:
+ *   - `play-once` (Investment, Property Purchase — Juanma's review, 2026-09):
+ *     `HeroFilm` plays the clip once, muted, independently of scroll, and
+ *     rests on its final frame, with a visible Pause / Play / Replay control.
+ *   - `scrub` (Tax Advisory, unchanged from Phase 2F): `ScrubVideo` maps the
+ *     page scroll to `currentTime`.
+ *
+ * DERIVATIVES — H.264 High, yuv420p, `+faststart`, **no audio track**.
+ *   - `scrub` cuts: a keyframe every 6 frames (0.25 s at 24 fps) and no
+ *     B-frames, so a seek to any `currentTime` decodes at most five frames.
+ *   - `play-once` cuts: a keyframe every 2 s (`-g 48`) — playback needs no
+ *     dense keyframes, which roughly halves the weight of the same frame.
  *
  * POSTERS — each cut has two, both the clip's own frames:
- *   - `start`: frame 0, the frame the scrub rests on at the top of the page.
- *     Shown only when the scrub will run, so poster → video never jumps.
+ *   - `start`: frame 0. Shown only when the video will move (scrub or
+ *     playback), so poster → video never jumps.
  *   - `end`: the final frame, the representative still. Shown under reduced
  *     motion, without scripting, and if the video fails.
  *
@@ -30,8 +40,12 @@ export interface HeroVideoCut {
   readonly posterEnd: string;
 }
 
+export type HeroPlayback = 'play-once' | 'scrub';
+
 export interface HeroVideo {
   readonly id: string;
+  /** How the hero moves: played once (`HeroFilm`) or scrubbed by scroll (`ScrubVideo`). */
+  readonly playback: HeroPlayback;
   readonly route: '/preview/investment' | '/preview/property-purchase' | '/preview/tax-advisory';
   /** 768px and up. */
   readonly desktop: HeroVideoCut;
@@ -57,60 +71,63 @@ function heroVideo(entry: HeroVideo): HeroVideo {
 export const HERO_VIDEO = {
   investment: heroVideo({
     id: 'investment-hillside-development',
+    playback: 'play-once',
     route: '/preview/investment',
     desktop: {
-      src: '/media/hero/tax-ownership-replacement-desktop.mp4',
+      src: '/media/hero/investment-film-desktop.mp4',
       width: 1280,
       height: 720,
-      bytes: 7821655,
-      posterStart: '/media/hero/tax-ownership-replacement-desktop-start.webp',
-      posterEnd: '/media/hero/tax-ownership-replacement-desktop-end.webp',
+      bytes: 3408121,
+      posterStart: '/media/hero/investment-film-desktop-start.webp',
+      posterEnd: '/media/hero/investment-film-desktop-end.webp',
     },
     mobile: {
-      src: '/media/hero/tax-ownership-replacement-mobile.mp4',
+      src: '/media/hero/investment-film-mobile.mp4',
       width: 854,
       height: 480,
-      bytes: 3349768,
-      posterStart: '/media/hero/tax-ownership-replacement-mobile-start.webp',
-      posterEnd: '/media/hero/tax-ownership-replacement-mobile-end.webp',
+      bytes: 1835620,
+      posterStart: '/media/hero/investment-film-mobile-start.webp',
+      posterEnd: '/media/hero/investment-film-mobile-end.webp',
     },
     duration: 10.08,
     posterAlt:
       'An aerial view of contemporary white hillside villas, landscaped terraces and swimming pools in warm evening light.',
     source: 'VIDEOS/TAX ADVISORY HERO REPLACEMENT.mp4',
     sourceSha256: '4dc31d8c10d424c4ced1d2954df41c9b1aa742501b55e5db1c5fcd1dee150ed1',
-    note: `${PROVENANCE} Owner selected this film on 2026-09-24 to replace the repeated map in the Investment hero. Full 16:9 frame for both cuts. The territorial map remains in the Asset Types band, where it explains location and investment routes without repeating the hero.`,
+    note: `${PROVENANCE} Owner selected this film on 2026-09-24 to replace the repeated map in the Investment hero. Full 16:9 frame for both cuts. Phase 2H: re-derived for playback (CRF 25 desktop / 25 mobile, keyframe every 2 s) from the same source; the scrub cuts (7.8 MB / 3.3 MB) were removed. Its audio track is ambient only (no speech detected). The territorial map remains in the Asset Types band, where it explains location and investment routes without repeating the hero.`,
   }),
 
   purchase: heroVideo({
     id: 'purchase-buyer-side',
+    playback: 'play-once',
     route: '/preview/property-purchase',
     desktop: {
-      src: '/media/hero/purchase-buyer-side-desktop.mp4',
+      src: '/media/hero/purchase-film-desktop.mp4',
       width: 1280,
       height: 720,
-      bytes: 3369887,
-      posterStart: '/media/hero/purchase-buyer-side-desktop-start.webp',
-      posterEnd: '/media/hero/purchase-buyer-side-desktop-end.webp',
+      bytes: 1450679,
+      posterStart: '/media/hero/purchase-film-desktop-start.webp',
+      posterEnd: '/media/hero/purchase-film-desktop-end.webp',
     },
     mobile: {
-      src: '/media/hero/purchase-buyer-side-mobile.mp4',
+      src: '/media/hero/purchase-film-mobile.mp4',
       width: 960,
       height: 540,
-      bytes: 1921968,
-      posterStart: '/media/hero/purchase-buyer-side-mobile-start.webp',
-      posterEnd: '/media/hero/purchase-buyer-side-mobile-end.webp',
+      bytes: 813572,
+      posterStart: '/media/hero/purchase-film-mobile-start.webp',
+      posterEnd: '/media/hero/purchase-film-mobile-end.webp',
     },
     duration: 10.04,
     posterAlt:
       'Sarah Katerina at the head of a long meeting table in a bright villa interior, with several people seated around it.',
     source: 'VIDEOS/SARAH KATERINA SIEMPRE DEL LADO DEL COMPRADOR.mp4',
     sourceSha256: 'cc4cad5a6136857b8cf59158adaa14a68bcb86b26d33ec2a63887815bd35529c',
-    note: `${PROVENANCE} Full frame, no crop, on every width: the people are spread across the table. The other people are editorial participants — not clients, team members, sellers or regulated professionals.`,
+    note: `${PROVENANCE} Full frame, no crop, on every width: the people are spread across the table. The other people are editorial participants — not clients, team members, sellers or regulated professionals. Phase 2H: re-derived for playback (CRF 23 desktop / 24 mobile, keyframe every 2 s). The source carries an English voice-over ("When you buy in Spain, know who's on your side. Sarah Katerina." — machine transcript, unverified); it is not published: both cuts are silent until Sarah approves the line and captions exist.`,
   }),
 
   tax: heroVideo({
     id: 'tax-advisory-costs',
+    playback: 'scrub',
     route: '/preview/tax-advisory',
     desktop: {
       src: '/media/hero/tax-advisory-costs-desktop.mp4',

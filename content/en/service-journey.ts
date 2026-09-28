@@ -18,6 +18,7 @@ import type { BuyerSystemExperienceKey } from '@/lib/buyer-system/links';
  */
 
 const SOURCE = 'Phase 2G connected journey proposal, 2026-09-24';
+const JUANMA_REVIEW = 'Phase 2H — Juanma review 2026-09 (REVISION WEB-*.docx)';
 
 export const SERVICE_ROUTES = {
   investment: '/preview/investment',
@@ -85,14 +86,15 @@ export const JOURNEY: Record<ServiceKey, JourneyBridge> = {
   investment: {
     eyebrow: 'Your next step',
     title: claim({
-      text: 'An opportunity is only as good as the purchase that follows it.',
+      text: 'An opportunity is only good if it fits your goals, not the goals of the person selling it.',
       status: 'proposal',
-      source: SOURCE,
+      source: JUANMA_REVIEW,
+      note: 'Proposed by Juanma (REVISION WEB-investment.docx) to replace the Phase 2G line, which he found made no sense. Pending Sarah.',
     }),
     intro: claim({
-      text: 'Once the analysis holds, the decision moves on: first to how the property is bought, then to what it means to own it.',
+      text: 'When the analysis shows it fits, the next questions are how to buy it well and what owning it will involve.',
       status: 'proposal',
-      source: SOURCE,
+      source: JUANMA_REVIEW,
     }),
     current: 'investment',
     steps: [
@@ -251,9 +253,13 @@ export const TEAM_LAYER = {
 } as const;
 
 /**
- * Buyer System moments beyond the Investment tools band and the two purchase
- * ribbons. One entry: Tax Advisory, directly after the tax calendar
- * (docs/buyer-system-integration.md, placement table).
+ * Buyer System moments beyond the Investment tools band and the purchase
+ * ribbons. One entry: Tax Advisory, directly under the hero.
+ *
+ * Phase 2G placed it after the tax calendar. Juanma's review (2026-09) asked
+ * for the purchase tax and costs tool "big, at the start of the page", so
+ * Phase 2H moves it under the hero (docs/buyer-system-integration.md,
+ * placement table). It is still the only Purchase Tax entry on the page.
  */
 export interface ToolMoment {
   readonly key: BuyerSystemExperienceKey;
@@ -261,12 +267,13 @@ export interface ToolMoment {
   readonly moment: Claim;
 }
 
-export const TAX_CALENDAR_TOOL: ToolMoment = {
+export const TAX_LEAD_TOOL: ToolMoment = {
   key: 'purchaseTax',
   moment: claim({
-    text: 'One line of that calendar is paid once, on purchase. If you are still buying, look at it for your own case before you sign.',
+    text: 'Tax that is not looked at before signing is usually found later, when it is harder and dearer to put right. See what the purchase itself costs in tax, for your own case, first.',
     status: 'proposal',
-    source: SOURCE,
+    source:
+      'Phase 2H — Juanma review 2026-09 (REVISION WEB-Tax advisory.docx: pain point, calculator first)',
     review: 'tax',
   }),
 };

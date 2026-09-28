@@ -1,5 +1,15 @@
 # Phase 2F — implementation record: approved images and scroll hero video
 
+> **Superseded in part.** On 2026-09-24 the owner replaced two hero sources:
+> Investment now uses `VIDEOS/TAX ADVISORY HERO REPLACEMENT.mp4` and Tax
+> Advisory `VIDEOS/TAX ADVISORY HERO SECTION.mp4` (`lib/media/hero-video.ts` is
+> authoritative); the territory map film moved to the Asset Types band. In
+> Phase 2H (2026-09-28) the Investment and Property Purchase heroes stopped
+> scrubbing and now play once without scroll (`HeroFilm`), with lighter
+> playback derivatives; Tax Advisory still scrubs. The `investment-territory-*`
+> and `tax-ownership-costs-*` cuts listed below are no longer referenced.
+> See `docs/phase-2h-juanma-review.md`.
+
 Implements `docs/phase-2f-approved-images-and-scroll-hero-video.md` (the
 brief, the source of truth). Branch `feat/phase-2f-approved-images-scroll-hero`
 from `main` at `33052bc`. Preview only: no merge, no production.

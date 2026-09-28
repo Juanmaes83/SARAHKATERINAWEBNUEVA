@@ -1926,3 +1926,27 @@
 .step:hover .stepBox {
   border-color: var(--sk-web-gold);
 }
+
+/* --- Phase 2H: gold restraint ------------------------------------------------
+ * Investment only (`data-accent="restrained"` on the page). The small caps
+ * labels repeated inside cards — card eyebrows, "Analysed / Main risk /
+ * Deliverable", case facts — move from gold to the approved muted ink
+ * (--sk-web-muted, 7.24:1 on ivory, 6.69:1 on ivory-soft, 7.49:1 on white). Gold stays on CTAs,
+ * rules, icons, step numbers, charts and the script accents. Light bands only;
+ * nothing on navy changes. No token is added or changed.
+ */
+:global([data-accent='restrained'])
+  [data-surface='light']
+  :is(
+    .cardEyebrow,
+    .factLabel,
+    .stepDeliverableLabel,
+    .caseFact dt,
+    .caseResultRow dt,
+    .caseIndex,
+    .caseNumber,
+    .caseLocation,
+    .objectionIndex
+  ) {
+  color: var(--sk-web-muted);
+}

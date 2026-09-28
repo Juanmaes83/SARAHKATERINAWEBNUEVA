@@ -1,6 +1,6 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
-**Last updated:** 2026-10-23  
+**Last updated:** 2026-09-28 (the previous header read 2026-10-23, a date later than this update; kept here as a note, not as history)  
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION
 
 This file tracks the state of the website product. Strategic status lives
@@ -9,18 +9,20 @@ PROJECT-STATUS.md`, which this repository does not duplicate or override.
 
 ## Phases
 
-| Phase                                            | Scope                                                                                                                                                                                                       | State                                                                             |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| 1 — Technical foundation                         | Tokens, components, chrome, SEO scaffolding, analytics contract, CI                                                                                                                                         | **MERGED** (PR #1)                                                                |
-| 2A — Structural prototype                        | Investment landing grammar, claims classification, Buyer System boundary                                                                                                                                    | **MERGED**                                                                        |
-| 2 — Visual governance                            | Decision gate, implementation contract, asset manifest                                                                                                                                                      | **MERGED**                                                                        |
-| 2B/2C — Investment visual implementation         | Template-led composition, approved palette, governed assets, shared web layer and visual review                                                                                                             | **MERGED — CANONICAL VISUAL BASE**                                                |
-| 2D — Tax Advisory convergence                    | Tax Advisory adapted to Investment's canonical visual layer                                                                                                                                                 | **MERGED — VISUAL BASE READY**                                                    |
-| 2D — Property Purchase convergence               | Property Purchase adapted to Investment's canonical visual layer                                                                                                                                            | **MERGED — VISUAL BASE READY** (PR #8)                                            |
-| 2E — Premium media, motion and visual refinement | Media/crop pass merged; premium experience pass (motion system, art-direction crops, header orientation, per-landing signature moments, fixes) delivered on `feat/phase-2e-premium-media-motion-2026-09-22` | **IN REVIEW — PREMIUM EXPERIENCE PASS IN DRAFT PR; AWAITING HUMAN VISUAL REVIEW** |
-| 2F — Cross-landing visual QA                     | Template comparison and shared regression review at mobile and desktop widths                                                                                                                               | **AFTER 2E — HUMAN GATE**                                                         |
-| 3 — Buyer System integration                     | Events, consent, lead-capture decision and approved public destinations                                                                                                                                     | Blocked on upstream decisions                                                     |
-| 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                                                                                      | Later                                                                             |
+| Phase                                            | Scope                                                                                                                                          | State                                                                            |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| 1 — Technical foundation                         | Tokens, components, chrome, SEO scaffolding, analytics contract, CI                                                                            | **MERGED** (PR #1)                                                               |
+| 2A — Structural prototype                        | Investment landing grammar, claims classification, Buyer System boundary                                                                       | **MERGED**                                                                       |
+| 2 — Visual governance                            | Decision gate, implementation contract, asset manifest                                                                                         | **MERGED**                                                                       |
+| 2B/2C — Investment visual implementation         | Template-led composition, approved palette, governed assets, shared web layer and visual review                                                | **MERGED — CANONICAL VISUAL BASE**                                               |
+| 2D — Tax Advisory convergence                    | Tax Advisory adapted to Investment's canonical visual layer                                                                                    | **MERGED — VISUAL BASE READY**                                                   |
+| 2D — Property Purchase convergence               | Property Purchase adapted to Investment's canonical visual layer                                                                               | **MERGED — VISUAL BASE READY** (PR #8)                                           |
+| 2E — Premium media, motion and visual refinement | Media/crop pass merged; premium experience pass (motion system, art-direction crops, header orientation, per-landing signature moments, fixes) | **MERGED** (PR #16, #17, #21)                                                    |
+| 2F — Approved imagery and hero videos            | Case imagery, hero videos (scroll-scrubbed), territory map film, fabric banner, consolidated review                                            | **MERGED** (PR #23–#28) — human visual review pending                            |
+| 2G — Connected service journey                   | Shared journey band, Good-idea film (play-once), Buyer System placements                                                                       | **MERGED** (PR #29) — human visual review pending                                |
+| 2H — Juanma's review of the four landings        | Hero films play without scroll (Investment, Purchase), calculator first (Tax, Purchase), review copy as proposals, Team simplification         | **DRAFT PR** — `feat/phase-2h-juanma-review-four-landings`; human review pending |
+| 3 — Buyer System integration                     | Events, consent, lead-capture decision and approved public destinations                                                                        | Blocked on upstream decisions                                                    |
+| 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                         | Later                                                                            |
 
 ## Routes
 
@@ -74,6 +76,13 @@ Juanma's review before they are treated as final:
 - production host, indexation, accessibility/performance and migration gates.
 
 ## Current handoff
+
+**2026-09-28 — Phase 2H, Juanma's review of the four landings, delivered for
+review.** Branch `feat/phase-2h-juanma-review-four-landings`, Draft PR, not
+merged. Point-by-point matrix, what changed, copy proposals awaiting a choice,
+the audio audit, the assets Juanma needs to supply and the open decisions are in
+[`docs/phase-2h-juanma-review.md`](docs/phase-2h-juanma-review.md). No visual is
+approved by this delivery.
 
 **2026-10-23 — visual content upgrade delivered for review** (brief
 `IMAGES/MEJORAS 23 OCTUBRE/`): Investment, Property Purchase and Tax Advisory
