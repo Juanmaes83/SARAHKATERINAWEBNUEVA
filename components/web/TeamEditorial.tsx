@@ -11,18 +11,17 @@ import {
   faq,
   finalCta,
   hero,
-  independence,
   introduction,
   network,
   paths,
+  pathsHeader,
   process,
   profiles,
+  teamHeader,
 } from '@/content/en/team';
 import teamHero from '@/public/team/optimized/team-hero.webp';
 import teamGroup from '@/public/team/optimized/team-group.webp';
 import teamNetwork from '@/public/team/optimized/team-network.webp';
-import officeWorkspace from '@/public/team/optimized/office-workspace.webp';
-import officeSign from '@/public/team/optimized/office-sign.webp';
 import sarahPortrait from '@/public/sarah/sk-real-1.jpg';
 import entrance from '@/components/motion/Entrance.module.css';
 import { cn } from '@/lib/utils/cn';
@@ -130,9 +129,9 @@ function PathsBand() {
   return (
     <WebSection surface="soft" id="paths">
       <WebSectionHeader
-        eyebrow="Three starting points"
-        title="Different plans. The same discipline before commitment."
-        subtitle="The work begins with the life or use you are planning—not with a property someone wants to sell."
+        eyebrow={pathsHeader.eyebrow}
+        title={pathsHeader.title.text}
+        subtitle={pathsHeader.subtitle}
         centered
         rule
       />
@@ -167,9 +166,9 @@ function TeamBand() {
   return (
     <WebSection surface="ivory" id="team">
       <WebSectionHeader
-        eyebrow="The people around your decision"
-        title="Four functions, connected around the buyer."
-        subtitle="The photographs show three people. This preview does not infer names from appearance or suggest that every team member is pictured."
+        eyebrow={teamHeader.eyebrow}
+        title={teamHeader.title.text}
+        subtitle={teamHeader.intro.text}
         rule
       />
 
@@ -196,6 +195,17 @@ function TeamBand() {
       <div className={styles.profileGrid}>
         {team.map((profile, index) => (
           <RevealOnScroll key={profile.name} order={index} className={styles.profileCard}>
+            {/* Phase 2H: one portrait per profile, as Sarah asked. No named,
+                approved photograph exists yet, so the slot says so; a face is
+                never assigned from a group photograph or by appearance. */}
+            <div
+              className={styles.portraitPending}
+              role="img"
+              aria-label={`Portrait of ${profile.name} pending`}
+            >
+              <Icon name="buyer" size="lg" />
+              <span>Portrait pending</span>
+            </div>
             <p className={styles.profileArea}>{profile.area}</p>
             <h3>{profile.name}</h3>
             <p>{profile.body}</p>
@@ -260,78 +270,27 @@ function ProcessBand() {
   );
 }
 
-function IndependenceBand() {
-  return (
-    <WebSection surface="navy" id="independence">
-      <div className={styles.independenceGrid}>
-        <RevealOnScroll className={styles.independenceCopy}>
-          <p className={styles.darkEyebrow}>{independence.eyebrow}</p>
-          <h2>{independence.title}</h2>
-          <p className={styles.darkLead}>{independence.body}</p>
-          <ul className={styles.darkList}>
-            {independence.points.map((point) => (
-              <li key={point}>
-                <Icon name="independence" size="sm" />
-                <span>{point}</span>
-              </li>
-            ))}
-          </ul>
-        </RevealOnScroll>
-        <RevealOnScroll order={1} variant="unveil">
-          <figure className={styles.officeFigure}>
-            <div className={styles.officeFrame}>
-              <Image
-                src={officeWorkspace}
-                alt={aftercare.officeAlt}
-                fill
-                placeholder="blur"
-                sizes="(max-width: 767px) 100vw, 46vw"
-                className={styles.coverImage}
-              />
-            </div>
-            <figcaption>
-              Authentic office view, cropped to reduce document and screen visibility.
-            </figcaption>
-          </figure>
-        </RevealOnScroll>
-      </div>
-    </WebSection>
-  );
-}
-
+/**
+ * Phase 2H: the office-sign photograph is removed at Sarah's request
+ * ("Quita esta imagen"); the band keeps its copy, now on its own.
+ */
 function AftercareBand() {
   return (
     <WebSection surface="soft" id="ownership">
-      <div className={styles.aftercareGrid}>
-        <RevealOnScroll variant="unveil">
-          <figure className={styles.signFigure}>
-            <div className={styles.signFrame}>
-              <Image
-                src={officeSign}
-                alt={aftercare.imageAlt}
-                fill
-                placeholder="blur"
-                sizes="(max-width: 767px) 100vw, 45vw"
-                className={styles.coverImage}
-              />
-            </div>
-          </figure>
-        </RevealOnScroll>
-        <RevealOnScroll order={1} className={styles.aftercareCopy}>
-          <p className={styles.eyebrow}>{aftercare.eyebrow}</p>
-          <h2>{aftercare.title}</h2>
-          <p>{aftercare.body}</p>
-          <div className={styles.aftercareItems}>
-            <span>Tax questions</span>
-            <span>Administrative tasks</span>
-            <span>Accounts</span>
-            <span>Bills and charges</span>
-          </div>
-          <p className={styles.limit}>
-            Support depends on the owner’s circumstances, professional review and the agreed scope.
-          </p>
-        </RevealOnScroll>
-      </div>
+      <RevealOnScroll className={cn(styles.aftercareCopy, styles.aftercareSolo)}>
+        <p className={styles.eyebrow}>{aftercare.eyebrow}</p>
+        <h2>{aftercare.title}</h2>
+        <p>{aftercare.body}</p>
+        <div className={styles.aftercareItems}>
+          <span>Tax questions</span>
+          <span>Administrative tasks</span>
+          <span>Accounts</span>
+          <span>Bills and charges</span>
+        </div>
+        <p className={styles.limit}>
+          Support depends on the owner’s circumstances, professional review and the agreed scope.
+        </p>
+      </RevealOnScroll>
     </WebSection>
   );
 }
@@ -368,7 +327,6 @@ export function TeamEditorial() {
       <TeamBand />
       <NetworkBand />
       <ProcessBand />
-      <IndependenceBand />
       <AftercareBand />
       {/* Phase 2G: back to the service that matches the reader's need. */}
       <ServiceJourney page="team" />

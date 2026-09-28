@@ -2,6 +2,13 @@ import { claim, type Claim } from '@/lib/content/claims';
 import type { IconName } from '@/components/web/icons/Icon';
 
 const USER_BRIEF = 'Project owner brief, 2026-09-22';
+/**
+ * Phase 2H — Sarah's review (REVISION WEB. Team.docx, 2026-09): headlines,
+ * the team introduction and the full names of Óscar and Igor. Her headlines and
+ * introduction are `confirmed` (accepted by Juanma, 2026-09-28); English
+ * adaptations in docs/phase-2h-juanma-review.md §10.2.
+ */
+const SARAH_APPROVED = "Sarah's review (REVISION WEB. Team.docx), accepted by Juanma 2026-09-28";
 const STRATEGIC_SOURCE =
   'Juanmaes83/sarahkaterina README.md and PROJECT-STATUS.md, independence model confirmed 2026-08-13';
 
@@ -25,7 +32,6 @@ export const nav = [
   { href: '#paths', label: 'Your plans' },
   { href: '#team', label: 'The team' },
   { href: '#process', label: 'Process' },
-  { href: '#independence', label: 'Independence' },
   { href: '#faq', label: 'Questions' },
 ] as const;
 
@@ -58,6 +64,43 @@ export const introduction = {
     'Questions and assumptions are surfaced before commitment.',
     'Ownership is considered as part of the purchase, not as an afterthought.',
   ],
+} as const;
+
+/**
+ * "Different plans. The same discipline before commitment." Sarah: "Objetivos
+ * diferentes. La misma revisión antes de firmar."
+ */
+export const pathsHeader = {
+  eyebrow: 'Three starting points',
+  title: claim({
+    text: 'Different goals. The same review before signing.',
+    status: 'confirmed',
+    source: SARAH_APPROVED,
+  }),
+  subtitle:
+    'The work begins with the life or use you are planning—not with a property someone wants to sell.',
+} as const;
+
+/**
+ * "Four functions, connected around the buyer." Sarah did not understand it
+ * and replaced title and introduction. The former subtitle ("The photographs
+ * show three people…") is removed at his request: no photograph is attached to
+ * a name, each portrait slot below is labelled pending, and the group photograph
+ * keeps its own caption saying no identity is inferred from it.
+ */
+export const teamHeader = {
+  eyebrow: 'The people around your decision',
+  title: claim({
+    text: 'Buying a home is easy. Buying it well is something else.',
+    status: 'confirmed',
+    source: SARAH_APPROVED,
+  }),
+  intro: claim({
+    text: 'Sarah looks at your goals, the real cost of the purchase and the tax side, so you can make one well-informed decision. She leads the whole advisory process and, when a case calls for it, works with specialist professionals.',
+    status: 'confirmed',
+    source: SARAH_APPROVED,
+    note: 'Consistent with Sarah’s confirmed area below (tax, purchase costs and buyer advisory) and with the page’s rule that specialist matters go to qualified professionals.',
+  }),
 } as const;
 
 export interface TeamPath {
@@ -112,6 +155,15 @@ export interface TeamProfile {
   readonly area: string;
   readonly body: string;
   readonly featured?: boolean;
+  /**
+   * Individual portrait. Phase 2H: Sarah asked for one photograph beside each
+   * profile. None is in either repository for Elsa, Óscar or Igor (the only
+   * individual photographs found, EQUIPO_SARAHKATERINA4–6 upstream, show one
+   * person and are not labelled with a name), so the slot stays `pending`
+   * until Juanma supplies a named, approved file. A face is never assigned by
+   * appearance.
+   */
+  readonly portrait: 'pending';
 }
 
 export const profiles: readonly TeamProfile[] = [
@@ -120,21 +172,29 @@ export const profiles: readonly TeamProfile[] = [
     area: 'Tax, purchase costs and buyer advisory',
     body: 'Sarah brings the buyer’s objectives, the purchase-cost picture and the tax questions into the same decision. She leads the advisory view and identifies where a matter needs additional professional verification.',
     featured: true,
+    portrait: 'pending',
   },
   {
     name: 'Elsa Quirós Pérez',
     area: 'Administration and administrative tasks',
     body: 'Elsa supports the documents, coordination and administrative tasks that keep the file moving, including relevant owner-stage matters within the agreed scope.',
+    portrait: 'pending',
   },
   {
-    name: 'Óscar',
+    // Full name from Sarah's review (2026-09): "Oscar Gonzalez". The first-name accent
+    // is the owner-confirmed legal spelling already in this file; the surname
+    // is written exactly as supplied (whether it takes an accent is pending).
+    name: 'Óscar Gonzalez',
     area: 'Commercial accompaniment and property selection',
     body: 'Óscar accompanies the commercial side of the search and helps select properties against the buyer’s brief, without turning the shortlist into a seller-led recommendation.',
+    portrait: 'pending',
   },
   {
-    name: 'Igor',
+    // Full name from Sarah's review (2026-09), as supplied.
+    name: 'Igor Veselov',
     area: 'Business development and new opportunities',
     body: 'Igor works on business development and new opportunities, helping the practice keep sight of relevant ways to support international buyers.',
+    portrait: 'pending',
   },
 ] as const;
 
@@ -202,6 +262,11 @@ export const process: readonly ProcessStep[] = [
   },
 ] as const;
 
+/**
+ * Phase 2H: the "The buyer is the client." band is removed at Sarah's request (relayed by Juanma).
+ * The confirmed independence statement stays in this object and is still
+ * rendered by the FAQ answer ("Are you working for me or for the seller?").
+ */
 export const independence = {
   eyebrow: 'Who the advice serves',
   title: 'The buyer is the client.',

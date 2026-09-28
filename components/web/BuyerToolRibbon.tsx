@@ -1,3 +1,4 @@
+import { Container } from '@/components/layout/Container';
 import { resolveEntryPoint, type BuyerSystemExperienceKey } from '@/lib/buyer-system/links';
 import { cn } from '@/lib/utils/cn';
 import { BuyerToolLink } from './BuyerToolLink';
@@ -10,6 +11,11 @@ export interface BuyerToolRibbonProps {
   readonly sourcePage: string;
   /** Why the tool belongs at this point of the page. Optional. */
   readonly moment?: string;
+  /**
+   * Phase 2H: the lead variant near the top of a page — navy surface, larger
+   * question, rendered as the band's `h2`. Same content, same states.
+   */
+  readonly prominent?: boolean;
   readonly className?: string;
 }
 
@@ -28,9 +34,16 @@ export interface BuyerToolRibbonProps {
  * No figure, rate, formula or result is shown here — only the tool's own
  * question and verified scope.
  */
-export function BuyerToolRibbon({ toolKey, sourcePage, moment, className }: BuyerToolRibbonProps) {
+export function BuyerToolRibbon({
+  toolKey,
+  sourcePage,
+  moment,
+  prominent = false,
+  className,
+}: BuyerToolRibbonProps) {
   const entry = resolveEntryPoint(toolKey);
   const { experience } = entry;
+  const Question = prominent ? 'h2' : 'h3';
   const pendingNote =
     experience.availability === 'live'
       ? 'The tool is live in the Buyer System. Its public address is awaiting approval, so it is not linked in this preview.'
@@ -38,7 +51,9 @@ export function BuyerToolRibbon({ toolKey, sourcePage, moment, className }: Buye
 
   return (
     <aside
-      className={cn(styles.ribbon, className)}
+      className={cn(styles.ribbon, prominent && styles.prominent, className)}
+      // The navy lead variant needs the dark-surface focus ring.
+      data-surface={prominent ? 'dark' : undefined}
       aria-label={`${experience.label} — Buyer System tool`}
     >
       <span className={styles.icon}>
@@ -46,7 +61,7 @@ export function BuyerToolRibbon({ toolKey, sourcePage, moment, className }: Buye
       </span>
       <div className={styles.copy}>
         <p className={styles.kicker}>Buyer System · free tool</p>
-        <h3 className={styles.question}>{experience.question}</h3>
+        <Question className={styles.question}>{experience.question}</Question>
         {moment ? <p className={styles.moment}>{moment}</p> : null}
         <p className={styles.scope}>{experience.scope}</p>
       </div>
@@ -71,5 +86,21 @@ export function BuyerToolRibbon({ toolKey, sourcePage, moment, className }: Buye
         )}
       </div>
     </aside>
+  );
+}
+
+/**
+ * Phase 2H — the Buyer System entry point as its own band, directly under a
+ * hero (Sarah's review: "put the calculator at the start of the page").
+ * It is the same ribbon, resolved by the same adapter: a link only when the
+ * Buyer System base URL is approved, an honest pending state until then.
+ */
+export function BuyerToolBand(props: Omit<BuyerToolRibbonProps, 'prominent' | 'className'>) {
+  return (
+    <section className={styles.band} aria-label="Buyer System tool">
+      <Container>
+        <BuyerToolRibbon {...props} prominent className={styles.bandRibbon} />
+      </Container>
+    </section>
   );
 }

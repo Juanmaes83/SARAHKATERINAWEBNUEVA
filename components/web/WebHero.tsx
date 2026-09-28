@@ -3,7 +3,7 @@ import { WebButton } from './WebButton';
 import { DashboardCard } from './DashboardCard';
 import { Icon, type IconName } from './icons/Icon';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
-import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
+import { HeroFilm } from '@/components/motion/HeroFilm';
 import { hero } from '@/content/en/investment';
 import { HERO_VIDEO } from '@/lib/media/hero-video';
 import { isPublishable } from '@/lib/content/claims';
@@ -41,68 +41,74 @@ import styles from './WebHero.module.css';
  * footage carries its own town labels, panel and mark, so nothing may sit on
  * it: the location line moves above the frame and the snapshot card below
  * it, touching but never overlapping.
+ *
+ * PHASE 2H (Sarah's review) — the film plays once, muted, without depending
+ * on scroll (`HeroFilm`), and the visual column is wider from 1024px
+ * ("the video is too small").
  */
 export function WebHero() {
   return (
-    <ScrubStage>
-      <section className={styles.hero} id="top">
-        <Container className={styles.grid}>
-          <RevealOnScroll className={cn(styles.copy, entrance.copy)}>
-            <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
+    <section className={styles.hero} id="top">
+      <Container className={cn(styles.grid, styles.gridFilm)}>
+        <RevealOnScroll className={cn(styles.copy, entrance.copy)}>
+          <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
 
-            {/* The single h1 of the page. */}
-            <h1 className={styles.heading}>{hero.heading.text}</h1>
+          {/* The single h1 of the page. */}
+          <h1 className={styles.heading}>{hero.heading.text}</h1>
 
-            <p className={styles.lead}>{hero.lead.text}</p>
+          <p className={styles.lead}>{hero.lead.text}</p>
 
-            <div className={styles.ctas}>
-              <WebButton variant="primary" arrow>
-                {hero.primaryCta.text}
-              </WebButton>
-              <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
-            </div>
+          <div className={styles.ctas}>
+            <WebButton variant="primary" arrow>
+              {hero.primaryCta.text}
+            </WebButton>
+            <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
+          </div>
 
-            <dl className={styles.signals}>
-              {hero.signals.map((signal) => (
-                <div key={signal.value.text} className={styles.signal}>
-                  <Icon name={signal.icon as IconName} className={styles.signalIcon} />
-                  <div>
-                    <dt className={styles.signalValue}>
-                      {signal.value.text}
-                      {!isPublishable(signal.value) ? (
-                        <span
-                          className={styles.pendingDot}
-                          role="img"
-                          aria-label="figure pending approval"
-                        />
-                      ) : null}
-                    </dt>
-                    <dd className={styles.signalNote}>{signal.note.text}</dd>
-                  </div>
-                </div>
-              ))}
-            </dl>
-
-            <p className={styles.script}>{hero.script.text}</p>
-          </RevealOnScroll>
-
-          <RevealOnScroll order={1} className={styles.visual}>
-            <figure className={styles.figure}>
-              <p className={styles.videoCaption}>
-                <Icon name="pin" size="sm" />
-                {hero.locationLabel.text}
-              </p>
-              <ScrubVideo video={HERO_VIDEO.investment} className={entrance.media} />
-
-              <div className={cn(styles.dashboard, styles.dashboardBelow, entrance.float)}>
-                <div className={entrance.depthFront}>
-                  <DashboardCard />
+          <dl className={styles.signals}>
+            {hero.signals.map((signal) => (
+              <div key={signal.value.text} className={styles.signal}>
+                <Icon name={signal.icon as IconName} className={styles.signalIcon} />
+                <div>
+                  <dt className={styles.signalValue}>
+                    {signal.value.text}
+                    {!isPublishable(signal.value) ? (
+                      <span
+                        className={styles.pendingDot}
+                        role="img"
+                        aria-label="figure pending approval"
+                      />
+                    ) : null}
+                  </dt>
+                  <dd className={styles.signalNote}>{signal.note.text}</dd>
                 </div>
               </div>
-            </figure>
-          </RevealOnScroll>
-        </Container>
-      </section>
-    </ScrubStage>
+            ))}
+          </dl>
+
+          <p className={styles.script}>{hero.script.text}</p>
+        </RevealOnScroll>
+
+        <RevealOnScroll order={1} className={styles.visual}>
+          <figure className={styles.figure}>
+            <p className={styles.videoCaption}>
+              <Icon name="pin" size="sm" />
+              {hero.locationLabel.text}
+            </p>
+            <HeroFilm
+              video={HERO_VIDEO.investment}
+              name="the hero film"
+              className={entrance.media}
+            />
+
+            <div className={cn(styles.dashboard, styles.dashboardBelow, entrance.float)}>
+              <div className={entrance.depthFront}>
+                <DashboardCard />
+              </div>
+            </div>
+          </figure>
+        </RevealOnScroll>
+      </Container>
+    </section>
   );
 }

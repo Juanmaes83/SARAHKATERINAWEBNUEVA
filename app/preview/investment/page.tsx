@@ -47,27 +47,31 @@ export default function InvestmentPage() {
   return (
     // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
     <RevealLineProvider line="reading-zone">
-      <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
+      {/* Phase 2H: gold restraint on this page only (see WebSection.module.css). */}
+      <div data-accent="restrained">
+        <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
-      <WebHeader nav={nav} ctaLabel={headerCta.text} />
+        <WebHeader nav={nav} ctaLabel={headerCta.text} />
 
-      <WebHero />
-      <TrustBand />
-      <ApproachBand />
-      <DoorsBand />
-      <AssetTypesBand />
-      <ProcessBand />
-      <ReportBand />
-      <ScenariosBand />
-      <ToolsBand />
-      <AuthorityBand />
-      <CasesBand />
-      <JourneyBand />
-      {/* Phase 2G: where the operation continues — purchase, tax, the team. */}
-      <ServiceJourney page="investment" />
-      <WebFaq appearance="light" />
-      <FinalCtaBand />
-      <WebFooter />
+        <WebHero />
+        <TrustBand />
+        {/* Phase 2H (Sarah's review): Sarah's authority block at the start of the page. */}
+        <AuthorityBand />
+        <ApproachBand />
+        <DoorsBand />
+        <AssetTypesBand />
+        <ProcessBand />
+        <ReportBand />
+        <ScenariosBand />
+        <ToolsBand />
+        <CasesBand />
+        <JourneyBand />
+        {/* Phase 2G: where the operation continues — purchase, tax, the team. */}
+        <ServiceJourney page="investment" />
+        <WebFaq appearance="light" />
+        <FinalCtaBand />
+        <WebFooter />
+      </div>
     </RevealLineProvider>
   );
 }

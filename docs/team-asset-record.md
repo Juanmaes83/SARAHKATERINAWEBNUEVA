@@ -80,3 +80,26 @@ awaits owner confirmation.
    partners, clients or endorsements and it remains blocked for production.
 5. Confirmation of every photographed person before any individual name is
    attached to an image.
+
+## Phase 2H update — 2026-09-28
+
+From Juanma's review (`docs/phase-2h-juanma-review.md` §1, E2–E10):
+
+| Derivative              | Change                                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `team-hero.webp`        | Rendered larger (full container width from 1024px). Unedited: a warmer version needs an approved edit (A-02) |
+| `team-group.webp`       | Unchanged. Juanma finds it low in quality and too cold: replacement or approved edit pending (A-03)          |
+| `office-workspace.webp` | **No longer rendered** — its section ("The buyer is the client.") was removed at Juanma's request            |
+| `office-sign.webp`      | **No longer rendered** — removed from "After the keys" at Juanma's request                                   |
+
+Originals and derivatives stay in the repository; nothing was deleted.
+
+**Individual portraits (A-04).** Juanma asked for one photograph beside each
+profile. No named individual photograph of Elsa Quirós Pérez, Óscar Gonzalez or
+Igor Veselov exists in this repository or in `Juanmaes83/sarahkaterina`
+(checked `origin/main`). Upstream `IMAGENES NUEVAS/EQUIPO/` holds three files
+not imported here — `EQUIPO_SARAHKATERINA4.png` (SHA-256 prefix `fda981af`),
+`…5.png` (`0752149b`), `…6.png` (`68e9cbcd`) — each showing one woman, with no
+name in the file or its record. They are **not** assigned to anyone: Juanma
+must say who each shows and approve its use. Until then every profile card
+shows a labelled "Portrait pending" slot.

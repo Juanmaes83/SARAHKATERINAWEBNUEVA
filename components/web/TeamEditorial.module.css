@@ -673,3 +673,90 @@
     transform: none !important;
   }
 }
+
+/* --- Phase 2H (Sarah's review) ----------------------------------------------
+ *
+ * PORTRAITS — each profile card opens with its portrait slot. No named,
+ * approved individual photograph exists yet, so the slot is an unmistakable
+ * pending state (icon + words), never a stand-in face.
+ *
+ * AFTERCARE — the office-sign photograph is removed; the copy stands alone at
+ * a reading measure.
+ *
+ * HERO — "make it big, it is the first thing they see": at the desktop breakpoint the copy
+ * sits in one editorial row (headline left; lead, actions and promise right)
+ * and the photograph takes the full container width below it, keeping its
+ * whole 16:9 composition (object-fit: contain). Below it nothing changes.
+ * ------------------------------------------------------------------------ */
+
+.portraitPending {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--sk-space-8);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: var(--sk-border-standard-width) dashed var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-ivory-soft);
+  color: var(--sk-web-muted);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.aftercareSolo {
+  max-width: var(--sk-layout-measure-reading);
+}
+
+@media (min-width: 768px) {
+  .portraitPending {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sk-space-32);
+    padding-block: var(--sk-space-48);
+  }
+
+  .heroCopy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-areas:
+      'eyebrow eyebrow'
+      'title lead'
+      'title actions'
+      'title promise';
+    align-items: end;
+    column-gap: var(--sk-space-64);
+    row-gap: var(--sk-space-16);
+  }
+
+  .heroCopy > .eyebrow {
+    grid-area: eyebrow;
+  }
+
+  .heroCopy > .heroTitle {
+    grid-area: title;
+    align-self: start;
+  }
+
+  .heroCopy > .heroLead {
+    grid-area: lead;
+  }
+
+  .heroCopy > .actions {
+    grid-area: actions;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .heroCopy > .promise {
+    grid-area: promise;
+  }
+}

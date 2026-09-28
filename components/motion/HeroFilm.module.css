@@ -1,0 +1,53 @@
+/* ===========================================================================
+ * Hero film — Phase 2H. Tokens only.
+ * The frame takes the footage's own ratio, so nothing is cropped, and has its
+ * final size in the server markup: no layout shift when the clip arrives.
+ * The control is the play-once film's (PlayOnceVideo.module.css).
+ * =========================================================================== */
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--sk-film-ratio);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-navy);
+}
+
+@media (max-width: 767px) {
+  .frame {
+    aspect-ratio: var(--sk-film-ratio-mobile);
+  }
+}
+
+.poster,
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Transparent until it plays: the poster (the same first frame) shows
+ * through, so the swap is invisible. Once shown it stays, so a paused or
+ * ended film keeps its current frame. */
+.video {
+  opacity: 0;
+  transition: opacity var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.frame[data-hero-film='playing'] .video,
+.frame[data-hero-film='paused'] .video,
+.frame[data-hero-film='ended'] .video {
+  opacity: 1;
+}
+
+.frame[data-hero-film='failed'] .video {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video {
+    transition: none;
+  }
+}

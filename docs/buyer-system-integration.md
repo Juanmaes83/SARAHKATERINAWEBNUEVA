@@ -91,18 +91,25 @@ after the user returns? Nothing is built until this is answered.
 
 ### Placement — where each entry point belongs
 
+> **Phase 2H (2026-09-28):** Juanma's review asked for the purchase tax and costs
+> tool "big, at the start of the page" on Tax Advisory and Property Purchase. It
+> now sits directly under each hero as a navy lead band, still resolved only by
+> `resolveEntryPoint` and still an explicit pending state while
+> `NEXT_PUBLIC_BUYER_SYSTEM_URL` is unset. No calculator, figure or result is
+> rendered. See `docs/phase-2h-juanma-review.md` §C–D.
+
 Per the activation brief, adjusted for what exists:
 
-| Surface             | Experience       | Moment                                   | Buildable today                                                                                                               |
-| ------------------- | ---------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Investment          | Asking Price     | Before the paid analysis                 | **No** — `limited-go`, needs Sarah + legal                                                                                    |
-| Investment          | Real Cash Needed | Beside scenarios and sensitivity         | Yes, once the base URL is approved                                                                                            |
-| Property Purchase   | Purchase Tax     | After hero / trust strip, before process | Yes, once the base URL is approved                                                                                            |
-| Property Purchase   | Real Cash Needed | After process, before the final CTA      | Yes, once the base URL is approved                                                                                            |
-| Tax Advisory        | Purchase Tax     | After the tax calendar                   | Yes, once the base URL is approved — **placed in Phase 2G** (`TaxCalendarBand`, shared `BuyerToolRibbon`); pending until B-01 |
-| Tax Advisory        | Tax Exposure     | Bridge to the diagnostic                 | **No** — does not exist                                                                                                       |
-| Home                | Hub entry        | After the trust strip                    | Yes, once the base URL is approved                                                                                            |
-| Property Management | None             | —                                        | Held: D-06 unexecuted                                                                                                         |
+| Surface             | Experience       | Moment                              | Buildable today                                                                                                             |
+| ------------------- | ---------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Investment          | Asking Price     | Before the paid analysis            | **No** — `limited-go`, needs Sarah + legal                                                                                  |
+| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | Yes, once the base URL is approved                                                                                          |
+| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — lead variant (`BuyerToolBand`); pending until B-01                                     |
+| Property Purchase   | Real Cash Needed | After process, before the final CTA | Yes, once the base URL is approved                                                                                          |
+| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — moved from after the calendar (Phase 2G) at Juanma's request; `BuyerToolBand`; pending |
+| Tax Advisory        | Tax Exposure     | Bridge to the diagnostic            | **No** — does not exist                                                                                                     |
+| Home                | Hub entry        | After the trust strip               | Yes, once the base URL is approved                                                                                          |
+| Property Management | None             | —                                   | Held: D-06 unexecuted                                                                                                       |
 
 ### Flow as implemented in the prototype
 

@@ -62,6 +62,8 @@ export interface TerritoryVisualProps {
    * competing effects.
    */
   unveil?: boolean;
+  /** Badge on the drawing. Defaults to "Schematic"; Tax cases say "Illustration" (Phase 2H). */
+  badge?: string;
 }
 
 const LABELS: Record<TerritoryVariant, string> = {
@@ -182,6 +184,7 @@ export function TerritoryVisual({
   ratio,
   crop = 'compact',
   unveil = false,
+  badge = 'Schematic',
 }: TerritoryVisualProps) {
   const style = ratio ? { aspectRatio: ratio } : undefined;
 
@@ -244,7 +247,7 @@ export function TerritoryVisual({
           <span className={styles.label}>{label}</span>
         </>
       ) : null}
-      <span className={styles.badge}>Schematic</span>
+      <span className={styles.badge}>{badge}</span>
     </div>
   );
 }

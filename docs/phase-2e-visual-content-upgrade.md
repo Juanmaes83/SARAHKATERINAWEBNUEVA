@@ -8,6 +8,8 @@ Brief: `IMAGES/MEJORAS 23 OCTUBRE/PHASE-2E-VISUAL-CONTENT-UPGRADE-BRIEF.md`
 Scope: `/preview/investment`, `/preview/property-purchase`, `/preview/tax-advisory`.
 Team is out of scope and unchanged.
 
+> **Merge state (checked 2026-09-28):** merged to `main` with PR #21 (`c8eb579`, 2026-09-23). The human visual review is still pending; nothing here is approved. The "2026-10-23" dates in this record are not calendar dates of the work: git shows it was committed on 2026-09-23; "23 OCTUBRE" is the name of the brief's folder.
+
 Nothing here touches production, domain, DNS, indexation, forms or CTA
 destinations. No figure, price, result, testimonial, town or timing visible in
 the references was copied; `tests/visual-content-upgrade.test.ts` enforces it.

@@ -113,3 +113,66 @@
     grid-template-columns: auto minmax(0, 2fr) minmax(0, 1fr);
   }
 }
+
+/* --- Phase 2H: lead variant, directly under a hero ---------------------------
+ * Navy surface so the entry point reads as a moment of its own (Sarah's
+ * review: give the calculator more presence, at the start of the page).
+ * Pairings: on-dark 16.78:1, muted-on-dark 7.92:1, gold-on-dark 7.58:1 on navy.
+ */
+.band {
+  padding-block: var(--sk-space-32);
+  background-color: var(--sk-web-ivory);
+}
+
+.bandRibbon {
+  margin-block-start: 0;
+}
+
+.prominent {
+  padding: var(--sk-space-32) var(--sk-space-24);
+  border-color: var(--sk-web-navy-line);
+  background: var(--sk-web-navy);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+.prominent .icon {
+  width: var(--sk-space-64);
+  height: var(--sk-space-64);
+  background: var(--sk-web-navy-soft);
+  color: var(--sk-web-gold-on-dark);
+}
+
+.prominent .kicker {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.prominent .question {
+  margin-block: var(--sk-space-8);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  line-height: var(--sk-type-h2-line-height);
+  color: var(--sk-web-on-dark);
+}
+
+.prominent .moment {
+  color: var(--sk-web-on-dark);
+}
+
+.prominent .scope,
+.prominent .pendingNote {
+  color: var(--sk-web-muted-on-dark);
+}
+
+.prominent .pending {
+  color: var(--sk-web-on-dark);
+}
+
+.prominent .pendingMark {
+  border-color: var(--sk-web-gold-on-dark);
+}
+
+@media (min-width: 768px) {
+  .prominent {
+    padding: var(--sk-space-48);
+  }
+}

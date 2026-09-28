@@ -27,6 +27,67 @@
   }
 }
 
+/* Phase 2H — Investment only (Sarah's review: "the video is too small";
+ * "some images and videos should take more space, without taking the copy's
+ * leading role"). On wide screens the copy keeps the first row (headline
+ * left; lead and actions right; script and signals below) and the film takes
+ * the full container width under it, at its own 16:9 ratio. In two columns any
+ * gain for the film narrowed the headline to three lines and broke the CTAs.
+ * Between the desktop and wide breakpoints the right column is too narrow for
+ * that row, so the shared two-column composition stays there. */
+@media (min-width: 1280px) {
+  .gridFilm {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sk-space-32);
+    padding-block: var(--sk-space-48);
+  }
+
+  .gridFilm .copy {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      'eyebrow eyebrow'
+      'heading lead'
+      'heading ctas'
+      'script signals';
+    align-items: start;
+    column-gap: var(--sk-space-64);
+    row-gap: var(--sk-space-16);
+  }
+
+  .gridFilm .eyebrow {
+    grid-area: eyebrow;
+  }
+
+  .gridFilm .heading {
+    grid-area: heading;
+    align-self: start;
+  }
+
+  .gridFilm .lead {
+    grid-area: lead;
+  }
+
+  .gridFilm .ctas {
+    grid-area: ctas;
+  }
+
+  .gridFilm .signals {
+    grid-area: signals;
+  }
+
+  .gridFilm .script {
+    grid-area: script;
+  }
+
+  /* The snapshot card stays below the film, never over it, at half width. */
+  .gridFilm .dashboardBelow {
+    justify-self: end;
+    width: 50%;
+    margin-inline: 0;
+  }
+}
+
 /* --- copy ---------------------------------------------------------------- */
 
 .copy {

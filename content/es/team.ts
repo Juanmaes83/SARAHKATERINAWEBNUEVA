@@ -58,17 +58,17 @@ export const teamEs = {
       body: 'Sarah reúne los objetivos del comprador, la lectura de costes y las preguntas fiscales dentro de una misma decisión, e identifica dónde hace falta verificación profesional adicional.',
     },
     {
-      name: 'Elsa Quiros Perez',
+      name: 'Elsa Quirós Pérez',
       area: 'Administración y tareas administrativas',
       body: 'Elsa apoya la documentación, la coordinación y las tareas administrativas del expediente, incluidas las cuestiones pertinentes de la etapa como propietario dentro del alcance acordado.',
     },
     {
-      name: 'Oscar',
+      name: 'Óscar Gonzalez',
       area: 'Acompañamiento comercial y selección de propiedades',
-      body: 'Oscar acompaña la parte comercial de la búsqueda y ayuda a seleccionar propiedades frente al encargo del comprador, sin convertir la selección en una recomendación guiada por el vendedor.',
+      body: 'Óscar acompaña la parte comercial de la búsqueda y ayuda a seleccionar propiedades frente al encargo del comprador, sin convertir la selección en una recomendación guiada por el vendedor.',
     },
     {
-      name: 'Igor',
+      name: 'Igor Veselov',
       area: 'Desarrollo de negocio y nuevas oportunidades',
       body: 'Igor trabaja en desarrollo de negocio y nuevas oportunidades, ayudando a mantener a la práctica atenta a formas relevantes de apoyar a compradores internacionales.',
     },
@@ -83,14 +83,14 @@ export const teamEs = {
     reviewLabel: 'MEDIO PROVISIONAL — SOLO PARA REVISIÓN VISUAL HUMANA',
   },
   process: [
-    ['01', 'Tu idea y primera conversación', 'Sarah · Oscar'],
-    ['02', 'Criterios de búsqueda y selección', 'Oscar · Sarah'],
+    ['01', 'Tu idea y primera conversación', 'Sarah · Óscar'],
+    ['02', 'Criterios de búsqueda y selección', 'Óscar · Sarah'],
     [
       '03',
       'Evidencia antes de comprometerte',
-      'Sarah · Oscar · profesionales externos cuando proceda',
+      'Sarah · Óscar · profesionales externos cuando proceda',
     ],
-    ['04', 'Coordinación de la compra', 'Sarah · Oscar · Elsa'],
+    ['04', 'Coordinación de la compra', 'Sarah · Óscar · Elsa'],
     ['05', 'Tu etapa como propietario', 'Sarah · Elsa'],
   ],
   independence: {

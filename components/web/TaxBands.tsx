@@ -23,8 +23,6 @@ import {
   trustStrip,
 } from '@/content/en/tax-advisory';
 import shared from './WebBands.module.css';
-import { BuyerToolRibbon } from './BuyerToolRibbon';
-import { SERVICE_ROUTES, TAX_CALENDAR_TOOL } from '@/content/en/service-journey';
 
 /**
  * PHASE 2E — approved imagery for the Tax Advisory service cards.
@@ -228,21 +226,6 @@ export function TaxCalendarBand() {
           </div>
         </RevealOnScroll>
       </div>
-
-      {/*
-        PHASE 2G — the purchase-tax entry point documented for this moment
-        (docs/buyer-system-integration.md, placement table): the calendar has
-        just shown the one-off tax paid on purchase, so a reader who has not
-        bought yet can see it for their own case. Resolved only through the
-        Buyer System adapter; pending until the base URL is approved.
-      */}
-      <RevealOnScroll>
-        <BuyerToolRibbon
-          toolKey={TAX_CALENDAR_TOOL.key}
-          sourcePage={SERVICE_ROUTES.tax}
-          moment={TAX_CALENDAR_TOOL.moment.text}
-        />
-      </RevealOnScroll>
     </WebSection>
   );
 }
@@ -595,7 +578,7 @@ export function TaxCasesBand() {
         {cases.items.map((item, index) => (
           <RevealOnScroll key={item.id} order={index} className={shared.mediaCard}>
             <div className={shared.mediaCardMedia}>
-              <TerritoryVisual variant={item.visual} tone="navy" />
+              <TerritoryVisual variant={item.visual} tone="navy" badge={cases.visualBadge.text} />
             </div>
             <div className={shared.mediaCardBody}>
               <h3 className={shared.cardTitle}>{item.profile.text}</h3>
@@ -607,7 +590,9 @@ export function TaxCasesBand() {
 
               <div className={shared.caseResult}>
                 <div>
+                  {/* Phase 2H: Sarah's proposed result, never shown as a verified fact. */}
                   <p className={shared.caseMetricLabel}>{item.metric.text}</p>
+                  <p className={shared.caseMeta}>{cases.evidencePending.text}</p>
                   <span
                     className={shared.caseWithheld}
                     role="img"

@@ -32,10 +32,17 @@
   opacity: 1;
 }
 
-.control {
+/* The control group sits bottom-right; a film with published sound adds a
+ * second button to the group (Phase 2H). */
+.controlGroup {
   position: absolute;
   inset-block-end: var(--sk-space-16);
   inset-inline-end: var(--sk-space-16);
+  display: flex;
+  gap: var(--sk-space-8);
+}
+
+.control {
   display: inline-flex;
   align-items: center;
   gap: var(--sk-space-8);

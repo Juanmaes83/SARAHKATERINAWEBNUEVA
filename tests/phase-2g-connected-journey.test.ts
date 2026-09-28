@@ -9,7 +9,7 @@ import {
   JOURNEY,
   SERVICE_ROUTES,
   STAGE_ORDER,
-  TAX_CALENDAR_TOOL,
+  TAX_LEAD_TOOL,
   TEAM_LAYER,
   type ServiceKey,
 } from '@/content/en/service-journey';
@@ -148,8 +148,8 @@ describe('team layer — named responsibilities, never restated', () => {
     expect(profiles.map((p) => p.name)).toEqual([
       'Sarah Katerina',
       'Elsa Quirós Pérez',
-      'Óscar',
-      'Igor',
+      'Óscar Gonzalez',
+      'Igor Veselov',
     ]);
     const areas = profiles.map((p) => p.area).join(' | ');
     expect(areas).toMatch(/Tax, purchase costs and buyer advisory/);
@@ -183,14 +183,27 @@ describe('Buyer System — adapter only', () => {
     expect(readers).toEqual(['lib/buyer-system/links.ts']);
   });
 
-  it('places purchase tax after the tax calendar, through the shared ribbon', () => {
-    const bands = read('components/web/TaxBands.tsx');
-    const calendar = bands.slice(bands.indexOf('export function TaxCalendarBand'));
-    const end = calendar.indexOf('export function', 10);
-    const band = calendar.slice(0, end);
-    expect(band).toContain('toolKey={TAX_CALENDAR_TOOL.key}');
-    expect(band.indexOf('<BuyerToolRibbon')).toBeGreaterThan(band.indexOf('calendarLayout'));
-    expect(TAX_CALENDAR_TOOL.key).toBe('purchaseTax');
+  // Phase 2H (Sarah's review): purchase tax moves from after the tax calendar
+  // to directly under the hero, on Tax Advisory and on Property Purchase.
+  it.each([
+    ['app/preview/tax-advisory/page.tsx', '<TaxHero />', '<TaxContextBand />'],
+    ['app/preview/property-purchase/page.tsx', '<PurchaseHero />', '<PurchaseTrustBand />'],
+  ])('places purchase tax directly under the hero of %s, once', (page, hero, next) => {
+    const source = code(read(page));
+    const band = source.indexOf('<BuyerToolBand');
+    expect(band).toBeGreaterThan(source.indexOf(hero));
+    expect(band).toBeLessThan(source.indexOf(next));
+    expect(source.match(/<BuyerToolBand/g)).toHaveLength(1);
+  });
+
+  it('leaves no second purchase-tax entry lower on those pages', () => {
+    expect(read('components/web/TaxBands.tsx')).not.toContain('<BuyerToolRibbon');
+    const purchase = read('components/web/PropertyPurchase.tsx');
+    expect(purchase).not.toContain('toolKey="purchaseTax"');
+    expect(purchase).toContain('toolKey="realCashNeeded"');
+    expect(TAX_LEAD_TOOL.key).toBe('purchaseTax');
+    expect(TAX_LEAD_TOOL.moment.status).toBe('proposal');
+    expect(TAX_LEAD_TOOL.moment.review).toBe('tax');
   });
 
   it('keeps every entry point pending while the base URL is unset', () => {
@@ -318,14 +331,19 @@ describe('publication and held subjects', () => {
     }
   });
 
+  // Phase 2H (docs/phase-2h-juanma-review.md): tax-advisory.ts, team.ts and
+  // (closing: Sarah's copy marked confirmed on 2026-09-28)
+  // property-purchase.ts were changed deliberately to carry Sarah's review
+  // copy, all `proposal`. Their hashes are re-recorded here so any further,
+  // unreviewed edit still fails this test.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
         '2bbc549317d4f5c3d77cd4201597e46df19bb9b566b01f6b7e172f5859c550a0',
       'content/en/tax-advisory.ts':
-        '90ae70dfac4aa9b81cc0c830488bb856b43ba2a452c473c4be4a0a0964d3ac42',
-      'content/en/team.ts': '3986f6d699d8e68cd8fc33191d814758651e820e892b30f18d4e8be41e1b40c6',
+        '3edee0d6f572406dae370d8f0d46707840ec44f2a02f5dc81b0d24af6f5397e6',
+      'content/en/team.ts': '17cba45a7351650a1dd949e909cd0d829ffa0d3631eadedd91762e7cfb5949b2',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
@@ -333,13 +351,13 @@ describe('publication and held subjects', () => {
     };
     for (const [file, hash] of Object.entries(unchanged)) expect(sha(read(file)), file).toBe(hash);
 
-    // Property Purchase gains only the Phase 2G block; everything else is as merged.
+    // Outside its Phase 2G block, Property Purchase carries only the Phase 2H headlines.
     const purchase = read('content/en/property-purchase.ts');
     const start = purchase.indexOf('/**\n * Phase 2G');
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '491b58fd0b815844fc642200a313512676a8d28effaf8a10017a79f6596f044c',
+      '595f8da189e9f54099aa182fa4f86ea8bc77dd1e98fc4716337b66f10d09e2e7',
     );
   });
 });

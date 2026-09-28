@@ -70,7 +70,7 @@ stills; they document the order, not the feel. Judge on the Preview.
 
 ## Phase 2E visual content upgrade — `phase-2e-content/`
 
-Captured 2026-10-23, same live method as `phase-2e/`. Routes: investment,
+Captured 2026-10-23 as recorded (the work was committed on 2026-09-23; see PROJECT-STATUS.md, date correction), same live method as `phase-2e/`. Routes: investment,
 property-purchase, tax-advisory (Team out of scope); widths 375 and 1440.
 `before` = `4f196e5` (PR #21 head, served from a temporary worktree),
 `after` = the visual content upgrade. Every capture asserted zero overflow and

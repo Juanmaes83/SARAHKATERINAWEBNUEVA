@@ -1,9 +1,11 @@
 # Phase 2G — Connected service journey
 
-**Status:** PREVIEW — implemented on `feat/phase-2g-connected-service-journey`, pending Juanma's human visual review. Not approved for production.
-**Date:** 2026-09-24
-**Base:** `main` at `2a200ed` (merge of PR #28)
-**Scope:** `/preview/investment`, `/preview/property-purchase`, `/preview/tax-advisory`, `/preview/team`. `app/page.tsx` (Foundation) is untouched.
+**Status:** PREVIEW — **merged to `main` in PR #29** (`edc47f0`); present visual state approved by Juanma on 2026-09-28 (with Phase 2H). Not approved for production.
+
+> **Phase 2H update (2026-09-28, `docs/phase-2h-juanma-review.md`):** the Tax Advisory Purchase Tax ribbon moved from after the calendar to directly under the hero (Sarah's review); the Investment journey title is now Sarah's line; the Good-idea band carries Sarah's title and body; G-04 is resolved on `main` (accents restored by the owner, `47a377f`). The 2G film's voice-over remains unpublished; the sound capability exists but its soundtrack is `unpublished` until rights, human-reviewed captions and Sarah's approval are on record (§5 of the 2H record).
+> **Date:** 2026-09-24
+> **Base:** `main` at `2a200ed` (merge of PR #28)
+> **Scope:** `/preview/investment`, `/preview/property-purchase`, `/preview/tax-advisory`, `/preview/team`. `app/page.tsx` (Foundation) is untouched.
 
 All four routes stay under `/preview`: `laboratory: true`, `noindex, nofollow`, out of the sitemap.
 
@@ -232,7 +234,7 @@ Exit clicks fire `calculator_start` through the existing no-op adapter (`BuyerTo
 | G-01 | All new connective copy and the Good-idea copy                                                                                                                                                             | `proposal`; tax/legal lines flagged for review | Sarah          |
 | G-02 | `BUENA IDEA_MALA EJECUCIÓN` production use: rights record, generation method, likeness                                                                                                                     | `pending`                                      | Juanma / Sarah |
 | G-03 | Voice-over transcript accuracy and whether to publish sound with captions                                                                                                                                  | `unverified` / not built                       | Juanma         |
-| G-04 | Name accents for Elsa and Óscar                                                                                                                                                                            | `pending`                                      | Owner          |
+| G-04 | Name accents for Elsa and Óscar                                                                                                                                                                            | **resolved** on `main` (`47a377f`)             | Owner          |
 | G-05 | Buyer System production URL (B-01)                                                                                                                                                                         | `blocked` — every entry point pending          | Sarah / Juanma |
 | G-06 | Asking Price public linking (B-03)                                                                                                                                                                         | `blocked`                                      | Sarah + legal  |
 | G-07 | Tax Exposure (B-04)                                                                                                                                                                                        | not commissioned                               | Sarah          |

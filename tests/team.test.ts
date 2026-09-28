@@ -49,10 +49,23 @@ describe('team editorial preview', () => {
   });
 
   it('keeps identity and held-service boundaries explicit', () => {
-    expect(content).toContain("name: 'Igor'");
-    expect(content).toContain("name: 'Óscar'");
-    expect(content).not.toMatch(/Óscar\s+[A-Z]/);
+    // Phase 2H: full names supplied by Sarah; no other surname is added.
+    expect(content).toContain("name: 'Igor Veselov'");
+    expect(content).toContain("name: 'Óscar Gonzalez'");
+    expect(content).toContain("name: 'Elsa Quirós Pérez'");
     expect(editorial).toMatch(/no fourth person or individual identity\s+is inferred/);
+    // No photograph is attached to a name: every individual slot is pending.
+    expect(editorial).toContain('Portrait pending');
+    expect(editorial).not.toMatch(/team-member|portrait-(elsa|oscar|igor)/i);
+  });
+
+  it('removes the two blocks Sarah asked to remove, keeping the independence claim', () => {
+    expect(editorial).not.toContain('function IndependenceBand');
+    expect(editorial).not.toContain('office-sign.webp');
+    expect(editorial).not.toContain('office-workspace.webp');
+    expect(content).not.toContain("href: '#independence'");
+    // The confirmed statement still answers the FAQ.
+    expect(content).toMatch(/text: 'The buyer is the client\. The service is paid exclusively/);
     expect([content, editorial].join('\n')).not.toMatch(
       /VITA Host|Property Management|Sarah Katerina Group/,
     );

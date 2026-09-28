@@ -62,8 +62,9 @@ describe('Property Purchase composition', () => {
   });
 
   it('uses only the two live purchase calculator entry points', () => {
-    expect(components).toContain('toolKey="purchaseTax"');
+    // Phase 2H: purchase tax moved from the audience band to directly under the hero.
+    expect(page).toContain('toolKey="purchaseTax"');
     expect(components).toContain('toolKey="realCashNeeded"');
-    expect(components).not.toContain('toolKey="askingPrice"');
+    expect(components + page).not.toContain('toolKey="askingPrice"');
   });
 });
