@@ -1,6 +1,6 @@
 # Phase 2H — Juanma's review of the four landings
 
-**Status:** PREVIEW — implemented on `feat/phase-2h-juanma-review-four-landings`, Draft PR #30, not merged, **pending Juanma's human visual review** at mobile and desktop widths. Not approved for production. Nothing here marks a visual as approved. GitHub Actions did not run on this PR (Actions budget exhausted, §9); all QA is local.
+**Status:** PREVIEW — implemented on `feat/phase-2h-juanma-review-four-landings`, Draft PR #30, not merged, **pending Juanma's human visual review** at mobile and desktop widths. Not approved for production. Nothing here marks a visual as approved. GitHub Actions did not start for the PR's first commit (Actions budget); the later runs passed (§9).
 **Date:** 2026-09-28 (documentation reconciled again the same day, second pass)
 **Base:** `main` at `edc47f0` (merge of PR #29, after PR #28)
 **Scope:** `/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase`, `/preview/team`.
@@ -305,11 +305,11 @@ From the Investment review, recorded so it is not lost: an emotional Home that n
 | B-01      | Buyer System production URL: until it is confirmed every calculator entry stays "Link pending approval"                                 | Sarah / Juanma           |
 | G-01      | Approval of every `proposal` string introduced or carried by 2G/2H                                                                      | Sarah                    |
 | G-02      | Rights and generation record of the generated footage used in the heroes and the 2G film                                                | Juanma / Sarah           |
-| CI-01     | Re-run GitHub Actions on PR #30 once the Actions budget is restored (the jobs were never started)                                       | Juanma                   |
+| CI-01     | **Resolved** — the CI runs for `9ee623a` and `551e058` executed and passed; only the first commit's run was never started               | —                        |
 
 ## 9. Validation
 
-**GitHub Actions did not run on PR #30.** Both jobs ("Lint, typecheck, test and build" and "Secret and env hygiene") were never started; the check-run annotation reads _"The job was not started because an Actions budget is preventing further use."_ It is an account budget limit, not a code failure, and it applies to every push on the PR. CI must be re-run once the budget is restored (CI-01). Until then the only QA is local:
+**GitHub Actions on PR #30.** It did not start for the first commit `a07b808` (run 36446539003): both jobs were not started — _"The job was not started because an Actions budget is preventing further use."_ — an account budget limit, not a code failure. The later runs executed and passed: `9ee623a` (run 36446708091, queued at 15:51 UTC, ran at 16:10) and `551e058` (run 36449311876) — "Lint, typecheck, test and build" and "Secret and env hygiene" both `success`. The failure shown for the first commit is therefore not a test result. The same checks were run locally:
 
 | Check               | First pass (`a07b808`) | Documentation pass (2026-09-28)                    |
 | ------------------- | ---------------------- | -------------------------------------------------- |
@@ -323,4 +323,4 @@ The documentation pass changed Markdown only; no component, content file, test o
 - Tests changed in the first pass because they protected exactly what the review changes, each rewritten to protect the new requirement: hero playback per registry entry and `HeroFilm`'s contract (muted, no autoplay/loop/controls attribute, no scroll reading, attached after load, pauses off screen and in a hidden tab, labelled control, final-frame fallback); Purchase Tax directly under the hero on Tax and Purchase, once, and nowhere lower; Team full names, pending portraits, removed blocks, FAQ keeps the independence claim; the protected-content hashes re-recorded for the three content files this phase changed.
 - Browser QA (Google Chrome through Playwright, production build, first pass): 390×844 and 1440×900 on all four routes — horizontal overflow 0, one `h1`, `noindex, nofollow`, no console errors; 320, 768, 1024 and 1280px — overflow 0, one `h1`, no errors. Hero film states in §2. Evidence: `docs/screenshots/phase-2h/{before,after}/` and `qa-report.json`. Not repeated in the documentation pass, which changed no rendered file.
 
-**Not verified:** Safari/iOS and Android devices; screenshots at 320 and 768px (only overflow was checked there); 200 % zoom; Lighthouse/CWV not measured; the transcripts are machine output; the Vercel preview was checked for deployment status only — it is behind Vercel SSO, so no page was loaded from it; GitHub Actions CI did not start on the PR (Actions budget exhausted), so the only QA run is the local one above.
+**Not verified:** Safari/iOS and Android devices; screenshots at 320 and 768px (only overflow was checked there); 200 % zoom; Lighthouse/CWV not measured; the transcripts are machine output; the Vercel preview was checked for deployment status only — it is behind Vercel SSO, so no page was loaded from it; GitHub Actions did not start for the first commit (budget); the later CI runs passed.

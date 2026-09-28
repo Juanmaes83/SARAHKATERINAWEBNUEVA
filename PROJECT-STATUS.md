@@ -37,13 +37,7 @@ approval of that phase on the Vercel preview. A merge is not a visual approval.
 
 ## CI status
 
-GitHub Actions **did not run on Draft PR #30**: both jobs ("Lint, typecheck,
-test and build" and "Secret and env hygiene") were not started, with the
-check-run annotation _"The job was not started because an Actions budget is
-preventing further use."_ This is an account budget limit, not a code failure.
-The same four checks were run locally (`docs/phase-2h-juanma-review.md` §9).
-CI must be re-run on the PR once the budget is restored (CI-01). The Vercel
-preview for the PR deployed successfully; it sits behind Vercel SSO.
+On Draft PR #30, GitHub Actions did not start for the first commit `a07b808` (run 36446539003): both jobs were not started — _"The job was not started because an Actions budget is preventing further use."_ — an account budget limit, not a code failure. The later runs executed and passed: `9ee623a` (run 36446708091, queued at 15:51 UTC, ran at 16:10) and `551e058` (run 36449311876) — "Lint, typecheck, test and build" and "Secret and env hygiene" both `success`. The same checks were also run locally (`docs/phase-2h-juanma-review.md` §9). The Vercel preview deployed successfully; it sits behind Vercel SSO.
 
 ## Routes
 
@@ -110,7 +104,7 @@ point-by-point matrix (implemented / proposal / partly / decision pending /
 blocked), what changed, copy proposals awaiting a choice, the audio audit, the
 assets Juanma needs to supply and the open decisions are in
 [`docs/phase-2h-juanma-review.md`](docs/phase-2h-juanma-review.md). No visual is
-approved by this delivery. CI did not run (see "CI status").
+approved by this delivery. CI: see "CI status".
 
 **2026-09-24 — Phase 2G connected service journey merged (PR #29).** Record:
 [`docs/phase-2g-connected-service-journey.md`](docs/phase-2g-connected-service-journey.md).

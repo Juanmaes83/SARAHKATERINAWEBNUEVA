@@ -4,7 +4,7 @@
 >
 > Juanma has approved Investment, Tax Advisory and Property Purchase as visual bases for continued work; Team is a merged editorial preview without an equivalent approval record. None of this is approval for publication, indexing, migration or finished marketing, and a merge is not a visual approval. The application remains **not indexable by default**.
 >
-> CI note: GitHub Actions did not run on PR #30 — the jobs were not started because the account's Actions budget was exhausted. The QA set was run locally instead (`docs/phase-2h-juanma-review.md` §9).
+> CI note: on PR #30 GitHub Actions did not start for the first commit `a07b808` (run 36446539003): both jobs were not started — _"The job was not started because an Actions budget is preventing further use."_ — an account budget limit, not a code failure. The later runs executed and passed: `9ee623a` (run 36446708091, queued at 15:51 UTC, ran at 16:10) and `551e058` (run 36449311876) — "Lint, typecheck, test and build" and "Secret and env hygiene" both `success`. The QA set was also run locally (`docs/phase-2h-juanma-review.md` §9).
 
 ---
 
@@ -115,7 +115,7 @@ PHASE 2G CONNECTED SERVICE JOURNEY MERGED (PR #29)
 TEAM EDITORIAL PREVIEW MERGED (PR #19) — NO BASE APPROVAL RECORDED
 PHASE 2H JUANMA'S REVIEW OF THE FOUR LANDINGS — DRAFT PR #30, NOT MERGED
 HUMAN VISUAL REVIEW OF 2F, 2G AND 2H STILL PENDING
-GITHUB ACTIONS NOT RUN ON PR #30 (ACTIONS BUDGET) — QA RUN LOCALLY
+PR #30 CI: FIRST RUN NOT STARTED (ACTIONS BUDGET); LATER RUNS PASSED
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
 
