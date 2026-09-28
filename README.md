@@ -4,7 +4,7 @@
 >
 > Juanma visually approved the present state of the four `/preview` landings — Investment, Tax Advisory, Property Purchase and Team — on **2026-09-28**. That approval is visual only: it is not approval for production, the domain, DNS, migration, indexation or publication, and it resolves none of the open asset, evidence, permission, tax/legal review, rights or decision items (`docs/phase-2h-juanma-review.md` §10.4). The application remains **not indexable by default**.
 >
-> CI: {{CI_LINE}}
+> CI: Final content HEAD of PR #30: `6b584e6`, GitHub Actions run **36456057344 — success** ("Lint, typecheck, test and build" and "Secret and env hygiene"). Run history on the PR: `a07b808` run 36446539003 **not started** (Actions budget exhausted — not a code failure); `9ee623a` 36446708091, `551e058` 36449311876, `671e775` 36449632366 (the HEAD Juanma reviewed) and `6b584e6` 36456057344 all **success**. The commit that writes this line changes documentation only; its own run is shown on PR #30.
 
 ---
 

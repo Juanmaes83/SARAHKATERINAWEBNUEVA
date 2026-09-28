@@ -311,6 +311,10 @@ From the Investment review, recorded so it is not lost: an emotional Home that n
 
 ## 9. Validation
 
+**Final CI (closing).** Final content HEAD of PR #30: `6b584e6`, GitHub Actions run **36456057344 — success** ("Lint, typecheck, test and build" and "Secret and env hygiene"). Run history on the PR: `a07b808` run 36446539003 **not started** (Actions budget exhausted — not a code failure); `9ee623a` 36446708091, `551e058` 36449311876, `671e775` 36449632366 (the HEAD Juanma reviewed) and `6b584e6` 36456057344 all **success**. The commit that writes this line changes documentation only; its own run is shown on PR #30.
+
+Local QA at `6b584e6`: lint exit 0, typecheck exit 0, 15 test files / **264** tests passing, build passing (12 static pages). Browser check (Chrome, production build) of the film controls after the sound change, at 390 and 1440px: controls in place (16px from the frame edges, 44px targets), no sound button or captions track while the soundtrack is unpublished, overflow 0, one `h1`, `noindex, nofollow`, no console errors. The sound on/off path was verified with temporary local files that were then deleted (§5).
+
 **GitHub Actions on PR #30.** It did not start for the first commit `a07b808` (run 36446539003): both jobs were not started — _"The job was not started because an Actions budget is preventing further use."_ — an account budget limit, not a code failure. The later runs executed and passed: `9ee623a` (run 36446708091, queued at 15:51 UTC, ran at 16:10) and `551e058` (run 36449311876) — "Lint, typecheck, test and build" and "Secret and env hygiene" both `success`. The failure shown for the first commit is therefore not a test result. The same checks were run locally:
 
 | Check               | First pass (`a07b808`) | Documentation pass (2026-09-28)                    |
@@ -367,7 +371,7 @@ Sarah gave direction without text for the Investment H1 and doors headline (I5, 
 
 ### 10.3 CI
 
-See §9 for the run of the final HEAD. The first commit of the PR (`a07b808`) had no CI run because the Actions budget was exhausted; every later commit ran it.
+The final HEAD's run is in §9. The first commit of the PR (`a07b808`) had no CI run because the Actions budget was exhausted; every later commit ran it.
 
 ### 10.4 Still open after closing
 
