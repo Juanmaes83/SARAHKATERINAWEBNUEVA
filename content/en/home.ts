@@ -36,11 +36,11 @@ export const seo = {
 } as const;
 
 export const nav = [
-  { href: '#what-sarah-does', label: 'What Sarah does' },
-  { href: '#tools', label: 'Free tools' },
-  { href: '#next-step', label: 'Where to start' },
-  { href: '#financing', label: 'Financing & renovation' },
-  { href: '#team', label: 'The team' },
+  { href: '#what-sarah-does', label: 'How we help' },
+  { href: '#tools', label: 'Tools' },
+  { href: '#next-step', label: 'Start' },
+  { href: '#financing', label: 'Financing' },
+  { href: '#team', label: 'Team' },
 ] as const;
 
 export const headerCta = claim({

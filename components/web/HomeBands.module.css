@@ -212,3 +212,26 @@
   font-family: var(--sk-type-body-small-family);
   font-size: var(--sk-type-body-small-size);
 }
+
+/* --- grid overrides of the shared bands (doubled class: wins regardless of
+ * stylesheet order) ----------------------------------------------------------- */
+
+/* Three trust items, one row on desktop. */
+@media (min-width: 1024px) {
+  .trustGrid.trustGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Four worries: two by two, never an orphan. */
+@media (min-width: 768px) {
+  .worries.worries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The final CTA stacks its button, note and link. */
+.ctaActions.ctaActions {
+  flex-direction: column;
+  align-items: flex-start;
+}

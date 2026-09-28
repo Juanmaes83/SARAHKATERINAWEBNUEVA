@@ -46,7 +46,7 @@ export function BuyerToolRibbon({
   const Question = prominent ? 'h2' : 'h3';
   const pendingNote =
     experience.availability === 'live'
-      ? 'The tool is live in the Buyer System. Its public address is awaiting approval, so it is not linked in this preview.'
+      ? 'The tool is live in the Buyer System. Its address is not configured in this environment, so it is not linked here.'
       : entry.pendingReason;
 
   return (

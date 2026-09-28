@@ -87,7 +87,7 @@ export function HomeHero() {
 export function HomeTrustBand() {
   return (
     <WebSection surface="soft" tight>
-      <div className={shared.trustGrid}>
+      <div className={cn(shared.trustGrid, styles.trustGrid)}>
         {trust.map((item, index) => (
           <RevealOnScroll key={item.value.text} order={index} className={shared.trustItem}>
             <Icon name={item.icon} size="lg" className={shared.trustIcon} />
@@ -148,7 +148,7 @@ export function HomeWorriesBand() {
           <p className={shared.bodyText}>{worries.body.text}</p>
         </RevealOnScroll>
       </div>
-      <ul className={shared.objections}>
+      <ul className={cn(shared.objections, styles.worries)}>
         {worries.items.map((item, index) => (
           <RevealOnScroll
             key={item.text.text}
@@ -259,7 +259,7 @@ export function HomeFinalCtaBand() {
           <h2 className={styles.darkTitle}>{finalCta.title.text}</h2>
           <p className={cn(shared.bodyText, shared.bodyOnDark)}>{finalCta.body.text}</p>
         </RevealOnScroll>
-        <RevealOnScroll order={1} className={shared.ctaActions}>
+        <RevealOnScroll order={1} className={cn(shared.ctaActions, styles.ctaActions)}>
           <WebButton variant="primary" onDark arrow>
             {finalCta.primaryCta}
           </WebButton>

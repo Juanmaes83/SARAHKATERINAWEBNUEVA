@@ -155,6 +155,7 @@ see `docs/phase-2h-juanma-review.md`.
 | `docs/phase-2f-images-and-scroll-hero-implementation.md` | Phase 2F case imagery and hero videos (hero sources later replaced by the owner; see its top note)                                                       |
 | `docs/phase-2g-connected-service-journey.md`             | Phase 2G connected journey, Good-idea film, Buyer System placements                                                                                      |
 | `docs/phase-2h-juanma-review.md`                         | Phase 2H: Sarah's review of the four landings — matrix, copy adaptations, audio audit, closing record, open assets and decisions                         |
+| `docs/home-preview.md`                                   | Preview Home: Sarah's direction, what is shown and held back, financing/renovation reviews, Buyer System on its PR                                       |
 
 ## 6. Stack
 
@@ -185,14 +186,15 @@ npm run dev                  # http://localhost:3000
 
 Routes:
 
-| Route                        | What it is                                                |
-| ---------------------------- | --------------------------------------------------------- |
-| `/`                          | Overview                                                  |
-| `/foundation`                | Internal component laboratory. Never indexable.           |
-| `/preview/investment`        | Canonical Investment visual base                          |
-| `/preview/tax-advisory`      | Tax Advisory visual base adapted to Investment            |
-| `/preview/property-purchase` | Property Purchase visual base adapted to Investment       |
-| `/preview/team`              | Editorial team page; buyer-side roles and process preview |
+| Route                        | What it is                                                                                                        |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `/`                          | Overview                                                                                                          |
+| `/foundation`                | Internal component laboratory. Never indexable.                                                                   |
+| `/preview/investment`        | Canonical Investment visual base                                                                                  |
+| `/preview/tax-advisory`      | Tax Advisory visual base adapted to Investment                                                                    |
+| `/preview/property-purchase` | Property Purchase visual base adapted to Investment                                                               |
+| `/preview/team`              | Editorial team page; buyer-side roles and process preview                                                         |
+| `/preview/home`              | Preview Home (not `/`, which stays this project index); PR `feat/preview-home-calculators`, not visually reviewed |
 
 Everything under `/preview` is `noindex, nofollow` at three independent
 layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
@@ -280,19 +282,19 @@ confirmed. Until then, calculator entry points remain visibly pending.
 
 ## 14. Roadmap
 
-| Phase                                                     | Scope                                                                                                                                    | State                                              |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                             |
-| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                             |
-| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE                     |
-| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY                  |
-| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                             |
-| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — VISUAL STATE APPROVED 2026-09-28          |
-| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — VISUAL STATE APPROVED 2026-09-28          |
-| 2H — Sarah's review of the four landings                  | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | CLOSED (PR #30) — VISUAL STATE APPROVED 2026-09-28 |
-| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                            | BLOCKED ON PRODUCT DECISIONS                       |
-| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 3 AND THE PRODUCTION GATES                   |
-| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                                          |
+| Phase                                                     | Scope                                                                                                                                    | State                                                                                                                           |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                                                                                                          |
+| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                                                                                                          |
+| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE                                                                                                  |
+| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY                                                                                               |
+| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                                                                                                          |
+| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — VISUAL STATE APPROVED 2026-09-28                                                                                       |
+| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — VISUAL STATE APPROVED 2026-09-28                                                                                       |
+| 2H — Sarah's review of the four landings                  | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | CLOSED (PR #30) — VISUAL STATE APPROVED 2026-09-28                                                                              |
+| 3 — Functional integration                                | Buyer System production URL, live calculator links, events, consent and lead-capture decision                                            | IN PROGRESS — origin authorised 2026-09-28 (B-01); links live on the Home PR Preview only; production env unset; B-02–B-06 open |
+| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 3 AND THE PRODUCTION GATES                                                                                                |
+| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                                                                                                                       |
 
 None of the Phase 2 blocks is a production release. The visual state of the
 four preview routes was approved by Juanma on 2026-09-28. Production still
@@ -340,6 +342,7 @@ appears.
 | `/preview/tax-advisory`      | Tax Advisory visual base         | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 | `/preview/property-purchase` | Property Purchase visual base    | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 | `/preview/team`              | Team editorial preview           | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/home`              | Preview Home                     | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 
 Two token layers coexist deliberately:
 
