@@ -1,6 +1,6 @@
 # Home preview and Buyer System links
 
-**Status:** VISUALLY APPROVED BY JUANMA 2026-09-29 (visual only) · NEW COPY STILL PROPOSAL UNLESS MARKED · PREVIEW/NOINDEX · NOT PRODUCTION
+**Status:** MERGED via PR #32 on 2026-09-29 · VISUALLY APPROVED BY JUANMA (visual only) · NEW COPY STILL PROPOSAL UNLESS MARKED · PREVIEW/NOINDEX · NO PUBLIC-DOMAIN LAUNCH
 
 **Date:** 2026-09-29
 
@@ -22,16 +22,19 @@ record, **this section wins**; the superseded parts are marked in place.
 `feat/preview-home-buyer-tools` at `ce8edff`. It was copied to a separate
 worktree for PR #32; 99 files were SHA-256 compared. The PR includes the
 documented base-branch compatibility changes and contains no change to the
-rendered result. The Buyer System and strategic repository were not modified.
+rendered result. PR #32 was squash-merged into `main` on 2026-09-29 as
+`cacb09e25600617cd5a0ab00ef5a5b9cca62a419`. Its final PR-head Actions run
+`36592785041` passed; the Vercel check on the merge commit also passed. The
+Buyer System and strategic repository were not modified.
 
 **Visual review record.** Juanma reviewed and visually approved this Home on
 2026-09-29 on the local review server (`next dev` on port 3001, serving the
 `feat/preview-home-buyer-tools` working tree at base `ce8edff`) at mobile and
 desktop widths. Visual approval only: it is not a copy, legal or production
-approval. The same content is published for review as the branch
-`feat/home-service-discovery-reviewed` on top of `main`; the only differences
-from the reviewed tree are listed in that pull request (none affect a
-rendered page).
+approval. The same content was merged from `feat/home-service-discovery-reviewed`
+through PR #32; the only differences from the reviewed tree are listed in that
+pull request (none affect a rendered page). The merge does not approve a
+custom-domain launch, indexing or migration.
 
 **Final composition (top to bottom).** Hero (promise, subhead, two actions,
 film — rendered at first paint, no entrance animation) → "Whose side?"

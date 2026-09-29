@@ -1,10 +1,10 @@
 # Sarah Katerina — New Website
 
-> **Status (2026-09-28): FOUR PREVIEW LANDINGS · PHASES 2E–2H CLOSED · VISUAL STATE OF THE FOUR ROUTES APPROVED BY JUANMA (2026-09-28) · NOT PRODUCTION · NOINDEX**
+> **Status (2026-09-29): FOUR PREVIEW LANDINGS + HOME · PHASES 2E–2H CLOSED · HOME VISUALLY APPROVED BY JUANMA · NOINDEX · NO CUSTOM-DOMAIN LAUNCH**
 >
-> Juanma visually approved the present state of the four `/preview` landings — Investment, Tax Advisory, Property Purchase and Team — on **2026-09-28**. That approval is visual only: it is not approval for production, the domain, DNS, migration, indexation or publication, and it resolves none of the open asset, evidence, permission, tax/legal review, rights or decision items (`docs/phase-2h-juanma-review.md` §10.4). The application remains **not indexable by default**.
+> Juanma visually approved the four `/preview` landings on 2026-09-28 and the Home on 2026-09-29. These are visual approvals only, not approval for production copy, legal matters, domain, DNS, migration, indexation or public launch. Open evidence, asset, rights and professional-review gates remain in `PROJECT-STATUS.md` and the phase records. The application remains **not indexable by default**.
 >
-> CI: Final content HEAD of PR #30: `6b584e6`, GitHub Actions run **36456057344 — success** ("Lint, typecheck, test and build" and "Secret and env hygiene"). Run history on the PR: `a07b808` run 36446539003 **not started** (Actions budget exhausted — not a code failure); `9ee623a` 36446708091, `551e058` 36449311876, `671e775` 36449632366 (the HEAD Juanma reviewed) and `6b584e6` 36456057344 all **success**. The commit that writes this line changes documentation only; its own run is shown on PR #30.
+> **Home delivery:** PR #32 merged into `main` on 2026-09-29 as `cacb09e`. PR-head GitHub Actions run **36592785041 — success** (lint, typecheck, tests, build and secret/env hygiene); Vercel check on the merge commit — **success**. The Home remains `/preview/home`; `/` is unchanged. A Vercel deployment is an infrastructure result, not approval to publish on `sarahkaterina.com` or enable indexing.
 
 ---
 
@@ -42,7 +42,7 @@ PR #30) are closed. Their visual state was approved by Juanma on 2026-09-28.
 - Not the strategic source of truth. That is [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina).
 - Not a brand repository. Brand decisions are made and recorded upstream.
 - Not the Buyer System. That is [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System).
-- Not a production deployment, and not connected to `sarahkaterina.com`.
+- Not the approved public website launch: no `sarahkaterina.com` custom-domain connection, DNS migration or indexation is authorised. Merges to `main` can trigger Vercel deployments; see the deployment boundary below.
 - Not an approved production website. Phase 2 is the active visual
   implementation workstream; it is not a separate interpretation-free later
   phase. Production approval, legal review and human visual validation remain
@@ -118,7 +118,10 @@ PHASE 2E PREMIUM MEDIA, MOTION AND VISUAL CONTENT UPGRADE MERGED (PR #16, #17, #
 PHASE 2F CASE IMAGERY, HERO VIDEOS, MAP FILM AND FABRIC BANNER MERGED (PR #23–#28)
 PHASE 2G CONNECTED SERVICE JOURNEY MERGED (PR #29)
 PHASE 2H SARAH'S REVIEW OF THE FOUR LANDINGS — CLOSED (PR #30)
+HOME SERVICE DISCOVERY + BUYER SYSTEM PREVIEW MERGED (PR #32; 2026-09-29)
+UNIFIED PREVIEW NAVIGATION — MERGED WITH PR #32
 VISUAL STATE OF THE FOUR PREVIEW ROUTES APPROVED BY JUANMA — 2026-09-28
+HOME VISUALLY APPROVED BY JUANMA — 2026-09-29 (VISUAL ONLY)
 OPEN: ASSETS, CASE EVIDENCE, SOUND RIGHTS/CAPTIONS, RESTRICTED BUYER TOOLS, PRODUCTION GATES
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```

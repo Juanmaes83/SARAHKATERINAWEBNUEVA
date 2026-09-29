@@ -1,6 +1,6 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
-**Last updated:** 2026-09-29
+**Last updated:** 2026-09-29 (after PR #32 merge)
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION  
 **Visual state:** four landing routes approved 2026-09-28 and Home approved 2026-09-29 — visual approval only, **not** production approval
 
@@ -38,7 +38,9 @@ OCTUBRE/`), not a date. The entry below is re-dated accordingly.
 
 ## CI status
 
-Final content HEAD of PR #30: `6b584e6`, GitHub Actions run **36456057344 — success** ("Lint, typecheck, test and build" and "Secret and env hygiene"). Run history on the PR: `a07b808` run 36446539003 **not started** (Actions budget exhausted — not a code failure); `9ee623a` 36446708091, `551e058` 36449311876, `671e775` 36449632366 (the HEAD Juanma reviewed) and `6b584e6` 36456057344 all **success**. The commit that writes this line changes documentation only; its own run is shown on PR #30.
+- PR #30 (Phase 2H): final content HEAD `6b584e6`, Actions run `36456057344` — success.
+- PR #32 (Home and Buyer System Preview integration): final PR HEAD `84c2c74facc4365e15b1522bd081a47bf15d5eb6`, Actions run `36592785041` — success (lint, typecheck, tests, build and secret/env hygiene).
+- Merge commit on `main`: `cacb09e25600617cd5a0ab00ef5a5b9cca62a419`; Vercel status — success. The Vercel deployment does not authorise a custom-domain launch or indexing.
 
 ## Routes
 
@@ -116,9 +118,10 @@ modified). Visible preview/review wording removed from the Home only; noindex,
 `/preview` route and sitemap exclusion unchanged. Lighthouse mobile
 (simulate, ×5): perf 87 → 91, LCP 3.92 → 3.23 s, CLS 0.022 → 0; devtools
 throttling ×3: LCP 2.35 s. Record: `docs/home-buyer-system-preview.md` §0.
-Published for review as branch `feat/home-service-discovery-reviewed` (PR
-against `main`, supersedes PR #31 for the Home). Not merged, not deployed, not
-production.
+Merged from `feat/home-service-discovery-reviewed` via PR #32 into `main`
+on 2026-09-29 (`cacb09e`). PR-head CI passed (Actions run `36592785041`);
+Vercel status on the merge commit passed. It remains a noindex Preview route;
+this merge is not approval for a public-domain launch.
 
 **2026-09-29 (later) — "Advisory thread" creative pass on the Home,
 uncommitted on `feat/preview-home-buyer-tools`.** One gold thread runs from the
@@ -183,6 +186,7 @@ reviewed by Juanma before merge.
 - **PR #28** — Phase 2F consolidated visual review. Merge commit `2a200ed` (2026-09-24).
 - **PR #29** — Phase 2G connected service journey. Merge commit `edc47f0` (2026-09-24).
 - **PR #30** — Phase 2H, Sarah's review of the four landings; closed 2026-09-28 (merge commit in the git history of `main`).
+- **PR #32** — Home service discovery, named testimonials, unified navigation and Preview-only Buyer System links; squash-merged 2026-09-29 as `cacb09e`.
 
 All of it remains preview-only: no production publication, custom domain, DNS
 or indexation was enabled. On this branch, outbound links to two verified Buyer
