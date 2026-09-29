@@ -26,6 +26,12 @@ export interface PlayOnceVideoProps {
   readonly name: string;
   readonly sizes: string;
   readonly className?: string;
+  /**
+   * Set only where the poster is the first-viewport LCP (the Home hero). It
+   * loads the poster eagerly with high fetch priority; the video itself still
+   * waits (`preload="none"`). Defaults to false, so mid-page films stay lazy.
+   */
+  readonly priority?: boolean;
 }
 
 /**
@@ -54,7 +60,13 @@ export interface PlayOnceVideoProps {
  * captions show while sound is on. While the soundtrack is `unpublished`
  * nothing of this renders and the silent cut is served.
  */
-export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceVideoProps) {
+export function PlayOnceVideo({
+  video: clip,
+  name,
+  sizes,
+  className,
+  priority = false,
+}: PlayOnceVideoProps) {
   const frameRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [state, setState] = useState<FilmState>('poster');
@@ -64,6 +76,7 @@ export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceV
   const sound = clip.soundtrack?.status === 'published' ? clip.soundtrack : null;
   const sources = sound ? sound.sources : clip.sources;
   const resumeOnReturn = useRef(false);
+  const resumeInView = useRef(false);
 
   useEffect(() => {
     const frame = frameRef.current;
@@ -117,9 +130,25 @@ export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceV
         },
         { rootMargin: revealRootMargin(readingZoneLine(window.innerWidth)) },
       );
+      // A playing film must not keep consuming attention or resources after
+      // it has left the viewport. Resume only when it was playing at exit;
+      // a film paused deliberately by the visitor stays paused.
+      const presence = new IntersectionObserver(([entry]) => {
+        if (!entry) return;
+        if (!entry.isIntersecting) {
+          resumeInView.current = !video.paused && !video.ended;
+          video.pause();
+          return;
+        }
+        if (resumeInView.current) {
+          resumeInView.current = false;
+          void video.play().catch(() => undefined);
+        }
+      });
       near.observe(frame);
       arrive.observe(frame);
-      observers.push(near, arrive);
+      presence.observe(frame);
+      observers.push(near, arrive, presence);
     }
 
     return () => {
@@ -183,6 +212,7 @@ export function PlayOnceVideo({ video: clip, name, sizes, className }: PlayOnceV
         height={clip.height}
         alt={clip.description}
         sizes={sizes}
+        priority={priority}
       />
       <video
         ref={videoRef}

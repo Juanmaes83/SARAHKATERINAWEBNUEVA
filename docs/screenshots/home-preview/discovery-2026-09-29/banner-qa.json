@@ -1,0 +1,104 @@
+{
+  "motion-1440": {
+    "states": [
+      {
+        "selected": "01\nI want to buy a home.\nPROPERTY PURCHASE",
+        "cta": "/preview/property-purchase",
+        "ctaText": "START WITH PROPERTY PURCHASE\n→",
+        "logoInComposition": 1,
+        "settledStill": true
+      },
+      {
+        "selected": "02\nI want to invest.\nINVESTMENT",
+        "cta": "/preview/investment",
+        "ctaText": "START WITH INVESTMENT\n→",
+        "logoInComposition": 1,
+        "settledStill": true
+      },
+      {
+        "selected": "03\nI need tax clarity.\nTAX ADVISORY",
+        "cta": "/preview/tax-advisory",
+        "ctaText": "START WITH TAX ADVISORY\n→",
+        "logoInComposition": 1,
+        "settledStill": true
+      }
+    ],
+    "mode": "fabric",
+    "tabs": 3,
+    "keyboard": {
+      "afterDown": "true|02I want to invest.Investment",
+      "afterEnd": "03I need tax clarity.Tax Advisory",
+      "afterHome": "01I want to buy a home.Property Purchase"
+    },
+    "canvasesOnPage": 1,
+    "rapidFinalSelected": "03\nI need tax clarity.\nTAX ADVISORY",
+    "wheelScrolledPage": true,
+    "errors": []
+  },
+  "motion-390": {
+    "states": [
+      {
+        "selected": "01\nI want to buy a home.\nPROPERTY PURCHASE",
+        "cta": "/preview/property-purchase",
+        "ctaText": "START WITH PROPERTY PURCHASE\n→",
+        "logoInComposition": 1,
+        "settledStill": true
+      },
+      {
+        "selected": "02\nI want to invest.\nINVESTMENT",
+        "cta": "/preview/investment",
+        "ctaText": "START WITH INVESTMENT\n→",
+        "logoInComposition": 1,
+        "settledStill": true
+      },
+      {
+        "selected": "03\nI need tax clarity.\nTAX ADVISORY",
+        "cta": "/preview/tax-advisory",
+        "ctaText": "START WITH TAX ADVISORY\n→",
+        "logoInComposition": 1,
+        "settledStill": true
+      }
+    ],
+    "mode": "fabric",
+    "tabs": 3,
+    "keyboard": {
+      "afterDown": "true|02I want to invest.Investment",
+      "afterEnd": "03I need tax clarity.Tax Advisory",
+      "afterHome": "01I want to buy a home.Property Purchase"
+    },
+    "canvasesOnPage": 1,
+    "rapidFinalSelected": "03\nI need tax clarity.\nTAX ADVISORY",
+    "wheelScrolledPage": true,
+    "errors": []
+  },
+  "webglDisabled": {
+    "mode": "static",
+    "compositionOpacity": "1",
+    "selectedAfterClick": "03\nI need tax clarity.\nTAX ADVISORY",
+    "cta": "/preview/tax-advisory",
+    "errors": []
+  },
+  "reducedMotion": {
+    "mode": "static",
+    "tabs": 3,
+    "errors": []
+  },
+  "noJs": {
+    "needLinks": [
+      "01I want to buy a home.Property Purchase -> /preview/property-purchase",
+      "02I want to invest.Investment -> /preview/investment",
+      "03I need tax clarity.Tax Advisory -> /preview/tax-advisory"
+    ],
+    "proposition": "Buy with peace of mind: we coordinate every step.",
+    "cta": 4
+  },
+  "buyerVoices": {
+    "modeBefore": "fabric",
+    "tabs": 3,
+    "selected": "02\nProblematic clause renegotiated\nOutcome withheld until the facts and client permission are verified.\nPREVIEW · CONTENT PENDING",
+    "stillMovingLikeBefore": true,
+    "pauseButton": 1,
+    "video": 1,
+    "errors": []
+  }
+}

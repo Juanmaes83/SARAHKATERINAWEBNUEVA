@@ -27,8 +27,8 @@ export interface BuyerToolRibbonProps {
  * second implementation. Everything is resolved by `resolveEntryPoint`:
  *
  *  - a live tool with a confirmed base URL renders an outbound link;
- *  - a live tool without one (the default: NEXT_PUBLIC_BUYER_SYSTEM_URL is
- *    unset) renders an honest, non-interactive pending state;
+ *  - a live tool with no valid configured or verified origin renders an
+ *    honest, non-interactive pending state;
  *  - `limited-go` and `not-built` experiences never render a link.
  *
  * No figure, rate, formula or result is shown here — only the tool's own

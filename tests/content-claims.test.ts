@@ -59,7 +59,8 @@ describe('investment content — claim classification', () => {
     const offenders = claims
       .filter(
         ({ claim }) =>
-          claim.status === 'confirmed' && domains.includes((claim.review ?? 'none') as ReviewDomain),
+          claim.status === 'confirmed' &&
+          domains.includes((claim.review ?? 'none') as ReviewDomain),
       )
       .map(({ path, claim }) => `${path}: "${claim.text}" (${claim.review})`);
     expect(offenders).toEqual([]);
@@ -152,12 +153,11 @@ describe('buyer system integration boundary', () => {
     expect(resolveEntryPoint('taxExposure').href).toBeNull();
   });
 
-  it('fails closed when the base URL is unset', () => {
-    // No NEXT_PUBLIC_BUYER_SYSTEM_URL is set in the test environment.
+  it('uses the verified production origin when no override is configured', () => {
     const resolved = resolveEntryPoint('realCashNeeded');
-    expect(resolved.href).toBeNull();
-    expect(resolved.pending).toBe(true);
-    expect(resolved.pendingReason).toMatch(/not confirmed/i);
+    expect(resolved.href).toBe('https://sarah-katerina-buyer-system.vercel.app/real-cash-needed');
+    expect(resolved.pending).toBe(false);
+    expect(resolved.pendingReason).toBeNull();
   });
 
   it('declares that cross-origin context handoff is not supported', () => {

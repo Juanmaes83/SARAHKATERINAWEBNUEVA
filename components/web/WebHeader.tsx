@@ -2,11 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { Container } from '@/components/layout/Container';
 import { WebButton, WebLinkButton } from './WebButton';
 import { track } from '@/lib/analytics/track';
+import { resolveEntryPoint } from '@/lib/buyer-system/links';
 import { cn } from '@/lib/utils/cn';
+import { BuyerToolLink } from './BuyerToolLink';
 import logo from '@/public/brand/sarah-katerina-logo.png';
 import styles from './WebHeader.module.css';
 
@@ -23,6 +26,13 @@ export interface WebHeaderProps {
   ctaLabel: string;
   brandHref?: string;
   ctaHref?: string;
+  /** Hide the preview-only locale control when no translated route exists. */
+  showLanguageSwitcher?: boolean;
+  /**
+   * When set, the primary CTA becomes the governed two-tool chooser. The
+   * value is used only by the no-op outbound-click event.
+   */
+  buyerToolsSourcePage?: string;
 }
 
 /**
@@ -49,16 +59,52 @@ export function WebHeader({
   ctaLabel,
   brandHref = '/preview/investment',
   ctaHref,
+  showLanguageSwitcher = true,
+  buyerToolsSourcePage,
 }: WebHeaderProps) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [locale, setLocale] = useState<'en' | 'es'>('en');
   const [current, setCurrent] = useState<string | null>(null);
   const panelId = useId();
+  const toolsPanelId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const toolsRef = useRef<HTMLDivElement>(null);
+
+  const buyerTools = (['purchaseTax', 'realCashNeeded'] as const)
+    .map((key) => resolveEntryPoint(key))
+    .filter(
+      (entry): entry is typeof entry & { href: string } =>
+        !entry.pending && typeof entry.href === 'string',
+    );
 
   const close = useCallback(() => setOpen(false), []);
+
+  useEffect(() => {
+    if (!toolsOpen) return;
+
+    const closeTools = (event: KeyboardEvent | PointerEvent) => {
+      if (event instanceof KeyboardEvent && event.key === 'Escape') {
+        event.preventDefault();
+        setToolsOpen(false);
+        toolsRef.current?.querySelector<HTMLButtonElement>('button')?.focus();
+        return;
+      }
+      if (event instanceof PointerEvent && !toolsRef.current?.contains(event.target as Node)) {
+        setToolsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', closeTools);
+    document.addEventListener('pointerdown', closeTools);
+    return () => {
+      document.removeEventListener('keydown', closeTools);
+      document.removeEventListener('pointerdown', closeTools);
+    };
+  }, [toolsOpen]);
 
   // Depth cue only. Passive listener, and the header never changes height, so
   // there is no layout shift.
@@ -171,7 +217,11 @@ export function WebHeader({
   return (
     <header className={cn(styles.header, scrolled && styles.scrolled)}>
       <Container className={styles.inner}>
-        <Link href={brandHref} className={styles.brand}>
+        <Link
+          href={brandHref}
+          className={styles.brand}
+          aria-current={pathname === brandHref ? 'page' : undefined}
+        >
           <Image
             src={logo}
             alt="Sarah Katerina"
@@ -188,7 +238,13 @@ export function WebHeader({
                 <Link
                   href={item.href}
                   className={styles.navLink}
-                  aria-current={current && item.href === `#${current}` ? 'location' : undefined}
+                  aria-current={
+                    pathname === item.href
+                      ? 'page'
+                      : current && item.href === `#${current}`
+                        ? 'location'
+                        : undefined
+                  }
                 >
                   {item.label}
                 </Link>
@@ -198,9 +254,44 @@ export function WebHeader({
         </nav>
 
         <div className={styles.actions}>
-          {languages}
-          <span className={styles.divider} aria-hidden="true" />
-          {ctaHref ? (
+          {showLanguageSwitcher ? languages : null}
+          {showLanguageSwitcher ? <span className={styles.divider} aria-hidden="true" /> : null}
+          {buyerToolsSourcePage ? (
+            <div ref={toolsRef} className={styles.toolsMenu}>
+              <WebButton
+                variant="primary"
+                arrow
+                aria-expanded={toolsOpen}
+                aria-controls={toolsPanelId}
+                aria-haspopup="true"
+                onClick={() => setToolsOpen((value) => !value)}
+              >
+                {ctaLabel}
+              </WebButton>
+              {toolsOpen ? (
+                <div
+                  id={toolsPanelId}
+                  className={styles.toolsPopover}
+                  role="group"
+                  aria-label="Verified Buyer System tools"
+                >
+                  <p className={styles.toolsTitle}>Choose a free tool</p>
+                  {buyerTools.map((entry) => (
+                    <BuyerToolLink
+                      key={entry.experience.id}
+                      href={entry.href}
+                      calculator={entry.experience.id}
+                      sourcePage={buyerToolsSourcePage}
+                      className={styles.toolLink}
+                    >
+                      <span>{entry.experience.label}</span>
+                      <small>{entry.experience.question}</small>
+                    </BuyerToolLink>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          ) : ctaHref ? (
             <WebLinkButton
               href={ctaHref}
               variant="primary"
@@ -266,7 +357,13 @@ export function WebHeader({
                   <Link
                     href={item.href}
                     className={styles.panelLink}
-                    aria-current={current && item.href === `#${current}` ? 'location' : undefined}
+                    aria-current={
+                      pathname === item.href
+                        ? 'page'
+                        : current && item.href === `#${current}`
+                          ? 'location'
+                          : undefined
+                    }
                     onClick={close}
                   >
                     {item.label}
@@ -277,8 +374,24 @@ export function WebHeader({
           </nav>
 
           <div className={styles.panelFoot}>
-            {languages}
-            {ctaHref ? (
+            {showLanguageSwitcher ? languages : null}
+            {buyerToolsSourcePage ? (
+              <div className={styles.mobileTools} aria-label="Verified Buyer System tools">
+                <p className={styles.toolsTitle}>{ctaLabel}</p>
+                {buyerTools.map((entry) => (
+                  <BuyerToolLink
+                    key={entry.experience.id}
+                    href={entry.href}
+                    calculator={entry.experience.id}
+                    sourcePage={buyerToolsSourcePage}
+                    className={styles.mobileToolLink}
+                  >
+                    <span>{entry.experience.label}</span>
+                    <small>{entry.experience.question}</small>
+                  </BuyerToolLink>
+                ))}
+              </div>
+            ) : ctaHref ? (
               <WebLinkButton
                 href={ctaHref}
                 variant="primary"

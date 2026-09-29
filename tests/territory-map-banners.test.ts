@@ -182,7 +182,18 @@ describe('buyer voices — pending content only', () => {
 });
 
 describe('fabric banner — safety', () => {
-  const banner = read('components/web/banner/FabricBanner.tsx');
+  // The engine lifecycle moved, unchanged, into the shared FabricStage on
+  // 2026-09-29 so the Home service banner can reuse the cloth. The Buyer
+  // Voices composition still hangs on that same stage.
+  const banner = read('components/web/banner/FabricStage.tsx');
+
+  it('keeps Buyer Voices on the shared stage', () => {
+    const voices = read('components/web/banner/FabricBanner.tsx');
+    expect(voices).toContain("from './FabricStage'");
+    expect(voices).toContain('<FabricStage');
+    expect(voices).toContain('changeKey={slot.id}');
+  });
+
   const engine = read('components/web/banner/fabric.ts');
   const css = read('components/web/banner/FabricBanner.module.css');
 

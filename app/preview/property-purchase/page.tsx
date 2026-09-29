@@ -20,7 +20,12 @@ import {
   ServicesBand,
   WorriesBand,
 } from '@/components/web/PropertyPurchase';
-import { PROTOTYPE_NOTICE, faq, footer, headerCta, nav, seo } from '@/content/en/property-purchase';
+import { PROTOTYPE_NOTICE, faq, footer, seo } from '@/content/en/property-purchase';
+import {
+  BUYER_TOOLS_LABEL,
+  HOME_PREVIEW_ROUTE,
+  UNIFIED_WEB_NAV,
+} from '@/content/en/site-navigation';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { ServiceJourney } from '@/components/web/ServiceJourney';
 import { BuyerToolBand } from '@/components/web/BuyerToolRibbon';
@@ -39,10 +44,11 @@ export default function PropertyPurchasePage() {
     <RevealLineProvider line="reading-zone">
       <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
       <WebHeader
-        nav={nav}
-        ctaLabel={headerCta.text}
-        brandHref="/preview/property-purchase"
-        ctaHref="#services-options"
+        nav={UNIFIED_WEB_NAV}
+        ctaLabel={BUYER_TOOLS_LABEL}
+        brandHref={HOME_PREVIEW_ROUTE}
+        showLanguageSwitcher={false}
+        buyerToolsSourcePage={SERVICE_ROUTES.purchase}
       />
       <PurchaseHero />
       {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}

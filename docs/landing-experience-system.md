@@ -1,7 +1,7 @@
 # Landing Experience System
 
 Status: ACTIVE PHASE 2 IMPLEMENTATION CONTRACT
-Updated: 2026-09-21
+Updated: 2026-09-29
 
 This document supersedes the earlier interpretation that treated Phase 2 as
 only a structural prototype. The current prototype is Phase 2A. Phase 2B must
@@ -19,23 +19,39 @@ human visual review remain higher-order publication gates.
 
 ## 2. Required section grammar
 
-| # | Section | Required visual/content job |
-|---|---|---|
-| 1 | Navigation | Orient the visitor, expose language/service routes and present one contextual action |
-| 2 | Hero | State who the service is for, the decision it improves and show image/video plus proof surface |
-| 3 | Trust strip | Present only approved facts, credentials or process signals |
-| 4 | Problem and objections | Name fear, uncertainty, friction, cost and timing concerns |
-| 5 | Decision doors | Route by visitor situation and intent |
-| 6 | Timeline/process | Show stages, deliverables and decision moments |
-| 7 | Dashboards/calculators | Make the analytical product visible and provide micro-conversion entry points |
-| 8 | Authority | Use Sarah's approved image and a specific, evidenced reason to trust the service |
-| 9 | Testimonials/cases | Show permissioned evidence, not decorative quotes or invented outcomes |
-| 10 | FAQ | Resolve high-friction objections with accessible disclosures |
-| 11 | Final CTA | Repeat the correct intent-specific next step and reduce perceived risk |
-| 12 | Footer | Close with approved brand, legal, contact and navigation information |
+| #   | Section                | Required visual/content job                                                                    |
+| --- | ---------------------- | ---------------------------------------------------------------------------------------------- |
+| 1   | Navigation             | Orient the visitor, expose language/service routes and present one contextual action           |
+| 2   | Hero                   | State who the service is for, the decision it improves and show image/video plus proof surface |
+| 3   | Trust strip            | Present only approved facts, credentials or process signals                                    |
+| 4   | Problem and objections | Name fear, uncertainty, friction, cost and timing concerns                                     |
+| 5   | Decision doors         | Route by visitor situation and intent                                                          |
+| 6   | Timeline/process       | Show stages, deliverables and decision moments                                                 |
+| 7   | Dashboards/calculators | Make the analytical product visible and provide micro-conversion entry points                  |
+| 8   | Authority              | Use Sarah's approved image and a specific, evidenced reason to trust the service               |
+| 9   | Testimonials/cases     | Show permissioned evidence, not decorative quotes or invented outcomes                         |
+| 10  | FAQ                    | Resolve high-friction objections with accessible disclosures                                   |
+| 11  | Final CTA              | Repeat the correct intent-specific next step and reduce perceived risk                         |
+| 12  | Footer                 | Close with approved brand, legal, contact and navigation information                           |
 
 Every section needs one dominant idea, a clear visual anchor and enough negative
 space to prevent the template's information density becoming fatigue.
+
+### Approved preview navigation — 2026-09-29
+
+Home, Property Purchase, Investment, Tax Advisory and Team use the same
+`WebHeader` and the same ordered route registry in
+`content/en/site-navigation.ts`. The brand mark and explicit Home item return
+to `/preview/home`; the other four items link directly to their real App Router
+pages. Route state is exposed with `aria-current="page"` on desktop and mobile.
+
+`Buyer Tools` is the single primary header action until an approved contact or
+booking destination exists. It opens only Purchase Tax and Real Cash Needed;
+both URLs are resolved by `lib/buyer-system/links.ts` and rendered through
+`BuyerToolLink`, with no query string or buyer data. Asking Price and Tax
+Exposure remain absent. Contact, Insights and EN/ES controls are not rendered.
+Each page retains its own `PrototypeBanner`; the navigation decision does not
+merge or remove those preview strips.
 
 ## 3. Visual direction
 
@@ -148,17 +164,17 @@ Phase 2 must be semantically ready:
 
 ## 9. Current implementation status
 
-| Capability | Phase 2A prototype | Phase 2B target |
-|---|---|---|
-| Section grammar | Present | Match template composition visually |
-| Hero | Structural proof skeleton | Real image/video plus dashboard treatment |
-| Logo | Placeholder | Import/select approved logo reference |
-| Photography | Placeholder | Use assigned authentic assets |
-| Dashboards | Structural placeholder | Real approved screenshots or labelled demo surfaces |
-| Calculators | Adapter prepared, URL unset | Visible entry points; functional wiring later |
-| Motion | Basic reveal | Full motion track with reduced-motion path |
-| CRO | Provisional | Intent-specific CTA and micro-conversion hierarchy |
-| SEO/GEO | Preview scaffolding | Production-ready implementation after approval |
+| Capability      | Phase 2A prototype          | Phase 2B target                                     |
+| --------------- | --------------------------- | --------------------------------------------------- |
+| Section grammar | Present                     | Match template composition visually                 |
+| Hero            | Structural proof skeleton   | Real image/video plus dashboard treatment           |
+| Logo            | Placeholder                 | Import/select approved logo reference               |
+| Photography     | Placeholder                 | Use assigned authentic assets                       |
+| Dashboards      | Structural placeholder      | Real approved screenshots or labelled demo surfaces |
+| Calculators     | Adapter prepared, URL unset | Visible entry points; functional wiring later       |
+| Motion          | Basic reveal                | Full motion track with reduced-motion path          |
+| CRO             | Provisional                 | Intent-specific CTA and micro-conversion hierarchy  |
+| SEO/GEO         | Preview scaffolding         | Production-ready implementation after approval      |
 
 ## 10. Human gate
 

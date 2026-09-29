@@ -1,0 +1,735 @@
+{
+  "generatedAt": "2026-09-29T07:42:48.206Z",
+  "results": [
+    {
+      "route": "/preview/home",
+      "width": 320,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/home",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/home",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1024,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/home",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "desktop",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/home",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "expanded": "true",
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 320,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/property-purchase",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 390,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/property-purchase",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1024,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/property-purchase",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1440,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "desktop",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/property-purchase",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "expanded": "true",
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/investment",
+      "width": 320,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/investment",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/investment",
+      "width": 390,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/investment",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1024,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/investment",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1440,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "desktop",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/investment",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "expanded": "true",
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 320,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/tax-advisory",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 390,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/tax-advisory",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1024,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/tax-advisory",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1440,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "desktop",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/tax-advisory",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "expanded": "true",
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/team",
+      "width": 320,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/team",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/team",
+      "width": 390,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/team",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/team",
+      "width": 1024,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "mobile",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/team",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "firstWasFocused": true,
+        "shiftTabWrapped": true,
+        "undersized": [],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/team",
+      "width": 1440,
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "unexpectedFailedRequests": [],
+      "assetErrors": [],
+      "h1Count": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "previewBanner": true,
+      "brokenAnchors": [],
+      "navigation": {
+        "mode": "desktop",
+        "navHrefs": [
+          "/preview/home",
+          "/preview/property-purchase",
+          "/preview/investment",
+          "/preview/tax-advisory",
+          "/preview/team"
+        ],
+        "current": "/preview/team",
+        "toolHrefs": [
+          "https://sarah-katerina-buyer-system.vercel.app/",
+          "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+        ],
+        "expanded": "true",
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
-**Last updated:** 2026-09-28  
+**Last updated:** 2026-09-29
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION  
 **Visual state:** the four `/preview` routes approved visually by Juanma on 2026-09-28 — **not** a production approval
 
@@ -16,21 +16,23 @@ OCTUBRE/`), not a date. The entry below is re-dated accordingly.
 
 ## Phases
 
-| Phase                                            | Scope                                                                                                                                   | State                                                                  |
-| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 1 — Technical foundation                         | Tokens, components, chrome, SEO scaffolding, analytics contract, CI                                                                     | **MERGED** (PR #1)                                                     |
-| 2A — Structural prototype                        | Investment landing grammar, claims classification, Buyer System boundary                                                                | **MERGED**                                                             |
-| 2 — Visual governance                            | Decision gate, implementation contract, asset manifest                                                                                  | **MERGED**                                                             |
-| 2B/2C — Investment visual implementation         | Template-led composition, approved palette, governed assets, shared web layer and visual review                                         | **MERGED — CANONICAL VISUAL BASE**                                     |
-| 2D — Tax Advisory convergence                    | Tax Advisory adapted to Investment's canonical visual layer                                                                             | **MERGED — VISUAL BASE READY**                                         |
-| 2D — Property Purchase convergence               | Property Purchase adapted to Investment's canonical visual layer                                                                        | **MERGED — VISUAL BASE READY** (PR #8)                                 |
-| Team editorial preview                           | `/preview/team`: buyer-side roles, process and owner stage                                                                              | **MERGED** (PR #19, 2026-09-22)                                        |
-| 2E — Premium media, motion and visual refinement | Media/crop pass; premium experience (motion system, art-direction crops, header orientation, signature moments); visual content upgrade | **MERGED** (PR #16 and #17, 2026-09-22; PR #21, 2026-09-23)            |
-| 2F — Approved imagery and hero videos            | Case imagery, scroll-scrubbed hero videos, territory map film, fabric banner, consolidated review                                       | **MERGED** (PR #23–#28, 2026-09-24) — visual state approved 2026-09-28 |
-| 2G — Connected service journey                   | Shared journey band, Good-idea film (play-once), Buyer System placements                                                                | **MERGED** (PR #29, 2026-09-24) — visual state approved 2026-09-28     |
-| 2H — Sarah's review of the four landings         | Hero films without scroll (Investment, Purchase), calculator first (Tax, Purchase), review copy as proposals, Team simplification       | **CLOSED** (PR #30) — visual state approved 2026-09-28                 |
-| 3 — Buyer System integration                     | Events, consent, lead-capture decision and approved public destinations                                                                 | Blocked on upstream decisions (B-01: production URL)                   |
-| 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                  | Later                                                                  |
+| Phase                                            | Scope                                                                                                                                                                    | State                                                                                                                                                                    |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1 — Technical foundation                         | Tokens, components, chrome, SEO scaffolding, analytics contract, CI                                                                                                      | **MERGED** (PR #1)                                                                                                                                                       |
+| 2A — Structural prototype                        | Investment landing grammar, claims classification, Buyer System boundary                                                                                                 | **MERGED**                                                                                                                                                               |
+| 2 — Visual governance                            | Decision gate, implementation contract, asset manifest                                                                                                                   | **MERGED**                                                                                                                                                               |
+| 2B/2C — Investment visual implementation         | Template-led composition, approved palette, governed assets, shared web layer and visual review                                                                          | **MERGED — CANONICAL VISUAL BASE**                                                                                                                                       |
+| 2D — Tax Advisory convergence                    | Tax Advisory adapted to Investment's canonical visual layer                                                                                                              | **MERGED — VISUAL BASE READY**                                                                                                                                           |
+| 2D — Property Purchase convergence               | Property Purchase adapted to Investment's canonical visual layer                                                                                                         | **MERGED — VISUAL BASE READY** (PR #8)                                                                                                                                   |
+| Team editorial preview                           | `/preview/team`: buyer-side roles, process and owner stage                                                                                                               | **MERGED** (PR #19, 2026-09-22)                                                                                                                                          |
+| 2E — Premium media, motion and visual refinement | Media/crop pass; premium experience (motion system, art-direction crops, header orientation, signature moments); visual content upgrade                                  | **MERGED** (PR #16 and #17, 2026-09-22; PR #21, 2026-09-23)                                                                                                              |
+| 2F — Approved imagery and hero videos            | Case imagery, scroll-scrubbed hero videos, territory map film, fabric banner, consolidated review                                                                        | **MERGED** (PR #23–#28, 2026-09-24) — visual state approved 2026-09-28                                                                                                   |
+| 2G — Connected service journey                   | Shared journey band, Good-idea film (play-once), Buyer System placements                                                                                                 | **MERGED** (PR #29, 2026-09-24) — visual state approved 2026-09-28                                                                                                       |
+| 2H — Sarah's review of the four landings         | Hero films without scroll (Investment, Purchase), calculator first (Tax, Purchase), review copy as proposals, Team simplification                                        | **CLOSED** (PR #30) — visual state approved 2026-09-28                                                                                                                   |
+| Home preview + Buyer System links                | `/preview/home`: "What brings you to Spain?" discovery, three service chapters, named testimonials, Team authority block, verified Purchase Tax / Real Cash Needed links | **VISUALLY APPROVED BY JUANMA 2026-09-29** — in PR (`feat/home-service-discovery-reviewed`); testimonials authorised by Juanma; new copy still proposal; Preview/noindex |
+| Unified preview navigation                       | Home + four landings share direct routes, route state, mobile menu and governed `Buyer Tools` chooser; preview strips remain page-specific                               | **APPROVED 2026-09-29** — shipped in the same PR as the Home                                                                                                             |
+| 3 — Buyer System integration                     | Verified links, restricted-tool approvals, events, consent and lead-capture decision                                                                                     | **PARTLY CONNECTED** — Asking Price, Tax Exposure and capture remain gated                                                                                               |
+| 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                                                   | Later                                                                                                                                                                    |
 
 **Visual approval (2026-09-28).** Juanma visually approved the present state of the four `/preview` landings — Investment, Tax Advisory, Property Purchase and Team — on **2026-09-28**. That approval is visual only: it is not approval for production, the domain, DNS, migration, indexation or publication, and it resolves none of the open asset, evidence, permission, tax/legal review, rights or decision items (`docs/phase-2h-juanma-review.md` §10.4).
 
@@ -48,6 +50,7 @@ Final content HEAD of PR #30: `6b584e6`, GitHub Actions run **36456057344 — su
 | `/preview/tax-advisory`      | Tax Advisory visual base adapted to Investment       | No — ever, while under `/preview` |
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment  | No — ever, while under `/preview` |
 | `/preview/team`              | Editorial team page for buyer-side roles and process | No — ever, while under `/preview` |
+| `/preview/home`              | Home composition and Buyer System hub preview        | No — ever, while under `/preview` |
 
 Juanma approved **Investment, Tax Advisory and Property Purchase** as visual
 bases for continued implementation (2026-09-21), and on 2026-09-28 approved the
@@ -77,11 +80,12 @@ One shared website layer serves all four `/preview` routes:
 Production decisions remain open in `docs/phase-2-decision-gate.md` and the
 landing-specific visual decision documents. The decisions raised by Juanma's
 review (hero playback on Tax, headlines, palette, gold, compositions, scope
-wording, case evidence, voice-over, photographs, Buyer System URL) are listed
+wording, case evidence, voice-over, photographs and restricted Buyer System tools) are listed
 with owners in `docs/phase-2h-juanma-review.md` §8.
 
-The visual bases are approved for continuation, but the following still require
-Juanma's review before they are treated as final:
+The four previously reviewed visual bases and the Home (2026-09-29) are visually
+approved for continuation. The following still require review before they are
+treated as final:
 
 - selected photographs and videos, their provenance, slot assignment, crop and
   retouch — including the authority portrait and the team photographs (2H,
@@ -89,14 +93,56 @@ Juanma's review before they are treated as final:
 - final logo treatment on light and dark surfaces;
 - replacement of schematic or illustrative placeholders where an authentic
   asset is available;
-- final CTA destinations, Buyer System origin and any functional capture;
-- legal entity, contact details, testimonials, cases, prices, timelines and
-  other claims;
+- final CTA destinations and any functional capture;
+- Asking Price public linking; the verified Buyer System origin now enables
+  Purchase Tax and Real Cash Needed only;
+- legal entity, contact details, cases, prices, timelines and other claims
+  (the three Home testimonials are authorised by Juanma; their tax/return
+  figures still need the AGENTS.md §11 review before launch);
 - production host, indexation, accessibility/performance and migration gates.
 
 ## Current handoff
 
 Most recent first.
+
+**2026-09-29 (evening) — Home service discovery pass, Juanma's precedence
+instruction; visually approved by Juanma the same day.** "What brings you to Spain?"
+(three needs, one fabric banner on the new shared `FabricStage`, Buyer Voices
+unchanged); Team moved to an authority block after the voices; strike-through
+removed from the gold thread; editorial reveal on three statements; hero
+entrance removed for LCP. Testimonials published with names — **Juanma
+confirmed client authorisation 2026-09-29** (strategic repo's C-08/SK-028 not
+modified). Visible preview/review wording removed from the Home only; noindex,
+`/preview` route and sitemap exclusion unchanged. Lighthouse mobile
+(simulate, ×5): perf 87 → 91, LCP 3.92 → 3.23 s, CLS 0.022 → 0; devtools
+throttling ×3: LCP 2.35 s. Record: `docs/home-buyer-system-preview.md` §0.
+Published for review as branch `feat/home-service-discovery-reviewed` (PR
+against `main`, supersedes PR #31 for the Home). Not merged, not deployed, not
+production.
+
+**2026-09-29 (later) — "Advisory thread" creative pass on the Home,
+uncommitted on `feat/preview-home-buyer-tools`.** One gold thread runs from the
+promise to the next step (native scroll-driven CSS, full fallbacks); new "one
+side of the table" statement restating the confirmed independence decision;
+four differentiated chapter compositions; hero route index; client voices
+rendered verbatim (their anonymised preview-only treatment was superseded the
+same evening by Juanma's authorisation — see the entry above). 25/25 route×width cases clean; Lighthouse
+mobile Home 86/100/100 (SEO 69 by noindex). Record:
+`docs/home-buyer-system-preview.md` §§2, 3, 8–9.1. Superseded by the entry
+above.
+
+**2026-09-29 — Premium editorial Home pass implemented locally on
+`feat/preview-home-buyer-tools`.** The earlier card/band sequence is replaced
+by four distinct visual chapters in the approved order: Property Purchase,
+Investment, Tax Advisory and Team. The hero film, unified navigation and two
+verified Buyer System entry points remain governed as before. Isolated under
+`/preview/home` (superseded by the evening entry above).
+
+**2026-09-28 — Home preview and verified Buyer System links implemented on
+`feat/preview-home-buyer-tools`.** `/preview/home` does not replace `/`
+(first version; the visually approved one is the evening entry above). Purchase Tax and Real Cash Needed link
+to the verified upstream production origin; Asking Price and Tax Exposure stay
+gated. Record: [`docs/home-buyer-system-preview.md`](docs/home-buyer-system-preview.md).
 
 **2026-09-28 — Phase 2H closed (PR #30): Sarah's review of the four landings,
 relayed by Juanma.** Juanma approved the present visual state of the four
@@ -138,8 +184,10 @@ reviewed by Juanma before merge.
 - **PR #29** — Phase 2G connected service journey. Merge commit `edc47f0` (2026-09-24).
 - **PR #30** — Phase 2H, Sarah's review of the four landings; closed 2026-09-28 (merge commit in the git history of `main`).
 
-All of it remains preview-only: no production publication, custom domain, DNS,
-indexation or Buyer System connection was enabled.
+All of it remains preview-only: no production publication, custom domain, DNS
+or indexation was enabled. On this branch, outbound links to two verified Buyer
+System experiences are enabled; no calculator code, inputs or results were
+integrated into this repository.
 
 ## Analytics status (2026-09-23)
 

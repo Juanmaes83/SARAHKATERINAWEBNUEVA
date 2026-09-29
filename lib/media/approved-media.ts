@@ -167,6 +167,59 @@ export const APPROVED_MEDIA = {
     note: 'Preview-only source-sized image selected by the owner as the shared authority visual for Investment, Tax Advisory and Property Purchase; create a clean optimised derivative before production.',
   }),
 
+  /**
+   * Home authority portrait supplied on `main` after this feature branch was
+   * created. Sarah approved the image, including its embedded typography, for
+   * the Home. The served WebP is a compression-only derivative: no grading,
+   * retouching, crop or facial alteration is applied.
+   */
+  homeAuthority: media({
+    id: 'home-sarah-authority',
+    src: '/media/home-sarah-authority.webp',
+    width: 1122,
+    height: 1402,
+    alt: 'Sarah Katerina seated at a desk in a warmly lit office, with books and framed brand messages around her.',
+    focal: '50% 50%',
+    source: 'IMAGES/Sarah home_1.png',
+    embeddedText:
+      'Sarah Katerina; Ideas / People / Real Impact; Good Ideas Change Lives; A Calmer Brighter Stronger You; Leadership; A More Human Business; The Next Chapter.',
+    note: 'Approved by Sarah for the Home, including embedded text, as communicated by Juanma on 2026-09-29. Original on main at d7b24eda176bdd78d7ad827c5f34248594734515; source SHA-256 60CC3A7AF92C22D6A0B7380B589B2E85E9D47B674A0E2693BD94DA832E6BCFF7. Preview placement only; publication remains gated by the Home review.',
+  }),
+
+  /* --- Home service discovery (owner-proposed, 2026-09-29) --------------
+   * Proposed by the owner to humanise the Home. Both are treated as
+   * illustrative/generated: no generation or model-release record exists.
+   * They illustrate a need in the service banner only; neither is ever
+   * placed beside a testimonial or presented as a client or a property.
+   */
+  homeDiscoveryBuy: media({
+    id: 'home-discovery-buy',
+    src: '/media/graded/home-discovery-buy.webp',
+    ungradedSrc: '/media/home-discovery-buy.webp',
+    grade: 'sk-editorial-v1',
+    width: 1672,
+    height: 941,
+    alt: 'An editorial advisory scene: an adviser points to a floor plan while a couple on either side follows the page.',
+    focal: '50% 45%',
+    source: 'IMAGES/HOME 29 SEPTIEMBRE/ChatGPT Image 23 sept 2026, 18_49_02.png',
+    note: 'Owner-supplied 2026-09-29 (Downloads, created 2026-09-23); byte-identical copy, SHA-256 3C10EDCF60A548FE…. Generated editorial scene; generation method, likeness and model release are not recorded — confirm before production. Slot: Home service banner · "I want to buy a home" only. The couple is not presented as clients. Chosen over the near-identical 18_33_36 and 18_43_20 (= SARAH ASESORA CLIENTE 2, already advisorClientTwo on Investment) so the scene appears once.',
+    illustrative: true,
+  }),
+
+  homeDiscoveryInvest: media({
+    id: 'home-discovery-invest',
+    src: '/media/graded/home-discovery-invest.webp',
+    ungradedSrc: '/media/home-discovery-invest.webp',
+    grade: 'sk-editorial-v1',
+    width: 1094,
+    height: 871,
+    alt: 'An illustrative view of a terraced residential development with pools and gardens on a hillside.',
+    focal: '50% 55%',
+    source: 'IMAGES/HOME 29 SEPTIEMBRE/01.webp',
+    note: 'Owner-supplied 2026-09-29 as "01.webp" (Downloads, created 2026-09-23 with the owner image batch); byte-identical copy, SHA-256 FBEA1F4123E13315…. Not the unrelated Codrops demo file of the same name. Treated as generated/illustrative; provenance and rights are not recorded — confirm before production. Slot: Home service banner · "I want to invest" only. Not a specific asset, project or opportunity.',
+    illustrative: true,
+  }),
+
   /* --- asset types / property ------------------------------------------- */
 
   assetResidential: media({

@@ -51,27 +51,6 @@ export const seo = {
 } as const;
 
 /* ===========================================================================
- * 1. HEADER
- *
- * In-page anchors only. The template's navbar (Inicio / Servicios / Quién soy
- * / Proceso / Recursos / Contacto) is a proposed public IA; public navigation
- * is PENDING_APPROVAL and none of those routes exists.
- * ======================================================================== */
-
-export const nav = [
-  { href: '#top', label: 'Home' },
-  { href: '#services', label: 'Services' },
-  { href: '#calendar', label: 'Tax calendar' },
-  { href: '#process', label: 'Process' },
-  { href: '#sarah', label: 'About Sarah' },
-  { href: '#report', label: 'Report' },
-  { href: '#contact', label: 'Contact' },
-] as const;
-
-/** Template: "HABLAR CON SARAH". */
-export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE });
-
-/* ===========================================================================
  * 2. HERO
  * ======================================================================== */
 

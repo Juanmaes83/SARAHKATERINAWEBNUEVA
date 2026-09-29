@@ -117,6 +117,16 @@
     "webKB": 1564
   },
   {
+    "id": "home-sarah-authority",
+    "source": "IMAGES/Sarah home_1.png",
+    "original": "1122x1402",
+    "web": "1122x1402",
+    "cropped": false,
+    "originalKB": 1778,
+    "webKB": 126,
+    "note": "Sarah-approved Home image and embedded text. Compression-only WebP: no resize, grade, crop, retouch or facial alteration. Original remains on main."
+  },
+  {
     "id": "purchase-final-contact",
     "source": "sarahkaterina_Contacto.png",
     "original": "1376x768",
@@ -252,5 +262,23 @@
     "cropped": false,
     "originalKB": 1987,
     "webKB": 117
+  },
+  {
+    "id": "home-discovery-buy",
+    "source": "IMAGES/HOME 29 SEPTIEMBRE/ChatGPT Image 23 sept 2026, 18_49_02.png",
+    "original": "1672x941",
+    "web": "1672x941",
+    "cropped": false,
+    "originalKB": 2021,
+    "webKB": 152
+  },
+  {
+    "id": "home-discovery-invest",
+    "source": "IMAGES/HOME 29 SEPTIEMBRE/01.webp",
+    "original": "1094x871",
+    "web": "1094x871",
+    "cropped": false,
+    "originalKB": 130,
+    "webKB": 148
   }
 ]

@@ -1,0 +1,297 @@
+/* ===========================================================================
+ * Home · What brings you to Spain? — tokens only.
+ *
+ * Mobile first: title, the three needs, the banner, then the next step. On
+ * desktop widths the needs sit beside the banner. The banner reuses the Buyer Voices
+ * stage (rod, overhanging canvas, fallback); only the composition is Home's.
+ * =========================================================================== */
+
+.discovery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+}
+
+.needs {
+  display: grid;
+  gap: var(--sk-space-16);
+  align-content: start;
+}
+
+.eyebrow,
+.label {
+  margin: 0;
+  color: var(--sk-web-gold-strong);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: var(--sk-web-measure-lead);
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  line-height: var(--sk-type-lead-line-height);
+}
+
+/* --- the three needs ---------------------------------------------------- */
+
+.list {
+  display: grid;
+  margin: var(--sk-space-8) 0 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.need {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--sk-space-32) minmax(0, 1fr);
+  gap: var(--sk-space-8);
+  align-items: baseline;
+  width: 100%;
+  min-height: var(--sk-layout-touch-target-min);
+  margin: 0;
+  padding: var(--sk-space-16) var(--sk-space-16) var(--sk-space-16) var(--sk-space-24);
+  border: 0;
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background-color: transparent;
+  color: var(--sk-web-muted);
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--sk-web-motion-quick) var(--sk-web-motion-ease),
+    color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+/* The selected need carries the thread's gold on its edge. */
+.need::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: var(--sk-border-accent-width);
+  background-color: var(--sk-web-gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--sk-web-motion-reveal) var(--sk-web-motion-ease);
+}
+
+.need:hover {
+  color: var(--sk-web-ink);
+}
+
+.need:hover::before {
+  transform: scaleY(0.35);
+}
+
+.need[aria-selected='true'] {
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-ink);
+}
+
+.need[aria-selected='true']::before {
+  transform: scaleY(1);
+}
+
+.needIndex {
+  color: var(--sk-web-gold-strong);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-semibold);
+}
+
+.needText {
+  display: grid;
+  gap: var(--sk-space-4);
+}
+
+.needLine {
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-quote-size);
+  font-weight: var(--sk-font-weight-regular);
+  line-height: var(--sk-type-h2-line-height);
+}
+
+.needService {
+  color: var(--sk-web-muted);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+/* --- the banner --------------------------------------------------------- */
+
+.panel {
+  display: grid;
+  gap: 0;
+  min-width: 0;
+}
+
+.stage {
+  width: 100%;
+  max-width: calc(var(--sk-space-80) * 8);
+  justify-self: center;
+}
+
+.composition {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 6 / 7;
+  padding: var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  background-color: var(--sk-web-white);
+  color: var(--sk-web-ink);
+  box-shadow: var(--sk-web-shadow-float);
+  transition: opacity var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.swap {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--sk-space-8);
+}
+
+.photo {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  margin-block-end: var(--sk-space-8);
+  background-color: var(--sk-web-ivory-soft);
+}
+
+.photoImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoNote {
+  position: absolute;
+  inset-block-end: var(--sk-space-8);
+  inset-inline-start: var(--sk-space-8);
+  padding: var(--sk-space-4) var(--sk-space-8);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.proposition {
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-quote-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+  text-wrap: balance;
+}
+
+.support {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-block-start: auto;
+  padding-block-start: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.logo {
+  display: block;
+  width: calc(var(--sk-space-80) + var(--sk-space-32));
+  height: auto;
+}
+
+.next {
+  display: grid;
+  gap: var(--sk-space-8);
+  justify-items: start;
+}
+
+.hint {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+}
+
+.hintHidden {
+  visibility: hidden;
+}
+
+/* A new state arrives as a brief cross-fade in the HTML composition (the
+   fallback); when the cloth is live it is the gust that carries the change. */
+@media (prefers-reduced-motion: no-preference) {
+  .swap {
+    animation: home-swap var(--sk-web-motion-reveal) var(--sk-web-motion-ease) backwards;
+  }
+}
+
+@keyframes home-swap {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .composition {
+    padding: var(--sk-space-32);
+  }
+}
+
+@media (min-width: 1024px) {
+  .discovery {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: var(--sk-space-64);
+    align-items: center;
+  }
+
+  .next {
+    justify-self: center;
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .need,
+  .need::before,
+  .composition {
+    transition: none;
+  }
+}

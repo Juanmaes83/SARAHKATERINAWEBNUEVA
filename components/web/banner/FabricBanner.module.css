@@ -258,13 +258,15 @@
   visibility: visible;
 }
 
-.stage[data-mode='fabric'] .composition {
+/* Any composition hung on the stage (Buyer Voices, the Home service banner)
+ * steps back once the cloth has taken its place. */
+.stage[data-mode='fabric'] [data-fabric-surface] {
   opacity: 0;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .composition {
+  .stage [data-fabric-surface] {
     transition: none;
   }
 }

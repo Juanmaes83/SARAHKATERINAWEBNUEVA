@@ -1,0 +1,553 @@
+{
+  "date": "2026-09-29",
+  "scope": "Home service discovery + fabric banner + editorial reveal; regression of four landings and Buyer Voices",
+  "servers": {
+    "visualQA": "next dev :3001 (user process, untouched)",
+    "lighthouse": "isolated production build (scratchpad copy, own .next), next start :3305"
+  },
+  "sweep": [
+    {
+      "route": "/preview/home",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 12048
+    },
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 10995
+    },
+    {
+      "route": "/preview/home",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 9243
+    },
+    {
+      "route": "/preview/home",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 8107
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 8978
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 24610
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 22714
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 20922
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 13450
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 14060
+    },
+    {
+      "route": "/preview/investment",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 25100
+    },
+    {
+      "route": "/preview/investment",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 23099
+    },
+    {
+      "route": "/preview/investment",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 19770
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 13551
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 14262
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 23079
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 21072
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 17900
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 12043
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 12345
+    },
+    {
+      "route": "/preview/team",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 17021
+    },
+    {
+      "route": "/preview/team",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 14575
+    },
+    {
+      "route": "/preview/team",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 10697
+    },
+    {
+      "route": "/preview/team",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 9435
+    },
+    {
+      "route": "/preview/team",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 9926
+    }
+  ],
+  "accessibilityAndFallbacks": {
+    "reducedMotion": {
+      "hiddenTextNodes": 0,
+      "threads": 12,
+      "undrawnThreads": 0,
+      "strikes": [],
+      "videoPreload": "none",
+      "videoPaused": true,
+      "videoRequests": 0
+    },
+    "noJs": {
+      "h1": "Clarity before commitment.",
+      "chapters": 3,
+      "quotes": 3,
+      "toolLinks": [
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "poster": true,
+      "hiddenByOpacity": 4
+    },
+    "keyboard": {
+      "stops": [
+        "A Skip to content -> #main [solid 2px]",
+        "A  -> /preview/home [solid 2px]",
+        "A Home -> /preview/home [solid 2px]",
+        "A Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A Investment -> /preview/investment [solid 2px]",
+        "A Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A Team -> /preview/team [solid 2px]",
+        "BUTTON Buyer Tools→ ->  [solid 2px]",
+        "A Find your starting point→ -> #services [solid 2px]",
+        "A Use Buyer Tools -> #tools [solid 2px]",
+        "BUTTON Pause the Home film ->  [solid 2px]",
+        "BUTTON 01I want to buy a home.Property Purchase ->  [solid 2px]",
+        "DIV Editorial illustration01 · Property Purcha ->  [solid 2px]",
+        "A Start with Property Purchase→ -> /preview/property-purchase [solid 2px]",
+        "A Explore Property Purchase→ -> /preview/property-purchase [solid 2px]",
+        "A Explore Investment→ -> /preview/investment [solid 2px]",
+        "A Explore Tax Advisory→ -> /preview/tax-advisory [solid 2px]",
+        "A Meet the team→ -> /preview/team [solid 2px]",
+        "A Open purchase tax (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/ [solid 2px]",
+        "A Open real cash needed (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/real-cash-needed [solid 2px]",
+        "BUTTON Which service should I start with? ->  [solid 2px]",
+        "BUTTON Can I use the tools before choosing a serv ->  [solid 2px]",
+        "BUTTON Does Sarah replace my lawyer or other spec ->  [solid 2px]",
+        "A Choose your starting point→ -> #services [solid 2px]",
+        "A Use Buyer Tools -> #tools [solid 2px]",
+        "A Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A Investment -> /preview/investment [solid 2px]",
+        "A Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A Meet the team -> /preview/team [solid 2px]",
+        "A Choose where to start -> #services [solid 2px]",
+        "A How decisions move -> #process [solid 2px]",
+        "A In their words -> #voices [solid 2px]",
+        "A Sarah Katerina -> #sarah [solid 2px]",
+        "A Frequently asked questions -> #faq [solid 2px]",
+        "A Purchase Tax -> https://sarah-katerina-buyer-system.vercel.app/ [solid 2px]",
+        "A Real Cash Needed -> https://sarah-katerina-buyer-system.vercel.app/real-cash-needed [solid 2px]",
+        "NEXTJS-PORTAL  ->  [none 3px]",
+        "A Skip to content -> #main [solid 2px]",
+        "A  -> /preview/home [solid 2px]",
+        "A Home -> /preview/home [solid 2px]",
+        "A Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A Investment -> /preview/investment [solid 2px]",
+        "A Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A Team -> /preview/team [solid 2px]",
+        "BUTTON Buyer Tools→ ->  [solid 2px]",
+        "A Find your starting point→ -> #services [solid 2px]",
+        "A Use Buyer Tools -> #tools [solid 2px]",
+        "BUTTON Pause the Home film ->  [solid 2px]",
+        "BUTTON 01I want to buy a home.Property Purchase ->  [solid 2px]",
+        "DIV Editorial illustration01 · Property Purcha ->  [solid 2px]",
+        "A Start with Property Purchase→ -> /preview/property-purchase [solid 2px]",
+        "A Explore Property Purchase→ -> /preview/property-purchase [solid 2px]",
+        "A Explore Investment→ -> /preview/investment [solid 2px]",
+        "A Explore Tax Advisory→ -> /preview/tax-advisory [solid 2px]",
+        "A Meet the team→ -> /preview/team [solid 2px]",
+        "A Open purchase tax (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/ [solid 2px]",
+        "A Open real cash needed (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/real-cash-needed [solid 2px]",
+        "BUTTON Which service should I start with? ->  [solid 2px]",
+        "BUTTON Can I use the tools before choosing a serv ->  [solid 2px]"
+      ],
+      "mediaLinksFocusable": 0,
+      "noOutline": 1
+    }
+  },
+  "banner": {
+    "motion-1440": {
+      "states": [
+        {
+          "selected": "01\nI want to buy a home.\nPROPERTY PURCHASE",
+          "cta": "/preview/property-purchase",
+          "ctaText": "START WITH PROPERTY PURCHASE\n→",
+          "logoInComposition": 1,
+          "settledStill": true
+        },
+        {
+          "selected": "02\nI want to invest.\nINVESTMENT",
+          "cta": "/preview/investment",
+          "ctaText": "START WITH INVESTMENT\n→",
+          "logoInComposition": 1,
+          "settledStill": true
+        },
+        {
+          "selected": "03\nI need tax clarity.\nTAX ADVISORY",
+          "cta": "/preview/tax-advisory",
+          "ctaText": "START WITH TAX ADVISORY\n→",
+          "logoInComposition": 1,
+          "settledStill": true
+        }
+      ],
+      "mode": "fabric",
+      "tabs": 3,
+      "keyboard": {
+        "afterDown": "true|02I want to invest.Investment",
+        "afterEnd": "03I need tax clarity.Tax Advisory",
+        "afterHome": "01I want to buy a home.Property Purchase"
+      },
+      "canvasesOnPage": 1,
+      "rapidFinalSelected": "03\nI need tax clarity.\nTAX ADVISORY",
+      "wheelScrolledPage": true,
+      "errors": []
+    },
+    "motion-390": {
+      "states": [
+        {
+          "selected": "01\nI want to buy a home.\nPROPERTY PURCHASE",
+          "cta": "/preview/property-purchase",
+          "ctaText": "START WITH PROPERTY PURCHASE\n→",
+          "logoInComposition": 1,
+          "settledStill": true
+        },
+        {
+          "selected": "02\nI want to invest.\nINVESTMENT",
+          "cta": "/preview/investment",
+          "ctaText": "START WITH INVESTMENT\n→",
+          "logoInComposition": 1,
+          "settledStill": true
+        },
+        {
+          "selected": "03\nI need tax clarity.\nTAX ADVISORY",
+          "cta": "/preview/tax-advisory",
+          "ctaText": "START WITH TAX ADVISORY\n→",
+          "logoInComposition": 1,
+          "settledStill": true
+        }
+      ],
+      "mode": "fabric",
+      "tabs": 3,
+      "keyboard": {
+        "afterDown": "true|02I want to invest.Investment",
+        "afterEnd": "03I need tax clarity.Tax Advisory",
+        "afterHome": "01I want to buy a home.Property Purchase"
+      },
+      "canvasesOnPage": 1,
+      "rapidFinalSelected": "03\nI need tax clarity.\nTAX ADVISORY",
+      "wheelScrolledPage": true,
+      "errors": []
+    },
+    "webglDisabled": {
+      "mode": "static",
+      "compositionOpacity": "1",
+      "selectedAfterClick": "03\nI need tax clarity.\nTAX ADVISORY",
+      "cta": "/preview/tax-advisory",
+      "errors": []
+    },
+    "reducedMotion": {
+      "mode": "static",
+      "tabs": 3,
+      "errors": []
+    },
+    "noJs": {
+      "needLinks": [
+        "01I want to buy a home.Property Purchase -> /preview/property-purchase",
+        "02I want to invest.Investment -> /preview/investment",
+        "03I need tax clarity.Tax Advisory -> /preview/tax-advisory"
+      ],
+      "proposition": "Buy with peace of mind: we coordinate every step.",
+      "cta": 4
+    },
+    "buyerVoices": {
+      "modeBefore": "fabric",
+      "tabs": 3,
+      "selected": "02\nProblematic clause renegotiated\nOutcome withheld until the facts and client permission are verified.\nPREVIEW · CONTENT PENDING",
+      "stillMovingLikeBefore": true,
+      "pauseButton": 1,
+      "video": 1,
+      "errors": []
+    }
+  },
+  "lighthouse": {
+    "config": "Lighthouse 13.5.0, --form-factor=mobile, screen 412x823 @1.75 (Moto G Power UA), headless Chrome stable; simulate = 150 ms RTT, 1638.4 kbps, 4x CPU (Lighthouse default); devtools = same values applied as real throttling. Route /preview/home.",
+    "before_simulate_x5": {
+      "perf": 87,
+      "fcp": 1808,
+      "lcp": 3921,
+      "tbt": 49,
+      "cls": 0.022,
+      "si": 1808
+    },
+    "after_entranceRemoved_simulate_x5": {
+      "perf": 92,
+      "fcp": 1957,
+      "lcp": 3139,
+      "tbt": 2,
+      "cls": 0.0,
+      "si": 1957
+    },
+    "experiment_inlineCss_simulate_x5_REJECTED": {
+      "perf": 92,
+      "fcp": 1655,
+      "lcp": 3211,
+      "tbt": 28,
+      "cls": 0.0,
+      "si": 1655
+    },
+    "final_simulate_x5": {
+      "perf": 91,
+      "fcp": 1808,
+      "lcp": 3230,
+      "tbt": 34,
+      "cls": 0.0,
+      "si": 1808
+    },
+    "final_devtools_x3": {
+      "perf": 95,
+      "fcp": 2353,
+      "lcp": 2353,
+      "tbt": 47,
+      "cls": 0.0,
+      "si": 3128
+    },
+    "reference_investment_devtools_x3": {
+      "perf": 91,
+      "fcp": 2343,
+      "lcp": 2993,
+      "tbt": 89,
+      "cls": 0.0,
+      "si": 2485
+    },
+    "note": "Lab data only, not field Core Web Vitals. SEO 69 = is-crawlable fails by design (noindex)."
+  }
+}

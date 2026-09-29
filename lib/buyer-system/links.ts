@@ -6,13 +6,13 @@
  * Rules enforced here:
  *   - no Buyer System code is copied, vendored or reimplemented;
  *   - no tax figure, rate, formula or result is ever produced on this side;
- *   - the base URL is never invented — it comes from the environment;
+ *   - the base URL is verified upstream, with an environment override;
  *   - each experience carries its real upstream status.
  */
 
 /** Availability, mirroring the upstream roadmap status. */
 export type ExperienceAvailability =
-  /** Live upstream and linkable once a base URL is approved. */
+  /** Live upstream and linkable through the verified production origin. */
   | 'live'
   /** Upstream status `NEXT — LIMITED GO`: production needs Sarah + legal review. */
   | 'limited-go'
@@ -76,8 +76,7 @@ export const BUYER_SYSTEM_EXPERIENCES = {
     path: null,
     availability: 'not-built',
     scope: 'Would cover recurring non-resident obligations such as Modelo 210.',
-    blockedReason:
-      'No such experience exists in the Buyer System. It has not been commissioned.',
+    blockedReason: 'No such experience exists in the Buyer System. It has not been commissioned.',
   },
   // `satisfies` rather than a type annotation: it validates every entry while
   // keeping the keys literal, so a lookup cannot be undefined.
@@ -86,15 +85,17 @@ export const BUYER_SYSTEM_EXPERIENCES = {
 export type BuyerSystemExperienceKey = keyof typeof BUYER_SYSTEM_EXPERIENCES;
 
 /**
- * Base origin of the deployed Buyer System.
+ * Verified public origin of the deployed Buyer System.
  *
- * Deliberately unset by default. The production URL is not confirmed in any
- * document this repository may rely on, and inventing one would be a fabricated
- * fact. Unset means every entry point renders as PENDING_APPROVAL.
+ * Confirmed on 2026-09-28 from the upstream repository's homepage metadata,
+ * its successful GitHub Production deployment for `main` at `c197ed2`, and
+ * direct HTTP 200 checks of the two linkable routes. The environment variable
+ * remains an explicit override for controlled preview environments.
  */
+export const VERIFIED_BUYER_SYSTEM_ORIGIN = 'https://sarah-katerina-buyer-system.vercel.app';
+
 function baseUrl(): string | null {
-  const raw = process.env.NEXT_PUBLIC_BUYER_SYSTEM_URL;
-  if (!raw) return null;
+  const raw = process.env.NEXT_PUBLIC_BUYER_SYSTEM_URL || VERIFIED_BUYER_SYSTEM_ORIGIN;
   try {
     return new URL(raw).origin;
   } catch {
@@ -116,7 +117,7 @@ export interface ResolvedEntryPoint {
 /**
  * Resolves an entry point for rendering.
  *
- * Fails closed: any missing base URL, missing path or non-live availability
+ * Fails closed: any invalid base URL, missing path or non-live availability
  * produces a pending state rather than a link.
  */
 export function resolveEntryPoint(key: BuyerSystemExperienceKey): ResolvedEntryPoint {
@@ -137,8 +138,7 @@ export function resolveEntryPoint(key: BuyerSystemExperienceKey): ResolvedEntryP
       experience,
       href: null,
       pending: true,
-      pendingReason:
-        'The Buyer System production URL is not confirmed. Set NEXT_PUBLIC_BUYER_SYSTEM_URL once it is approved.',
+      pendingReason: 'No valid Buyer System origin is available in this environment.',
     };
   }
 

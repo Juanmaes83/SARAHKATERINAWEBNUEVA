@@ -23,17 +23,6 @@ export const PROTOTYPE_NOTICE = {
   }),
 } as const;
 
-export const nav = [
-  { href: '#top', label: 'Home' },
-  { href: '#services', label: 'Services' },
-  { href: '#sarah', label: 'About Sarah' },
-  { href: '#process', label: 'Process' },
-  { href: '#resources', label: 'Resources' },
-  { href: '#faq', label: 'Questions' },
-] as const;
-
-export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE });
-
 export const hero = {
   eyebrow: claim({ text: 'Buying property in Spain', status: 'proposal', source: TEMPLATE }),
   /**

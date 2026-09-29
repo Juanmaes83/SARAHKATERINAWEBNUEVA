@@ -138,14 +138,30 @@ export const APPROVED_VIDEO = {
   }),
 
   /**
+   * Home-only illustrative film reserved in Phase 2G and authorised for the
+   * controlled Home preview. Full frame on every viewport; no audio served.
+   */
+  homeInvestmentObjective: video({
+    id: 'home-investment-objective',
+    sources: [
+      { src: '/media/video/home-investment-objective.webm', type: 'video/webm' },
+      { src: '/media/video/home-investment-objective.mp4', type: 'video/mp4' },
+    ],
+    poster: '/media/video/home-investment-objective-poster.webp',
+    width: 864,
+    height: 496,
+    duration: 10.04,
+    description:
+      'An illustrative film: a generated likeness reviews a house plan on a tablet on a coastal plot, a wireframe villa rises over the site, and the visualisation resolves into a finished villa beside the sea.',
+    source: 'VIDEOS/TU INVERSIÓN MI OBJETIVO.mp4',
+    note: 'Generated footage copied unchanged from Juanmaes83/sarahkaterina `VIDEOS DE MARCA/TU INVERSIÓN MI OBJETIVO.mp4` (git blob a7cf919f149eb4d5f91c7ed50b9c413b2e22eaa6, SHA-256 60bc8287cc76cbb3e321f8778c2427bf5ed4b366df270fb2dceafeeccf2a77c0) on 2026-09-28. Source: H.264 High, 864×496, 24 fps, 10.05 s, 7,571,748 bytes, AAC stereo 44.1 kHz ambient/music and no speech. Derivatives: full-frame VP9 WebM and H.264 High MP4, 864×496, audio removed; final-frame WebP poster. Preview/noindex only. The likeness is generated; identity approval, generation method, model/likeness permission and rights record are not in either repository. The film illustrates a concept only and does not evidence buildability, planning permission, timing, budget, return, delivery or a completed project. Slot: Home hero. Audio remains unavailable until its rights are confirmed.',
+  }),
+
+  /**
    * Phase 2G (docs/phase-2g-connected-service-journey.md). The brand film
    * "BUENA IDEA_MALA EJECUCIÓN": a buyer leaves a grey, wintry home, makes a
    * call, flies over the coast, arrives in Alicante, is handed keys and walks
-   * into the sea. The film shows the idea, not a failure; the band around it
-   * names what decides whether the idea becomes a good purchase.
-   *
-   * Full 16:9 frame, no crop, no text in the footage. The original's English
-   * voice-over is not carried (silent derivative, like every clip here).
+   * into the sea. Full 16:9 frame; the source voice-over is not carried.
    */
   purchaseGoodIdea: video({
     id: 'purchase-good-idea',

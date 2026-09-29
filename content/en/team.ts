@@ -27,20 +27,6 @@ export const seo = {
     'Meet the team supporting international buyers in Spain, from a Costa Blanca property search and purchase-cost review to non-resident owner tax and administration after completion.',
 } as const;
 
-export const nav = [
-  { href: '#approach', label: 'Why a team' },
-  { href: '#paths', label: 'Your plans' },
-  { href: '#team', label: 'The team' },
-  { href: '#process', label: 'Process' },
-  { href: '#faq', label: 'Questions' },
-] as const;
-
-export const headerCta = claim({
-  text: 'Tell us about your plans',
-  status: 'proposal',
-  source: USER_BRIEF,
-});
-
 export const hero = {
   eyebrow: 'Buyer-side guidance in Spain',
   title: 'Your place in Spain starts with people on your side.',
