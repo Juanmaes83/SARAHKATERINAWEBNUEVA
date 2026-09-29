@@ -6,10 +6,10 @@
 
 **Route:** `/preview/home`
 
-This is an editorial Home proposal, not a new numbered phase and not a fifth
-service landing. It exists only under `/preview`; `app/page.tsx`, `/`, the
-production site, sitemap and the four visually approved 2H landings remain
-unchanged.
+This is the editorial Home implementation, not a new numbered phase and not a
+fifth service landing. It exists under `/preview`; `app/page.tsx` and `/` are
+unchanged. It does not change custom-domain, DNS or indexation configuration.
+The four 2H landings retain their separately recorded visual approval.
 
 ## 0. Current state — service discovery pass (2026-09-29, Juanma's precedence instruction; visually approved by Juanma)
 
@@ -18,11 +18,11 @@ Juanma's (project owner) precedence instruction of 2026-09-29 and the attached
 specification govern this pass. Where they contradict later sections of this
 record, **this section wins**; the superseded parts are marked in place.
 
-**Preflight.** Branch `feat/preview-home-buyer-tools`, HEAD `ce8edff`, work
-uncommitted. The commercial Home is `/preview/home` (not the foundation page
-at `/`), unchanged by anyone since the previous pass. All other local changes
-were preserved; `/`, the Buyer System and the strategic repository were not
-touched.
+**Publication record.** The visually reviewed working tree was
+`feat/preview-home-buyer-tools` at `ce8edff`. It was copied to a separate
+worktree for PR #32; 99 files were SHA-256 compared. The PR includes the
+documented base-branch compatibility changes and contains no change to the
+rendered result. The Buyer System and strategic repository were not modified.
 
 **Visual review record.** Juanma reviewed and visually approved this Home on
 2026-09-29 on the local review server (`next dev` on port 3001, serving the
@@ -240,7 +240,9 @@ commitment.`, two real actions, the Home film and a direct four-route index
    image is also a pointer target for the same route, kept out of the tab
    order and accessibility tree);
 4. a condensed three-step decision method and professional boundary;
-5. **In their words** — three client voices, preview-gated (§6.2);
+5. **In their words** — three client voices. In this superseded pass,
+   display remained preview-gated; current owner authorization is recorded
+   in §7.2.
 6. the two verified Buyer System experiences as microconversions;
 7. buyer-objection FAQ (thread carried through a wrapper; component unchanged);
 8. contextual final action and a Home-specific footer linking the four pages,
@@ -257,8 +259,9 @@ fourth editorial chapter, so the approved portrait is not repeated and the
 visitor reaches all four real destinations through the same visual grammar.
 
 Internal review language formerly shown in the page (evidence gaps and missing
-Spanish-route notes) now lives in this record. The only review-facing copy left
-in the UI is the separate `HOME PREVIEW · NOT PRODUCTION` banner.
+Spanish-route notes) now lives in this record. That earlier version still
+showed a review banner; §0 records its removal from the Home while preserving
+the technical preview/noindex boundary.
 
 ### Shared navigation decision — approved 2026-09-29
 
@@ -312,7 +315,7 @@ CTA options for review, all **PROPUESTA**:
 
 No financing, renovation, Property Management, VITA Host, Group, client-count,
 booking, contact or legal-entity claim is rendered. The only results shown are
-the three client quotes, verbatim, preview-gated and labelled (§7.2); none is
+the three client quotes, verbatim and authorised by Juanma (§7.2); none is
 lifted into a headline, metric or brand statement.
 
 ## 5. Buyer System boundary
@@ -329,10 +332,12 @@ rechecked read-only on 2026-09-29 and returned HTTP 200:
 | `/asking-price`     | Deployed, but product status remains `NEXT — LIMITED GO`; not linked |
 | Tax Exposure        | No route or experience; not rendered                                 |
 
-Outbound links are produced by the existing adapter. They carry no query
-string, buyer amount, personal data or financial input. The typed
-`calculator_start` event remains attached to the repository's no-op analytics
-adapter.
+Outbound links are produced by the existing adapter only when
+`NEXT_PUBLIC_BUYER_SYSTEM_URL` is configured in controlled Preview. The code
+contains no default origin and Production must keep the variable unset; without
+it, links remain pending. Links carry no query string, buyer amount, personal
+data or financial input. The typed `calculator_start` event remains attached
+to the repository's no-op analytics adapter.
 
 ## 6. Home film record
 
@@ -550,12 +555,13 @@ This pass's screenshots are superseded and not committed; only its
 
 ## 10. Open approval and publication gates
 
-- Sarah/Juanma: Home copy, CTA choice and full visual review. The selected Home
-  authority image is approved; that does not approve the page composition.
+- Copy: visual approval does not approve new Home copy; new wording remains
+  proposal unless its record explicitly says otherwise. CTA wording can be
+  refined during the next micro-improvement pass.
 - Rights: generated likeness and film generation/usage record; audio rights if
   audio is ever reconsidered.
 - Product/legal: Asking Price, any future calculator, contact/booking,
-  financing/renovation wording, cases/testimonials and professional-boundary
+  financing/renovation wording, fiscal case evidence and professional-boundary
   copy.
 - Testimonials: authorised by Juanma on 2026-09-29 (§7.2). Before public
   launch: keep the written consents on file and complete the AGENTS.md §11
@@ -567,11 +573,14 @@ This pass's screenshots are superseded and not committed; only its
   `banner-qa.json` and the captures beside them (full-page captures as JPEG,
   banner states as PNG).
 - Assets: consented real-client photography; clean colour photograph of Sarah.
-- Creative direction "advisory thread", new statement copy and chapter
-  compositions: Sarah/Juanma visual and copy review at 390 and 1440.
+- Creative direction and Home composition: visually reviewed by Juanma on
+  2026-09-29 at mobile and desktop widths. Further copy and visual
+  micro-improvements remain part of the next iteration.
 - Publication: production host, domain, legal pages, translation, indexation,
   sitemap and migration.
 
 No language switch is rendered on Home because no working Spanish Home route
-exists. Nothing in this implementation changes production, deploys the site,
-merges a branch or alters the 2H approval of the four existing landings.
+exists. A merge to `main` may trigger the configured Vercel Production-target
+build; that infrastructure event does not authorise custom-domain publication,
+indexation or migration. The Home remains under `/preview/home`, noindex and
+outside the sitemap. The 2H approval of the four existing landings is unchanged.

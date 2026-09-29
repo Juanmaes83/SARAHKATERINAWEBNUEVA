@@ -1,6 +1,6 @@
 # Buyer System — integration contract
 
-**Status:** ACTIVE TECHNICAL BRIEF — verified routes connected; restricted routes remain gated
+**Status:** ACTIVE TECHNICAL BRIEF — verified routes available only in configured Preview; Production unset; restricted routes remain gated
 **Date:** 2026-09-28 (upstream deployment re-verified)
 **Upstream:** [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System) — **read-only**
 
@@ -80,12 +80,13 @@ after the user returns? Nothing is built until this is answered.
 2. **No result is reproduced.** This repository never displays, caches or
    recomputes a tax figure. Doing so would create a second, unversioned source
    of fiscal truth — precisely what the upstream ADR exists to prevent.
-3. **The base URL is not invented.** The verified upstream production origin is
-   `https://sarah-katerina-buyer-system.vercel.app`. It was re-verified on
-   2026-09-28 from upstream repository metadata, the GitHub Production
-   deployment for `main` at `c197ed2`, and HTTP 200 responses for `/`,
-   `/real-cash-needed` and `/asking-price`. `NEXT_PUBLIC_BUYER_SYSTEM_URL`
-   remains an explicit override for controlled environments.
+3. **The base URL is not invented.** The upstream production origin
+   `https://sarah-katerina-buyer-system.vercel.app` was verified on 2026-09-28
+   from repository metadata, its GitHub Production deployment for `main` at
+   `c197ed2`, and HTTP 200 responses for its routes. This website reads the
+   origin only from `NEXT_PUBLIC_BUYER_SYSTEM_URL`; it has no code default.
+   Configure that variable only in controlled Vercel Preview environments.
+   Keep it unset in Production; without it, entry points render as pending.
 4. **Availability is declared, not assumed.** Each experience carries its real
    upstream status. `asking-price` is `limited-go`, so it never renders as a
    live tool.
@@ -96,21 +97,21 @@ after the user returns? Nothing is built until this is answered.
 
 > **Phase 2H (2026-09-28):** Juanma's review asked for the purchase tax and costs
 > tool "big, at the start of the page" on Tax Advisory and Property Purchase. It
-> now sits directly under each hero as a navy lead band, still resolved only by
-> `resolveEntryPoint` and still an explicit pending state while
-> The verified Buyer System origin is connected for live, approved routes. No
-> calculator, figure or result is rendered on this website. See
-> `docs/phase-2h-juanma-review.md` §C–D for the earlier gated state.
+> now sits directly under each hero, resolved only through `resolveEntryPoint`.
+> Links are available when the approved origin is configured in controlled
+> Preview; they remain pending when that variable is absent. No calculator,
+> figure or result is rendered on this website. See
+> `docs/phase-2h-juanma-review.md` §C–D for the original request.
 
 Per the activation brief, adjusted for what exists:
 
 | Surface             | Experience       | Moment                              | Buildable today                                                                                 |
 | ------------------- | ---------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------- |
 | Investment          | Asking Price     | Before the paid analysis            | **No** — `limited-go`, needs Sarah + legal                                                      |
-| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | **Linked** to the verified production route                                                     |
-| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | **Linked** — lead variant (`BuyerToolBand`)                                                     |
-| Property Purchase   | Real Cash Needed | After process, before the final CTA | **Linked** to the verified production route                                                     |
-| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | **Linked** — moved from after the calendar (Phase 2G) at Juanma's request; `BuyerToolBand`      |
+| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | **Preview only** when `NEXT_PUBLIC_BUYER_SYSTEM_URL` is configured                                               |
+| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | **Preview only** — lead variant (`BuyerToolBand`) when the origin is configured                                |
+| Property Purchase   | Real Cash Needed | After process, before the final CTA | **Preview only** when `NEXT_PUBLIC_BUYER_SYSTEM_URL` is configured                                               |
+| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | **Preview only** — `BuyerToolBand` when the approved origin is configured                                      |
 | Tax Advisory        | Tax Exposure     | Bridge to the diagnostic            | **No** — does not exist                                                                         |
 | Home                | Hub entry        | After the trust strip               | **Linked on `/preview/home`** for Purchase Tax and Real Cash Needed; Asking Price remains gated |
 | Property Management | None             | —                                   | Held: D-06 unexecuted                                                                           |

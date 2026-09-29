@@ -239,8 +239,10 @@ Never connect sarahkaterina.com, enable indexing or treat a Vercel deployment
 as production approval.
 
 The Buyer System origin was verified on 2026-09-28. Purchase Tax and Real Cash
-Needed resolve through the shared adapter; Asking Price and Tax Exposure remain
-visibly pending under their existing product gates.
+Needed resolve through the shared adapter only when
+`NEXT_PUBLIC_BUYER_SYSTEM_URL` is configured in controlled Preview. The
+variable remains unset in Production; without it, tool entries stay pending.
+Asking Price and Tax Exposure remain gated under their existing product rules.
 
 ---
 

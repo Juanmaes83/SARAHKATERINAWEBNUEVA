@@ -1,10 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isLaboratoryRoute } from '@/lib/seo/config';
 import {
   BUYER_SYSTEM_EXPERIENCES,
-  VERIFIED_BUYER_SYSTEM_ORIGIN,
   resolveEntryPoint,
 } from '@/lib/buyer-system/links';
 import { APPROVED_PROMISE } from '@/lib/content/claims';
@@ -20,6 +19,7 @@ import {
   services,
   side,
   trust,
+  tools,
   voices,
 } from '@/content/en/home';
 
@@ -29,6 +29,8 @@ const page = read('app/preview/home/page.tsx');
 const component = read('components/web/HomePreview.tsx');
 const rootPage = read('app/page.tsx');
 const reviewRecord = read('docs/home-buyer-system-preview.md');
+
+afterEach(() => vi.unstubAllEnvs());
 
 describe('Home preview route', () => {
   it('exists only in the preview namespace and leaves / unchanged', () => {
@@ -140,14 +142,23 @@ describe('Home preview route', () => {
     expect(banner).not.toMatch(/setInterval|autoplay|autoPlay/);
   });
 
-  it('renders only the two verified Buyer System experiences', () => {
+  it('renders the two approved Buyer System experiences only with the Preview origin', () => {
     expect(component.match(/toolKey="purchaseTax"/g)).toHaveLength(1);
     expect(component.match(/toolKey="realCashNeeded"/g)).toHaveLength(1);
     expect(component).not.toContain('toolKey="askingPrice"');
     expect(component).not.toContain('toolKey="taxExposure"');
-    expect(resolveEntryPoint('purchaseTax').href).toBe(`${VERIFIED_BUYER_SYSTEM_ORIGIN}/`);
+
+    expect(tools.intro.text).toMatch(/When this Preview is configured/);
+    vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', '');
+    expect(resolveEntryPoint('purchaseTax').href).toBeNull();
+    expect(resolveEntryPoint('realCashNeeded').href).toBeNull();
+
+    vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', 'https://sarah-katerina-buyer-system.vercel.app');
+    expect(resolveEntryPoint('purchaseTax').href).toBe(
+      'https://sarah-katerina-buyer-system.vercel.app/',
+    );
     expect(resolveEntryPoint('realCashNeeded').href).toBe(
-      `${VERIFIED_BUYER_SYSTEM_ORIGIN}/real-cash-needed`,
+      'https://sarah-katerina-buyer-system.vercel.app/real-cash-needed',
     );
     expect(BUYER_SYSTEM_EXPERIENCES.askingPrice.availability).toBe('limited-go');
     expect(resolveEntryPoint('askingPrice').href).toBeNull();

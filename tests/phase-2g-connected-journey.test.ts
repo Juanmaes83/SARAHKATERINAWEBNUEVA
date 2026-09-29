@@ -5,7 +5,6 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isLaboratoryRoute } from '@/lib/seo/config';
 import {
   BUYER_SYSTEM_EXPERIENCES,
-  VERIFIED_BUYER_SYSTEM_ORIGIN,
   resolveEntryPoint,
 } from '@/lib/buyer-system/links';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
@@ -210,14 +209,13 @@ describe('Buyer System — adapter only', () => {
     expect(TAX_LEAD_TOOL.moment.review).toBe('tax');
   });
 
-  it('uses the verified production origin for the two linkable tools by default', () => {
+  it('keeps live tools pending when no Preview origin is configured', () => {
     vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', '');
-    expect(resolveEntryPoint('purchaseTax').href).toBe(`${VERIFIED_BUYER_SYSTEM_ORIGIN}/`);
-    expect(resolveEntryPoint('realCashNeeded').href).toBe(
-      `${VERIFIED_BUYER_SYSTEM_ORIGIN}/real-cash-needed`,
-    );
-    expect(resolveEntryPoint('askingPrice').href).toBeNull();
-    expect(resolveEntryPoint('taxExposure').href).toBeNull();
+    for (const key of ['purchaseTax', 'realCashNeeded', 'askingPrice', 'taxExposure'] as const) {
+      const entry = resolveEntryPoint(key);
+      expect(entry.href, key).toBeNull();
+      expect(entry.pending, key).toBe(true);
+    }
   });
 
   it('links only the two live tools once a base URL exists', () => {

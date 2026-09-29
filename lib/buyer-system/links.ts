@@ -6,13 +6,13 @@
  * Rules enforced here:
  *   - no Buyer System code is copied, vendored or reimplemented;
  *   - no tax figure, rate, formula or result is ever produced on this side;
- *   - the base URL is verified upstream, with an environment override;
+ *   - the base URL is read only from the environment;
  *   - each experience carries its real upstream status.
  */
 
 /** Availability, mirroring the upstream roadmap status. */
 export type ExperienceAvailability =
-  /** Live upstream and linkable through the verified production origin. */
+  /** Live upstream and linkable only when an approved environment origin is configured. */
   | 'live'
   /** Upstream status `NEXT — LIMITED GO`: production needs Sarah + legal review. */
   | 'limited-go'
@@ -85,17 +85,13 @@ export const BUYER_SYSTEM_EXPERIENCES = {
 export type BuyerSystemExperienceKey = keyof typeof BUYER_SYSTEM_EXPERIENCES;
 
 /**
- * Verified public origin of the deployed Buyer System.
- *
- * Confirmed on 2026-09-28 from the upstream repository's homepage metadata,
- * its successful GitHub Production deployment for `main` at `c197ed2`, and
- * direct HTTP 200 checks of the two linkable routes. The environment variable
- * remains an explicit override for controlled preview environments.
+ * The upstream production origin was verified on 2026-09-28. It is deliberately
+ * not a code default: only controlled Preview environments may configure it.
+ * When unset, the adapter renders a pending state.
  */
-export const VERIFIED_BUYER_SYSTEM_ORIGIN = 'https://sarah-katerina-buyer-system.vercel.app';
-
 function baseUrl(): string | null {
-  const raw = process.env.NEXT_PUBLIC_BUYER_SYSTEM_URL || VERIFIED_BUYER_SYSTEM_ORIGIN;
+  const raw = process.env.NEXT_PUBLIC_BUYER_SYSTEM_URL;
+  if (!raw) return null;
   try {
     return new URL(raw).origin;
   } catch {
