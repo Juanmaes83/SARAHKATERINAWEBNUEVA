@@ -39,17 +39,16 @@ const TOOLS: ReadonlyArray<{
  *
  * Phase 2B rendered this as a governance notice with more warnings than value,
  * which broke the template's rhythm. The governance has not changed — the
- * Buyer System is a separate product, its production URL is unconfirmed and
- * `asking-price` is not approved for public linking — but it now lives in
+ * Buyer System is a separate product and `asking-price` is not approved for
+ * public linking — but the governance now lives in
  * secondary microcopy under each card instead of dominating the section.
  *
  * Still true, and still enforced by `resolveEntryPoint`:
  *   - no calculator, formula or tax figure is reproduced here;
- *   - no URL is invented; an unset base URL renders a controlled state, never
- *     a broken link;
+ *   - the verified production origin is resolved in one adapter only;
  *   - no form, no capture, no CRM.
  */
-export function ToolsBand() {
+export function ToolsBand({ sourcePage = '/preview/investment' }: { sourcePage?: string } = {}) {
   return (
     <WebSection surface="white" id="tools">
       <WebSectionHeader
@@ -96,7 +95,7 @@ export function ToolsBand() {
                 onClick={() =>
                   track('calculator_start', {
                     calculator: experience.id,
-                    source_page: '/preview/investment',
+                    source_page: sourcePage,
                   })
                 }
               >
@@ -112,8 +111,8 @@ export function ToolsBand() {
         className={styles.cardText}
         style={{ marginBlockStart: 'var(--sk-space-24)', textAlign: 'center' }}
       >
-        The result is shown without a form, an email or any commitment. The tools are a separate
-        product and are not connected in this preview.
+        The result is shown in the separate Buyer System without a form in front of it. No amount,
+        personal detail or financial input is carried from this website in the link.
       </p>
     </WebSection>
   );

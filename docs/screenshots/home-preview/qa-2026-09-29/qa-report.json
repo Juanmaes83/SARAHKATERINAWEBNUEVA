@@ -1,0 +1,1626 @@
+{
+  "generatedAt": "2026-09-29T07:02:17.753Z",
+  "base": "http://localhost:3001",
+  "results": [
+    {
+      "route": "/preview/home",
+      "viewport": {
+        "width": 320,
+        "height": 780
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Sarah Katerina home preview · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/home",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#tools",
+        "#start",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/team#team",
+        "/preview/property-purchase",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#start",
+        "#method",
+        "#sarah",
+        "#faq",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.00425437430658284,
+      "authorityImage": {
+        "complete": true,
+        "naturalWidth": 272,
+        "naturalHeight": 340,
+        "renderedWidth": 254,
+        "renderedHeight": 318,
+        "objectFit": "fill"
+      },
+      "mobileMenu": {
+        "opened": true,
+        "links": [
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase"
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment"
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory"
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team"
+          }
+        ],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/home",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Sarah Katerina home preview · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/home",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#tools",
+        "#start",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/team#team",
+        "/preview/property-purchase",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#start",
+        "#method",
+        "#sarah",
+        "#faq",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.02116494137525996,
+      "authorityImage": {
+        "complete": true,
+        "naturalWidth": 342,
+        "naturalHeight": 427,
+        "renderedWidth": 324,
+        "renderedHeight": 405,
+        "objectFit": "fill"
+      },
+      "mobileMenu": {
+        "opened": true,
+        "links": [
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase"
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment"
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory"
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team"
+          }
+        ],
+        "closedWithEscape": true,
+        "focusReturned": true
+      }
+    },
+    {
+      "route": "/preview/home",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Sarah Katerina home preview · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/home",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#tools",
+        "#start",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/team#team",
+        "/preview/property-purchase",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#start",
+        "#method",
+        "#sarah",
+        "#faq",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0003548264503479004,
+      "authorityImage": {
+        "complete": true,
+        "naturalWidth": 322,
+        "naturalHeight": 403,
+        "renderedWidth": 302,
+        "renderedHeight": 378,
+        "objectFit": "fill"
+      },
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Sarah Katerina home preview · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/home",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#tools",
+        "#start",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/team#team",
+        "/preview/property-purchase",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#start",
+        "#method",
+        "#sarah",
+        "#faq",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.013550210263994006,
+      "authorityImage": {
+        "complete": true,
+        "naturalWidth": 430,
+        "naturalHeight": 537,
+        "renderedWidth": 427,
+        "renderedHeight": 534,
+        "objectFit": "fill"
+      },
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Sarah Katerina home preview · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/home",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#tools",
+        "#start",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/team#team",
+        "/preview/property-purchase",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#start",
+        "#method",
+        "#sarah",
+        "#faq",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0002693268669976129,
+      "authorityImage": {
+        "complete": true,
+        "naturalWidth": 537,
+        "naturalHeight": 671,
+        "renderedWidth": 542,
+        "renderedHeight": 678,
+        "objectFit": "fill"
+      },
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/home-investment-objective.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Sarah Katerina home preview · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/home",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#tools",
+        "#start",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/team#team",
+        "/preview/property-purchase",
+        "#tools",
+        "/preview/property-purchase",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team",
+        "#start",
+        "#method",
+        "#sarah",
+        "#faq",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.03831873191550926,
+      "authorityImage": {
+        "complete": true,
+        "naturalWidth": 604,
+        "naturalHeight": 756,
+        "renderedWidth": 542,
+        "renderedHeight": 678,
+        "objectFit": "fill"
+      },
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "viewport": {
+        "width": 320,
+        "height": 780
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:3001/media/video/purchase-good-idea.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 7
+      },
+      "title": "Property purchase support in Spain · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/property-purchase",
+        "#top",
+        "#services",
+        "#sarah",
+        "#process",
+        "#resources",
+        "#faq",
+        "#services-options",
+        "#services",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/tax-advisory",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "#services-options",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team#team",
+        "#services-options",
+        "#faq"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0897517759183925,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:3001/media/video/purchase-good-idea.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 7
+      },
+      "title": "Property purchase support in Spain · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/property-purchase",
+        "#top",
+        "#services",
+        "#sarah",
+        "#process",
+        "#resources",
+        "#faq",
+        "#services-options",
+        "#services",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/tax-advisory",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "#services-options",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team#team",
+        "#services-options",
+        "#faq"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.00003381345104211841,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:3001/media/video/purchase-good-idea.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 7
+      },
+      "title": "Property purchase support in Spain · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/property-purchase",
+        "#top",
+        "#services",
+        "#sarah",
+        "#process",
+        "#resources",
+        "#faq",
+        "#services-options",
+        "#services",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/tax-advisory",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "#services-options",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team#team",
+        "#services-options",
+        "#faq"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.053357781531910106,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:3001/media/video/purchase-good-idea.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 7
+      },
+      "title": "Property purchase support in Spain · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/property-purchase",
+        "#top",
+        "#services",
+        "#sarah",
+        "#process",
+        "#resources",
+        "#faq",
+        "#services-options",
+        "#services",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/tax-advisory",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "#services-options",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team#team",
+        "#services-options",
+        "#faq"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0033776730298995974,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:3001/media/video/purchase-good-idea.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 7
+      },
+      "title": "Property purchase support in Spain · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/property-purchase",
+        "#top",
+        "#services",
+        "#sarah",
+        "#process",
+        "#resources",
+        "#faq",
+        "#services-options",
+        "#services",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/tax-advisory",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "#services-options",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team#team",
+        "#services-options",
+        "#faq"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.002292116536034478,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-loop.webm",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://localhost:3001/media/video/purchase-good-idea.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 7
+      },
+      "title": "Property purchase support in Spain · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/property-purchase",
+        "#top",
+        "#services",
+        "#sarah",
+        "#process",
+        "#resources",
+        "#faq",
+        "#services-options",
+        "#services",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/tax-advisory",
+        "#process",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "#services-options",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "#faq",
+        "/preview/investment",
+        "/preview/tax-advisory",
+        "/preview/team#team",
+        "#services-options",
+        "#faq"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.004323635458194016,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "viewport": {
+        "width": 320,
+        "height": 780
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-map-tall.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Property investment analysis in the Costa Blanca · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#assets",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.00009650055473372781,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-map-tall.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Property investment analysis in the Costa Blanca · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#assets",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.00007138395220002775,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-map-wide.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Property investment analysis in the Costa Blanca · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#assets",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.023749606528629858,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-map-wide.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Property investment analysis in the Costa Blanca · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#assets",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.04311085899670918,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-map-wide.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Property investment analysis in the Costa Blanca · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#assets",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.009915212504069014,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [
+        {
+          "url": "http://localhost:3001/media/video/territory-map-wide.webm",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Property investment analysis in the Costa Blanca · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#assets",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.011957496624228394,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "viewport": {
+        "width": 320,
+        "height": 780
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Spanish tax advisory for non-resident property owners · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#calendar",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Spanish tax advisory for non-resident property owners · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#calendar",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Spanish tax advisory for non-resident property owners · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#calendar",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Spanish tax advisory for non-resident property owners · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#calendar",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0004604119062423706,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Spanish tax advisory for non-resident property owners · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#calendar",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.00455487174987793,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Spanish tax advisory for non-resident property owners · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/investment",
+        "#top",
+        "#services",
+        "#calendar",
+        "#process",
+        "#sarah",
+        "#report",
+        "#contact",
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/team#team"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0004904438536844135,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "viewport": {
+        "width": 320,
+        "height": 780
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Meet the buyer advisory team in Spain | Sarah Katerina · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/team",
+        "#approach",
+        "#paths",
+        "#team",
+        "#process",
+        "#faq",
+        "#contact",
+        "#contact",
+        "#team",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "#paths"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.021656799597304405,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Meet the buyer advisory team in Spain | Sarah Katerina · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/team",
+        "#approach",
+        "#paths",
+        "#team",
+        "#process",
+        "#faq",
+        "#contact",
+        "#contact",
+        "#team",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "#paths"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Meet the buyer advisory team in Spain | Sarah Katerina · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/team",
+        "#approach",
+        "#paths",
+        "#team",
+        "#process",
+        "#faq",
+        "#contact",
+        "#contact",
+        "#team",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "#paths"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.02322575067713236,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Meet the buyer advisory team in Spain | Sarah Katerina · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/team",
+        "#approach",
+        "#paths",
+        "#team",
+        "#process",
+        "#faq",
+        "#contact",
+        "#contact",
+        "#team",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "#paths"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0005523204803466797,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Meet the buyer advisory team in Spain | Sarah Katerina · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/team",
+        "#approach",
+        "#paths",
+        "#team",
+        "#process",
+        "#faq",
+        "#contact",
+        "#contact",
+        "#team",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "#paths"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.010131290223863389,
+      "authorityImage": null,
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "assetErrors": [],
+      "assetCounts": {
+        "stylesheets": 2,
+        "scripts": 5
+      },
+      "title": "Meet the buyer advisory team in Spain | Sarah Katerina · Sarah Katerina",
+      "h1Count": 1,
+      "overflow": 0,
+      "lang": "en",
+      "robots": "noindex, nofollow",
+      "hrefs": [
+        "#main",
+        "/preview/team",
+        "#approach",
+        "#paths",
+        "#team",
+        "#process",
+        "#faq",
+        "#contact",
+        "#contact",
+        "#team",
+        "/preview/investment",
+        "/preview/property-purchase",
+        "/preview/tax-advisory",
+        "#paths"
+      ],
+      "brokenAnchors": [],
+      "undersizedTargets": [],
+      "layoutShift": 0.0009071270978009259,
+      "authorityImage": null,
+      "mobileMenu": null
+    }
+  ],
+  "special": {
+    "reducedMotion": {
+      "matches": true,
+      "preload": "none",
+      "paused": true,
+      "poster": "",
+      "videoRequests": []
+    },
+    "noJavaScript": {
+      "statusText": true,
+      "h1Count": 1,
+      "posterImages": 1,
+      "overflow": 0,
+      "status": 200
+    }
+  }
+}

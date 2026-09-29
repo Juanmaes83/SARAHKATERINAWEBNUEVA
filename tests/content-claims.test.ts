@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isPublishable, type Claim, type ReviewDomain } from '../lib/content/claims';
 import * as investment from '../content/en/investment';
 import {
@@ -59,7 +59,8 @@ describe('investment content — claim classification', () => {
     const offenders = claims
       .filter(
         ({ claim }) =>
-          claim.status === 'confirmed' && domains.includes((claim.review ?? 'none') as ReviewDomain),
+          claim.status === 'confirmed' &&
+          domains.includes((claim.review ?? 'none') as ReviewDomain),
       )
       .map(({ path, claim }) => `${path}: "${claim.text}" (${claim.review})`);
     expect(offenders).toEqual([]);
@@ -136,6 +137,9 @@ describe('investment content — forbidden content', () => {
 });
 
 describe('buyer system integration boundary', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
   it('purchase tax points at the Buyer System root, not /purchase-tax', () => {
     expect(BUYER_SYSTEM_EXPERIENCES.purchaseTax?.path).toBe('/');
   });
@@ -152,12 +156,12 @@ describe('buyer system integration boundary', () => {
     expect(resolveEntryPoint('taxExposure').href).toBeNull();
   });
 
-  it('fails closed when the base URL is unset', () => {
-    // No NEXT_PUBLIC_BUYER_SYSTEM_URL is set in the test environment.
+  it('keeps live tools pending when no Preview origin is configured', () => {
+    vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', '');
     const resolved = resolveEntryPoint('realCashNeeded');
     expect(resolved.href).toBeNull();
     expect(resolved.pending).toBe(true);
-    expect(resolved.pendingReason).toMatch(/not confirmed/i);
+    expect(resolved.pendingReason).not.toBeNull();
   });
 
   it('declares that cross-origin context handoff is not supported', () => {

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
 import { Icon } from './icons/Icon';
 import { footer as investmentFooter } from '@/content/en/investment';
@@ -24,12 +25,28 @@ import styles from './WebFooter.module.css';
  */
 export interface WebFooterContent {
   readonly description: Claim;
-  readonly groups: readonly { readonly title: string; readonly links: readonly Claim[] }[];
+  readonly groups: readonly {
+    readonly title: string;
+    readonly links: readonly (Claim | { readonly label: Claim; readonly href: string })[];
+  }[];
   readonly copyright: Claim;
   readonly routesNote: Claim;
 }
 
-export function WebFooter({ content = investmentFooter }: { content?: WebFooterContent } = {}) {
+export function WebFooter({
+  content = investmentFooter,
+  showLanguageStatus = true,
+  showStatus = true,
+}: {
+  content?: WebFooterContent;
+  showLanguageStatus?: boolean;
+  /**
+   * The visible "mode · noindex" chip. Only the client-review Home turns it
+   * off (owner instruction 2026-09-29); the noindex protection itself lives in
+   * metadata and headers and is unaffected.
+   */
+  showStatus?: boolean;
+} = {}) {
   const footer = content;
 
   return (
@@ -52,8 +69,14 @@ export function WebFooter({ content = investmentFooter }: { content?: WebFooterC
                 <h2 className={styles.groupTitle}>{group.title}</h2>
                 <ul className={styles.list}>
                   {group.links.map((link) => (
-                    <li key={link.text} className={styles.item}>
-                      {link.text}
+                    <li key={'label' in link ? link.label.text : link.text} className={styles.item}>
+                      {'label' in link ? (
+                        <Link href={link.href} className={styles.footerLink}>
+                          {link.label.text}
+                        </Link>
+                      ) : (
+                        link.text
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -66,19 +89,25 @@ export function WebFooter({ content = investmentFooter }: { content?: WebFooterC
           <div className={styles.bottomLeft}>
             <p className={styles.copyright}>{footer.copyright.text}</p>
             {/* Stated once for the whole footer. */}
-            <p className={styles.routesNote}>{footer.routesNote.text}</p>
+            {footer.routesNote.text ? (
+              <p className={styles.routesNote}>{footer.routesNote.text}</p>
+            ) : null}
           </div>
 
           <div className={styles.bottomRight}>
-            <span className={styles.langGroup}>
-              <span className={styles.langActive}>EN</span>
-              <span className={styles.langDivider} aria-hidden="true" />
-              <span>ES</span>
-            </span>
-            <span className={styles.status}>
-              <Icon name="check" size="sm" />
-              {siteConfig.mode} · noindex
-            </span>
+            {showLanguageStatus ? (
+              <span className={styles.langGroup}>
+                <span className={styles.langActive}>EN</span>
+                <span className={styles.langDivider} aria-hidden="true" />
+                <span>ES</span>
+              </span>
+            ) : null}
+            {showStatus ? (
+              <span className={styles.status}>
+                <Icon name="check" size="sm" />
+                {siteConfig.mode} · noindex
+              </span>
+            ) : null}
           </div>
         </div>
       </Container>

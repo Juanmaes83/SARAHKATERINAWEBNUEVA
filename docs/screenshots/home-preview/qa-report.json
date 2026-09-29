@@ -1,0 +1,318 @@
+{
+  "generatedAt": "2026-09-28T19:49:55.087Z",
+  "routes": {
+    "/preview/home": {
+      "320": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "390": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "768": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1024": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1440": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      }
+    },
+    "/preview/investment": {
+      "320": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "390": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "768": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1024": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1440": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      }
+    },
+    "/preview/property-purchase": {
+      "320": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "390": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "768": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1024": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1440": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      }
+    },
+    "/preview/tax-advisory": {
+      "320": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "390": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "768": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1024": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1440": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      }
+    },
+    "/preview/team": {
+      "320": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "390": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "768": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1024": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      },
+      "1440": {
+        "overflow": 0,
+        "h1": 1,
+        "robots": "noindex, nofollow",
+        "emptyHrefs": 0,
+        "hiddenReveals": 0,
+        "undersizedTargets": [],
+        "status": 200,
+        "xRobotsTag": "noindex, nofollow",
+        "errors": []
+      }
+    }
+  },
+  "home": {
+    "reducedMotion": {
+      "requestsExpected": 0,
+      "filmState": "poster",
+      "videoPreload": "none",
+      "posterVisible": true,
+      "animatedElements": 0,
+      "animations": [],
+      "videoRequests": []
+    },
+    "noJavaScript": {
+      "h1": 1,
+      "posterVisible": true,
+      "videoControls": 0,
+      "hiddenContent": 0
+    },
+    "firstViewport": {
+      "h1FullyVisible": true,
+      "leadFullyVisible": true,
+      "primaryCtaFullyVisible": true,
+      "secondaryCtaFullyVisible": true,
+      "languageControlCount": 0,
+      "buyerLinks": [
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ]
+    }
+  }
+}

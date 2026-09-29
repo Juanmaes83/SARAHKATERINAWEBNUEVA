@@ -556,6 +556,46 @@
         130,
         123
       ]
+    },
+    {
+      "id": "home-discovery-buy",
+      "input": "public/media/home-discovery-buy.webp",
+      "output": "public/media/graded/home-discovery-buy.webp",
+      "size": "1672x941",
+      "kb": 120,
+      "warmthBefore": 1.279,
+      "warmthAfter": 1.214,
+      "temperatureGain": 0.9631,
+      "meanBefore": [
+        145,
+        124,
+        114
+      ],
+      "meanAfter": [
+        139,
+        123,
+        115
+      ]
+    },
+    {
+      "id": "home-discovery-invest",
+      "input": "public/media/home-discovery-invest.webp",
+      "output": "public/media/graded/home-discovery-invest.webp",
+      "size": "1094x871",
+      "kb": 148,
+      "warmthBefore": 0.837,
+      "warmthAfter": 0.965,
+      "temperatureGain": 1.06,
+      "meanBefore": [
+        109,
+        123,
+        131
+      ],
+      "meanAfter": [
+        116,
+        122,
+        120
+      ]
     }
   ]
 }

@@ -39,20 +39,6 @@ export const PROTOTYPE_NOTICE = {
   }),
 } as const;
 
-/** Template nav: Inicio · Servicios · Propiedades · Proceso · Sobre Sarah · Insights · Contacto */
-export const nav = [
-  { href: '#top', label: 'Home' },
-  { href: '#services', label: 'Services' },
-  { href: '#assets', label: 'Properties' },
-  { href: '#process', label: 'Process' },
-  { href: '#sarah', label: 'About Sarah' },
-  { href: '#report', label: 'Insights' },
-  { href: '#contact', label: 'Contact' },
-] as const;
-
-/** Template: "HABLAR CON SARAH" */
-export const headerCta = claim({ text: 'Talk to Sarah', status: 'proposal', source: TEMPLATE });
-
 export const hero = {
   /** "INVERSIÓN CON SENTIDO" */
   eyebrow: claim({ text: 'Investment with judgement', status: 'proposal', source: TEMPLATE }),

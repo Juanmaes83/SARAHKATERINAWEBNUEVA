@@ -1,0 +1,2668 @@
+{
+  "generatedAt": "2026-09-29T08:36:46.427Z",
+  "cases": [
+    {
+      "route": "/preview/home",
+      "width": 320,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/home-investment-objective.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670918520"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/home/page.css?v=1790670918520"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670918520"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/home/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670918520"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/home-investment-objective.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/home/page.css?v=1790670920278"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670920278"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670920278"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/home/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670920278"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": {
+        "expanded": "true",
+        "collapsed": "false",
+        "focusReturned": true,
+        "menuLinks": [
+          {
+            "text": "Skip to content",
+            "href": "#main",
+            "width": 134.828125,
+            "height": 44
+          },
+          {
+            "text": "",
+            "href": "/preview/home",
+            "width": 68.828125,
+            "height": 44
+          },
+          {
+            "text": "Home",
+            "href": "/preview/home",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Real cash neededHow much cash will I really need? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Find your starting point→",
+            "href": "#services",
+            "width": 342,
+            "height": 77.375
+          },
+          {
+            "text": "Use Buyer Tools",
+            "href": "#tools",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Explore Property Purchase→",
+            "href": "/preview/property-purchase",
+            "width": 207.59375,
+            "height": 55.6875
+          },
+          {
+            "text": "Explore Investment→",
+            "href": "/preview/investment",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Explore Tax Advisory→",
+            "href": "/preview/tax-advisory",
+            "width": 169.796875,
+            "height": 55.6875
+          },
+          {
+            "text": "Meet the team→",
+            "href": "/preview/team",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Open purchase tax  (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 184.90625,
+            "height": 44
+          },
+          {
+            "text": "Open real cash needed  (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 212.828125,
+            "height": 44
+          },
+          {
+            "text": "Compare the four starting points→",
+            "href": "#services",
+            "width": 342,
+            "height": 77.375
+          },
+          {
+            "text": "Use Buyer Tools",
+            "href": "#tools",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase",
+            "width": 123.21875,
+            "height": 44
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment",
+            "width": 72.84375,
+            "height": 44
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory",
+            "width": 86.15625,
+            "height": 44
+          },
+          {
+            "text": "Meet the team",
+            "href": "/preview/team",
+            "width": 95.328125,
+            "height": 44
+          },
+          {
+            "text": "Choose where to start",
+            "href": "#services",
+            "width": 146.5625,
+            "height": 44
+          },
+          {
+            "text": "How decisions move",
+            "href": "#process",
+            "width": 136.984375,
+            "height": 44
+          },
+          {
+            "text": "Sarah Katerina",
+            "href": "#sarah",
+            "width": 97,
+            "height": 44
+          },
+          {
+            "text": "Frequently asked questions",
+            "href": "#faq",
+            "width": 155,
+            "height": 44
+          },
+          {
+            "text": "Purchase Tax",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 89.40625,
+            "height": 44
+          },
+          {
+            "text": "Real Cash Needed",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 122.171875,
+            "height": 44
+          }
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 768,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/home-investment-objective.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670923014"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/home/page.css?v=1790670923014"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670923014"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/home/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670923014"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "width": 1024,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/home-investment-objective.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670924524"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/home/page.css?v=1790670924524"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670924524"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/home/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670924524"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "width": 1280,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/home-investment-objective.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670925994"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/home/page.css?v=1790670925994"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670925994"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/home/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670925994"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/home-investment-objective.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670927543"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/home/page.css?v=1790670927543"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670927543"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/home/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670927543"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 320,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-loop.webm net::ERR_ABORTED",
+        "GET http://localhost:3001/media/video/purchase-good-idea.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670930461"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/property-purchase/page.css?v=1790670930461"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670930461"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/property-purchase/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670930461"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_fabric_ts.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_paint_ts.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 390,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-loop.webm net::ERR_ABORTED",
+        "GET http://localhost:3001/media/video/purchase-good-idea.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670933696"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/property-purchase/page.css?v=1790670933696"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670933696"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/property-purchase/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670933696"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_fabric_ts.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_paint_ts.js"
+        }
+      ],
+      "mobileMenu": {
+        "expanded": "true",
+        "collapsed": "false",
+        "focusReturned": true,
+        "menuLinks": [
+          {
+            "text": "Skip to content",
+            "href": "#main",
+            "width": 134.828125,
+            "height": 44
+          },
+          {
+            "text": "",
+            "href": "/preview/home",
+            "width": 68.828125,
+            "height": 44
+          },
+          {
+            "text": "Home",
+            "href": "/preview/home",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Real cash neededHow much cash will I really need? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Start my purchase file→",
+            "href": "#services",
+            "width": 358,
+            "height": 55.6875
+          },
+          {
+            "text": "See how it works→",
+            "href": "#process",
+            "width": 358,
+            "height": 55.6875
+          },
+          {
+            "text": "Open purchase tax  (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 184.90625,
+            "height": 44
+          },
+          {
+            "text": "How tax advisory fits in→",
+            "href": "/preview/tax-advisory",
+            "width": 185.390625,
+            "height": 55.6875
+          },
+          {
+            "text": "See what we handle→",
+            "href": "#process",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Open real cash needed  (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 212.828125,
+            "height": 44
+          },
+          {
+            "text": "Request a purchase review→",
+            "href": "#services-options",
+            "width": 342,
+            "height": 77.375
+          },
+          {
+            "text": "Request roadmap→",
+            "href": "#faq",
+            "width": 145.296875,
+            "height": 55.6875
+          },
+          {
+            "text": "Request support→",
+            "href": "#faq",
+            "width": 138.421875,
+            "height": 55.6875
+          },
+          {
+            "text": "Request review→",
+            "href": "#faq",
+            "width": 130.21875,
+            "height": 55.6875
+          },
+          {
+            "text": "Meet Sarah→",
+            "href": "#faq",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "View more cases→",
+            "href": "#faq",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Review it as an investment→",
+            "href": "/preview/investment",
+            "width": 206.03125,
+            "height": 55.6875
+          },
+          {
+            "text": "Continue to Tax Advisory→",
+            "href": "/preview/tax-advisory",
+            "width": 197.515625,
+            "height": 55.6875
+          },
+          {
+            "text": "Meet the team→",
+            "href": "/preview/team#team",
+            "width": 292,
+            "height": 55.6875
+          },
+          {
+            "text": "Start my purchase file→",
+            "href": "#services-options",
+            "width": 358,
+            "height": 55.6875
+          },
+          {
+            "text": "Talk first→",
+            "href": "#faq",
+            "width": 358,
+            "height": 55.6875
+          }
+        ]
+      }
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 768,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-loop.webm net::ERR_ABORTED",
+        "GET http://localhost:3001/media/video/purchase-good-idea.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670939043"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/property-purchase/page.css?v=1790670939043"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670939043"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/property-purchase/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670939043"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_fabric_ts.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_paint_ts.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1024,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-loop.webm net::ERR_ABORTED",
+        "GET http://localhost:3001/media/video/purchase-good-idea.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670941764"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/property-purchase/page.css?v=1790670941764"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670941764"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/property-purchase/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670941764"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_fabric_ts.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_paint_ts.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1280,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-loop.webm net::ERR_ABORTED",
+        "GET http://localhost:3001/media/video/purchase-good-idea.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670943962"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/property-purchase/page.css?v=1790670943962"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670943962"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/property-purchase/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670943962"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_fabric_ts.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_paint_ts.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1440,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-loop.webm net::ERR_ABORTED",
+        "GET http://localhost:3001/media/video/purchase-good-idea.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670946144"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/property-purchase/page.css?v=1790670946144"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670946144"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/property-purchase/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670946144"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_fabric_ts.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_components_web_banner_paint_ts.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "width": 320,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-map-tall.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670950652"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/investment/page.css?v=1790670950652"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670950652"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/investment/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670950652"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "width": 390,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-map-tall.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670953919"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/investment/page.css?v=1790670953919"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670953919"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/investment/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670953919"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": {
+        "expanded": "true",
+        "collapsed": "false",
+        "focusReturned": true,
+        "menuLinks": [
+          {
+            "text": "Skip to content",
+            "href": "#main",
+            "width": 134.828125,
+            "height": 44
+          },
+          {
+            "text": "",
+            "href": "/preview/home",
+            "width": 68.828125,
+            "height": 44
+          },
+          {
+            "text": "Home",
+            "href": "/preview/home",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Real cash neededHow much cash will I really need? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Purchase taxWhat Spain charges you to buy, before you commit to anything.Open the tool(opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 342,
+            "height": 237.21875
+          },
+          {
+            "text": "Real cash neededWhat actually has to leave your account, not the headline price.Open the tool(opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 342,
+            "height": 237.21875
+          },
+          {
+            "text": "Continue to Property Purchase→",
+            "href": "/preview/property-purchase",
+            "width": 235.3125,
+            "height": 55.6875
+          },
+          {
+            "text": "Continue to Tax Advisory→",
+            "href": "/preview/tax-advisory",
+            "width": 197.515625,
+            "height": 55.6875
+          },
+          {
+            "text": "Meet the team→",
+            "href": "/preview/team#team",
+            "width": 292,
+            "height": 55.6875
+          }
+        ]
+      }
+    },
+    {
+      "route": "/preview/investment",
+      "width": 768,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-map-wide.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670959404"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/investment/page.css?v=1790670959404"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670959404"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/investment/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670959404"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1024,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-map-wide.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670962059"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/investment/page.css?v=1790670962059"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670962059"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/investment/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670962059"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1280,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-map-wide.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670964294"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/investment/page.css?v=1790670964294"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670964294"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/investment/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670964294"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1440,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/video/territory-map-wide.webm net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/investment/page.css?v=1790670966535"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670966535"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670966535"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/investment/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670966535"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 320,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670971038"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/tax-advisory/page.css?v=1790670971038"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670971038"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/tax-advisory/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670971038"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 390,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/tax-advisory/page.css?v=1790670974163"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670974163"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670974163"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/tax-advisory/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670974163"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": {
+        "expanded": "true",
+        "collapsed": "false",
+        "focusReturned": true,
+        "menuLinks": [
+          {
+            "text": "Skip to content",
+            "href": "#main",
+            "width": 134.828125,
+            "height": 44
+          },
+          {
+            "text": "",
+            "href": "/preview/home",
+            "width": 68.828125,
+            "height": 44
+          },
+          {
+            "text": "Home",
+            "href": "/preview/home",
+            "width": 342,
+            "height": 51.99999237060547
+          },
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Real cash neededHow much cash will I really need? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Open purchase tax  (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 184.90625,
+            "height": 44
+          },
+          {
+            "text": "Go to Investment→",
+            "href": "/preview/investment",
+            "width": 141.125,
+            "height": 55.6875
+          },
+          {
+            "text": "Go to Property Purchase→",
+            "href": "/preview/property-purchase",
+            "width": 192.046875,
+            "height": 55.6875
+          },
+          {
+            "text": "Meet the team→",
+            "href": "/preview/team#team",
+            "width": 292,
+            "height": 55.6875
+          }
+        ]
+      }
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 768,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/tax-advisory/page.css?v=1790670979184"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670979184"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670979184"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/tax-advisory/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670979184"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1024,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670981704"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/tax-advisory/page.css?v=1790670981704"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670981704"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/tax-advisory/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670981704"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1280,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670983803"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/tax-advisory/page.css?v=1790670983803"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670983803"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/tax-advisory/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670983803"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1440,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [
+        "GET http://localhost:3001/media/hero/tax-advisory-costs-mobile.mp4 net::ERR_ABORTED"
+      ],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670985937"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/tax-advisory/page.css?v=1790670985937"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670985937"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/tax-advisory/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670985937"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "width": 320,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670989938"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/team/page.css?v=1790670989938"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670989938"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/team/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670989938"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "width": 390,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670992402"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/team/page.css?v=1790670992402"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670992402"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/team/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670992402"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": {
+        "expanded": "true",
+        "collapsed": "false",
+        "focusReturned": true,
+        "menuLinks": [
+          {
+            "text": "Skip to content",
+            "href": "#main",
+            "width": 134.828125,
+            "height": 44
+          },
+          {
+            "text": "",
+            "href": "/preview/home",
+            "width": 68.828125,
+            "height": 44
+          },
+          {
+            "text": "Home",
+            "href": "/preview/home",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Property Purchase",
+            "href": "/preview/property-purchase",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Investment",
+            "href": "/preview/investment",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Tax Advisory",
+            "href": "/preview/tax-advisory",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Team",
+            "href": "/preview/team",
+            "width": 342,
+            "height": 52
+          },
+          {
+            "text": "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Real cash neededHow much cash will I really need? (opens in a new tab)",
+            "href": "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed",
+            "width": 342,
+            "height": 76.6875
+          },
+          {
+            "text": "Tell us about your plans→",
+            "href": "#contact",
+            "width": 342,
+            "height": 77.375
+          },
+          {
+            "text": "Meet the team",
+            "href": "#team",
+            "width": 342,
+            "height": 55.6875
+          },
+          {
+            "text": "Start with Investment→",
+            "href": "/preview/investment",
+            "width": 171.609375,
+            "height": 55.6875
+          },
+          {
+            "text": "Start with Property Purchase→",
+            "href": "/preview/property-purchase",
+            "width": 222.546875,
+            "height": 55.6875
+          },
+          {
+            "text": "Start with Tax Advisory→",
+            "href": "/preview/tax-advisory",
+            "width": 184.75,
+            "height": 55.6875
+          },
+          {
+            "text": "Review the three starting points",
+            "href": "#paths",
+            "width": 342,
+            "height": 77.375
+          }
+        ]
+      }
+    },
+    {
+      "route": "/preview/team",
+      "width": 768,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670996118"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/team/page.css?v=1790670996118"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670996118"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/team/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670996118"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "width": 1024,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670997930"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/team/page.css?v=1790670997930"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670997930"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/team/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670997930"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "width": 1280,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790670999654"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/team/page.css?v=1790670999654"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790670999654"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/team/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790670999654"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    },
+    {
+      "route": "/preview/team",
+      "width": 1440,
+      "status": 200,
+      "h1": 1,
+      "overflow": 0,
+      "brokenAnchors": [],
+      "emptyHrefs": [],
+      "smallTargets": [],
+      "failedImages": [],
+      "robots": "noindex, nofollow",
+      "bodyFont": "Inter, \"Inter Fallback\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "pendingReveal": 0,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "expectedMediaAborts": [],
+      "badResponses": [],
+      "assets": [
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/layout.css?v=1790671001409"
+        },
+        {
+          "type": "stylesheet",
+          "status": 200,
+          "contentType": "text/css; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/css/app/preview/team/page.css?v=1790671001409"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/webpack.js?v=1790671001409"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app-pages-internals.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/app/preview/team/page.js"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/main-app.js?v=1790671001409"
+        },
+        {
+          "type": "script",
+          "status": 200,
+          "contentType": "application/javascript; charset=UTF-8",
+          "url": "http://localhost:3001/_next/static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+        }
+      ],
+      "mobileMenu": null
+    }
+  ],
+  "reducedMotion": {
+    "videoRequests": [],
+    "posterVisible": {
+      "poster": "",
+      "preload": "none",
+      "paused": true
+    }
+  },
+  "noJs": {
+    "h1": 1,
+    "services": 4,
+    "posterImage": true,
+    "overflow": 0
+  },
+  "pass": true
+}

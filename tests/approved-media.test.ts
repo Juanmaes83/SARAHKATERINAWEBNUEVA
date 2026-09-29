@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -34,11 +35,13 @@ function readCode(f: string): string {
 const entries = Object.values(APPROVED_MEDIA);
 
 describe('approved media registry', () => {
-  it('registers only images approved in the Phase 2E inventory', () => {
+  it('registers only governed preview images', () => {
     // 12 from the Phase 2E approval, plus the shared authority image,
     // the Property Purchase final CTA image, seven Phase 2F case/One File
-    // images, and six approved October additions consolidated from PR #23.
-    expect(entries.length).toBe(27);
+    // images, six approved October additions consolidated from PR #23, and
+    // the Sarah-approved Home authority image supplied on main, and the two
+    // owner-proposed Home service-discovery images (2026-09-29).
+    expect(entries.length).toBe(30);
   });
 
   it('uses the exact approved shared authority image on all three landings', () => {
@@ -83,7 +86,8 @@ describe('approved media registry', () => {
   });
 
   it('serves every entry through the common Phase 2E grade, keeping the ungraded derivative', () => {
-    for (const m of entries) {
+    const gradedEntries = entries.filter((m) => m.id !== 'home-sarah-authority');
+    for (const m of gradedEntries) {
       expect(m.grade, m.id).toBe('sk-editorial-v1');
       expect(m.src, m.id).toBe(`/media/graded/${m.id}.webp`);
       expect(m.ungradedSrc, m.id).toBeTruthy();
@@ -92,6 +96,13 @@ describe('approved media registry', () => {
         m.id,
       ).toBe(true);
     }
+
+    // Juanma's Home brief expressly forbids retouching or altering Sarah's
+    // face. This one derivative is compression-only and therefore does not
+    // pass through the visual grade used for the earlier staged imagery.
+    expect(APPROVED_MEDIA.homeAuthority.grade).toBeUndefined();
+    expect(APPROVED_MEDIA.homeAuthority.ungradedSrc).toBeUndefined();
+    expect(APPROVED_MEDIA.homeAuthority.src).toBe('/media/home-sarah-authority.webp');
   });
 
   it('ships a web derivative for every registered entry', () => {
@@ -120,10 +131,24 @@ describe('approved media registry', () => {
   });
 
   it('never modifies or deletes an original', () => {
-    const missing = entries
+    const branchLocalEntries = entries.filter((m) => m.id !== 'home-sarah-authority');
+    const missing = branchLocalEntries
       .filter((m) => !existsSync(resolve(root, m.source)))
       .map((m) => m.source);
     expect(missing).toEqual([]);
+
+    // The approved Home original was added to main in d7b24eda. A branch cut
+    // before that commit does not carry it (and must not duplicate it); a
+    // branch on current main does. Either way the provenance is recorded, and
+    // when the original is present it must be the exact recorded file.
+    expect(APPROVED_MEDIA.homeAuthority.source).toBe('IMAGES/Sarah home_1.png');
+    expect(APPROVED_MEDIA.homeAuthority.note).toMatch(/d7b24eda/);
+    expect(APPROVED_MEDIA.homeAuthority.note).toMatch(/60CC3A7A/);
+    const original = resolve(root, APPROVED_MEDIA.homeAuthority.source);
+    if (existsSync(original)) {
+      const sha = createHash('sha256').update(readFileSync(original)).digest('hex').toUpperCase();
+      expect(sha).toBe('60CC3A7AF92C22D6A0B7380B589B2E85E9D47B674A0E2693BD94DA832E6BCFF7');
+    }
   });
 
   it('gives every entry descriptive, non-promotional alt text', () => {

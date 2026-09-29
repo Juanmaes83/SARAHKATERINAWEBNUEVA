@@ -21,7 +21,13 @@ import {
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
-import { PROTOTYPE_NOTICE, headerCta, nav, seo } from '@/content/en/investment';
+import { PROTOTYPE_NOTICE, seo } from '@/content/en/investment';
+import {
+  BUYER_TOOLS_LABEL,
+  HOME_PREVIEW_ROUTE,
+  UNIFIED_WEB_NAV,
+} from '@/content/en/site-navigation';
+import { SERVICE_ROUTES } from '@/content/en/service-journey';
 
 /**
  * INVESTMENT — PHASE 2C VISUAL FIDELITY IMPLEMENTATION.
@@ -51,7 +57,13 @@ export default function InvestmentPage() {
       <div data-accent="restrained">
         <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
-        <WebHeader nav={nav} ctaLabel={headerCta.text} />
+        <WebHeader
+          nav={UNIFIED_WEB_NAV}
+          ctaLabel={BUYER_TOOLS_LABEL}
+          brandHref={HOME_PREVIEW_ROUTE}
+          showLanguageSwitcher={false}
+          buyerToolsSourcePage={SERVICE_ROUTES.investment}
+        />
 
         <WebHero />
         <TrustBand />

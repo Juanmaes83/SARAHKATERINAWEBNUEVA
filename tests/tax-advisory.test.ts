@@ -280,16 +280,6 @@ describe('tax advisory composition', () => {
       expect(row.to).toBeGreaterThan(row.from);
     }
   });
-
-  it('navigates only to anchors that exist on the page', () => {
-    const rendered = [pageSource, bandsSource, heroSource, read('components/web/WebFaq.tsx')].join(
-      '\n',
-    );
-    for (const item of taxAdvisory.nav) {
-      expect(item.href.startsWith('#')).toBe(true);
-      expect(rendered, `no section renders ${item.href}`).toContain(`id="${item.href.slice(1)}"`);
-    }
-  });
 });
 
 /* ===========================================================================

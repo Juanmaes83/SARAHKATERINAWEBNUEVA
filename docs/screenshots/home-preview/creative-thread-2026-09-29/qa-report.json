@@ -1,0 +1,593 @@
+{
+  "date": "2026-09-29",
+  "scope": "Home 'advisory thread' pass + regression of the four landings",
+  "server": {
+    "visualQA": "next dev :3001 (user process, untouched)",
+    "performance": "isolated production build in scratchpad copy, next start :3305"
+  },
+  "sweep": [
+    {
+      "route": "/preview/home",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 11850
+    },
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 10804
+    },
+    {
+      "route": "/preview/home",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 8590
+    },
+    {
+      "route": "/preview/home",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 7887
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 8614
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 24610
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 22714
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 20922
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 13450
+    },
+    {
+      "route": "/preview/property-purchase",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 14060
+    },
+    {
+      "route": "/preview/investment",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 25100
+    },
+    {
+      "route": "/preview/investment",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 23099
+    },
+    {
+      "route": "/preview/investment",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 19770
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 13551
+    },
+    {
+      "route": "/preview/investment",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 14262
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 23079
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 21072
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 17900
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 12043
+    },
+    {
+      "route": "/preview/tax-advisory",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 12345
+    },
+    {
+      "route": "/preview/team",
+      "width": 320,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 17021
+    },
+    {
+      "route": "/preview/team",
+      "width": 390,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 14575
+    },
+    {
+      "route": "/preview/team",
+      "width": 768,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 10697
+    },
+    {
+      "route": "/preview/team",
+      "width": 1024,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 9435
+    },
+    {
+      "route": "/preview/team",
+      "width": 1440,
+      "mode": "full",
+      "errors": [],
+      "h1": 1,
+      "overflow": 0,
+      "robots": "noindex, nofollow",
+      "small": [],
+      "brokenAnchors": [],
+      "height": 9926
+    }
+  ],
+  "accessibilityAndFallbacks": {
+    "reducedMotion": {
+      "hiddenTextNodes": 0,
+      "threads": 12,
+      "undrawnThreads": 0,
+      "strikes": ["none", "none", "none"],
+      "videoPreload": "none",
+      "videoPaused": true,
+      "videoRequests": 0
+    },
+    "noJs": {
+      "h1": "Clarity before commitment.",
+      "chapters": 4,
+      "quotes": 3,
+      "voicesStatus": "Preview only · evidence and consent pending",
+      "toolLinks": [
+        "https://sarah-katerina-buyer-system.vercel.app/",
+        "https://sarah-katerina-buyer-system.vercel.app/real-cash-needed"
+      ],
+      "poster": true,
+      "hiddenByOpacity": 9
+    },
+    "keyboard": {
+      "stops": [
+        "A Skip to content -> #main [solid 2px]",
+        "A  -> /preview/home [solid 2px]",
+        "A Home -> /preview/home [solid 2px]",
+        "A Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A Investment -> /preview/investment [solid 2px]",
+        "A Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A Team -> /preview/team [solid 2px]",
+        "BUTTON Buyer Tools→ ->  [solid 2px]",
+        "A Find your starting point→ -> #services [solid 2px]",
+        "A Use Buyer Tools -> #tools [solid 2px]",
+        "BUTTON Pause the Home film ->  [solid 2px]",
+        "A 01Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A 02Investment -> /preview/investment [solid 2px]",
+        "A 03Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A 04Team -> /preview/team [solid 2px]",
+        "A Explore Property Purchase→ -> /preview/property-purchase [solid 2px]",
+        "A Explore Investment→ -> /preview/investment [solid 2px]",
+        "A Explore Tax Advisory→ -> /preview/tax-advisory [solid 2px]",
+        "A Meet the team→ -> /preview/team [solid 2px]",
+        "A Open purchase tax (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/ [solid 2px]",
+        "A Open real cash needed (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/real-cash-needed [solid 2px]",
+        "BUTTON Which service should I start with? ->  [solid 2px]",
+        "BUTTON Can I use the tools before choosing a serv ->  [solid 2px]",
+        "BUTTON Does Sarah replace my lawyer or other spec ->  [solid 2px]",
+        "A Compare the four starting points→ -> #services [solid 2px]",
+        "A Use Buyer Tools -> #tools [solid 2px]",
+        "A Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A Investment -> /preview/investment [solid 2px]",
+        "A Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A Meet the team -> /preview/team [solid 2px]",
+        "A Choose where to start -> #services [solid 2px]",
+        "A How decisions move -> #process [solid 2px]",
+        "A In their words -> #voices [solid 2px]",
+        "A Sarah Katerina -> #sarah [solid 2px]",
+        "A Frequently asked questions -> #faq [solid 2px]",
+        "A Purchase Tax -> https://sarah-katerina-buyer-system.vercel.app/ [solid 2px]",
+        "A Real Cash Needed -> https://sarah-katerina-buyer-system.vercel.app/real-cash-needed [solid 2px]",
+        "NEXTJS-PORTAL  ->  [none 3px]",
+        "A Skip to content -> #main [solid 2px]",
+        "A  -> /preview/home [solid 2px]",
+        "A Home -> /preview/home [solid 2px]",
+        "A Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A Investment -> /preview/investment [solid 2px]",
+        "A Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A Team -> /preview/team [solid 2px]",
+        "BUTTON Buyer Tools→ ->  [solid 2px]",
+        "A Find your starting point→ -> #services [solid 2px]",
+        "A Use Buyer Tools -> #tools [solid 2px]",
+        "BUTTON Pause the Home film ->  [solid 2px]",
+        "A 01Property Purchase -> /preview/property-purchase [solid 2px]",
+        "A 02Investment -> /preview/investment [solid 2px]",
+        "A 03Tax Advisory -> /preview/tax-advisory [solid 2px]",
+        "A 04Team -> /preview/team [solid 2px]",
+        "A Explore Property Purchase→ -> /preview/property-purchase [solid 2px]",
+        "A Explore Investment→ -> /preview/investment [solid 2px]",
+        "A Explore Tax Advisory→ -> /preview/tax-advisory [solid 2px]",
+        "A Meet the team→ -> /preview/team [solid 2px]",
+        "A Open purchase tax (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/ [solid 2px]",
+        "A Open real cash needed (opens in a new tab) -> https://sarah-katerina-buyer-system.vercel.app/real-cash-needed [solid 2px]"
+      ],
+      "mediaLinksFocusable": 0,
+      "noOutline": 1
+    }
+  },
+  "cdpMobileLab": [
+    {
+      "route": "/preview/home",
+      "runs": [
+        {
+          "ttfb": 5.299999713897705,
+          "fcp": 1032,
+          "lcp": 1968,
+          "lcpEl": "IMG.PlayOnceVideo_poster__dVQfG",
+          "cls": 0.01757236006531634,
+          "tbt": 77,
+          "longTasks": 2,
+          "loadMs": 1942,
+          "kbTransferred": 436
+        },
+        {
+          "ttfb": 4.399999618530273,
+          "fcp": 940,
+          "lcp": 2756,
+          "lcpEl": "VIDEO.PlayOnceVideo_video__hU1aK",
+          "cls": 0.01757236006531634,
+          "tbt": 79,
+          "longTasks": 2,
+          "loadMs": 1942,
+          "kbTransferred": 436
+        },
+        {
+          "ttfb": 3.1999998092651367,
+          "fcp": 956,
+          "lcp": 1976,
+          "lcpEl": "IMG.PlayOnceVideo_poster__dVQfG",
+          "cls": 0.01757236006531634,
+          "tbt": 111,
+          "longTasks": 2,
+          "loadMs": 1963,
+          "kbTransferred": 436
+        }
+      ],
+      "median": {
+        "fcp": 956,
+        "lcp": 1976,
+        "cls": 0.01757236006531634,
+        "tbt": 79,
+        "kb": 436
+      }
+    },
+    {
+      "route": "/preview/investment",
+      "runs": [
+        {
+          "ttfb": 4.900000095367432,
+          "fcp": 1180,
+          "lcp": 1816,
+          "lcpEl": "P.WebHero_lead__SMUF6",
+          "cls": 6.9440184954492805e-6,
+          "tbt": 59,
+          "longTasks": 1,
+          "loadMs": 2335,
+          "kbTransferred": 440
+        },
+        {
+          "ttfb": 5.5,
+          "fcp": 1112,
+          "lcp": 1744,
+          "lcpEl": "P.WebHero_lead__SMUF6",
+          "cls": 6.9440184954492805e-6,
+          "tbt": 129,
+          "longTasks": 1,
+          "loadMs": 2499,
+          "kbTransferred": 440
+        },
+        {
+          "ttfb": 5.599999904632568,
+          "fcp": 1088,
+          "lcp": 1720,
+          "lcpEl": "P.WebHero_lead__SMUF6",
+          "cls": 6.9440184954492805e-6,
+          "tbt": 48,
+          "longTasks": 1,
+          "loadMs": 2316,
+          "kbTransferred": 440
+        }
+      ],
+      "median": {
+        "fcp": 1112,
+        "lcp": 1744,
+        "cls": 6.9440184954492805e-6,
+        "tbt": 59,
+        "kb": 440
+      }
+    }
+  ],
+  "lighthouseMobile": {
+    "note": "Simulated throttling (Lighthouse default mobile). SEO < 100 only because is-crawlable fails: the preview is noindex by design.",
+    "beforePosterPriority": {
+      "home": {
+        "performance": 86,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1807,
+        "lcpMs": 4068,
+        "tbtMs": 10,
+        "cls": 0.022,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:41:44.262Z"
+      },
+      "investment": {
+        "performance": 89,
+        "accessibility": 94,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1356,
+        "lcpMs": 3759,
+        "tbtMs": 19,
+        "cls": 0,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:41:53.795Z"
+      },
+      "property-purchase": {
+        "performance": 90,
+        "accessibility": 97,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1357,
+        "lcpMs": 3614,
+        "tbtMs": 2,
+        "cls": 0.002,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:42:03.682Z"
+      },
+      "tax-advisory": {
+        "performance": 92,
+        "accessibility": 94,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1355,
+        "lcpMs": 3386,
+        "tbtMs": 8,
+        "cls": 0,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:42:14.037Z"
+      },
+      "team": {
+        "performance": 93,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1808,
+        "lcpMs": 3088,
+        "tbtMs": 2,
+        "cls": 0.0,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:42:24.548Z"
+      }
+    },
+    "homeAfterPosterPriority": [
+      {
+        "performance": 85,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1813,
+        "lcpMs": 4078,
+        "tbtMs": 99,
+        "cls": 0.022,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:46:00.843Z"
+      },
+      {
+        "performance": 86,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1811,
+        "lcpMs": 4073,
+        "tbtMs": 56,
+        "cls": 0.022,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:46:10.444Z"
+      },
+      {
+        "performance": 86,
+        "accessibility": 100,
+        "bestPractices": 100,
+        "seo": 69,
+        "fcpMs": 1809,
+        "lcpMs": 3994,
+        "tbtMs": 64,
+        "cls": 0.022,
+        "lighthouseVersion": "13.5.0",
+        "fetchTime": "2026-09-29T09:46:19.800Z"
+      }
+    ]
+  }
+}

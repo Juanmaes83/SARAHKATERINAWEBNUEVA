@@ -1,7 +1,7 @@
 # Buyer System — integration contract
 
-**Status:** ACTIVE TECHNICAL BRIEF — integration prepared, not connected
-**Date:** 2026-09-21
+**Status:** ACTIVE TECHNICAL BRIEF — verified routes available only in configured Preview; Production unset; restricted routes remain gated
+**Date:** 2026-09-28 (upstream deployment re-verified)
 **Upstream:** [`Juanmaes83/Sarah-Katerina-Buyer-System`](https://github.com/Juanmaes83/Sarah-Katerina-Buyer-System) — **read-only**
 
 This repository does not rebuild, vendor, fork or copy any Buyer System code.
@@ -13,11 +13,11 @@ Integration is by link and by a typed adapter boundary only.
 
 Verified by reading the repository on 2026-09-21. This section is fact, not plan.
 
-| Experience                                                | Route                                          | Status                                                                   | Scope                                                                                                                                    |
-| --------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **What does Spain charge me to buy this?** (purchase tax) | **`/`** — the site root, _not_ `/purchase-tax` | Live                                                                     | Comunitat Valenciana general regime, transactions from 1 June 2026                                                                       |
-| **How much cash will I really need?**                     | **`/real-cash-needed`**                        | Live                                                                     | Reuses the purchase-tax engine; never auto-estimates notary, registry, gestoría or valuation                                             |
-| **Are they asking too much?** (asking price)              | **`/asking-price`**                            | **`NEXT — LIMITED GO`** — _"Production requires Sarah and legal review"_ | Licensed official context + buyer-entered comparables only. No scraping, no automated valuation, no fair-price claim, no suggested offer |
+| Experience                                                | Route                                          | Status                                                                                                       | Scope                                                                                                                                    |
+| --------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **What does Spain charge me to buy this?** (purchase tax) | **`/`** — the site root, _not_ `/purchase-tax` | Live                                                                                                         | Comunitat Valenciana general regime, transactions from 1 June 2026                                                                       |
+| **How much cash will I really need?**                     | **`/real-cash-needed`**                        | Live                                                                                                         | Reuses the purchase-tax engine; never auto-estimates notary, registry, gestoría or valuation                                             |
+| **Are they asking too much?** (asking price)              | **`/asking-price`**                            | Route deployed, but roadmap remains **`NEXT — LIMITED GO`** — _"Production requires Sarah and legal review"_ | Licensed official context + buyer-entered comparables only. No scraping, no automated valuation, no fair-price claim, no suggested offer |
 
 ### Fiscal scope actually implemented
 
@@ -80,9 +80,13 @@ after the user returns? Nothing is built until this is answered.
 2. **No result is reproduced.** This repository never displays, caches or
    recomputes a tax figure. Doing so would create a second, unversioned source
    of fiscal truth — precisely what the upstream ADR exists to prevent.
-3. **The base URL is not invented.** It comes from
-   `NEXT_PUBLIC_BUYER_SYSTEM_URL`. When unset, every entry point renders as
-   `PENDING_APPROVAL` and links nowhere.
+3. **The base URL is not invented.** The upstream production origin
+   `https://sarah-katerina-buyer-system.vercel.app` was verified on 2026-09-28
+   from repository metadata, its GitHub Production deployment for `main` at
+   `c197ed2`, and HTTP 200 responses for its routes. This website reads the
+   origin only from `NEXT_PUBLIC_BUYER_SYSTEM_URL`; it has no code default.
+   Configure that variable only in controlled Vercel Preview environments.
+   Keep it unset in Production; without it, entry points render as pending.
 4. **Availability is declared, not assumed.** Each experience carries its real
    upstream status. `asking-price` is `limited-go`, so it never renders as a
    live tool.
@@ -93,23 +97,24 @@ after the user returns? Nothing is built until this is answered.
 
 > **Phase 2H (2026-09-28):** Juanma's review asked for the purchase tax and costs
 > tool "big, at the start of the page" on Tax Advisory and Property Purchase. It
-> now sits directly under each hero as a navy lead band, still resolved only by
-> `resolveEntryPoint` and still an explicit pending state while
-> `NEXT_PUBLIC_BUYER_SYSTEM_URL` is unset. No calculator, figure or result is
-> rendered. See `docs/phase-2h-juanma-review.md` §C–D.
+> now sits directly under each hero, resolved only through `resolveEntryPoint`.
+> Links are available when the approved origin is configured in controlled
+> Preview; they remain pending when that variable is absent. No calculator,
+> figure or result is rendered on this website. See
+> `docs/phase-2h-juanma-review.md` §C–D for the original request.
 
 Per the activation brief, adjusted for what exists:
 
-| Surface             | Experience       | Moment                              | Buildable today                                                                                                             |
-| ------------------- | ---------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Investment          | Asking Price     | Before the paid analysis            | **No** — `limited-go`, needs Sarah + legal                                                                                  |
-| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | Yes, once the base URL is approved                                                                                          |
-| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — lead variant (`BuyerToolBand`); pending until B-01                                     |
-| Property Purchase   | Real Cash Needed | After process, before the final CTA | Yes, once the base URL is approved                                                                                          |
-| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | Yes, once the base URL is approved — moved from after the calendar (Phase 2G) at Juanma's request; `BuyerToolBand`; pending |
-| Tax Advisory        | Tax Exposure     | Bridge to the diagnostic            | **No** — does not exist                                                                                                     |
-| Home                | Hub entry        | After the trust strip               | Yes, once the base URL is approved                                                                                          |
-| Property Management | None             | —                                   | Held: D-06 unexecuted                                                                                                       |
+| Surface             | Experience       | Moment                              | Buildable today                                                                                 |
+| ------------------- | ---------------- | ----------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Investment          | Asking Price     | Before the paid analysis            | **No** — `limited-go`, needs Sarah + legal                                                      |
+| Investment          | Real Cash Needed | Beside scenarios and sensitivity    | **Preview only** when `NEXT_PUBLIC_BUYER_SYSTEM_URL` is configured                                               |
+| Property Purchase   | Purchase Tax     | Directly under the hero (Phase 2H)  | **Preview only** — lead variant (`BuyerToolBand`) when the origin is configured                                |
+| Property Purchase   | Real Cash Needed | After process, before the final CTA | **Preview only** when `NEXT_PUBLIC_BUYER_SYSTEM_URL` is configured                                               |
+| Tax Advisory        | Purchase Tax     | Directly under the hero (Phase 2H)  | **Preview only** — `BuyerToolBand` when the approved origin is configured                                      |
+| Tax Advisory        | Tax Exposure     | Bridge to the diagnostic            | **No** — does not exist                                                                         |
+| Home                | Hub entry        | After the trust strip               | **Linked on `/preview/home`** for Purchase Tax and Real Cash Needed; Asking Price remains gated |
+| Property Management | None             | —                                   | Held: D-06 unexecuted                                                                           |
 
 ### Flow as implemented in the prototype
 
@@ -130,23 +135,23 @@ unanswered product question.
 
 | #    | Needed                                                                                                                                                    | From whom         |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| B-01 | The Buyer System's **production URL**, confirmed                                                                                                          | Sarah / Juanma    |
+| B-01 | ~~The Buyer System's **production URL**, confirmed~~ — **resolved 2026-09-28** by current upstream repository and deployment evidence                     | —                 |
 | B-02 | Decision on **where lead capture lives** (§2)                                                                                                             | Sarah             |
 | B-03 | Approval to link **Asking Price** publicly                                                                                                                | Sarah + legal     |
 | B-04 | Whether a **Tax Exposure** experience is commissioned                                                                                                     | Sarah             |
 | B-05 | An approved **query-parameter contract** if landing context should prefill a calculator — noting the upstream brief forbids buyer amounts in a public URL | Both repositories |
 | B-06 | Approved **analytics vendor and consent mechanism** before any event leaves the browser                                                                   | Sarah             |
 
-Until B-01 is supplied, `NEXT_PUBLIC_BUYER_SYSTEM_URL` stays unset and every
-entry point renders as pending. That is the intended default, not a bug.
+B-01 is closed. B-03 and B-04 remain binding: Asking Price and Tax Exposure
+still render as non-linkable states even though the former route is deployed.
 
 ---
 
 ## 5. Environment variable
 
-| Variable                       | Default   | Purpose                                                                                                             |
-| ------------------------------ | --------- | ------------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_BUYER_SYSTEM_URL` | _(unset)_ | Origin of the deployed Buyer System. Unset renders every entry point as `PENDING_APPROVAL`. Public, never a secret. |
+| Variable                       | Default         | Purpose                                                                         |
+| ------------------------------ | --------------- | ------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_BUYER_SYSTEM_URL` | verified origin | Optional override for the deployed Buyer System origin. Public, never a secret. |
 
 No API key, token or shared secret is involved. The integration is outbound
 links only.

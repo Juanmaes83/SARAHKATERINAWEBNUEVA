@@ -3,7 +3,10 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isLaboratoryRoute } from '@/lib/seo/config';
-import { BUYER_SYSTEM_EXPERIENCES, resolveEntryPoint } from '@/lib/buyer-system/links';
+import {
+  BUYER_SYSTEM_EXPERIENCES,
+  resolveEntryPoint,
+} from '@/lib/buyer-system/links';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import {
   JOURNEY,
@@ -206,7 +209,7 @@ describe('Buyer System — adapter only', () => {
     expect(TAX_LEAD_TOOL.moment.review).toBe('tax');
   });
 
-  it('keeps every entry point pending while the base URL is unset', () => {
+  it('keeps live tools pending when no Preview origin is configured', () => {
     vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', '');
     for (const key of ['purchaseTax', 'realCashNeeded', 'askingPrice', 'taxExposure'] as const) {
       const entry = resolveEntryPoint(key);
@@ -234,7 +237,10 @@ describe('Buyer System — adapter only', () => {
     const ribbons = sourceFiles
       .flatMap((f) => [...readFileSync(f, 'utf8').matchAll(/toolKey="(\w+)"/g)].map((m) => m[1]))
       .sort();
-    expect(ribbons).toEqual(['purchaseTax', 'realCashNeeded']);
+    expect(ribbons.filter((key) => key === 'purchaseTax')).toHaveLength(2);
+    expect(ribbons.filter((key) => key === 'realCashNeeded')).toHaveLength(2);
+    expect(ribbons).not.toContain('askingPrice');
+    expect(ribbons).not.toContain('taxExposure');
     const offenders = sourceFiles
       .filter((f) => /^(app|components)\//.test(rel(f)))
       .filter((f) => /taxExposure|tax-exposure/.test(code(readFileSync(f, 'utf8'))))
@@ -254,7 +260,7 @@ describe('Buyer System — adapter only', () => {
   });
 });
 
-describe('brand film — Property Purchase only', () => {
+describe('brand films — Property Purchase and controlled Home preview', () => {
   const film = APPROVED_VIDEO.purchaseGoodIdea;
 
   it('keeps an untouched, traceable original in VIDEOS/', () => {
@@ -275,7 +281,9 @@ describe('brand film — Property Purchase only', () => {
     const primitiveUsers = sourceFiles
       .filter((f) => /<PlayOnceVideo\b/.test(readFileSync(f, 'utf8')))
       .map(rel);
-    expect(primitiveUsers).toEqual(['components/web/PropertyPurchase.tsx']);
+    expect(primitiveUsers.sort()).toEqual(
+      ['components/web/HomePreview.tsx', 'components/web/PropertyPurchase.tsx'].sort(),
+    );
 
     const page = read(PAGES.purchase);
     const at = page.indexOf('<GoodIdeaBand');
@@ -290,6 +298,8 @@ describe('brand film — Property Purchase only', () => {
     expect(primitive).toContain('preload="none"');
     expect(primitive).toContain('prefers-reduced-motion: reduce');
     expect(primitive).toContain('visibilitychange');
+    expect(primitive).toContain('resumeInView');
+    expect(primitive).toContain('video.pause()');
     expect(primitive).toMatch(/alt=\{clip\.description\}/);
     expect(read('components/web/PropertyPurchase.tsx')).not.toMatch(/ScrubVideo video=\{APPROVED/);
   });
@@ -300,10 +310,21 @@ describe('brand film — Property Purchase only', () => {
     expect(goodIdea.note.text).toMatch(/not clients/);
   });
 
-  it('does not add the reserved Home film to the repository', () => {
+  it('registers the reserved Home film with its traceable original and derivatives', () => {
     const files = [...walk(resolve(root, 'VIDEOS')), ...walk(resolve(root, 'public'))].map(rel);
-    expect(files.filter((f) => /TU INVERSI|investment-objective|your-investment/i.test(f))).toEqual(
-      [],
+    expect(
+      files.filter((f) => /TU INVERSI|investment-objective|your-investment/i.test(f)).sort(),
+    ).toEqual(
+      [
+        'VIDEOS/TU INVERSIÓN MI OBJETIVO.mp4',
+        'public/media/video/home-investment-objective-poster.webp',
+        'public/media/video/home-investment-objective.mp4',
+        'public/media/video/home-investment-objective.webm',
+      ].sort(),
+    );
+    expect(APPROVED_VIDEO.homeInvestmentObjective.note).toMatch(/Preview\/noindex only/);
+    expect(APPROVED_VIDEO.homeInvestmentObjective.note).toMatch(
+      /likeness.*pending|identity approval/i,
     );
   });
 
@@ -334,20 +355,23 @@ describe('publication and held subjects', () => {
   // Phase 2H (docs/phase-2h-juanma-review.md): tax-advisory.ts, team.ts and
   // (closing: Sarah's copy marked confirmed on 2026-09-28)
   // property-purchase.ts were changed deliberately to carry Sarah's review
-  // copy, all `proposal`. Their hashes are re-recorded here so any further,
-  // unreviewed edit still fails this test.
+  // copy, all `proposal`. The Buyer System adapter was deliberately updated
+  // in the Home integration branch after its production origin was verified.
+  // The 2026-09-29 approved unified navigation removes their obsolete local
+  // nav/header CTA exports; the page copy and landing compositions are intact.
+  // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        '2bbc549317d4f5c3d77cd4201597e46df19bb9b566b01f6b7e172f5859c550a0',
+        'd7b3b49cb44ae9035e61b6b1ba6c5c86717973da3164f8c962c034211bdc3fc2',
       'content/en/tax-advisory.ts':
-        '3edee0d6f572406dae370d8f0d46707840ec44f2a02f5dc81b0d24af6f5397e6',
-      'content/en/team.ts': '17cba45a7351650a1dd949e909cd0d829ffa0d3631eadedd91762e7cfb5949b2',
+        'b76cbef2599795dbe84bbb8b332aa9bce2d1c1fabd349889e7d0be0c112fa253',
+      'content/en/team.ts': 'eca16d76d91e8f70bad5e984f4c33863151f0a53f2922f7e2b7a65a04d31ec96',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
-        'aae5688620c995583bcb0a7db571afb3d4b4ab6242113b2e33e7be9dfaaf2d46',
+        '434e04051d0e5776416096ab585a5ca9ec9ef895565749e71489b1d5938e6da4',
     };
     for (const [file, hash] of Object.entries(unchanged)) expect(sha(read(file)), file).toBe(hash);
 
@@ -357,7 +381,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '595f8da189e9f54099aa182fa4f86ea8bc77dd1e98fc4716337b66f10d09e2e7',
+      '34413d9003937738662f0257a83ab31e018fc9558cdb5b838d579ed568a25714',
     );
   });
 });

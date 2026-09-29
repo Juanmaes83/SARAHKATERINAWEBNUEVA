@@ -139,6 +139,67 @@
   display: none;
 }
 
+.toolsMenu {
+  position: relative;
+}
+
+.toolsPopover {
+  position: absolute;
+  inset-block-start: calc(100% + var(--sk-space-8));
+  inset-inline-end: 0;
+  z-index: var(--sk-app-z-modal);
+  display: grid;
+  width: calc(var(--sk-space-80) * 4);
+  padding: var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border-strong);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-ivory);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+.toolsTitle {
+  margin: 0 0 var(--sk-space-8);
+  color: var(--sk-web-gold-strong);
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.toolLink,
+.mobileToolLink {
+  display: grid;
+  gap: var(--sk-space-4);
+  min-width: var(--sk-layout-touch-target-min);
+  min-height: var(--sk-layout-control-height-default);
+  padding: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-navigation-family);
+  font-size: var(--sk-type-navigation-size);
+  font-weight: var(--sk-type-navigation-weight);
+  text-decoration: none;
+}
+
+.toolLink small,
+.mobileToolLink small {
+  color: var(--sk-web-muted);
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  font-weight: var(--sk-font-weight-regular);
+  line-height: var(--sk-type-legal-line-height);
+}
+
+.toolLink:hover,
+.toolLink:focus-visible,
+.mobileToolLink:hover,
+.mobileToolLink:focus-visible {
+  background-color: var(--sk-web-gold-wash);
+}
+
 .divider {
   width: var(--sk-border-standard-width);
   height: var(--sk-space-16);
@@ -247,6 +308,14 @@
   gap: var(--sk-space-16);
 }
 
+.mobileTools {
+  display: grid;
+  padding-block-start: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border-strong);
+}
+
+.panelLink[aria-current='page'],
 .panelLink[aria-current='location'] {
   color: var(--sk-web-gold-strong);
 }
@@ -289,9 +358,9 @@
   }
 }
 
-/* 1100px, not 1024px. With seven nav items, the language switch and the gold
-   CTA, the desktop row overflowed by a few pixels at exactly 1024. The mobile
-   menu is used up to 1100 instead. */
+/* The shared five-route navigation and its primary tools action remain in the
+   mobile dialog through 1099px. This preserves comfortable labels and touch
+   targets at tablet widths instead of compressing the desktop row. */
 @media (min-width: 1100px) {
   .nav,
   .actions {

@@ -21,7 +21,12 @@ import { BuyerToolBand } from '@/components/web/BuyerToolRibbon';
 import { SERVICE_ROUTES, TAX_LEAD_TOOL } from '@/content/en/service-journey';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
-import { PROTOTYPE_NOTICE, faq, footer, headerCta, nav, seo } from '@/content/en/tax-advisory';
+import { PROTOTYPE_NOTICE, faq, footer, seo } from '@/content/en/tax-advisory';
+import {
+  BUYER_TOOLS_LABEL,
+  HOME_PREVIEW_ROUTE,
+  UNIFIED_WEB_NAV,
+} from '@/content/en/site-navigation';
 
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -36,7 +41,13 @@ export default function TaxAdvisoryPage() {
     <RevealLineProvider line="reading-zone">
       <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
-      <WebHeader nav={nav} ctaLabel={headerCta.text} />
+      <WebHeader
+        nav={UNIFIED_WEB_NAV}
+        ctaLabel={BUYER_TOOLS_LABEL}
+        brandHref={HOME_PREVIEW_ROUTE}
+        showLanguageSwitcher={false}
+        buyerToolsSourcePage={SERVICE_ROUTES.tax}
+      />
 
       <TaxHero />
       {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}

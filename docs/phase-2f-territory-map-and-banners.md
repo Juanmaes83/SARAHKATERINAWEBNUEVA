@@ -128,6 +128,22 @@ adopt it when a voice for that service is cleared.
   asked. No WebGL or lost context → static composition with the video
   playing. No JS → static composition plus a plain list of all slots.
 
+### 4.1 Shared stage (2026-09-29)
+
+To let the Home's "What brings you to Spain?" banner hang the same cloth, the
+engine lifecycle, input, fallback and cost rules above were moved **verbatim**
+from `FabricBanner.tsx` into `components/web/banner/FabricStage.tsx`, which
+takes any composition as children. `fabric.ts` and `paint.ts` were not
+changed. `FabricBanner.tsx` is now only the Buyer Voices composition on that
+stage (same DOM, classes, gust per slot, video and pause control), so Buyer
+Voices renders and behaves as before; the "composition hides under the live
+cloth" rule is keyed on `[data-fabric-surface]` instead of the testimonial
+class. `FabricStage` gained one opt-in prop, `settleAfterMs`, used only by the
+Home: there the cloth runs for 2.6 s after a gust, a grab or a key and then
+holds still. Buyer Voices does not set it. `tests/territory-map-banners.test.ts`
+now checks the safety rules on the stage and that Buyer Voices still uses it.
+Record: `docs/home-buyer-system-preview.md` §0.3.
+
 ## 5. Testimonials: status and what is missing
 
 No approved testimonial exists in this repository or in the governed
