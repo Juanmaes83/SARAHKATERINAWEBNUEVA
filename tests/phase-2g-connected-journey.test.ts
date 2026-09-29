@@ -371,7 +371,7 @@ describe('publication and held subjects', () => {
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
-        '1db358b7b06db954ac5b19c9741e86cd5487f5790dcf723d4974f71508612069',
+        '434e04051d0e5776416096ab585a5ca9ec9ef895565749e71489b1d5938e6da4',
     };
     for (const [file, hash] of Object.entries(unchanged)) expect(sha(read(file)), file).toBe(hash);
 

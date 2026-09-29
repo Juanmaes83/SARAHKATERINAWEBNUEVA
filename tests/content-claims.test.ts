@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isPublishable, type Claim, type ReviewDomain } from '../lib/content/claims';
 import * as investment from '../content/en/investment';
 import {
@@ -137,6 +137,9 @@ describe('investment content — forbidden content', () => {
 });
 
 describe('buyer system integration boundary', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
   it('purchase tax points at the Buyer System root, not /purchase-tax', () => {
     expect(BUYER_SYSTEM_EXPERIENCES.purchaseTax?.path).toBe('/');
   });
@@ -153,11 +156,12 @@ describe('buyer system integration boundary', () => {
     expect(resolveEntryPoint('taxExposure').href).toBeNull();
   });
 
-  it('uses the verified production origin when no override is configured', () => {
+  it('keeps live tools pending when no Preview origin is configured', () => {
+    vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', '');
     const resolved = resolveEntryPoint('realCashNeeded');
-    expect(resolved.href).toBe('https://sarah-katerina-buyer-system.vercel.app/real-cash-needed');
-    expect(resolved.pending).toBe(false);
-    expect(resolved.pendingReason).toBeNull();
+    expect(resolved.href).toBeNull();
+    expect(resolved.pending).toBe(true);
+    expect(resolved.pendingReason).not.toBeNull();
   });
 
   it('declares that cross-origin context handoff is not supported', () => {

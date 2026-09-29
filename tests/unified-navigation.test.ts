@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { BUYER_SYSTEM_EXPERIENCES, resolveEntryPoint } from '@/lib/buyer-system/links';
 import {
   BUYER_TOOLS_LABEL,
@@ -19,6 +19,9 @@ const pages = [
 ] as const;
 
 describe('approved unified preview navigation', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
   it('exposes Home and the four real landing routes in one order', () => {
     expect(UNIFIED_WEB_NAV).toEqual([
       { href: '/preview/home', label: 'Home' },
@@ -54,6 +57,7 @@ describe('approved unified preview navigation', () => {
   });
 
   it('offers only the two live tools through the shared adapter', () => {
+    vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', 'https://sarah-katerina-buyer-system.vercel.app');
     expect(BUYER_TOOLS_LABEL).toBe('Buyer Tools');
     expect(resolveEntryPoint('purchaseTax').href).toBeTruthy();
     expect(resolveEntryPoint('realCashNeeded').href).toBeTruthy();
