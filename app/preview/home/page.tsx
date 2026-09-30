@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import {
+  HomeContactBand,
   HomeFinalCtaBand,
   HomeHero,
   HomeProcessBand,
@@ -57,6 +58,7 @@ export default function HomePreviewPage() {
       <HomeThreaded>
         <WebFaq content={faq} appearance="light" />
       </HomeThreaded>
+      <HomeContactBand />
       <HomeFinalCtaBand />
       <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />
     </RevealLineProvider>

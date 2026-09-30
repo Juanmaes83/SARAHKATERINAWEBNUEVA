@@ -359,15 +359,18 @@ describe('publication and held subjects', () => {
   // in the Home integration branch after its production origin was verified.
   // The 2026-09-29 approved unified navigation removes their obsolete local
   // nav/header CTA exports; the page copy and landing compositions are intact.
+  // 2026-09-29 (Juanma): the shared footer gains a real Contact link in the
+  // investment, tax-advisory and team footers (footer block only, verified by
+  // diff); nothing else in those files changed.
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        'd7b3b49cb44ae9035e61b6b1ba6c5c86717973da3164f8c962c034211bdc3fc2',
+        'b46580457d90806160f88bbae2dd41cbe0900de0e278f983f0c3e86f78301639',
       'content/en/tax-advisory.ts':
-        'b76cbef2599795dbe84bbb8b332aa9bce2d1c1fabd349889e7d0be0c112fa253',
-      'content/en/team.ts': 'eca16d76d91e8f70bad5e984f4c33863151f0a53f2922f7e2b7a65a04d31ec96',
+        '7329d0308b84fa7326235ce70b08efa7b647931816fb822d9cf24cc51ed8abd5',
+      'content/en/team.ts': 'b65eac842440e939993f306f2cbd6215e17b32bb2cd2e26007be3d46bccbc35f',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
@@ -375,13 +378,14 @@ describe('publication and held subjects', () => {
     };
     for (const [file, hash] of Object.entries(unchanged)) expect(sha(read(file)), file).toBe(hash);
 
-    // Outside its Phase 2G block, Property Purchase carries only the Phase 2H headlines.
+    // Outside its Phase 2G block, Property Purchase carries only the Phase 2H headlines
+    // and (2026-09-29, Juanma) the footer's real Contact link.
     const purchase = read('content/en/property-purchase.ts');
     const start = purchase.indexOf('/**\n * Phase 2G');
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '34413d9003937738662f0257a83ab31e018fc9558cdb5b838d579ed568a25714',
+      'a5fa00ca5ce9a26402661bff6d0410cbd25821180c58cd0b4e8b5249f16dd530',
     );
   });
 });

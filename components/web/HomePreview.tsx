@@ -4,7 +4,19 @@ import type { ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
 import { PlayOnceVideo } from '@/components/motion/PlayOnceVideo';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
-import { finalCta, hero, process, services, side, tools, trust, voices } from '@/content/en/home';
+import {
+  contactBand,
+  finalCta,
+  hero,
+  process,
+  services,
+  side,
+  tools,
+  trust,
+  voices,
+} from '@/content/en/home';
+import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
+import { resolveContactChannels } from '@/lib/contact/channels';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import { cn } from '@/lib/utils/cn';
@@ -409,6 +421,54 @@ export function HomeToolsBand() {
               className={styles.toolRibbon}
             />
           </RevealOnScroll>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/**
+ * A short way into Contact. It shows how to start talking — the booking call,
+ * WhatsApp or a call — and hands the rest to /preview/contact.
+ */
+export function HomeContactBand() {
+  const channels = resolveContactChannels(contactBand.whatsappOpener);
+  const bookingHref = channels.booking.status === 'configured' ? channels.booking.href : null;
+  return (
+    <section
+      className={cn(styles.contactBand, styles.threaded)}
+      id="contact"
+      aria-labelledby="home-contact-title"
+      data-surface="light"
+    >
+      <Thread />
+      <Container className={styles.contactInner}>
+        <div className={styles.contactCopy}>
+          <p className={styles.eyebrow}>{contactBand.eyebrow}</p>
+          <h2 id="home-contact-title" className={styles.sectionTitle}>
+            {contactBand.title.text}
+          </h2>
+          <p className={styles.sectionLead}>{contactBand.body.text}</p>
+          <p className={styles.contactOffice}>{contactBand.office.text}</p>
+        </div>
+        <div className={styles.contactActions}>
+          {bookingHref ? (
+            <WebLinkButton href={bookingHref} variant="primary" arrow external>
+              {contactBand.bookCta}
+            </WebLinkButton>
+          ) : null}
+          <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="secondary">
+            {contactBand.contactCta}
+          </WebLinkButton>
+          <p className={styles.contactDirect}>
+            <a href={channels.whatsapp.href} target="_blank" rel="noopener noreferrer">
+              {contactBand.whatsappLabel} {channels.whatsapp.display}
+              <span className="sk-visually-hidden"> (opens WhatsApp in a new tab)</span>
+            </a>
+            <a href={channels.phone.href}>
+              {contactBand.phoneLabel} {channels.phone.display}
+            </a>
+          </p>
         </div>
       </Container>
     </section>

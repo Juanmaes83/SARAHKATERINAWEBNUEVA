@@ -728,7 +728,14 @@ export const footer = {
       links: [
         claim({ text: 'My story', status: 'proposal' }),
         claim({ text: 'Method', status: 'proposal' }),
-        claim({ text: 'Contact', status: 'proposal' }),
+        {
+          label: claim({
+            text: 'Contact',
+            status: 'confirmed',
+            source: 'Existing preview route, 2026-09-29',
+          }),
+          href: '/preview/contact',
+        },
       ],
     },
     {

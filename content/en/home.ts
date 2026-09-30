@@ -429,6 +429,7 @@ export const footer = {
         { text: 'Investment', href: '/preview/investment' },
         { text: 'Tax Advisory', href: '/preview/tax-advisory' },
         { text: 'Meet the team', href: '/preview/team' },
+        { text: 'Contact', href: '/preview/contact' },
       ].map((item) => ({
         label: claim({ text: item.text, status: 'confirmed', source: 'Existing preview route' }),
         href: item.href,
@@ -482,5 +483,34 @@ export const footer = {
     text: '',
     status: 'confirmed',
     source: 'No public legal/contact line is authorised for this preview.',
+  }),
+} as const;
+
+/**
+ * Contact band — a short way into /preview/contact (Juanma, 2026-09-29).
+ * It presents how to start talking and links to the full page; it does not
+ * repeat it. Only facts verified on the booking system are stated.
+ */
+export const contactBand = {
+  eyebrow: 'Talk it through',
+  title: claim({
+    text: 'Start with a 30‑minute call, or simply write.',
+    status: 'proposal',
+    source: `${HOME_BRIEF}; booking system audit (30-minute slots)`,
+  }),
+  body: claim({
+    text: 'Book a call in Spanish local time, or ask for a video call, a phone call or a meeting in Torrevieja.',
+    status: 'proposal',
+    source: 'docs/contact-page.md; Juanma 2026-09-29',
+  }),
+  bookCta: 'Book a discovery call',
+  contactCta: 'All contact options',
+  whatsappLabel: 'WhatsApp',
+  phoneLabel: 'Call',
+  whatsappOpener: "Hi Sarah, I'd like to talk about buying property in Spain.",
+  office: claim({
+    text: 'Office: Calle Bazán 10, 03181 Torrevieja · meetings by prior request',
+    status: 'confirmed',
+    source: 'Juanma 2026-09-29 (address and meetings by request)',
   }),
 } as const;

@@ -251,10 +251,10 @@ commitment.`, two real actions, the Home film and a direct four-route index
 8. contextual final action and a Home-specific footer linking the four pages,
    the two verified tools and real Home sections (now including `#voices`).
 
-**Funnel limitation (unchanged, visible in the page):** no contact or booking
-destination is confirmed, so none is invented. The final band says so ("while
-a direct contact route remains pending") and offers the four pages and the two
-tools; the tools are not presented as a substitute for a conversation.
+**Funnel (updated 2026-09-29, night):** the audited booking calendar, WhatsApp,
+phone and email now exist, so the Home has a short Contact band (`#contact`)
+linking to `/preview/contact` — see `docs/contact-page.md`. The earlier
+"no contact destination" limitation is superseded.
 
 The 2026-09-29 premium pass replaces the earlier BUY / INVEST / OWN cards,
 standalone authority band and process-proof cards. Sarah now appears as the
@@ -273,8 +273,9 @@ The Home and all four service/team previews now consume
 Advisory and Team. The shared header uses `Buyer Tools` as its primary action
 and exposes only Purchase Tax and Real Cash Needed through the existing
 adapter. Desktop uses an accessible two-tool chooser; mobile places the same
-two governed links in the focus-trapped menu. No Contact, Insights or language
-control is rendered, and every page keeps its own preview banner.
+two governed links in the focus-trapped menu. No Insights or language control
+is rendered. (Contact was added on 2026-09-29 once it had working destinations —
+`docs/contact-page.md` §6.)
 
 Navigation QA is recorded in
 `docs/screenshots/unified-navigation-2026-09-29/qa-report.json`: the five routes

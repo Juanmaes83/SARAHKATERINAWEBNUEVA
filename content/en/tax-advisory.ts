@@ -1487,7 +1487,14 @@ export const footer = {
         claim({ text: 'My story', status: 'proposal', source: TEMPLATE }),
         claim({ text: 'Approach', status: 'proposal', source: TEMPLATE }),
         claim({ text: 'Collaborations', status: 'proposal', source: TEMPLATE }),
-        claim({ text: 'Contact', status: 'proposal', source: TEMPLATE }),
+        {
+          label: claim({
+            text: 'Contact',
+            status: 'confirmed',
+            source: 'Existing preview route, 2026-09-29',
+          }),
+          href: '/preview/contact',
+        },
       ],
     },
     {

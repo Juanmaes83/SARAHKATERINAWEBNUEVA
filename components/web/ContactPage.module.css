@@ -1,0 +1,756 @@
+/* ===========================================================================
+ * Contact — editorial, mobile first. Tokens only.
+ *
+ * Five moments joined by the Home's gold advisory thread: hero (Sarah),
+ * formats (lifestyle image), what happens next (a drawn line), office (map),
+ * closing (navy). The hero never animates: it carries the LCP. Everything
+ * else uses the shared reveal family; the thread and the step line draw with
+ * native scroll-driven CSS, and every one of those is simply drawn without
+ * support, without JavaScript or under reduced motion.
+ * =========================================================================== */
+
+/* --- the thread (same idea and geometry as the Home) -------------------- */
+
+.threaded {
+  --contact-thread-x: max(
+    calc(var(--sk-app-gutter) / 2),
+    calc((100% - var(--sk-layout-container-landing)) / 2 - var(--sk-space-32))
+  );
+  position: relative;
+}
+
+.thread {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: var(--contact-thread-x);
+  width: 1px;
+  background-color: var(--sk-web-gold);
+  transform-origin: top;
+  pointer-events: none;
+}
+
+[data-surface='dark'] > .thread {
+  background-color: var(--sk-web-gold-on-dark);
+}
+
+.threadStart {
+  inset-block-start: var(--sk-space-48);
+}
+
+.threadEnd {
+  inset-block-end: auto;
+  height: var(--sk-space-80);
+}
+
+.threadStart::before,
+.threadEnd::after {
+  content: '';
+  position: absolute;
+  inset-inline-start: 50%;
+  width: var(--sk-space-8);
+  height: var(--sk-space-8);
+  border-radius: var(--sk-radius-pill);
+  background-color: inherit;
+  transform: translateX(-50%);
+}
+
+.threadStart::before {
+  inset-block-start: 0;
+}
+
+.threadEnd::after {
+  inset-block-end: 0;
+}
+
+/* --- shared type --------------------------------------------------------- */
+
+.eyebrow,
+.darkEyebrow,
+.directHeading {
+  margin: 0;
+  color: var(--sk-web-gold-strong);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.darkEyebrow {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.title {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h1-family);
+  font-size: var(--sk-type-h1-size);
+  font-weight: var(--sk-type-h1-weight);
+  line-height: var(--sk-type-h1-line-height);
+  letter-spacing: var(--sk-type-h1-letter-spacing);
+  text-wrap: balance;
+}
+
+.lead,
+.sectionLead {
+  max-width: var(--sk-web-measure-lead);
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  line-height: var(--sk-type-lead-line-height);
+}
+
+.sectionHead {
+  display: grid;
+  gap: var(--sk-space-16);
+}
+
+.sectionTitle {
+  max-width: 18ch;
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+  text-wrap: balance;
+}
+
+/* --- 1 · hero ------------------------------------------------------------ */
+
+.hero {
+  overflow: clip;
+  background-color: var(--sk-web-ivory);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-areas:
+    'media'
+    'copy';
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+  padding-block: var(--sk-space-24) var(--sk-space-64);
+}
+
+/* Phones: the photograph opens the page as a warm band, face and sign in view. */
+.heroMedia {
+  grid-area: media;
+  position: relative;
+  margin: 0;
+  margin-inline: calc(var(--sk-app-gutter) * -1);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: var(--sk-web-ivory-soft);
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 8%;
+}
+
+.heroCopy {
+  grid-area: copy;
+  display: grid;
+  gap: var(--sk-space-16);
+  align-content: start;
+  justify-items: start;
+}
+
+.heroAction {
+  display: grid;
+  gap: var(--sk-space-8);
+  width: 100%;
+  margin-block-start: var(--sk-space-8);
+}
+
+.actionNote {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+}
+
+.direct {
+  display: grid;
+  gap: var(--sk-space-8);
+  width: 100%;
+  margin-block-start: var(--sk-space-16);
+  padding-block-start: var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.directHeading {
+  color: var(--sk-web-muted);
+}
+
+.directList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.directList a {
+  display: grid;
+  grid-template-columns: minmax(var(--sk-space-80), auto) minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  color: var(--sk-web-ink);
+  text-decoration: none;
+}
+
+.directLabel {
+  color: var(--sk-web-gold-strong);
+  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
+    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
+  letter-spacing: var(--sk-web-tracking-caps);
+  text-transform: uppercase;
+}
+
+.directValue {
+  overflow-wrap: break-word;
+  font-size: var(--sk-type-body-size);
+  font-weight: var(--sk-font-weight-semibold);
+  text-decoration: underline;
+  text-decoration-color: var(--sk-web-border-strong);
+  text-underline-offset: var(--sk-space-4);
+  transition: text-decoration-color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.directList a:hover .directValue {
+  text-decoration-color: var(--sk-web-ink);
+}
+
+/* --- 2 · formats ---------------------------------------------------------- */
+
+.formats {
+  padding-block: var(--sk-space-64);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background-color: var(--sk-web-white);
+}
+
+.formatsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+}
+
+.formatsMedia {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-ivory-soft);
+  box-shadow: var(--sk-web-shadow-card);
+}
+
+.formatsImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.formatsCopy {
+  display: grid;
+  gap: var(--sk-space-32);
+  align-content: start;
+}
+
+.formatList {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.format {
+  display: grid;
+  grid-template-columns: var(--sk-space-48) minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  padding-block: var(--sk-space-24);
+  border-block-end: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
+
+.formatIndex {
+  color: var(--sk-web-gold-strong);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h3-size);
+  line-height: var(--sk-type-h3-line-height);
+}
+
+.formatBody {
+  display: grid;
+  gap: var(--sk-space-8);
+}
+
+.formatBody h3 {
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-quote-size);
+  font-weight: var(--sk-font-weight-regular);
+  line-height: var(--sk-type-h2-line-height);
+}
+
+.formatBody p {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.formatActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--sk-space-24);
+}
+
+.formatActions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sk-layout-touch-target-min);
+  color: var(--sk-web-gold-strong);
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  text-decoration: none;
+  transition: color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.formatActions a:hover {
+  color: var(--sk-web-ink);
+}
+
+.firstContact {
+  margin: 0;
+  padding-inline-start: var(--sk-space-16);
+  border-inline-start: var(--sk-border-accent-width) var(--sk-border-standard-style)
+    var(--sk-web-gold);
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.firstContact strong {
+  color: var(--sk-web-ink);
+}
+
+/* --- 3 · what happens next ---------------------------------------------- */
+
+.next {
+  padding-block: var(--sk-space-64);
+  background-color: var(--sk-web-ivory);
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: var(--sk-space-32);
+  margin: var(--sk-space-48) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The line that joins the steps: vertical on phones, horizontal on desktop.
+   Drawn once the timeline reaches the reading line; plain and complete
+   without JavaScript (no data-reveal) or under reduced motion. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset-block: var(--sk-space-24);
+  inset-inline-start: calc(var(--sk-space-48) / 2);
+  width: 1px;
+  background-color: var(--sk-web-gold);
+  transform-origin: top;
+  transition: transform var(--sk-web-motion-settle) var(--sk-web-motion-ease);
+}
+
+.timeline[data-reveal='pending']::before {
+  transform: scaleY(0);
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--sk-space-48) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: var(--sk-space-16);
+  row-gap: var(--sk-space-4);
+  align-items: start;
+}
+
+.stepNode {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: var(--sk-space-48);
+  height: var(--sk-space-48);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold);
+  border-radius: var(--sk-radius-pill);
+  background-color: var(--sk-web-ivory);
+  color: var(--sk-web-gold-strong);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h3-size);
+  transition:
+    background-color var(--sk-web-motion-reveal) var(--sk-web-motion-ease),
+    color var(--sk-web-motion-reveal) var(--sk-web-motion-ease);
+}
+
+.timeline[data-reveal='shown'] .stepNode {
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-gold-on-dark);
+}
+
+.step h3 {
+  margin: 0;
+  padding-block-start: var(--sk-space-8);
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  line-height: var(--sk-type-h3-line-height);
+}
+
+.step p {
+  grid-column: 2;
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.nextFoot {
+  display: grid;
+  gap: var(--sk-space-16);
+  justify-items: start;
+  margin-block-start: var(--sk-space-48);
+}
+
+.nextFoot p {
+  max-width: var(--sk-layout-measure-reading);
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+/* --- 4 · office and map --------------------------------------------------- */
+
+.office {
+  padding-block: var(--sk-space-64);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background-color: var(--sk-web-white);
+}
+
+.officeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+  align-items: center;
+}
+
+.officeText {
+  display: grid;
+  gap: var(--sk-space-16);
+  justify-items: start;
+}
+
+.address {
+  display: grid;
+  gap: var(--sk-space-4);
+  color: var(--sk-web-ink);
+  font-style: normal;
+  font-size: var(--sk-type-lead-size);
+  font-weight: var(--sk-font-weight-semibold);
+  line-height: var(--sk-type-lead-line-height);
+}
+
+.visiting {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-small-size);
+  line-height: var(--sk-type-body-small-line-height);
+}
+
+.officeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8) var(--sk-space-16);
+  align-items: center;
+}
+
+/* Fixed frame: identical size before and after the map loads. */
+.map {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-navy);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+.mapFrame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.mapPlaceholder {
+  position: relative;
+  display: grid;
+  gap: var(--sk-space-16);
+  place-content: center;
+  justify-items: center;
+  height: 100%;
+  padding: var(--sk-space-24);
+  color: var(--sk-web-on-dark);
+  text-align: center;
+}
+
+/* A quiet street-grid texture in the navy: decorative, clearly not a map. */
+.mapGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--sk-web-navy-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sk-web-navy-line) 1px, transparent 1px);
+  background-size: var(--sk-space-48) var(--sk-space-48);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.mapPin {
+  position: relative;
+  width: var(--sk-space-32);
+  height: var(--sk-space-48);
+  fill: var(--sk-web-gold-on-dark);
+}
+
+.mapPin circle {
+  fill: var(--sk-web-navy);
+}
+
+.mapAddress {
+  position: relative;
+  display: grid;
+  gap: var(--sk-space-4);
+  margin: 0;
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  line-height: var(--sk-type-h3-line-height);
+}
+
+.mapButton {
+  position: relative;
+  min-height: var(--sk-layout-touch-target-min);
+  padding: var(--sk-space-8) var(--sk-space-24);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-gold-on-dark);
+  border-radius: var(--sk-radius-button);
+  background-color: var(--sk-web-gold);
+  color: var(--sk-web-white);
+  font: inherit;
+  font-size: var(--sk-type-body-small-size);
+  font-weight: var(--sk-font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--sk-web-motion-quick) var(--sk-web-motion-ease);
+}
+
+.mapButton:hover {
+  background-color: var(--sk-web-gold-strong);
+}
+
+.mapNote {
+  position: relative;
+  margin: 0;
+  color: var(--sk-web-muted-on-dark);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+}
+
+/* --- 5 · closing ---------------------------------------------------------- */
+
+.closing {
+  padding-block: var(--sk-space-64);
+  background-color: var(--sk-web-navy);
+  color: var(--sk-web-on-dark);
+}
+
+.closingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+  align-items: end;
+}
+
+.closingCopy {
+  display: grid;
+  gap: var(--sk-space-16);
+}
+
+.closingTitle {
+  max-width: 16ch;
+  margin: 0;
+  color: var(--sk-web-on-dark);
+  font-family: var(--sk-type-h2-family);
+  font-size: var(--sk-type-h2-size);
+  font-weight: var(--sk-type-h2-weight);
+  line-height: var(--sk-type-h2-line-height);
+  letter-spacing: var(--sk-type-h2-letter-spacing);
+}
+
+.closingBody {
+  max-width: var(--sk-web-measure-lead);
+  margin: 0;
+  color: var(--sk-web-muted-on-dark);
+  font-size: var(--sk-type-body-size);
+  line-height: var(--sk-type-body-line-height);
+}
+
+.closingActions {
+  display: grid;
+  gap: var(--sk-space-16);
+  justify-items: start;
+}
+
+.closingDirect .directList a,
+.closingDirect .directValue {
+  color: var(--sk-web-on-dark);
+}
+
+.closingDirect .directLabel {
+  color: var(--sk-web-gold-on-dark);
+}
+
+.closingDirect .directValue {
+  text-decoration-color: var(--sk-web-gold-on-dark);
+}
+
+/* --- breakpoints ---------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .heroAction {
+    width: auto;
+  }
+
+  .formats,
+  .next,
+  .office,
+  .closing {
+    padding-block: var(--sk-space-80);
+  }
+
+  /* Tablet and up: the steps sit on one horizontal line. */
+  .timeline {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sk-space-24);
+  }
+
+  .timeline::before {
+    inset-block: auto;
+    inset-block-start: calc(var(--sk-space-48) / 2);
+    inset-inline: var(--sk-space-24) calc(25% - var(--sk-space-24));
+    width: auto;
+    height: 1px;
+    transform-origin: left;
+  }
+
+  .timeline[data-reveal='pending']::before {
+    transform: scaleX(0);
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sk-space-8);
+  }
+
+  .step h3 {
+    padding-block-start: var(--sk-space-16);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop: words left, Sarah right, the portrait at its own tall ratio. */
+  .heroGrid {
+    grid-template-areas: 'copy media';
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sk-space-80);
+    align-items: center;
+    padding-block: var(--sk-space-64) var(--sk-space-80);
+  }
+
+  .heroMedia {
+    margin-inline: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--sk-radius-card);
+    box-shadow: var(--sk-web-shadow-float);
+  }
+
+  .formatsGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sk-space-80);
+    align-items: start;
+  }
+
+  .formatsMedia {
+    position: sticky;
+    inset-block-start: calc(var(--sk-space-80) + var(--sk-space-32));
+    aspect-ratio: 1 / 1;
+  }
+
+  .officeGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--sk-space-80);
+  }
+
+  .closingGrid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--sk-space-80);
+  }
+}
+
+/* --- motion ----------------------------------------------------------------- */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The tip of each segment sits at mid-viewport, so segments join. */
+    .thread {
+      animation: contact-draw-y linear both;
+      animation-timeline: view();
+      animation-range: cover 50vh cover calc(100% - 50vh);
+    }
+  }
+}
+
+@keyframes contact-draw-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::before,
+  .stepNode,
+  .directValue,
+  .formatActions a,
+  .mapButton {
+    transition: none;
+  }
+
+  .timeline[data-reveal='pending']::before {
+    transform: none;
+  }
+}

@@ -122,6 +122,7 @@ HOME SERVICE DISCOVERY + BUYER SYSTEM PREVIEW MERGED (PR #32; 2026-09-29)
 UNIFIED PREVIEW NAVIGATION — MERGED WITH PR #32
 VISUAL STATE OF THE FOUR PREVIEW ROUTES APPROVED BY JUANMA — 2026-09-28
 HOME VISUALLY APPROVED BY JUANMA — 2026-09-29 (VISUAL ONLY)
+CONTACT PAGE (EDITORIAL) + CONTACT IN NAVIGATION, FOOTERS AND HOME — IN REVIEW PR, NOT MERGED
 OPEN: ASSETS, CASE EVIDENCE, SOUND RIGHTS/CAPTIONS, RESTRICTED BUYER TOOLS, PRODUCTION GATES
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
@@ -167,6 +168,7 @@ see `docs/phase-2h-juanma-review.md`.
 | `docs/phase-2g-connected-service-journey.md`             | Phase 2G connected journey, Good-idea film, Buyer System placements                                                                                      |
 | `docs/phase-2h-juanma-review.md`                         | Phase 2H: Sarah's review of the four landings — matrix, copy adaptations, audio audit, closing record, open assets and decisions                         |
 | `docs/home-buyer-system-preview.md`                      | `/preview/home`, verified Buyer System routes, deliberate blocks and review boundary                                                                     |
+| `docs/contact-page.md`                                   | `/preview/contact`: editorial composition, originals used, booking audit, formats as requests, office and Google map, form blockers                      |
 
 ## 6. Stack
 
@@ -206,6 +208,7 @@ Routes:
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment       |
 | `/preview/team`              | Editorial team page; buyer-side roles and process preview |
 | `/preview/home`              | Home composition and Buyer System hub preview             |
+| `/preview/contact`           | Contact: discovery call, direct channels, office and map  |
 
 Everything under `/preview` is `noindex, nofollow` at three independent
 layers: per-page metadata, an `X-Robots-Tag` response header, and `robots.txt`.
@@ -296,19 +299,20 @@ Asking Price and Tax Exposure remain gated under their existing product rules.
 
 ## 14. Roadmap
 
-| Phase                                                     | Scope                                                                                                                                    | State                                                     |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                                    |
-| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                                    |
-| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE                            |
-| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY                         |
-| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                                    |
-| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — VISUAL STATE APPROVED 2026-09-28                 |
-| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — VISUAL STATE APPROVED 2026-09-28                 |
-| 2H — Sarah's review of the four landings                  | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | CLOSED (PR #30) — VISUAL STATE APPROVED 2026-09-28        |
-| 3 — Functional integration                                | Restricted tool approvals, events, consent and lead-capture decision                                                                     | PARTLY CONNECTED · REMAINDER BLOCKED ON PRODUCT DECISIONS |
-| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 3 AND THE PRODUCTION GATES                          |
-| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                                                 |
+| Phase                                                     | Scope                                                                                                                                    | State                                                         |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| 1 — Technical foundation                                  | Tokens, components, header/footer, SEO/GEO base, analytics contract, CI and foundation laboratory                                        | MERGED                                                        |
+| 2A — Landing Experience System                            | Section grammar, claims governance, Buyer System boundary, responsive primitives and structural Investment prototype                     | MERGED                                                        |
+| 2B/2C — Investment visual implementation and human review | Template-led composition, approved palette, governed assets, dashboards, editorial copy and shared visual layer                          | MERGED — CANONICAL VISUAL BASE                                |
+| 2D — Tax Advisory and Property Purchase convergence       | Adapt both template compositions to the Investment layer without duplicate tokens, chrome or primitives                                  | MERGED — THREE VISUAL BASES READY                             |
+| 2E — Premium media, motion and visual refinement          | Approved media imported, shared crops corrected and three landing bases updated; motion, transitions, effects, responsive rhythm and CRO | MERGED                                                        |
+| 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — VISUAL STATE APPROVED 2026-09-28                     |
+| 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — VISUAL STATE APPROVED 2026-09-28                     |
+| 2H — Sarah's review of the four landings                  | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | CLOSED (PR #30) — VISUAL STATE APPROVED 2026-09-28            |
+| Home + Contact                                            | Home service discovery (PR #32); Contact page, formats as requests, office map, Contact in navigation/footers/Home                       | HOME MERGED (PR #32) · CONTACT IN PR — AWAITING VISUAL REVIEW |
+| 3 — Functional integration                                | Restricted tool approvals, events, consent and lead-capture decision                                                                     | PARTLY CONNECTED · REMAINDER BLOCKED ON PRODUCT DECISIONS     |
+| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 3 AND THE PRODUCTION GATES                              |
+| 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                                                     |
 
 None of the Phase 2 blocks is a production release. The visual state of the
 four preview routes was approved by Juanma on 2026-09-28. Production still
@@ -322,7 +326,7 @@ docs/phase-2-visual-implementation-contract.md.
 
 ## 15. Permitted environment variables
 
-Only these four. All are public; none is a secret.
+Only these six. All are public; none is a secret.
 
 | Variable                       | Default                      | Purpose                                                           |
 | ------------------------------ | ---------------------------- | ----------------------------------------------------------------- |
@@ -330,6 +334,8 @@ Only these four. All are public; none is a secret.
 | `NEXT_PUBLIC_SITE_INDEXABLE`   | `false`                      | Master indexing switch. Indexing also requires `production` mode. |
 | `NEXT_PUBLIC_SITE_URL`         | `http://localhost:3000`      | Origin for canonical, OG and sitemap URLs.                        |
 | `NEXT_PUBLIC_BUYER_SYSTEM_URL` | verified Buyer System origin | Optional override for outbound Buyer System links.                |
+| `NEXT_PUBLIC_BOOKING_URL`      | unset                        | Booking calendar linked from Contact and the Home band.           |
+| `NEXT_PUBLIC_CONTACT_EMAIL`    | unset                        | Contact email shown on Contact; unset hides the email channel.    |
 
 Every default is the safe one, so a missing or malformed variable can never
 accidentally publish the site. See `.env.example`.
@@ -358,6 +364,7 @@ appears.
 | `/preview/property-purchase` | Property Purchase visual base    | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 | `/preview/team`              | Team editorial preview           | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 | `/preview/home`              | Home implementation preview      | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
+| `/preview/contact`           | Contact preview                  | `WebHeader` / `WebFooter` | Shared scoped `--sk-web-*` | No — ever, while under `/preview` |
 
 Two token layers coexist deliberately:
 

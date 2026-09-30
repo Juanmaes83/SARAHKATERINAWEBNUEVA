@@ -16,19 +16,22 @@ const pages = [
   ['investment', '/preview/investment'],
   ['tax-advisory', '/preview/tax-advisory'],
   ['team', '/preview/team'],
+  ['contact', '/preview/contact'],
 ] as const;
 
 describe('approved unified preview navigation', () => {
   afterEach(() => {
     vi.unstubAllEnvs();
   });
-  it('exposes Home and the four real landing routes in one order', () => {
+  it('exposes Home, the four real landing routes and Contact in one order', () => {
     expect(UNIFIED_WEB_NAV).toEqual([
       { href: '/preview/home', label: 'Home' },
       { href: '/preview/property-purchase', label: 'Property Purchase' },
       { href: '/preview/investment', label: 'Investment' },
       { href: '/preview/tax-advisory', label: 'Tax Advisory' },
       { href: '/preview/team', label: 'Team' },
+      // Added 2026-09-29 (Juanma) once Contact had working destinations.
+      { href: '/preview/contact', label: 'Contact' },
     ]);
 
     for (const content of ['home', 'property-purchase', 'investment', 'tax-advisory', 'team']) {

@@ -412,9 +412,19 @@ export const footer = {
     },
     {
       title: 'How we work',
-      links: ['Buyer-side criteria', 'Named responsibilities', 'Professional verification'].map(
-        (text) => claim({ text, status: 'proposal', source: USER_BRIEF }),
-      ),
+      links: [
+        ...['Buyer-side criteria', 'Named responsibilities', 'Professional verification'].map(
+          (text) => claim({ text, status: 'proposal', source: USER_BRIEF }),
+        ),
+        {
+          label: claim({
+            text: 'Contact',
+            status: 'confirmed',
+            source: 'Existing preview route, 2026-09-29',
+          }),
+          href: '/preview/contact',
+        },
+      ],
     },
     {
       title: 'Owner stage',
