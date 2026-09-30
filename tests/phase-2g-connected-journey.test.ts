@@ -364,12 +364,15 @@ describe('publication and held subjects', () => {
   // restated truthfully, the internal substitution note (Tax), the footer
   // "Review status" column (Team) and the Purchase "preview" scope label are
   // cleaned; no other string changed (verified by diff).
+  // 2026-09-30 (reconciliation with Sarah's documents): investment.ts replaces
+  // the two headlines Sarah rejected and the hero lead (REVISION
+  // WEB-investment.docx); no other string changed (verified by diff).
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        'f306b6d83ad8b1af7111e082287a03d7db7f27ccb231e93fcb1dbe4e4e019539',
+        '50750fa6ce5096f53763c57bf5b63e2d2f6cca7ba8945fc7966339623184d275',
       'content/en/tax-advisory.ts':
         '0d91bae0774b3ac81263b7abc2d64a8a62e91e25df78e5b5c405da456f79ad00',
       'content/en/team.ts': '5743db23aae1e92ee9c988760f144d73286792b16849c633a954fe106eac222f',

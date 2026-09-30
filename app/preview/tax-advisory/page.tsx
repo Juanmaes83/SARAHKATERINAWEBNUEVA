@@ -50,7 +50,6 @@ export default function TaxAdvisoryPage() {
         buyerToolsSourcePage={SERVICE_ROUTES.tax}
       />
 
-      <SarahReviewMark id="SR-053" />
       <TaxHero />
       <SarahReviewMark id="SR-054" />
       {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
@@ -59,32 +58,21 @@ export default function TaxAdvisoryPage() {
         sourcePage={SERVICE_ROUTES.tax}
         moment={TAX_LEAD_TOOL.moment.text}
       />
-      <SarahReviewMark id="SR-055" />
       <TaxContextBand />
       {/* Phase 2E (brief §8): what is reviewed, then when — then the report. */}
-      <SarahReviewMark id="SR-056" />
       <TaxProcessBand />
-      <SarahReviewMark id="SR-057" />
       <TaxCalendarBand />
       <SarahReviewMark id="SR-058" />
       <TaxReportBand />
       <SarahReviewMark id="SR-059" />
       <TaxConcernsBand />
-      <SarahReviewMark id="SR-060" />
       <TaxServicesBand />
-      <SarahReviewMark id="SR-061" />
       <TaxAuthorityBand />
-      <SarahReviewMark id="SR-062" />
       <TaxCasesBand />
-      <SarahReviewMark id="SR-063" />
       <TaxJourneyBand />
-      <SarahReviewMark id="SR-064" />
       <ServiceJourney page="tax" />
-      <SarahReviewMark id="SR-065" />
       <WebFaq content={faq} appearance="light" />
-      <SarahReviewMark id="SR-066" />
       <TaxFinalCtaBand />
-      <SarahReviewMark id="SR-067" />
       <WebFooter content={footer} />
     </RevealLineProvider>
   );

@@ -68,37 +68,24 @@ export default function InvestmentPage() {
 
         <SarahReviewMark id="SR-036" />
         <WebHero />
-        <SarahReviewMark id="SR-037" />
         <TrustBand />
         {/* Phase 2H (Sarah's review): Sarah's authority block at the start of the page. */}
-        <SarahReviewMark id="SR-038" />
         <AuthorityBand />
-        <SarahReviewMark id="SR-040" />
         <ApproachBand />
         <SarahReviewMark id="SR-041" />
         <DoorsBand />
-        <SarahReviewMark id="SR-042" />
         <AssetTypesBand />
-        <SarahReviewMark id="SR-043" />
         <ProcessBand />
-        <SarahReviewMark id="SR-044" />
         <ReportBand />
-        <SarahReviewMark id="SR-045" />
         <ScenariosBand />
-        <SarahReviewMark id="SR-046" />
         <ToolsBand />
-        <SarahReviewMark id="SR-047" />
         <CasesBand />
-        <SarahReviewMark id="SR-048" />
         <JourneyBand />
         {/* Phase 2G: where the operation continues — purchase, tax, the team. */}
         <SarahReviewMark id="SR-049" />
         <ServiceJourney page="investment" />
-        <SarahReviewMark id="SR-050" />
         <WebFaq appearance="light" />
-        <SarahReviewMark id="SR-051" />
         <FinalCtaBand />
-        <SarahReviewMark id="SR-052" />
         <WebFooter />
       </div>
     </RevealLineProvider>

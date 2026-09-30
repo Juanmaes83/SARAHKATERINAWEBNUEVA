@@ -509,8 +509,16 @@ export function ScenariosBand() {
 
 /* --- AUTHORITY (navy) ---------------------------------------------------------- */
 
+/** Keeps the face in a landscape frame; the portrait itself is never cropped at source. */
+const AUTHORITY_FOCAL = '50% 28%';
+
 export function AuthorityBand() {
-  const authorityMedia = APPROVED_MEDIA.authorityEditorial;
+  // 2026-09-30: Sarah asked to replace the face in the former authority
+  // image (REVISION WEB-Tax advisory.docx: "hay que cambiar la cara de esta
+  // foto"; REVISION WEB-investment.docx: "el rostro se ve muy poco
+  // natural"). The only portrait she has approved in this repository is the
+  // Home one; its use here is open for her confirmation (SR-029).
+  const authorityMedia = APPROVED_MEDIA.homeAuthority;
 
   return (
     <WebSection surface="navySoft" id="sarah">
@@ -531,7 +539,7 @@ export function AuthorityBand() {
               className={styles.portraitImage}
               fill
               sizes="(max-width: 767px) 100vw, 42vw"
-              style={{ objectPosition: authorityMedia.focal }}
+              style={{ objectPosition: AUTHORITY_FOCAL }}
             />
           </div>
         </RevealOnScroll>
@@ -567,7 +575,6 @@ export function AuthorityBand() {
                 Reserved slot. The template shows a handwritten signature; no
                 signature asset exists and one may not be drawn or typeset.
               */}
-              <SarahReviewMark id="SR-039" variant="tag" />
               <div className={styles.signatureSlot}>
                 <p className={styles.signatureNote}>{authority.signaturePending.text}</p>
               </div>

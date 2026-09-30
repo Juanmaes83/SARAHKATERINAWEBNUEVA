@@ -2,8 +2,10 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  SARAH_APPROVALS,
   SARAH_REVIEW_ITEMS,
   SARAH_REVIEW_ROUTES,
+  type SarahApproval,
   type SarahReviewRoute,
 } from '@/content/en/sarah-review';
 import {
@@ -14,9 +16,10 @@ import {
 /**
  * Audit of 2026-09-30 (docs/approval-marks-audit.md): every visible
  * `SARAH REVIEW REQUIRED · SR-###` mark has one register entry and every entry
- * is shown where it says; no page shows an ID twice; every rendered `proposal`
- * claim is covered by an entry; and a production or indexable build refuses to
- * render a mark.
+ * is shown where it says; no page shows an ID twice; every `proposal` claim is
+ * either open for Sarah or approved by her, quoting her document, never both
+ * (reconciliation of 2026-09-30); and a production or indexable build refuses
+ * to render a mark.
  */
 
 const root = join(__dirname, '..');
@@ -85,7 +88,7 @@ describe('Sarah review register', () => {
     for (const file of SHARED_COMPONENTS) expect(read(file)).not.toContain('<SarahReviewMark');
   });
 
-  it('covers every rendered proposal claim with a register entry', async () => {
+  it('accounts for every proposal claim exactly once: open for Sarah, or approved by her', async () => {
     const files = [
       'home',
       'contact',
@@ -96,8 +99,16 @@ describe('Sarah review register', () => {
       'service-journey',
       'buyer-voices',
     ];
-    const refs = SARAH_REVIEW_ITEMS.flatMap((item) => item.refs as readonly string[]);
+    const under = (key: string, ref: string) => key === ref || key.startsWith(`${ref}.`);
+    const openRefs = SARAH_REVIEW_ITEMS.flatMap((item) => item.refs as readonly string[]);
+    const approved = (key: string) =>
+      SARAH_APPROVALS.some(
+        (entry) =>
+          (entry.refs as readonly string[]).some((ref) => under(key, ref)) &&
+          !((entry as SarahApproval).except ?? []).some((ref) => under(key, ref)),
+      );
     const uncovered: string[] = [];
+    const both: string[] = [];
     for (const file of files) {
       const mod = (await import(`../content/en/${file}.ts`)) as Record<string, unknown>;
       const walk = (value: unknown, path: string, seen: Set<unknown>) => {
@@ -107,18 +118,75 @@ describe('Sarah review register', () => {
         if (typeof node.text === 'string' && typeof node.status === 'string') {
           if (node.status !== 'proposal') return;
           const key = `${file}:${path}`;
-          if (!refs.some((ref) => key === ref || key.startsWith(`${ref}.`))) uncovered.push(key);
+          const open = openRefs.some((ref) => under(key, ref));
+          const ok = approved(key);
+          if (!open && !ok) uncovered.push(key);
+          if (open && ok) both.push(key);
           return;
         }
         for (const [k, child] of Object.entries(node)) walk(child, path ? `${path}.${k}` : k, seen);
       };
       for (const [name, value] of Object.entries(mod)) walk(value, name, new Set());
     }
-    expect(uncovered).toEqual([]);
+    expect(uncovered, 'neither open nor approved').toEqual([]);
+    expect(both, 'open and approved at once').toEqual([]);
+  });
+
+  it('grounds every approval in one of the four documents or in Juanma’s relay', () => {
+    const DOCS = [
+      'REVISION WEB-property-purchase.docx',
+      'REVISION WEB-investment.docx',
+      'REVISION WEB-Tax advisory.docx',
+      'REVISION WEB. Team.docx',
+    ];
+    for (const entry of SARAH_APPROVALS as readonly SarahApproval[]) {
+      if (entry.basis === 'relayed') expect(entry.source).toMatch(/^Juanma, \d{4}-\d{2}-\d{2}/);
+      else
+        expect(
+          DOCS.some((doc) => entry.source.includes(doc)),
+          entry.source,
+        ).toBe(true);
+      // No review document covers the Home: it can never carry an approval here.
+      expect(entry.routes as readonly string[]).not.toContain('/preview/home');
+    }
+    // Contact was approved as a whole page (Juanma, 2026-09-30): no open mark.
+    expect(
+      SARAH_REVIEW_ITEMS.some((item) =>
+        (item.routes as readonly string[]).includes('/preview/contact'),
+      ),
+    ).toBe(false);
+    // The Home keeps its own open items until a document reviews it.
+    expect(
+      SARAH_REVIEW_ITEMS.filter((item) =>
+        (item.routes as readonly string[]).includes('/preview/home'),
+      ).length,
+    ).toBe(11);
+  });
+
+  it('keeps the copy Sarah rejected off the page', () => {
+    const investment = read('content/en/investment.ts');
+    for (const rejected of [
+      'Properties. Data. Better decisions.',
+      'Two paths. One goal: an investment built on evidence.',
+    ]) {
+      expect(investment).not.toContain(`text: '${rejected}'`);
+    }
+    // REVISION WEB. Team.docx: "Y el texto de abajo hay que eliminarlo."
+    expect(read('components/web/TeamEditorial.tsx')).not.toMatch(
+      /The photographs show three people/,
+    );
+    expect(read('content/en/team.ts')).not.toMatch(/The photographs show three people/);
   });
 
   it('points every ref at content that exists', async () => {
-    for (const ref of SARAH_REVIEW_ITEMS.flatMap((item) => item.refs as readonly string[])) {
+    const allRefs = [
+      ...SARAH_REVIEW_ITEMS.flatMap((item) => item.refs as readonly string[]),
+      ...(SARAH_APPROVALS as readonly SarahApproval[]).flatMap((e) => [
+        ...e.refs,
+        ...(e.except ?? []),
+      ]),
+    ];
+    for (const ref of allRefs) {
       const [file, path] = ref.split(':') as [string, string];
       const mod = (await import(`../content/en/${file}.ts`)) as Record<string, unknown>;
       const target = path

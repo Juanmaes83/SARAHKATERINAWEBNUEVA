@@ -502,14 +502,16 @@ export function TaxAuthorityBand() {
         <RevealOnScroll variant="unveil">
           <div className={shared.portraitFrame}>
             <SarahReviewMark id="SR-029" variant="overlay" />
-            {/* Owner-selected editorial authority image — Preview only. */}
+            {/* 2026-09-30: Sarah asked to change the face in the former image
+                (REVISION WEB-Tax advisory.docx). Her Home-approved portrait
+                replaces it; this use is open for her confirmation (SR-029). */}
             <Image
-              src={APPROVED_MEDIA.authorityEditorial.src}
-              alt={APPROVED_MEDIA.authorityEditorial.alt}
+              src={APPROVED_MEDIA.homeAuthority.src}
+              alt={APPROVED_MEDIA.homeAuthority.alt}
               className={shared.portraitImage}
               fill
               sizes="(max-width: 767px) 100vw, 46vw"
-              style={{ objectPosition: APPROVED_MEDIA.authorityEditorial.focal }}
+              style={{ objectPosition: '50% 28%' }}
             />
           </div>
         </RevealOnScroll>
@@ -545,7 +547,6 @@ export function TaxAuthorityBand() {
                 Reserved slot. The template signs the quote by hand; no
                 signature asset exists and one may not be drawn or typeset.
               */}
-              <SarahReviewMark id="SR-039" variant="tag" />
               <div className={shared.signatureSlot}>
                 <p className={shared.signatureNote}>{authority.signaturePending.text}</p>
               </div>

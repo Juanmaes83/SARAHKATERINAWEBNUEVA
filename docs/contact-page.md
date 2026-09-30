@@ -1,6 +1,8 @@
 # Contact page — decisions, sources, map, formats and blockers
 
-**Status:** EDITORIAL REDESIGN IMPLEMENTED LOCALLY · AWAITING JUANMA'S VISUAL REVIEW · PREVIEW/NOINDEX · NOT PRODUCTION
+**Status:** IN PR #33 · **SARAH APPROVED THE PAGE (relayed by Juanma, 2026-09-30)** · PREVIEW/NOINDEX · NOT PRODUCTION
+
+> 2026-09-30: Juanma confirms Sarah has approved the whole Contact page, portrait included. Its SR marks (SR-012–SR-017) are removed (`docs/approval-marks-audit.md` §10). Still open, and not Sarah's: the booking URL and email variables on the Vercel Preview, the form (§5) and a test booking.
 
 **Date:** 2026-09-29 (second pass, Juanma's decisions)
 

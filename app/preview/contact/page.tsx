@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { ContactPage } from '@/components/web/ContactPage';
 import { WebFooter } from '@/components/web/WebFooter';
@@ -38,7 +37,6 @@ export default function ContactPreviewPage() {
         buyerToolsSourcePage="/preview/contact"
       />
       <ContactPage />
-      <SarahReviewMark id="SR-081" />
       <WebFooter content={footer} showLanguageStatus={false} />
     </>
   );

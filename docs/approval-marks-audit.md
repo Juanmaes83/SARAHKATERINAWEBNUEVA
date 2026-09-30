@@ -3,7 +3,7 @@
 **Date:** 2026-09-30
 **Branch:** `feat/contact-editorial-page` (PR #33, Draft), audited at `c045da4` (Contact integrated, based on `main` `8de6a76`)
 **Routes:** `/preview/home`, `/preview/contact`, `/preview/property-purchase`, `/preview/investment`, `/preview/tax-advisory`, `/preview/team`
-**Status:** review tooling in place. **Nothing here approves anything.** No route is declared visually approved for this version: the Contact page, the Contact links and these marks still need Juanma's visual review, and every `SR-###` item still needs Sarah.
+**Status:** reconciled with Sarah's four review documents on 2026-09-30 (§10), which supersedes §4. **21 decisions stay open** for Sarah (SR-001–SR-011 on the Home, 10 on the landings). Contact is approved as a page (Juanma). Nothing here approves the Home, publication or production, and this version still needs Juanma's visual review.
 
 The goal: no stale approval notice on content whose approval is recorded; every item Sarah still has to decide visible where it is, with an ID; technical and professional blockers kept apart from Sarah's decisions; no review mark able to reach a published build.
 
@@ -96,125 +96,9 @@ The banners no longer state any approval. The Home keeps no banner (owner instru
 
 ---
 
-## 4. What Sarah still has to decide — the SR register
+## 4. What Sarah still has to decide — superseded
 
-**Source of truth:** `content/en/sarah-review.ts`. Each entry records its scope, the approved lines it excludes, the decision needed and the classified content it covers.
-
-**On the page:** each item is marked `SARAH REVIEW REQUIRED · SR-###` (`components/review/SarahReviewMark.tsx`):
-
-- a strip with the item's label, immediately before the block;
-- a tag next to a single line or image.
-
-The content itself is never hidden, struck through or dimmed.
-
-**Totals:** 81 decisions and 85 placements. SR-029 appears on three pages; SR-039 and SR-081 appear on two pages each.
-
-| ID     | Route(s)                  | Item                                                    | Decision                                                                               |
-| ------ | ------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| SR-001 | Home                      | Hero · lead sentence                                    | Approve / edit / withdraw                                                              |
-| SR-002 | Home                      | Side statement                                          | Approve / edit / withdraw                                                              |
-| SR-003 | Home                      | Selector and three service chapters                     | Approve / edit / withdraw (excludes Sarah's Property Purchase line)                    |
-| SR-004 | Home                      | Team chapter · title and button                         | Approve / edit / withdraw                                                              |
-| SR-005 | Home                      | Process                                                 | Approve / edit / withdraw (scope line also legal)                                      |
-| SR-006 | Home                      | Client voices · title and note                          | Approve / edit / withdraw (quotes authorised, excluded)                                |
-| SR-007 | Home                      | Buyer tools · title and cards                           | Approve / edit / withdraw                                                              |
-| SR-008 | Home                      | FAQ                                                     | Approve / edit / withdraw                                                              |
-| SR-009 | Home                      | Contact band                                            | Approve / edit / withdraw (address excluded)                                           |
-| SR-010 | Home                      | Final call to action                                    | Approve / edit / withdraw                                                              |
-| SR-011 | Home                      | Footer                                                  | Approve / edit / withdraw                                                              |
-| SR-012 | Contact                   | **Hero portrait · use on Contact** (`Sarah home_1.png`) | Approve this use or choose another photograph — her approval covers the Home only      |
-| SR-013 | Contact                   | Hero · headline, lead, channel labels                   | Approve / edit / withdraw                                                              |
-| SR-014 | Contact                   | Formats                                                 | Approve / edit / withdraw                                                              |
-| SR-015 | Contact                   | "What happens after you book" · title and note          | Approve / edit / withdraw (shown only when booking is configured)                      |
-| SR-016 | Contact                   | Office heading                                          | Approve / edit / withdraw (address excluded)                                           |
-| SR-017 | Contact                   | Closing band                                            | Approve / edit / withdraw                                                              |
-| SR-018 | Purchase                  | Hero except headline                                    | Approve / edit / withdraw                                                              |
-| SR-019 | Purchase                  | Purchase Tax band                                       | Approve / edit / withdraw                                                              |
-| SR-020 | Purchase                  | Trust strip                                             | Approve / edit / withdraw                                                              |
-| SR-021 | Purchase                  | Audience · body and list                                | Approve / edit / withdraw                                                              |
-| SR-022 | Purchase                  | Good idea · four points; S-03                           | Approve the points; answer S-03 ("protecting your investment")                         |
-| SR-023 | Purchase                  | One file                                                | Approve / edit / withdraw                                                              |
-| SR-024 | Purchase                  | File tracker and ordered steps                          | Approve / edit / withdraw                                                              |
-| SR-025 | Purchase                  | "We review. We analyse. You decide with clarity."       | Approve / edit / withdraw                                                              |
-| SR-026 | Purchase                  | "What you stop worrying about."                         | Approve / edit / withdraw                                                              |
-| SR-027 | Purchase                  | Service levels; "What it includes"; price publication   | Approve / edit / withdraw; decide whether prices and timings are published             |
-| SR-028 | Purchase                  | Sarah authority · copy                                  | Approve / edit / withdraw                                                              |
-| SR-029 | Purchase, Investment, Tax | **Authority photograph** (`authorityEditorial`)         | Sarah objected to the face (I8/T6): approve a replacement or edit, or accept it (A-01) |
-| SR-030 | Purchase                  | Cases band · titles and banner labels                   | Approve / edit / withdraw                                                              |
-| SR-031 | Purchase                  | Resources band                                          | Approve / edit / withdraw                                                              |
-| SR-032 | Purchase                  | Next step                                               | Approve / edit / withdraw                                                              |
-| SR-033 | Purchase                  | FAQ                                                     | Approve / edit / withdraw                                                              |
-| SR-034 | Purchase                  | Final call to action                                    | Approve / edit / withdraw                                                              |
-| SR-035 | Purchase                  | Footer                                                  | Approve / edit / withdraw                                                              |
-| SR-036 | Investment                | Hero and snapshot; headline H-02                        | Keep the template headline or pick an option; approve the rest                         |
-| SR-037 | Investment                | Trust strip                                             | Approve / edit / withdraw                                                              |
-| SR-038 | Investment                | Sarah authority · copy                                  | Approve / edit / withdraw                                                              |
-| SR-039 | Investment, Tax           | **Signature slot**                                      | Supply an approved signature or remove the slot                                        |
-| SR-040 | Investment                | Approach band                                           | Approve / edit / withdraw                                                              |
-| SR-041 | Investment                | Two doors; headline H-02                                | Keep the template headline or pick an option; approve the rest                         |
-| SR-042 | Investment                | Asset types and territory map                           | Approve / edit / withdraw                                                              |
-| SR-043 | Investment                | Process                                                 | Approve / edit / withdraw                                                              |
-| SR-044 | Investment                | Report preview                                          | Approve / edit / withdraw                                                              |
-| SR-045 | Investment                | Scenarios and risk                                      | Approve / edit / withdraw                                                              |
-| SR-046 | Investment                | Free calculations                                       | Approve / edit / withdraw                                                              |
-| SR-047 | Investment                | Case studies · titles                                   | Approve / edit / withdraw                                                              |
-| SR-048 | Investment                | Ecosystem band                                          | Approve / edit / withdraw                                                              |
-| SR-049 | Investment                | Next step · intro and reasons (Sarah's title excluded)  | Approve / edit / withdraw                                                              |
-| SR-050 | Investment                | FAQ                                                     | Approve / edit / withdraw                                                              |
-| SR-051 | Investment                | Final call to action                                    | Approve / edit / withdraw                                                              |
-| SR-052 | Investment                | Footer                                                  | Approve / edit / withdraw                                                              |
-| SR-053 | Tax                       | Hero, snapshot, trust strip; hero lead T1               | Approve the copy; decide on the T1 lead                                                |
-| SR-054 | Tax                       | Purchase Tax band · pain-point line                     | Approve / edit / withdraw                                                              |
-| SR-055 | Tax                       | Context band                                            | Approve / edit / withdraw                                                              |
-| SR-056 | Tax                       | Process                                                 | Approve / edit / withdraw                                                              |
-| SR-057 | Tax                       | Calendar · title and intro                              | Approve / edit / withdraw                                                              |
-| SR-058 | Tax                       | Report · plain-language titles (T4)                     | Approve / edit / withdraw                                                              |
-| SR-059 | Tax                       | Six items under Sarah's title; S-01                     | Approve the items; answer S-01 (tax-office letters in scope?)                          |
-| SR-060 | Tax                       | Services                                                | Approve / edit / withdraw                                                              |
-| SR-061 | Tax                       | Sarah authority · copy                                  | Approve / edit / withdraw                                                              |
-| SR-062 | Tax                       | Real cases · case texts                                 | Approve / edit / withdraw (results stay C-01)                                          |
-| SR-063 | Tax                       | "Buy. File. Plan. Review."                              | Approve / edit / withdraw                                                              |
-| SR-064 | Tax                       | Next step                                               | Approve / edit / withdraw                                                              |
-| SR-065 | Tax                       | FAQ                                                     | Approve / edit / withdraw                                                              |
-| SR-066 | Tax                       | Final call to action                                    | Approve / edit / withdraw                                                              |
-| SR-067 | Tax                       | Footer                                                  | Approve / edit / withdraw                                                              |
-| SR-068 | Team                      | Hero copy                                               | Approve / edit / withdraw                                                              |
-| SR-069 | Team                      | **Hero photograph** (warmer edit asked, E2)             | Approve as is or supply an approved warmer edit (A-02)                                 |
-| SR-070 | Team                      | Introduction                                            | Approve / edit / withdraw                                                              |
-| SR-071 | Team                      | Three starting points · cards                           | Approve / edit / withdraw (Sarah's title excluded)                                     |
-| SR-072 | Team                      | Sarah's profile · text and quote                        | Approve / edit / withdraw                                                              |
-| SR-073 | Team                      | Team profiles · roles and texts                         | Approve / edit / withdraw                                                              |
-| SR-074 | Team                      | **Group photograph** (E6)                               | Approve as is, replace, edit (A-03) or remove                                          |
-| SR-075 | Team                      | **Network band** · photograph and copy                  | Keep, edit or remove the photograph; approve the copy                                  |
-| SR-076 | Team                      | Process                                                 | Approve / edit / withdraw                                                              |
-| SR-077 | Team                      | After the keys                                          | Approve / edit / withdraw                                                              |
-| SR-078 | Team                      | Next step                                               | Approve / edit / withdraw                                                              |
-| SR-079 | Team                      | FAQ                                                     | Approve / edit / withdraw                                                              |
-| SR-080 | Team                      | Final call to action                                    | Approve / edit / withdraw                                                              |
-| SR-081 | Team, Contact             | Footer (shared)                                         | Approve / edit / withdraw                                                              |
-
-**Approved and therefore not marked** (Phase 2H §10.2 and later records):
-
-- "Clarity before commitment."
-- Sarah's Phase 2H lines: Investment journey title, "Everything you leave in our hands.", the Tax case framing lines, "Buy with peace of mind…", "What looks like a great opportunity…" and its body, "Different goals…", "Buying a home is easy…" and its introduction.
-- The remuneration model and the 20-year credential.
-- The three Home testimonials: client authorisation confirmed on 2026-09-29.
-- The Home portrait of Sarah: her approval covers the Home.
-- Juanma's Contact decisions: address, phone, email, video calls and meetings on request.
-- The Contact booking facts, verified against the live booking page.
-
-**Sarah decisions with nothing to mark on the page:**
-
-- V-01, the voice-over of the Purchase film: not published, so there is nothing rendered to mark.
-- The Home, which Juanma approved visually: this does not approve its copy, so the Home carries SR-001–SR-011.
-
-**Resolving an item:**
-
-1. Record Sarah's decision (date and channel) in this document.
-2. Update the covered claims to `confirmed` with that source, or edit or remove them.
-3. Delete the entry and its mark in the same change.
-
-The test fails if the mark and the register disagree.
+The first version of this section listed 81 decisions and 85 placements. It treated every `proposal` claim as not approved by Sarah. **§10 replaces it:** the register (`content/en/sarah-review.ts`) now holds only the decisions Sarah's documents leave open. The 81-item table is in the history of this file (commit `1fe8d36`). The captures in `docs/screenshots/approval-marks-2026-09-30/` show that earlier state.
 
 ---
 
@@ -271,7 +155,7 @@ No other removal left a gap that needed new copy. The rewritten banners and tech
   - `tests/team.test.ts`: the network label's new wording, plus SR-075.
   - `tests/tax-advisory.test.ts`: the substitution stands, and the held service is no longer named on the page.
   - `tests/phase-2g-connected-journey.test.ts`: the protected-content hashes are re-recorded for exactly the strings in §3. The other strings are unchanged, verified by diff.
-- **Merge consideration:** if the Vercel **Production** environment sets `NEXT_PUBLIC_SITE_MODE=production`, a production build of `main` fails while any SR entry is open. That is intended, and the previous production deployment stays live. The Production variables were not inspected (no Vercel CLI in this environment).
+- **Merge consideration (checked 2026-09-30, §10.5):** Vercel Production (`main`) runs in `preview` mode. A merge therefore does not fail its build, but the open SR marks will show on the production alias, which remains a noindex review environment. If Production is ever switched to `production` or indexable, its build fails while any SR entry is open.
 
 ---
 
@@ -311,3 +195,254 @@ The evidence is in `docs/screenshots/approval-marks-2026-09-30/`:
 - No booking, message, form submission or lead.
 - No tests were deleted, and no image, token or brand value was added.
 - The Buyer System and the strategic repository are untouched.
+
+---
+
+## 10. Reconciliation with Sarah's four documents (2026-09-30)
+
+This section supersedes §4. The first audit read a claim's `status: 'proposal'` as "Sarah has not approved it". That was wrong for the four landings: Sarah reviewed them in full. The register now holds only the decisions that her documents leave open.
+
+### 10.1 Sources and criterion
+
+**The documents.** Sarah wrote four review documents and Juanma relayed them. They are in the local `Downloads` folder, all timestamped 2026-09-28 16:05:
+
+| Document                              | SHA-256 (prefix)   |
+| ------------------------------------- | ------------------ |
+| `REVISION WEB-property-purchase.docx` | `0aaa9817b534d4d1` |
+| `REVISION WEB-investment.docx`        | `e88a61b27b83fde4` |
+| `REVISION WEB-Tax advisory.docx`      | `a9f8658cf54cebe8` |
+| `REVISION WEB. Team.docx`             | `9ea444fa10166b3a` |
+
+- The brief names them `…(2).docx`, but no file with that name exists on this machine. These four match the brief point for point. **If the `(2)` files differ, this section must be re-checked against them.**
+- All the text and all 17 screenshots were read, and each screenshot was matched to its block.
+- Sarah reviewed the pages through the browser's Spanish translation of the deployed English site, at `main` `edc47f0`.
+
+**Contact.** Juanma confirmed, in the brief of 2026-09-30, that Sarah approved the whole Contact page.
+
+**Home.** No document reviews it. SR-001 to SR-011 are unchanged.
+
+**The classes:**
+
+- `APPROVED_BY_SARAH`, in three forms:
+  - **explicit**: her own text, or a block she named and praised;
+  - **reviewed**: copy that was on the page she reviewed, unchanged since, on which she asked for no change, on a page she judged as a whole. The line quoted with each entry in `SARAH_APPROVALS` is the one she wrote about that page;
+  - **relayed**: Contact.
+- `CHANGE_REQUESTED`: she asked for a change. Each one is checked below.
+- `SARAH_DECISION_STILL_OPEN`: copy she has never seen (written in Phase 2H or on 2026-09-30), and one image use. These carry an `SR-###` mark.
+- `FACTUAL_OR_PROFESSIONAL_CHECK`, `TECHNICAL_PENDING` and **asset** items: listed in §10.4, with no Sarah mark.
+
+**How "never seen" was established.** Every classified claim and content string of the four landings was compared between `edc47f0`, the version she reviewed, and the current HEAD. A claim counts as _new_ only if its text changed. Strings that only moved from a component into content were checked separately.
+
+**Enforced by `tests/sarah-review.test.ts`:**
+
+- every `proposal` claim is either open (SR) or approved, never both;
+- every approval cites one of the four documents, or Juanma's relay for Contact;
+- no approval can cover the Home.
+
+**`status` is not an approval record.** Most copy Sarah approved stays `proposal` in `content/en`. Its publication also waits on legal, tax or evidence gates, so the classification is unchanged. `SARAH_APPROVALS` is the approval record.
+
+### 10.2 Page by page
+
+#### Property Purchase (`REVISION WEB-property-purchase.docx`)
+
+| #   | Sarah's instruction                                                                    | Before                                                                            | After                                                                                                       | Class                                                                            |
+| --- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| P1  | "El video que se mueva sin scroll"                                                     | Done in 2H (`HeroFilm`)                                                           | Unchanged. Verified: the film plays without scrolling (§10.6)                                               | APPROVED_BY_SARAH (implemented)                                                  |
+| P2  | "Compra con total tranquilidad: nosotros coordinamos cada paso."                       | "Buy with peace of mind: we coordinate every step."                               | Unchanged; mark removed                                                                                     | APPROVED_BY_SARAH (explicit)                                                     |
+| P3  | "Nosotros gestionamos el papeleo; tú eliges tu casa."                                  | "We handle the paperwork. You choose your home."                                  | Unchanged; mark removed                                                                                     | APPROVED_BY_SARAH (explicit). What "the paperwork" covers is S-02, a legal check |
+| P4  | "La calculadora es una idea genial… pongámoslo al principio"                           | Purchase Tax band directly under the hero; links through `resolveEntryPoint` only | Unchanged. The link is live only where the Buyer System origin is set (Preview); no calculator is simulated | APPROVED_BY_SARAH (implemented) · TECHNICAL for Production (B-01)                |
+| —   | The line under the band, "Before anything else: what Spain charges…"                   | Written in 2H; she has not seen it                                                | Kept                                                                                                        | **SR-019**                                                                       |
+| P5  | "Lo que parece una gran oportunidad puede esconder una mala compra."                   | Implemented                                                                       | Unchanged                                                                                                   | APPROVED_BY_SARAH (explicit)                                                     |
+| P6  | "El sueño cabe en un instante: … De eso nos ocupamos nosotros."                        | Implemented                                                                       | Unchanged. The 2H wording flag S-03 is closed: these are her own words                                      | APPROVED_BY_SARAH (explicit)                                                     |
+| —   | "Where an opportunity usually goes wrong"                                              | Written in 2H                                                                     | Kept                                                                                                        | **SR-022**                                                                       |
+| P7  | "Pongamos el video con sonido" (the Good-idea film)                                    | Sound capability built; soundtrack `unpublished`                                  | Unchanged; not published (see below)                                                                        | APPROVED_BY_SARAH as an instruction · BLOCKED: rights and captions               |
+| P8  | "me gustan estos bloques que rompen la estética" · "un poco apagada"                   | Navy blocks kept                                                                  | Unchanged. "Apagada" needs the aquamarine token (§10.4)                                                     | APPROVED_BY_SARAH (blocks) · asset/token for the colour                          |
+| P9  | "Me gusta mucho este bloque, es un acierto total" (the final-CTA image with the table) | Kept                                                                              | Unchanged                                                                                                   | APPROVED_BY_SARAH (explicit)                                                     |
+| —   | "What it includes" (the audit's replacement for "What the preview includes")           | New, 2026-09-30                                                                   | Kept                                                                                                        | **SR-027**                                                                       |
+| —   | Authority photograph                                                                   | Same image as Tax/Investment, whose face she rejected there                       | Replaced by her Home portrait                                                                               | CHANGE_REQUESTED → implemented · **SR-029** (new use)                            |
+| —   | Every other block                                                                      | On the page she reviewed; "El diseño de la web en general me gusta mucho"         | 14 marks removed                                                                                            | APPROVED_BY_SARAH (reviewed)                                                     |
+
+**Why the film stays silent.** Sarah's instruction answers V-01 (her approval to publish the film with sound). Two conditions are still unmet, and neither is Sarah's:
+
+1. **G-02:** no rights or generation record for the footage and the voice.
+2. **Captions:** only a machine transcript exists (`docs/phase-2h/captions-draft/purchase-good-idea.en.draft.vtt`, not served); no person has checked it.
+
+When both exist, publishing is one registry change: `soundtrack: 'published'`, the voiced source, and a reviewed `.vtt` with `reviewedBy`/`reviewedOn`. The component then offers Sound on/off only on an explicit click, starting muted. That path was verified in Phase 2H (§5). It was not re-published here.
+
+#### Investment (`REVISION WEB-investment.docx`)
+
+| #     | Sarah's instruction                                                                                                                           | Before                                                      | After                                                                                                                                                                                                                                                                                                                                                       | Class                                                |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| I1–I2 | "me gusta el dorado pero está en exceso y echo de menos el verde aguamarina"                                                                  | Gold restraint on Investment (2H)                           | Unchanged. **Aquamarine not added:** no aquamarine token exists (only `--sk-color-sage`, a grey-green), and AGENTS.md §5 forbids inventing a colour or reading one from the logo                                                                                                                                                                            | APPROVED_BY_SARAH (gold) · BLOCKED on a token (H-03) |
+| I3–I4 | "El video es demasiado pequeño y sería mejor que funcionara sin scroll"                                                                       | Full width from 1280px; plays once without scroll (2H)      | Unchanged; verified                                                                                                                                                                                                                                                                                                                                         | APPROVED_BY_SARAH (implemented)                      |
+| I5    | "«Propiedades. Datos. Mejores decisiones.» no me convence. Falta la parte emotiva"                                                            | Headline still rendered (2H left it until a choice)         | **Replaced:** "Invest in Spain with someone on your side." — new copy, 2H §4 option 1                                                                                                                                                                                                                                                                       | CHANGE_REQUESTED → **SR-036**                        |
+| —     | The human side ("tocar el punto de dolor, ofrecer protección… acompañados")                                                                   | Template lead (financial model, due diligence, tax overlay) | **Rewritten:** "A property in Spain can be a great decision or an expensive mistake. Sarah is paid only by you: she analyses the property, the numbers and the tax side before you commit, and stays with you through the purchase." No promise to avoid every risk or to find the best price; "paid only by you" restates the confirmed remuneration model | New copy → **SR-036**                                |
+| I6    | "«Dos caminos. Un objetivo…» NO me convence. Falta emoción."                                                                                  | Headline still rendered                                     | **Replaced:** "Wherever you start, we start with your goals." — new copy, 2H §4 option 3, echoing her line                                                                                                                                                                                                                                                  | CHANGE_REQUESTED → **SR-041**                        |
+| I7–I8 | The "knowledge behind every decision" image at the start of the page; "el rostro se ve muy poco natural"                                      | Block moved to the start (2H); image unchanged              | **Image replaced** by `IMAGES/Sarah home_1.png` (the only portrait of Sarah she has approved; no crop, grade or retouch at source)                                                                                                                                                                                                                          | CHANGE_REQUESTED → implemented · **SR-029**          |
+| I9    | "Este texto carece de sentido. Podríamos poner «Una oportunidad solo es buena si encaja con tus objetivos, no con los de quien te la vende.»" | Her line as the next-step title (2H)                        | Unchanged. English: "An opportunity is only good if it fits your goals, not the goals of the person selling it." — an editorial translation of her sentence, not new copy                                                                                                                                                                                   | APPROVED_BY_SARAH (explicit)                         |
+| —     | The sentence under her line                                                                                                                   | Written in 2H                                               | Kept                                                                                                                                                                                                                                                                                                                                                        | **SR-049**                                           |
+| I10   | "la home ha de ser EMOCIONAL… vídeo presentación. Qué hace Sarah por ti"                                                                      | About the Home                                              | Not on this page                                                                                                                                                                                                                                                                                                                                            | Out of scope (Home)                                  |
+| I11   | Financing with "UCI y Sabadell… sin ningún compromiso"                                                                                        | Not implemented                                             | Not implemented: no record confirms the relationships, their public naming or the regulatory wording. Nothing about financing is on the page                                                                                                                                                                                                                | FACTUAL_OR_PROFESSIONAL_CHECK                        |
+| I12   | A short renovations section, "que quede claro que nos podemos hacer cargo"                                                                    | Not implemented                                             | Not implemented: no record says whether the team runs works or coordinates them. The page makes no renovation claim                                                                                                                                                                                                                                         | FACTUAL_OR_PROFESSIONAL_CHECK                        |
+| I13   | Images and videos with more space                                                                                                             | Hero film enlarged (2H)                                     | Unchanged                                                                                                                                                                                                                                                                                                                                                   | Partly done; the rest needs a layout brief           |
+| —     | Every other block                                                                                                                             | "Todos los apartados están bien estructurados"              | 13 marks removed                                                                                                                                                                                                                                                                                                                                            | APPROVED_BY_SARAH (reviewed)                         |
+
+#### Tax Advisory (`REVISION WEB-Tax advisory.docx`)
+
+| #   | Sarah's instruction                                                                                                                                      | Before                                                   | After                             | Class                                                                                             |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------- |
+| T1  | "El copy del principio me gusta mucho. Podemos meter el punto del dolor…"                                                                                | Hero copy unchanged; pain line in the tool band (2H)     | Unchanged                         | Hero: APPROVED_BY_SARAH (explicit) · the pain line: **SR-054** (also tax review)                  |
+| T2  | "ponemos en grande la calculadora de impuestos"                                                                                                          | Navy lead band under the hero; link only when configured | Unchanged                         | APPROVED_BY_SARAH (implemented) · TECHNICAL for Production (B-01)                                 |
+| T3  | "Muy buena idea!" (calendar)                                                                                                                             | —                                                        | Unchanged                         | APPROVED_BY_SARAH (explicit)                                                                      |
+| T4  | "Me encanta el siguiente apartado. Tenemos que rebajar el nivel de tecnicismo"                                                                           | Report rewritten in plainer language (2H)                | Unchanged                         | The block: approved · the rewrites (11 strings): **SR-058**                                       |
+| T5  | "La cambiamos por: «Todo lo que dejas en nuestras manos»"                                                                                                | "Everything you leave in our hands."                     | Unchanged                         | APPROVED_BY_SARAH (explicit) · the eyebrow and six items written under it: **SR-059** (with S-01) |
+| T6  | "hay que cambiar la cara de esta foto, parece que tenga 80 años"                                                                                         | Same authority image                                     | **Replaced** by her Home portrait | CHANGE_REQUESTED → implemented · **SR-029**                                                       |
+| T7  | Her cases block: title, subtitle, "ILUSTRACIÓN", three cards with titles, texts, results and "Año confidencial", bottom line, "DESCUBRE CÓMO TRABAJAMOS" | Implemented line by line (2H §10.2)                      | Unchanged                         | APPROVED_BY_SARAH (explicit), see below                                                           |
+| T8  | ITP on the off-plan purchase                                                                                                                             | Result "Taxes and costs planned", no tax named           | Unchanged                         | FACTUAL_OR_PROFESSIONAL_CHECK (C-01)                                                              |
+| —   | Every other block                                                                                                                                        | "Un acierto total esta web"                              | 12 marks removed                  | APPROVED_BY_SARAH (reviewed)                                                                      |
+
+**The cases, checked line by line against her document:**
+
+- **Matches her copy:** title, subtitle (with "in writing" and "the figures are verified" added from the governance wording), badge, the three card titles, the three texts, the three results, "Year confidential" and "Discover how we work".
+- **Her copy is approved, but the evidence is not there yet:**
+  - The results render as _proposed_, value withheld, with "Proposed result · evidence and tax review pending".
+  - Her bottom line, "Publicado con autorización escrita del cliente y cifras verificadas", stays conditional: "Published only with written client permission and verified figures." No permission or verified figure is on record (C-01).
+- **Off-plan case:** it stays tax-neutral. That follows her own correction ("Si ese caso fue una reventa sobre plano y sí llevaba ITP, puedes volver a mencionarlo"), and whether it was a new build or a resale is unconfirmed.
+
+#### Team (`REVISION WEB. Team.docx`)
+
+| #   | Sarah's instruction                                                                             | Before                                             | After                                                                                                                                                                                                                                             | Class                                                                                                                     |
+| --- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| E1  | "revisar los colores de la web"                                                                 | —                                                  | Needs the aquamarine token (§10.4)                                                                                                                                                                                                                | Asset/token                                                                                                               |
+| E2  | Hero photo "más cálida y ponerla en grande"; "EL copy me gusta bastante"                        | Bigger (2H); not warmer                            | Unchanged                                                                                                                                                                                                                                         | Copy: APPROVED_BY_SARAH (explicit) · warmth: asset (A-02). No retouch without an approved file                            |
+| E3  | "Objetivos diferentes. La misma revisión antes de firmar."                                      | "Different goals. The same review before signing." | Unchanged; mark removed                                                                                                                                                                                                                           | APPROVED_BY_SARAH (explicit)                                                                                              |
+| E4  | "Comprar una casa es fácil. Comprarla bien es otra cosa." + the introduction                    | Implemented                                        | Unchanged; mark removed                                                                                                                                                                                                                           | APPROVED_BY_SARAH (explicit)                                                                                              |
+| E5  | "Y el texto de abajo hay que eliminarlo. Las fotografías muestran a tres personas…"             | Removed (2H)                                       | Unchanged; a test now keeps it off the page                                                                                                                                                                                                       | APPROVED_BY_SARAH (implemented)                                                                                           |
+| E6  | Group photo "muy poca calidad… colores más cálidos"                                             | Unchanged                                          | Unchanged                                                                                                                                                                                                                                         | Asset (A-03)                                                                                                              |
+| E7  | "Aquí pon una foto de cada uno junto al texto. Las que te pasé. Quizá me falta pasarte de Igor" | "Portrait pending" slots                           | Unchanged. **No individual photograph of Elsa, Óscar or Igor was found** anywhere: this repository, the mother repository, `Downloads/SARAH KATERINA OFFICE/` (355 images) and the other local checkouts. Nothing was assigned from a group photo | Asset (A-04) — ask Sarah for the files                                                                                    |
+| E8  | "Los nombres completos son: Oscar Gonzalez y Igor Veselov"                                      | "Óscar Gonzalez", "Igor Veselov"                   | Unchanged. The accent on Óscar was restored by the owner as the legal first name (`47a377f`, `f9317a9`); the surname accent is N-01                                                                                                               | APPROVED_BY_SARAH (names) · N-01 for Juanma                                                                               |
+| E9  | "Elimina este apartado" ("El comprador es el cliente", office photo)                            | Removed (2H)                                       | Unchanged                                                                                                                                                                                                                                         | APPROVED_BY_SARAH (implemented)                                                                                           |
+| E10 | "Quita esta imagen" (wall sign with the gold ant)                                               | Removed (2H)                                       | Unchanged                                                                                                                                                                                                                                         | APPROVED_BY_SARAH (implemented)                                                                                           |
+| E11 | "un toque más cercano, de familia, de equipo que te acompaña de principio a fin"                | Copy options in 2H §4, not on the page             | Unchanged                                                                                                                                                                                                                                         | Direction still open: it needs the photographs above. There is nothing on the page to mark                                |
+| —   | Profile texts, process, aftercare, FAQ, footer, network band                                    | On the page she reviewed                           | 14 marks removed                                                                                                                                                                                                                                  | APPROVED_BY_SARAH (reviewed). The network photograph stays blocked for production (unidentified people and organisations) |
+
+### 10.3 The register after reconciliation
+
+**21 open decisions in 23 placements** (the first audit had 81 decisions in 85 placements).
+
+| ID            | Page                               | What Sarah has to decide                      |
+| ------------- | ---------------------------------- | --------------------------------------------- |
+| SR-001–SR-011 | Home                               | Unchanged: no document reviews the Home       |
+| SR-019        | Property Purchase                  | The line under the Purchase Tax band          |
+| SR-022        | Property Purchase                  | "Where an opportunity usually goes wrong"     |
+| SR-027        | Property Purchase                  | "What it includes"                            |
+| SR-029        | Property Purchase, Investment, Tax | Her Home portrait used in the authority block |
+| SR-036        | Investment                         | The new headline and lead                     |
+| SR-041        | Investment                         | The new doors headline                        |
+| SR-049        | Investment                         | The sentence under her next-step line         |
+| SR-054        | Tax Advisory                       | The pain-point line (also tax review)         |
+| SR-058        | Tax Advisory                       | The plainer report wording (also tax review)  |
+| SR-059        | Tax Advisory                       | The six items under her title, and S-01       |
+
+**Removed:**
+
+- **Contact (6 marks):** SR-012–SR-017, approved as a page.
+- **Contact and Team footer (2 marks):** SR-081.
+- **Team (13 marks):** SR-068–SR-080.
+- **Property Purchase (14 marks):** SR-018, SR-020, SR-021, SR-023–SR-026, SR-028, SR-030–SR-035.
+- **Investment (15 marks):** SR-037, SR-038, SR-040, SR-042–SR-048, SR-050–SR-052, and SR-039 on Investment and Tax (the signature slot she saw without comment, now an asset item).
+- **Tax (12 marks):** SR-053, SR-055–SR-057, SR-060–SR-067.
+
+### 10.4 Not Sarah's to decide (no mark)
+
+**Factual, legal or professional:**
+
+- **C-01, the Tax cases:** written permission, verified figures and tax review of each result; for the off-plan case, whether it was a new build or a resale.
+- **Investment and Property Purchase cases:** permission and outcomes.
+- **Buyer voices:** the seven publication requirements.
+- **S-02:** legal scope of "We handle the paperwork".
+- **Every tax, legal or financial statement,** including the wording inside SR-054 and SR-058.
+- **G-02:** rights and generation record for the generated footage.
+- **Financing (UCI, Sabadell):** the relationship, its naming and the regulatory wording.
+- **Renovations:** who delivers them.
+- **Identities in the network photograph.**
+
+**Assets:**
+
+- **A-04:** individual portraits of Elsa, Óscar and Igor. Sarah says she sent them, but they were not found.
+- **A-02 and A-03:** warmer or better team photographs.
+- **Sarah's signature** for the reserved slot.
+- **The Investment presentation video** (Home scope).
+- **The aquamarine token.** The logo's teal is not a token; it has to be approved upstream, and only then used (H-03). Until then the pages cannot get Sarah's aquamarine or "more life".
+- **Candidates for Juanma to confirm:** `Downloads/SARAH KATERINA OFFICE/EQUIPO/SARAH/EQUIPO_SARAHKATERINA4–6.png` are the same files as the mother repository's `IMAGENES NUEVAS/EQUIPO/4–6`. They show one smiling woman in warm light and sit in a folder named `SARAH`. That folder name is the only identity evidence. They are not in this repository and are not approved, so they are not used.
+
+**Technical:**
+
+- **Vercel Preview:** booking URL and email not configured.
+- **Production Buyer System origin (B-01).**
+- **Unconnected buttons:** the final-CTA buttons on Investment, Tax and Team, and the Tax report button.
+- **Unbuilt destinations:** the footer links other than Contact.
+- **Restricted tools** (Asking Price, Tax Exposure).
+- **No ES route, no form.**
+- **Sound publication**, once G-02 and reviewed captions exist.
+
+### 10.5 The publication gate, per environment
+
+The gate itself is unchanged (`lib/review/sarah-review-gate.ts`): a mark renders only when `NEXT_PUBLIC_SITE_MODE=preview` and the site is not indexable; otherwise the build fails.
+
+| Environment                | Mode                     | Evidence (2026-09-30)                                                                                                                                      | Effect                                                                                                                                                                                                                                                 |
+| -------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| CI (GitHub Actions)        | `preview`, not indexable | `.github/workflows/ci.yml` sets both                                                                                                                       | Marks render; the build passes                                                                                                                                                                                                                         |
+| Vercel Preview (PR #33)    | preview                  | The builds of `1fe8d36` and this HEAD passed, and a production-mode build would have failed. Pages sit behind Vercel login, so they could not be loaded    | Marks render                                                                                                                                                                                                                                           |
+| Vercel Production (`main`) | **`preview`**            | `https://sarahkaterina-web-nueva.vercel.app/preview/investment` (GET, 200) shows the footer chip "preview · noindex" and `X-Robots-Tag: noindex, nofollow` | A merge will **not** fail the Production build. The open SR marks **will show** on that alias, which is a review environment. If Production is ever switched to `production` or indexable, its build fails while any SR item is open. That is intended |
+
+No Vercel variable was read through the dashboard or changed.
+
+### 10.6 Discrepancies for Juanma
+
+1. **The "reviewed without objection" rule.** Most approvals rest on it. Juanma should confirm that Sarah's page verdicts ("Un acierto total esta web", "El copy me gusta bastante", "Todos los apartados están bien estructurados", "El diseño… me gusta mucho") cover every block she did not comment on. If not, the affected `SARAH_APPROVALS` entries become SR items again.
+2. **The `(2)` documents.** They are not on this machine; this reconciliation used the four originals.
+3. **Portraits A-04.** Sarah says she sent them. Where are they?
+4. **`EQUIPO_SARAHKATERINA4–6`.** Do they show Sarah? May they be used for her authority block or for the Home's "fotos mías sonriendo"?
+5. **The Home repeats "Properties. Data. Better decisions."**, the Investment headline Sarah rejected (Home `discovery` state). The Home is out of scope, so it was not changed.
+6. **The aquamarine token** (H-03) and **extending the gold restraint beyond Investment** (H-04).
+7. **Once Vercel Production shows the SR marks after a merge,** does Juanma want that on the production alias, or a gate on the deployment environment? A deployment-environment gate would need no Vercel change: `VERCEL_ENV` is set by Vercel.
+
+8. **"What you stop worrying about." on Property Purchase.** Sarah found that phrase "algo incompleta" on Tax Advisory, and it is replaced there. The same phrase titles a Property Purchase band on which she did not comment, so it was not changed.
+
+### 10.7 QA (2026-09-30)
+
+**Setup:**
+
+- **Server:** a production build of this branch in its own worktree (`next start`, port 3310). No `next dev` shares that `.next`.
+- **"Before" captures:** the previous PR head, `1fe8d36`, built in the separate `main-base` worktree (port 3311).
+- **Browser:** Google Chrome through Playwright 1.63.
+
+**Results:**
+
+- **Routes and widths:** the four landings and Contact at 320, 390 and 1440, plus the Home at the same widths as a regression check. At every width:
+  - the marks match the register exactly: 23 placements, 0 duplicates;
+  - 0 rejected headlines, and 0 of the old texts Sarah asked to replace;
+  - 0 horizontal overflow and one `h1`;
+  - `noindex, nofollow` in metadata and in `X-Robots-Tag`;
+  - 0 console errors, 0 broken images and 0 broken in-page anchors.
+- **Media requests:** the only failed requests are aborted media preloads (`ERR_ABORTED` on `.webm` when the page closes), not 404s.
+- **Authority image:** the authority block of Property Purchase, Investment and Tax serves `home-sarah-authority.webp`.
+- **Mobile menu:** it opens with 8 links at 320 and 390; Escape closes it and returns focus to the Menu button.
+- **Keyboard:** 14 stops at 1440, each with a visible outline.
+- **Reduced motion:** 0 hidden text blocks and no video playing.
+- **Films:**
+  - The Property Purchase and Investment heroes play without scrolling (3.5 s in, muted, no `autoplay` attribute). The Investment film is 1200 px wide at 1440.
+  - The Pause control works with Enter and changes to "Play the hero film".
+  - The Good-idea film is muted, has no Sound control and no caption track, as expected while its soundtrack is unpublished.
+- **Captures:** `docs/screenshots/sarah-reconciliation-2026-09-30/`
+  - `before-after/`: 8 blocks × 2 widths × before/after;
+  - `full/`: full pages at 390 and 1440;
+  - `states/`: menus;
+  - `recon-qa.json`.
+
+**Not verified:**
+
+- The Vercel Preview pages: they sit behind Vercel login, so only the deployment status was read.
+- Safari/iOS, Android and screen readers.
+- Sound on/off with a published soundtrack: it is not published. That path was verified in Phase 2H with temporary files.

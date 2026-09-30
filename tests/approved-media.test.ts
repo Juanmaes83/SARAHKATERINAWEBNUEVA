@@ -44,22 +44,21 @@ describe('approved media registry', () => {
     expect(entries.length).toBe(30);
   });
 
-  it('uses the exact approved shared authority image on all three landings', () => {
+  it('replaces the authority image Sarah rejected with her approved portrait', () => {
+    // 2026-09-30: Sarah asked to change the face in the shared authority image
+    // (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx). The former
+    // file stays registered and untouched; it is no longer rendered. The
+    // replacement is the only portrait of Sarah she has approved (Home), with
+    // no crop, grade or retouch at source; its use here is SR-029.
     const authority = APPROVED_MEDIA.authorityEditorial;
     expect(authority.source).toBe('IMAGES/sarahkaterina_Services_Especial.png');
-    // Phase 2E grade: served as the graded derivative of the same approved file.
-    expect(authority.ungradedSrc).toBe('/media/authority-editorial.png');
     expect(authority.src).toBe('/media/graded/authority-editorial.webp');
-    expect(authority.source).not.toMatch(/home|sk-real/);
-    expect(read(resolve(root, 'components/web/WebBands.tsx'))).toContain(
-      'APPROVED_MEDIA.authorityEditorial',
-    );
-    expect(read(resolve(root, 'components/web/TaxBands.tsx'))).toContain(
-      'APPROVED_MEDIA.authorityEditorial',
-    );
-    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain(
-      'APPROVED_MEDIA.authorityEditorial',
-    );
+    for (const file of ['WebBands.tsx', 'TaxBands.tsx', 'PropertyPurchase.tsx']) {
+      const source = read(resolve(root, 'components/web', file));
+      expect(source, file).not.toContain('APPROVED_MEDIA.authorityEditorial');
+      expect(source, file).toContain('APPROVED_MEDIA.homeAuthority');
+      expect(source, file).toContain('<SarahReviewMark id="SR-029"');
+    }
   });
 
   it('keeps Services_14 registered and gives the Tax hero its approved scroll video', () => {

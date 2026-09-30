@@ -544,7 +544,12 @@ export function ServicesBand() {
 }
 
 export function AuthorityBand() {
-  const authorityMedia = APPROVED_MEDIA.authorityEditorial;
+  // 2026-09-30: Sarah asked to replace the face in the former authority
+  // image (REVISION WEB-Tax advisory.docx: "hay que cambiar la cara de esta
+  // foto"; REVISION WEB-investment.docx: "el rostro se ve muy poco
+  // natural"). The only portrait she has approved in this repository is the
+  // Home one; its use here is open for her confirmation (SR-029).
+  const authorityMedia = APPROVED_MEDIA.homeAuthority;
 
   return (
     <WebSection surface="navySoft" id="sarah">
@@ -557,7 +562,7 @@ export function AuthorityBand() {
             className={styles.portrait}
             fill
             sizes="(max-width: 767px) 100vw, 46vw"
-            style={{ objectPosition: authorityMedia.focal }}
+            style={{ objectPosition: '50% 28%' }}
           />
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.authorityCopy}>

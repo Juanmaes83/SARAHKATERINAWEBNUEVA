@@ -47,9 +47,11 @@ describe('team editorial preview', () => {
     expect(processPosition).toBeGreaterThan(networkPosition);
     // Audit 2026-09-30: the visual review this label asked for took place
     // (2026-09-28); the photograph itself is still provisional and blocked for
-    // production, and its keep/edit/remove decision is SR-075.
+    // production. Sarah reviewed the page without objecting to it
+    // (REVISION WEB. Team.docx), so no Sarah mark remains: what blocks it is
+    // factual (unidentified people and organisations).
     expect(content).toContain('PROVISIONAL PHOTOGRAPH \u2014 NOT FOR PRODUCTION');
-    expect(editorial).toContain('<SarahReviewMark id="SR-075"');
+    expect(editorial).not.toContain('<SarahReviewMark');
   });
 
   it('keeps identity and held-service boundaries explicit', () => {

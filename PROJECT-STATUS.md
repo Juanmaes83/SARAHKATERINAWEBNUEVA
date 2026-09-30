@@ -109,6 +109,31 @@ treated as final:
 
 Most recent first.
 
+**2026-09-30 — Reconciliation with Sarah's four review documents (`docs/approval-marks-audit.md` §10).**
+The first audit read `status: 'proposal'` as "not approved"; Sarah had in fact
+reviewed the four landings. Reconciled line by line against
+`REVISION WEB-*.docx` (2026-09-28). Approvals are now recorded with the quoted
+line (`SARAH_APPROVALS`), and only 21 decisions stay open: SR-001–SR-011 on
+the Home (no document covers it) and 10 on the landings, all of them copy
+written after her review plus her Home portrait's new use.
+
+- **Implemented now:** the two Investment headlines she rejected are replaced,
+  with a more human lead (new copy, SR-036/SR-041). The authority image whose
+  face she rejected is replaced by her approved portrait on Investment, Tax
+  and Property Purchase (SR-029).
+- **Contact:** approved by Sarah as a page (relayed by Juanma, 2026-09-30); no
+  marks remain.
+- **Pending, grouped:**
+  - **Sarah:** the 21 SR items.
+  - **Evidence and professional:** C-01 cases, S-02, tax/legal wording,
+    G-02 rights, UCI/Sabadell financing, the renovations scope.
+  - **Assets:** individual portraits of Elsa, Óscar and Igor (not found),
+    warmer team photos, the signature, the aquamarine token.
+  - **Technical:** sound publication (needs G-02 and reviewed captions),
+    booking and email variables on Preview, B-01, unconnected buttons.
+- **Vercel Production (`main`) runs in `preview` mode:** a merge would show the
+  open marks there without failing the build.
+
 **2026-09-30 — Approval-marks audit on the same PR (`docs/approval-marks-audit.md`).**
 Stale review marks removed or restated where the record shows the approval or
 the fact changed (Purchase hero film label, Team/Contact "Review status"

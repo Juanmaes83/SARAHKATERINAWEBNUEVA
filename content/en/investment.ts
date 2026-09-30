@@ -42,19 +42,27 @@ export const PROTOTYPE_NOTICE = {
 export const hero = {
   /** "INVERSIÓN CON SENTIDO" */
   eyebrow: claim({ text: 'Investment with judgement', status: 'proposal', source: TEMPLATE }),
-  /** "Propiedades. Datos. Decisiones más inteligentes." */
+  /**
+   * Was "Properties. Data. Better decisions." — Sarah (REVISION
+   * WEB-investment.docx): "no me convence. Falta la parte emotiva". New
+   * English copy drafted 2026-09-30 from option 1 of
+   * docs/phase-2h-juanma-review.md §4; open for Sarah (SR-036).
+   */
   heading: claim({
-    text: 'Properties. Data. Better decisions.',
+    text: 'Invest in Spain with someone on your side.',
     status: 'proposal',
-    source: TEMPLATE,
+    note: 'New copy after Sarah rejected the template headline; SR-036.',
   }),
   /** "Asesoramiento independiente para compradores extranjeros en la Costa Blanca. Análisis, fiscalidad y acompañamiento completo para invertir con seguridad y rentabilidad." */
+  /**
+   * 2026-09-30: rewritten to carry the human side Sarah asked for (fear of a
+   * bad decision, protection, one person with you), with no guarantee. The
+   * earlier template lead is in git history. New copy, open for Sarah (SR-036).
+   */
   lead: claim({
-    text: 'Independent property investment analysis for international buyers in the Costa Blanca. Financial modelling, due diligence and a tax overlay, brought together into one decision report — before the deposit, not after it.',
+    text: 'A property in Spain can be a great decision or an expensive mistake. Sarah is paid only by you: she analyses the property, the numbers and the tax side before you commit, and stays with you through the purchase.',
     status: 'proposal',
-    source: TEMPLATE,
-    review: 'financial',
-    note: 'Approved hero wording restored on 2026-09-22. It carries no return promise, so the "rentabilidad" concern that shortened the earlier draft does not apply.',
+    note: 'New copy; "paid only by you" restates the confirmed remuneration model (decisions-log.md 2026-07-27). SR-036.',
   }),
   primaryCta: claim({ text: 'Request an analysis', status: 'proposal', source: TEMPLATE }),
   /** "VER CÓMO FUNCIONA" */
@@ -277,10 +285,15 @@ export const doors = {
   /** "ELIGE TU PUNTO DE PARTIDA" */
   eyebrow: claim({ text: 'Choose your starting point', status: 'proposal', source: TEMPLATE }),
   /** "Dos caminos. Un mismo objetivo: una inversión bien fundamentada." */
+  /**
+   * Was "Two paths. One goal: an investment built on evidence." — Sarah:
+   * "NO me convence. Falta emoción." New copy drafted 2026-09-30 from option 3
+   * of docs/phase-2h-juanma-review.md §4; open for Sarah (SR-041).
+   */
   title: claim({
-    text: 'Two paths. One goal: an investment built on evidence.',
+    text: 'Wherever you start, we start with your goals.',
     status: 'proposal',
-    source: TEMPLATE,
+    note: 'New copy after Sarah rejected the template headline; SR-041.',
   }),
   /** Template script: "Oportunidades tangibles. Decisiones con confianza." */
   script: claim({

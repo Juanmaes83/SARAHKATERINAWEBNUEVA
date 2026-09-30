@@ -1,30 +1,34 @@
 /**
- * SARAH REVIEW REGISTER — audit of 2026-09-30 (docs/approval-marks-audit.md).
+ * SARAH REVIEW REGISTER — reconciled with Sarah's four review documents on
+ * 2026-09-30 (docs/approval-marks-audit.md §10).
  *
- * One entry per decision that only Sarah can take: approving, editing or
- * withdrawing copy she has not approved, or the use of an image. Every entry is
- * shown on the page as `SARAH REVIEW REQUIRED · SR-###`, next to the block it
- * covers (`components/review/SarahReviewMark.tsx`), and a test keeps the marks
- * and this register in step (`tests/sarah-review.test.ts`).
+ * `SARAH_REVIEW_ITEMS` holds only decisions that are still Sarah's to take:
+ * copy she has not seen (written after her review, or new), and one image
+ * use. Each is shown on the page as `SARAH REVIEW REQUIRED · SR-###` next to
+ * what it covers (`components/review/SarahReviewMark.tsx`). IDs are stable:
+ * resolved items are deleted, never renumbered, so gaps are expected.
+ *
+ * `SARAH_APPROVALS` (end of file) records what she has approved, each entry
+ * quoting the line of her document it rests on. A claim's `status` field is
+ * NOT an approval record: most copy she approved is still `proposal` because
+ * its publication also waits on other gates.
  *
  * What does NOT belong here, by rule:
  *   - tax, legal, financial or factual checks (client permission, verified
- *     figures, credentials, rights): FACTUAL_OR_PROFESSIONAL_CHECK — Sarah's
- *     approval of the wording does not clear them;
- *   - missing integrations (booking URL, email, Buyer System, dead buttons):
- *     TECHNICAL_PENDING;
+ *     figures, credentials, rights, identities): FACTUAL_OR_PROFESSIONAL_CHECK;
+ *   - missing assets and integrations (photographs, booking URL, email,
+ *     Buyer System, dead buttons, sound publication): TECHNICAL_PENDING or
+ *     asset items;
  *   - noindex, the preview banners and the footer status chip: PREVIEW_CONTROL.
  * Those are listed in the audit document, not marked as SARAH REVIEW.
  *
  * `refs` names the classified content each entry covers, as
- * `file:export[.key]` under `content/en/`. Every rendered `proposal` claim must
- * fall under one of them (enforced). `excludes` names the lines inside the
- * block that are already approved and are NOT part of the decision.
+ * `file:export[.key]` under `content/en/`. Every rendered `proposal` claim is
+ * covered by exactly one side: an open entry or an approval (enforced).
  *
  * Resolving an entry: record Sarah's decision (date, channel) in the audit
- * document, change the covered claims to `confirmed` with that source (or edit
- * or remove them), then delete the entry and its mark. Never delete a mark
- * without the decision.
+ * document and in `SARAH_APPROVALS`, then delete the entry and its mark.
+ * Never delete a mark without the decision.
  */
 
 export const SARAH_REVIEW_ROUTES = [
@@ -65,7 +69,7 @@ const TEAM = '/preview/team';
 const APPROVE_COPY = 'Approve, edit or withdraw this copy.';
 
 export const SARAH_REVIEW_ITEMS = [
-  // ── Home ────────────────────────────────────────────────────────────────
+  // ── Home (no review document covers it: all eleven stay open) ──────────────────────────────────────────────────────────────
   {
     id: 'SR-001',
     routes: [HOME],
@@ -181,256 +185,51 @@ export const SARAH_REVIEW_ITEMS = [
     refs: ['home:footer'],
   },
 
-  // ── Contact ─────────────────────────────────────────────────────────────
-  {
-    id: 'SR-012',
-    routes: [CONTACT],
-    kind: 'image',
-    label: 'Hero portrait · use on Contact',
-    scope:
-      'Use of `IMAGES/Sarah home_1.png` (registered `homeAuthority`), including its embedded typography, as the Contact hero.',
-    decision:
-      'Approve this use, or choose another photograph. Her approval is recorded for the Home only; Juanma asked for it here (2026-09-29).',
-    refs: [],
-  },
-  {
-    id: 'SR-013',
-    routes: [CONTACT],
-    kind: 'copy',
-    label: 'Hero · headline, lead and channel labels',
-    scope:
-      '“Your next step starts with a conversation.”, the lead, the booking button label and the direct-channel heading.',
-    excludes: 'The phone, WhatsApp and email values (published channels).',
-    decision: APPROVE_COPY,
-    refs: ['contact:hero', 'contact:booking', 'contact:direct'],
-  },
-  {
-    id: 'SR-014',
-    routes: [CONTACT],
-    kind: 'copy',
-    label: '“Video, phone or face to face.” · formats',
-    scope:
-      'Section title and intro, the format names and descriptions, and the “For a first message” note.',
-    excludes: 'That video calls and meetings are offered on request (Juanma, 2026-09-29).',
-    decision: APPROVE_COPY,
-    refs: ['contact:modalities', 'contact:firstContact'],
-  },
-  {
-    id: 'SR-015',
-    routes: [CONTACT],
-    kind: 'copy',
-    label: '“What happens after you book” · title and format note',
-    scope: 'The timeline title and the note about preferring another format.',
-    excludes: 'The four steps and the booking facts (verified against the live booking page).',
-    decision: APPROVE_COPY,
-    refs: ['contact:booking'],
-  },
-  {
-    id: 'SR-016',
-    routes: [CONTACT],
-    kind: 'copy',
-    label: 'Office · heading',
-    scope: '“Torrevieja, Costa Blanca” as the office heading.',
-    excludes: 'The address and “by prior request only” (confirmed by Juanma).',
-    decision: APPROVE_COPY,
-    refs: ['contact:office'],
-  },
-  {
-    id: 'SR-017',
-    routes: [CONTACT],
-    kind: 'copy',
-    label: 'Closing band',
-    scope: '“Choose the way that suits you.” and the fallback sentence.',
-    decision: APPROVE_COPY,
-    refs: ['contact:closing'],
-  },
-
   // ── Property Purchase ───────────────────────────────────────────────────
-  {
-    id: 'SR-018',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Hero · eyebrow, body, buttons, proofs, film caption',
-    scope: 'Everything in the hero except the headline.',
-    excludes:
-      '“Buy with peace of mind: we coordinate every step.” (Sarah’s line) and “Independent advice”.',
-    decision:
-      'Approve, edit or withdraw this copy. The hero body also needs legal review of the scope.',
-    refs: ['property-purchase:hero'],
-  },
+  // Everything else on the page is either Sarah's own text or copy she
+  // reviewed without asking for a change (SARAH_APPROVALS below).
   {
     id: 'SR-019',
     routes: [PURCHASE],
     kind: 'copy',
-    label: 'Purchase Tax band under the hero',
-    scope: 'The band’s question, moment line and card copy.',
-    decision: 'Approve, edit or withdraw this copy. Tax wording also needs tax review.',
-    refs: ['service-journey:TAX_LEAD_TOOL'],
-  },
-  {
-    id: 'SR-020',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Trust strip',
-    scope: 'The trust strip labels and values.',
-    excludes: 'The 20-year credential and the remuneration model.',
+    label: 'Purchase Tax band · the line “Before anything else…”',
+    scope:
+      'The line “Before anything else: what Spain charges on the purchase itself, for your own case.” — written in Phase 2H to carry her request to feature the calculator; she has not seen it.',
+    excludes: 'The tool card copy, which was on the page she reviewed.',
     decision: APPROVE_COPY,
-    refs: ['property-purchase:trust'],
-  },
-  {
-    id: 'SR-021',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Audience · body and list',
-    scope: 'Eyebrow, body, the four audience lines and the script line.',
-    excludes:
-      '“We handle the paperwork. You choose your home.” — Sarah’s line; its legal scope check (S-02) is a professional item.',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:audience'],
+    refs: [],
   },
   {
     id: 'SR-022',
     routes: [PURCHASE],
     kind: 'copy',
-    label: 'Good idea, bad execution · four points',
-    scope:
-      'Eyebrow, “Where an opportunity usually goes wrong” and the four points; and the open wording question S-03 (“protecting your investment”).',
-    excludes: 'The title and body (Sarah’s text, Phase 2H) and the film note.',
-    decision: 'Approve, edit or withdraw the points, and answer S-03.',
-    refs: ['property-purchase:goodIdea'],
-  },
-  {
-    id: 'SR-023',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'One file · section copy',
-    scope: 'Eyebrow, title, body, the five points, the button and the script line.',
-    decision:
-      'Approve, edit or withdraw this copy. Legal wording (due diligence, notary, registry) also needs legal review.',
-    refs: ['property-purchase:oneFile'],
-  },
-  {
-    id: 'SR-024',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'File tracker and ordered steps',
-    scope: 'The illustrative file tracker and the six-step process copy.',
-    excludes: 'The “illustrative” labels (confirmed disclosures).',
-    decision: 'Approve, edit or withdraw this copy. Legal steps also need legal review.',
-    refs: ['property-purchase:process'],
-  },
-  {
-    id: 'SR-025',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: '“We review. We analyse. You decide with clarity.”',
-    scope:
-      'The before-you-sign band: title, deliverables and the illustrative recommendation surface.',
+    label: 'Good idea, bad execution · “Where an opportunity usually goes wrong”',
+    scope: 'The points heading, written in Phase 2H after her review.',
+    excludes:
+      'Her title and paragraph (“What looks like a great opportunity…”, “A dream fits into a moment…”) and the four points, which she reviewed.',
     decision: APPROVE_COPY,
-    refs: ['property-purchase:beforeSign'],
-  },
-  {
-    id: 'SR-026',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: '“What you stop worrying about.”',
-    scope: 'Title and the before/after lines.',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:worries'],
+    refs: ['property-purchase:goodIdea.pointsTitle'],
   },
   {
     id: 'SR-027',
     routes: [PURCHASE],
     kind: 'copy',
-    label: 'Service levels',
+    label: 'Service levels · the label “What it includes”',
     scope:
-      'Title, the three service cards and the “What it includes” label (proposed replacement for “What the preview includes”); whether prices and timings are published.',
-    decision:
-      'Approve, edit or withdraw this copy, and decide whether prices and timings are published (they are withheld).',
-    refs: ['property-purchase:services'],
-  },
-  {
-    id: 'SR-028',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Sarah authority · copy',
-    scope: 'Eyebrow, title, body and points of the authority block.',
-    excludes: 'The 20-year credential.',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:authority'],
+      'The card label, changed on 2026-09-30 from “What the preview includes” (the version she saw) because it named the preview.',
+    decision: 'Approve the new label, or keep the wording she saw.',
+    refs: ['property-purchase:services.scopeTitle'],
   },
   {
     id: 'SR-029',
     routes: [PURCHASE, INVESTMENT, TAX],
     kind: 'image',
-    label: 'Authority photograph',
+    label: 'Authority photograph · her Home portrait used here',
     scope:
-      'The generated editorial image `sarahkaterina_Services_Especial` (registered `authorityEditorial`) in the Sarah authority block.',
+      'The Sarah authority block now shows `IMAGES/Sarah home_1.png` (registered `homeAuthority`) instead of the image whose face she asked to change.',
     decision:
-      'Sarah objected to the face (Phase 2H, I8/T6): approve a replacement or an edit, or accept the current image. No retouch is made without an approved file (A-01).',
+      'Confirm this portrait here, or supply another approved photograph. Her approval of it covers the Home.',
     refs: [],
-  },
-  {
-    id: 'SR-030',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Cases band · titles and buyer-voice banner',
-    scope: 'Band titles, the three case titles and the fabric-banner labels and hints.',
-    excludes:
-      'The “illustrative” labels, the withheld outcomes and the publication requirements (evidence items, not copy).',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:cases', 'buyer-voices:VOICES_BAND'],
-  },
-  {
-    id: 'SR-031',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: '“The same judgement, across the decisions that follow.”',
-    scope: 'The resources band: title and the three cards.',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:journey'],
-  },
-  {
-    id: 'SR-032',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Next step · connected services',
-    scope: 'Title, intro, the stage questions, the reasons and the team line.',
-    decision: 'Approve, edit or withdraw this copy. Tax reasons also need tax review.',
-    refs: [
-      'service-journey:JOURNEY.purchase',
-      'service-journey:SERVICE_STAGES',
-      'service-journey:TEAM_LAYER',
-    ],
-  },
-  {
-    id: 'SR-033',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'FAQ',
-    scope: 'Eyebrow, title, questions and answers.',
-    excludes: 'The independence answer (confirmed).',
-    decision: 'Approve, edit or withdraw this copy. Legal answers stay under legal review.',
-    refs: ['property-purchase:faq'],
-  },
-  {
-    id: 'SR-034',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Final call to action',
-    scope: 'Eyebrow, title, body and buttons of the closing band.',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:finalCta'],
-  },
-  {
-    id: 'SR-035',
-    routes: [PURCHASE],
-    kind: 'copy',
-    label: 'Footer',
-    scope: 'Footer description, column titles and labels.',
-    excludes: 'The Contact link.',
-    decision: APPROVE_COPY,
-    refs: ['property-purchase:footer'],
   },
 
   // ── Investment ──────────────────────────────────────────────────────────
@@ -438,470 +237,83 @@ export const SARAH_REVIEW_ITEMS = [
     id: 'SR-036',
     routes: [INVESTMENT],
     kind: 'copy',
-    label: 'Hero and snapshot card',
+    label: 'Hero · new headline and lead',
     scope:
-      'Hero eyebrow, headline, lead, buttons, script and the labels of the sample snapshot card; the headline choice H-02 (§4 of docs/phase-2h-juanma-review.md).',
-    excludes: 'The 20-year credential, the remuneration signals and the “illustrative” labels.',
-    decision:
-      'Keep the template headline or choose one of the three options (H-02); approve the rest.',
-    refs: ['investment:hero', 'investment:heroDashboard'],
-  },
-  {
-    id: 'SR-037',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Trust strip',
-    scope: 'Trust strip labels and the script line.',
-    decision: APPROVE_COPY,
-    refs: ['investment:trustStrip', 'investment:trustScript'],
-  },
-  {
-    id: 'SR-038',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Sarah authority · copy',
-    scope: 'Eyebrow, title, body and points of the authority block.',
-    excludes: 'The 20-year credential and the remuneration model.',
-    decision: APPROVE_COPY,
-    refs: ['investment:authority'],
-  },
-  {
-    id: 'SR-039',
-    routes: [INVESTMENT, TAX],
-    kind: 'image',
-    label: 'Signature slot',
-    scope: 'The reserved signature slot in the Sarah authority block (“Signature asset pending”).',
-    decision:
-      'Supply an approved signature image, or remove the slot. A signature is never drawn or typeset.',
-    refs: [],
-  },
-  {
-    id: 'SR-040',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: '“A bridge between opportunity and peace of mind.”',
-    scope: 'The approach band: eyebrow, title, body and points.',
-    decision:
-      'Approve, edit or withdraw this copy. Financial and tax lines also need professional review.',
-    refs: ['investment:approach'],
+      '“Invest in Spain with someone on your side.” and the lead under it. They replace the headline she rejected (“Properties. Data. Better decisions.”) and add the human side she asked for.',
+    excludes: 'The eyebrow, buttons, script, signals and snapshot card, which she reviewed.',
+    decision: 'Approve, edit or replace the new headline and lead.',
+    refs: ['investment:hero.heading', 'investment:hero.lead'],
   },
   {
     id: 'SR-041',
     routes: [INVESTMENT],
     kind: 'copy',
-    label: 'Two doors',
-    scope: 'Title and both doors; the doors headline choice H-02.',
-    decision:
-      'Keep the template headline or choose one of the three options (H-02); approve the rest.',
-    refs: ['investment:doors'],
-  },
-  {
-    id: 'SR-042',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Asset types and territory map',
-    scope: 'Title, the four asset cards and the map labels.',
-    decision:
-      'Approve, edit or withdraw this copy. Legal and financial lines also need professional review.',
-    refs: ['investment:assetTypes', 'investment:territoryMap'],
-  },
-  {
-    id: 'SR-043',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Process',
-    scope: 'Title and the five stages.',
-    decision: APPROVE_COPY,
-    refs: ['investment:process'],
-  },
-  {
-    id: 'SR-044',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Report preview',
-    scope: 'Title, the panel titles and notes of the sample report.',
-    excludes: 'The “illustrative sample” labels.',
-    decision: APPROVE_COPY,
-    refs: ['investment:report'],
-  },
-  {
-    id: 'SR-045',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Scenarios and risk',
-    scope: 'Title and the scenario copy.',
-    decision:
-      'Approve, edit or withdraw this copy. Financial statements also need financial review.',
-    refs: ['investment:scenarios'],
-  },
-  {
-    id: 'SR-046',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Free calculations',
-    scope: 'Title and subtitle of the Buyer System band.',
-    decision: APPROVE_COPY,
-    refs: ['investment:buyerSystem'],
-  },
-  {
-    id: 'SR-047',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Case studies · titles',
-    scope: 'Band title and intro and the three case titles.',
-    excludes: 'The withheld results, locations and periods (evidence items).',
-    decision: APPROVE_COPY,
-    refs: ['investment:cases'],
-  },
-  {
-    id: 'SR-048',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: '“A complete ecosystem for a frictionless investment.”',
-    scope: 'Title and the four steps.',
-    decision: APPROVE_COPY,
-    refs: ['investment:journey'],
+    label: 'Doors · new headline',
+    scope:
+      '“Wherever you start, we start with your goals.” It replaces the headline she rejected (“Two paths. One goal: an investment built on evidence.”).',
+    excludes: 'The two doors, which she reviewed.',
+    decision: 'Approve, edit or replace the new headline.',
+    refs: ['investment:doors.title'],
   },
   {
     id: 'SR-049',
     routes: [INVESTMENT],
     kind: 'copy',
-    label: 'Next step · intro and reasons',
-    scope: 'Intro, the stage questions, the reasons and the team line.',
+    label: 'Next step · the sentence under her line',
+    scope:
+      '“When the analysis shows it fits, the next questions are how to buy it well and what owning it will involve.” It was written to follow her line; she has not seen it.',
     excludes:
-      '“An opportunity is only good if it fits your goals, not the goals of the person selling it.” (Sarah’s line).',
-    decision: 'Approve, edit or withdraw this copy. Tax reasons also need tax review.',
-    refs: [
-      'service-journey:JOURNEY.investment',
-      'service-journey:SERVICE_STAGES',
-      'service-journey:TEAM_LAYER',
-    ],
-  },
-  {
-    id: 'SR-050',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'FAQ',
-    scope: 'Eyebrow, title, questions and answers.',
-    excludes: 'The independence answer (confirmed).',
-    decision:
-      'Approve, edit or withdraw this copy. Tax, legal and pricing answers stay under review.',
-    refs: ['investment:faq'],
-  },
-  {
-    id: 'SR-051',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Final call to action',
-    scope: 'Eyebrow, title, body, buttons and script of the closing band.',
+      'Her line “An opportunity is only good if it fits your goals, not the goals of the person selling it.” and the cards.',
     decision: APPROVE_COPY,
-    refs: ['investment:finalCta'],
-  },
-  {
-    id: 'SR-052',
-    routes: [INVESTMENT],
-    kind: 'copy',
-    label: 'Footer',
-    scope: 'Footer description, column titles and labels.',
-    excludes: 'The Contact link.',
-    decision: APPROVE_COPY,
-    refs: ['investment:footer'],
+    refs: ['service-journey:JOURNEY.investment.intro'],
   },
 
   // ── Tax Advisory ────────────────────────────────────────────────────────
-  {
-    id: 'SR-053',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Hero, snapshot and trust strip',
-    scope:
-      'Hero eyebrow, lead, buttons, the sample snapshot labels and the trust strip; the proposed new hero lead (T1, §4 of docs/phase-2h-juanma-review.md).',
-    excludes: 'The headline, the 20-year credential, Modelo 210 and the “illustrative” labels.',
-    decision: 'Approve, edit or withdraw this copy, and decide on the T1 hero lead.',
-    refs: [
-      'tax-advisory:hero',
-      'tax-advisory:heroSnapshot',
-      'tax-advisory:trustStrip',
-      'tax-advisory:trustScript',
-    ],
-  },
   {
     id: 'SR-054',
     routes: [TAX],
     kind: 'copy',
     label: 'Purchase Tax band · pain-point line',
-    scope: 'The band’s question and the pain-point line (T1, proposal).',
-    decision: 'Approve, edit or withdraw this copy. It also needs tax review.',
-    refs: ['service-journey:TAX_LEAD_TOOL'],
-  },
-  {
-    id: 'SR-055',
-    routes: [TAX],
-    kind: 'copy',
-    label: '“Know what Spain will actually cost you.”',
-    scope: 'The context band: title, body and audience lines.',
-    decision: 'Approve, edit or withdraw this copy. Tax lines also need tax review.',
-    refs: ['tax-advisory:context'],
-  },
-  {
-    id: 'SR-056',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Process',
-    scope: 'Title and the process steps and deliverables.',
-    decision: 'Approve, edit or withdraw this copy. Tax lines also need tax review.',
-    refs: ['tax-advisory:process'],
-  },
-  {
-    id: 'SR-057',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Tax calendar',
-    scope: 'Title and intro of the calendar.',
-    excludes: 'The names of the taxes and forms.',
-    decision: APPROVE_COPY,
-    refs: ['tax-advisory:calendar'],
+    scope:
+      '“Tax that is not looked at before signing is usually found later, when it is harder and dearer to put right…” — written for her request to add the pain point.',
+    decision:
+      'Approve, edit or withdraw this line. It also needs tax review, which is not hers alone.',
+    refs: ['service-journey:TAX_LEAD_TOOL.moment'],
   },
   {
     id: 'SR-058',
     routes: [TAX],
     kind: 'copy',
-    label: 'Report preview · plain-language titles',
-    scope: 'The report titles and notes rewritten in plain language (T4).',
-    decision: 'Approve, edit or withdraw this copy. It also needs tax review.',
-    refs: ['tax-advisory:report'],
+    label: 'Report preview · the plainer wording',
+    scope:
+      'The panel titles and notes rewritten after her request to lower the technical level: “What Spain may ask of you”, “Your tax year”, “Tax in two countries”, “Tax, line by line”, their notes, two decision lines and “What changes if the assumptions change”.',
+    excludes: 'The rest of the report band, which she reviewed.',
+    decision:
+      'Say whether the language is now plain enough, and approve or edit it. The tax wording also needs tax review.',
+    refs: [
+      'tax-advisory:report.summary.title',
+      'tax-advisory:report.summary.note',
+      'tax-advisory:report.decisions.treaty',
+      'tax-advisory:report.decisions.breakdown',
+      'tax-advisory:report.cards.0.title',
+      'tax-advisory:report.cards.0.note',
+      'tax-advisory:report.cards.1.title',
+      'tax-advisory:report.cards.1.note',
+      'tax-advisory:report.cards.2.title',
+      'tax-advisory:report.cards.2.note',
+      'tax-advisory:report.deliverables.2.text',
+    ],
   },
   {
     id: 'SR-059',
     routes: [TAX],
     kind: 'copy',
-    label: '“Everything you leave in our hands.” · six items',
+    label: '“Everything you leave in our hands.” · eyebrow and six items',
     scope:
-      'The six items under Sarah’s title, and scope question S-01 (answering tax-office letters).',
-    excludes: 'The title (Sarah’s text, Phase 2H).',
+      'The eyebrow “In our hands” and the six items written under her title. One scope question is open: whether reading and answering tax-office letters is part of the service (S-01).',
+    excludes: 'Her title “Everything you leave in our hands.”',
     decision: 'Approve, edit or withdraw the items, and answer S-01.',
-    refs: ['tax-advisory:concerns'],
-  },
-  {
-    id: 'SR-060',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Services',
-    scope: 'Title and the service cards.',
-    decision: 'Approve, edit or withdraw this copy. Tax lines also need tax review.',
-    refs: ['tax-advisory:services'],
-  },
-  {
-    id: 'SR-061',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Sarah authority · copy',
-    scope: 'Eyebrow, title, body and points of the authority block.',
-    excludes: 'The 20-year credential.',
-    decision: APPROVE_COPY,
-    refs: ['tax-advisory:authority'],
-  },
-  {
-    id: 'SR-062',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Real cases · case texts',
-    scope: 'The three case texts (Sarah’s direction, English drafted here).',
-    excludes:
-      'Sarah’s title line, subtitle, badge, case names and button (confirmed); the results stay an evidence item (C-01).',
-    decision:
-      'Approve, edit or withdraw this copy. Results need client permission, verified figures and tax review.',
-    refs: ['tax-advisory:cases'],
-  },
-  {
-    id: 'SR-063',
-    routes: [TAX],
-    kind: 'copy',
-    label: '“Buy. File. Plan. Review.”',
-    scope: 'Title and the four steps.',
-    decision: APPROVE_COPY,
-    refs: ['tax-advisory:journey'],
-  },
-  {
-    id: 'SR-064',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Next step · connected services',
-    scope: 'Title, intro, the stage questions, the reasons and the team line.',
-    decision: 'Approve, edit or withdraw this copy. Tax lines also need tax review.',
-    refs: [
-      'service-journey:JOURNEY.tax',
-      'service-journey:SERVICE_STAGES',
-      'service-journey:TEAM_LAYER',
-    ],
-  },
-  {
-    id: 'SR-065',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'FAQ',
-    scope: 'Eyebrow, title, questions and answers.',
-    excludes: 'The independence answer (confirmed).',
-    decision: 'Approve, edit or withdraw this copy. Tax and legal answers stay under review.',
-    refs: ['tax-advisory:faq'],
-  },
-  {
-    id: 'SR-066',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Final call to action',
-    scope: 'Eyebrow, title, body and buttons of the closing band.',
-    decision: APPROVE_COPY,
-    refs: ['tax-advisory:finalCta'],
-  },
-  {
-    id: 'SR-067',
-    routes: [TAX],
-    kind: 'copy',
-    label: 'Footer',
-    scope: 'Footer description, column titles and labels.',
-    excludes: 'The Contact link.',
-    decision: APPROVE_COPY,
-    refs: ['tax-advisory:footer'],
-  },
-
-  // ── Team ────────────────────────────────────────────────────────────────
-  {
-    id: 'SR-068',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Hero · headline, lead, buttons and caption',
-    scope: 'Everything in the hero copy.',
-    excludes: '“Clarity before commitment.” (approved brand promise).',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-069',
-    routes: [TEAM],
-    kind: 'image',
-    label: 'Hero photograph',
-    scope: '`EQUIPO_SARAHKATERINA2.png` as the hero.',
-    decision:
-      'Sarah asked for it warmer and bigger (Phase 2H, E2): it is bigger; approve it as it is or supply an approved warmer edit (A-02).',
-    refs: [],
-  },
-  {
-    id: 'SR-070',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Introduction',
-    scope: 'Eyebrow, title, body and the four points of the introduction band.',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-071',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Three starting points · cards',
-    scope: 'Subtitle and the three path cards.',
-    excludes: '“Different goals. The same review before signing.” (Sarah’s line).',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-072',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Sarah’s profile · text and quote',
-    scope:
-      'Sarah’s area line, profile text and the quote “The property is only one part of the decision.”',
-    excludes: 'The section title and introduction (Sarah’s text, Phase 2H) and her name.',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-073',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Team profiles · roles and texts',
-    scope: 'The area lines and texts for Elsa Quirós Pérez, Óscar Gonzalez and Igor Veselov.',
-    excludes: 'The names (confirmed; the surname accent is N-01) and the “Portrait pending” slots.',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-074',
-    routes: [TEAM],
-    kind: 'image',
-    label: 'Group photograph',
-    scope: '`EQUIPO_SARAHKATERINA1.png` and its caption.',
-    decision:
-      'Sarah found it low in quality and cold (Phase 2H, E6): approve it as it is, supply a replacement or an approved edit (A-03), or remove it.',
-    refs: [],
-  },
-  {
-    id: 'SR-075',
-    routes: [TEAM],
-    kind: 'image',
-    label: 'Network band · photograph and copy',
-    scope: '`EQUIPO_SARAHKATERINA3.png` and the band copy beside it.',
-    decision:
-      'Keep, edit or remove the photograph, and approve the copy. Its people and organisations are not identified, so it stays blocked for production either way.',
-    refs: [],
-  },
-  {
-    id: 'SR-076',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Process',
-    scope: 'Section title, subtitle and the process steps.',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-077',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'After the keys',
-    scope: 'Eyebrow, title, body, the four items and the limit line.',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-078',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Next step · connected services',
-    scope: 'Title, intro, the stage questions and the reasons.',
-    decision: 'Approve, edit or withdraw this copy. Tax lines also need tax review.',
-    refs: ['service-journey:JOURNEY.team', 'service-journey:SERVICE_STAGES'],
-  },
-  {
-    id: 'SR-079',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'FAQ',
-    scope: 'Eyebrow, title, questions and answers.',
-    excludes: 'The answer “The buyer is the client…” and the legal note (confirmed).',
-    decision:
-      'Approve, edit or withdraw this copy. Legal, tax and return answers stay under review.',
-    refs: ['team:faq'],
-  },
-  {
-    id: 'SR-080',
-    routes: [TEAM],
-    kind: 'copy',
-    label: 'Final call to action',
-    scope: 'Eyebrow, title, body and buttons of the closing band.',
-    decision: APPROVE_COPY,
-    refs: [],
-  },
-  {
-    id: 'SR-081',
-    routes: [TEAM, CONTACT],
-    kind: 'copy',
-    label: 'Footer',
-    scope: 'Footer description, the column titles and labels (shared by Team and Contact).',
-    excludes: 'The Contact link.',
-    decision: APPROVE_COPY,
-    refs: ['team:footer'],
+    refs: ['tax-advisory:concerns.eyebrow', 'tax-advisory:concerns.items'],
   },
 ] as const satisfies readonly SarahReviewItem[];
 
@@ -912,3 +324,204 @@ export function sarahReviewItem(id: SarahReviewId): SarahReviewItem {
   if (!item) throw new Error(`Unknown Sarah review item ${id}`);
   return item;
 }
+
+/**
+ * What Sarah has approved, with the line of her document that says so.
+ *
+ * Her four review documents (REVISION WEB-*.docx, 2026-09-28, relayed by
+ * Juanma) review the four landings as deployed at `main` `edc47f0`. Three
+ * kinds of approval are recorded, never inferred from a claim's `status`:
+ *
+ *   - `explicit`: her own text, or a block she named and approved;
+ *   - `reviewed`: copy that was on the page she reviewed, unchanged since,
+ *     about which she asked for no change, on a page she judged as a whole
+ *     (the quoted line). Copy written or changed after her review is never
+ *     `reviewed`: it is an open SR item and listed in `except`;
+ *   - `relayed`: an approval Juanma relayed for a whole page.
+ *
+ * `except` lists the paths inside `refs` that are NOT approved (open SR items
+ * or copy she has not seen). Approval of copy is not evidence: tax, legal and
+ * financial wording, case results and permissions keep their own checks
+ * (docs/approval-marks-audit.md §5), and a claim's `status` still governs
+ * whether it may be published as fact.
+ *
+ * The Home has no approval here: no review document covers it.
+ */
+export interface SarahApproval {
+  readonly routes: readonly SarahReviewRoute[];
+  readonly basis: 'explicit' | 'reviewed' | 'relayed';
+  /** Document and quoted line (or Juanma's relay) the approval rests on. */
+  readonly source: string;
+  readonly scope: string;
+  readonly refs: readonly string[];
+  readonly except?: readonly string[];
+}
+
+const PP_DOC = 'REVISION WEB-property-purchase.docx';
+const INV_DOC = 'REVISION WEB-investment.docx';
+const TAX_DOC = 'REVISION WEB-Tax advisory.docx';
+const TEAM_DOC = 'REVISION WEB. Team.docx';
+
+export const SARAH_APPROVALS = [
+  {
+    routes: [CONTACT],
+    basis: 'relayed',
+    source:
+      'Juanma, 2026-09-30: Sarah has approved the whole Contact page (relayed in the reconciliation brief; no document).',
+    scope: 'All Contact copy and its portrait. The Team footer shown on Contact is covered below.',
+    refs: [
+      'contact:hero',
+      'contact:booking',
+      'contact:direct',
+      'contact:firstContact',
+      'contact:office',
+      'contact:modalities',
+      'contact:closing',
+    ],
+  },
+  {
+    routes: [PURCHASE],
+    basis: 'explicit',
+    source: `${PP_DOC}: "Compra con total tranquilidad: nosotros coordinamos cada paso." · "Nosotros gestionamos el papeleo; tú eliges tu casa." · "Lo que parece una gran oportunidad puede esconder una mala compra." · "El sueño cabe en un instante…" · "me gustan estos bloques" (navy before-sign band) · "Me gusta mucho este bloque, es un acierto total" (final CTA image)`,
+    scope:
+      'Her headline, audience title, good-idea title and paragraph (English adaptations, docs/phase-2h-juanma-review.md §10.2), the navy blocks and the final CTA block.',
+    refs: [
+      'property-purchase:hero.title',
+      'property-purchase:hero.accent',
+      'property-purchase:audience.title',
+      'property-purchase:goodIdea.title',
+      'property-purchase:goodIdea.body',
+    ],
+  },
+  {
+    routes: [PURCHASE],
+    basis: 'reviewed',
+    source: `${PP_DOC}: "El diseño de la web en general me gusta mucho" — every other comment asks for a specific change, implemented`,
+    scope: 'Every other Property Purchase block she reviewed.',
+    refs: [
+      'property-purchase:hero',
+      'property-purchase:trust',
+      'property-purchase:audience',
+      'property-purchase:goodIdea',
+      'property-purchase:oneFile',
+      'property-purchase:process',
+      'property-purchase:beforeSign',
+      'property-purchase:worries',
+      'property-purchase:services',
+      'property-purchase:authority',
+      'property-purchase:cases',
+      'property-purchase:journey',
+      'property-purchase:faq',
+      'property-purchase:finalCta',
+      'property-purchase:footer',
+      'service-journey:JOURNEY.purchase',
+      'service-journey:SERVICE_STAGES',
+      'service-journey:TEAM_LAYER',
+      'buyer-voices:VOICES_BAND',
+    ],
+    except: ['property-purchase:goodIdea.pointsTitle', 'property-purchase:services.scopeTitle'],
+  },
+  {
+    routes: [INVESTMENT],
+    basis: 'explicit',
+    source: `${INV_DOC}: "Una oportunidad solo es buena si encaja con tus objetivos, no con los de quien te la vende."`,
+    scope:
+      'Her line, as the title of the next-step band (English adaptation, §10.2 of the Phase 2H record).',
+    refs: ['service-journey:JOURNEY.investment.title'],
+  },
+  {
+    routes: [INVESTMENT],
+    basis: 'reviewed',
+    source: `${INV_DOC}: "Todos los apartados están bien estructurados" — she rejected only the two headlines and one text, all replaced`,
+    scope:
+      'Every Investment block she reviewed, except the replaced headlines, the new lead and the next-step intro.',
+    refs: [
+      'investment:hero',
+      'investment:heroDashboard',
+      'investment:trustStrip',
+      'investment:trustScript',
+      'investment:approach',
+      'investment:doors',
+      'investment:assetTypes',
+      'investment:territoryMap',
+      'investment:process',
+      'investment:report',
+      'investment:scenarios',
+      'investment:authority',
+      'investment:cases',
+      'investment:journey',
+      'investment:faq',
+      'investment:buyerSystem',
+      'investment:finalCta',
+      'investment:footer',
+      'service-journey:JOURNEY.investment',
+    ],
+    except: [
+      'investment:hero.heading',
+      'investment:hero.lead',
+      'investment:doors.title',
+      'service-journey:JOURNEY.investment.intro',
+    ],
+  },
+  {
+    routes: [TAX],
+    basis: 'explicit',
+    source: `${TAX_DOC}: "Todo lo que dejas en nuestras manos" · the cases block she wrote (title, subtitle, "ILUSTRACIÓN", the three cards, "Año confidencial", "DESCUBRE CÓMO TRABAJAMOS") · "Muy buena idea!" (calendar)`,
+    scope:
+      'Her concerns title, her cases copy (English adaptations, §10.2) and the calendar. The case results stay evidence items (C-01); the conditional publication line replaces her affirmative one until permission and figures exist.',
+    refs: ['tax-advisory:concerns.title', 'tax-advisory:cases', 'tax-advisory:calendar'],
+  },
+  {
+    routes: [TAX],
+    basis: 'reviewed',
+    source: `${TAX_DOC}: "Un acierto total esta web. El copy del principio me gusta mucho." — every other comment asks for a specific change, implemented`,
+    scope:
+      'Every other Tax Advisory block she reviewed, except the rewrites made after her review.',
+    refs: [
+      'tax-advisory:hero',
+      'tax-advisory:heroSnapshot',
+      'tax-advisory:trustStrip',
+      'tax-advisory:trustScript',
+      'tax-advisory:context',
+      'tax-advisory:concerns',
+      'tax-advisory:process',
+      'tax-advisory:report',
+      'tax-advisory:services',
+      'tax-advisory:authority',
+      'tax-advisory:journey',
+      'tax-advisory:faq',
+      'tax-advisory:finalCta',
+      'tax-advisory:footer',
+      'service-journey:JOURNEY.tax',
+    ],
+    except: [
+      'tax-advisory:concerns.eyebrow',
+      'tax-advisory:concerns.items',
+      'tax-advisory:report.summary.title',
+      'tax-advisory:report.summary.note',
+      'tax-advisory:report.decisions.treaty',
+      'tax-advisory:report.decisions.breakdown',
+      'tax-advisory:report.cards.0.title',
+      'tax-advisory:report.cards.0.note',
+      'tax-advisory:report.cards.1.title',
+      'tax-advisory:report.cards.1.note',
+      'tax-advisory:report.cards.2.title',
+      'tax-advisory:report.cards.2.note',
+      'tax-advisory:report.deliverables.2.text',
+    ],
+  },
+  {
+    routes: [TEAM],
+    basis: 'explicit',
+    source: `${TEAM_DOC}: "Objetivos diferentes. La misma revisión antes de firmar." · "Comprar una casa es fácil. Comprarla bien es otra cosa." · "Sarah analiza tus objetivos, el coste real de la compra y la parte fiscal…" · names "Oscar Gonzalez", "Igor Veselov"`,
+    scope: 'Her two titles, her introduction and the full names (English adaptations, §10.2).',
+    refs: ['team:pathsHeader', 'team:teamHeader'],
+  },
+  {
+    routes: [TEAM, CONTACT],
+    basis: 'reviewed',
+    source: `${TEAM_DOC}: "EL copy me gusta bastante" · "En general esta web me gusta mucho" — every other comment asks for a photograph or a removal`,
+    scope: 'Every other Team block she reviewed, including the footer that Contact shares.',
+    refs: ['team:faq', 'team:footer', 'service-journey:JOURNEY.team'],
+  },
+] as const satisfies readonly SarahApproval[];
