@@ -456,13 +456,22 @@ export const worries = {
     status: 'proposal',
     source: TEMPLATE,
   }),
+  /**
+   * 2026-09-30: rewritten in the positive to sit under Sarah's title. Each point
+   * restates a capability this page already states: the Tax point of "Where an
+   * opportunity usually goes wrong", the one-file record and document control,
+   * the terms reviewed before signature, the confirmed buyer-paid remuneration
+   * model, "Clear communication in your language" with follow-through to the
+   * keys, and the Execution point. New wording Sarah has not seen: SR-082.
+   * The former points named worries ("Documents lost between advisers"…).
+   */
   items: [
-    ['tax', 'Unexpected tax questions after the purchase'],
-    ['document', 'Documents lost between advisers'],
-    ['dueDiligence', 'Unclear clauses in the contract'],
-    ['buyer', "Depending on the seller's agent"],
-    ['clock', 'Travelling to Spain for every step'],
-    ['risk', 'Missing important deadlines'],
+    ['tax', 'Purchase tax and owner obligations looked at before you sign'],
+    ['document', 'Every document kept in one coordinated file'],
+    ['dueDiligence', 'Contract terms reviewed before you sign'],
+    ['buyer', 'Advice from your side of the purchase, paid only by you'],
+    ['clock', 'Clear communication in your language, from first viewing to keys'],
+    ['risk', 'Deadlines, payments and signatures followed in one sequence'],
   ] as const,
   script: claim({
     text: 'Your purchase. Our experience. Your calm.',

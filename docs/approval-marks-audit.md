@@ -449,16 +449,16 @@ No Vercel variable was read through the dashboard or changed.
 
 ### 10.8 Juanma's answers (2026-09-30) and what changed
 
-| #   | Question (§10.6)                                     | Answer                                                           | Change                                                                                                                                                                                                                                                                                                                       |
-| --- | ---------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | The "reviewed without objection" rule                | "hasta que Sarah indique nuevos cambios. el resto está aprobado" | Rule confirmed. `SARAH_APPROVALS` stands until Sarah asks for changes. The open items are copy she has never seen, so they stay open                                                                                                                                                                                         |
-| 2   | The `(2)` documents                                  | Word files he can upload to GitHub                               | None yet. When they are uploaded, this section will be re-checked against them                                                                                                                                                                                                                                               |
-| 3   | The portraits Sarah said she sent                    | "las fotos están en el repo y son las que tenemos"               | No individual photograph of Elsa, Óscar or Igor exists, so the labelled slots stay. Nothing is assigned from a group photograph (A-04 closed as "no file")                                                                                                                                                                   |
-| 4   | `EQUIPO_SARAHKATERINA4–6`                            | "sí es Sarah y sí que se puede usar"                             | The files are imported unchanged into `IMAGES/EQUIPO/SARAH/` (SHA-256 recorded; identical to the owner folder and the mother repository). Their compression-only derivatives `sarah-terrace`, `sarah-balcony` and `sarah-stairs` replace the authority image on Property Purchase, Investment and Tax. **SR-029 is removed** |
-| 5   | The Home repeats the rejected headline               | "el titular sobre todo debe salir de corrido y que no se corte"  | See below                                                                                                                                                                                                                                                                                                                    |
-| 6   | "What you stop worrying about." on Property Purchase | "corregir tb en Property Purchase"                               | Title replaced by Sarah's own line, "Everything you leave in our hands." (`confirmed`, from her Tax document). The six items she reviewed stay                                                                                                                                                                               |
-| 7   | Aquamarine                                           | "apruebo por ahora el aguamarina"                                | See below                                                                                                                                                                                                                                                                                                                    |
-| 8   | Marks visible on the Production alias after a merge  | "me vale"                                                        | No change to the gate                                                                                                                                                                                                                                                                                                        |
+| #   | Question (§10.6)                                     | Answer                                                                  | Change                                                                                                                                                                                                                                                                                                                       |
+| --- | ---------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | The "reviewed without objection" rule                | "hasta que Sarah indique nuevos cambios. el resto está aprobado"        | Rule confirmed. `SARAH_APPROVALS` stands until Sarah asks for changes. The open items are copy she has never seen, so they stay open                                                                                                                                                                                         |
+| 2   | The `(2)` documents                                  | Juanma, 2026-09-30: they have been provided and are the source of truth | They are the source of truth from 2026-09-30. **No copy of them is in this repository, any branch on GitHub or this machine**, so they were not read here. The last correction (§10.9) follows the instructions Juanma relayed from them. If they hold anything else, it is still to be applied                              |
+| 3   | The portraits Sarah said she sent                    | "las fotos están en el repo y son las que tenemos"                      | No individual photograph of Elsa, Óscar or Igor exists, so the labelled slots stay. Nothing is assigned from a group photograph (A-04 closed as "no file")                                                                                                                                                                   |
+| 4   | `EQUIPO_SARAHKATERINA4–6`                            | "sí es Sarah y sí que se puede usar"                                    | The files are imported unchanged into `IMAGES/EQUIPO/SARAH/` (SHA-256 recorded; identical to the owner folder and the mother repository). Their compression-only derivatives `sarah-terrace`, `sarah-balcony` and `sarah-stairs` replace the authority image on Property Purchase, Investment and Tax. **SR-029 is removed** |
+| 5   | The Home repeats the rejected headline               | "el titular sobre todo debe salir de corrido y que no se corte"         | See below                                                                                                                                                                                                                                                                                                                    |
+| 6   | "What you stop worrying about." on Property Purchase | "corregir tb en Property Purchase"                                      | Title replaced by Sarah's own line, "Everything you leave in our hands." (`confirmed`, from her Tax document). The six items she reviewed stay                                                                                                                                                                               |
+| 7   | Aquamarine                                           | "apruebo por ahora el aguamarina"                                       | See below                                                                                                                                                                                                                                                                                                                    |
+| 8   | Marks visible on the Production alias after a merge  | "me vale"                                                               | No change to the gate                                                                                                                                                                                                                                                                                                        |
 
 **Answer 5, the headlines:**
 
@@ -473,4 +473,80 @@ No Vercel variable was read through the dashboard or changed.
 - **Where gold stays:** on light surfaces and on the filled CTA. The Home and Contact are unchanged.
 - **Status:** approved "por ahora", so it can be revisited.
 
-**Open decisions now: 20** — SR-001–SR-011 (Home), SR-019, SR-022, SR-027 (Property Purchase), SR-036, SR-041, SR-049 (Investment), SR-054, SR-058, SR-059 (Tax).
+**Open decisions after §10.8: 20.** After the last correction (§10.9): **21**.
+
+### 10.9 Last correction (2026-09-30)
+
+Relayed by Juanma from `REVISION WEB-investment.docx` and the `(2)` documents:
+
+| Page                                                                  | Before                                                                                                                                                                                                                                    | After                                                                                                                                                                                                                                                                                                                                                       | Class                                                                                                                                                                                                                                                            |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Investment · approach band, under "Buying on emotion"                 | "The view sells the property. The numbers decide whether it was a good decision."                                                                                                                                                         | "An opportunity is only right if it fits your goals — not the goals of the person selling it."                                                                                                                                                                                                                                                              | APPROVED_BY_SARAH (explicit): an English adaptation of her proposed sentence. The claim is `confirmed`; there was no mark to remove, because it sat inside the reviewed approach band. A test keeps the old line out of every content file and of `WebBands.tsx` |
+| Property Purchase · "Everything you leave in our hands." · six points | Six worries ("Unexpected tax questions after the purchase", "Documents lost between advisers", "Unclear clauses in the contract", "Depending on the seller's agent", "Travelling to Spain for every step", "Missing important deadlines") | "Purchase tax and owner obligations looked at before you sign" · "Every document kept in one coordinated file" · "Contract terms reviewed before you sign" · "Advice from your side of the purchase, paid only by you" · "Clear communication in your language, from first viewing to keys" · "Deadlines, payments and signatures followed in one sequence" | **SR-082**: new wording she has not seen                                                                                                                                                                                                                         |
+
+**Where each of the six points comes from.** Each restates a capability this page already describes:
+
+| Point                                                            | Existing source on the page                                           |
+| ---------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Purchase tax and owner obligations looked at before you sign     | The Tax point                                                         |
+| Every document kept in one coordinated file                      | The one-file record and document control                              |
+| Contract terms reviewed before you sign                          | "Terms reviewed before signature"                                     |
+| Advice from your side of the purchase, paid only by you          | The confirmed remuneration model                                      |
+| Clear communication in your language, from first viewing to keys | "Clear communication in your language" and follow-through to the keys |
+| Deadlines, payments and signatures followed in one sequence      | The Execution point                                                   |
+
+No result, legal advice, availability or management promise is added. The contract-terms point sits in a legal review domain: that review is a professional check, not Sarah's.
+
+**Not marked:** Sarah's title, and the band's lead and script, which she reviewed.
+
+**Note for Juanma:** the Investment page now carries Sarah's idea twice.
+
+- In the approach band: "An opportunity is only **right** if it fits your goals — not the goals of the person selling it."
+- As the next-step title: "An opportunity is only **good** if it fits your goals, not the goals of the person selling it."
+
+Both come from her sentence. If one is enough, the next-step title is the one that was already approved in Phase 2H.
+
+### 10.10 Open items after this correction
+
+**Open for Sarah: 21 decisions.** Each is copy she has never seen.
+
+| ID            | Page              | What she has to decide                                                                                  |
+| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------- |
+| SR-001–SR-011 | Home              | All eleven stay open: no review document covers the Home                                                |
+| SR-019        | Property Purchase | The line under the Purchase Tax band, "Before anything else: what Spain charges…" (written in Phase 2H) |
+| SR-022        | Property Purchase | The heading "Where an opportunity usually goes wrong" (Phase 2H)                                        |
+| SR-027        | Property Purchase | The label "What it includes" (was "What the preview includes")                                          |
+| SR-082        | Property Purchase | The six points rewritten in the positive                                                                |
+| SR-036        | Investment        | The new headline and lead that replace the ones she rejected                                            |
+| SR-041        | Investment        | The new doors headline that replaces the one she rejected                                               |
+| SR-049        | Investment        | The sentence under her next-step line (Phase 2H)                                                        |
+| SR-054        | Tax Advisory      | The pain-point line (also needs tax review)                                                             |
+| SR-058        | Tax Advisory      | The plainer report wording (also needs tax review)                                                      |
+| SR-059        | Tax Advisory      | The six items under her title, and scope question S-01                                                  |
+
+**Evidence, tax, legal or rights (not Sarah's):**
+
+- **C-01:** Tax cases need written permission, verified figures and tax review. For the off-plan case, whether it was a new build or a resale.
+- **Cases on Investment and Property Purchase:** client permission and outcomes.
+- **Buyer voices:** the publication requirements.
+- **S-02:** legal scope of "We handle the paperwork".
+- **Legal review of the contract-terms point**, and of every tax, legal or financial statement.
+- **G-02:** rights and generation record for the footage and the voice.
+- **Financing (UCI, Sabadell) and renovations:** unverified.
+- **Identities in the network photograph.**
+
+**Technical:**
+
+- Sound publication on the Good-idea film, once G-02 and human-reviewed captions exist.
+- The booking URL and email variables on the Vercel Preview.
+- The Buyer System production origin (B-01).
+- The unconnected final-CTA and report buttons.
+- The footer destinations other than Contact.
+- The restricted tools.
+- No Spanish route, no form.
+
+**Assets:**
+
+- Individual portraits of Elsa, Óscar and Igor: none exist (Juanma).
+- Warmer team photographs.
+- Sarah's signature.

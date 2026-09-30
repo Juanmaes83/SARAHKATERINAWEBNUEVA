@@ -70,6 +70,7 @@ export default function PropertyPurchasePage() {
         <FileTrackerBand />
         <ProcessBand />
         <BeforeSignBand />
+        <SarahReviewMark id="SR-082" />
         <WorriesBand />
         <SarahReviewMark id="SR-027" />
         <ServicesBand />

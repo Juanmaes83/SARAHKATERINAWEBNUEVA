@@ -219,6 +219,19 @@ export const SARAH_REVIEW_ITEMS = [
     decision: 'Approve the new label, or keep the wording she saw.',
     refs: ['property-purchase:services.scopeTitle'],
   },
+  {
+    id: 'SR-082',
+    routes: [PURCHASE],
+    kind: 'copy',
+    label: '“Everything you leave in our hands.” · the six points, rewritten',
+    scope:
+      'The six points under her title, rewritten on 2026-09-30 from worries into the support the page already describes: purchase tax and owner obligations before signing; one coordinated file; contract terms reviewed before signing; advice from the buyer’s side, paid only by the buyer; clear communication in her client’s language to the keys; deadlines, payments and signatures in one sequence.',
+    excludes:
+      'Her title “Everything you leave in our hands.” and the band’s lead and script, which she reviewed.',
+    decision:
+      'Approve, edit or withdraw the six points. The contract-terms point also needs legal review of the scope.',
+    refs: [],
+  },
 
   // ── Investment ──────────────────────────────────────────────────────────
   {
@@ -414,8 +427,8 @@ export const SARAH_APPROVALS = [
     basis: 'explicit',
     source: `${INV_DOC}: "Una oportunidad solo es buena si encaja con tus objetivos, no con los de quien te la vende."`,
     scope:
-      'Her line, as the title of the next-step band (English adaptation, §10.2 of the Phase 2H record).',
-    refs: ['service-journey:JOURNEY.investment.title'],
+      'Her line, as the title of the next-step band (English adaptation, §10.2 of the Phase 2H record), and her proposed sentence replacing “The view sells the property…” under “Buying on emotion” (2026-09-30).',
+    refs: ['service-journey:JOURNEY.investment.title', 'investment:approach.objections.0.body'],
   },
   {
     routes: [INVESTMENT],

@@ -369,12 +369,15 @@ describe('publication and held subjects', () => {
   // WEB-investment.docx); no other string changed (verified by diff).
   // 2026-09-30 (Juanma): property-purchase.ts takes Sarah's Tax line
   // "Everything you leave in our hands." for its worries title; nothing else.
+  // 2026-09-30 (last correction): investment.ts takes Sarah's proposed sentence
+  // under "Buying on emotion"; property-purchase.ts rewrites the six worries
+  // points in the positive (SR-082). Nothing else (verified by diff).
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        '50750fa6ce5096f53763c57bf5b63e2d2f6cca7ba8945fc7966339623184d275',
+        '5587c9514889d363b6c357c029305b1814a6812c0f7bee55e77a39baf37d35c6',
       'content/en/tax-advisory.ts':
         '0d91bae0774b3ac81263b7abc2d64a8a62e91e25df78e5b5c405da456f79ad00',
       'content/en/team.ts': '5743db23aae1e92ee9c988760f144d73286792b16849c633a954fe106eac222f',
@@ -392,7 +395,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      'd14bd8eefca660acd672d523a2adab6d58a4d14a85d693cc5fe11fcd32ffb300',
+      '09da4ab3bcdf04237e4309f1366c0a3665ccb59f82537f877dc8a3fff96b8f9e',
     );
   });
 });

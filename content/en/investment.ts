@@ -227,9 +227,18 @@ export const approach = {
     {
       icon: 'analysis',
       title: claim({ text: 'Buying on emotion', status: 'proposal', source: TEMPLATE }),
+      /**
+       * Sarah (REVISION WEB-investment.docx): the former line "The view sells
+       * the property. The numbers decide whether it was a good decision." made
+       * no sense; she proposed "Una oportunidad solo es buena si encaja con tus
+       * objetivos, no con los de quien te la vende." English adaptation of her
+       * sentence (2026-09-30), relayed by Juanma.
+       */
       body: claim({
-        text: 'The view sells the property. The numbers decide whether it was a good decision.',
-        status: 'proposal',
+        text: 'An opportunity is only right if it fits your goals — not the goals of the person selling it.',
+        status: 'confirmed',
+        source:
+          'REVISION WEB-investment.docx — Sarah’s proposed sentence (English adaptation, 2026-09-30)',
       }),
     },
     {

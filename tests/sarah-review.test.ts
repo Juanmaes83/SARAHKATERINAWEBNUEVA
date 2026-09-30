@@ -172,6 +172,21 @@ describe('Sarah review register', () => {
     ]) {
       expect(investment).not.toContain(`text: '${rejected}'`);
     }
+    // REVISION WEB-investment.docx: Sarah found this line made no sense and
+    // proposed her own sentence; it must not come back anywhere it can render.
+    const retired =
+      'The view sells the property. The numbers decide whether it was a good decision.';
+    for (const file of [
+      'content/en/investment.ts',
+      'content/en/home.ts',
+      'content/en/service-journey.ts',
+      'components/web/WebBands.tsx',
+    ]) {
+      expect(read(file).replace(/\/\*\*[\s\S]*?\*\//g, ''), file).not.toContain(retired);
+    }
+    expect(read('content/en/investment.ts')).toContain(
+      "text: 'An opportunity is only right if it fits your goals — not the goals of the person selling it.'",
+    );
     // REVISION WEB. Team.docx: "Y el texto de abajo hay que eliminarlo."
     expect(read('components/web/TeamEditorial.tsx')).not.toMatch(
       /The photographs show three people/,
