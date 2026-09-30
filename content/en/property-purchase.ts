@@ -439,7 +439,18 @@ export const beforeSign = {
 } as const;
 
 export const worries = {
-  title: claim({ text: 'What you stop worrying about.', status: 'proposal', source: TEMPLATE }),
+  /**
+   * 2026-09-30 (Juanma): was "What you stop worrying about.", the phrase Sarah
+   * found "algo incompleta" on Tax Advisory and replaced there with "Todo lo que
+   * dejas en nuestras manos" (REVISION WEB-Tax advisory.docx). Her line is
+   * applied here too.
+   */
+  title: claim({
+    text: 'Everything you leave in our hands.',
+    status: 'confirmed',
+    source:
+      'REVISION WEB-Tax advisory.docx (Sarah); applied to Property Purchase by Juanma, 2026-09-30',
+  }),
   body: claim({
     text: 'Less uncertainty. More time to enjoy what matters.',
     status: 'proposal',

@@ -41,23 +41,46 @@ describe('approved media registry', () => {
     // images, six approved October additions consolidated from PR #23, and
     // the Sarah-approved Home authority image supplied on main, and the two
     // owner-proposed Home service-discovery images (2026-09-29).
-    expect(entries.length).toBe(30);
+    // 2026-09-30: + Sarah's three photographs (EQUIPO_SARAHKATERINA4–6), confirmed
+    // by Juanma, for the authority blocks.
+    expect(entries.length).toBe(33);
   });
 
-  it('replaces the authority image Sarah rejected with her approved portrait', () => {
+  it('replaces the authority image Sarah rejected with her own photographs', () => {
     // 2026-09-30: Sarah asked to change the face in the shared authority image
     // (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx). The former
-    // file stays registered and untouched; it is no longer rendered. The
-    // replacement is the only portrait of Sarah she has approved (Home), with
-    // no crop, grade or retouch at source; its use here is SR-029.
+    // file stays registered and untouched; it is no longer rendered. Each
+    // landing now shows one of Sarah's photographs, confirmed by Juanma as Sarah
+    // and approved for use; the originals are byte-identical to the owner's.
     const authority = APPROVED_MEDIA.authorityEditorial;
     expect(authority.source).toBe('IMAGES/sarahkaterina_Services_Especial.png');
     expect(authority.src).toBe('/media/graded/authority-editorial.webp');
-    for (const file of ['WebBands.tsx', 'TaxBands.tsx', 'PropertyPurchase.tsx']) {
+    const uses = {
+      'WebBands.tsx': 'sarahBalcony',
+      'TaxBands.tsx': 'sarahStairs',
+      'PropertyPurchase.tsx': 'sarahTerrace',
+    } as const;
+    for (const [file, key] of Object.entries(uses)) {
       const source = read(resolve(root, 'components/web', file));
       expect(source, file).not.toContain('APPROVED_MEDIA.authorityEditorial');
-      expect(source, file).toContain('APPROVED_MEDIA.homeAuthority');
-      expect(source, file).toContain('<SarahReviewMark id="SR-029"');
+      expect(source, file).toContain(`APPROVED_MEDIA.${key}`);
+      const m = APPROVED_MEDIA[key];
+      expect(m.source).toMatch(/^IMAGES\/EQUIPO\/SARAH\/EQUIPO_SARAHKATERINA[456]\.png$/);
+      expect(m.note).toMatch(/confirmed by Juanma on 2026-09-30/);
+    }
+    const shas: Record<string, string> = {
+      'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA4.png':
+        'FDA981AF85B771056173DB0E33FD4AE6696E3C145DE24933B398C81092E524A2',
+      'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA5.png':
+        '0752149BE4D06C75FAA0C94BE10E5765624625FA4123837B58B1096DD01B5E26',
+      'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA6.png':
+        '68E9CBCD788FEBB20CB2B7B8908307454451F14F9BFB5CEA83400ADA070FDE0D',
+    };
+    for (const [file, sha] of Object.entries(shas)) {
+      const actual = createHash('sha256')
+        .update(readFileSync(resolve(root, file)))
+        .digest('hex');
+      expect(actual.toUpperCase(), file).toBe(sha);
     }
   });
 
@@ -85,7 +108,9 @@ describe('approved media registry', () => {
   });
 
   it('serves every entry through the common Phase 2E grade, keeping the ungraded derivative', () => {
-    const gradedEntries = entries.filter((m) => m.id !== 'home-sarah-authority');
+    // Sarah's own photographs are compression-only: her face is never graded.
+    const UNGRADED = ['home-sarah-authority', 'sarah-terrace', 'sarah-balcony', 'sarah-stairs'];
+    const gradedEntries = entries.filter((m) => !UNGRADED.includes(m.id));
     for (const m of gradedEntries) {
       expect(m.grade, m.id).toBe('sk-editorial-v1');
       expect(m.src, m.id).toBe(`/media/graded/${m.id}.webp`);

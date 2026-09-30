@@ -51,8 +51,11 @@
   max-width: var(--sk-web-measure-hero);
 }
 
+/* 2026-09-30 (Juanma): Sarah's headline is one sentence and must read in one
+   run, never split into a separate block; the accent stays inline and the
+   whole line is balanced. */
 .heroTitle em {
-  display: block;
+  display: inline;
   color: var(--sk-web-gold-strong);
   font-weight: var(--sk-font-weight-regular);
 }

@@ -55,7 +55,7 @@ export default function InvestmentPage() {
     // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
     <RevealLineProvider line="reading-zone">
       {/* Phase 2H: gold restraint on this page only (see WebSection.module.css). */}
-      <div data-accent="restrained">
+      <div data-accent="restrained" data-palette="aqua">
         <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
         <WebHeader

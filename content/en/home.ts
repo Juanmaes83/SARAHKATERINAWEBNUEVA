@@ -109,8 +109,14 @@ export const discovery = {
       number: '02',
       userNeed: 'I want to invest.',
       serviceLabel: 'Investment',
+      /**
+       * 2026-09-30: was "Properties. Data. Better decisions.", the Investment
+       * headline Sarah rejected (REVISION WEB-investment.docx). It follows the
+       * Investment headline now; Juanma: it must read in one run, uncut.
+       * Still open for Sarah with the rest of this block (SR-003).
+       */
       proposition: claim({
-        text: 'Properties. Data. Better decisions.',
+        text: 'Invest in Spain with someone on your side.',
         status: 'proposal',
         source: LANDING('investment'),
       }),

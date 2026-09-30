@@ -5,7 +5,6 @@ import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
-import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { SampleColumnChart, SampleDistribution } from './SampleChart';
 import { isPublishable } from '@/lib/content/claims';
@@ -501,17 +500,16 @@ export function TaxAuthorityBand() {
       <div className={shared.authorityGrid}>
         <RevealOnScroll variant="unveil">
           <div className={shared.portraitFrame}>
-            <SarahReviewMark id="SR-029" variant="overlay" />
             {/* 2026-09-30: Sarah asked to change the face in the former image
-                (REVISION WEB-Tax advisory.docx). Her Home-approved portrait
-                replaces it; this use is open for her confirmation (SR-029). */}
+                (REVISION WEB-Tax advisory.docx). Her own photograph
+                EQUIPO_SARAHKATERINA6, confirmed by Juanma and approved for use. */}
             <Image
-              src={APPROVED_MEDIA.homeAuthority.src}
-              alt={APPROVED_MEDIA.homeAuthority.alt}
+              src={APPROVED_MEDIA.sarahStairs.src}
+              alt={APPROVED_MEDIA.sarahStairs.alt}
               className={shared.portraitImage}
               fill
               sizes="(max-width: 767px) 100vw, 46vw"
-              style={{ objectPosition: '50% 28%' }}
+              style={{ objectPosition: APPROVED_MEDIA.sarahStairs.focal }}
             />
           </div>
         </RevealOnScroll>

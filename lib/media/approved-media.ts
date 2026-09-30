@@ -186,6 +186,44 @@ export const APPROVED_MEDIA = {
     note: 'Approved by Sarah for the Home, including embedded text, as communicated by Juanma on 2026-09-29. Original on main at d7b24eda176bdd78d7ad827c5f34248594734515; source SHA-256 60CC3A7AF92C22D6A0B7380B589B2E85E9D47B674A0E2693BD94DA832E6BCFF7. Preview placement only; publication remains gated by the Home review.',
   }),
 
+  /**
+   * Sarah's own photographs (2026-09-30). Sarah asked to replace the face in
+   * the former authority image ("parece que tenga 80 años", "el rostro se ve muy
+   * poco natural"). Juanma confirmed these three show Sarah and may be used.
+   * Like the Home portrait they are compression-only: her face is never graded
+   * or retouched.
+   */
+  sarahTerrace: media({
+    id: 'sarah-terrace',
+    src: '/media/sarah-terrace.webp',
+    width: 1376,
+    height: 768,
+    alt: 'Sarah Katerina standing with her arms crossed on a sunlit terrace, smiling.',
+    focal: '50% 30%',
+    source: 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA4.png',
+    note: 'Sarah Katerina, confirmed by Juanma on 2026-09-30 and approved by him for use; copied unchanged from the owner folder SARAH KATERINA OFFICE/EQUIPO/SARAH (identical to the mother repository IMAGENES NUEVAS/EQUIPO/EQUIPO_SARAHKATERINA4.png), SHA-256 FDA981AF85B771056173DB0E33FD4AE6696E3C145DE24933B398C81092E524A2. Compression-only derivative: no grade, crop or facial alteration. Used in the Property Purchase authority block after Sarah asked to replace the former face.',
+  }),
+  sarahBalcony: media({
+    id: 'sarah-balcony',
+    src: '/media/sarah-balcony.webp',
+    width: 1376,
+    height: 768,
+    alt: 'Sarah Katerina smiling on a balcony above a pool in warm evening light.',
+    focal: '50% 30%',
+    source: 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA5.png',
+    note: 'Sarah Katerina, confirmed by Juanma on 2026-09-30 and approved by him for use; copied unchanged from the owner folder SARAH KATERINA OFFICE/EQUIPO/SARAH (identical to the mother repository IMAGENES NUEVAS/EQUIPO/EQUIPO_SARAHKATERINA5.png), SHA-256 0752149BE4D06C75FAA0C94BE10E5765624625FA4123837B58B1096DD01B5E26. Compression-only derivative: no grade, crop or facial alteration. Used in the Investment authority block after Sarah asked to replace the former face.',
+  }),
+  sarahStairs: media({
+    id: 'sarah-stairs',
+    src: '/media/sarah-stairs.webp',
+    width: 1376,
+    height: 774,
+    alt: 'Sarah Katerina seated on bright glass stairs, wearing a soft aquamarine scarf, smiling.',
+    focal: '50% 30%',
+    source: 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA6.png',
+    note: 'Sarah Katerina, confirmed by Juanma on 2026-09-30 and approved by him for use; copied unchanged from the owner folder SARAH KATERINA OFFICE/EQUIPO/SARAH (identical to the mother repository IMAGENES NUEVAS/EQUIPO/EQUIPO_SARAHKATERINA6.png), SHA-256 68E9CBCD788FEBB20CB2B7B8908307454451F14F9BFB5CEA83400ADA070FDE0D. Compression-only derivative: no grade, crop or facial alteration. Used in the Tax Advisory authority block after Sarah asked to replace the former face.',
+  }),
+
   /* --- Home service discovery (owner-proposed, 2026-09-29) --------------
    * Proposed by the owner to humanise the Home. Both are treated as
    * illustrative/generated: no generation or model-release record exists.

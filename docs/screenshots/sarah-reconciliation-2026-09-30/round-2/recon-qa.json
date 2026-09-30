@@ -1,0 +1,978 @@
+{
+ "after": "http://localhost:3310",
+ "before": "http://localhost:3311",
+ "generatedAt": "2026-09-30T14:59:09.346Z",
+ "browser": "Google Chrome via Playwright 1.63 (channel chrome)",
+ "routes": {
+  "/preview/property-purchase": {
+   "viewports": {
+    "320": {
+     "marks": [
+      "SR-019",
+      "SR-022",
+      "SR-027"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Buy with peace of mind: we coordinate every step."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-terrace.webp&w=384&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/territory-loop.webm",
+      "net::ERR_ABORTED http://localhost:3310/media/video/purchase-good-idea.webm"
+     ]
+    },
+    "390": {
+     "marks": [
+      "SR-019",
+      "SR-022",
+      "SR-027"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Buy with peace of mind: we coordinate every step."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-terrace.webp&w=640&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/territory-loop.webm",
+      "net::ERR_ABORTED http://localhost:3310/media/video/purchase-good-idea.webm"
+     ]
+    },
+    "1440": {
+     "marks": [
+      "SR-019",
+      "SR-022",
+      "SR-027"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Buy with peace of mind: we coordinate every step."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-terrace.webp&w=750&q=75",
+     "focusStops": [
+      {
+       "t": "Skip to content",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Home",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Property Purchase",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Investment",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tax Advisory",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Contact",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Buyer Tools→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Start my purchase file→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "See how it works→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Pause",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Open purchase tax  (opens in a",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Play",
+       "outline": "solid 2px"
+      }
+     ],
+     "focusWithoutOutline": 0,
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/territory-loop.webm",
+      "net::ERR_ABORTED http://localhost:3310/media/video/purchase-good-idea.webm"
+     ]
+    }
+   },
+   "reducedMotion": {
+    "hiddenText": 0,
+    "playingVideos": 0
+   }
+  },
+  "/preview/investment": {
+   "viewports": {
+    "320": {
+     "marks": [
+      "SR-036",
+      "SR-041",
+      "SR-049"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Invest in Spain with someone on your side."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-balcony.webp&w=384&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/territory-map-tall.webm"
+     ]
+    },
+    "390": {
+     "marks": [
+      "SR-036",
+      "SR-041",
+      "SR-049"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Invest in Spain with someone on your side."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-balcony.webp&w=640&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/territory-map-tall.webm"
+     ]
+    },
+    "1440": {
+     "marks": [
+      "SR-036",
+      "SR-041",
+      "SR-049"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Invest in Spain with someone on your side."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-balcony.webp&w=640&q=75",
+     "focusStops": [
+      {
+       "t": "Skip to content",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Home",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Property Purchase",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Investment",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tax Advisory",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Contact",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Buyer Tools→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Request an analysis→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "See how it works",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Pause",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Meet Sarah→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Analyse my property→",
+       "outline": "solid 2px"
+      }
+     ],
+     "focusWithoutOutline": 0,
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/territory-map-wide.webm"
+     ]
+    }
+   },
+   "reducedMotion": {
+    "hiddenText": 0,
+    "playingVideos": 0
+   }
+  },
+  "/preview/tax-advisory": {
+   "viewports": {
+    "320": {
+     "marks": [
+      "SR-054",
+      "SR-058",
+      "SR-059"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Spanish taxes, from the inside."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-stairs.webp&w=384&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    },
+    "390": {
+     "marks": [
+      "SR-054",
+      "SR-058",
+      "SR-059"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Spanish taxes, from the inside."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-stairs.webp&w=640&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    },
+    "1440": {
+     "marks": [
+      "SR-054",
+      "SR-058",
+      "SR-059"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Spanish taxes, from the inside."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fsarah-stairs.webp&w=750&q=75",
+     "focusStops": [
+      {
+       "t": "Skip to content",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Home",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Property Purchase",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Investment",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tax Advisory",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Contact",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Buyer Tools→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Map my tax exposure→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "See how it works",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Open purchase tax  (opens in a",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Create my tax map→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "01What Spain may ask of youOne",
+       "outline": "solid 2px"
+      }
+     ],
+     "focusWithoutOutline": 0,
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenText": 0,
+    "playingVideos": 0
+   }
+  },
+  "/preview/team": {
+   "viewports": {
+    "320": {
+     "marks": [],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Your place in Spain starts with people on your side."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": null,
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    },
+    "390": {
+     "marks": [],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Your place in Spain starts with people on your side."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": null,
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    },
+    "1440": {
+     "marks": [],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Your place in Spain starts with people on your side."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": null,
+     "focusStops": [
+      {
+       "t": "Skip to content",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Home",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Property Purchase",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Investment",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tax Advisory",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Contact",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Buyer Tools→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tell us about your plans→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Meet the team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Start with Investment→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Start with Property Purchase→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Start with Tax Advisory→",
+       "outline": "solid 2px"
+      }
+     ],
+     "focusWithoutOutline": 0,
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenText": 0,
+    "playingVideos": 0
+   }
+  },
+  "/preview/contact": {
+   "viewports": {
+    "320": {
+     "marks": [],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Your next step starts with a conversation."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": null,
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    },
+    "390": {
+     "marks": [],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Your next step starts with a conversation."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": null,
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    },
+    "1440": {
+     "marks": [],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Your next step starts with a conversation."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": null,
+     "focusStops": [
+      {
+       "t": "Skip to content",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Home",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Property Purchase",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Investment",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tax Advisory",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Contact",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Buyer Tools→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Book a discovery call→(opens i",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "WhatsApp+34 647 754 589 (opens",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Phone+34 647 754 589",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Emailinfo@sarahkaterina.com",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Request by WhatsApp — Video ca",
+       "outline": "solid 2px"
+      }
+     ],
+     "focusWithoutOutline": 0,
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenText": 0,
+    "playingVideos": 0
+   }
+  },
+  "/preview/home": {
+   "viewports": {
+    "320": {
+     "marks": [
+      "SR-001",
+      "SR-002",
+      "SR-003",
+      "SR-005",
+      "SR-006",
+      "SR-004",
+      "SR-007",
+      "SR-008",
+      "SR-009",
+      "SR-010",
+      "SR-011"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Clarity before commitment."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fhome-sarah-authority.webp&w=384&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/home-investment-objective.webm"
+     ]
+    },
+    "390": {
+     "marks": [
+      "SR-001",
+      "SR-002",
+      "SR-003",
+      "SR-005",
+      "SR-006",
+      "SR-004",
+      "SR-007",
+      "SR-008",
+      "SR-009",
+      "SR-010",
+      "SR-011"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Clarity before commitment."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fhome-sarah-authority.webp&w=640&q=75",
+     "menuLinks": [
+      "Home",
+      "Property Purchase",
+      "Investment",
+      "Tax Advisory",
+      "Team",
+      "Contact",
+      "Purchase taxWhat does Spain charge me to buy this? (opens in a new tab)",
+      "Real cash neededHow much cash will I really need? (opens in a new tab)"
+     ],
+     "focusAfterEscape": "Menu",
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/home-investment-objective.webm"
+     ]
+    },
+    "1440": {
+     "marks": [
+      "SR-001",
+      "SR-002",
+      "SR-003",
+      "SR-005",
+      "SR-006",
+      "SR-004",
+      "SR-007",
+      "SR-008",
+      "SR-009",
+      "SR-010",
+      "SR-011"
+     ],
+     "rejectedVisible": [],
+     "overflowX": 0,
+     "h1": [
+      "Clarity before commitment."
+     ],
+     "brokenImages": [],
+     "brokenAnchors": [],
+     "robots": "noindex, nofollow",
+     "authoritySrc": "/_next/image?url=%2Fmedia%2Fhome-sarah-authority.webp&w=640&q=75",
+     "focusStops": [
+      {
+       "t": "Skip to content",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Home",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Property Purchase",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Investment",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Tax Advisory",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Team",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Contact",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Buyer Tools→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Find your starting point→",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Use Buyer Tools",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Pause",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "01I want to buy a home.Propert",
+       "outline": "solid 2px"
+      },
+      {
+       "t": "Editorial illustration01 · Pro",
+       "outline": "solid 2px"
+      }
+     ],
+     "focusWithoutOutline": 0,
+     "marksMatch": true,
+     "duplicates": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": [],
+     "failedRequests": [
+      "net::ERR_ABORTED http://localhost:3310/media/video/home-investment-objective.webm"
+     ]
+    }
+   },
+   "reducedMotion": {
+    "hiddenText": 0,
+    "playingVideos": 0
+   }
+  }
+ },
+ "films": {
+  "/preview/property-purchase": {
+   "playingWithoutScroll": true,
+   "currentTime": 3.5,
+   "muted": true,
+   "autoplayAttr": false,
+   "controls": [
+    "Pause the hero film"
+   ],
+   "frameWidth": 636
+  },
+  "/preview/investment": {
+   "playingWithoutScroll": true,
+   "currentTime": 3.5,
+   "muted": true,
+   "autoplayAttr": false,
+   "controls": [
+    "Request an analysis→",
+    "See how it works",
+    "Pause the hero film"
+   ],
+   "frameWidth": 1200
+  },
+  "goodIdea": {
+   "present": true,
+   "muted": true,
+   "audioTracks": 0,
+   "soundButton": [],
+   "otherControls": [
+    "Pause the film"
+   ]
+  },
+  "heroControlAfterEnter": {
+   "paused": true,
+   "label": "Play the hero film"
+  }
+ }
+}

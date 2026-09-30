@@ -164,7 +164,8 @@ describe('Sarah review register', () => {
   });
 
   it('keeps the copy Sarah rejected off the page', () => {
-    const investment = read('content/en/investment.ts');
+    // The Home repeated the rejected Investment headline until 2026-09-30.
+    const investment = read('content/en/investment.ts') + read('content/en/home.ts');
     for (const rejected of [
       'Properties. Data. Better decisions.',
       'Two paths. One goal: an investment built on evidence.',

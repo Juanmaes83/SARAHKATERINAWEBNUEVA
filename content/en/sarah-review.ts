@@ -3,8 +3,7 @@
  * 2026-09-30 (docs/approval-marks-audit.md §10).
  *
  * `SARAH_REVIEW_ITEMS` holds only decisions that are still Sarah's to take:
- * copy she has not seen (written after her review, or new), and one image
- * use. Each is shown on the page as `SARAH REVIEW REQUIRED · SR-###` next to
+ * copy she has not seen (written after her review, or new). Each is shown on the page as `SARAH REVIEW REQUIRED · SR-###` next to
  * what it covers (`components/review/SarahReviewMark.tsx`). IDs are stable:
  * resolved items are deleted, never renumbered, so gaps are expected.
  *
@@ -219,17 +218,6 @@ export const SARAH_REVIEW_ITEMS = [
       'The card label, changed on 2026-09-30 from “What the preview includes” (the version she saw) because it named the preview.',
     decision: 'Approve the new label, or keep the wording she saw.',
     refs: ['property-purchase:services.scopeTitle'],
-  },
-  {
-    id: 'SR-029',
-    routes: [PURCHASE, INVESTMENT, TAX],
-    kind: 'image',
-    label: 'Authority photograph · her Home portrait used here',
-    scope:
-      'The Sarah authority block now shows `IMAGES/Sarah home_1.png` (registered `homeAuthority`) instead of the image whose face she asked to change.',
-    decision:
-      'Confirm this portrait here, or supply another approved photograph. Her approval of it covers the Home.',
-    refs: [],
   },
 
   // ── Investment ──────────────────────────────────────────────────────────

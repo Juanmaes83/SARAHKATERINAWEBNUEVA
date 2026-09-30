@@ -43,41 +43,44 @@ export default function PropertyPurchasePage() {
   return (
     // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
     <RevealLineProvider line="reading-zone">
-      <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
-      <WebHeader
-        nav={UNIFIED_WEB_NAV}
-        ctaLabel={BUYER_TOOLS_LABEL}
-        brandHref={HOME_PREVIEW_ROUTE}
-        showLanguageSwitcher={false}
-        buyerToolsSourcePage={SERVICE_ROUTES.purchase}
-      />
-      <PurchaseHero />
-      <SarahReviewMark id="SR-019" />
-      {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
-      <BuyerToolBand
-        toolKey="purchaseTax"
-        sourcePage={SERVICE_ROUTES.purchase}
-        moment="Before anything else: what Spain charges on the purchase itself, for your own case."
-      />
-      <PurchaseTrustBand />
-      <AudienceBand />
-      {/* Phase 2G: the idea, and where it can fail — before the file that holds it. */}
-      <SarahReviewMark id="SR-022" />
-      <GoodIdeaBand />
-      <OneFileBand />
-      <FileTrackerBand />
-      <ProcessBand />
-      <BeforeSignBand />
-      <WorriesBand />
-      <SarahReviewMark id="SR-027" />
-      <ServicesBand />
-      <AuthorityBand />
-      <CasesBand />
-      <JourneyBand />
-      <ServiceJourney page="purchase" />
-      <WebFaq content={faq} appearance="light" />
-      <FinalCtaBand />
-      <WebFooter content={footer} />
+      {/* 2026-09-30: aquamarine accent on navy surfaces (app/web-tokens.css). */}
+      <div data-palette="aqua">
+        <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
+        <WebHeader
+          nav={UNIFIED_WEB_NAV}
+          ctaLabel={BUYER_TOOLS_LABEL}
+          brandHref={HOME_PREVIEW_ROUTE}
+          showLanguageSwitcher={false}
+          buyerToolsSourcePage={SERVICE_ROUTES.purchase}
+        />
+        <PurchaseHero />
+        <SarahReviewMark id="SR-019" />
+        {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
+        <BuyerToolBand
+          toolKey="purchaseTax"
+          sourcePage={SERVICE_ROUTES.purchase}
+          moment="Before anything else: what Spain charges on the purchase itself, for your own case."
+        />
+        <PurchaseTrustBand />
+        <AudienceBand />
+        {/* Phase 2G: the idea, and where it can fail — before the file that holds it. */}
+        <SarahReviewMark id="SR-022" />
+        <GoodIdeaBand />
+        <OneFileBand />
+        <FileTrackerBand />
+        <ProcessBand />
+        <BeforeSignBand />
+        <WorriesBand />
+        <SarahReviewMark id="SR-027" />
+        <ServicesBand />
+        <AuthorityBand />
+        <CasesBand />
+        <JourneyBand />
+        <ServiceJourney page="purchase" />
+        <WebFaq content={faq} appearance="light" />
+        <FinalCtaBand />
+        <WebFooter content={footer} />
+      </div>
     </RevealLineProvider>
   );
 }

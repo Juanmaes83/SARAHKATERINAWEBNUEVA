@@ -446,3 +446,31 @@ No Vercel variable was read through the dashboard or changed.
 - The Vercel Preview pages: they sit behind Vercel login, so only the deployment status was read.
 - Safari/iOS, Android and screen readers.
 - Sound on/off with a published soundtrack: it is not published. That path was verified in Phase 2H with temporary files.
+
+### 10.8 Juanma's answers (2026-09-30) and what changed
+
+| #   | Question (§10.6)                                     | Answer                                                           | Change                                                                                                                                                                                                                                                                                                                       |
+| --- | ---------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | The "reviewed without objection" rule                | "hasta que Sarah indique nuevos cambios. el resto está aprobado" | Rule confirmed. `SARAH_APPROVALS` stands until Sarah asks for changes. The open items are copy she has never seen, so they stay open                                                                                                                                                                                         |
+| 2   | The `(2)` documents                                  | Word files he can upload to GitHub                               | None yet. When they are uploaded, this section will be re-checked against them                                                                                                                                                                                                                                               |
+| 3   | The portraits Sarah said she sent                    | "las fotos están en el repo y son las que tenemos"               | No individual photograph of Elsa, Óscar or Igor exists, so the labelled slots stay. Nothing is assigned from a group photograph (A-04 closed as "no file")                                                                                                                                                                   |
+| 4   | `EQUIPO_SARAHKATERINA4–6`                            | "sí es Sarah y sí que se puede usar"                             | The files are imported unchanged into `IMAGES/EQUIPO/SARAH/` (SHA-256 recorded; identical to the owner folder and the mother repository). Their compression-only derivatives `sarah-terrace`, `sarah-balcony` and `sarah-stairs` replace the authority image on Property Purchase, Investment and Tax. **SR-029 is removed** |
+| 5   | The Home repeats the rejected headline               | "el titular sobre todo debe salir de corrido y que no se corte"  | See below                                                                                                                                                                                                                                                                                                                    |
+| 6   | "What you stop worrying about." on Property Purchase | "corregir tb en Property Purchase"                               | Title replaced by Sarah's own line, "Everything you leave in our hands." (`confirmed`, from her Tax document). The six items she reviewed stay                                                                                                                                                                               |
+| 7   | Aquamarine                                           | "apruebo por ahora el aguamarina"                                | See below                                                                                                                                                                                                                                                                                                                    |
+| 8   | Marks visible on the Production alias after a merge  | "me vale"                                                        | No change to the gate                                                                                                                                                                                                                                                                                                        |
+
+**Answer 5, the headlines:**
+
+- **Home:** the Investment state of the service banner now reads "Invest in Spain with someone on your side.", in step with the Investment page. It remains within SR-003 for Sarah.
+- **Property Purchase hero:** Sarah's sentence rendered its second half as a separate block ("Buy with / peace of mind: / _we coordinate / every step._"). The accent is now inline, so the sentence reads in one run, balanced across lines, with the italic kept.
+- **Checked in the browser at 320, 390 and 1440** (§10.9): every banner proposition is painted whole inside the cloth, and every hero headline is whole.
+
+**Answer 7, aquamarine:**
+
+- **The token:** `--sk-web-aqua` = `#7EC2BD`, the dominant teal of the approved logo file, not a new colour. It measures 8.69:1 on navy and 7.25:1 on navy-soft, but only 1.93:1 on ivory, so it is never used on light surfaces.
+- **Where it applies:** on the four landings (`data-palette="aqua"`), every accent on navy surfaces that used `--sk-web-gold-on-dark` now uses it. That covers eyebrows, scripts, icons, rules and outlines.
+- **Where gold stays:** on light surfaces and on the filled CTA. The Home and Contact are unchanged.
+- **Status:** approved "por ahora", so it can be revisited.
+
+**Open decisions now: 20** — SR-001–SR-011 (Home), SR-019, SR-022, SR-027 (Property Purchase), SR-036, SR-041, SR-049 (Investment), SR-054, SR-058, SR-059 (Tax).

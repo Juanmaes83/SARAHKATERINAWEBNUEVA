@@ -367,6 +367,8 @@ describe('publication and held subjects', () => {
   // 2026-09-30 (reconciliation with Sarah's documents): investment.ts replaces
   // the two headlines Sarah rejected and the hero lead (REVISION
   // WEB-investment.docx); no other string changed (verified by diff).
+  // 2026-09-30 (Juanma): property-purchase.ts takes Sarah's Tax line
+  // "Everything you leave in our hands." for its worries title; nothing else.
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
@@ -390,7 +392,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '3e55ff8140fc2ba8e20081b49d2d1d3665bbe5b0ab1b51f153d025a1d335da81',
+      'd14bd8eefca660acd672d523a2adab6d58a4d14a85d693cc5fe11fcd32ffb300',
     );
   });
 });

@@ -5,7 +5,6 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
-import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import { PURCHASE_VOICES } from '@/content/en/buyer-voices';
 import { BuyerVoices } from './BuyerVoices';
@@ -545,24 +544,21 @@ export function ServicesBand() {
 
 export function AuthorityBand() {
   // 2026-09-30: Sarah asked to replace the face in the former authority
-  // image (REVISION WEB-Tax advisory.docx: "hay que cambiar la cara de esta
-  // foto"; REVISION WEB-investment.docx: "el rostro se ve muy poco
-  // natural"). The only portrait she has approved in this repository is the
-  // Home one; its use here is open for her confirmation (SR-029).
-  const authorityMedia = APPROVED_MEDIA.homeAuthority;
+  // image (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx).
+  // Her own photograph EQUIPO_SARAHKATERINA4, confirmed by Juanma as Sarah and approved for use.
+  const authorityMedia = APPROVED_MEDIA.sarahTerrace;
 
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
         <RevealOnScroll variant="unveil" className={styles.portraitFrame}>
-          <SarahReviewMark id="SR-029" variant="overlay" />
           <Image
             src={authorityMedia.src}
             alt={authorityMedia.alt}
             className={styles.portrait}
             fill
             sizes="(max-width: 767px) 100vw, 46vw"
-            style={{ objectPosition: '50% 28%' }}
+            style={{ objectPosition: authorityMedia.focal }}
           />
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.authorityCopy}>

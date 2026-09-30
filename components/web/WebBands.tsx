@@ -7,7 +7,6 @@ import { ReportExplorer } from './ReportExplorer';
 import { TerritoryMapFilm } from './TerritoryMapFilm';
 import { ArtworkFigure } from './ArtworkFigure';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
-import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
   SampleColumnChart,
@@ -509,23 +508,17 @@ export function ScenariosBand() {
 
 /* --- AUTHORITY (navy) ---------------------------------------------------------- */
 
-/** Keeps the face in a landscape frame; the portrait itself is never cropped at source. */
-const AUTHORITY_FOCAL = '50% 28%';
-
 export function AuthorityBand() {
   // 2026-09-30: Sarah asked to replace the face in the former authority
-  // image (REVISION WEB-Tax advisory.docx: "hay que cambiar la cara de esta
-  // foto"; REVISION WEB-investment.docx: "el rostro se ve muy poco
-  // natural"). The only portrait she has approved in this repository is the
-  // Home one; its use here is open for her confirmation (SR-029).
-  const authorityMedia = APPROVED_MEDIA.homeAuthority;
+  // image (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx).
+  // Her own photograph EQUIPO_SARAHKATERINA5, confirmed by Juanma as Sarah and approved for use.
+  const authorityMedia = APPROVED_MEDIA.sarahBalcony;
 
   return (
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
         <RevealOnScroll variant="unveil">
           <div className={styles.portraitFrame}>
-            <SarahReviewMark id="SR-029" variant="overlay" />
             {/*
               Approved 2026-09-22: `IMAGES/sarahkaterina_home.png`, the only
               asset with that exact base name. It replaces AUTH-SK-002 here.
@@ -539,7 +532,7 @@ export function AuthorityBand() {
               className={styles.portraitImage}
               fill
               sizes="(max-width: 767px) 100vw, 42vw"
-              style={{ objectPosition: AUTHORITY_FOCAL }}
+              style={{ objectPosition: authorityMedia.focal }}
             />
           </div>
         </RevealOnScroll>

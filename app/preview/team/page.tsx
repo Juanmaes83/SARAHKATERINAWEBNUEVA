@@ -29,7 +29,8 @@ export const metadata: Metadata = buildMetadata({
 
 export default function TeamPage() {
   return (
-    <>
+    // 2026-09-30: aquamarine accent on navy surfaces (app/web-tokens.css).
+    <div data-palette="aqua">
       <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
       <WebHeader
         nav={UNIFIED_WEB_NAV}
@@ -40,6 +41,6 @@ export default function TeamPage() {
       />
       <TeamEditorial />
       <WebFooter content={footer} />
-    </>
+    </div>
   );
 }

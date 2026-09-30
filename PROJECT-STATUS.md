@@ -109,6 +109,15 @@ treated as final:
 
 Most recent first.
 
+**2026-09-30 — Juanma's answers applied (`docs/approval-marks-audit.md` §10.8).**
+
+- **Approvals confirmed:** the "reviewed without objection" rule stands until Sarah asks for changes.
+- **Authority photographs:** Sarah's own photographs (EQUIPO_SARAHKATERINA4–6, confirmed and approved by Juanma) replace the authority image on the three service landings. SR-029 is closed.
+- **Headlines:** the Home shows the new Investment headline. The Property Purchase headline reads in one run, uncut.
+- **Property Purchase:** "What you stop worrying about." becomes Sarah's "Everything you leave in our hands."
+- **Aquamarine:** the logo teal becomes `--sk-web-aqua`, approved for now, and replaces the on-dark gold on the four landings.
+- **Open for Sarah:** 20 decisions.
+
 **2026-09-30 — Reconciliation with Sarah's four review documents (`docs/approval-marks-audit.md` §10).**
 The first audit read `status: 'proposal'` as "not approved"; Sarah had in fact
 reviewed the four landings. Reconciled line by line against
