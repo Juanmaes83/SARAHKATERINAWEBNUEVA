@@ -304,9 +304,11 @@ describe('7, 11, 12, 14. boundaries', () => {
     const purchase = read('content/en/property-purchase.ts');
     expect(purchase).toContain("text: 'Buy with peace of mind:'");
     expect(purchase).toContain("text: 'Start my purchase file'");
-    expect(read('content/en/investment.ts')).toContain(
-      "text: 'Properties. Data. Better decisions.'",
-    );
+    // 2026-09-30: Sarah rejected the Investment headline
+    // (REVISION WEB-investment.docx); its replacement is open copy (SR-036).
+    const investment = read('content/en/investment.ts');
+    expect(investment).not.toContain("text: 'Properties. Data. Better decisions.'");
+    expect(investment).toContain("text: 'Invest in Spain with someone on your side.'");
     expect(read('content/en/tax-advisory.ts')).toContain("text: 'Tax exposure overview'");
   });
 

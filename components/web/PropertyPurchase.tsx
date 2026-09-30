@@ -131,9 +131,6 @@ export function PurchaseHero() {
             />
             <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
               <p>{hero.visualBody.text}</p>
-              <span>
-                <Icon name="play" /> Video requires approval
-              </span>
             </figcaption>
           </figure>
           <p className={styles.heroScript}>{hero.script.text}</p>
@@ -546,7 +543,10 @@ export function ServicesBand() {
 }
 
 export function AuthorityBand() {
-  const authorityMedia = APPROVED_MEDIA.authorityEditorial;
+  // 2026-09-30: Sarah asked to replace the face in the former authority
+  // image (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx).
+  // Her own photograph EQUIPO_SARAHKATERINA4, confirmed by Juanma as Sarah and approved for use.
+  const authorityMedia = APPROVED_MEDIA.sarahTerrace;
 
   return (
     <WebSection surface="navySoft" id="sarah">

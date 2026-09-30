@@ -1,0 +1,58 @@
+/* Review tooling, deliberately unlike the site's own components: a dashed
+   frame and an uppercase label, so a mark is never mistaken for brand copy
+   and never hides what it points at. Tokens only. */
+
+.strip {
+  position: relative;
+  background-color: var(--sk-web-gold-wash);
+  color: var(--sk-web-navy);
+  border-block: var(--sk-border-accent-width) dashed var(--sk-color-error-red);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sk-space-4) var(--sk-space-16);
+  padding-block: var(--sk-space-8);
+}
+
+.tagOnly {
+  display: inline-flex;
+  max-width: 100%;
+  background-color: var(--sk-web-gold-wash);
+  color: var(--sk-web-navy);
+  border: var(--sk-border-accent-width) dashed var(--sk-color-error-red);
+  border-radius: var(--sk-radius-button);
+  padding: var(--sk-space-4) var(--sk-space-8);
+}
+
+.inFlow {
+  margin-block-end: var(--sk-space-8);
+}
+
+.overlay {
+  position: absolute;
+  inset-block-start: var(--sk-space-8);
+  inset-inline-start: var(--sk-space-8);
+  z-index: 1;
+  max-width: calc(100% - var(--sk-space-16));
+}
+
+.tag {
+  font-family: var(--sk-type-eyebrow-family);
+  font-size: var(--sk-type-eyebrow-size);
+  font-weight: var(--sk-type-eyebrow-weight);
+  letter-spacing: var(--sk-type-eyebrow-letter-spacing);
+  text-transform: uppercase;
+}
+
+.id {
+  white-space: nowrap;
+}
+
+.label {
+  font-family: var(--sk-type-legal-family);
+  font-size: var(--sk-type-legal-size);
+  line-height: var(--sk-type-legal-line-height);
+}

@@ -19,6 +19,7 @@ import {
   TrustBand,
 } from '@/components/web/WebBands';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { PROTOTYPE_NOTICE, seo } from '@/content/en/investment';
@@ -54,7 +55,7 @@ export default function InvestmentPage() {
     // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
     <RevealLineProvider line="reading-zone">
       {/* Phase 2H: gold restraint on this page only (see WebSection.module.css). */}
-      <div data-accent="restrained">
+      <div data-accent="restrained" data-palette="aqua">
         <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
 
         <WebHeader
@@ -65,11 +66,13 @@ export default function InvestmentPage() {
           buyerToolsSourcePage={SERVICE_ROUTES.investment}
         />
 
+        <SarahReviewMark id="SR-036" />
         <WebHero />
         <TrustBand />
         {/* Phase 2H (Sarah's review): Sarah's authority block at the start of the page. */}
         <AuthorityBand />
         <ApproachBand />
+        <SarahReviewMark id="SR-041" />
         <DoorsBand />
         <AssetTypesBand />
         <ProcessBand />
@@ -79,6 +82,7 @@ export default function InvestmentPage() {
         <CasesBand />
         <JourneyBand />
         {/* Phase 2G: where the operation continues — purchase, tax, the team. */}
+        <SarahReviewMark id="SR-049" />
         <ServiceJourney page="investment" />
         <WebFaq appearance="light" />
         <FinalCtaBand />

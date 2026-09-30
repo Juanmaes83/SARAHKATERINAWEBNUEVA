@@ -10,6 +10,7 @@ import { APPROVED_PROMISE } from '@/lib/content/claims';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import {
+  contactBand,
   discovery,
   faq,
   footer,
@@ -72,6 +73,7 @@ describe('Home preview route', () => {
       '<HomeTeam',
       '<HomeToolsBand',
       '<WebFaq',
+      '<HomeContactBand',
       '<HomeFinalCtaBand',
       '<WebFooter',
     ].map((token) => page.indexOf(token));
@@ -250,6 +252,18 @@ describe('Home preview route', () => {
       component.indexOf('export function HomeSideStatement'),
     );
     expect(heroBlock).not.toMatch(/entrance\./);
+  });
+
+  it('adds a short Contact band that links to the full Contact page (Juanma, 2026-09-29)', () => {
+    const band = component.slice(
+      component.indexOf('export function HomeContactBand'),
+      component.indexOf('export function HomeFinalCtaBand'),
+    );
+    expect(band).toContain('href={CONTACT_PREVIEW_ROUTE}');
+    expect(band).toContain('resolveContactChannels');
+    // Brief by design: no form, no map, no modality cards on the Home.
+    expect(band).not.toMatch(/<form|MapOnDemand|<iframe|modalities/);
+    expect(contactBand.office.text).toContain('Calle Bazán 10, 03181 Torrevieja');
   });
 
   it('records new copy and unresolved assets as reviewable, not approved', () => {

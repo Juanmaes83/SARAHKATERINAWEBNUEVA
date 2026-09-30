@@ -2,9 +2,17 @@
 
 **Status:** **CLOSED — visual review approved by Juanma on 2026-09-28** for the current visual state of `/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase` and `/preview/team` (§10). That is a visual approval only: **not** approval for production, domain, DNS, migration or an indexable publication. Every asset, evidence, permission, tax/legal review, rights and decision item that was open stays open (§6, §8, §10.4).
 **Date:** 2026-09-28 (documentation reconciled again the same day, second pass)
-**Base:** `main` at `edc47f0` (merge of PR #29, after PR #28)
-**Scope:** `/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase`, `/preview/team`.
-**Sources:** four review documents written by **Sarah** and relayed by Juanma — he accepts her indications except where they conflict with the project's positioning or governance, or lack professional/legal evidence. Read in full, all 17 screenshots included: `REVISION WEB-investment.docx`, `REVISION WEB-Tax advisory.docx`, `REVISION WEB-property-purchase.docx`, `REVISION WEB. Team.docx`. They are not committed; their screenshots were used to map each comment to a component. The three crops needed to identify removals are in `docs/screenshots/phase-2h/feedback/`.
+
+> **Update 2026-09-30** (`docs/approval-marks-audit.md` §10), after re-reading the four documents line by line:
+>
+> - **I5 and I6 are resolved as changes.** Sarah rejected both headlines, so they are replaced by §4 options 1 and 3, with a new lead. The new copy is open for Sarah as SR-036 and SR-041, and H-02 is closed.
+> - **I8 and T6:** the authority image is replaced by her Home-approved portrait. That use is open for her as SR-029, and A-01 is closed for this slot.
+> - **S-03 is closed:** "protecting your investment" is her own wording.
+> - **V-01 is answered by her instruction** ("Pongamos el video con sonido"). The sound stays unpublished only because of G-02 and the missing human-reviewed captions.
+> - **Copy she reviewed without asking for a change** is recorded as approved, citing her page verdicts, in `SARAH_APPROVALS`.
+>   **Base:** `main` at `edc47f0` (merge of PR #29, after PR #28)
+>   **Scope:** `/preview/investment`, `/preview/tax-advisory`, `/preview/property-purchase`, `/preview/team`.
+>   **Sources:** four review documents written by **Sarah** and relayed by Juanma — he accepts her indications except where they conflict with the project's positioning or governance, or lack professional/legal evidence. Read in full, all 17 screenshots included: `REVISION WEB-investment.docx`, `REVISION WEB-Tax advisory.docx`, `REVISION WEB-property-purchase.docx`, `REVISION WEB. Team.docx`. They are not committed; their screenshots were used to map each comment to a component. The three crops needed to identify removals are in `docs/screenshots/phase-2h/feedback/`.
 
 All four routes stay under `/preview`: `laboratory: true`, `noindex, nofollow`, out of the sitemap. No token, colour, claim, metric, testimonial, commercial relationship or tax figure was introduced.
 

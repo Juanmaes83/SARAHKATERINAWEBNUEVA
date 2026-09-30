@@ -56,6 +56,18 @@
   /* Low-opacity gold wash for icon chips on light surfaces. Decorative. */
   --sk-web-gold-wash: #f0e8d6;
 
+  /* --- aquamarine accent (2026-09-30) -------------------------------------
+   * The teal of the approved logo (public/brand/sarah-katerina-logo-light.png,
+   * dominant accent rgb(126 194 189)), not a new colour. Sarah asked for it
+   * (REVISION WEB-investment.docx: "el dorado está en exceso y echo de menos
+   * el verde aguamarina"); approved for now by Juanma on 2026-09-30.
+   *
+   *   --sk-web-aqua  8.69:1 on navy, 7.25:1 on navy-soft -> AA body on navy
+   *                  1.93:1 on ivory -> never text, icons or UI on light
+   *                  surfaces
+   */
+  --sk-web-aqua: #7ec2bd;
+
   /* --- text --------------------------------------------------------------
    *   --sk-web-ink            14.36:1 on ivory
    *   --sk-web-muted           7.24:1 on ivory
@@ -125,4 +137,13 @@
   /* Unitless scale factors for media. Kept small on purpose. */
   --sk-web-motion-media-scale: 1.06;
   --sk-web-motion-hover-scale: 1.03;
+}
+
+/* Aquamarine on navy (2026-09-30). On the four service landings the accent on
+   dark surfaces — eyebrows, scripts, icons, rules and outlines that used the
+   on-dark gold — becomes the logo aquamarine, so gold is kept for the light
+   surfaces and the filled CTA. Scoped by an attribute on each landing; the
+   Home and Contact are unchanged. Contrast: see --sk-web-aqua above. */
+[data-palette='aqua'] {
+  --sk-web-gold-on-dark: var(--sk-web-aqua);
 }

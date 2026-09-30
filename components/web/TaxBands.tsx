@@ -500,14 +500,16 @@ export function TaxAuthorityBand() {
       <div className={shared.authorityGrid}>
         <RevealOnScroll variant="unveil">
           <div className={shared.portraitFrame}>
-            {/* Owner-selected editorial authority image — Preview only. */}
+            {/* 2026-09-30: Sarah asked to change the face in the former image
+                (REVISION WEB-Tax advisory.docx). Her own photograph
+                EQUIPO_SARAHKATERINA6, confirmed by Juanma and approved for use. */}
             <Image
-              src={APPROVED_MEDIA.authorityEditorial.src}
-              alt={APPROVED_MEDIA.authorityEditorial.alt}
+              src={APPROVED_MEDIA.sarahStairs.src}
+              alt={APPROVED_MEDIA.sarahStairs.alt}
               className={shared.portraitImage}
               fill
               sizes="(max-width: 767px) 100vw, 46vw"
-              style={{ objectPosition: APPROVED_MEDIA.authorityEditorial.focal }}
+              style={{ objectPosition: APPROVED_MEDIA.sarahStairs.focal }}
             />
           </div>
         </RevealOnScroll>
@@ -645,8 +647,6 @@ export function TaxJourneyBand() {
       </ol>
       <RevealOnScroll order={2} style={{ marginBlockStart: 'var(--sk-space-24)' }}>
         <p className={shared.script}>{journey.script.text}</p>
-        {/* The substituted step is stated, not silently omitted. */}
-        <p className={styles.substitution}>{journey.substitutionNote.text}</p>
       </RevealOnScroll>
     </WebSection>
   );

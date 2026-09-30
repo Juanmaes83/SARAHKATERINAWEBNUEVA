@@ -1,0 +1,2079 @@
+{
+ "base": "http://localhost:3310",
+ "generatedAt": "2026-09-30T11:46:03.617Z",
+ "browser": "Google Chrome (Chromium) via Playwright 1.63, channel chrome",
+ "routes": {
+  "/preview/home": {
+   "viewports": {
+    "mobile": {
+     "marks": [
+      {
+       "id": "SR-001",
+       "text": "Sarah review required · SR-001Hero · lead sentence",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Clarity before commitment."
+      },
+      {
+       "id": "SR-002",
+       "text": "Sarah review required · SR-002Side statement",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Sarah is paid by one side of the table: yours."
+      },
+      {
+       "id": "SR-003",
+       "text": "Sarah review required · SR-003“What brings you to Spain?” · selector and three service chapters",
+       "width": 390,
+       "height": 102,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services What brings you to Spain?"
+      },
+      {
+       "id": "SR-005",
+       "text": "Sarah review required · SR-005Process · “Objective. Evidence. Next move.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process Objective. Evidence. Next move."
+      },
+      {
+       "id": "SR-006",
+       "text": "Sarah review required · SR-006Client voices · title and note",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#voices Three buyers, three decisions made before signing."
+      },
+      {
+       "id": "SR-004",
+       "text": "Sarah review required · SR-004Team chapter · title and button",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah Sarah holds the advisory thread together."
+      },
+      {
+       "id": "SR-007",
+       "text": "Sarah review required · SR-007Buyer tools · title and tool cards",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#tools Start with the numbers you can test now."
+      },
+      {
+       "id": "SR-008",
+       "text": "Sarah review required · SR-008FAQ",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div The questions that change the next step."
+      },
+      {
+       "id": "SR-009",
+       "text": "Sarah review required · SR-009Contact band",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Start with a 30‑minute call, or simply write."
+      },
+      {
+       "id": "SR-010",
+       "text": "Sarah review required · SR-010Final call to action",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Choose the page that matches the decision in front of you."
+      },
+      {
+       "id": "SR-011",
+       "text": "Sarah review required · SR-011Footer",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "mobileMenuObsolete": 0,
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    },
+    "desktop": {
+     "marks": [
+      {
+       "id": "SR-001",
+       "text": "Sarah review required · SR-001Hero · lead sentence",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Clarity before commitment."
+      },
+      {
+       "id": "SR-002",
+       "text": "Sarah review required · SR-002Side statement",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Sarah is paid by one side of the table: yours."
+      },
+      {
+       "id": "SR-003",
+       "text": "Sarah review required · SR-003“What brings you to Spain?” · selector and three service chapters",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services What brings you to Spain?"
+      },
+      {
+       "id": "SR-005",
+       "text": "Sarah review required · SR-005Process · “Objective. Evidence. Next move.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process Objective. Evidence. Next move."
+      },
+      {
+       "id": "SR-006",
+       "text": "Sarah review required · SR-006Client voices · title and note",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#voices Three buyers, three decisions made before signing."
+      },
+      {
+       "id": "SR-004",
+       "text": "Sarah review required · SR-004Team chapter · title and button",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah Sarah holds the advisory thread together."
+      },
+      {
+       "id": "SR-007",
+       "text": "Sarah review required · SR-007Buyer tools · title and tool cards",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#tools Start with the numbers you can test now."
+      },
+      {
+       "id": "SR-008",
+       "text": "Sarah review required · SR-008FAQ",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div The questions that change the next step."
+      },
+      {
+       "id": "SR-009",
+       "text": "Sarah review required · SR-009Contact band",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Start with a 30‑minute call, or simply write."
+      },
+      {
+       "id": "SR-010",
+       "text": "Sarah review required · SR-010Final call to action",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Choose the page that matches the decision in front of you."
+      },
+      {
+       "id": "SR-011",
+       "text": "Sarah review required · SR-011Footer",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenTextBlocks": 0,
+    "marks": 11
+   },
+   "noJs": {
+    "marks": 11,
+    "h1": "Clarity before commitment."
+   }
+  },
+  "/preview/contact": {
+   "viewports": {
+    "mobile": {
+     "marks": [
+      {
+       "id": "SR-013",
+       "text": "Sarah review required · SR-013Hero · headline, lead and channel labels",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Your next step starts with a conversation."
+      },
+      {
+       "id": "SR-012",
+       "text": "Sarah review required · SR-012",
+       "width": 370,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-014",
+       "text": "Sarah review required · SR-014“Video, phone or face to face.” · formats",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#formats Video, phone or face to face."
+      },
+      {
+       "id": "SR-015",
+       "text": "Sarah review required · SR-015“What happens after you book” · title and format note",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What happens after you book"
+      },
+      {
+       "id": "SR-016",
+       "text": "Sarah review required · SR-016Office · heading",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#office Torrevieja, Costa Blanca"
+      },
+      {
+       "id": "SR-017",
+       "text": "Sarah review required · SR-017Closing band",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Choose the way that suits you."
+      },
+      {
+       "id": "SR-081",
+       "text": "Sarah review required · SR-081Footer",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Starting points"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "mobileMenuObsolete": 0,
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    },
+    "desktop": {
+     "marks": [
+      {
+       "id": "SR-013",
+       "text": "Sarah review required · SR-013Hero · headline, lead and channel labels",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Your next step starts with a conversation."
+      },
+      {
+       "id": "SR-012",
+       "text": "Sarah review required · SR-012",
+       "width": 370,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-014",
+       "text": "Sarah review required · SR-014“Video, phone or face to face.” · formats",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#formats Video, phone or face to face."
+      },
+      {
+       "id": "SR-015",
+       "text": "Sarah review required · SR-015“What happens after you book” · title and format note",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What happens after you book"
+      },
+      {
+       "id": "SR-016",
+       "text": "Sarah review required · SR-016Office · heading",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#office Torrevieja, Costa Blanca"
+      },
+      {
+       "id": "SR-017",
+       "text": "Sarah review required · SR-017Closing band",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Choose the way that suits you."
+      },
+      {
+       "id": "SR-081",
+       "text": "Sarah review required · SR-081Footer",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Starting points"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenTextBlocks": 0,
+    "marks": 7
+   },
+   "noJs": {
+    "marks": 7,
+    "h1": "Your next step starts with a conversation."
+   }
+  },
+  "/preview/property-purchase": {
+   "viewports": {
+    "mobile": {
+     "marks": [
+      {
+       "id": "SR-018",
+       "text": "Sarah review required · SR-018Hero · eyebrow, body, buttons, proofs, film caption",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Buy with peace of mind: we coordinate every step."
+      },
+      {
+       "id": "SR-019",
+       "text": "Sarah review required · SR-019Purchase Tax band under the hero",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What does Spain charge me to buy this?"
+      },
+      {
+       "id": "SR-020",
+       "text": "Sarah review required · SR-020Trust strip",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section International buyersA process designed around buying from ab"
+      },
+      {
+       "id": "SR-021",
+       "text": "Sarah review required · SR-021Audience · body and list",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services We handle the paperwork. You choose your home."
+      },
+      {
+       "id": "SR-022",
+       "text": "Sarah review required · SR-022Good idea, bad execution · four points",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#good-idea What looks like a great opportunity can hide a bad purchase."
+      },
+      {
+       "id": "SR-023",
+       "text": "Sarah review required · SR-023One file · section copy",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section One file. From viewing to keys."
+      },
+      {
+       "id": "SR-024",
+       "text": "Sarah review required · SR-024File tracker and ordered steps",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section 01 NIE"
+      },
+      {
+       "id": "SR-025",
+       "text": "Sarah review required · SR-025“We review. We analyse. You decide with clarity.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section We review. We analyse. You decide with clarity."
+      },
+      {
+       "id": "SR-026",
+       "text": "Sarah review required · SR-026“What you stop worrying about.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What you stop worrying about."
+      },
+      {
+       "id": "SR-027",
+       "text": "Sarah review required · SR-027Service levels",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services-options Choose the level of support your purchase needs."
+      },
+      {
+       "id": "SR-028",
+       "text": "Sarah review required · SR-028Sarah authority · copy",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah Experience inside the system, applied to your purchase."
+      },
+      {
+       "id": "SR-029",
+       "text": "Sarah review required · SR-029",
+       "width": 326,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-030",
+       "text": "Sarah review required · SR-030Cases band · titles and buyer-voice banner",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section The structure is ready. The evidence is not yet cleared."
+      },
+      {
+       "id": "SR-031",
+       "text": "Sarah review required · SR-031“The same judgement, across the decisions that follow.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#resources The same judgement, across the decisions that follow."
+      },
+      {
+       "id": "SR-032",
+       "text": "Sarah review required · SR-032Next step · connected services",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step Buying well is one half of the decision. Owning well is the "
+      },
+      {
+       "id": "SR-033",
+       "text": "Sarah review required · SR-033FAQ",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq Resolve the most common questions."
+      },
+      {
+       "id": "SR-034",
+       "text": "Sarah review required · SR-034Final call to action",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section From first viewing to key handover, one accountable file."
+      },
+      {
+       "id": "SR-035",
+       "text": "Sarah review required · SR-035Footer",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact",
+      "/preview/team#team"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "mobileMenuObsolete": 0,
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    },
+    "desktop": {
+     "marks": [
+      {
+       "id": "SR-018",
+       "text": "Sarah review required · SR-018Hero · eyebrow, body, buttons, proofs, film caption",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Buy with peace of mind: we coordinate every step."
+      },
+      {
+       "id": "SR-019",
+       "text": "Sarah review required · SR-019Purchase Tax band under the hero",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What does Spain charge me to buy this?"
+      },
+      {
+       "id": "SR-020",
+       "text": "Sarah review required · SR-020Trust strip",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section International buyersA process designed around buying from ab"
+      },
+      {
+       "id": "SR-021",
+       "text": "Sarah review required · SR-021Audience · body and list",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services We handle the paperwork. You choose your home."
+      },
+      {
+       "id": "SR-022",
+       "text": "Sarah review required · SR-022Good idea, bad execution · four points",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#good-idea What looks like a great opportunity can hide a bad purchase."
+      },
+      {
+       "id": "SR-023",
+       "text": "Sarah review required · SR-023One file · section copy",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section One file. From viewing to keys."
+      },
+      {
+       "id": "SR-024",
+       "text": "Sarah review required · SR-024File tracker and ordered steps",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section 01 NIE"
+      },
+      {
+       "id": "SR-025",
+       "text": "Sarah review required · SR-025“We review. We analyse. You decide with clarity.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section We review. We analyse. You decide with clarity."
+      },
+      {
+       "id": "SR-026",
+       "text": "Sarah review required · SR-026“What you stop worrying about.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What you stop worrying about."
+      },
+      {
+       "id": "SR-027",
+       "text": "Sarah review required · SR-027Service levels",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services-options Choose the level of support your purchase needs."
+      },
+      {
+       "id": "SR-028",
+       "text": "Sarah review required · SR-028Sarah authority · copy",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah Experience inside the system, applied to your purchase."
+      },
+      {
+       "id": "SR-029",
+       "text": "Sarah review required · SR-029",
+       "width": 373,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-030",
+       "text": "Sarah review required · SR-030Cases band · titles and buyer-voice banner",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section The structure is ready. The evidence is not yet cleared."
+      },
+      {
+       "id": "SR-031",
+       "text": "Sarah review required · SR-031“The same judgement, across the decisions that follow.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#resources The same judgement, across the decisions that follow."
+      },
+      {
+       "id": "SR-032",
+       "text": "Sarah review required · SR-032Next step · connected services",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step Buying well is one half of the decision. Owning well is the "
+      },
+      {
+       "id": "SR-033",
+       "text": "Sarah review required · SR-033FAQ",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq Resolve the most common questions."
+      },
+      {
+       "id": "SR-034",
+       "text": "Sarah review required · SR-034Final call to action",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section From first viewing to key handover, one accountable file."
+      },
+      {
+       "id": "SR-035",
+       "text": "Sarah review required · SR-035Footer",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact",
+      "/preview/team#team"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenTextBlocks": 0,
+    "marks": 18
+   },
+   "noJs": {
+    "marks": 18,
+    "h1": "Buy with peace of mind: we coordinate every step."
+   }
+  },
+  "/preview/investment": {
+   "viewports": {
+    "mobile": {
+     "marks": [
+      {
+       "id": "SR-036",
+       "text": "Sarah review required · SR-036Hero and snapshot card",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Properties. Data. Better decisions."
+      },
+      {
+       "id": "SR-037",
+       "text": "Sarah review required · SR-037Trust strip",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section International buyersadvised across the Costa BlancaFast turn"
+      },
+      {
+       "id": "SR-038",
+       "text": "Sarah review required · SR-038Sarah authority · copy",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah Experience, independence and a personal approach."
+      },
+      {
+       "id": "SR-029",
+       "text": "Sarah review required · SR-029",
+       "width": 326,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-039",
+       "text": "Sarah review required · SR-039",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Signature asset pending"
+      },
+      {
+       "id": "SR-040",
+       "text": "Sarah review required · SR-040“A bridge between opportunity and peace of mind.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services A bridge between opportunity and peace of mind."
+      },
+      {
+       "id": "SR-041",
+       "text": "Sarah review required · SR-041Two doors",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Two paths. One goal: an investment built on evidence."
+      },
+      {
+       "id": "SR-042",
+       "text": "Sarah review required · SR-042Asset types and territory map",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#assets Different strategies. One rigorous analysis."
+      },
+      {
+       "id": "SR-043",
+       "text": "Sarah review required · SR-043Process",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process A clear process. Decisions with a basis."
+      },
+      {
+       "id": "SR-044",
+       "text": "Sarah review required · SR-044Report preview",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#report Clear, visual reports built for decisions."
+      },
+      {
+       "id": "SR-045",
+       "text": "Sarah review required · SR-045Scenarios and risk",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Projected net position by scenario"
+      },
+      {
+       "id": "SR-046",
+       "text": "Sarah review required · SR-046Free calculations",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#tools Start with the free calculations."
+      },
+      {
+       "id": "SR-047",
+       "text": "Sarah review required · SR-047Case studies · titles",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Case studies"
+      },
+      {
+       "id": "SR-048",
+       "text": "Sarah review required · SR-048“A complete ecosystem for a frictionless investment.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section A complete ecosystem for a frictionless investment."
+      },
+      {
+       "id": "SR-049",
+       "text": "Sarah review required · SR-049Next step · intro and reasons",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step An opportunity is only good if it fits your goals, not the g"
+      },
+      {
+       "id": "SR-050",
+       "text": "Sarah review required · SR-050FAQ",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq Answers to the most common questions."
+      },
+      {
+       "id": "SR-051",
+       "text": "Sarah review required · SR-051Final call to action",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Let’s talk about your next investment."
+      },
+      {
+       "id": "SR-052",
+       "text": "Sarah review required · SR-052Footer",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact",
+      "/preview/team#team"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "mobileMenuObsolete": 0,
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    },
+    "desktop": {
+     "marks": [
+      {
+       "id": "SR-036",
+       "text": "Sarah review required · SR-036Hero and snapshot card",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Properties. Data. Better decisions."
+      },
+      {
+       "id": "SR-037",
+       "text": "Sarah review required · SR-037Trust strip",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section International buyersadvised across the Costa BlancaFast turn"
+      },
+      {
+       "id": "SR-038",
+       "text": "Sarah review required · SR-038Sarah authority · copy",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah Experience, independence and a personal approach."
+      },
+      {
+       "id": "SR-029",
+       "text": "Sarah review required · SR-029",
+       "width": 373,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-039",
+       "text": "Sarah review required · SR-039",
+       "width": 152,
+       "height": 95,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Signature asset pending"
+      },
+      {
+       "id": "SR-040",
+       "text": "Sarah review required · SR-040“A bridge between opportunity and peace of mind.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services A bridge between opportunity and peace of mind."
+      },
+      {
+       "id": "SR-041",
+       "text": "Sarah review required · SR-041Two doors",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Two paths. One goal: an investment built on evidence."
+      },
+      {
+       "id": "SR-042",
+       "text": "Sarah review required · SR-042Asset types and territory map",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#assets Different strategies. One rigorous analysis."
+      },
+      {
+       "id": "SR-043",
+       "text": "Sarah review required · SR-043Process",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process A clear process. Decisions with a basis."
+      },
+      {
+       "id": "SR-044",
+       "text": "Sarah review required · SR-044Report preview",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#report Clear, visual reports built for decisions."
+      },
+      {
+       "id": "SR-045",
+       "text": "Sarah review required · SR-045Scenarios and risk",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Projected net position by scenario"
+      },
+      {
+       "id": "SR-046",
+       "text": "Sarah review required · SR-046Free calculations",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#tools Start with the free calculations."
+      },
+      {
+       "id": "SR-047",
+       "text": "Sarah review required · SR-047Case studies · titles",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Case studies"
+      },
+      {
+       "id": "SR-048",
+       "text": "Sarah review required · SR-048“A complete ecosystem for a frictionless investment.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section A complete ecosystem for a frictionless investment."
+      },
+      {
+       "id": "SR-049",
+       "text": "Sarah review required · SR-049Next step · intro and reasons",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step An opportunity is only good if it fits your goals, not the g"
+      },
+      {
+       "id": "SR-050",
+       "text": "Sarah review required · SR-050FAQ",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq Answers to the most common questions."
+      },
+      {
+       "id": "SR-051",
+       "text": "Sarah review required · SR-051Final call to action",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Let’s talk about your next investment."
+      },
+      {
+       "id": "SR-052",
+       "text": "Sarah review required · SR-052Footer",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact",
+      "/preview/team#team"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenTextBlocks": 0,
+    "marks": 18
+   },
+   "noJs": {
+    "marks": 18,
+    "h1": "Properties. Data. Better decisions."
+   }
+  },
+  "/preview/tax-advisory": {
+   "viewports": {
+    "mobile": {
+     "marks": [
+      {
+       "id": "SR-053",
+       "text": "Sarah review required · SR-053Hero, snapshot and trust strip",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Spanish taxes, from the inside."
+      },
+      {
+       "id": "SR-054",
+       "text": "Sarah review required · SR-054Purchase Tax band · pain-point line",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What does Spain charge me to buy this?"
+      },
+      {
+       "id": "SR-055",
+       "text": "Sarah review required · SR-055“Know what Spain will actually cost you.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#who Know what Spain will actually cost you."
+      },
+      {
+       "id": "SR-056",
+       "text": "Sarah review required · SR-056Process",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process Every tax, in the right order."
+      },
+      {
+       "id": "SR-057",
+       "text": "Sarah review required · SR-057Tax calendar",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#calendar The dates that keep your property in order."
+      },
+      {
+       "id": "SR-058",
+       "text": "Sarah review required · SR-058Report preview · plain-language titles",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#report What the report actually contains."
+      },
+      {
+       "id": "SR-059",
+       "text": "Sarah review required · SR-059“Everything you leave in our hands.” · six items",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Everything you leave in our hands."
+      },
+      {
+       "id": "SR-060",
+       "text": "Sarah review required · SR-060Services",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services Start where your situation actually is."
+      },
+      {
+       "id": "SR-061",
+       "text": "Sarah review required · SR-061Sarah authority · copy",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah The authority’s view, translated for you."
+      },
+      {
+       "id": "SR-029",
+       "text": "Sarah review required · SR-029",
+       "width": 326,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-039",
+       "text": "Sarah review required · SR-039",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Signature asset pending"
+      },
+      {
+       "id": "SR-062",
+       "text": "Sarah review required · SR-062Real cases · case texts",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Three real cases. Three mistakes avoided."
+      },
+      {
+       "id": "SR-063",
+       "text": "Sarah review required · SR-063“Buy. File. Plan. Review.”",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Buy. File. Plan. Review."
+      },
+      {
+       "id": "SR-064",
+       "text": "Sarah review required · SR-064Next step · connected services",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step Tax questions start before the purchase and continue after i"
+      },
+      {
+       "id": "SR-065",
+       "text": "Sarah review required · SR-065FAQ",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq The questions we are asked most."
+      },
+      {
+       "id": "SR-066",
+       "text": "Sarah review required · SR-066Final call to action",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Know the number before the letter arrives."
+      },
+      {
+       "id": "SR-067",
+       "text": "Sarah review required · SR-067Footer",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact",
+      "/preview/team#team"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "mobileMenuObsolete": 0,
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    },
+    "desktop": {
+     "marks": [
+      {
+       "id": "SR-053",
+       "text": "Sarah review required · SR-053Hero, snapshot and trust strip",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Spanish taxes, from the inside."
+      },
+      {
+       "id": "SR-054",
+       "text": "Sarah review required · SR-054Purchase Tax band · pain-point line",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section What does Spain charge me to buy this?"
+      },
+      {
+       "id": "SR-055",
+       "text": "Sarah review required · SR-055“Know what Spain will actually cost you.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#who Know what Spain will actually cost you."
+      },
+      {
+       "id": "SR-056",
+       "text": "Sarah review required · SR-056Process",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process Every tax, in the right order."
+      },
+      {
+       "id": "SR-057",
+       "text": "Sarah review required · SR-057Tax calendar",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#calendar The dates that keep your property in order."
+      },
+      {
+       "id": "SR-058",
+       "text": "Sarah review required · SR-058Report preview · plain-language titles",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#report What the report actually contains."
+      },
+      {
+       "id": "SR-059",
+       "text": "Sarah review required · SR-059“Everything you leave in our hands.” · six items",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Everything you leave in our hands."
+      },
+      {
+       "id": "SR-060",
+       "text": "Sarah review required · SR-060Services",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#services Start where your situation actually is."
+      },
+      {
+       "id": "SR-061",
+       "text": "Sarah review required · SR-061Sarah authority · copy",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#sarah The authority’s view, translated for you."
+      },
+      {
+       "id": "SR-029",
+       "text": "Sarah review required · SR-029",
+       "width": 373,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "img "
+      },
+      {
+       "id": "SR-039",
+       "text": "Sarah review required · SR-039",
+       "width": 157,
+       "height": 95,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Signature asset pending"
+      },
+      {
+       "id": "SR-062",
+       "text": "Sarah review required · SR-062Real cases · case texts",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Three real cases. Three mistakes avoided."
+      },
+      {
+       "id": "SR-063",
+       "text": "Sarah review required · SR-063“Buy. File. Plan. Review.”",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section Buy. File. Plan. Review."
+      },
+      {
+       "id": "SR-064",
+       "text": "Sarah review required · SR-064Next step · connected services",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step Tax questions start before the purchase and continue after i"
+      },
+      {
+       "id": "SR-065",
+       "text": "Sarah review required · SR-065FAQ",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq The questions we are asked most."
+      },
+      {
+       "id": "SR-066",
+       "text": "Sarah review required · SR-066Final call to action",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Know the number before the letter arrives."
+      },
+      {
+       "id": "SR-067",
+       "text": "Sarah review required · SR-067Footer",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Services"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact",
+      "/preview/team#team"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenTextBlocks": 0,
+    "marks": 17
+   },
+   "noJs": {
+    "marks": 17,
+    "h1": "Spanish taxes, from the inside."
+   }
+  },
+  "/preview/team": {
+   "viewports": {
+    "mobile": {
+     "marks": [
+      {
+       "id": "SR-068",
+       "text": "Sarah review required · SR-068Hero · headline, lead, buttons and caption",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Your place in Spain starts with people on your side."
+      },
+      {
+       "id": "SR-069",
+       "text": "Sarah review required · SR-069",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div "
+      },
+      {
+       "id": "SR-070",
+       "text": "Sarah review required · SR-070Introduction",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#approach The search becomes one connected decision, not a chain of ha"
+      },
+      {
+       "id": "SR-071",
+       "text": "Sarah review required · SR-071Three starting points · cards",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#paths Different goals. The same review before signing."
+      },
+      {
+       "id": "SR-072",
+       "text": "Sarah review required · SR-072",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "p Tax, purchase costs and buyer advisory"
+      },
+      {
+       "id": "SR-073",
+       "text": "Sarah review required · SR-073",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Elsa Quirós Pérez"
+      },
+      {
+       "id": "SR-074",
+       "text": "Sarah review required · SR-074",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div "
+      },
+      {
+       "id": "SR-075",
+       "text": "Sarah review required · SR-075",
+       "width": 342,
+       "height": 54,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div "
+      },
+      {
+       "id": "SR-076",
+       "text": "Sarah review required · SR-076Process",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process One journey, with the right person visible at each stage."
+      },
+      {
+       "id": "SR-077",
+       "text": "Sarah review required · SR-077After the keys",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#ownership Ownership creates a new set of practical questions."
+      },
+      {
+       "id": "SR-078",
+       "text": "Sarah review required · SR-078Next step · connected services",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step Choose where your decision starts."
+      },
+      {
+       "id": "SR-079",
+       "text": "Sarah review required · SR-079FAQ",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq What buyers usually want to know first."
+      },
+      {
+       "id": "SR-080",
+       "text": "Sarah review required · SR-080Final call to action",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Tell us what you want life in Spain to look like."
+      },
+      {
+       "id": "SR-081",
+       "text": "Sarah review required · SR-081Footer",
+       "width": 390,
+       "height": 84,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Starting points"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "mobileMenuObsolete": 0,
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    },
+    "desktop": {
+     "marks": [
+      {
+       "id": "SR-068",
+       "text": "Sarah review required · SR-068Hero · headline, lead, buttons and caption",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#top Your place in Spain starts with people on your side."
+      },
+      {
+       "id": "SR-069",
+       "text": "Sarah review required · SR-069",
+       "width": 374,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div "
+      },
+      {
+       "id": "SR-070",
+       "text": "Sarah review required · SR-070Introduction",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#approach The search becomes one connected decision, not a chain of ha"
+      },
+      {
+       "id": "SR-071",
+       "text": "Sarah review required · SR-071Three starting points · cards",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#paths Different goals. The same review before signing."
+      },
+      {
+       "id": "SR-072",
+       "text": "Sarah review required · SR-072",
+       "width": 372,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "p Tax, purchase costs and buyer advisory"
+      },
+      {
+       "id": "SR-073",
+       "text": "Sarah review required · SR-073",
+       "width": 372,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div Elsa Quirós Pérez"
+      },
+      {
+       "id": "SR-074",
+       "text": "Sarah review required · SR-074",
+       "width": 372,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div "
+      },
+      {
+       "id": "SR-075",
+       "text": "Sarah review required · SR-075",
+       "width": 372,
+       "height": 34,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "div "
+      },
+      {
+       "id": "SR-076",
+       "text": "Sarah review required · SR-076Process",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#process One journey, with the right person visible at each stage."
+      },
+      {
+       "id": "SR-077",
+       "text": "Sarah review required · SR-077After the keys",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#ownership Ownership creates a new set of practical questions."
+      },
+      {
+       "id": "SR-078",
+       "text": "Sarah review required · SR-078Next step · connected services",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#next-step Choose where your decision starts."
+      },
+      {
+       "id": "SR-079",
+       "text": "Sarah review required · SR-079FAQ",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#faq What buyers usually want to know first."
+      },
+      {
+       "id": "SR-080",
+       "text": "Sarah review required · SR-080Final call to action",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "section#contact Tell us what you want life in Spain to look like."
+      },
+      {
+       "id": "SR-081",
+       "text": "Sarah review required · SR-081Footer",
+       "width": 1440,
+       "height": 42,
+       "fontSize": "16px",
+       "visible": true,
+       "inViewportWidth": true,
+       "nextBlock": "footer Starting points"
+      }
+     ],
+     "obsoleteHits": [],
+     "internalLinks": [
+      "/preview/home",
+      "/preview/property-purchase",
+      "/preview/investment",
+      "/preview/tax-advisory",
+      "/preview/team",
+      "/preview/contact"
+     ],
+     "brokenAnchors": [],
+     "overflowX": 0,
+     "h1": 1,
+     "robotsMeta": "noindex, nofollow",
+     "obsoleteAfterInteraction": [],
+     "duplicates": [],
+     "unregistered": [],
+     "missing": [],
+     "notForThisRoute": [],
+     "xRobotsTag": "noindex, nofollow",
+     "errors": []
+    }
+   },
+   "reducedMotion": {
+    "hiddenTextBlocks": 0,
+    "marks": 14
+   },
+   "noJs": {
+    "marks": 14,
+    "h1": "Your place in Spain starts with people on your side."
+   }
+  }
+ }
+}

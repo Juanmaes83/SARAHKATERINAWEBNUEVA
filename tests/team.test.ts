@@ -45,7 +45,13 @@ describe('team editorial preview', () => {
     expect(teamPosition).toBeGreaterThan(-1);
     expect(networkPosition).toBeGreaterThan(teamPosition);
     expect(processPosition).toBeGreaterThan(networkPosition);
-    expect(content).toContain('PROVISIONAL MEDIA \u2014 HUMAN VISUAL REVIEW ONLY');
+    // Audit 2026-09-30: the visual review this label asked for took place
+    // (2026-09-28); the photograph itself is still provisional and blocked for
+    // production. Sarah reviewed the page without objecting to it
+    // (REVISION WEB. Team.docx), so no Sarah mark remains: what blocks it is
+    // factual (unidentified people and organisations).
+    expect(content).toContain('PROVISIONAL PHOTOGRAPH \u2014 NOT FOR PRODUCTION');
+    expect(editorial).not.toContain('<SarahReviewMark');
   });
 
   it('keeps identity and held-service boundaries explicit', () => {

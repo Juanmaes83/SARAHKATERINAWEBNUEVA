@@ -188,7 +188,6 @@ function TeamBand() {
           <h3>{sarah.name}</h3>
           <p>{sarah.body}</p>
           <blockquote>“The property is only one part of the decision.”</blockquote>
-          <p className={styles.proposalNote}>Editorial line proposed for this preview.</p>
         </RevealOnScroll>
       </div>
 

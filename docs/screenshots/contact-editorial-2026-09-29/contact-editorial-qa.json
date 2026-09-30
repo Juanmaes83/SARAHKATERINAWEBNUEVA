@@ -1,0 +1,140 @@
+{
+ "w390": {
+  "errors": [],
+  "failed": [],
+  "googleBefore": 0,
+  "googleAfter": 31,
+  "iframe": [
+   {
+    "title": "Map of Calle Bazán 10, Torrevieja",
+    "src": "https://www.google.com/maps?q=Calle%20Baz%C3%A1n%2010%2C%2003181%20Torrevieja%2C%20Alicante&output=embed"
+   }
+  ],
+  "frameSize": "342x257",
+  "images": [
+   {
+    "src": "/_next/static/media/sarah-katerina-logo.7954d612.png",
+    "loaded": true,
+    "w": 140
+   },
+   {
+    "src": "/media/home-sarah-authority.webp",
+    "loaded": true,
+    "w": 390
+   },
+   {
+    "src": "/media/graded/territory-contact.webp",
+    "loaded": true,
+    "w": 390
+   },
+   {
+    "src": "/_next/static/media/sarah-katerina-logo-light.6e0a18ab.png",
+    "loaded": true,
+    "w": 200
+   }
+  ],
+  "h1": 1,
+  "overflow": 0,
+  "robots": "noindex, nofollow",
+  "empty": 0,
+  "reducedHidden": 0
+ },
+ "w1440": {
+  "errors": [],
+  "failed": [],
+  "googleBefore": 0,
+  "googleAfter": 43,
+  "iframe": [
+   {
+    "title": "Map of Calle Bazán 10, Torrevieja",
+    "src": "https://www.google.com/maps?q=Calle%20Baz%C3%A1n%2010%2C%2003181%20Torrevieja%2C%20Alicante&output=embed"
+   }
+  ],
+  "frameSize": "653x490",
+  "images": [
+   {
+    "src": "/_next/static/media/sarah-katerina-logo.7954d612.png",
+    "loaded": true,
+    "w": 220
+   },
+   {
+    "src": "/media/home-sarah-authority.webp",
+    "loaded": true,
+    "w": 519
+   },
+   {
+    "src": "/media/graded/territory-contact.webp",
+    "loaded": true,
+    "w": 604
+   },
+   {
+    "src": "/_next/static/media/sarah-katerina-logo-light.6e0a18ab.png",
+    "loaded": true,
+    "w": 200
+   }
+  ],
+  "h1": 1,
+  "overflow": 0,
+  "robots": "noindex, nofollow",
+  "empty": 0,
+  "reducedHidden": 0
+ },
+ "links": [
+  "https://www.sarahkaterina.com/book-a-call",
+  "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I'd%20like%20to%20talk%20about%20buying%20property%20in%20Spain.",
+  "tel:+34647754589",
+  "mailto:info@sarahkaterina.com?subject=Discovery%20call",
+  "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I'd%20like%20to%20request%20a%20video%20call%20about%20buying%20property%20in%20Spain.",
+  "mailto:info@sarahkaterina.com?subject=Video%20call%20request",
+  "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I'd%20like%20to%20request%20a%20phone%20call%20about%20buying%20property%20in%20Spain.",
+  "mailto:info@sarahkaterina.com?subject=Phone%20call%20request",
+  "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I'd%20like%20to%20request%20a%20meeting%20at%20your%20office%20in%20Torrevieja.",
+  "mailto:info@sarahkaterina.com?subject=Meeting%20request%2C%20Torrevieja",
+  "https://www.google.com/maps/search/?api=1&query=Calle%20Baz%C3%A1n%2010%2C%2003181%20Torrevieja%2C%20Alicante",
+  "https://www.google.com/maps/dir/?api=1&destination=Calle%20Baz%C3%A1n%2010%2C%2003181%20Torrevieja%2C%20Alicante"
+ ],
+ "keyboard": [
+  "A Skip to content [solid 2px]",
+  "A  [solid 2px]",
+  "A Home [solid 2px]",
+  "A Property Purchase [solid 2px]",
+  "A Investment [solid 2px]",
+  "A Tax Advisory [solid 2px]",
+  "A Team [solid 2px]",
+  "A Contact [solid 2px]",
+  "BUTTON Buyer Tools→ [solid 2px]",
+  "A Book a discovery call→(opens in a ne [solid 2px]",
+  "A WhatsApp+34 647 754 589 (opens Whats [solid 2px]",
+  "A Phone+34 647 754 589 [solid 2px]",
+  "A Emailinfo@sarahkaterina.com [solid 2px]",
+  "A Request by WhatsApp — Video call (op [solid 2px]",
+  "A Request by email — Video call [solid 2px]",
+  "A Request by WhatsApp — Phone call (op [solid 2px]",
+  "A Request by email — Phone call [solid 2px]",
+  "A Call now +34 647 754 589 [solid 2px]",
+  "A Request by WhatsApp — Meeting in Tor [solid 2px]",
+  "A Request by email — Meeting in Torrev [solid 2px]",
+  "A Book a discovery call→(opens in a ne [solid 2px]",
+  "A Open in Google Maps(opens in a new t [solid 2px]",
+  "A Get directions→(opens in a new tab) [solid 2px]",
+  "BUTTON Show the Google map [solid 2px]",
+  "A Book a discovery call→(opens in a ne [solid 2px]",
+  "A WhatsApp+34 647 754 589 (opens Whats [solid 2px]",
+  "A Phone+34 647 754 589 [solid 2px]",
+  "A Emailinfo@sarahkaterina.com [solid 2px]",
+  "A Contact [solid 2px]",
+  "NEXTJS-PORTAL  [none 3px]",
+  "A Skip to content [solid 2px]",
+  "A  [solid 2px]",
+  "A Home [solid 2px]"
+ ],
+ "noJs": {
+  "h1": "Your next step starts with a conversation.",
+  "hero": true,
+  "formats": 3,
+  "steps": 7,
+  "address": "Calle Bazán 1003181 Torrevieja · Alicante",
+  "mapButton": false,
+  "opacityZero": 0
+ }
+}

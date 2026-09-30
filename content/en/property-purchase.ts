@@ -15,11 +15,11 @@ const SARAH_APPROVED =
   "Sarah's review (REVISION WEB-property-purchase.docx), accepted by Juanma 2026-09-28";
 
 export const PROTOTYPE_NOTICE = {
-  label: 'Property Purchase visual preview',
+  label: 'PROPERTY PURCHASE PREVIEW · NOT PRODUCTION',
   body: claim({
-    text: 'Internal review only. Not approved for publication or production.',
+    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision, and legal and tax statements still need professional review.',
     status: 'confirmed',
-    source: 'AGENTS.md sections 4, 7 and 13',
+    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
   }),
 } as const;
 
@@ -439,19 +439,39 @@ export const beforeSign = {
 } as const;
 
 export const worries = {
-  title: claim({ text: 'What you stop worrying about.', status: 'proposal', source: TEMPLATE }),
+  /**
+   * 2026-09-30 (Juanma): was "What you stop worrying about.", the phrase Sarah
+   * found "algo incompleta" on Tax Advisory and replaced there with "Todo lo que
+   * dejas en nuestras manos" (REVISION WEB-Tax advisory.docx). Her line is
+   * applied here too.
+   */
+  title: claim({
+    text: 'Everything you leave in our hands.',
+    status: 'confirmed',
+    source:
+      'REVISION WEB-Tax advisory.docx (Sarah); applied to Property Purchase by Juanma, 2026-09-30',
+  }),
   body: claim({
     text: 'Less uncertainty. More time to enjoy what matters.',
     status: 'proposal',
     source: TEMPLATE,
   }),
+  /**
+   * 2026-09-30: rewritten in the positive to sit under Sarah's title. Each point
+   * restates a capability this page already states: the Tax point of "Where an
+   * opportunity usually goes wrong", the one-file record and document control,
+   * the terms reviewed before signature, the confirmed buyer-paid remuneration
+   * model, "Clear communication in your language" with follow-through to the
+   * keys, and the Execution point. New wording Sarah has not seen: SR-082.
+   * The former points named worries ("Documents lost between advisers"…).
+   */
   items: [
-    ['tax', 'Unexpected tax questions after the purchase'],
-    ['document', 'Documents lost between advisers'],
-    ['dueDiligence', 'Unclear clauses in the contract'],
-    ['buyer', "Depending on the seller's agent"],
-    ['clock', 'Travelling to Spain for every step'],
-    ['risk', 'Missing important deadlines'],
+    ['tax', 'Purchase tax and owner obligations looked at before you sign'],
+    ['document', 'Every document kept in one coordinated file'],
+    ['dueDiligence', 'Contract terms reviewed before you sign'],
+    ['buyer', 'Advice from your side of the purchase, paid only by you'],
+    ['clock', 'Clear communication in your language, from first viewing to keys'],
+    ['risk', 'Deadlines, payments and signatures followed in one sequence'],
   ] as const,
   script: claim({
     text: 'Your purchase. Our experience. Your calm.',
@@ -490,7 +510,11 @@ export const services = {
       popular: false,
     },
   ],
-  scopeTitle: claim({ text: 'What the preview includes', status: 'proposal' }),
+  scopeTitle: claim({
+    text: 'What it includes',
+    status: 'proposal',
+    note: 'Replaces “What the preview includes” (audit 2026-09-30); new copy, SR-027.',
+  }),
   scope: [
     ['Independent buyer-side advice', true],
     ['Communication in your language', true],
@@ -690,7 +714,7 @@ export const finalCta = {
   primaryCta: claim({ text: 'Start my purchase file', status: 'proposal', source: TEMPLATE }),
   secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
   note: claim({
-    text: 'Contact routes and response time are not confirmed in this preview.',
+    text: 'Response time is not confirmed in this preview.',
     status: 'pending',
   }),
   script: claim({
@@ -728,7 +752,14 @@ export const footer = {
       links: [
         claim({ text: 'My story', status: 'proposal' }),
         claim({ text: 'Method', status: 'proposal' }),
-        claim({ text: 'Contact', status: 'proposal' }),
+        {
+          label: claim({
+            text: 'Contact',
+            status: 'confirmed',
+            source: 'Existing preview route, 2026-09-29',
+          }),
+          href: '/preview/contact',
+        },
       ],
     },
     {
@@ -746,8 +777,9 @@ export const footer = {
     status: 'pending',
   }),
   routesNote: claim({
-    text: 'Navigation destinations and contact routes are not live in this preview.',
-    status: 'pending',
+    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    status: 'confirmed',
+    source: 'docs/approval-marks-audit.md §3 — technical note',
   }),
 } as const;
 

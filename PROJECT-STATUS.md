@@ -16,23 +16,24 @@ OCTUBRE/`), not a date. The entry below is re-dated accordingly.
 
 ## Phases
 
-| Phase                                            | Scope                                                                                                                                                                    | State                                                                                                                                                                    |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1 — Technical foundation                         | Tokens, components, chrome, SEO scaffolding, analytics contract, CI                                                                                                      | **MERGED** (PR #1)                                                                                                                                                       |
-| 2A — Structural prototype                        | Investment landing grammar, claims classification, Buyer System boundary                                                                                                 | **MERGED**                                                                                                                                                               |
-| 2 — Visual governance                            | Decision gate, implementation contract, asset manifest                                                                                                                   | **MERGED**                                                                                                                                                               |
-| 2B/2C — Investment visual implementation         | Template-led composition, approved palette, governed assets, shared web layer and visual review                                                                          | **MERGED — CANONICAL VISUAL BASE**                                                                                                                                       |
-| 2D — Tax Advisory convergence                    | Tax Advisory adapted to Investment's canonical visual layer                                                                                                              | **MERGED — VISUAL BASE READY**                                                                                                                                           |
-| 2D — Property Purchase convergence               | Property Purchase adapted to Investment's canonical visual layer                                                                                                         | **MERGED — VISUAL BASE READY** (PR #8)                                                                                                                                   |
-| Team editorial preview                           | `/preview/team`: buyer-side roles, process and owner stage                                                                                                               | **MERGED** (PR #19, 2026-09-22)                                                                                                                                          |
-| 2E — Premium media, motion and visual refinement | Media/crop pass; premium experience (motion system, art-direction crops, header orientation, signature moments); visual content upgrade                                  | **MERGED** (PR #16 and #17, 2026-09-22; PR #21, 2026-09-23)                                                                                                              |
-| 2F — Approved imagery and hero videos            | Case imagery, scroll-scrubbed hero videos, territory map film, fabric banner, consolidated review                                                                        | **MERGED** (PR #23–#28, 2026-09-24) — visual state approved 2026-09-28                                                                                                   |
-| 2G — Connected service journey                   | Shared journey band, Good-idea film (play-once), Buyer System placements                                                                                                 | **MERGED** (PR #29, 2026-09-24) — visual state approved 2026-09-28                                                                                                       |
-| 2H — Sarah's review of the four landings         | Hero films without scroll (Investment, Purchase), calculator first (Tax, Purchase), review copy as proposals, Team simplification                                        | **CLOSED** (PR #30) — visual state approved 2026-09-28                                                                                                                   |
-| Home preview + Buyer System links                | `/preview/home`: "What brings you to Spain?" discovery, three service chapters, named testimonials and Team authority block | **VISUALLY APPROVED BY JUANMA 2026-09-29** — PR #32; testimonials authorised by Juanma; new copy remains proposal unless approved; Preview/noindex; Buyer System origin Preview-only |
-| Unified preview navigation                       | Home + four landings share direct routes, route state, mobile menu and governed `Buyer Tools` chooser; preview strips remain page-specific                               | **APPROVED 2026-09-29** — shipped in the same PR as the Home                                                                                                             |
-| 3 — Buyer System integration                     | Preview-only links, restricted-tool approvals, events, consent and lead-capture decision                                                                                | **PARTLY CONNECTED** — Purchase Tax and Real Cash Needed only in configured Preview; Production origin unset; Asking Price, Tax Exposure and capture remain gated        |
-| 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                                                   | Later                                                                                                                                                                    |
+| Phase                                            | Scope                                                                                                                                                                     | State                                                                                                                                                                                |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1 — Technical foundation                         | Tokens, components, chrome, SEO scaffolding, analytics contract, CI                                                                                                       | **MERGED** (PR #1)                                                                                                                                                                   |
+| 2A — Structural prototype                        | Investment landing grammar, claims classification, Buyer System boundary                                                                                                  | **MERGED**                                                                                                                                                                           |
+| 2 — Visual governance                            | Decision gate, implementation contract, asset manifest                                                                                                                    | **MERGED**                                                                                                                                                                           |
+| 2B/2C — Investment visual implementation         | Template-led composition, approved palette, governed assets, shared web layer and visual review                                                                           | **MERGED — CANONICAL VISUAL BASE**                                                                                                                                                   |
+| 2D — Tax Advisory convergence                    | Tax Advisory adapted to Investment's canonical visual layer                                                                                                               | **MERGED — VISUAL BASE READY**                                                                                                                                                       |
+| 2D — Property Purchase convergence               | Property Purchase adapted to Investment's canonical visual layer                                                                                                          | **MERGED — VISUAL BASE READY** (PR #8)                                                                                                                                               |
+| Team editorial preview                           | `/preview/team`: buyer-side roles, process and owner stage                                                                                                                | **MERGED** (PR #19, 2026-09-22)                                                                                                                                                      |
+| 2E — Premium media, motion and visual refinement | Media/crop pass; premium experience (motion system, art-direction crops, header orientation, signature moments); visual content upgrade                                   | **MERGED** (PR #16 and #17, 2026-09-22; PR #21, 2026-09-23)                                                                                                                          |
+| 2F — Approved imagery and hero videos            | Case imagery, scroll-scrubbed hero videos, territory map film, fabric banner, consolidated review                                                                         | **MERGED** (PR #23–#28, 2026-09-24) — visual state approved 2026-09-28                                                                                                               |
+| 2G — Connected service journey                   | Shared journey band, Good-idea film (play-once), Buyer System placements                                                                                                  | **MERGED** (PR #29, 2026-09-24) — visual state approved 2026-09-28                                                                                                                   |
+| 2H — Sarah's review of the four landings         | Hero films without scroll (Investment, Purchase), calculator first (Tax, Purchase), review copy as proposals, Team simplification                                         | **CLOSED** (PR #30) — visual state approved 2026-09-28                                                                                                                               |
+| Home preview + Buyer System links                | `/preview/home`: "What brings you to Spain?" discovery, three service chapters, named testimonials and Team authority block                                               | **VISUALLY APPROVED BY JUANMA 2026-09-29** — PR #32; testimonials authorised by Juanma; new copy remains proposal unless approved; Preview/noindex; Buyer System origin Preview-only |
+| Unified preview navigation                       | Home + four landings share direct routes, route state, mobile menu and governed `Buyer Tools` chooser; preview strips remain page-specific                                | **APPROVED 2026-09-29** — shipped in the same PR as the Home                                                                                                                         |
+| Contact page + Contact in navigation             | `/preview/contact` editorial page (booking, direct channels, formats as requests, office and on-request Google map); Contact in header/menu, every footer and a Home band | **IN PR (`feat/contact-editorial-page`)** — awaiting Juanma's visual review; not merged; no form                                                                                     |
+| 3 — Buyer System integration                     | Preview-only links, restricted-tool approvals, events, consent and lead-capture decision                                                                                  | **PARTLY CONNECTED** — Purchase Tax and Real Cash Needed only in configured Preview; Production origin unset; Asking Price, Tax Exposure and capture remain gated                    |
+| 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                                                    | Later                                                                                                                                                                                |
 
 **Visual approval (2026-09-28).** Juanma visually approved the present state of the four `/preview` landings — Investment, Tax Advisory, Property Purchase and Team — on **2026-09-28**. That approval is visual only: it is not approval for production, the domain, DNS, migration, indexation or publication, and it resolves none of the open asset, evidence, permission, tax/legal review, rights or decision items (`docs/phase-2h-juanma-review.md` §10.4).
 
@@ -53,6 +54,7 @@ OCTUBRE/`), not a date. The entry below is re-dated accordingly.
 | `/preview/property-purchase` | Property Purchase visual base adapted to Investment  | No — ever, while under `/preview` |
 | `/preview/team`              | Editorial team page for buyer-side roles and process | No — ever, while under `/preview` |
 | `/preview/home`              | Home composition and Buyer System hub preview        | No — ever, while under `/preview` |
+| `/preview/contact`           | Contact: discovery call, channels, office and map    | No — ever, while under `/preview` |
 
 Juanma approved **Investment, Tax Advisory and Property Purchase** as visual
 bases for continued implementation (2026-09-21), and on 2026-09-28 approved the
@@ -106,6 +108,75 @@ treated as final:
 ## Current handoff
 
 Most recent first.
+
+**2026-09-30 — Juanma's answers applied (`docs/approval-marks-audit.md` §10.8).**
+
+- **Approvals confirmed:** the "reviewed without objection" rule stands until Sarah asks for changes.
+- **Authority photographs:** Sarah's own photographs (EQUIPO_SARAHKATERINA4–6, confirmed and approved by Juanma) replace the authority image on the three service landings. SR-029 is closed.
+- **Headlines:** the Home shows the new Investment headline. The Property Purchase headline reads in one run, uncut.
+- **Property Purchase:** "What you stop worrying about." becomes Sarah's "Everything you leave in our hands."
+- **Aquamarine:** the logo teal becomes `--sk-web-aqua`, approved for now, and replaces the on-dark gold on the four landings.
+- **Open for Sarah:** 21 decisions after the last correction (`docs/approval-marks-audit.md` §10.9–§10.10): Sarah's sentence under "Buying on emotion" on Investment, and the six Property Purchase points rewritten in the positive (SR-082).
+
+**2026-09-30 — Reconciliation with Sarah's four review documents (`docs/approval-marks-audit.md` §10).**
+The first audit read `status: 'proposal'` as "not approved"; Sarah had in fact
+reviewed the four landings. Reconciled line by line against
+`REVISION WEB-*.docx` (2026-09-28). Approvals are now recorded with the quoted
+line (`SARAH_APPROVALS`), and only 21 decisions stay open: SR-001–SR-011 on
+the Home (no document covers it) and 10 on the landings, all of them copy
+written after her review plus her Home portrait's new use.
+
+- **Implemented now:** the two Investment headlines she rejected are replaced,
+  with a more human lead (new copy, SR-036/SR-041). The authority image whose
+  face she rejected is replaced by her approved portrait on Investment, Tax
+  and Property Purchase (SR-029).
+- **Contact:** approved by Sarah as a page (relayed by Juanma, 2026-09-30); no
+  marks remain.
+- **Pending, grouped:**
+  - **Sarah:** the 21 SR items.
+  - **Evidence and professional:** C-01 cases, S-02, tax/legal wording,
+    G-02 rights, UCI/Sabadell financing, the renovations scope.
+  - **Assets:** individual portraits of Elsa, Óscar and Igor (not found),
+    warmer team photos, the signature, the aquamarine token.
+  - **Technical:** sound publication (needs G-02 and reviewed captions),
+    booking and email variables on Preview, B-01, unconnected buttons.
+- **Vercel Production (`main`) runs in `preview` mode:** a merge would show the
+  open marks there without failing the build.
+
+**2026-09-30 — Approval-marks audit on the same PR (`docs/approval-marks-audit.md`).**
+Stale review marks removed or restated where the record shows the approval or
+the fact changed (Purchase hero film label, Team/Contact "Review status"
+footer column, Tax internal substitution note, preview banners, footer and
+button notes). Every item Sarah still has to decide is marked on the page as
+`SARAH REVIEW REQUIRED · SR-###` (81 items, register `content/en/sarah-review.ts`);
+professional and technical items are listed apart. A production or indexable
+build refuses to render a mark (verified). Nothing approved by this audit;
+Juanma's visual review of this version and Sarah's decisions are pending.
+
+**2026-09-30 — Contact published for review on `feat/contact-editorial-page` (from `main` `8de6a76`).**
+The Contact delta was isolated from the local working tree and applied onto
+`main` (PR #32 already merged): the page, the on-request map, Contact in the
+shared navigation, every footer and the Home band, tests and docs. No new image
+file: both photographs and their originals are already on `main`. Not merged.
+
+**2026-09-29 (late night) — Contact editorial redesign (local).**
+`/preview/contact` rebuilt as five editorial moments: Sarah in her office as the
+hero (registered `homeAuthority`; original `IMAGES/Sarah home_1.png` on `main`),
+the Tax Advisory lifestyle photograph (`IMAGES/sarahkaterina_LifeStyle_6.png`)
+beside video / phone / Torrevieja requests, four verified booking steps on a
+gold line, the office with a real Google map loaded on request from a legible
+navy module, and a navy closing. Hero never animates; shared reveals, the gold
+thread and the step line carry the motion. 305 tests, 30/30 browser cases;
+awaiting Juanma's visual review. Record: `docs/contact-page.md` §0.
+
+**2026-09-29 (night) — Contact page, first version (superseded by the redesign).**
+`/preview/contact` (noindex): book the audited 30-minute discovery call, WhatsApp /
+phone / email always visible, video call / phone call / meeting in Torrevieja as
+requests, office at Calle Bazán 10 (Juanma) with Google Maps link, directions and
+a map loaded only on request. No form: the reference `/api/lead-notify` cannot be
+reused safely yet (`docs/contact-page.md` §5). Contact added to the shared
+navigation, every footer and a short Home band — these Home/nav changes come
+after Juanma's Home approval and need review. 301 tests, 30/30 browser cases.
 
 **2026-09-29 (evening) — Home service discovery pass, Juanma's precedence
 instruction; visually approved by Juanma the same day.** "What brings you to Spain?"
