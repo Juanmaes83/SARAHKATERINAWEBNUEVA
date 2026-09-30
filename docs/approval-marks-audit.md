@@ -1,9 +1,9 @@
 # Approval-marks audit — the six preview routes
 
 **Date:** 2026-09-30
-**Branch:** `feat/contact-editorial-page` (PR #33, Draft), audited at `c045da4` (Contact integrated, based on `main` `8de6a76`)
+**Branch:** `main` after PR #33, squash commit `fc6fb4947043431770a2cf66f87f3471e51bcd5c` (PR head `fda792130839ae16abbd83472728a5148efaff29`)
 **Routes:** `/preview/home`, `/preview/contact`, `/preview/property-purchase`, `/preview/investment`, `/preview/tax-advisory`, `/preview/team`
-**Status:** reconciled with Sarah's four review documents on 2026-09-30 (§10), which supersedes §4. **21 decisions stay open** for Sarah (SR-001–SR-011 on the Home, 10 on the landings). Contact is approved as a page (Juanma). Nothing here approves the Home, publication or production, and this version still needs Juanma's visual review.
+**Status:** reconciled with Sarah's four review documents on 2026-09-30 (§10), which supersedes §4. **21 decisions stay open** for Sarah (SR-001–SR-011 on the Home, 10 on the landings). Contact is approved as a page by Sarah (relayed by Juanma) and was included in PR #33 on Juanma's instruction. The 21 Sarah decisions remain open; none of this approves publication or production. Home copy still awaits Sarah.
 
 The goal: no stale approval notice on content whose approval is recorded; every item Sarah still has to decide visible where it is, with an ID; technical and professional blockers kept apart from Sarah's decisions; no review mark able to reach a published build.
 
@@ -550,3 +550,8 @@ Both come from her sentence. If one is enough, the next-step title is the one th
 - Individual portraits of Elsa, Óscar and Igor: none exist (Juanma).
 - Warmer team photographs.
 - Sarah's signature.
+
+
+### 10.11 Merge record and current deployment state
+
+PR #33 was squash-merged into `main` on 2026-09-30 as `fc6fb4947043431770a2cf66f87f3471e51bcd5c`. The PR-head Actions run `36748647728` passed lint, typecheck, tests, build and secret/environment hygiene. The Vercel check on the merge commit was pending when this record was updated. The merge did not connect the custom domain, enable indexing or approve production publication. The six routes remain under `/preview` with `noindex, nofollow`.

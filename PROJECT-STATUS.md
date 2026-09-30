@@ -1,8 +1,8 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
-**Last updated:** 2026-09-29 (after PR #32 merge)
+**Last updated:** 2026-09-30 (after PR #33 merge)
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION  
-**Visual state:** four landing routes approved 2026-09-28 and Home approved 2026-09-29 — visual approval only, **not** production approval
+**Review state:** four landing routes and Home have recorded visual approval; Contact page/content approval was relayed by Juanma on 2026-09-30. All remain preview-only; no production approval.
 
 This file tracks the state of the website product. Strategic status lives
 upstream in [`Juanmaes83/sarahkaterina`](https://github.com/Juanmaes83/sarahkaterina)
@@ -31,7 +31,7 @@ OCTUBRE/`), not a date. The entry below is re-dated accordingly.
 | 2H — Sarah's review of the four landings         | Hero films without scroll (Investment, Purchase), calculator first (Tax, Purchase), review copy as proposals, Team simplification                                         | **CLOSED** (PR #30) — visual state approved 2026-09-28                                                                                                                               |
 | Home preview + Buyer System links                | `/preview/home`: "What brings you to Spain?" discovery, three service chapters, named testimonials and Team authority block                                               | **VISUALLY APPROVED BY JUANMA 2026-09-29** — PR #32; testimonials authorised by Juanma; new copy remains proposal unless approved; Preview/noindex; Buyer System origin Preview-only |
 | Unified preview navigation                       | Home + four landings share direct routes, route state, mobile menu and governed `Buyer Tools` chooser; preview strips remain page-specific                                | **APPROVED 2026-09-29** — shipped in the same PR as the Home                                                                                                                         |
-| Contact page + Contact in navigation             | `/preview/contact` editorial page (booking, direct channels, formats as requests, office and on-request Google map); Contact in header/menu, every footer and a Home band | **IN PR (`feat/contact-editorial-page`)** — awaiting Juanma's visual review; not merged; no form                                                                                     |
+| Contact page + Contact in navigation             | `/preview/contact` editorial page (booking, direct channels, formats as requests, office and on-request Google map); Contact in header/menu, every footer and a Home band | **MERGED** (PR #33, squash `fc6fb49`, 2026-09-30); no form; preview/noindex                                                                                                           |
 | 3 — Buyer System integration                     | Preview-only links, restricted-tool approvals, events, consent and lead-capture decision                                                                                  | **PARTLY CONNECTED** — Purchase Tax and Real Cash Needed only in configured Preview; Production origin unset; Asking Price, Tax Exposure and capture remain gated                    |
 | 4 — Production gate                              | SEO, accessibility, performance, legal, content approval and migration                                                                                                    | Later                                                                                                                                                                                |
 
@@ -42,6 +42,7 @@ OCTUBRE/`), not a date. The entry below is re-dated accordingly.
 - PR #30 (Phase 2H): final content HEAD `6b584e6`, Actions run `36456057344` — success.
 - PR #32 (Home and Buyer System Preview integration): final PR HEAD `84c2c74facc4365e15b1522bd081a47bf15d5eb6`, Actions run `36592785041` — success (lint, typecheck, tests, build and secret/env hygiene).
 - Merge commit on `main`: `cacb09e25600617cd5a0ab00ef5a5b9cca62a419`; Vercel status — success. The Vercel deployment does not authorise a custom-domain launch or indexing.
+- PR #33 (Contact and copy reconciliation): PR HEAD `fda792130839ae16abbd83472728a5148efaff29`, Actions run `36748647728` — success. Squash merge `fc6fb4947043431770a2cf66f87f3471e51bcd5c`; Vercel check on the merge commit was pending when this record was prepared.
 
 ## Routes
 
@@ -87,27 +88,24 @@ review (hero playback on Tax, headlines, palette, gold, compositions, scope
 wording, case evidence, voice-over, photographs and restricted Buyer System tools) are listed
 with owners in `docs/phase-2h-juanma-review.md` §8.
 
-The four previously reviewed visual bases and the Home (2026-09-29) are visually
-approved for continuation. The following still require review before they are
-treated as final:
+The four landing routes and the Home have recorded visual approvals; Contact has been included on Juanma's instruction, with Sarah's page approval relayed by Juanma. These approvals do not close production gates.
 
-- selected photographs and videos, their provenance, slot assignment, crop and
-  retouch — including the authority portrait and the team photographs (2H,
-  A-01–A-04);
-- final logo treatment on light and dark surfaces;
-- replacement of schematic or illustrative placeholders where an authentic
-  asset is available;
-- final CTA destinations and any functional capture;
-- Asking Price public linking; the verified Buyer System origin now enables
-  Purchase Tax and Real Cash Needed only;
-- legal entity, contact details, cases, prices, timelines and other claims
-  (the three Home testimonials are authorised by Juanma; their tax/return
-  figures still need the AGENTS.md §11 review before launch);
-- production host, indexation, accessibility/performance and migration gates.
+The next work is:
+
+- **Sarah copy review:** 21 visible decisions remain: SR-001–SR-011 on Home; SR-019, SR-022, SR-027 and SR-082 on Property Purchase; SR-036, SR-041 and SR-049 on Investment; SR-054, SR-058 and SR-059 on Tax Advisory.
+- **Evidence and professional review:** client permissions and verified case figures; tax/legal/financial wording; footage rights and reviewed captions; financing and renovation scope.
+- **Assets:** individual portraits of Elsa, Óscar and Igor are absent; warmer team photographs and Sarah's signature are still requested.
+- **Contact operations:** booking/email Preview variables and an owner test booking remain open; no form until its data destination, privacy/consent and test mode are approved.
+- **Functional integration:** production Buyer System origin, restricted tools, final CTA/report destinations and analytics consent remain gated.
+- **Production hardening:** mobile performance, accessibility, legal/content review, domain decision, SEO/indexation and migration approval.
 
 ## Current handoff
 
 Most recent first.
+
+**2026-09-30 — PR #33 merged to `main` (`fc6fb49`); Contact and the Sarah-copy reconciliation are recorded in `docs/approval-marks-audit.md` §10.9–§10.11.**
+
+Contact is integrated with Home, shared navigation and all footers. PR-head CI passed; the Vercel check on the merge commit was pending when this entry was prepared. The site remains controlled preview/noindex.
 
 **2026-09-30 — Juanma's answers applied (`docs/approval-marks-audit.md` §10.8).**
 
@@ -258,6 +256,7 @@ reviewed by Juanma before merge.
 - **PR #29** — Phase 2G connected service journey. Merge commit `edc47f0` (2026-09-24).
 - **PR #30** — Phase 2H, Sarah's review of the four landings; closed 2026-09-28 (merge commit in the git history of `main`).
 - **PR #32** — Home service discovery, named testimonials, unified navigation and Preview-only Buyer System links; squash-merged 2026-09-29 as `cacb09e`.
+- **PR #33** — editorial Contact, shared Contact links, on-request Google map and Sarah-copy reconciliation; squash-merged 2026-09-30 as `fc6fb49`.
 
 All of it remains preview-only: no production publication, custom domain, DNS
 or indexation was enabled. On this branch, outbound links to two verified Buyer
