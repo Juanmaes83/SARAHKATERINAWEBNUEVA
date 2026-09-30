@@ -31,11 +31,11 @@ const TEMPLATE = 'Investment template — approved copy source (Juanma, 2026-09-
 const PHASE_2E_REPORT = 'Phase 2E proposed copy (brief 2026-10-23) — pending Juanma';
 
 export const PROTOTYPE_NOTICE = {
-  label: 'PHASE 2E — APPROVED MEDIA IN PREVIEW · READY FOR HUMAN REVIEW',
+  label: 'INVESTMENT PREVIEW · NOT PRODUCTION',
   body: claim({
-    text: 'Approved media placed in Preview only. Copy is from the approved Investment template, dashboard figures are illustrative samples, cases are withheld pending permission, and nothing on this page is approved for publication or production.',
+    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision. Dashboard figures are illustrative samples, cases stay withheld until client permission and verified figures exist, and tax, legal and financial statements still need professional review.',
     status: 'confirmed',
-    source: 'docs/phase-2-visual-implementation-contract.md §9',
+    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
   }),
 } as const;
 
@@ -1176,8 +1176,9 @@ export const finalCta = {
     source: TEMPLATE,
   }),
   note: claim({
-    text: 'Contact channels and response times are not confirmed.',
-    status: 'pending',
+    text: 'Response times are not confirmed, and these buttons are not connected in this preview.',
+    status: 'confirmed',
+    source: 'docs/approval-marks-audit.md §3 — technical note; channels are on the Contact page',
   }),
 } as const;
 
@@ -1244,8 +1245,9 @@ export const footer = {
     note: 'Template names a legal entity and a year. The entity is NEEDS_DECISION upstream, so neither is reproduced.',
   }),
   routesNote: claim({
-    text: 'Navigation is laid out as approved; the destination routes are not built yet.',
-    status: 'pending',
+    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    status: 'confirmed',
+    source: 'docs/approval-marks-audit.md §3 — technical note',
   }),
 } as const;
 

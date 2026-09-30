@@ -7,6 +7,7 @@ import { ReportExplorer } from './ReportExplorer';
 import { TerritoryMapFilm } from './TerritoryMapFilm';
 import { ArtworkFigure } from './ArtworkFigure';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
   SampleColumnChart,
@@ -516,6 +517,7 @@ export function AuthorityBand() {
       <div className={styles.authorityGrid}>
         <RevealOnScroll variant="unveil">
           <div className={styles.portraitFrame}>
+            <SarahReviewMark id="SR-029" variant="overlay" />
             {/*
               Approved 2026-09-22: `IMAGES/sarahkaterina_home.png`, the only
               asset with that exact base name. It replaces AUTH-SK-002 here.
@@ -565,6 +567,7 @@ export function AuthorityBand() {
                 Reserved slot. The template shows a handwritten signature; no
                 signature asset exists and one may not be drawn or typeset.
               */}
+              <SarahReviewMark id="SR-039" variant="tag" />
               <div className={styles.signatureSlot}>
                 <p className={styles.signatureNote}>{authority.signaturePending.text}</p>
               </div>

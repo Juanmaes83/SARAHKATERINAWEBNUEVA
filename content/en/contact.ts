@@ -15,7 +15,7 @@ const LIVE_BOOKING = 'Live booking system, audited read-only 2026-09-29 (docs/co
 export const PROTOTYPE_NOTICE = {
   label: 'CONTACT PREVIEW · NOT PRODUCTION',
   body: claim({
-    text: 'Review environment · noindex · booking and channels link to the live services.',
+    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision. Phone and WhatsApp use the published number; online booking and email appear only where they are configured.',
     status: 'confirmed',
     source: 'AGENTS.md §§4, 7; docs/contact-page.md',
   }),

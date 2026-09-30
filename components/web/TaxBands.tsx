@@ -5,6 +5,7 @@ import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { SampleColumnChart, SampleDistribution } from './SampleChart';
 import { isPublishable } from '@/lib/content/claims';
@@ -500,6 +501,7 @@ export function TaxAuthorityBand() {
       <div className={shared.authorityGrid}>
         <RevealOnScroll variant="unveil">
           <div className={shared.portraitFrame}>
+            <SarahReviewMark id="SR-029" variant="overlay" />
             {/* Owner-selected editorial authority image — Preview only. */}
             <Image
               src={APPROVED_MEDIA.authorityEditorial.src}
@@ -543,6 +545,7 @@ export function TaxAuthorityBand() {
                 Reserved slot. The template signs the quote by hand; no
                 signature asset exists and one may not be drawn or typeset.
               */}
+              <SarahReviewMark id="SR-039" variant="tag" />
               <div className={shared.signatureSlot}>
                 <p className={shared.signatureNote}>{authority.signaturePending.text}</p>
               </div>
@@ -645,8 +648,6 @@ export function TaxJourneyBand() {
       </ol>
       <RevealOnScroll order={2} style={{ marginBlockStart: 'var(--sk-space-24)' }}>
         <p className={shared.script}>{journey.script.text}</p>
-        {/* The substituted step is stated, not silently omitted. */}
-        <p className={styles.substitution}>{journey.substitutionNote.text}</p>
       </RevealOnScroll>
     </WebSection>
   );

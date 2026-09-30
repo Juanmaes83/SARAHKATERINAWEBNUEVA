@@ -109,6 +109,16 @@ treated as final:
 
 Most recent first.
 
+**2026-09-30 — Approval-marks audit on the same PR (`docs/approval-marks-audit.md`).**
+Stale review marks removed or restated where the record shows the approval or
+the fact changed (Purchase hero film label, Team/Contact "Review status"
+footer column, Tax internal substitution note, preview banners, footer and
+button notes). Every item Sarah still has to decide is marked on the page as
+`SARAH REVIEW REQUIRED · SR-###` (81 items, register `content/en/sarah-review.ts`);
+professional and technical items are listed apart. A production or indexable
+build refuses to render a mark (verified). Nothing approved by this audit;
+Juanma's visual review of this version and Sarah's decisions are pending.
+
 **2026-09-30 — Contact published for review on `feat/contact-editorial-page` (from `main` `8de6a76`).**
 The Contact delta was isolated from the local working tree and applied onto
 `main` (PR #32 already merged): the page, the on-request map, Contact in the

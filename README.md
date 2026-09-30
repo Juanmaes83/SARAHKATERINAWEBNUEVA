@@ -123,6 +123,7 @@ UNIFIED PREVIEW NAVIGATION — MERGED WITH PR #32
 VISUAL STATE OF THE FOUR PREVIEW ROUTES APPROVED BY JUANMA — 2026-09-28
 HOME VISUALLY APPROVED BY JUANMA — 2026-09-29 (VISUAL ONLY)
 CONTACT PAGE (EDITORIAL) + CONTACT IN NAVIGATION, FOOTERS AND HOME — IN REVIEW PR, NOT MERGED
+APPROVAL-MARKS AUDIT (2026-09-30): 81 SARAH REVIEW ITEMS MARKED SR-001–SR-081 ON THE SIX PREVIEW ROUTES
 OPEN: ASSETS, CASE EVIDENCE, SOUND RIGHTS/CAPTIONS, RESTRICTED BUYER TOOLS, PRODUCTION GATES
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
 ```
@@ -169,6 +170,7 @@ see `docs/phase-2h-juanma-review.md`.
 | `docs/phase-2h-juanma-review.md`                         | Phase 2H: Sarah's review of the four landings — matrix, copy adaptations, audio audit, closing record, open assets and decisions                         |
 | `docs/home-buyer-system-preview.md`                      | `/preview/home`, verified Buyer System routes, deliberate blocks and review boundary                                                                     |
 | `docs/contact-page.md`                                   | `/preview/contact`: editorial composition, originals used, booking audit, formats as requests, office and Google map, form blockers                      |
+| `docs/approval-marks-audit.md`                           | Approval-marks audit: stale marks removed, the SR-### register of Sarah's decisions, professional and technical items, publication gate                  |
 
 ## 6. Stack
 

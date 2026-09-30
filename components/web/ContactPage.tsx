@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
   booking,
@@ -86,6 +87,7 @@ export function ContactPage() {
   return (
     <>
       {/* 1 · Hero ------------------------------------------------------- */}
+      <SarahReviewMark id="SR-013" />
       <section
         className={cn(styles.hero, styles.threaded)}
         data-surface="light"
@@ -94,6 +96,7 @@ export function ContactPage() {
         <Thread start />
         <Container className={styles.heroGrid}>
           <figure className={styles.heroMedia}>
+            <SarahReviewMark id="SR-012" variant="overlay" />
             <Image
               src={portrait.src}
               alt={portrait.alt}
@@ -130,6 +133,7 @@ export function ContactPage() {
       </section>
 
       {/* 2 · How would you like to talk ---------------------------------- */}
+      <SarahReviewMark id="SR-014" />
       <section
         className={cn(styles.formats, styles.threaded)}
         data-surface="light"
@@ -208,6 +212,7 @@ export function ContactPage() {
       </section>
 
       {/* 3 · What happens after you book --------------------------------- */}
+      {bookingHref ? <SarahReviewMark id="SR-015" /> : null}
       {bookingHref ? (
         <section
           className={cn(styles.next, styles.threaded)}
@@ -244,6 +249,7 @@ export function ContactPage() {
       ) : null}
 
       {/* 4 · Office and map ----------------------------------------------- */}
+      {office.status === 'confirmed' ? <SarahReviewMark id="SR-016" /> : null}
       {office.status === 'confirmed' ? (
         <section
           className={cn(styles.office, styles.threaded)}
@@ -285,6 +291,7 @@ export function ContactPage() {
       ) : null}
 
       {/* 5 · Closing ----------------------------------------------------- */}
+      <SarahReviewMark id="SR-017" />
       <section
         className={cn(styles.closing, styles.threaded)}
         data-surface="dark"

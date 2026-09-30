@@ -446,11 +446,16 @@ describe('tax advisory content — suppressed from the template', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('replaces the held property-management step and says so on the page', () => {
+  it('replaces the held property-management step without naming it on the page', () => {
+    // Audit 2026-09-30: the visible note explaining the substitution was an
+    // internal review note that named a held service (AGENTS.md §9 forbids
+    // mentioning it). The substitution stands and is recorded in
+    // docs/approval-marks-audit.md §3 instead.
     const titles = taxAdvisory.journey.steps.map((s) => s.title.text);
     expect(titles).toContain('Review');
-    expect(taxAdvisory.journey.substitutionNote.status).toBe('confirmed');
-    expect(bandsSource).toContain('substitutionNote');
+    expect('substitutionNote' in taxAdvisory.journey).toBe(false);
+    expect(bandsSource).not.toContain('substitutionNote');
+    expect(JSON.stringify(taxAdvisory.journey)).not.toMatch(/property.management/i);
   });
 
   it('labels every illustrative surface', () => {

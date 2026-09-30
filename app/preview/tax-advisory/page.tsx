@@ -16,6 +16,7 @@ import {
   TaxReportBand,
   TaxServicesBand,
 } from '@/components/web/TaxBands';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { BuyerToolBand } from '@/components/web/BuyerToolRibbon';
 import { SERVICE_ROUTES, TAX_LEAD_TOOL } from '@/content/en/service-journey';
@@ -49,26 +50,41 @@ export default function TaxAdvisoryPage() {
         buyerToolsSourcePage={SERVICE_ROUTES.tax}
       />
 
+      <SarahReviewMark id="SR-053" />
       <TaxHero />
+      <SarahReviewMark id="SR-054" />
       {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
       <BuyerToolBand
         toolKey={TAX_LEAD_TOOL.key}
         sourcePage={SERVICE_ROUTES.tax}
         moment={TAX_LEAD_TOOL.moment.text}
       />
+      <SarahReviewMark id="SR-055" />
       <TaxContextBand />
       {/* Phase 2E (brief §8): what is reviewed, then when — then the report. */}
+      <SarahReviewMark id="SR-056" />
       <TaxProcessBand />
+      <SarahReviewMark id="SR-057" />
       <TaxCalendarBand />
+      <SarahReviewMark id="SR-058" />
       <TaxReportBand />
+      <SarahReviewMark id="SR-059" />
       <TaxConcernsBand />
+      <SarahReviewMark id="SR-060" />
       <TaxServicesBand />
+      <SarahReviewMark id="SR-061" />
       <TaxAuthorityBand />
+      <SarahReviewMark id="SR-062" />
       <TaxCasesBand />
+      <SarahReviewMark id="SR-063" />
       <TaxJourneyBand />
+      <SarahReviewMark id="SR-064" />
       <ServiceJourney page="tax" />
+      <SarahReviewMark id="SR-065" />
       <WebFaq content={faq} appearance="light" />
+      <SarahReviewMark id="SR-066" />
       <TaxFinalCtaBand />
+      <SarahReviewMark id="SR-067" />
       <WebFooter content={footer} />
     </RevealLineProvider>
   );

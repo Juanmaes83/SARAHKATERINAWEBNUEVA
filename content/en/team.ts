@@ -13,11 +13,11 @@ const STRATEGIC_SOURCE =
   'Juanmaes83/sarahkaterina README.md and PROJECT-STATUS.md, independence model confirmed 2026-08-13';
 
 export const PROTOTYPE_NOTICE = {
-  label: 'TEAM EDITORIAL PREVIEW — NOT PRODUCTION',
+  label: 'TEAM PREVIEW · NOT PRODUCTION',
   body: claim({
-    text: 'English editorial draft for human review. New commercial language is proposed, and any tax, legal, planning or financial statement requires competent review before publication.',
+    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision, and any tax, legal, planning or financial statement still needs competent review.',
     status: 'confirmed',
-    source: 'AGENTS.md §§10–11 and project owner brief, 2026-09-22',
+    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
   }),
 } as const;
 
@@ -193,7 +193,7 @@ export const network = {
   ],
   imageAlt:
     'Two women in a professional event setting beside display materials; their identities and the visible organisations are not assigned in this preview.',
-  reviewLabel: 'PROVISIONAL MEDIA — HUMAN VISUAL REVIEW ONLY',
+  reviewLabel: 'PROVISIONAL PHOTOGRAPH — NOT FOR PRODUCTION',
   caption:
     'This photograph is included only to evaluate editorial composition. Visible people, organisations and messages are not identified, endorsed or presented as partners or clients.',
 } as const;
@@ -392,7 +392,7 @@ export const finalCta = {
   body: 'A home to live in, land for a possible project, or a second home with an income intention: start with the real objective and the questions already on your mind.',
   primaryCta: 'Tell us about your plans',
   secondaryCta: 'Review the three starting points',
-  note: 'Contact channels are not connected in this preview. No free-call claim is made.',
+  note: 'The “Tell us about your plans” button is not connected in this preview.',
 } as const;
 
 export const footer = {
@@ -430,16 +430,6 @@ export const footer = {
       title: 'Owner stage',
       links: ['Tax questions', 'Administrative tasks', 'Accounts, bills and charges'].map((text) =>
         claim({ text, status: 'proposal', source: USER_BRIEF }),
-      ),
-    },
-    {
-      title: 'Review status',
-      links: ['Editorial proposal', 'Professional review required', 'Preview only'].map((text) =>
-        claim({
-          text,
-          status: 'confirmed',
-          source: 'AGENTS.md and project owner brief, 2026-09-22',
-        }),
       ),
     },
   ],

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { WebButton, WebLinkButton } from './WebButton';
 import { WebFaq } from './WebFaq';
 import { ServiceJourney } from './ServiceJourney';
@@ -49,6 +50,7 @@ function TeamHero() {
 
           <RevealOnScroll order={1} className={styles.heroVisual}>
             <figure className={styles.heroFigure}>
+              <SarahReviewMark id="SR-069" variant="tag" />
               {/* The frame opens on arrival; the photograph is never cropped —
                   all three people stay whole (object-fit: contain, 16:9). */}
               <div className={cn(styles.heroFrame, entrance.media)}>
@@ -76,6 +78,7 @@ function NetworkBand() {
       <div className={styles.networkGrid}>
         <RevealOnScroll variant="unveil" className={styles.networkMedia}>
           <figure className={styles.networkFigure}>
+            <SarahReviewMark id="SR-075" variant="tag" />
             <div className={styles.networkFrame}>
               <Image
                 src={teamNetwork}
@@ -184,14 +187,15 @@ function TeamBand() {
           />
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.sarahCopy}>
+          <SarahReviewMark id="SR-072" variant="tag" />
           <p className={styles.profileArea}>{sarah.area}</p>
           <h3>{sarah.name}</h3>
           <p>{sarah.body}</p>
           <blockquote>“The property is only one part of the decision.”</blockquote>
-          <p className={styles.proposalNote}>Editorial line proposed for this preview.</p>
         </RevealOnScroll>
       </div>
 
+      <SarahReviewMark id="SR-073" variant="tag" />
       <div className={styles.profileGrid}>
         {team.map((profile, index) => (
           <RevealOnScroll key={profile.name} order={index} className={styles.profileCard}>
@@ -215,6 +219,7 @@ function TeamBand() {
 
       <RevealOnScroll variant="unveil" className={styles.groupFigure}>
         <figure>
+          <SarahReviewMark id="SR-074" variant="tag" />
           <div className={styles.groupFrame}>
             <Image
               src={teamGroup}
@@ -321,16 +326,24 @@ function FinalCtaBand() {
 export function TeamEditorial() {
   return (
     <div>
+      <SarahReviewMark id="SR-068" />
       <TeamHero />
+      <SarahReviewMark id="SR-070" />
       <IntroductionBand />
+      <SarahReviewMark id="SR-071" />
       <PathsBand />
       <TeamBand />
       <NetworkBand />
+      <SarahReviewMark id="SR-076" />
       <ProcessBand />
+      <SarahReviewMark id="SR-077" />
       <AftercareBand />
       {/* Phase 2G: back to the service that matches the reader's need. */}
+      <SarahReviewMark id="SR-078" />
       <ServiceJourney page="team" />
+      <SarahReviewMark id="SR-079" />
       <WebFaq content={faq} />
+      <SarahReviewMark id="SR-080" />
       <FinalCtaBand />
     </div>
   );

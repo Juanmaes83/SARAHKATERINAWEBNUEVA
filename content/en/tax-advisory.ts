@@ -36,11 +36,11 @@ import { claim, type Claim } from '@/lib/content/claims';
 const TEMPLATE = 'website/nueva web/Sarah Katerina Tax Advisory.png (approved visual reference)';
 
 export const PROTOTYPE_NOTICE = {
-  label: 'VISUAL PREVIEW — NOT PRODUCTION',
+  label: 'TAX ADVISORY PREVIEW · NOT PRODUCTION',
   body: claim({
-    text: 'Tax Advisory implemented on the shared website system for visual review. Copy is provisional, dashboard figures are illustrative samples, and nothing here is approved for publication.',
+    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision. Dashboard figures are illustrative samples, and every tax statement still needs competent tax review.',
     status: 'confirmed',
-    source: 'docs/phase-2-visual-implementation-contract.md §1 and §9',
+    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
   }),
 } as const;
 
@@ -754,7 +754,7 @@ export const report = {
   /** "SOLICITAR REVISIÓN FISCAL" */
   cta: claim({ text: 'Request a tax review', status: 'proposal', source: TEMPLATE }),
   ctaNote: claim({
-    text: 'Sample figures throughout, shown to illustrate the report format. No contact channel is connected in this preview.',
+    text: 'Sample figures throughout, shown to illustrate the report format. The request button is not connected in this preview.',
     status: 'confirmed',
     source: 'docs/phase-2-visual-implementation-contract.md §5; README.md §12',
   }),
@@ -1257,11 +1257,6 @@ export const journey = {
     status: 'proposal',
     source: TEMPLATE,
   }),
-  substitutionNote: claim({
-    text: 'The reference ends this sequence with a property-management step. That service is held publicly until an upstream entity decision is executed, so an annual tax review takes its place.',
-    status: 'confirmed',
-    source: 'AGENTS.md §9 — Property Management HOLD, D-06 unexecuted',
-  }),
 } as const;
 
 /* ===========================================================================
@@ -1435,9 +1430,9 @@ export const finalCta = {
   /** "HABLAR PRIMERO" */
   secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
   note: claim({
-    text: 'No commitment. Contact channels are not connected in this preview, so these buttons do not submit or navigate.',
-    status: 'pending',
-    source: 'README.md §12 — email, telephone and social profiles NOT CONFIRMED',
+    text: 'No commitment. These buttons are not connected in this preview, so they do not submit or navigate.',
+    status: 'confirmed',
+    source: 'docs/approval-marks-audit.md §3 — technical note; channels are on the Contact page',
   }),
   /** "Vive España. Nosotros nos ocupamos de los impuestos." */
   script: claim({
@@ -1514,7 +1509,8 @@ export const footer = {
     note: 'The template names a legal entity and a year. The entity is NEEDS_DECISION upstream, so neither is reproduced.',
   }),
   routesNote: claim({
-    text: 'Navigation is laid out as approved; the destination routes are not built yet.',
-    status: 'pending',
+    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    status: 'confirmed',
+    source: 'docs/approval-marks-audit.md §3 — technical note',
   }),
 } as const;

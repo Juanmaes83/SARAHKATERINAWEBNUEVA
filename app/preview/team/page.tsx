@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { TeamEditorial } from '@/components/web/TeamEditorial';
 import { WebFooter } from '@/components/web/WebFooter';
@@ -39,6 +40,7 @@ export default function TeamPage() {
         buyerToolsSourcePage={SERVICE_ROUTES.team}
       />
       <TeamEditorial />
+      <SarahReviewMark id="SR-081" />
       <WebFooter content={footer} />
     </>
   );

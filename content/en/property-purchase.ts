@@ -15,11 +15,11 @@ const SARAH_APPROVED =
   "Sarah's review (REVISION WEB-property-purchase.docx), accepted by Juanma 2026-09-28";
 
 export const PROTOTYPE_NOTICE = {
-  label: 'Property Purchase visual preview',
+  label: 'PROPERTY PURCHASE PREVIEW · NOT PRODUCTION',
   body: claim({
-    text: 'Internal review only. Not approved for publication or production.',
+    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision, and legal and tax statements still need professional review.',
     status: 'confirmed',
-    source: 'AGENTS.md sections 4, 7 and 13',
+    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
   }),
 } as const;
 
@@ -490,7 +490,11 @@ export const services = {
       popular: false,
     },
   ],
-  scopeTitle: claim({ text: 'What the preview includes', status: 'proposal' }),
+  scopeTitle: claim({
+    text: 'What it includes',
+    status: 'proposal',
+    note: 'Replaces “What the preview includes” (audit 2026-09-30); new copy, SR-027.',
+  }),
   scope: [
     ['Independent buyer-side advice', true],
     ['Communication in your language', true],
@@ -690,7 +694,7 @@ export const finalCta = {
   primaryCta: claim({ text: 'Start my purchase file', status: 'proposal', source: TEMPLATE }),
   secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
   note: claim({
-    text: 'Contact routes and response time are not confirmed in this preview.',
+    text: 'Response time is not confirmed in this preview.',
     status: 'pending',
   }),
   script: claim({
@@ -753,8 +757,9 @@ export const footer = {
     status: 'pending',
   }),
   routesNote: claim({
-    text: 'Navigation destinations and contact routes are not live in this preview.',
-    status: 'pending',
+    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    status: 'confirmed',
+    source: 'docs/approval-marks-audit.md §3 — technical note',
   }),
 } as const;
 

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { ContactPage } from '@/components/web/ContactPage';
 import { WebFooter } from '@/components/web/WebFooter';
@@ -15,8 +16,8 @@ import { buildMetadata } from '@/lib/seo/metadata';
 /**
  * Contact preview (2026-09-29). Inside `/preview`: `laboratory: true`, the
  * preview X-Robots-Tag and the empty preview sitemap keep it noindex/nofollow.
- * It is not added to the approved navigation; linking it from the header or
- * the Home is a separate decision (docs/contact-page.md §6).
+ * Contact is in the shared navigation, every footer and a Home band
+ * (docs/contact-page.md §6).
  */
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -37,6 +38,7 @@ export default function ContactPreviewPage() {
         buyerToolsSourcePage="/preview/contact"
       />
       <ContactPage />
+      <SarahReviewMark id="SR-081" />
       <WebFooter content={footer} showLanguageStatus={false} />
     </>
   );

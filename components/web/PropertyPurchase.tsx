@@ -5,6 +5,7 @@ import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
+import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import { PURCHASE_VOICES } from '@/content/en/buyer-voices';
 import { BuyerVoices } from './BuyerVoices';
@@ -131,9 +132,6 @@ export function PurchaseHero() {
             />
             <figcaption className={cn(styles.heroVisualCopy, entrance.float)}>
               <p>{hero.visualBody.text}</p>
-              <span>
-                <Icon name="play" /> Video requires approval
-              </span>
             </figcaption>
           </figure>
           <p className={styles.heroScript}>{hero.script.text}</p>
@@ -552,6 +550,7 @@ export function AuthorityBand() {
     <WebSection surface="navySoft" id="sarah">
       <div className={styles.authorityGrid}>
         <RevealOnScroll variant="unveil" className={styles.portraitFrame}>
+          <SarahReviewMark id="SR-029" variant="overlay" />
           <Image
             src={authorityMedia.src}
             alt={authorityMedia.alt}

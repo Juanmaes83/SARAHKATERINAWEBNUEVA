@@ -3,10 +3,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isLaboratoryRoute } from '@/lib/seo/config';
-import {
-  BUYER_SYSTEM_EXPERIENCES,
-  resolveEntryPoint,
-} from '@/lib/buyer-system/links';
+import { BUYER_SYSTEM_EXPERIENCES, resolveEntryPoint } from '@/lib/buyer-system/links';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import {
   JOURNEY,
@@ -362,15 +359,20 @@ describe('publication and held subjects', () => {
   // 2026-09-29 (Juanma): the shared footer gains a real Contact link in the
   // investment, tax-advisory and team footers (footer block only, verified by
   // diff); nothing else in those files changed.
+  // 2026-09-30 (approval-marks audit, docs/approval-marks-audit.md §3): the
+  // preview banners, the footer route notes and the dead-button notes are
+  // restated truthfully, the internal substitution note (Tax), the footer
+  // "Review status" column (Team) and the Purchase "preview" scope label are
+  // cleaned; no other string changed (verified by diff).
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        'b46580457d90806160f88bbae2dd41cbe0900de0e278f983f0c3e86f78301639',
+        'f306b6d83ad8b1af7111e082287a03d7db7f27ccb231e93fcb1dbe4e4e019539',
       'content/en/tax-advisory.ts':
-        '7329d0308b84fa7326235ce70b08efa7b647931816fb822d9cf24cc51ed8abd5',
-      'content/en/team.ts': 'b65eac842440e939993f306f2cbd6215e17b32bb2cd2e26007be3d46bccbc35f',
+        '0d91bae0774b3ac81263b7abc2d64a8a62e91e25df78e5b5c405da456f79ad00',
+      'content/en/team.ts': '5743db23aae1e92ee9c988760f144d73286792b16849c633a954fe106eac222f',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
@@ -385,7 +387,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      'a5fa00ca5ce9a26402661bff6d0410cbd25821180c58cd0b4e8b5249f16dd530',
+      '3e55ff8140fc2ba8e20081b49d2d1d3665bbe5b0ab1b51f153d025a1d335da81',
     );
   });
 });
