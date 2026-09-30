@@ -1,10 +1,12 @@
 # Sarah Katerina — New Website
 
-> **Status (2026-09-29): FOUR PREVIEW LANDINGS + HOME · PHASES 2E–2H CLOSED · HOME VISUALLY APPROVED BY JUANMA · NOINDEX · NO CUSTOM-DOMAIN LAUNCH**
+> **Status (2026-09-30): SIX PREVIEW ROUTES (FOUR LANDINGS, HOME, CONTACT) · CONTROLLED PREVIEW · NOINDEX · NO CUSTOM-DOMAIN LAUNCH**
 >
-> Juanma visually approved the four `/preview` landings on 2026-09-28 and the Home on 2026-09-29. These are visual approvals only, not approval for production copy, legal matters, domain, DNS, migration, indexation or public launch. Open evidence, asset, rights and professional-review gates remain in `PROJECT-STATUS.md` and the phase records. The application remains **not indexable by default**.
+> Juanma visually approved the four `/preview` landings on 2026-09-28 and the Home on 2026-09-29. Contact's page/content approval was relayed by Juanma on 2026-09-30 and PR #33 is merged. These approvals do not close production, legal, domain, DNS, migration, indexation or public-launch gates. Open Sarah copy decisions, evidence, asset, rights and professional-review gates remain in `PROJECT-STATUS.md` and the phase records. The application remains **not indexable by default**.
 >
 > **Home delivery:** PR #32 merged into `main` on 2026-09-29 as `cacb09e`. PR-head GitHub Actions run **36592785041 — success** (lint, typecheck, tests, build and secret/env hygiene); Vercel check on the merge commit — **success**. The Home remains `/preview/home`; `/` is unchanged. A Vercel deployment is an infrastructure result, not approval to publish on `sarahkaterina.com` or enable indexing.
+>
+> **Contact delivery:** PR #33 was squash-merged into `main` on 2026-09-30 as `fc6fb4947043431770a2cf66f87f3471e51bcd5c`. PR-head Actions run **36748647728 — success** (lint, typecheck, tests, build and secret/env hygiene). The Vercel check on the merge commit was **pending when this record was updated**. Contact remains `/preview/contact`, `noindex`, outside the sitemap; no custom domain, indexing or production publication was enabled.
 
 ---
 
@@ -23,8 +25,8 @@ proposal in website/nueva web/, especially the Investment composition. The
 proposal is not a production approval, but its architecture, rhythm, hierarchy
 and composition are the explicit implementation reference for Phase 2.
 
-The merged base contains four approved preview landings — Investment, Tax Advisory,
-Property Purchase and Team — on one shared web layer. The Home lives at
+The merged base contains four preview landings — Investment, Tax Advisory,
+Property Purchase and Team — plus Home and Contact on one shared web layer. The Home lives at
 `/preview/home` (noindex, outside the sitemap; `/` is not replaced). Its
 2026-09-29 version — the "What brings you to Spain?" service discovery on a
 fabric banner, three service chapters, named client testimonials authorised by
@@ -122,7 +124,7 @@ HOME SERVICE DISCOVERY + BUYER SYSTEM PREVIEW MERGED (PR #32; 2026-09-29)
 UNIFIED PREVIEW NAVIGATION — MERGED WITH PR #32
 VISUAL STATE OF THE FOUR PREVIEW ROUTES APPROVED BY JUANMA — 2026-09-28
 HOME VISUALLY APPROVED BY JUANMA — 2026-09-29 (VISUAL ONLY)
-CONTACT PAGE (EDITORIAL) + CONTACT IN NAVIGATION, FOOTERS AND HOME — IN REVIEW PR, NOT MERGED
+CONTACT PAGE + CONTACT IN NAVIGATION, FOOTERS AND HOME — MERGED PR #33 (2026-09-30); PREVIEW/NOINDEX
 SARAH RECONCILIATION (2026-09-30): 21 OPEN SARAH DECISIONS (11 HOME, 10 LANDINGS) · CONTACT APPROVED BY SARAH (JUANMA) · AQUAMARINE ON NAVY (FOR NOW)
 OPEN: ASSETS, CASE EVIDENCE, SOUND RIGHTS/CAPTIONS, RESTRICTED BUYER TOOLS, PRODUCTION GATES
 NOT PRODUCTION · NOT APPROVED FOR MIGRATION
@@ -134,7 +136,7 @@ implementation bases, and on 2026-09-28 Juanma approved the present visual state
 of all four `/preview` routes, Team included. Neither approval means that any
 route is approved for production, publication or migration.
 
-All four `/preview` routes render through one shared web layer and one token file:
+All six `/preview` routes render through one shared web layer and one token file:
 
 | Concern                                                            | Single source                                                                                        |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
@@ -311,9 +313,10 @@ Asking Price and Tax Exposure remain gated under their existing product rules.
 | 2F — Approved imagery, hero videos, cross-landing QA      | Case imagery, hero videos, territory map film, fabric banner; consolidated visual review                                                 | MERGED — VISUAL STATE APPROVED 2026-09-28                     |
 | 2G — Connected service journey                            | One advisory route across the four landings; Good-idea film; Buyer System placements                                                     | MERGED — VISUAL STATE APPROVED 2026-09-28                     |
 | 2H — Sarah's review of the four landings                  | Hero films without scroll, calculator first, review copy as proposals, Team simplification                                               | CLOSED (PR #30) — VISUAL STATE APPROVED 2026-09-28            |
-| Home + Contact                                            | Home service discovery (PR #32); Contact page, formats as requests, office map, Contact in navigation/footers/Home                       | HOME MERGED (PR #32) · CONTACT IN PR — AWAITING VISUAL REVIEW |
-| 3 — Functional integration                                | Restricted tool approvals, events, consent and lead-capture decision                                                                     | PARTLY CONNECTED · REMAINDER BLOCKED ON PRODUCT DECISIONS     |
-| 4 — Production hardening                                  | Lighthouse/CWV, accessibility, schema, hreflang, crawl validation, legal and content approval                                            | AFTER 3 AND THE PRODUCTION GATES                              |
+| Home + Contact                                            | Home discovery and Contact page, booking channels, office map, Contact in navigation/footers/Home                                        | HOME MERGED (PR #32) · CONTACT MERGED (PR #33, 2026-09-30); PREVIEW/NOINDEX |
+| 2I — Sarah copy decisions                                 | Review the 21 visible `SR-###` decisions (11 Home, 10 landing-page decisions)                                                             | OPEN — Sarah's review required                                |
+| 3 — Functional integration                                | Contact booking/email Preview variables and owner test booking; form privacy/test path; restricted Buyer Tool approvals, events and consent | PARTLY CONNECTED · DECISIONS AND INTEGRATIONS OPEN             |
+| 4 — Production hardening                                  | Mobile performance, accessibility, legal/tax evidence, rights, SEO, crawl validation and migration                                      | AFTER COPY, EVIDENCE, FUNCTIONAL AND PUBLICATION GATES         |
 | 5 — Migration                                             | Domain, redirects, indexation and production cutover                                                                                     | LAST GATE                                                     |
 
 None of the Phase 2 blocks is a production release. The visual state of the
