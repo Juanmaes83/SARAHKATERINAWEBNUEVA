@@ -52,9 +52,9 @@ export const hero = {
    * earlier template lead is in git history. New copy, open for Sarah (SR-036).
    */
   lead: claim({
-    text: 'A property in Spain can be a great decision or an expensive mistake. Sarah is paid only by you: she analyses the property, the numbers and the tax side before you commit, and stays with you through the purchase.',
+    text: 'A property in Spain can be a great decision or an expensive mistake. Sarah works on your side: she analyses the property, the numbers and the tax side before you commit, and stays with you through the purchase.',
     status: 'proposal',
-    note: 'New copy; "paid only by you" restates the confirmed remuneration model (decisions-log.md 2026-07-27). SR-036.',
+    note: 'New copy; 2026-10-01: "Sarah is paid only by you" became "Sarah works on your side" after Sarah rejected the "Sarah is paid…" framing on the Home. SR-036.',
   }),
   primaryCta: claim({ text: 'Request an analysis', status: 'proposal', source: TEMPLATE }),
   /** "VER CÓMO FUNCIONA" */

@@ -881,3 +881,24 @@ When Sarah comments, record her decision here and in `SARAH_APPROVALS`, then del
 - the authorised Tax results are still rendered.
 
 They also check that the anchors and the register still match.
+
+---
+
+## 13. Sarah's Home feedback (2026-10-01)
+
+Full record: `docs/home-buyer-system-preview.md` §12.
+
+**Register changes:**
+
+- **SR-086 is new:** the Home opening line. "Let me help you feel at home in Spain." is option 1 of three drafted from her direction, not hers and not approved.
+- **SR-002 is closed:** the rejected "Sarah is paid by one side of the table: yours." is replaced by her own line, "Yo estoy a tu lado de la mesa", as "I’m on your side of the table." (`confirmed`, source recorded).
+- **SR-001 and SR-003 stay open:** the lead and the selector intro, now in the first person.
+
+**Open Sarah decisions: still 24**, all invisible on the page:
+
+- Home: SR-001, SR-003–SR-011, SR-086;
+- Property Purchase: SR-019, 022, 027, 082, 085;
+- Investment: SR-036, 041, 049, 083, 084;
+- Tax: SR-054, 058, 059.
+
+**Media.** `sarahTerrace` (EQUIPO_SARAHKATERINA4, rejected by Sarah) is no longer registered or served. `sarahConfianza` (IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png) takes its Property Purchase slot and the Home hero.

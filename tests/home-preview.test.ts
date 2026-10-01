@@ -6,7 +6,6 @@ import {
   BUYER_SYSTEM_EXPERIENCES,
   resolveEntryPoint,
 } from '@/lib/buyer-system/links';
-import { APPROVED_PROMISE } from '@/lib/content/claims';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import {
@@ -43,11 +42,19 @@ describe('Home preview route', () => {
     expect(read('app/sitemap.ts')).not.toContain('/preview/home');
   });
 
-  it('keeps one approved H1 promise and uses the reserved Home film', () => {
-    expect(hero.title).toBe(APPROVED_PROMISE);
+  it('opens in Sarah\'s voice, with her photograph first', () => {
+    // 2026-10-01: Sarah found "Clarity before commitment." unclear as the first
+    // line and asked for her own voice; the opening line is a proposal (SR-086).
+    // No real footage of her in an office exists, so the hero is her supplied
+    // photograph; the generated villa film is no longer the hero.
+    expect(hero.title.text).toBe('Let me help you feel at home in Spain.');
+    expect(hero.title.status).toBe('proposal');
+    expect(hero.title.text).not.toMatch(/€|\bpay|\bpaid|price|money/i);
     expect(component).toContain('<h1');
     expect(component.match(/<h1/g)).toHaveLength(1);
-    expect(component).toContain('APPROVED_VIDEO.homeInvestmentObjective');
+    expect(component).toContain('APPROVED_MEDIA.sarahConfianza');
+    expect(component).not.toContain('APPROVED_VIDEO.homeInvestmentObjective');
+    // The registered film stays traceable, unused on this page.
     expect(APPROVED_VIDEO.homeInvestmentObjective.source).toBe(
       'VIDEOS/TU INVERSIÓN MI OBJETIVO.mp4',
     );
@@ -61,6 +68,14 @@ describe('Home preview route', () => {
     expect(
       existsSync(resolve(root, `public${APPROVED_VIDEO.homeInvestmentObjective.poster}`)),
     ).toBe(true);
+  });
+
+  it('replaces the side statement Sarah rejected with her own line', () => {
+    // 2026-10-01: "Sarah is paid by one side of the table: yours." is gone from
+    // the Home; Sarah's "Yo estoy a tu lado de la mesa", in English.
+    expect(side.statement.text).toBe('I’m on your side of the table.');
+    const rendered = JSON.stringify({ hero, side, trust, discovery, services, process, voices, tools, faq, contactBand, footer, seo });
+    expect(rendered).not.toMatch(/Sarah is paid/);
   });
 
   it('follows the Home decision narrative in the approved order', () => {

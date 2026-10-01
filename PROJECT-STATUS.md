@@ -107,6 +107,14 @@ Most recent first.
 
 Contact is integrated with Home, shared navigation and all footers. PR-head CI passed; the Vercel check on the merge commit was pending when this entry was prepared. The site remains controlled preview/noindex.
 
+**2026-10-01 — Sarah's Home feedback (`feat/sarah-home-voice-and-balance-2026-10-01`; `docs/home-buyer-system-preview.md` §12).**
+- **Home hero:** opens in Sarah's voice with "Let me help you feel at home in Spain." (proposal, SR-086; options 2 and 3 recorded) and with her supplied photograph. No real office footage exists; the footage to record is specified.
+- **Side statement:** "I’m on your side of the table." (Sarah's own line) replaces the rejected "Sarah is paid…".
+- **Photo:** the terrace photograph she rejected is no longer registered or served; the supplied photograph takes its Property Purchase slot.
+- **Desktop balance:** fixed on the Home, Contact, Property Purchase and Investment (Tax shares the authority rule).
+
+Not visually approved; Juanma reviews first, then Sarah.
+
 **2026-10-01 — Editorial marks hidden for Sarah's final review (`fix/hide-editorial-marks-2026-10-01`; `docs/approval-marks-audit.md` §12).**
 No route renders the "SARAH REVIEW REQUIRED · SR-###" strips or tags any more: the anchors render nothing but keep the
 build gate. The preview wording is also removed from the SEO descriptions. The 24 SR items stay in the register as copy Sarah

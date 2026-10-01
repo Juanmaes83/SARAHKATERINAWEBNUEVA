@@ -74,21 +74,21 @@ export const SARAH_REVIEW_ITEMS = [
     routes: [HOME],
     kind: 'copy',
     label: 'Hero · lead sentence',
-    scope: 'The hero lead under “Clarity before commitment.”',
-    excludes:
-      '“Clarity before commitment.” (approved brand promise) and the film caption (confirmed disclosure).',
+    scope:
+      'The hero lead, rewritten in the first person on 2026-10-01: “I help you see the property, the full cost and the tax questions together — before you commit.”',
+    excludes: 'The opening line above it, which is SR-086.',
     decision: APPROVE_COPY,
-    refs: ['home:hero'],
+    refs: ['home:hero.lead'],
   },
   {
-    id: 'SR-002',
+    id: 'SR-086',
     routes: [HOME],
     kind: 'copy',
-    label: 'Side statement',
-    scope: '“Sarah is paid by one side of the table: yours.”',
-    excludes: 'The three trust lines (remuneration model and the 20-year credential), confirmed.',
-    decision: APPROVE_COPY,
-    refs: ['home:side'],
+    label: 'Hero · opening line in Sarah’s voice',
+    scope:
+      '“Let me help you feel at home in Spain.” — option 1 of three drafted on 2026-10-01 from her direction (“Déjame ayudarte”; close, first person, no money or transaction), replacing “Clarity before commitment.” as the first line. Options 2 and 3: “I’ll walk with you, every step of the way.” · “You don’t have to do this alone. Let me help.” She said she would send three phrases of her own; none had arrived.',
+    decision: 'Choose one of the three, send her own phrase, or edit.',
+    refs: ['home:hero.title'],
   },
   {
     id: 'SR-003',

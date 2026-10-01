@@ -588,3 +588,112 @@ exists. A merge to `main` may trigger the configured Vercel Production-target
 build; that infrastructure event does not authorise custom-domain publication,
 indexation or migration. The Home remains under `/preview/home`, noindex and
 outside the sitemap. The 2H approval of the four existing landings is unchanged.
+
+---
+
+## 12. Sarah's feedback of 2026-10-01: Sarah first, her own voice, desktop balance
+
+**Source:** Sarah's comments relayed by Juanma on 2026-10-01, plus the files he uploaded to `main` the same day (`e782a6d`). Branch: `feat/sarah-home-voice-and-balance-2026-10-01`. Nothing here is visually approved: Juanma reviews it first, then Sarah.
+
+### 12.1 Copy: before, after, status
+
+| Where | Before | After | Status |
+| ----- | ------ | ----- | ------ |
+| Hero, first line (H1) | "Clarity before commitment." (approved brand promise) | "Let me help you feel at home in Spain." | **Proposal, not approved: SR-086.** Drafted from Sarah's direction ("Déjame ayudarte"; close, first person, no money or transaction). She said she would send three phrases; none was in the repository, the brief or the recent documents, so three were drafted (below) and the clearest is shown |
+| Hero lead | "See the property, the full cost and the tax questions together — before you commit." | "I help you see the property, the full cost and the tax questions together — before you commit." | Proposal (SR-001): first person only, meaning unchanged |
+| "Whose side?" statement | "Sarah is paid by one side of the table: yours." (rejected by Sarah) | "I’m on your side of the table." | Sarah's own line ("Yo estoy a tu lado de la mesa"), in English. Recorded as `confirmed` with that source. SR-002 is closed. The rejected sentence appears nowhere on the Home |
+| Service selector intro | "… Sarah turns it into the right kind of guidance." | "… I’ll turn it into the right kind of guidance." | Proposal (SR-003): first person only |
+| Hero film caption | "From possibility to decision" / "Illustrative concept film. It does not promise…" | Removed with the film | — |
+
+**The three opening lines** (drafted, not Sarah's, not approved):
+
+1. "Let me help you feel at home in Spain." ← shown
+2. "I'll walk with you, every step of the way."
+3. "You don't have to do this alone. Let me help."
+
+"Clarity before commitment." remains the approved brand promise and still closes the Team hero.
+
+**Not changed:**
+
+- the three trust lines under the statement (the remuneration model and the 20-year credential, both confirmed);
+- the testimonials;
+- every other Home text: the third-person sentences about the team stay, since Sarah is not speaking in them;
+- Tax Advisory, including its results.
+
+### 12.2 The photograph Sarah rejected and its replacement
+
+- **Removed:** `EQUIPO_SARAHKATERINA4.png`, Sarah standing on a terrace in a black-and-white dress, registered as `sarahTerrace` and served as `public/media/sarah-terrace.webp`. It was the only use of that file, in the **Property Purchase authority block**.
+  - The registry entry and the served derivative are deleted.
+  - The original stays in `IMAGES/EQUIPO/SARAH/`, untouched.
+  - It is not used anywhere else: no other slot, background, card, thumbnail or fallback.
+- **Replacement:** `IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png` (1122×1402, SHA-256 `AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5`), registered as `sarahConfianza`.
+  - Served as `public/media/sarah-confianza.webp`: a compression-only WebP at the source size, 95 KB, with no grade, retouch, crop or facial change.
+  - **Property Purchase authority block,** the slot of the rejected photograph. The frame changes from 16:9 to 4:5 so the portrait is not cut.
+  - **Home hero:** see §12.3. On phones the frame is square, keeping the face and hands; from tablet up it is 4:5.
+- **Also uploaded but not used, as not requested:** `SARAH_KATERINA_2_SARAH_CONFIANZA.png` and `OFICINA_EXTERIOR_SARAH_KATERINA_1/2.jpeg` (the office front). The office photographs could carry a future office band or video poster.
+
+### 12.3 The hero video Sarah asked for
+
+**Inventory.** Every film in `VIDEOS/` was checked:
+
+| File | Resolution | What it shows | Origin |
+| ---- | ---------- | ------------- | ------ |
+| `TU INVERSIÓN MI OBJETIVO.mp4` (the former Home hero) | 864×496 | villa on a plot, tablet | generated |
+| `BUENA IDEA_MALA EJECUCIÓN.mp4` | 1280×720 | journey to Spain | generated |
+| `SARAH KATERINA SIEMPRE DEL LADO DEL COMPRADOR.mp4` | 1280×720 | a woman at a meeting table | generated |
+| `TAX ADVISORY HERO REPLACEMENT.mp4` / `…SECTION.mp4` | 1920×1080 | aerials | generated |
+| `MAPA CIUDADES OPORTUNIDADES.mp4`, `BIENES RAICES…`, `CONTROLA…`, `EXPERIENCIA…` | 864–1280 wide | maps, property | generated |
+| `kling_20260823_*` (two) | 1916×1080 | villa with the logo | image-to-video, generated |
+
+The owner folder `Downloads/SARAH KATERINA OFFICE/VIDEOS` also holds only generated clips and WhatsApp property videos, not in the repository.
+
+**There is no real, authorised footage of Sarah in an office.** No video was fabricated, and no generative animation of her face was used.
+
+**What the hero now shows:**
+
+- Sarah's supplied photograph, as a still: `priority` load, served through `next/image` at the size each viewport needs.
+- The generated villa film is no longer the hero. It stays registered but is not placed elsewhere: its likeness and rights record (G-02) are still open.
+- The low quality Sarah saw had a cause: the film's source is **864×496**, scaled up to about 1,000 px wide at 1440. It cannot be fixed in CSS; only a better source can.
+
+**Footage to record for the video she wants:**
+
+- **Content:** Sarah, real and recognisable, in her office (Calle Bazán 10, Torrevieja) or a similar working setting. For example: at her desk reviewing a file, then looking up to camera; or walking in and sitting down.
+- **Length and resolution:**
+  - 8–12 s, steady (tripod or gimbal);
+  - 3840×2160 or at least 1920×1080, 25/30 fps;
+  - H.264 at a high bitrate, or ProRes as the source.
+- **Framing:** landscape, with the subject centred so a 4:5 or 1:1 crop works on phones. An optional vertical take helps.
+- **Light and sound:**
+  - natural or soft light, no heavy grade or face retouch;
+  - no audio needed: the site plays muted.
+- **Records:**
+  - written release from Sarah and from anyone else in shot;
+  - a note of who filmed it and when;
+  - a still taken from the same take, to use as the poster.
+
+**Once it exists**, the hero can use the existing play-once primitive. It plays muted, pauses off screen, offers accessible controls and a poster fallback, respects reduced motion, and loads after the poster, which keeps a good mobile LCP.
+
+### 12.4 Desktop: the empty left side
+
+**Measured, not guessed.** A Playwright audit of the six routes at 1440 and 1920 measured, for every section, the empty space left and right of the visible content. It also measured, for every two-column block, how far the left column ends above the right one.
+
+**What it found:**
+
+- The container itself is centred everywhere (120 px each side at 1440).
+- The imbalance came from two patterns:
+  - blocks that ran off the right edge, on the Home only;
+  - left columns much shorter than their right neighbour, which leaves an empty area in the left half.
+
+**Fixed** (CSS only; no content, card or decoration added):
+
+| Page | Block | Before | Change |
+| ---- | ----- | ------ | ------ |
+| Home | Hero | Copy 0.78fr, film running off the right edge (at 1920: 360 px empty on the left, 0 on the right) | Copy and portrait share the container (1.15fr / 0.85fr), centred: 360 / 360 at 1920 |
+| Home | Investment chapter | Frame running off the right edge | Kept inside the container |
+| Contact | Formats | Photo 467 px tall beside an 882 px list (416 px empty on the left) | 4:5 frame, still sticky while the list scrolls: gap 299 px, and the photo follows the reader |
+| Property Purchase | "We handle the paperwork" | Copy at the top of a 674 px image (363 px empty under it) | Copy vertically centred |
+| Property Purchase | Authority | Landscape frame, copy at the top | 4:5 portrait, both columns centred |
+| Investment | Authority | Photo shorter than the copy (209 px empty under it) | Centred against the copy (Tax shares the rule) |
+| Investment | Scenarios | Chart card 312 px at the top of a 643 px column | Centred |
+
+Mobile keeps its single column, and every change applies from tablet or desktop widths only. Before/after captures and the QA report are in `docs/screenshots/sarah-home-voice-2026-10-01/`.
