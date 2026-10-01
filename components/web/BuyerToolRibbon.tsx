@@ -46,7 +46,7 @@ export function BuyerToolRibbon({
   const Question = prominent ? 'h2' : 'h3';
   const pendingNote =
     experience.availability === 'live'
-      ? 'The tool is live in the Buyer System. Its public address is awaiting approval, so it is not linked in this preview.'
+      ? 'This tool is not linked from this page yet.'
       : entry.pendingReason;
 
   return (
@@ -79,7 +79,7 @@ export function BuyerToolRibbon({
           <>
             <p className={styles.pending}>
               <span className={styles.pendingMark} aria-hidden="true" />
-              Link pending approval
+              Not available here yet
             </p>
             <p className={styles.pendingNote}>{pendingNote}</p>
           </>

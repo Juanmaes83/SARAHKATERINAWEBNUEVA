@@ -35,19 +35,11 @@ import { claim, type Claim } from '@/lib/content/claims';
 
 const TEMPLATE = 'website/nueva web/Sarah Katerina Tax Advisory.png (approved visual reference)';
 
-export const PROTOTYPE_NOTICE = {
-  label: 'TAX ADVISORY PREVIEW · NOT PRODUCTION',
-  body: claim({
-    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision. Dashboard figures are illustrative samples, and every tax statement still needs competent tax review.',
-    status: 'confirmed',
-    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
-  }),
-} as const;
 
 export const seo = {
   title: 'Spanish tax advisory for non-resident property owners',
   description:
-    'Tax advisory for international owners and buyers of property in Spain: Modelo 210, annual compliance, purchase tax overlay and wealth planning, explained from inside the tax administration. Internal visual preview, not approved for production.',
+    'Tax advisory for international owners and buyers of property in Spain: Modelo 210, annual compliance, purchase tax overlay and wealth planning, explained from inside the tax administration.',
 } as const;
 
 /* ===========================================================================

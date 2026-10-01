@@ -12,14 +12,6 @@ const SARAH_APPROVED = "Sarah's review (REVISION WEB. Team.docx), accepted by Ju
 const STRATEGIC_SOURCE =
   'Juanmaes83/sarahkaterina README.md and PROJECT-STATUS.md, independence model confirmed 2026-08-13';
 
-export const PROTOTYPE_NOTICE = {
-  label: 'TEAM PREVIEW · NOT PRODUCTION',
-  body: claim({
-    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision, and any tax, legal, planning or financial statement still needs competent review.',
-    status: 'confirmed',
-    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
-  }),
-} as const;
 
 export const seo = {
   title: 'Meet the buyer advisory team in Spain | Sarah Katerina',
