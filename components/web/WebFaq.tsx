@@ -2,7 +2,6 @@
 
 import { useId, useState } from 'react';
 import { WebSection, WebSectionHeader } from './WebSection';
-import { Icon } from './icons/Icon';
 import { faq as investmentFaq } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import styles from './WebFaq.module.css';
@@ -12,7 +11,6 @@ function FaqItem({ question, answer }: { question: string; answer: Claim }) {
   const baseId = useId();
   const triggerId = `${baseId}-trigger`;
   const panelId = `${baseId}-panel`;
-  const pending = answer.status === 'pending';
 
   return (
     <div className={styles.item}>
@@ -38,17 +36,11 @@ function FaqItem({ question, answer }: { question: string; answer: Claim }) {
         <div id={panelId} role="region" aria-labelledby={triggerId} className={styles.panel}>
           <p className={styles.answer}>{answer.text}</p>
           {/*
-            Phase 2B put a loud "FINANCIAL — REVIEW REQUIRED" badge on most
-            answers, which dominated the section. The governance is unchanged;
-            it now reads as a quiet note, and the section-level disclaimer
-            below carries the general warning.
+            2026-10-01: the per-answer "Not confirmed for publication yet." note
+            was an internal status, not information for the visitor; it lives
+            in the claim status and docs/approval-marks-audit.md §11. Answers
+            that were only placeholders are rewritten or carry an SR mark.
           */}
-          {pending ? (
-            <p className={styles.pendingNote}>
-              <Icon name="clock" size="sm" />
-              <span>Not confirmed for publication yet.</span>
-            </p>
-          ) : null}
         </div>
       ) : null}
     </div>

@@ -47,15 +47,10 @@ describe('approved unified preview navigation', () => {
     expect(page).toContain('brandHref={HOME_PREVIEW_ROUTE}');
     expect(page).toContain('showLanguageSwitcher={false}');
     expect(page).toContain('buyerToolsSourcePage=');
-    if (route === 'home') {
-      // Owner instruction 2026-09-29: the client-review Home shows no preview
-      // strip. It stays noindex under /preview; the landings keep theirs.
-      expect(page).not.toContain('<PrototypeBanner');
-      expect(page).toContain('laboratory: true');
-    } else {
-      expect(page.indexOf('<PrototypeBanner')).toBeGreaterThan(-1);
-      expect(page.indexOf('<PrototypeBanner')).toBeLessThan(page.indexOf('<WebHeader'));
-    }
+    // Home since 2026-09-29, every route since 2026-10-01: no preview strip on
+    // the pages shown to the client. Each stays noindex under /preview.
+    expect(page).not.toContain('<PrototypeBanner');
+    expect(page).toContain('laboratory: true');
     expect(path).toMatch(/^\/preview\//);
   });
 

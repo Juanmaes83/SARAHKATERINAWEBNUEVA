@@ -33,8 +33,7 @@ export const hero = {
   lead: 'A coordinated team helps you move from the first search to ownership with clearer decisions, named responsibilities and advice shaped around your interests as the buyer.',
   cta: 'Tell us about your plans',
   secondaryCta: 'Meet the team',
-  imageAlt:
-    'Three members of the Sarah Katerina team together in a bright office setting; individual identities are not assigned in this preview.',
+  imageAlt: 'Three members of the Sarah Katerina team together in a bright office setting.',
   caption: 'A real team, working from one shared understanding of your plans.',
 } as const;
 
@@ -70,9 +69,9 @@ export const pathsHeader = {
 /**
  * "Four functions, connected around the buyer." Sarah did not understand it
  * and replaced title and introduction. The former subtitle ("The photographs
- * show three people…") is removed at his request: no photograph is attached to
- * a name, each portrait slot below is labelled pending, and the group photograph
- * keeps its own caption saying no identity is inferred from it.
+ * show three people…") is removed at her request, and so is the same note under
+ * the group photograph (2026-10-01). No photograph is attached to a name; the
+ * identity boundary is recorded in docs/team-asset-record.md.
  */
 export const teamHeader = {
   eyebrow: 'The people around your decision',
@@ -191,11 +190,6 @@ export const network = {
     'A buyer-side team also needs to recognise where its own role stops and another professional perspective is needed.',
     'The buyer’s brief remains the centre of the conversation. Any specialist role, relationship and scope must be confirmed for the individual file before it is relied upon.',
   ],
-  imageAlt:
-    'Two women in a professional event setting beside display materials; their identities and the visible organisations are not assigned in this preview.',
-  reviewLabel: 'PROVISIONAL PHOTOGRAPH — NOT FOR PRODUCTION',
-  caption:
-    'This photograph is included only to evaluate editorial composition. Visible people, organisations and messages are not identified, endorsed or presented as partners or clients.',
 } as const;
 
 export interface ProcessStep {
@@ -380,7 +374,7 @@ export const faq = {
     },
   ],
   legalNote: claim({
-    text: 'This editorial preview describes a proposed way of working, not an engagement letter or professional advice. Tax, legal, planning and financial wording requires competent review before publication.',
+    text: 'This page describes a way of working, not an engagement letter or professional advice.',
     status: 'confirmed',
     source: 'AGENTS.md §§10–11; project owner brief, 2026-09-22',
   }),
@@ -392,7 +386,7 @@ export const finalCta = {
   body: 'A home to live in, land for a possible project, or a second home with an income intention: start with the real objective and the questions already on your mind.',
   primaryCta: 'Tell us about your plans',
   secondaryCta: 'Review the three starting points',
-  note: 'The “Tell us about your plans” button is not connected in this preview.',
+  note: '',
 } as const;
 
 export const footer = {
@@ -434,12 +428,12 @@ export const footer = {
     },
   ],
   copyright: claim({
-    text: 'Sarah Katerina. Internal preview, not for publication.',
+    text: 'Sarah Katerina',
     status: 'pending',
     note: 'The legal entity and publication line remain unconfirmed.',
   }),
   routesNote: claim({
-    text: 'English is the active preview language. Spanish content is structured but has no route yet.',
+    text: '',
     status: 'confirmed',
     source: 'Project owner brief, 2026-09-22',
   }),

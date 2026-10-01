@@ -150,7 +150,10 @@ describe('Home preview route', () => {
     expect(component).not.toContain('toolKey="askingPrice"');
     expect(component).not.toContain('toolKey="taxExposure"');
 
-    expect(tools.intro.text).toMatch(/When this Preview is configured/);
+    // 2026-10-01: the configuration clause left the visible intro; the adapter
+    // below still withholds both links without a Preview origin.
+    expect(tools.intro.text).not.toMatch(/Preview is configured/);
+    expect(tools.intro.text).toMatch(/open in the separate Buyer System/);
     vi.stubEnv('NEXT_PUBLIC_BUYER_SYSTEM_URL', '');
     expect(resolveEntryPoint('purchaseTax').href).toBeNull();
     expect(resolveEntryPoint('realCashNeeded').href).toBeNull();

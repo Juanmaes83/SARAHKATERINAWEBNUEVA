@@ -687,7 +687,7 @@ export function FinalCtaBand() {
               {finalCta.secondaryCta.text}
             </WebLinkButton>
           </div>
-          <p className={styles.finalNote}>{finalCta.note.text}</p>
+          {finalCta.note.text ? <p className={styles.finalNote}>{finalCta.note.text}</p> : null}
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.finalVisual}>
           <PlaceholderMedia

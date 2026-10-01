@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { WebSection, WebSectionHeader } from './WebSection';
-import { WebButton } from './WebButton';
+import { WebButton, WebLinkButton } from './WebButton';
+import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { SampleColumnChart, SampleDistribution } from './SampleChart';
-import { isPublishable } from '@/lib/content/claims';
 import {
   authority,
   calendar,
@@ -71,13 +71,6 @@ export function TaxTrustBand() {
                   {item.value.text}
                   {/* A pending figure keeps its position and carries a small
                       mark, exactly as the Investment strip does. */}
-                  {!isPublishable(item.value) ? (
-                    <span
-                      className={shared.pendingDot}
-                      role="img"
-                      aria-label="figure pending approval"
-                    />
-                  ) : null}
                 </p>
                 <p className={shared.trustNote}>{item.note.text}</p>
               </div>
@@ -359,9 +352,9 @@ export function TaxReportBand() {
           panels={panels}
           aside={
             <div className={shared.reportSide}>
-              <WebButton variant="primary" onDark arrow>
+              <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="primary" onDark arrow>
                 {report.cta.text}
-              </WebButton>
+              </WebLinkButton>
               <p className={shared.ctaNote}>{report.ctaNote.text}</p>
               <ul className={shared.reportDeliverables}>
                 {report.deliverables.map((deliverable) => (
@@ -541,13 +534,8 @@ export function TaxAuthorityBand() {
 
               <p className={`${shared.script} ${shared.scriptOnDark}`}>{authority.quote.text}</p>
 
-              {/*
-                Reserved slot. The template signs the quote by hand; no
-                signature asset exists and one may not be drawn or typeset.
-              */}
-              <div className={shared.signatureSlot}>
-                <p className={shared.signatureNote}>{authority.signaturePending.text}</p>
-              </div>
+              {/* 2026-10-01: the empty "Signature asset pending" slot is removed from
+                  the page; no signature asset exists (docs/approval-marks-audit.md §11). */}
             </div>
           </div>
 
@@ -584,30 +572,17 @@ export function TaxCasesBand() {
             </div>
             <div className={shared.mediaCardBody}>
               <h3 className={shared.cardTitle}>{item.profile.text}</h3>
-              <p className={shared.caseMeta}>
-                <Icon name="pin" size="sm" />
-                <span>{cases.locationPending.text}</span>
-              </p>
               <p className={shared.cardText}>{item.decision.text}</p>
-
+              {/* 2026-10-01: real cases, client permission held (Juanma). Sarah's
+                  result and her confidential year, then her publication line. */}
               <div className={shared.caseResult}>
-                <div>
-                  {/* Phase 2H: Sarah's proposed result, never shown as a verified fact. */}
-                  <p className={shared.caseMetricLabel}>{item.metric.text}</p>
-                  <p className={shared.caseMeta}>{cases.evidencePending.text}</p>
-                  <span
-                    className={shared.caseWithheld}
-                    role="img"
-                    aria-label="Result withheld pending client permission and verification"
-                  />
-                </div>
+                <p className={shared.caseMetricLabel}>{item.metric.text}</p>
                 <span className={shared.casePermission}>
                   <Icon name="check" size="sm" />
                   {item.period.text}
                 </span>
               </div>
-
-              <p className={shared.caseMeta}>{cases.permissionPending.text}</p>
+              <p className={shared.caseMeta}>{cases.publication.text}</p>
             </div>
           </RevealOnScroll>
         ))}
@@ -665,13 +640,15 @@ export function TaxFinalCtaBand() {
             subtitle={finalCta.body.text}
             rule
           />
+          {/* 2026-10-01: both actions lead to the Contact page, where the
+              channels work; the "not connected" note is gone. */}
           <div className={shared.ctaActions}>
-            <WebButton variant="primary" onDark arrow>
+            <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="primary" onDark arrow>
               {finalCta.primaryCta.text}
-            </WebButton>
-            <WebButton variant="secondary" onDark>
+            </WebLinkButton>
+            <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="secondary" onDark>
               {finalCta.secondaryCta.text}
-            </WebButton>
+            </WebLinkButton>
           </div>
           <p className={shared.ctaNote}>{finalCta.note.text}</p>
         </RevealOnScroll>

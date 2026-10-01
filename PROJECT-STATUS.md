@@ -107,6 +107,25 @@ Most recent first.
 
 Contact is integrated with Home, shared navigation and all footers. PR-head CI passed; the Vercel check on the merge commit was pending when this entry was prepared. The site remains controlled preview/noindex.
 
+**2026-10-01 — Client-ready pass on `fix/sarah-review-client-ready-2026-10-01` (not merged; `docs/approval-marks-audit.md` §11).**
+The pages shown to the client no longer show internal status. No preview banners, footer chip, "not connected",
+"pending" or "withheld" labels, provisional photograph or "Portrait pending" slots remain. noindex/nofollow and
+every publication gate stay in force (metadata, headers, C-01, consent, G-02, S-02, SR build gate).
+
+- **Cases:** the evidence-placeholder cases bands on Investment and Property Purchase are off the page. The Tax
+  cases keep Sarah's structure without results.
+- **Calls to action:** the final CTAs link to Contact.
+- **Investment:** the repetition of Sarah's line is replaced (SR-083).
+- **Source documents:** the `(3)` documents named in the brief do not exist here.
+
+Still pending, by owner:
+
+- **Sarah:** 24 copy decisions (SR-001–011 Home; SR-019, 022, 027, 082, 085 Purchase; SR-036, 041, 049, 083, 084 Investment; SR-054, 058, 059 Tax).
+- **Cases (2026-10-01):** Juanma (owner) confirmed the client permissions and that the cases, names and data are real. The Tax cases are restored with Sarah's results and her publication line. No professional tax review is on record, so it stays open.
+- **Evidence and professional:** tax review (case wording and every tax statement), legal review (S-02 and legal statements), financial review, G-02 rights, financing (UCI/Sabadell) and renovations. The Investment and Property Purchase case and voice slots hold no real content and stay off the page.
+- **Assets:** warmer team photographs (A-02, A-03); no individual portraits exist.
+- **Technical:** sound publication (G-02 and human-reviewed captions), booking and email variables on Preview, B-01, unbuilt footer destinations, restricted tools, no ES route, no form.
+
 **2026-09-30 — Juanma's answers applied (`docs/approval-marks-audit.md` §10.8).**
 
 - **Approvals confirmed:** the "reviewed without objection" rule stands until Sarah asks for changes.

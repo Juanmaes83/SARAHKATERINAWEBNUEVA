@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { WebSection, WebSectionHeader } from './WebSection';
-import { WebButton } from './WebButton';
+import { WebButton, WebLinkButton } from './WebButton';
+import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
@@ -28,7 +29,6 @@ import {
   trustScript,
   trustStrip,
 } from '@/content/en/investment';
-import { isPublishable } from '@/lib/content/claims';
 import styles from './WebBands.module.css';
 
 /**
@@ -57,17 +57,7 @@ export function TrustBand() {
             <RevealOnScroll key={item.value.text} order={index} className={styles.trustItem}>
               <Icon name={item.icon as IconName} size="lg" className={styles.trustIcon} />
               <div>
-                <p className={styles.trustValue}>
-                  {item.value.text}
-                  {/* A pending figure carries a small mark, not a loud badge. */}
-                  {!isPublishable(item.value) ? (
-                    <span
-                      className={styles.pendingDot}
-                      role="img"
-                      aria-label="figure pending approval"
-                    />
-                  ) : null}
-                </p>
+                <p className={styles.trustValue}>{item.value.text}</p>
                 <p className={styles.trustNote}>{item.note.text}</p>
               </div>
             </RevealOnScroll>
@@ -564,13 +554,8 @@ export function AuthorityBand() {
 
               <p className={`${styles.script} ${styles.scriptOnDark}`}>{authority.quote.text}</p>
 
-              {/*
-                Reserved slot. The template shows a handwritten signature; no
-                signature asset exists and one may not be drawn or typeset.
-              */}
-              <div className={styles.signatureSlot}>
-                <p className={styles.signatureNote}>{authority.signaturePending.text}</p>
-              </div>
+              {/* 2026-10-01: the empty "Signature asset pending" slot is removed from
+                  the page; no signature asset exists (docs/approval-marks-audit.md §11). */}
             </div>
           </div>
 
@@ -736,15 +721,16 @@ export function FinalCtaBand() {
             subtitle={finalCta.body.text}
             rule
           />
+          {/* 2026-10-01: both actions lead to the Contact page, where the
+              channels work; the "not connected" note is gone. */}
           <div className={styles.ctaActions}>
-            <WebButton variant="primary" onDark arrow>
+            <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="primary" onDark arrow>
               {finalCta.primaryCta.text}
-            </WebButton>
-            <WebButton variant="secondary" onDark>
+            </WebLinkButton>
+            <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="secondary" onDark>
               {finalCta.secondaryCta.text}
-            </WebButton>
+            </WebLinkButton>
           </div>
-          <p className={styles.ctaNote}>{finalCta.note.text}</p>
         </RevealOnScroll>
 
         <RevealOnScroll order={1}>

@@ -38,11 +38,13 @@ describe('prototype route governance', () => {
     expect(nextConfig).toMatch(/noindex, nofollow/);
   });
 
-  it('shows the prototype banner before any other content', () => {
-    const banner = pageSource.indexOf('<PrototypeBanner');
-    const header = pageSource.indexOf('<WebHeader');
-    expect(banner).toBeGreaterThan(-1);
-    expect(banner).toBeLessThan(header);
+  it('keeps the route noindex without a visible preview strip', () => {
+    // 2026-10-01: the pages shown to the client carry no preview strip; the
+    // review state lives in docs/approval-marks-audit.md §11. What keeps the
+    // route out of search is unchanged and asserted here instead: laboratory
+    // metadata (noindex, nofollow) plus the transport header for /preview.
+    expect(pageSource).not.toContain('<PrototypeBanner');
+    expect(pageSource).toMatch(/laboratory:\s*true/);
   });
 });
 
@@ -70,7 +72,6 @@ describe('heading structure', () => {
 describe('landing composition', () => {
   it('includes every band the Phase 2B brief requires', () => {
     const required = [
-      'PrototypeBanner',
       'WebHeader',
       'WebHero',
       'TrustBand',
@@ -82,13 +83,16 @@ describe('landing composition', () => {
       'ScenariosBand',
       'ToolsBand',
       'AuthorityBand',
-      'CasesBand',
       'JourneyBand',
       'WebFaq',
       'FinalCtaBand',
       'WebFooter',
     ];
     expect(required.filter((band) => !pageSource.includes(band))).toEqual([]);
+    // 2026-10-01: the cases band held only evidence placeholders (client
+    // permission, verified results). It stays off the page until a case clears
+    // C-01 (docs/approval-marks-audit.md §11); the component is kept.
+    expect(pageSource).not.toContain('<CasesBand');
   });
 
   it('emits no JSON-LD', () => {

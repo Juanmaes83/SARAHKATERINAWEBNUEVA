@@ -372,15 +372,22 @@ describe('publication and held subjects', () => {
   // 2026-09-30 (last correction): investment.ts takes Sarah's proposed sentence
   // under "Buying on emotion"; property-purchase.ts rewrites the six worries
   // points in the positive (SR-082). Nothing else (verified by diff).
+  // 2026-10-01 (client-ready pass, docs/approval-marks-audit.md §11): internal
+  // status lines leave the four files (preview footers, "not connected",
+  // "not confirmed for publication", provisional photo fields), the Investment
+  // repetition becomes SR-083, FAQ placeholders become SR-084/SR-085, the
+  // Purchase pricing note becomes Sarah's Tax fees line (SR-027).
+  // 2026-10-01 (Juanma: cases real, permission held): tax-advisory.ts restores
+  // the case results and Sarah's publication line; nothing else.
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        '5587c9514889d363b6c357c029305b1814a6812c0f7bee55e77a39baf37d35c6',
+        '175800b535e8677a436b59fdf59eefdaf3c5746ef19567f2674ae9e63c7f3e7a',
       'content/en/tax-advisory.ts':
-        '0d91bae0774b3ac81263b7abc2d64a8a62e91e25df78e5b5c405da456f79ad00',
-      'content/en/team.ts': '5743db23aae1e92ee9c988760f144d73286792b16849c633a954fe106eac222f',
+        '09edb06d99ff559873b08602495b255d879bf1a630f0478a0741b4e5bae69104',
+      'content/en/team.ts': '29376fb9d71096de884cd7244e417f82d410a8e8b3dfe04852eda5a9929d6f45',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
@@ -395,7 +402,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '09da4ab3bcdf04237e4309f1366c0a3665ccb59f82537f877dc8a3fff96b8f9e',
+      '8b6ce6e860ca665018f8d67316b6747968a74cd2f81888948eeb26d5c6065b1f',
     );
   });
 });

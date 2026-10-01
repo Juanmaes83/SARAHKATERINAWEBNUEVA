@@ -551,7 +551,246 @@ Both come from her sentence. If one is enough, the next-step title is the one th
 - Warmer team photographs.
 - Sarah's signature.
 
-
 ### 10.11 Merge record and current deployment state
 
 PR #33 was squash-merged into `main` on 2026-09-30 as `fc6fb4947043431770a2cf66f87f3471e51bcd5c`. The PR-head Actions run `36748647728` passed lint, typecheck, tests, build and secret/environment hygiene. The Vercel check on the merge commit was pending when this record was updated. The merge did not connect the custom domain, enable indexing or approve production publication. The six routes remain under `/preview` with `noindex, nofollow`.
+
+---
+
+## 11. Client-ready pass (2026-10-01)
+
+**Branch:** `fix/sarah-review-client-ready-2026-10-01`, from `main` `f0f0f77` (PR #33 merged as `fc6fb49`; PR #34, documentation only).
+
+**Sources.**
+
+- The brief names `REVISION WEB-*(3).docx`. **No such files exist in this repository, on GitHub or on this machine.** They were not read, so no comparison against them is claimed.
+- The four documents that do exist in `Downloads` are unchanged since 2026-09-28 (same SHA-256 as in §10.1). They were re-read for this pass.
+
+### 11.1 Sarah's instructions after this pass
+
+#### Property Purchase
+
+| Instruction (document)                                                    | Status                                                                                                                                       | Where                                           |
+| ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| The hero video moves without scroll                                       | implemented                                                                                                                                  | `HeroFilm` (Phase 2H); verified in §11.5        |
+| "Compra con total tranquilidad: nosotros coordinamos cada paso."          | implemented ("total" dropped: no guaranteed state)                                                                                           | `hero`                                          |
+| "Nosotros gestionamos el papeleo; tú eliges tu casa."                     | implemented; the legal scope check S-02 stays open (professional)                                                                            | `audience.title`                                |
+| The calculator bigger, at the start                                       | implemented; it links only to the verified Buyer System origin (Preview)                                                                     | `BuyerToolBand` under the hero                  |
+| "Lo que parece una gran oportunidad…" and "El sueño cabe en un instante…" | implemented                                                                                                                                  | `goodIdea`                                      |
+| The Good-idea film with sound                                             | **blocked:** no rights or generation record (G-02) and no human-reviewed captions. The film stays muted, and the voiced source is not served | `approved-video.ts` (`soundtrack: unpublished`) |
+| Keep the navy blocks; "un poco apagada"                                   | implemented: blocks kept, aquamarine on navy (approved for now by Juanma)                                                                    | `app/web-tokens.css`                            |
+
+#### Investment
+
+| Instruction (document)                                                        | Status                                                                                                                                                                  | Where                                 |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| Less gold, aquamarine                                                         | implemented (gold restraint, aquamarine on navy)                                                                                                                        | `data-accent`, `data-palette`         |
+| The video bigger, without scroll                                              | implemented                                                                                                                                                             | `HeroFilm`                            |
+| The two headlines lack emotion                                                | implemented with new copy, open for Sarah (SR-036, SR-041)                                                                                                              | `hero`, `doors`                       |
+| The authority image at the start; the face looks unnatural                    | implemented: block at the start, with Sarah's own photograph                                                                                                            | `AuthorityBand`, `sarahBalcony`       |
+| "Este texto carece de sentido" → her sentence                                 | implemented **once**, as the next-step title. The repetition under "Buying on emotion" is removed and replaced by new copy (SR-083). A test keeps the rejected line out | `service-journey.ts`, `investment.ts` |
+| An emotional Home, presentation video, financing (UCI, Sabadell), renovations | **not implemented** on any page: Home scope, and financing and renovations are unverified                                                                               | —                                     |
+
+#### Tax Advisory
+
+| Instruction (document)                           | Status                                                | Where           |
+| ------------------------------------------------ | ----------------------------------------------------- | --------------- |
+| The pain point; the calculator big, at the start | implemented; the pain line is open for Sarah (SR-054) | `TAX_LEAD_TOOL` |
+| Lower the technical level                        | implemented with new wording, open (SR-058)           | `report`        |
+| "Todo lo que dejas en nuestras manos"            | implemented; the six items are open (SR-059)          | `concerns`      |
+| Change the face in the photograph                | implemented: Sarah's own photograph                   | `sarahStairs`   |
+| The cases block as she wrote it                  | **partially implemented** (see below)                 | `TaxCasesBand`  |
+| ITP on the off-plan case                         | implemented with her neutral wording; no tax is named | `cases`         |
+
+On the cases block: the title, subtitle, badge, three titles and texts, "Year confidential" and the CTA are on the page. Her results and her publication line stay off it until each case has written permission, verified figures and tax review (C-01). No "pending" label is shown.
+
+#### Team
+
+| Instruction (document)                                                         | Status                                                                                | Where                       |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | --------------------------- |
+| A warmer, bigger hero photograph                                               | **partially implemented:** bigger; warmer needs an approved edited file (A-02)        | —                           |
+| The two titles and the introduction                                            | implemented                                                                           | `pathsHeader`, `teamHeader` |
+| Remove "Las fotografías muestran a tres personas…"                             | implemented: the subtitle (Phase 2H) and now the same note under the group photograph | `TeamEditorial.tsx`         |
+| The group photo is low quality and should be warmer                            | **blocked:** no replacement file (A-03)                                               | —                           |
+| A photograph of each person                                                    | **blocked:** none exists (Juanma). The placeholders are removed from the page         | —                           |
+| The full names                                                                 | implemented ("Óscar Gonzalez", "Igor Veselov"; the surname accent is N-01)            | `profiles`                  |
+| Remove the "El comprador es el cliente" section and the office-sign photograph | implemented (Phase 2H)                                                                | —                           |
+| A closer, family tone                                                          | **not implemented:** it needs the photographs                                         | —                           |
+
+### 11.2 What left the pages shown to the client
+
+**Removed from the interface.** These were internal status. They now live here and in the claim statuses.
+
+- **Preview banners** on Contact, Property Purchase, Investment, Tax and Team: "… PREVIEW · NOT PRODUCTION", "Review environment · noindex…".
+- **Footer status lines:**
+  - the "preview · noindex" chip, now off by default;
+  - "Internal preview, not for publication/distribution", now just "Sarah Katerina";
+  - "Apart from Contact, the destinations in this footer are not built yet";
+  - "English is the active preview language…".
+- **Placeholder labels:**
+  - every per-answer "Not confirmed for publication yet." note in the FAQs;
+  - the pending-figure dots (`aria-label="figure pending approval"`);
+  - "Signature asset pending", together with its empty slot.
+- **Unconnected buttons.** The note "These buttons are not connected in this preview" is gone. The final-CTA buttons on Investment, Tax and Team, and the Tax report button, now link to Contact.
+- **Response times and pricing:** "Response time(s) are not confirmed…", "Pricing… not published in this preview", "Nothing is priced on this preview".
+- **The Investment and Property Purchase cases bands**, including the buyer-voice banner. They held only placeholders: "Location pending", "Awaiting client permission", "Result withheld", "Preview · content pending", "The buyer's own words will appear here…".
+- **On Tax:** the results, "Location withheld", "Proposed result · evidence and tax review pending" and the conditional publication line.
+- **On Team:** "Portrait pending", the identity note under the group photograph, "PROVISIONAL PHOTOGRAPH — NOT FOR PRODUCTION" and the provisional event photograph, plus the identity clauses in the alt texts; the FAQ note "This editorial preview describes a proposed way of working… requires competent review before publication" (now "This page describes a way of working, not an engagement letter or professional advice."); the note on the unconnected final button (it now links to Contact).
+- **On the Home:** the clause "When this Preview is configured" in the tools intro.
+
+**Kept on the page.** These protect the visitor:
+
+- the "Illustrative" and "sample" labels on dashboards and sample documents;
+- the film disclosure;
+- every service limit ("not a valuation, survey or legal representation", "no feasibility or permission is promised", "not guaranteed");
+- the FAQ disclaimers, reworded without internal status;
+- the Contact fallback shown when online booking is not configured.
+
+**Kept off the page and still active.** These are the publication gates:
+
+- `noindex, nofollow` in metadata and in the `/preview` `X-Robots-Tag`, and exclusion from the sitemap;
+- C-01 (permission, figures and tax review for each case) and consent for buyer voices;
+- G-02 rights and human-reviewed captions for sound;
+- S-02 and every legal, tax or financial statement;
+- the SR register, and the build gate on SR marks in production or indexable mode.
+
+### 11.3 Register after this pass
+
+**24 open Sarah decisions.** All of them are copy she has never seen; no image items remain.
+
+| ID            | Page              | What she has to decide                                                                                                                                                   |
+| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| SR-001–SR-011 | Home              | Unchanged: no document covers the Home. The clause removed from the tools intro was configuration, not copy                                                              |
+| SR-019        | Property Purchase | The line under the Purchase Tax band (Phase 2H)                                                                                                                          |
+| SR-022        | Property Purchase | "Where an opportunity usually goes wrong" (Phase 2H)                                                                                                                     |
+| SR-027        | Property Purchase | "What it includes", and the fees line "Scope and fees are confirmed in writing before any work starts." (her Tax sentence, new on this page, replacing the pricing note) |
+| SR-082        | Property Purchase | The six points, rewritten in the positive                                                                                                                                |
+| SR-085        | Property Purchase | Three FAQ answers and the closing note, rewritten without internal status                                                                                                |
+| SR-036        | Investment        | The new headline and lead                                                                                                                                                |
+| SR-041        | Investment        | The new doors headline                                                                                                                                                   |
+| SR-049        | Investment        | The sentence under her next-step line (Phase 2H)                                                                                                                         |
+| SR-083        | Investment        | The line under "Buying on emotion", which replaces the repetition                                                                                                        |
+| SR-084        | Investment        | Two FAQ answers (timing, cost) and the closing note                                                                                                                      |
+| SR-054        | Tax Advisory      | The pain-point line (it also needs tax review)                                                                                                                           |
+| SR-058        | Tax Advisory      | The plainer report wording (it also needs tax review)                                                                                                                    |
+| SR-059        | Tax Advisory      | The six items under her title, and the scope question S-01                                                                                                               |
+
+**Not marked:**
+
+- Tax and Team edits that only delete internal clauses: "…and no figure is confirmed for publication yet", "Nothing is priced on this preview", the "editorial preview" wording. What remains is copy she reviewed.
+- "No commitment." on Tax: template copy she saw.
+
+### 11.4 Not changed
+
+- Routes, noindex and the sitemap.
+- Vercel, the domain and indexation.
+- Any testimonial: names, quotes and consent.
+- The Buyer System.
+- Contact's content, apart from its preview banner and the shared footer.
+- Home copy, apart from the configuration clause.
+
+### 11.7 Juanma's decision on the cases (2026-10-01)
+
+Juanma, as owner, confirms that the client permissions exist and that the cases, names and data are real. This confirmation is the owner's source of truth for the project. It supersedes the evidence part of C-01 (§11.1, §11.2) for the Tax Advisory cases.
+
+**Tax Advisory, restored as Sarah wrote it:**
+
+- the title "Three real cases. Three mistakes avoided." (now `confirmed`);
+- the three results: "Penalty avoided", "Position regularised", "Taxes and costs planned";
+- "Year confidential";
+- her publication line, in its affirmative form: "Published with the client’s written permission and verified figures."
+
+The subtitle, the three case titles and texts, the "Illustration" badge and the CTA were already on the page.
+
+**What does not exist, so nothing was added.** Sarah's copy carries no client names, locations or amounts, and none exist in the repository. The year stays confidential, as she wrote. The "Illustration" badge stays: it is her label for the drawings, not a statement about the cases.
+
+**Removed from page and register:**
+
+- "Proposed result · evidence and tax review pending";
+- "Location withheld";
+- the conditional "Published only with written client permission and verified figures";
+- the `unverified` status of the results.
+
+**Still open: professional tax review.** No record shows that a tax professional has reviewed the case wording. The results, and the case texts that state an outcome, therefore keep the `tax` review domain and stay `pending`. They are not marked `confirmed`. This is an internal publication gate, not a label on the page.
+
+The off-plan case also stays tax-neutral: no record says whether it was a new build (VAT + AJD) or a resale (ITP), and Sarah's own correction asks to name the tax only if it was a resale.
+
+**Unchanged:**
+
+- **The Home testimonials** (Pieter van den Berg, James & Sarah Whitfield, Hans Schmidt): their names, quotes and contexts are untouched and still published with permission.
+- **The Investment and Property Purchase cases bands** stay off the page. They hold illustrative analyses and buyer-voice slots, not real cases, so this decision does not restore them.
+- **Every open Sarah copy decision** (24, §11.3).
+
+**Professional gates still open after this pass:**
+
+- tax review of every tax statement, including the case results and texts;
+- legal review of every legal statement, including S-02 "We handle the paperwork" and the rewritten FAQ answers;
+- financial review of financial statements;
+- G-02, the rights and generation record for the footage and voice; sound also needs human-reviewed captions.
+
+Financing (UCI, Sabadell) and renovations are not on any page and remain unverified.
+
+### 11.5 QA (2026-10-01, local)
+
+**Setup:**
+
+- **Server:** a production build of this branch in its own worktree (`next start`, port 3310). No `next dev` shares that `.next`; the user's ports 3000 and 3001 were not touched.
+- **Captures:**
+  - *before*: `main`'s code (`f8f232b` build, port 3311);
+  - *after*: this branch.
+- **Browser:** Google Chrome through Playwright 1.63, on all six routes at 320, 390, 768, 1024 and 1440.
+
+**Results at every width:**
+
+- One `h1`, 0 horizontal overflow.
+- **SR marks:** exactly the register (24 placements), 0 duplicates.
+- **Retired wording:** 0 rejected or internal phrases found. The check covered preview banners, "not for production", "Portrait pending", "not connected", "withheld", "pending" labels, identity notes and "An opportunity is only right".
+- **Errors:** 0 console errors, 0 broken images, 0 broken anchors, 0 404s. The only failed requests are aborted `.webm` preloads when a page closes.
+- **noindex:** `noindex, nofollow` in both metadata and `X-Robots-Tag`.
+
+**Other checks:**
+
+- **Mobile menu:** opens with 8 links; Escape returns focus.
+- **Keyboard:** 14 stops at 1440, each with a visible outline.
+- **Sitemap:** has no `/preview` entry; `robots.txt` disallows all.
+
+**Media:**
+
+- **With reduced motion:** 0 video requests and 0 videos playing on every route. Play controls are still offered (Home, Purchase, Investment). Tax shows its poster.
+- **Without reduced motion:**
+  - The Purchase and Investment heroes play without scroll, muted, with no `autoplay` attribute. Pause works with Enter.
+  - The Good-idea film is muted, with no sound control and no caption track.
+
+**Destinations:**
+
+- Buyer System links go to the verified origin only: Purchase Tax and Real Cash Needed.
+- The final CTAs and the Tax report button go to `/preview/contact`.
+- WhatsApp, phone, email and Maps are unchanged.
+
+**Visible provisional wording:** 106 matches before → 22 after. All 22 are service limits, disclosures or the "Pending" step of the sample file tracker, which is labelled illustrative.
+
+**Captures:** `docs/screenshots/client-ready-2026-10-01/`
+
+- `full/`: six routes at 390 and 1440;
+- `before-after/`: 8 blocks × 2 widths;
+- `states/`: menus;
+- `recon-qa.json`.
+
+**Not verified:**
+
+- The Vercel Preview: nothing is pushed.
+- Safari/iOS, Android, screen readers.
+
+**Tax Advisory after restoring the cases.** Playwright with Chrome on a production build, at 320, 390, 768, 1024 and 1440:
+
+- **Cases:** each card shows its title, text, result, "Year confidential" and the publication line, and no card text is clipped.
+- **Labels:** 0 "pending", "withheld" or preview labels.
+- **Page checks:** one `h1`, 0 overflow, 0 console errors, 0 responses of 4xx or above, 0 broken images, `noindex, nofollow` in metadata and header.
+- **Links:** they go to the preview routes, Contact and the verified Buyer System origin only.
+- **Captures:** `docs/screenshots/client-ready-2026-10-01/tax-cases-restored/`.
+
+### 11.6 Discrepancy for Juanma
+
+The Team page's profile card for Sarah uses `public/sarah/sk-real-1.jpg`, recorded as "AUTH-SK-001, authentic identity reference". It is a black-and-white studio portrait. The photographs Juanma confirmed as Sarah on 2026-09-30 are `EQUIPO_SARAHKATERINA4–6`. Identity is not judged from appearance here, so nothing was changed.
+
+Juanma should confirm whether `sk-real-1.jpg` shows Sarah. If it does not, replace it with one of the confirmed photographs.

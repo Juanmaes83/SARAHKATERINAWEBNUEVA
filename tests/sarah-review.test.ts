@@ -184,8 +184,11 @@ describe('Sarah review register', () => {
     ]) {
       expect(read(file).replace(/\/\*\*[\s\S]*?\*\//g, ''), file).not.toContain(retired);
     }
-    expect(read('content/en/investment.ts')).toContain(
-      "text: 'An opportunity is only right if it fits your goals — not the goals of the person selling it.'",
+    // 2026-10-01: Sarah's idea appears once on the page, as the next-step title;
+    // the repetition under "Buying on emotion" is gone.
+    expect(read('content/en/investment.ts')).not.toContain('An opportunity is only right');
+    expect(read('content/en/service-journey.ts')).toContain(
+      "text: 'An opportunity is only good if it fits your goals, not the goals of the person selling it.'",
     );
     // REVISION WEB. Team.docx: "Y el texto de abajo hay que eliminarlo."
     expect(read('components/web/TeamEditorial.tsx')).not.toMatch(

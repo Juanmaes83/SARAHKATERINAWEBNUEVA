@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Container } from '@/components/layout/Container';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
-import { WebButton, WebLinkButton } from './WebButton';
+import { WebLinkButton } from './WebButton';
+import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
 import { WebFaq } from './WebFaq';
 import { ServiceJourney } from './ServiceJourney';
 import { WebSection, WebSectionHeader } from './WebSection';
@@ -21,7 +22,6 @@ import {
 } from '@/content/en/team';
 import teamHero from '@/public/team/optimized/team-hero.webp';
 import teamGroup from '@/public/team/optimized/team-group.webp';
-import teamNetwork from '@/public/team/optimized/team-network.webp';
 import sarahPortrait from '@/public/sarah/sk-real-1.jpg';
 import entrance from '@/components/motion/Entrance.module.css';
 import { cn } from '@/lib/utils/cn';
@@ -73,24 +73,14 @@ function TeamHero() {
 function NetworkBand() {
   return (
     <WebSection surface="navySoft" id="network">
+      {/*
+        2026-10-01: the provisional event photograph (EQUIPO_SARAHKATERINA3,
+        people and organisations unidentified) and its "provisional" label are
+        removed from the page; the band keeps the copy Sarah reviewed. The
+        decision is recorded in docs/team-asset-record.md.
+      */}
       <div className={styles.networkGrid}>
-        <RevealOnScroll variant="unveil" className={styles.networkMedia}>
-          <figure className={styles.networkFigure}>
-            <div className={styles.networkFrame}>
-              <Image
-                src={teamNetwork}
-                alt={network.imageAlt}
-                placeholder="blur"
-                sizes="(max-width: 767px) 100vw, 44vw"
-                className={styles.networkImage}
-              />
-            </div>
-            <figcaption>{network.caption}</figcaption>
-          </figure>
-        </RevealOnScroll>
-
-        <RevealOnScroll order={1} className={styles.networkCopy}>
-          <p className={styles.provisionalLabel}>{network.reviewLabel}</p>
+        <RevealOnScroll className={`${styles.networkCopy} ${styles.networkSolo}`}>
           <p className={styles.darkEyebrow}>{network.eyebrow}</p>
           <h2>{network.title}</h2>
           {network.body.map((paragraph) => (
@@ -194,17 +184,10 @@ function TeamBand() {
       <div className={styles.profileGrid}>
         {team.map((profile, index) => (
           <RevealOnScroll key={profile.name} order={index} className={styles.profileCard}>
-            {/* Phase 2H: one portrait per profile, as Sarah asked. No named,
-                approved photograph exists yet, so the slot says so; a face is
-                never assigned from a group photograph or by appearance. */}
-            <div
-              className={styles.portraitPending}
-              role="img"
-              aria-label={`Portrait of ${profile.name} pending`}
-            >
-              <Icon name="buyer" size="lg" />
-              <span>Portrait pending</span>
-            </div>
+            {/* 2026-10-01: Sarah asked for one photograph per profile. No named,
+                approved individual photograph exists (Juanma: the repository
+                holds all there are), so the card shows its text only; a face is
+                never assigned from a group photograph. */}
             <p className={styles.profileArea}>{profile.area}</p>
             <h3>{profile.name}</h3>
             <p>{profile.body}</p>
@@ -217,17 +200,13 @@ function TeamBand() {
           <div className={styles.groupFrame}>
             <Image
               src={teamGroup}
-              alt="Three members of the Sarah Katerina team seated together outdoors; individual identities are not assigned in this preview."
+              alt="Three members of the Sarah Katerina team seated together on a sunny terrace."
               fill
               placeholder="blur"
               sizes="(max-width: 767px) 100vw, 1200px"
               className={styles.coverImage}
             />
           </div>
-          <figcaption>
-            Authentic team photography. Three people appear; no fourth person or individual identity
-            is inferred from the image.
-          </figcaption>
         </figure>
       </RevealOnScroll>
     </WebSection>
@@ -304,13 +283,14 @@ function FinalCtaBand() {
           <p className={styles.darkLead}>{finalCta.body}</p>
         </RevealOnScroll>
         <RevealOnScroll order={1} className={styles.ctaActions}>
-          <WebButton variant="primary" onDark arrow>
+          {/* 2026-10-01: the primary action leads to the Contact page. */}
+          <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="primary" onDark arrow>
             {finalCta.primaryCta}
-          </WebButton>
+          </WebLinkButton>
           <WebLinkButton href="#paths" variant="secondary" onDark>
             {finalCta.secondaryCta}
           </WebLinkButton>
-          <p>{finalCta.note}</p>
+          {finalCta.note ? <p>{finalCta.note}</p> : null}
         </RevealOnScroll>
       </div>
     </WebSection>

@@ -51,11 +51,21 @@ describe('sound on the Property Purchase brand film', () => {
   });
 });
 
-describe('tax cases — never shown as verified facts', () => {
-  it('keeps every proposed result unverified and the permission line conditional', () => {
-    for (const item of tax.cases.items) expect(item.metric.status).toBe('unverified');
-    expect(tax.cases.permissionPending.text).toMatch(/^Published only with/);
-    expect(tax.cases.permissionPending.status).toBe('blocked');
+describe('tax cases — real and authorised, tax review still open', () => {
+  it("shows Sarah's results and her publication line, keeping the tax review open", () => {
+    // 2026-10-01: Juanma (owner) confirms the cases are real and the clients'
+    // written permission is held. The results are shown as results, but their
+    // wording still awaits professional tax review, so none is `confirmed`.
+    for (const item of tax.cases.items) {
+      expect(item.metric.status).toBe('pending');
+      expect(item.metric.review).toBe('tax');
+    }
+    expect(tax.cases.publication.text).toBe(
+      'Published with the client’s written permission and verified figures.',
+    );
+    expect(tax.cases.publication.source).toMatch(/Juanma \(owner\), 2026-10-01/);
+    expect('permissionPending' in tax.cases).toBe(false);
+    expect('evidencePending' in tax.cases).toBe(false);
   });
 
   it('keeps the off-plan case tax-neutral until new build or resale is confirmed', () => {

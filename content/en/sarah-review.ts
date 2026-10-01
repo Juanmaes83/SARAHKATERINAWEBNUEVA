@@ -213,11 +213,28 @@ export const SARAH_REVIEW_ITEMS = [
     id: 'SR-027',
     routes: [PURCHASE],
     kind: 'copy',
-    label: 'Service levels · the label “What it includes”',
+    label: 'Service levels · “What it includes” and the fees line',
     scope:
       'The card label, changed on 2026-09-30 from “What the preview includes” (the version she saw) because it named the preview.',
-    decision: 'Approve the new label, or keep the wording she saw.',
-    refs: ['property-purchase:services.scopeTitle'],
+    decision:
+      'Approve the new label, or keep the wording she saw; approve the fees line “Scope and fees are confirmed in writing before any work starts.” (her Tax sentence, new on this page), which replaces an internal note on pricing.',
+    refs: ['property-purchase:services.scopeTitle', 'property-purchase:services.pricingNote'],
+  },
+  {
+    id: 'SR-085',
+    routes: [PURCHASE],
+    kind: 'copy',
+    label: 'FAQ · three answers and the closing note, rewritten',
+    scope:
+      'The answers about a Spanish lawyer, what the service includes and how long the process takes, and the note under the questions, rewritten on 2026-10-01 without the internal status they carried (“reviewed before publication”, “subject to approval”, “not approved”).',
+    excludes: 'The other answers, which she reviewed.',
+    decision: 'Approve, edit or withdraw these answers. The legal answers also need legal review.',
+    refs: [
+      'property-purchase:faq.items.0.answer',
+      'property-purchase:faq.items.3.answer',
+      'property-purchase:faq.items.4.answer',
+      'property-purchase:faq.legalNote',
+    ],
   },
   {
     id: 'SR-082',
@@ -234,6 +251,33 @@ export const SARAH_REVIEW_ITEMS = [
   },
 
   // ── Investment ──────────────────────────────────────────────────────────
+  {
+    id: 'SR-083',
+    routes: [INVESTMENT],
+    kind: 'copy',
+    label: '“Buying on emotion” · the line under it',
+    scope:
+      '“First impressions sell quickly. The analysis checks whether the property still fits your plan once they fade.” — written on 2026-10-01 to replace a repetition of her line, which titles the next-step band.',
+    excludes: 'The title “Buying on emotion” and the other five objections, which she reviewed.',
+    decision: 'Approve, edit or withdraw this line.',
+    refs: ['investment:approach.objections.0.body'],
+  },
+  {
+    id: 'SR-084',
+    routes: [INVESTMENT],
+    kind: 'copy',
+    label: 'FAQ · two answers and the closing note, rewritten',
+    scope:
+      'The answers to “How long does the analysis take?” and “What does the service cost?”, and the note under the questions. They replace internal status lines (“not confirmed / not approved for publication yet”) on 2026-10-01.',
+    excludes: 'Every other question and answer, which she reviewed.',
+    decision:
+      'Approve, edit or withdraw these answers. Fees and timing also need confirmation by the business.',
+    refs: [
+      'investment:faq.items.1.answer',
+      'investment:faq.items.4.answer',
+      'investment:faq.legalNote',
+    ],
+  },
   {
     id: 'SR-036',
     routes: [INVESTMENT],
@@ -420,7 +464,15 @@ export const SARAH_APPROVALS = [
       'service-journey:TEAM_LAYER',
       'buyer-voices:VOICES_BAND',
     ],
-    except: ['property-purchase:goodIdea.pointsTitle', 'property-purchase:services.scopeTitle'],
+    except: [
+      'property-purchase:goodIdea.pointsTitle',
+      'property-purchase:services.scopeTitle',
+      'property-purchase:services.pricingNote',
+      'property-purchase:faq.items.0.answer',
+      'property-purchase:faq.items.3.answer',
+      'property-purchase:faq.items.4.answer',
+      'property-purchase:faq.legalNote',
+    ],
   },
   {
     routes: [INVESTMENT],
@@ -428,7 +480,7 @@ export const SARAH_APPROVALS = [
     source: `${INV_DOC}: "Una oportunidad solo es buena si encaja con tus objetivos, no con los de quien te la vende."`,
     scope:
       'Her line, as the title of the next-step band (English adaptation, §10.2 of the Phase 2H record), and her proposed sentence replacing “The view sells the property…” under “Buying on emotion” (2026-09-30).',
-    refs: ['service-journey:JOURNEY.investment.title', 'investment:approach.objections.0.body'],
+    refs: ['service-journey:JOURNEY.investment.title'],
   },
   {
     routes: [INVESTMENT],
@@ -458,6 +510,10 @@ export const SARAH_APPROVALS = [
       'service-journey:JOURNEY.investment',
     ],
     except: [
+      'investment:approach.objections.0.body',
+      'investment:faq.items.1.answer',
+      'investment:faq.items.4.answer',
+      'investment:faq.legalNote',
       'investment:hero.heading',
       'investment:hero.lead',
       'investment:doors.title',
