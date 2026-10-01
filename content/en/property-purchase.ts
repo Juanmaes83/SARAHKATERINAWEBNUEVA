@@ -14,14 +14,6 @@ const JUANMA_REVIEW =
 const SARAH_APPROVED =
   "Sarah's review (REVISION WEB-property-purchase.docx), accepted by Juanma 2026-09-28";
 
-export const PROTOTYPE_NOTICE = {
-  label: 'PROPERTY PURCHASE PREVIEW · NOT PRODUCTION',
-  body: claim({
-    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision, and legal and tax statements still need professional review.',
-    status: 'confirmed',
-    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
-  }),
-} as const;
 
 export const hero = {
   eyebrow: claim({ text: 'Buying property in Spain', status: 'proposal', source: TEMPLATE }),
@@ -791,5 +783,5 @@ export const footer = {
 export const seo = {
   title: 'Property purchase support in Spain',
   description:
-    'Independent, end-to-end property purchase support for international buyers in Spain. Internal visual preview, not approved for production.',
+    'Independent, end-to-end property purchase support for international buyers in Spain.',
 } as const;

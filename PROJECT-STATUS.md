@@ -107,6 +107,12 @@ Most recent first.
 
 Contact is integrated with Home, shared navigation and all footers. PR-head CI passed; the Vercel check on the merge commit was pending when this entry was prepared. The site remains controlled preview/noindex.
 
+**2026-10-01 — Editorial marks hidden for Sarah's final review (`fix/hide-editorial-marks-2026-10-01`; `docs/approval-marks-audit.md` §12).**
+No route renders the "SARAH REVIEW REQUIRED · SR-###" strips or tags any more: the anchors render nothing but keep the
+build gate. The preview wording is also removed from the SEO descriptions. The 24 SR items stay in the register as copy Sarah
+can comment on; approved content and the real publication barriers are listed separately. noindex/nofollow, sitemap
+exclusion and the `/preview` routes are unchanged.
+
 **2026-10-01 — Client-ready pass on `fix/sarah-review-client-ready-2026-10-01` (not merged; `docs/approval-marks-audit.md` §11).**
 The pages shown to the client no longer show internal status. No preview banners, footer chip, "not connected",
 "pending" or "withheld" labels, provisional photograph or "Portrait pending" slots remain. noindex/nofollow and

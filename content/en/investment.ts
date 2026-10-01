@@ -30,14 +30,6 @@ const TEMPLATE = 'Investment template — approved copy source (Juanma, 2026-09-
 /** Copy added by the Phase 2E visual content upgrade. Pending Juanma's review. */
 const PHASE_2E_REPORT = 'Phase 2E proposed copy (brief 2026-10-23) — pending Juanma';
 
-export const PROTOTYPE_NOTICE = {
-  label: 'INVESTMENT PREVIEW · NOT PRODUCTION',
-  body: claim({
-    text: 'Review environment · noindex. Items marked SARAH REVIEW REQUIRED await Sarah’s decision. Dashboard figures are illustrative samples, cases stay withheld until client permission and verified figures exist, and tax, legal and financial statements still need professional review.',
-    status: 'confirmed',
-    source: 'docs/approval-marks-audit.md §3 (preview banner, audit 2026-09-30)',
-  }),
-} as const;
 
 export const hero = {
   /** "INVERSIÓN CON SENTIDO" */
@@ -1283,5 +1275,5 @@ export const footer = {
 export const seo = {
   title: 'Property investment analysis in the Costa Blanca',
   description:
-    'Independent property investment analysis for international buyers in the Costa Blanca: financial modelling, due diligence and a tax overlay in one decision report. Internal visual preview, not approved for production.',
+    'Independent property investment analysis for international buyers in the Costa Blanca: financial modelling, due diligence and a tax overlay in one decision report.',
 } as const;

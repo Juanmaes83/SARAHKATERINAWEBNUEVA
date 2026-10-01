@@ -794,3 +794,90 @@ Financing (UCI, Sabadell) and renovations are not on any page and remain unverif
 The Team page's profile card for Sarah uses `public/sarah/sk-real-1.jpg`, recorded as "AUTH-SK-001, authentic identity reference". It is a black-and-white studio portrait. The photographs Juanma confirmed as Sarah on 2026-09-30 are `EQUIPO_SARAHKATERINA4–6`. Identity is not judged from appearance here, so nothing was changed.
 
 Juanma should confirm whether `sk-real-1.jpg` shows Sarah. If it does not, replace it with one of the confirmed photographs.
+
+---
+
+## 12. Editorial marks hidden for Sarah's final review (2026-10-01)
+
+**Branch:** `fix/hide-editorial-marks-2026-10-01`, from `main` `cd7ac67` (PR #35 merged).
+
+**Why.** Juanma asked for Sarah to review the site as a finished experience. The "SARAH REVIEW REQUIRED · SR-### · …" strips and tags made the pages look unfinished, so they no longer render on any route.
+
+**How.**
+
+- `components/review/SarahReviewMark.tsx` now returns `null`. It renders no HTML, no hidden node, no style and no gap.
+- Its 24 placements stay in the page sources as internal anchors, so the code still shows which block each open item covers.
+- Its stylesheet is deleted.
+- It still calls the publication gate. A production or indexable build containing an open item fails. That barrier is internal and invisible.
+
+**Other visible editorial wording removed in the same pass:**
+
+| Where | Before | After | Rendered on the six routes? |
+| ----- | ------ | ----- | --------------------------- |
+| SEO description (Investment, Property Purchase, Tax): `<meta name="description">`, Open Graph, Twitter | "… Internal visual preview, not approved for production." | Sentence removed; the rest is unchanged | Yes, in metadata and link previews |
+| `content/en/*` `PROTOTYPE_NOTICE` (Contact, Investment, Property Purchase, Tax, Team) | Banner texts "Review environment · noindex. Items marked SARAH REVIEW REQUIRED…" | Exports deleted | No: unused since §11 |
+| Buyer tool ribbon fallback | "Link pending approval" / "Its public address is awaiting approval, so it is not linked in this preview." | "Not available here yet" / "This tool is not linked from this page yet." | No: only without a Buyer System origin. Preview and Production have one, so the link shows |
+| Header language switcher `aria-label` | "Language — preview only, routing not implemented" | "Language" | No: the switcher is off on all six routes |
+
+**Content unchanged:**
+
+- every approved text;
+- the Tax results ("Penalty avoided", "Position regularised", "Taxes and costs planned"), "Year confidential" and Sarah's publication line;
+- the testimonials, names, figures, services and commercial claims;
+- the service limits and the "Illustrative" disclosures.
+
+The only copy changes are the SEO sentence and the two never-rendered fallbacks above.
+
+### 12.1 Traceability (internal only)
+
+**1. Approved content.** It is listed in `SARAH_APPROVALS` (`content/en/sarah-review.ts`), with the quoted line of Sarah's documents or the owner's relay:
+
+- Contact, as a whole page;
+- Sarah's explicit lines;
+- the copy she reviewed without asking for a change;
+- the Tax cases, confirmed real and authorised by Juanma on 2026-10-01.
+
+**2. Content Sarah can comment on during this final review.** These are the 24 SR items in `SARAH_REVIEW_ITEMS`: copy she has not yet seen. Nothing on the page marks them.
+
+| ID | Page | Block |
+| -- | ---- | ----- |
+| SR-001–SR-011 | Home | Hero lead; side statement; selector and three service chapters; Team chapter title and button; process; client-voices title and note; Buyer tools title and cards; FAQ; contact band; final CTA; footer |
+| SR-019 | Property Purchase | Line under the Purchase Tax band |
+| SR-022 | Property Purchase | "Where an opportunity usually goes wrong" |
+| SR-027 | Property Purchase | "What it includes" and the fees line |
+| SR-082 | Property Purchase | Six points under "Everything you leave in our hands." |
+| SR-085 | Property Purchase | Three FAQ answers and the closing note |
+| SR-036 | Investment | Headline and lead |
+| SR-041 | Investment | Doors headline |
+| SR-049 | Investment | Sentence under her next-step line |
+| SR-083 | Investment | Line under "Buying on emotion" |
+| SR-084 | Investment | Two FAQ answers and the closing note |
+| SR-054 | Tax Advisory | Pain-point line |
+| SR-058 | Tax Advisory | Plainer report wording |
+| SR-059 | Tax Advisory | Six items under her title, and scope question S-01 |
+
+When Sarah comments, record her decision here and in `SARAH_APPROVALS`, then delete the entry and its anchor. No approval is recorded until she gives it.
+
+**3. Real publication barriers.** None of these is shown on the page:
+
+- `noindex, nofollow` in metadata and in the `/preview` `X-Robots-Tag`; the routes stay out of the sitemap; `robots.txt` disallows all;
+- the SR build gate described above;
+- professional tax review: case wording and every tax statement;
+- legal review: S-02 and the legal statements, including the rewritten FAQ answers;
+- financial review of the financial statements;
+- G-02 rights and human-reviewed captions before the Good-idea film can have sound;
+- buyer-voice consent before any Investment or Property Purchase case or voice slot returns;
+- technical:
+  - booking and email variables on the Vercel Preview;
+  - the Buyer System production origin (B-01);
+  - unbuilt footer destinations;
+  - restricted tools ("Coming soon");
+  - no Spanish route and no form.
+
+**Tests** (`tests/sarah-review.test.ts`) now assert three things:
+
+- no route renders a review strip, tag or SR code;
+- no component JSX or renderable content string carries editorial wording ("Sarah review required", "SR-###", "pending approval", "proposed copy", "internal review", "internal preview", "preview only", "not approved", "review environment", "not for production");
+- the authorised Tax results are still rendered.
+
+They also check that the anchors and the register still match.

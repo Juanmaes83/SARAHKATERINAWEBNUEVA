@@ -379,15 +379,18 @@ describe('publication and held subjects', () => {
   // Purchase pricing note becomes Sarah's Tax fees line (SR-027).
   // 2026-10-01 (Juanma: cases real, permission held): tax-advisory.ts restores
   // the case results and Sarah's publication line; nothing else.
+  // 2026-10-01 (editorial marks hidden): the unused PROTOTYPE_NOTICE exports
+  // are removed and the SEO descriptions drop "Internal visual preview, not
+  // approved for production."; no other string changed (verified by diff).
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        '175800b535e8677a436b59fdf59eefdaf3c5746ef19567f2674ae9e63c7f3e7a',
+        'bb2a28b2ec597df1d3b15fb9e2718e47549cef02742b1a6eaa3e01e2d2d5c6f1',
       'content/en/tax-advisory.ts':
-        '09edb06d99ff559873b08602495b255d879bf1a630f0478a0741b4e5bae69104',
-      'content/en/team.ts': '29376fb9d71096de884cd7244e417f82d410a8e8b3dfe04852eda5a9929d6f45',
+        '587c710fdc65807250fe5d01f11ece859ce03a239b18ef6ac2469474872faf56',
+      'content/en/team.ts': 'ef4002352a4e7c2c38aeb2c9e1220e7916a785796584cf49eddf444f1d124f72',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':
@@ -402,7 +405,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '8b6ce6e860ca665018f8d67316b6747968a74cd2f81888948eeb26d5c6065b1f',
+      '23dc74fb0671b823c8acc00333d9be849113da8d1d90241b320dc85ce5d6a009',
     );
   });
 });

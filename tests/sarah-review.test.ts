@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
@@ -216,6 +216,82 @@ describe('Sarah review register', () => {
   });
 });
 
+describe('the editorial tracking is never shown to the visitor', () => {
+  // 2026-10-01 (Juanma): Sarah reviews the site as a finished experience. The
+  // anchors stay in the page sources (traceability) but render nothing, and no
+  // component or content string carries the editorial wording.
+  it('renders no review strip, tag or SR code', () => {
+    const mark = read('components/review/SarahReviewMark.tsx').replace(/\/\*[\s\S]*?\*\//g, '');
+    expect(mark).not.toMatch(/<(div|span|p)/);
+    expect(mark).not.toMatch(/Sarah review required/i);
+    expect(existsSync(join(root, 'components/review/SarahReviewMark.module.css'))).toBe(false);
+  });
+
+  it('keeps editorial wording out of every rendered component and content string', async () => {
+    const EDITORIAL =
+      /Sarah review required|SR-\d{3}|pending approval|awaiting approval|proposed copy|internal review|internal (visual )?preview|preview only|not approved|review environment|not for production/i;
+    // Components: every JSX string, comments excluded.
+    const components = [
+      ...Object.values(ROUTE_FILES).flat(),
+      ...SHARED_COMPONENTS,
+      'components/web/WebBands.tsx',
+      'components/web/TaxBands.tsx',
+      'components/web/PropertyPurchase.tsx',
+      'components/web/TeamEditorial.tsx',
+      'components/web/ContactPage.tsx',
+    ];
+    for (const file of [...new Set(components)]) {
+      const code = read(file)
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+        .replace(/^\s*\/\/.*$/gm, '')
+        .replace(/<SarahReviewMark[^>]*\/>/g, '');
+      expect(code, file).not.toMatch(EDITORIAL);
+    }
+    // Content: every string a page can render (claim texts, plain strings, SEO);
+    // `source` and `note` are internal provenance and never rendered.
+    const offenders: string[] = [];
+    for (const file of [
+      'home',
+      'contact',
+      'investment',
+      'tax-advisory',
+      'property-purchase',
+      'team',
+      'service-journey',
+    ]) {
+      const mod = (await import(`../content/en/${file}`)) as Record<string, unknown>;
+      const walk = (value: unknown, path: string, seen: Set<unknown>) => {
+        if (typeof value === 'string') {
+          if (EDITORIAL.test(value)) offenders.push(`${file}:${path}: ${value.slice(0, 80)}`);
+          return;
+        }
+        if (!value || typeof value !== 'object' || seen.has(value)) return;
+        seen.add(value);
+        for (const [k, child] of Object.entries(value as Record<string, unknown>)) {
+          if (k === 'source' || k === 'note') continue;
+          walk(child, path ? `${path}.${k}` : k, seen);
+        }
+      };
+      for (const [name, value] of Object.entries(mod)) walk(value, name, new Set());
+    }
+    expect(offenders).toEqual([]);
+  });
+
+  it('keeps the authorised Tax results on the page', async () => {
+    const tax = (await import('../content/en/tax-advisory')) as {
+      cases: { items: readonly { metric: { text: string } }[]; publication: { text: string } };
+    };
+    expect(tax.cases.items.map((i) => i.metric.text)).toEqual([
+      'Penalty avoided',
+      'Position regularised',
+      'Taxes and costs planned',
+    ]);
+    expect(read('components/web/TaxBands.tsx')).toContain('{item.metric.text}');
+    expect(read('components/web/TaxBands.tsx')).toContain('{cases.publication.text}');
+  });
+});
+
 describe('Sarah review marks never reach a publishable build', () => {
   it('allows marks only in preview mode without indexing', () => {
     expect(sarahReviewMarksAllowed({ mode: 'preview', indexable: false })).toBe(true);
@@ -235,7 +311,7 @@ describe('Sarah review marks never reach a publishable build', () => {
 
   it('checks the gate in the mark itself, before rendering anything', () => {
     const source = read('components/review/SarahReviewMark.tsx');
-    expect(source).toMatch(/assertSarahReviewMarksAllowed\(id\);\s*const item/);
+    expect(source).toMatch(/assertSarahReviewMarksAllowed\(id\);\s*return null;/);
   });
 
   it('keeps every route that carries marks noindex under /preview', () => {

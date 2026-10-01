@@ -1,13 +1,14 @@
 import { siteConfig } from '@/lib/seo/config';
 
 /**
- * Sarah review marks are a tool of the review environment only.
+ * Publication barrier for open Sarah review items.
  *
- * A mark says that a text, image or claim is still waiting for Sarah's
- * decision, so a build that could be published — production mode or an
- * indexable configuration — must not contain one. Rendering a mark there
- * throws, which fails `next build` instead of shipping unapproved content with
- * its review label quietly removed (docs/approval-marks-audit.md §5).
+ * Each open item has an anchor (`SarahReviewMark`) next to the block it covers.
+ * Since 2026-10-01 the anchor renders nothing, so the visitor never sees the
+ * editorial tracking. A build that could be published — production mode or an
+ * indexable configuration — must still not contain an open item: rendering an
+ * anchor there throws, which fails `next build` (docs/approval-marks-audit.md
+ * §5 and §12).
  */
 export interface ReviewGateConfig {
   readonly mode: 'preview' | 'production';

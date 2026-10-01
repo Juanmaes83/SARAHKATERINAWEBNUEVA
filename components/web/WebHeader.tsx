@@ -194,11 +194,7 @@ export function WebHeader({
   }, [open]);
 
   const languages = (
-    <div
-      className={styles.langGroup}
-      role="group"
-      aria-label="Language — preview only, routing not implemented"
-    >
+    <div className={styles.langGroup} role="group" aria-label="Language">
       {(['en', 'es'] as const).map((option) => (
         <button
           key={option}
