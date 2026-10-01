@@ -193,15 +193,20 @@ export const APPROVED_MEDIA = {
    * Like the Home portrait they are compression-only: her face is never graded
    * or retouched.
    */
-  sarahTerrace: media({
-    id: 'sarah-terrace',
-    src: '/media/sarah-terrace.webp',
-    width: 1376,
-    height: 768,
-    alt: 'Sarah Katerina standing with her arms crossed on a sunlit terrace, smiling.',
+  /**
+   * 2026-10-01: replaces `sarahTerrace` (EQUIPO_SARAHKATERINA4, Sarah standing
+   * on a terrace in a black-and-white dress), which Sarah asked to remove. That
+   * file stays in IMAGES/ untouched but is no longer registered or served.
+   */
+  sarahConfianza: media({
+    id: 'sarah-confianza',
+    src: '/media/sarah-confianza.webp',
+    width: 1122,
+    height: 1402,
+    alt: 'Sarah Katerina at her desk, smiling, resting her chin on her hand.',
     focal: '50% 30%',
-    source: 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA4.png',
-    note: 'Sarah Katerina, confirmed by Juanma on 2026-09-30 and approved by him for use; copied unchanged from the owner folder SARAH KATERINA OFFICE/EQUIPO/SARAH (identical to the mother repository IMAGENES NUEVAS/EQUIPO/EQUIPO_SARAHKATERINA4.png), SHA-256 FDA981AF85B771056173DB0E33FD4AE6696E3C145DE24933B398C81092E524A2. Compression-only derivative: no grade, crop or facial alteration. Used in the Property Purchase authority block after Sarah asked to replace the former face.',
+    source: 'IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png',
+    note: 'Supplied by Juanma on main (e782a6d, 2026-10-01) as the replacement Sarah asked for. Source SHA-256 AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5. Compression-only derivative at the source size: no grade, crop or facial alteration. Used in the Home hero (Sarah asked to appear first) and in the Property Purchase authority block (the slot of the rejected photograph).',
   }),
   sarahBalcony: media({
     id: 'sarah-balcony',

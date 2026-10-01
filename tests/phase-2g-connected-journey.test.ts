@@ -278,9 +278,9 @@ describe('brand films — Property Purchase and controlled Home preview', () => 
     const primitiveUsers = sourceFiles
       .filter((f) => /<PlayOnceVideo\b/.test(readFileSync(f, 'utf8')))
       .map(rel);
-    expect(primitiveUsers.sort()).toEqual(
-      ['components/web/HomePreview.tsx', 'components/web/PropertyPurchase.tsx'].sort(),
-    );
+    // 2026-10-01: the Home hero is Sarah's photograph, no longer the generated
+    // villa film, so only the Property Purchase film uses the primitive.
+    expect(primitiveUsers).toEqual(['components/web/PropertyPurchase.tsx']);
 
     const page = read(PAGES.purchase);
     const at = page.indexOf('<GoodIdeaBand');
@@ -382,12 +382,14 @@ describe('publication and held subjects', () => {
   // 2026-10-01 (editorial marks hidden): the unused PROTOTYPE_NOTICE exports
   // are removed and the SEO descriptions drop "Internal visual preview, not
   // approved for production."; no other string changed (verified by diff).
+  // 2026-10-01 (Sarah's Home feedback): the Investment hero lead drops "Sarah is
+  // paid only by you" for "Sarah works on your side"; nothing else.
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        'bb2a28b2ec597df1d3b15fb9e2718e47549cef02742b1a6eaa3e01e2d2d5c6f1',
+        '1f9004943f0b508089aab5bf46f782c0bcad70719c8c6cd5ad0c4aafed317014',
       'content/en/tax-advisory.ts':
         '587c710fdc65807250fe5d01f11ece859ce03a239b18ef6ac2469474872faf56',
       'content/en/team.ts': 'ef4002352a4e7c2c38aeb2c9e1220e7916a785796584cf49eddf444f1d124f72',

@@ -51,9 +51,9 @@ export default function HomePreviewPage() {
         showLanguageSwitcher={false}
         buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
       />
+      <SarahReviewMark id="SR-086" />
       <SarahReviewMark id="SR-001" />
       <HomeHero />
-      <SarahReviewMark id="SR-002" />
       <HomeSideStatement />
       <SarahReviewMark id="SR-003" />
       <HomeServices />

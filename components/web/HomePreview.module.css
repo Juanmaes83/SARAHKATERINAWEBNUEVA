@@ -149,14 +149,20 @@
   letter-spacing: var(--sk-type-h1-letter-spacing);
 }
 
-.word {
-  display: block;
+/* 2026-10-01: the opening line is a sentence in Sarah's voice; it reads in
+   one run (balanced), no longer one word per line. */
+.heading {
+  text-wrap: balance;
 }
 
-/* "Clarity" is underlined by the start of the thread. */
+.word {
+  display: inline;
+}
+
+/* The first word is underlined by the start of the thread. */
 .wordFirst {
   position: relative;
-  width: fit-content;
+  display: inline-block;
 }
 
 .wordFirst::after {
@@ -188,6 +194,23 @@
 .film {
   border-radius: 0;
   box-shadow: var(--sk-web-shadow-float);
+}
+
+/* Sarah's photograph: square on phones (face and hands kept), 4:5 from tablet. */
+.heroPortrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--sk-radius-card);
+  box-shadow: var(--sk-web-shadow-float);
+}
+
+@media (min-width: 768px) {
+  .heroPortrait {
+    aspect-ratio: 4 / 5;
+  }
 }
 
 .filmMeta {
@@ -798,22 +821,20 @@
 @media (min-width: 1024px) {
   .heroGrid {
     grid-template-areas: 'copy media';
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-    gap: var(--sk-space-32) var(--sk-space-64);
+    /* 2026-10-01: copy and portrait share the container; nothing runs off the
+       right edge any more, so the left half no longer looks empty on wide
+       screens. */
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--sk-space-32) var(--sk-space-80);
     align-items: center;
     min-height: calc(var(--sk-space-80) * 7);
     padding-block: var(--sk-space-64);
   }
 
-  /* The film runs off the right edge of the page. */
   .heroMedia {
-    margin-inline-end: calc(
-      -1 * max(var(--sk-app-gutter), (100vw - var(--sk-layout-container-landing)) / 2)
-    );
-  }
-
-  .filmMeta {
-    padding-inline-end: max(var(--sk-app-gutter), (100vw - var(--sk-layout-container-landing)) / 2);
+    justify-self: end;
+    width: 100%;
+    max-width: calc(var(--sk-space-80) * 6.5);
   }
 
   .side {
@@ -845,12 +866,11 @@
     column-gap: var(--sk-space-80);
   }
 
+  /* 2026-10-01: the frame stays inside the container (it ran off the right
+     edge, leaving the left half of wide screens emptier). */
   .chapterInvestment .wideMedia {
     --sk-crop-scale: 1.3;
     aspect-ratio: 16 / 10;
-    margin-inline-end: calc(
-      -1 * max(var(--sk-app-gutter), (100vw - var(--sk-layout-container-landing)) / 2)
-    );
   }
 
   .chapterTax .chapterGrid {

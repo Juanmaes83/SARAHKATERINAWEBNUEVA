@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ReactNode } from 'react';
+import { Fragment, type ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
-import { PlayOnceVideo } from '@/components/motion/PlayOnceVideo';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
   contactBand,
@@ -18,7 +17,6 @@ import {
 import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
 import { resolveContactChannels } from '@/lib/contact/channels';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
-import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import { cn } from '@/lib/utils/cn';
 import { BuyerToolRibbon } from './BuyerToolRibbon';
 import { HomeServiceBanner } from './HomeServiceBanner';
@@ -92,6 +90,7 @@ export function HomeThreaded({ children }: { children: ReactNode }) {
 
 export function HomeHero() {
   const words = hero.title.text.split(' ');
+  const portrait = APPROVED_MEDIA.sarahConfianza;
   return (
     <section className={cn(styles.hero, styles.threaded)} id="top" data-surface="light">
       <Thread start />
@@ -99,11 +98,13 @@ export function HomeHero() {
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>{hero.eyebrow}</p>
           <h1 className={styles.heading}>
+            {/* The space sits outside each word: inside the inline-block first
+                word it would collapse ("Letme"). */}
             {words.map((word, index) => (
-              <span key={word} className={cn(styles.word, index === 0 && styles.wordFirst)}>
-                {word}
+              <Fragment key={`${word}-${index}`}>
+                <span className={cn(styles.word, index === 0 && styles.wordFirst)}>{word}</span>
                 {index < words.length - 1 ? ' ' : null}
-              </span>
+              </Fragment>
             ))}
           </h1>
           <p className={styles.lead}>{hero.lead.text}</p>
@@ -117,18 +118,24 @@ export function HomeHero() {
           </div>
         </div>
 
+        {/*
+          2026-10-01: Sarah asked to appear first, in an office. No real,
+          authorised footage of her in an office exists (all films in VIDEOS/
+          are generated), so the hero carries the photograph she supplied, as a
+          still. The generated villa film is no longer the hero. The footage
+          needed for a video is specified in docs/home-buyer-system-preview.md §12.
+        */}
         <figure className={styles.heroMedia}>
-          <PlayOnceVideo
-            video={APPROVED_VIDEO.homeInvestmentObjective}
-            name="the Home film"
+          <Image
+            src={portrait.src}
+            alt={portrait.alt}
+            width={portrait.width}
+            height={portrait.height}
             priority
-            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 92vw, 60vw"
-            className={styles.film}
+            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 70vw, 520px"
+            className={styles.heroPortrait}
+            style={{ objectPosition: portrait.focal }}
           />
-          <figcaption className={styles.filmMeta}>
-            <span>{hero.filmLabel}</span>
-            <span>{hero.filmCaption.text}</span>
-          </figcaption>
         </figure>
       </Container>
     </section>

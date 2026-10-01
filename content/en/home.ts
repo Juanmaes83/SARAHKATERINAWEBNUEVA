@@ -1,5 +1,5 @@
 import { resolveEntryPoint } from '@/lib/buyer-system/links';
-import { APPROVED_PROMISE, claim, type Claim } from '@/lib/content/claims';
+import { claim, type Claim } from '@/lib/content/claims';
 
 const HOME_BRIEF = 'Home editorial proposal, session brief 2026-09-29';
 const SARAH_REVIEW = "Sarah's review (REVISION WEB. Team.docx), accepted by Juanma 2026-09-28";
@@ -14,21 +14,33 @@ export const seo = {
 
 export const hero = {
   eyebrow: 'Independent buyer-side advisory · Spain',
-  title: APPROVED_PROMISE,
+  /**
+   * 2026-10-01 — Sarah (relayed by Juanma): "Clarity before commitment." does
+   * not convince her as the first thing a visitor reads; she wants Sarah's own
+   * voice, close and trusting, in the line of "Déjame ayudarte", with no money
+   * or transaction in the opening. She said she would send three phrases; none
+   * is in the repository or the brief, so three were drafted here (proposals,
+   * not hers, not approved) and the clearest is shown:
+   *   1. "Let me help you feel at home in Spain."   ← shown
+   *   2. "I'll walk with you, every step of the way."
+   *   3. "You don't have to do this alone. Let me help."
+   * Open for Sarah: SR-086. "Clarity before commitment." stays the approved
+   * brand promise (it still closes the Team hero).
+   */
+  title: claim({
+    text: 'Let me help you feel at home in Spain.',
+    status: 'proposal',
+    note: 'Drafted 2026-10-01 from Sarah’s direction ("Déjame ayudarte"); option 1 of 3; SR-086.',
+  }),
+  /** 2026-10-01: first person, as Sarah asked for her own voice (SR-001). */
   lead: claim({
-    text: 'See the property, the full cost and the tax questions together — before you commit.',
+    text: 'I help you see the property, the full cost and the tax questions together — before you commit.',
     status: 'proposal',
     source: HOME_BRIEF,
-    note: 'Home-specific subhead for Sarah and Juanma to review.',
+    note: 'Was "See the property, the full cost and the tax questions together — before you commit." Rewritten in the first person on 2026-10-01.',
   }),
   primaryCta: 'Find your starting point',
   secondaryCta: 'Use Buyer Tools',
-  filmLabel: 'From possibility to decision',
-  filmCaption: claim({
-    text: 'Illustrative concept film. It does not promise buildability, permission, timing, budget, return or delivery.',
-    status: 'confirmed',
-    source: 'docs/phase-2g-connected-service-journey.md §2.2 and current Home brief',
-  }),
 } as const;
 
 /**
@@ -38,10 +50,16 @@ export const hero = {
  */
 export const side = {
   eyebrow: 'Whose side?',
+  /**
+   * 2026-10-01 — Sarah rejected "Sarah is paid by one side of the table:
+   * yours." and gave her own line: "Yo estoy a tu lado de la mesa". English
+   * adaptation of her sentence; no remuneration, money or transaction here.
+   */
   statement: claim({
-    text: 'Sarah is paid by one side of the table: yours.',
-    status: 'proposal',
-    source: `${HOME_BRIEF}; restates ${INDEPENDENCE_SOURCE}`,
+    text: 'I’m on your side of the table.',
+    status: 'confirmed',
+    source:
+      'Sarah, relayed by Juanma 2026-10-01: "Yo estoy a tu lado de la mesa" (English adaptation)',
   }),
 } as const;
 
@@ -77,7 +95,7 @@ export const discovery = {
   eyebrow: 'Your starting point',
   title: claim({ text: 'What brings you to Spain?', status: 'proposal', source: HOME_BRIEF }),
   intro: claim({
-    text: 'Choose the sentence that sounds like you. Sarah turns it into the right kind of guidance.',
+    text: 'Choose the sentence that sounds like you. I’ll turn it into the right kind of guidance.',
     status: 'proposal',
     source: HOME_BRIEF,
   }),
