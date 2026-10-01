@@ -6,7 +6,6 @@ import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { HeroFilm } from '@/components/motion/HeroFilm';
 import { hero } from '@/content/en/investment';
 import { HERO_VIDEO } from '@/lib/media/hero-video';
-import { isPublishable } from '@/lib/content/claims';
 import entrance from '@/components/motion/Entrance.module.css';
 import { cn } from '@/lib/utils/cn';
 import styles from './WebHero.module.css';
@@ -70,16 +69,7 @@ export function WebHero() {
               <div key={signal.value.text} className={styles.signal}>
                 <Icon name={signal.icon as IconName} className={styles.signalIcon} />
                 <div>
-                  <dt className={styles.signalValue}>
-                    {signal.value.text}
-                    {!isPublishable(signal.value) ? (
-                      <span
-                        className={styles.pendingDot}
-                        role="img"
-                        aria-label="figure pending approval"
-                      />
-                    ) : null}
-                  </dt>
+                  <dt className={styles.signalValue}>{signal.value.text}</dt>
                   <dd className={styles.signalNote}>{signal.note.text}</dd>
                 </div>
               </div>

@@ -17,12 +17,11 @@ import {
   TaxServicesBand,
 } from '@/components/web/TaxBands';
 import { SarahReviewMark } from '@/components/review/SarahReviewMark';
-import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { BuyerToolBand } from '@/components/web/BuyerToolRibbon';
 import { SERVICE_ROUTES, TAX_LEAD_TOOL } from '@/content/en/service-journey';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
-import { PROTOTYPE_NOTICE, faq, footer, seo } from '@/content/en/tax-advisory';
+import { faq, footer, seo } from '@/content/en/tax-advisory';
 import {
   BUYER_TOOLS_LABEL,
   HOME_PREVIEW_ROUTE,
@@ -42,8 +41,6 @@ export default function TaxAdvisoryPage() {
     <RevealLineProvider line="reading-zone">
       {/* 2026-09-30: aquamarine accent on navy surfaces (app/web-tokens.css). */}
       <div data-palette="aqua">
-        <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
-
         <WebHeader
           nav={UNIFIED_WEB_NAV}
           ctaLabel={BUYER_TOOLS_LABEL}

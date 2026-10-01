@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { WebFaq } from '@/components/web/WebFaq';
 import { WebFooter } from '@/components/web/WebFooter';
@@ -8,7 +7,6 @@ import {
   AudienceBand,
   AuthorityBand,
   BeforeSignBand,
-  CasesBand,
   FileTrackerBand,
   FinalCtaBand,
   GoodIdeaBand,
@@ -20,7 +18,7 @@ import {
   ServicesBand,
   WorriesBand,
 } from '@/components/web/PropertyPurchase';
-import { PROTOTYPE_NOTICE, faq, footer, seo } from '@/content/en/property-purchase';
+import { faq, footer, seo } from '@/content/en/property-purchase';
 import {
   BUYER_TOOLS_LABEL,
   HOME_PREVIEW_ROUTE,
@@ -45,7 +43,6 @@ export default function PropertyPurchasePage() {
     <RevealLineProvider line="reading-zone">
       {/* 2026-09-30: aquamarine accent on navy surfaces (app/web-tokens.css). */}
       <div data-palette="aqua">
-        <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
         <WebHeader
           nav={UNIFIED_WEB_NAV}
           ctaLabel={BUYER_TOOLS_LABEL}
@@ -75,9 +72,11 @@ export default function PropertyPurchasePage() {
         <SarahReviewMark id="SR-027" />
         <ServicesBand />
         <AuthorityBand />
-        <CasesBand />
+        {/* 2026-10-01: the cases band only held evidence placeholders (client
+            permission, verified outcomes); it returns when a case clears C-01. */}
         <JourneyBand />
         <ServiceJourney page="purchase" />
+        <SarahReviewMark id="SR-085" />
         <WebFaq content={faq} appearance="light" />
         <FinalCtaBand />
         <WebFooter content={footer} />

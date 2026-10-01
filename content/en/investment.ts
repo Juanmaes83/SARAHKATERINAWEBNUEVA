@@ -234,11 +234,16 @@ export const approach = {
        * objetivos, no con los de quien te la vende." English adaptation of her
        * sentence (2026-09-30), relayed by Juanma.
        */
+      /**
+       * 2026-10-01: Sarah's sentence ("An opportunity is only good if it fits
+       * your goals…") already titles the next-step band; repeating it here is
+       * removed (Juanma). The line she rejected ("The view sells the
+       * property…") does not return. New wording, open for Sarah (SR-083).
+       */
       body: claim({
-        text: 'An opportunity is only right if it fits your goals — not the goals of the person selling it.',
-        status: 'confirmed',
-        source:
-          'REVISION WEB-investment.docx — Sarah’s proposed sentence (English adaptation, 2026-09-30)',
+        text: 'First impressions sell quickly. The analysis checks whether the property still fits your plan once they fade.',
+        status: 'proposal',
+        note: 'New copy replacing a repetition of Sarah’s line; SR-083.',
       }),
     },
     {
@@ -1074,8 +1079,9 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'Turnaround is not confirmed for publication yet.',
-        status: 'pending',
+        text: 'It depends on the property and the documents available. The timing is agreed before the work starts.',
+        status: 'proposal',
+        note: 'Rewritten 2026-10-01: the former answer was an internal status; SR-084.',
       }),
     },
     {
@@ -1115,8 +1121,8 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'Pricing is not approved for publication yet.',
-        status: 'pending',
+        text: 'Fees are confirmed in writing before any work starts.',
+        status: 'proposal',
         review: 'financial',
       }),
     },
@@ -1153,8 +1159,9 @@ export const faq = {
     },
   ],
   legalNote: claim({
-    text: 'Answers about tax, legal scope, timing and pricing are provisional and subject to professional review.',
-    status: 'confirmed',
+    text: 'General information only. Tax, legal scope, timing and fees are confirmed for each case.',
+    status: 'proposal',
+    note: 'Rewritten 2026-10-01: the former answer was an internal status; SR-084.',
     source: 'AGENTS.md §11',
   }),
 } as const;
@@ -1262,12 +1269,12 @@ export const footer = {
   ],
   /** Template: "© 2024 Sarah Katerina Investment. Todos los derechos reservados." */
   copyright: claim({
-    text: 'Sarah Katerina. Internal preview, not for distribution.',
+    text: 'Sarah Katerina',
     status: 'pending',
     note: 'Template names a legal entity and a year. The entity is NEEDS_DECISION upstream, so neither is reproduced.',
   }),
   routesNote: claim({
-    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    text: '',
     status: 'confirmed',
     source: 'docs/approval-marks-audit.md §3 — technical note',
   }),

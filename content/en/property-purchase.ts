@@ -524,8 +524,9 @@ export const services = {
     ['Unverified promises or hidden commissions', false],
   ] as const,
   pricingNote: claim({
-    text: 'Pricing and service timings are under review and are not published in this preview.',
-    status: 'pending',
+    text: 'Scope and fees are confirmed in writing before any work starts.',
+    status: 'proposal',
+    note: 'Replaces the internal note on pricing (2026-10-01); SR-027.',
     review: 'financial',
   }),
 } as const;
@@ -634,8 +635,9 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'Independent legal representation is recommended. The exact division of responsibility must be agreed for each purchase and reviewed before publication.',
-        status: 'pending',
+        text: 'Independent legal representation is recommended. The exact division of responsibility is agreed for each purchase.',
+        status: 'proposal',
+        note: 'Rewritten 2026-10-01: the former answer carried an internal status; SR-085.',
         review: 'legal',
       }),
     },
@@ -674,8 +676,9 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'The preview describes document coordination, purchase due diligence, tax questions and an ordered handover. Final scope and terms remain subject to approval.',
-        status: 'pending',
+        text: 'Document coordination, purchase due diligence, tax questions and an ordered handover. The final scope and terms are agreed in writing for each purchase.',
+        status: 'proposal',
+        note: 'Rewritten 2026-10-01: the former answer carried an internal status; SR-085.',
         review: 'legal',
       }),
     },
@@ -687,15 +690,17 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'No standard completion time is approved. Timing depends on the buyer, property, documentation and third parties.',
-        status: 'pending',
+        text: 'There is no standard completion time. It depends on the buyer, the property, the documentation and third parties.',
+        status: 'proposal',
+        note: 'Rewritten 2026-10-01: the former answer carried an internal status; SR-085.',
         review: 'legal',
       }),
     },
   ],
   legalNote: claim({
-    text: 'Legal and tax statements in this preview are proposals and require competent review before publication.',
-    status: 'confirmed',
+    text: 'General information only. Legal and tax questions are confirmed for each purchase with the appropriate professional.',
+    status: 'proposal',
+    note: 'Rewritten 2026-10-01: the former answer carried an internal status; SR-085.',
     source: 'AGENTS.md section 11',
   }),
 } as const;
@@ -714,7 +719,7 @@ export const finalCta = {
   primaryCta: claim({ text: 'Start my purchase file', status: 'proposal', source: TEMPLATE }),
   secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
   note: claim({
-    text: 'Response time is not confirmed in this preview.',
+    text: '',
     status: 'pending',
   }),
   script: claim({
@@ -773,11 +778,11 @@ export const footer = {
     },
   ],
   copyright: claim({
-    text: 'Sarah Katerina. Internal preview, not for distribution.',
+    text: 'Sarah Katerina',
     status: 'pending',
   }),
   routesNote: claim({
-    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    text: '',
     status: 'confirmed',
     source: 'docs/approval-marks-audit.md §3 — technical note',
   }),

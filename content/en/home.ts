@@ -346,7 +346,7 @@ export const tools = {
     source: HOME_BRIEF,
   }),
   intro: claim({
-    text: 'When this Preview is configured, Purchase Tax and Real Cash Needed open in the separate Buyer System. This page sends no personal or financial inputs in the link.',
+    text: 'Purchase Tax and Real Cash Needed open in the separate Buyer System. This page sends no personal or financial inputs in the link.',
     status: 'confirmed',
     source: 'docs/buyer-system-integration.md, verified 2026-09-29',
   }),

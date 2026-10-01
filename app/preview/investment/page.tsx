@@ -9,7 +9,6 @@ import {
   ApproachBand,
   AssetTypesBand,
   AuthorityBand,
-  CasesBand,
   DoorsBand,
   FinalCtaBand,
   JourneyBand,
@@ -18,11 +17,10 @@ import {
   ScenariosBand,
   TrustBand,
 } from '@/components/web/WebBands';
-import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
-import { PROTOTYPE_NOTICE, seo } from '@/content/en/investment';
+import { seo } from '@/content/en/investment';
 import {
   BUYER_TOOLS_LABEL,
   HOME_PREVIEW_ROUTE,
@@ -56,8 +54,6 @@ export default function InvestmentPage() {
     <RevealLineProvider line="reading-zone">
       {/* Phase 2H: gold restraint on this page only (see WebSection.module.css). */}
       <div data-accent="restrained" data-palette="aqua">
-        <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
-
         <WebHeader
           nav={UNIFIED_WEB_NAV}
           ctaLabel={BUYER_TOOLS_LABEL}
@@ -71,6 +67,7 @@ export default function InvestmentPage() {
         <TrustBand />
         {/* Phase 2H (Sarah's review): Sarah's authority block at the start of the page. */}
         <AuthorityBand />
+        <SarahReviewMark id="SR-083" />
         <ApproachBand />
         <SarahReviewMark id="SR-041" />
         <DoorsBand />
@@ -79,11 +76,13 @@ export default function InvestmentPage() {
         <ReportBand />
         <ScenariosBand />
         <ToolsBand />
-        <CasesBand />
+        {/* 2026-10-01: the cases band only held evidence placeholders (client
+            permission, verified outcomes); it returns when a case clears C-01. */}
         <JourneyBand />
         {/* Phase 2G: where the operation continues — purchase, tax, the team. */}
         <SarahReviewMark id="SR-049" />
         <ServiceJourney page="investment" />
+        <SarahReviewMark id="SR-084" />
         <WebFaq appearance="light" />
         <FinalCtaBand />
         <WebFooter />

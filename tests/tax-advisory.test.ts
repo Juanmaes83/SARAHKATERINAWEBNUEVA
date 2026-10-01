@@ -108,7 +108,10 @@ describe('converged web layer', () => {
       expect(source).toContain('<WebHeader');
       expect(source).toContain('<WebFooter');
       expect(source).toContain('<WebFaq');
-      expect(source).toContain('<PrototypeBanner');
+      // 2026-10-01: no preview strip on client-facing pages; noindex stays in
+      // the laboratory metadata of every landing.
+      expect(source).not.toContain('<PrototypeBanner');
+      expect(source).toMatch(/laboratory:\s*true/);
     }
     // No landing-specific header, footer, button or chrome switcher survives.
     expect(existsSync(resolve(root, 'components/tax-advisory'))).toBe(false);
@@ -177,13 +180,14 @@ describe('investment is unaffected', () => {
       'ScenariosBand',
       'ToolsBand',
       'AuthorityBand',
-      'CasesBand',
       'JourneyBand',
       'WebFaq',
       'FinalCtaBand',
       'WebFooter',
     ];
     expect(required.filter((band) => !investmentPage.includes(band))).toEqual([]);
+    // 2026-10-01: the evidence-placeholder cases band is off the page (C-01).
+    expect(investmentPage).not.toContain('<CasesBand');
   });
 
   it('gets the Investment content by default from the now-shared components', () => {
@@ -211,7 +215,7 @@ describe('investment is unaffected', () => {
 describe('tax advisory composition', () => {
   it('renders the template bands in the template order', () => {
     const order = [
-      'PrototypeBanner',
+      // 2026-10-01: no preview strip (noindex stays in metadata).
       'WebHeader',
       'TaxHero',
       // No TaxTrustBand: removed on purpose by PR #20 because it repeated the
@@ -309,11 +313,13 @@ describe('tax advisory route governance', () => {
     }
   });
 
-  it('shows the preview banner before any other content', () => {
-    const banner = pageSource.indexOf('<PrototypeBanner');
-    const header = pageSource.indexOf('<WebHeader');
-    expect(banner).toBeGreaterThan(-1);
-    expect(banner).toBeLessThan(header);
+  it('keeps the route noindex without a visible preview strip', () => {
+    // 2026-10-01: the pages shown to the client carry no preview strip; the
+    // review state lives in docs/approval-marks-audit.md §11. What keeps the
+    // route out of search is unchanged and asserted here instead: laboratory
+    // metadata (noindex, nofollow) plus the transport header for /preview.
+    expect(pageSource).not.toContain('<PrototypeBanner');
+    expect(pageSource).toMatch(/laboratory:\s*true/);
   });
 });
 
@@ -415,11 +421,15 @@ describe('tax advisory content — suppressed from the template', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('withholds every case location, period and result', () => {
-    expect(taxAdvisory.cases.permissionPending.status).toBe('blocked');
-    expect(taxAdvisory.cases.locationPending.status).toBe('pending');
+  it('publishes no location, name or figure the cases do not carry', () => {
+    // 2026-10-01: the cases are real and authorised (Juanma). Sarah's copy has
+    // no location, client name or amount, and the year stays confidential.
+    expect('locationPending' in taxAdvisory.cases).toBe(false);
     for (const item of taxAdvisory.cases.items) {
-      expect(item.period.status).toBe('pending');
+      expect(item.period.text).toBe('Year confidential');
+      const shown = [item.profile, item.decision, item.metric, item.period].map((c) => c.text);
+      // No amount, percentage or year ("Modelo 210" is a form name).
+      expect(shown.join(' ')).not.toMatch(/€|%|(?:19|20)\d{2}/);
     }
   });
 

@@ -754,7 +754,7 @@ export const report = {
   /** "SOLICITAR REVISIÓN FISCAL" */
   cta: claim({ text: 'Request a tax review', status: 'proposal', source: TEMPLATE }),
   ctaNote: claim({
-    text: 'Sample figures throughout, shown to illustrate the report format. The request button is not connected in this preview.',
+    text: 'Sample figures throughout, shown to illustrate the report format.',
     status: 'confirmed',
     source: 'docs/phase-2-visual-implementation-contract.md §5; README.md §12',
   }),
@@ -998,7 +998,7 @@ export const services = {
    * approved (D2-04) and service-taxonomy.md requires live re-verification.
    */
   priceNote: claim({
-    text: 'Scope and fees are confirmed in writing before any work starts. Nothing is priced on this preview.',
+    text: 'Scope and fees are confirmed in writing before any work starts.',
     status: 'pending',
     source: 'service-taxonomy.md; docs/phase-2-decision-gate.md D2-04',
   }),
@@ -1102,7 +1102,7 @@ export const cases = {
    */
   title: claim({
     text: 'Three real cases. Three mistakes avoided.',
-    status: 'proposal',
+    status: 'confirmed',
     source: JUANMA_REVIEW,
   }),
   subtitle: claim({
@@ -1114,12 +1114,12 @@ export const cases = {
   /** Replaces the "Schematic" badge on the case drawings (Sarah: "ILUSTRACIÓN"). */
   visualBadge: claim({ text: 'Illustration', status: 'confirmed', source: SARAH_APPROVED }),
   /**
-   * Card copy supplied by Sarah. The results she wrote ("Penalty avoided",
-   * "Position regularised", "Taxes and costs planned") are `unverified`: each
-   * card shows it as the proposed result, with the value withheld and an
-   * explicit "evidence and tax review pending" line. None is a fact until the
-   * client's written permission and the figures are on record and a tax
-   * professional has reviewed the wording.
+   * Card copy supplied by Sarah. The cases are real and the clients' written
+   * permission is held (Juanma, owner, 2026-10-01), so the results she wrote
+   * ("Penalty avoided", "Position regularised", "Taxes and costs planned") are
+   * shown as results. No figure, name or location is published: Sarah's copy
+   * has none, and the year stays confidential as she wrote. What is still open
+   * is the professional tax review of the wording (review: 'tax').
    */
   items: [
     {
@@ -1138,11 +1138,12 @@ export const cases = {
       }),
       metric: claim({
         text: 'Penalty avoided',
-        status: 'unverified',
+        status: 'pending',
         source: JUANMA_REVIEW,
         review: 'tax',
+        note: 'Real result, client permission held (Juanma, 2026-10-01). Professional tax review of the wording is still pending.',
       }),
-      period: claim({ text: 'Year confidential', status: 'pending', source: SARAH_APPROVED }),
+      period: claim({ text: 'Year confidential', status: 'confirmed', source: SARAH_APPROVED }),
     },
     {
       id: 'seller',
@@ -1160,11 +1161,12 @@ export const cases = {
       }),
       metric: claim({
         text: 'Position regularised',
-        status: 'unverified',
+        status: 'pending',
         source: JUANMA_REVIEW,
         review: 'tax',
+        note: 'Real result, client permission held (Juanma, 2026-10-01). Professional tax review of the wording is still pending.',
       }),
-      period: claim({ text: 'Year confidential', status: 'pending', source: SARAH_APPROVED }),
+      period: claim({ text: 'Year confidential', status: 'confirmed', source: SARAH_APPROVED }),
     },
     {
       id: 'buyer',
@@ -1186,29 +1188,25 @@ export const cases = {
        */
       metric: claim({
         text: 'Taxes and costs planned',
-        status: 'unverified',
+        status: 'pending',
         source: JUANMA_REVIEW,
         review: 'tax',
+        note: 'Real result, client permission held (Juanma, 2026-10-01). Professional tax review of the wording is still pending.',
       }),
-      period: claim({ text: 'Year confidential', status: 'pending', source: SARAH_APPROVED }),
+      period: claim({ text: 'Year confidential', status: 'confirmed', source: SARAH_APPROVED }),
     },
   ],
-  locationPending: claim({ text: 'Location withheld', status: 'pending' }),
-  /** Shown on every card: the result above is a proposal, not evidence. */
-  evidencePending: claim({
-    text: 'Proposed result · evidence and tax review pending',
-    status: 'confirmed',
-    source: 'AGENTS.md §2, §10 and §11',
-  }),
   /**
-   * Sarah proposed "Publicado con autorización escrita del cliente y cifras
-   * verificadas" as a statement of fact. No permission or verified figure is on
-   * record, so the conditional wording stays until one is.
+   * Sarah: "Publicado con autorización escrita del cliente y cifras
+   * verificadas." Rendered as she wrote it now that the owner confirms the
+   * permissions and the data (2026-10-01). English adaptation as recorded in
+   * docs/phase-2h-juanma-review.md §10.2.
    */
-  permissionPending: claim({
-    text: 'Published only with written client permission and verified figures.',
-    status: 'blocked',
-    note: 'The template names Altea, Jávea and Moraira with years, nationalities and amounts. All invented. Phase 2H: Sarah’s affirmative version ("Published with the client’s written permission and verified figures") becomes usable only once both exist for a case.',
+  publication: claim({
+    text: 'Published with the client’s written permission and verified figures.',
+    status: 'confirmed',
+    source:
+      'REVISION WEB-Tax advisory.docx (Sarah); Juanma (owner), 2026-10-01: cases real, client permission held',
   }),
   /** Sarah: "DESCUBRE CÓMO TRABAJAMOS". */
   cta: claim({ text: 'Discover how we work', status: 'confirmed', source: SARAH_APPROVED }),
@@ -1312,7 +1310,7 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'Purchase taxation depends on the property, the seller and the region, and no figure is confirmed for publication yet.',
+        text: 'Purchase taxation depends on the property, the seller and the region.',
         status: 'pending',
         review: 'tax',
       }),
@@ -1343,7 +1341,7 @@ export const faq = {
       id: 'wealth',
       question: claim({ text: 'Does wealth tax apply to me?', status: 'proposal' }),
       answer: claim({
-        text: 'Thresholds and reliefs vary by region and by circumstance. No threshold is confirmed for publication yet.',
+        text: 'Thresholds and reliefs vary by region and by circumstance.',
         status: 'pending',
         review: 'tax',
       }),
@@ -1356,7 +1354,7 @@ export const faq = {
         source: TEMPLATE,
       }),
       answer: claim({
-        text: 'Scope and fees are confirmed in writing before any work starts. Pricing is not published on this preview.',
+        text: 'Scope and fees are confirmed in writing before any work starts.',
         status: 'pending',
         source: 'docs/phase-2-decision-gate.md D2-04',
       }),
@@ -1374,7 +1372,7 @@ export const faq = {
       id: 'documents',
       question: claim({ text: 'What documents do you need from me?', status: 'proposal' }),
       answer: claim({
-        text: 'The list depends on your situation and is not confirmed for publication yet.',
+        text: 'The list depends on your situation.',
         status: 'pending',
       }),
     },
@@ -1399,7 +1397,7 @@ export const faq = {
     },
   ],
   legalNote: claim({
-    text: 'Nothing on this page is tax, legal or financial advice. Answers describe the service, not your situation, and every tax statement requires competent review before publication.',
+    text: 'Nothing on this page is tax, legal or financial advice. Answers describe the service, not your situation.',
     status: 'confirmed',
     source: 'AGENTS.md §11',
   }),
@@ -1430,9 +1428,10 @@ export const finalCta = {
   /** "HABLAR PRIMERO" */
   secondaryCta: claim({ text: 'Talk first', status: 'proposal', source: TEMPLATE }),
   note: claim({
-    text: 'No commitment. These buttons are not connected in this preview, so they do not submit or navigate.',
-    status: 'confirmed',
-    source: 'docs/approval-marks-audit.md §3 — technical note; channels are on the Contact page',
+    text: 'No commitment.',
+    status: 'proposal',
+    source: TEMPLATE,
+    note: 'Template "Sin compromiso". The technical note that followed left the page on 2026-10-01: the buttons now lead to Contact.',
   }),
   /** "Vive España. Nosotros nos ocupamos de los impuestos." */
   script: claim({
@@ -1504,12 +1503,12 @@ export const footer = {
     },
   ],
   copyright: claim({
-    text: 'Sarah Katerina. Internal preview, not for distribution.',
+    text: 'Sarah Katerina',
     status: 'pending',
     note: 'The template names a legal entity and a year. The entity is NEEDS_DECISION upstream, so neither is reproduced.',
   }),
   routesNote: claim({
-    text: 'Apart from Contact, the destinations in this footer are not built yet.',
+    text: '',
     status: 'confirmed',
     source: 'docs/approval-marks-audit.md §3 — technical note',
   }),

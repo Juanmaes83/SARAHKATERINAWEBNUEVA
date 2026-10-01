@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { PrototypeBanner } from '@/components/sections/PrototypeBanner';
 import { ContactPage } from '@/components/web/ContactPage';
 import { WebFooter } from '@/components/web/WebFooter';
 import { WebHeader } from '@/components/web/WebHeader';
-import { PROTOTYPE_NOTICE, seo } from '@/content/en/contact';
+import { seo } from '@/content/en/contact';
 import { footer } from '@/content/en/team';
 import {
   BUYER_TOOLS_LABEL,
@@ -28,7 +27,6 @@ export const metadata: Metadata = buildMetadata({
 export default function ContactPreviewPage() {
   return (
     <>
-      <PrototypeBanner label={PROTOTYPE_NOTICE.label} body={PROTOTYPE_NOTICE.body.text} />
       <WebHeader
         nav={UNIFIED_WEB_NAV}
         ctaLabel={BUYER_TOOLS_LABEL}

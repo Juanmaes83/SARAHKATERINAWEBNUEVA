@@ -103,3 +103,16 @@ not imported here — `EQUIPO_SARAHKATERINA4.png` (SHA-256 prefix `fda981af`),
 name in the file or its record. They are **not** assigned to anyone: Juanma
 must say who each shows and approve its use. Until then every profile card
 shows a labelled "Portrait pending" slot.
+
+## Update — 2026-10-01 (client-ready pass)
+
+| Asset / slot                                                            | Decision                                                                                                                                                                                                   | Why                                                                                                                |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `EQUIPO_SARAHKATERINA4–6.png`                                           | Identified as **Sarah** by Juanma (2026-09-30) and approved for use. Imported to `IMAGES/EQUIPO/SARAH/` and used in the authority blocks of Investment, Tax and Property Purchase                          | Folder provenance plus Juanma's confirmation; not assigned by appearance                                           |
+| Individual portraits of Elsa Quirós Pérez, Óscar Gonzalez, Igor Veselov | **None exists** (Juanma: the repository holds every photograph there is). The "Portrait pending" slots are removed from the page, and the cards show their text only                                       | No placeholder is shown as final content, and no face is taken from a group photograph                             |
+| `team-group.webp` (`EQUIPO_SARAHKATERINA1.png`)                         | Still rendered. Its caption ("Three people appear; no fourth person or individual identity is inferred…") is removed, as Sarah asked. The alt text is now objective ("seated together on a sunny terrace") | REVISION WEB. Team.docx: "Y el texto de abajo hay que eliminarlo"                                                  |
+| `team-network.webp` (`EQUIPO_SARAHKATERINA3.png`)                       | **No longer rendered.** The network band keeps its copy as text only; the "PROVISIONAL PHOTOGRAPH" label and the caption are removed                                                                       | The people, organisations and messages in it are not identified, and it was provisional and blocked for production |
+
+`team-network.webp` is not what Sarah asked to remove: that was the "The buyer is the client." section and the office-sign photograph, both removed in Phase 2H. It came off the page because it was provisional.
+
+The identity boundary still applies internally. No name is attached to a face in a group photograph. An individual portrait is used only with a file that names the person and an approval of its use.

@@ -36,14 +36,14 @@ export interface WebFooterContent {
 export function WebFooter({
   content = investmentFooter,
   showLanguageStatus = true,
-  showStatus = true,
+  showStatus = false,
 }: {
   content?: WebFooterContent;
   showLanguageStatus?: boolean;
   /**
-   * The visible "mode · noindex" chip. Only the client-review Home turns it
-   * off (owner instruction 2026-09-29); the noindex protection itself lives in
-   * metadata and headers and is unaffected.
+   * The visible "mode · noindex" chip. Off by default since 2026-10-01: the
+   * pages shown to the client carry no internal review status. The noindex
+   * protection lives in metadata and headers and is unaffected.
    */
   showStatus?: boolean;
 } = {}) {

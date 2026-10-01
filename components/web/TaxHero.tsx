@@ -6,7 +6,6 @@ import { HERO_VIDEO } from '@/lib/media/hero-video';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { ScrubStage, ScrubVideo } from '@/components/motion/ScrubVideo';
 import { hero } from '@/content/en/tax-advisory';
-import { isPublishable } from '@/lib/content/claims';
 import shared from './WebHero.module.css';
 import entrance from '@/components/motion/Entrance.module.css';
 import { cn } from '@/lib/utils/cn';
@@ -53,16 +52,7 @@ export function TaxHero() {
                 <div key={signal.value.text} className={shared.signal}>
                   <Icon name={signal.icon as IconName} className={shared.signalIcon} />
                   <div>
-                    <dt className={shared.signalValue}>
-                      {signal.value.text}
-                      {!isPublishable(signal.value) ? (
-                        <span
-                          className={shared.pendingDot}
-                          role="img"
-                          aria-label="figure pending approval"
-                        />
-                      ) : null}
-                    </dt>
+                    <dt className={shared.signalValue}>{signal.value.text}</dt>
                     <dd className={shared.signalNote}>{signal.note.text}</dd>
                   </div>
                 </div>

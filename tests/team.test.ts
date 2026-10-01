@@ -31,10 +31,12 @@ describe('team editorial preview', () => {
     expect(editorial).not.toMatch(/<img\b/);
   });
 
-  it('preserves the full-width hero composition and places provisional network media correctly', () => {
+  it('preserves the full-width hero composition and keeps the provisional photograph off the page', () => {
     const css = read('components/web/TeamEditorial.module.css');
     expect(editorial).toContain("teamHero from '@/public/team/optimized/team-hero.webp'");
-    expect(editorial).toContain("teamNetwork from '@/public/team/optimized/team-network.webp'");
+    // 2026-10-01: the event photograph (EQUIPO_SARAHKATERINA3, unidentified
+    // people and organisations) is no longer rendered; the band keeps its copy.
+    expect(editorial).not.toContain('team-network.webp');
     expect(css).toMatch(/\.heroFrame\s*\{[^}]*aspect-ratio:\s*16\s*\/\s*9/s);
     expect(css).toMatch(/\.heroImage\s*\{[^}]*object-fit:\s*contain/s);
     expect(css).not.toMatch(/\.heroImage\s*\{[^}]*object-fit:\s*cover/s);
@@ -45,12 +47,9 @@ describe('team editorial preview', () => {
     expect(teamPosition).toBeGreaterThan(-1);
     expect(networkPosition).toBeGreaterThan(teamPosition);
     expect(processPosition).toBeGreaterThan(networkPosition);
-    // Audit 2026-09-30: the visual review this label asked for took place
-    // (2026-09-28); the photograph itself is still provisional and blocked for
-    // production. Sarah reviewed the page without objecting to it
-    // (REVISION WEB. Team.docx), so no Sarah mark remains: what blocks it is
-    // factual (unidentified people and organisations).
-    expect(content).toContain('PROVISIONAL PHOTOGRAPH \u2014 NOT FOR PRODUCTION');
+    // No internal label on the page shown to the client, and no Sarah mark:
+    // she reviewed the band's copy (REVISION WEB. Team.docx).
+    expect(content + editorial).not.toMatch(/PROVISIONAL|NOT FOR PRODUCTION/);
     expect(editorial).not.toContain('<SarahReviewMark');
   });
 
@@ -59,9 +58,14 @@ describe('team editorial preview', () => {
     expect(content).toContain("name: 'Igor Veselov'");
     expect(content).toContain("name: 'Óscar Gonzalez'");
     expect(content).toContain("name: 'Elsa Quirós Pérez'");
-    expect(editorial).toMatch(/no fourth person or individual identity\s+is inferred/);
-    // No photograph is attached to a name: every individual slot is pending.
-    expect(editorial).toContain('Portrait pending');
+    // REVISION WEB. Team.docx: "Y el texto de abajo hay que eliminarlo" — the
+    // identity note is gone from the page and from the image alt texts.
+    expect(editorial).not.toMatch(/no fourth person|identity\s+is inferred/);
+    expect(content + editorial).not.toMatch(/identities are not assigned in this preview/);
+    // No photograph is attached to a name, and no "Portrait pending" placeholder
+    // is shown: no named, approved individual photograph exists (Juanma,
+    // 2026-09-30). The cards carry their text only.
+    expect(editorial).not.toContain('Portrait pending');
     expect(editorial).not.toMatch(/team-member|portrait-(elsa|oscar|igor)/i);
   });
 

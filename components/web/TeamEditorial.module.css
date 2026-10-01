@@ -313,6 +313,12 @@
   align-items: center;
 }
 
+/* 2026-10-01: the band runs as copy only, across the full grid. */
+.networkSolo {
+  grid-column: 1 / -1;
+  max-width: var(--sk-layout-measure-reading);
+}
+
 .networkMedia {
   min-width: 0;
 }

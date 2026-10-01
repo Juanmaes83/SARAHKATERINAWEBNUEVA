@@ -39,7 +39,6 @@ describe('Property Purchase composition', () => {
       'WorriesBand',
       'ServicesBand',
       'AuthorityBand',
-      'CasesBand',
       'JourneyBand',
       'WebFaq',
       'FinalCtaBand',
@@ -47,6 +46,10 @@ describe('Property Purchase composition', () => {
     const offsets = bands.map((band) => page.indexOf(`<${band}`));
     expect(offsets.every((offset) => offset >= 0)).toBe(true);
     expect(offsets).toEqual([...offsets].sort((a, b) => a - b));
+    // 2026-10-01: the cases band and its buyer-voice banner held only evidence
+    // and consent placeholders; they stay off the page until a case clears
+    // C-01 and a voice has written consent (docs/approval-marks-audit.md §11).
+    expect(page).not.toContain('<CasesBand');
   });
 
   it('provides the seven file stages and six process steps from the template', () => {
