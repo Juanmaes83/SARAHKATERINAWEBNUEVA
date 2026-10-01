@@ -902,3 +902,30 @@ Full record: `docs/home-buyer-system-preview.md` §12.
 - Tax: SR-054, 058, 059.
 
 **Media.** `sarahTerrace` (EQUIPO_SARAHKATERINA4, rejected by Sarah) is no longer registered or served. `sarahConfianza` (IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png) takes its Property Purchase slot and the Home hero.
+
+## 14. REVISION WEB-HOME.pdf (2026-10-01)
+
+Full record: `docs/home-buyer-system-preview.md` §13. Sarah's annotated PDF is the first review document for the Home, so the Home can now carry an approval grounded in it (`SARAH_APPROVALS`, first entry).
+
+**Closed:**
+
+- **SR-004:** the Team title and button are now hers (point 8);
+- **SR-008:** the Home FAQ is removed (point 9);
+- **SR-010:** the closing title and body are now hers (point 10).
+
+**New:** SR-087, the English translation of her PDF lines and the heading of her introduction ("Who I am" / "I’m Sarah Katerina.").
+
+**Narrowed:** SR-001 now covers the new hero lead, condensed from her introduction. SR-003 no longer covers the third need or the Property Purchase and Investment chapter titles (her points 5–7).
+
+**Open Sarah decisions: 22**, all invisible on the page:
+
+- Home: SR-001, SR-003, SR-005, SR-006, SR-007, SR-009, SR-011, SR-086, SR-087;
+- Property Purchase: SR-019, 022, 027, 082, 085;
+- Investment: SR-036, 041, 049, 083, 084;
+- Tax: SR-054, 058, 059.
+
+**Not Sarah's to decide, recorded in §13 of the Home record:**
+
+- the Vercel booking variable (technical);
+- the office footage (asset);
+- the scope of "we check everything" (legal review if wanted).

@@ -2,9 +2,10 @@ import { resolveEntryPoint } from '@/lib/buyer-system/links';
 import { claim, type Claim } from '@/lib/content/claims';
 
 const HOME_BRIEF = 'Home editorial proposal, session brief 2026-09-29';
-const SARAH_REVIEW = "Sarah's review (REVISION WEB. Team.docx), accepted by Juanma 2026-09-28";
-const INDEPENDENCE_SOURCE = 'strategy/master/decisions-log.md, 2026-07-27';
-const CLAIM_REGISTER = 'brand-system/verbal/claim-register.csv, CL-004';
+/** Sarah's annotated Home review, in the repository root since 2026-10-01 (1ebe89f). */
+const HOME_PDF = 'REVISION WEB-HOME.pdf (Sarah, 2026-10-01)';
+/** Her Spanish text, translated for this page; the translation awaits her look (SR-087). */
+const sarahLine = (point: number) => `${HOME_PDF}, point ${point} (English translation)`;
 
 export const seo = {
   title: 'Independent buyer-side guidance in Spain',
@@ -32,34 +33,93 @@ export const hero = {
     status: 'proposal',
     note: 'Drafted 2026-10-01 from Sarah’s direction ("Déjame ayudarte"); option 1 of 3; SR-086.',
   }),
-  /** 2026-10-01: first person, as Sarah asked for her own voice (SR-001). */
+  /**
+   * 2026-10-01 (PDF point 3): Sarah did not like the hero copy and asked for a
+   * short, first-person introduction. Her full text follows the hero
+   * (`presentation`); this lead condenses one of its sentences ("que le
+   * acompañe desde la primera visita hasta mucho después de la firma, que le
+   * explique cada paso con claridad") into her own voice (SR-001).
+   */
   lead: claim({
-    text: 'I help you see the property, the full cost and the tax questions together — before you commit.',
+    text: 'I stay with you from the first viewing until long after the signing, and I explain every step clearly.',
     status: 'proposal',
-    source: HOME_BRIEF,
-    note: 'Was "See the property, the full cost and the tax questions together — before you commit." Rewritten in the first person on 2026-10-01.',
+    source: `${HOME_PDF}, point 3, condensed`,
+    note: 'Was "I help you see the property, the full cost and the tax questions together — before you commit."',
   }),
   primaryCta: 'Find your starting point',
+  /** Fallback when no booking page is configured: the hero keeps its tools link. */
   secondaryCta: 'Use Buyer Tools',
 } as const;
 
 /**
- * "On your side" — the Home's opening statement. It restates the confirmed
- * independence decision in positive terms: who Sarah works for, never a
- * gesture against anyone else at the table (owner direction, 2026-09-29).
+ * One label for every booking button on the Home (PDF, page 5: "En la home
+ * tenemos que poner varios BOOK A CALL"). Each button links to the configured
+ * booking page (NEXT_PUBLIC_BOOKING_URL) and is not rendered without it.
+ */
+export const bookCall = {
+  label: 'Book a call',
+} as const;
+
+/**
+ * PRESENTATION — Sarah's own introduction (PDF point 3), every sentence kept.
+ * English translation, faithful to her Spanish: no idea dropped, merged or
+ * added. Split into short beats for reading on a phone. The eyebrow and the
+ * heading are the only words that are not hers (SR-087).
+ */
+export const presentation = {
+  eyebrow: 'Who I am',
+  title: claim({
+    text: 'I’m Sarah Katerina.',
+    status: 'proposal',
+    source: `${HOME_PDF}, point 3 (heading for her introduction)`,
+  }),
+  opening: claim({
+    text: 'For twenty years I was an office director at SUMA Gestión Tributaria, the public body that manages local taxes in the province of Alicante. From that side of the system I reviewed the paperwork of thousands of taxpayers, and that experience taught me two things.',
+    status: 'confirmed',
+    source: sarahLine(3),
+  }),
+  lessons: [
+    {
+      label: 'The first:',
+      text: 'the Spanish property and tax system works, but only for those who know its rules.',
+    },
+    {
+      label: 'The second:',
+      text: 'foreign buyers almost never know them, and often neither do the people advising them.',
+    },
+  ].map((lesson) => ({
+    label: lesson.label,
+    text: claim({ text: lesson.text, status: 'confirmed', source: sarahLine(3) }),
+  })),
+  body: [
+    'Time and again I saw the same mistakes, all of them avoidable: deadlines missed, taxes miscalculated, decisions taken without planning, and buyers left frustrated, paying more for something nobody had explained to them.',
+    'That is why I decided to go one step further. It was not about carrying on working inside the system, but about creating a service truly on the foreign buyer’s side: one that stays with them from the first viewing until long after the signing, explains every step clearly and protects them from the mistakes I have seen repeated so many times.',
+  ].map((text) => claim({ text, status: 'confirmed', source: sarahLine(3) })),
+  closing: claim({
+    text: 'Because behind every file there is a person, a family and a life plan. And that is what really matters.',
+    status: 'confirmed',
+    source: sarahLine(3),
+  }),
+  /** Fallback when no booking page is configured. */
+  contactCta: 'All contact options',
+} as const;
+
+/**
+ * "On your side" — one statement, in Sarah's voice.
+ *
+ * 2026-10-01 (PDF point 4): "NO hablamos de dinero ni de pagar" — no money,
+ * no payment, first person: "Mi trabajo es estar en tu lado de la mesa en todo
+ * momento." The three lines that sat beside it (paid only by the buyer, no
+ * remuneration from sellers, twenty years inside the Tax Administration) are
+ * gone from the Home: the first two explained who pays Sarah, which she asked
+ * to remove; her twenty years are now told in her own introduction.
  */
 export const side = {
-  eyebrow: 'Whose side?',
-  /**
-   * 2026-10-01 — Sarah rejected "Sarah is paid by one side of the table:
-   * yours." and gave her own line: "Yo estoy a tu lado de la mesa". English
-   * adaptation of her sentence; no remuneration, money or transaction here.
-   */
+  eyebrow: 'On your side',
   statement: claim({
-    text: 'I’m on your side of the table.',
+    text: 'My job is to be on your side of the table, every step of the way.',
     status: 'confirmed',
-    source:
-      'Sarah, relayed by Juanma 2026-10-01: "Yo estoy a tu lado de la mesa" (English adaptation)',
+    source: sarahLine(4),
   }),
 } as const;
 
@@ -151,7 +211,8 @@ export const discovery = {
     {
       id: 'tax',
       number: '03',
-      userNeed: 'I need tax clarity.',
+      /** PDF point 5: the handling fees and the taxes, both. Was "I need tax clarity." */
+      userNeed: 'I need to understand what I’ll pay, in fees and in taxes.',
       serviceLabel: 'Tax Advisory',
       proposition: claim({
         text: 'Spanish taxes, from the inside.',
@@ -172,33 +233,12 @@ export const discovery = {
   motionHint: 'The banner is fabric: drag it, or use the arrow keys when it is focused.',
 } as const;
 
-export const trust = [
-  {
-    label: 'Buyer-side',
-    value: claim({
-      text: 'Paid only by the buyer or client.',
-      status: 'confirmed',
-      source: INDEPENDENCE_SOURCE,
-    }),
-  },
-  {
-    label: 'Independent',
-    value: claim({
-      text: 'No remuneration from sellers, developers or agencies.',
-      status: 'confirmed',
-      source: INDEPENDENCE_SOURCE,
-    }),
-  },
-  {
-    label: 'Experience',
-    value: claim({
-      text: "Twenty years inside Spain's Tax Administration, now on your side.",
-      status: 'confirmed',
-      source: CLAIM_REGISTER,
-      note: 'APPROVED_WITH_CONDITION: preserve the factual meaning and normal copy/placement review.',
-    }),
-  },
-] as const;
+/** Chapters whose copy Sarah wrote in the PDF (point number). */
+const SARAH_PDF_POINT: Record<string, number | undefined> = {
+  'property-purchase': 6,
+  investment: 7,
+  sarah: 8,
+};
 
 /**
  * The approved four editorial blocks. The first three are the service
@@ -213,7 +253,9 @@ export const services = {
       id: 'property-purchase',
       number: '01',
       label: 'Property Purchase',
-      title: 'From first questions to keys, one connected file.',
+      // PDF point 6. Was "From first questions to keys, one connected file."
+      title:
+        'We’re with you from your first question until you get the keys, with all your paperwork in one place.',
       body: 'Bring the property checks, purchase costs, paperwork and specialist input into the same decision.',
       href: '/preview/property-purchase',
       cta: 'Explore Property Purchase',
@@ -223,7 +265,11 @@ export const services = {
       id: 'investment',
       number: '02',
       label: 'Investment',
-      title: 'Test the assumptions before the brochure becomes the plan.',
+      // PDF point 7. Was "Test the assumptions before the brochure becomes the plan."
+      // "We check everything" is Sarah's wording; its limits are the body below
+      // and the process scope line (docs/home-buyer-system-preview.md §13).
+      title:
+        'Your dream deserves more than a pretty picture: we check everything before you take the step.',
       body: 'Review the property, downside, costs, tax context and exit thinking as one investment decision.',
       href: '/preview/investment',
       cta: 'Explore Investment',
@@ -243,21 +289,30 @@ export const services = {
       id: 'sarah',
       number: '04',
       label: 'Team',
-      title: 'Sarah holds the advisory thread together.',
-      body: 'She leads the process and works with the appropriate specialist professionals when a case calls for them.',
+      // PDF point 8: Sarah's title, text and button. Was "Sarah holds the
+      // advisory thread together." / "She leads the process…" / "Meet the team".
+      title: 'One person by your side, from start to finish.',
+      body: 'I lead your process personally. When it’s needed, I rely on a team of professionals I know and trust, so you always get the best advice without having to deal with ten different people.',
       href: '/preview/team',
-      cta: 'Meet the team',
+      cta: 'Meet my team',
       media: 'homeAuthority' as const,
     },
-  ].map((item) => ({
-    ...item,
-    title: claim({ text: item.title, status: 'proposal', source: HOME_BRIEF }),
-    body:
-      item.id === 'sarah'
-        ? claim({ text: item.body, status: 'confirmed', source: SARAH_REVIEW })
+  ].map((item) => {
+    const point = SARAH_PDF_POINT[item.id];
+    const team = item.id === 'sarah';
+    return {
+      ...item,
+      title: point
+        ? claim({ text: item.title, status: 'confirmed', source: sarahLine(point) })
+        : claim({ text: item.title, status: 'proposal', source: HOME_BRIEF }),
+      body: team
+        ? claim({ text: item.body, status: 'confirmed', source: sarahLine(8) })
         : claim({ text: item.body, status: 'proposal', source: HOME_BRIEF }),
-    cta: claim({ text: item.cta, status: 'proposal', source: HOME_BRIEF }),
-  })),
+      cta: team
+        ? claim({ text: item.cta, status: 'confirmed', source: sarahLine(8) })
+        : claim({ text: item.cta, status: 'proposal', source: HOME_BRIEF }),
+    };
+  }),
 } as const;
 
 export const process = {
@@ -372,71 +427,33 @@ export const tools = {
   realCashMoment: 'See the cash needed beyond the headline price.',
 } as const;
 
-export const faq = {
-  eyebrow: claim({ text: 'Before you choose', status: 'proposal', source: HOME_BRIEF }),
-  title: claim({
-    text: 'The questions that change the next step.',
-    status: 'proposal',
-    source: HOME_BRIEF,
-  }),
-  items: [
-    {
-      id: 'start',
-      question: 'Which service should I start with?',
-      answer:
-        'Start with the decision in front of you: buying the property, testing it as an investment, understanding tax and ownership, or meeting the people who coordinate the work.',
-      status: 'proposal' as const,
-      source: HOME_BRIEF,
-    },
-    {
-      id: 'tools',
-      question: 'Can I use the tools before choosing a service?',
-      answer:
-        'Yes. Purchase Tax and Real Cash Needed open in the separate Buyer System. No buyer amount or personal detail is passed from this page in the URL.',
-      status: 'confirmed' as const,
-      source: 'docs/buyer-system-integration.md, verified 2026-09-29',
-    },
-    {
-      id: 'professionals',
-      question: 'Does Sarah replace my lawyer or other specialists?',
-      answer:
-        'No. Sarah leads the advisory thread and helps coordinate the decision. Matters requiring regulated or specialist advice stay with the appropriate professional for your case.',
-      status: 'proposal' as const,
-      source: HOME_BRIEF,
-      review: 'legal' as const,
-    },
-  ].map((item) => ({
-    id: item.id,
-    question: claim({ text: item.question, status: 'proposal', source: HOME_BRIEF }),
-    answer: claim({
-      text: item.answer,
-      status: item.status,
-      source: item.source,
-      review: 'review' in item ? item.review : 'none',
-    }),
-  })),
-  legalNote: claim({
-    text: 'General information only. Scope, professional responsibilities and advice are confirmed for each engagement and circumstance.',
-    status: 'proposal',
-    source: HOME_BRIEF,
-    review: 'legal',
-  }),
-} as const;
-
+/**
+ * Closing band — Sarah's copy (PDF point 10). Button 1 goes to the service
+ * selector on this page; button 2 to the Purchase Tax and Real Cash Needed
+ * entries on this page, which open the Buyer System with no data in the URL.
+ */
 export const finalCta = {
-  eyebrow: 'Your next useful step',
+  eyebrow: 'Your next step',
   title: claim({
-    text: 'Choose the page that matches the decision in front of you.',
-    status: 'proposal',
-    source: HOME_BRIEF,
+    text: 'Where would you like to start?',
+    status: 'confirmed',
+    source: sarahLine(10),
   }),
   body: claim({
-    text: 'Or start with the numbers: Purchase Tax and Real Cash Needed open in the Buyer System.',
-    status: 'proposal',
-    source: HOME_BRIEF,
+    text: 'Tell me where you are and I’ll show you what you need to know. Or, if you’d rather start with the numbers, take a minute to work out the taxes on your purchase and the real cash you’ll need.',
+    status: 'confirmed',
+    source: sarahLine(10),
   }),
-  primaryCta: 'Choose your starting point',
-  secondaryCta: 'Use Buyer Tools',
+  primaryCta: claim({
+    text: 'Choose your starting point',
+    status: 'confirmed',
+    source: sarahLine(10),
+  }),
+  secondaryCta: claim({
+    text: 'Calculate your purchase costs',
+    status: 'confirmed',
+    source: sarahLine(10),
+  }),
 } as const;
 
 export const footer = {
@@ -465,8 +482,8 @@ export const footer = {
         { text: 'Choose where to start', href: '#services' },
         { text: 'How decisions move', href: '#process' },
         { text: 'In their words', href: '#voices' },
-        { text: 'Sarah Katerina', href: '#sarah' },
-        { text: 'Frequently asked questions', href: '#faq' },
+        { text: 'Sarah Katerina', href: '#about' },
+        { text: 'Meet my team', href: '#sarah' },
       ].map((item) => ({
         label: claim({ text: item.text, status: 'proposal', source: HOME_BRIEF }),
         href: item.href,
@@ -527,9 +544,14 @@ export const contactBand = {
     status: 'proposal',
     source: 'docs/contact-page.md; Juanma 2026-09-29',
   }),
-  bookCta: 'Book a discovery call',
+  bookCta: bookCall.label,
   contactCta: 'All contact options',
   whatsappLabel: 'WhatsApp',
+  /**
+   * Rendered in one text node with the number ("Call +34 …"). As separate
+   * nodes, the browser's page translation joined them into "Llamaal +34 …"
+   * (PDF point 11). The number and the tel: link are unchanged.
+   */
   phoneLabel: 'Call',
   whatsappOpener: "Hi Sarah, I'd like to talk about buying property in Spain.",
   office: claim({

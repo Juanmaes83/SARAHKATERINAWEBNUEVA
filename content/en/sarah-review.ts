@@ -68,14 +68,15 @@ const TEAM = '/preview/team';
 const APPROVE_COPY = 'Approve, edit or withdraw this copy.';
 
 export const SARAH_REVIEW_ITEMS = [
-  // ── Home (no review document covers it: all eleven stay open) ──────────────────────────────────────────────────────────────
+  // ── Home: REVISION WEB-HOME.pdf (2026-10-01) closed SR-004, SR-008 and SR-010
+  // (her own copy, or a block she removed); what she did not write stays open ──────────────────────────────────────────────────────────────
   {
     id: 'SR-001',
     routes: [HOME],
     kind: 'copy',
     label: 'Hero · lead sentence',
     scope:
-      'The hero lead, rewritten in the first person on 2026-10-01: “I help you see the property, the full cost and the tax questions together — before you commit.”',
+      'The hero lead, condensed on 2026-10-01 from one sentence of her introduction (PDF point 3): “I stay with you from the first viewing until long after the signing, and I explain every step clearly.”',
     excludes: 'The opening line above it, which is SR-086.',
     decision: APPROVE_COPY,
     refs: ['home:hero.lead'],
@@ -91,26 +92,27 @@ export const SARAH_REVIEW_ITEMS = [
     refs: ['home:hero.title'],
   },
   {
+    id: 'SR-087',
+    routes: [HOME],
+    kind: 'copy',
+    label: 'Her introduction · English translation and heading',
+    scope:
+      'The English translation of her introduction (PDF point 3) and of her other PDF lines on the Home (points 4–8 and 10), and the two things she did not write: the eyebrow “Who I am” and the heading “I’m Sarah Katerina.”',
+    excludes: 'The meaning of her text: every sentence is hers, nothing added or removed.',
+    decision: 'Read the English; approve, edit or replace the heading.',
+    refs: ['home:presentation.title'],
+  },
+  {
     id: 'SR-003',
     routes: [HOME],
     kind: 'copy',
     label: '“What brings you to Spain?” · selector and three service chapters',
     scope:
-      'Selector title and intro, the supporting lines of the three needs, and the titles, bodies and buttons of the Property Purchase, Investment and Tax Advisory chapters.',
-    excludes: '“Buy with peace of mind: we coordinate every step.” (Sarah’s line, Phase 2H).',
+      'Selector title and intro, the supporting lines of the three needs, the bodies and buttons of the Property Purchase, Investment and Tax Advisory chapters, and the Tax Advisory chapter title.',
+    excludes:
+      '“Buy with peace of mind: we coordinate every step.” (Sarah’s line, Phase 2H); the third need and the Property Purchase and Investment chapter titles (her PDF, points 5–7).',
     decision: APPROVE_COPY,
     refs: ['home:discovery', 'home:services'],
-  },
-  {
-    id: 'SR-004',
-    routes: [HOME],
-    kind: 'copy',
-    label: 'Team chapter · title and button',
-    scope: '“Sarah holds the advisory thread together.” and “Meet the team”.',
-    excludes:
-      'The chapter body (Sarah’s Team introduction, confirmed) and the portrait (approved for the Home).',
-    decision: APPROVE_COPY,
-    refs: ['home:services'],
   },
   {
     id: 'SR-005',
@@ -144,17 +146,6 @@ export const SARAH_REVIEW_ITEMS = [
     refs: ['home:tools', 'service-journey:TAX_LEAD_TOOL'],
   },
   {
-    id: 'SR-008',
-    routes: [HOME],
-    kind: 'copy',
-    label: 'FAQ',
-    scope: 'Eyebrow, title, the questions and answers, and the legal note.',
-    excludes: 'The answer about the Buyer System tools (confirmed).',
-    decision:
-      'Approve, edit or withdraw this copy. The legal note and the lawyer answer also need legal review.',
-    refs: ['home:faq'],
-  },
-  {
     id: 'SR-009',
     routes: [HOME],
     kind: 'copy',
@@ -163,15 +154,6 @@ export const SARAH_REVIEW_ITEMS = [
     excludes: 'The office line (address confirmed by Juanma) and the phone and WhatsApp channels.',
     decision: APPROVE_COPY,
     refs: ['home:contactBand'],
-  },
-  {
-    id: 'SR-010',
-    routes: [HOME],
-    kind: 'copy',
-    label: 'Final call to action',
-    scope: 'Title and body of the closing band.',
-    decision: APPROVE_COPY,
-    refs: ['home:finalCta'],
   },
   {
     id: 'SR-011',
@@ -408,6 +390,26 @@ const TAX_DOC = 'REVISION WEB-Tax advisory.docx';
 const TEAM_DOC = 'REVISION WEB. Team.docx';
 
 export const SARAH_APPROVALS = [
+  {
+    routes: [HOME],
+    basis: 'explicit',
+    source:
+      'REVISION WEB-HOME.pdf (Sarah, 2026-10-01; repository root, 1ebe89f): her introduction (point 3); "Mi trabajo es estar en tu lado de la mesa en todo momento" (4); "necesito entender que voy a pagar tanto en gestión como en impuestos" (5); "Te acompañamos desde la primera duda hasta que recibes las llaves…" (6); "Tu sueño merece algo más que una bonita foto…" (7); the Team title, text and button (8); the closing title, text and two buttons (10).',
+    scope:
+      'Her lines on the Home, in English translation (the translation itself is open as SR-087).',
+    refs: [
+      'home:presentation.opening',
+      'home:presentation.lessons',
+      'home:presentation.body',
+      'home:presentation.closing',
+      'home:side',
+      'home:discovery.states.2.userNeed',
+      'home:services.items.0.title',
+      'home:services.items.1.title',
+      'home:services.items.3',
+      'home:finalCta',
+    ],
+  },
   {
     routes: [CONTACT],
     basis: 'relayed',

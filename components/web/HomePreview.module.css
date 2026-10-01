@@ -227,7 +227,93 @@
   color: var(--sk-web-muted);
 }
 
-/* --- one side of the table -------------------------------------------- */
+/* --- Sarah's introduction (PDF point 3) ------------------------------ */
+
+/* Short beats instead of one block: an opening, her two lessons as a pair,
+   two paragraphs, then her closing line set apart. */
+.presentation {
+  padding-block: var(--sk-space-64);
+  background-color: var(--sk-web-ivory);
+}
+
+.presentationGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-32);
+}
+
+.presentationText {
+  display: grid;
+  gap: var(--sk-space-24);
+  max-width: var(--sk-layout-reading-measure);
+}
+
+.presentationOpening {
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-lead-family);
+  font-size: var(--sk-type-lead-size);
+  line-height: var(--sk-type-lead-line-height);
+}
+
+.lessons {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--sk-space-16);
+  align-items: baseline;
+  padding: var(--sk-space-24);
+  border-block-start: 2px solid var(--sk-web-gold);
+  border-radius: var(--sk-radius-card);
+  background-color: var(--sk-web-white);
+}
+
+.lessonNumber {
+  color: var(--sk-web-gold-strong);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  line-height: 1;
+}
+
+.lesson p {
+  margin: 0;
+  color: var(--sk-web-ink);
+  font-size: var(--sk-type-body-size);
+  line-height: var(--sk-type-body-line-height);
+}
+
+.lesson strong {
+  font-weight: var(--sk-font-weight-semibold);
+}
+
+.presentationBody {
+  margin: 0;
+  color: var(--sk-web-muted);
+  font-size: var(--sk-type-body-size);
+  line-height: var(--sk-type-body-line-height);
+}
+
+.presentationClosing {
+  margin: 0;
+  padding-inline-start: var(--sk-space-24);
+  border-inline-start: 2px solid var(--sk-web-gold);
+  color: var(--sk-web-ink);
+  font-family: var(--sk-type-h3-family);
+  font-size: var(--sk-type-h3-size);
+  font-weight: var(--sk-type-h3-weight);
+  line-height: var(--sk-type-h3-line-height);
+  text-wrap: pretty;
+}
+
+/* --- on your side (PDF point 4) ---------------------------------------- */
 
 .side {
   padding-block: var(--sk-space-64);
@@ -235,76 +321,23 @@
   background-color: var(--sk-web-white);
 }
 
-.sideGrid {
+.sideInner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--sk-space-48);
-}
-
-.sideArt {
-  display: grid;
+  justify-items: center;
   gap: var(--sk-space-24);
+  text-align: center;
 }
 
 .sideStatement {
-  max-width: 16ch;
+  max-width: 22ch;
   margin: 0;
   color: var(--sk-web-ink);
   font-family: var(--sk-type-h1-family);
-  font-size: var(--sk-type-h1-size);
+  font-size: var(--sk-type-h2-size);
   font-weight: var(--sk-type-h1-weight);
-  line-height: var(--sk-type-h1-line-height);
+  line-height: var(--sk-type-h2-line-height);
   letter-spacing: var(--sk-type-h1-letter-spacing);
   text-wrap: balance;
-}
-
-.sideStatement em {
-  color: var(--sk-web-gold-strong);
-  font-style: var(--sk-type-quote-style);
-}
-
-.trustList {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-content: end;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.trustItem {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--sk-space-16);
-  align-items: start;
-  padding-block: var(--sk-space-16);
-  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
-    var(--sk-web-border);
-}
-
-.trustNumber {
-  min-width: var(--sk-space-32);
-  color: var(--sk-web-gold-strong);
-  font-size: var(--sk-type-legal-size);
-  font-weight: var(--sk-font-weight-semibold);
-}
-
-.trustItem p {
-  display: grid;
-  gap: var(--sk-space-4);
-  margin: 0;
-  color: var(--sk-web-ink);
-  font-size: var(--sk-type-body-small-size);
-  font-weight: var(--sk-font-weight-semibold);
-  line-height: var(--sk-type-body-small-line-height);
-}
-
-.trustItem p span {
-  color: var(--sk-web-muted);
-  font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
-    var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
-  letter-spacing: var(--sk-web-tracking-caps);
-  text-transform: uppercase;
 }
 
 /* --- chapters ---------------------------------------------------------- */
@@ -808,13 +841,15 @@
       var(--sk-web-border);
   }
 
+  /* The buttons take their own width, so Sarah's two labels stay on one line. */
   .finalCtaInner {
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: var(--sk-space-64);
   }
 
   .finalActions {
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
@@ -837,14 +872,31 @@
     max-width: calc(var(--sk-space-80) * 6.5);
   }
 
-  .side {
+  .side,
+  .presentation {
     padding-block: var(--sk-space-80);
   }
 
-  .sideGrid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  .sideStatement {
+    font-size: var(--sk-type-h1-size);
+    line-height: var(--sk-type-h1-line-height);
+  }
+
+  /* The heading holds the left column while her text runs on the right, so
+     the left half is never left empty beside a long column. */
+  .presentationGrid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
     gap: var(--sk-space-80);
-    align-items: end;
+    align-items: start;
+  }
+
+  .presentationHead {
+    position: sticky;
+    inset-block-start: calc(var(--sk-space-80) + var(--sk-space-48));
+  }
+
+  .lessons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .servicesIntroGrid,

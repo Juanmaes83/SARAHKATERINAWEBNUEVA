@@ -4,14 +4,15 @@ import { Fragment, type ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
+  bookCall,
   contactBand,
   finalCta,
   hero,
+  presentation,
   process,
   services,
   side,
   tools,
-  trust,
   voices,
 } from '@/content/en/home';
 import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
@@ -58,6 +59,16 @@ const CHAPTER_CLASS: Record<string, string | undefined> = {
   'tax-advisory': styles.chapterTax,
 };
 
+/**
+ * The booking page every "Book a call" button opens (PDF, page 5). It comes
+ * from NEXT_PUBLIC_BOOKING_URL; without it no booking button is rendered, so
+ * the page never shows a booking button that leads nowhere.
+ */
+function bookingHref(): string | null {
+  const { booking } = resolveContactChannels(contactBand.whatsappOpener);
+  return booking.status === 'configured' ? booking.href : null;
+}
+
 function Thread({ start, end }: { start?: boolean; end?: boolean }) {
   return (
     <span
@@ -78,19 +89,10 @@ function RevealText({ children }: { children: ReactNode }) {
   return <span className={styles.reveal}>{children}</span>;
 }
 
-/** Carries the thread through a shared section the Home does not own (FAQ). */
-export function HomeThreaded({ children }: { children: ReactNode }) {
-  return (
-    <div className={styles.threaded}>
-      <Thread />
-      {children}
-    </div>
-  );
-}
-
 export function HomeHero() {
   const words = hero.title.text.split(' ');
   const portrait = APPROVED_MEDIA.sarahConfianza;
+  const booking = bookingHref();
   return (
     <section className={cn(styles.hero, styles.threaded)} id="top" data-surface="light">
       <Thread start />
@@ -112,18 +114,25 @@ export function HomeHero() {
             <WebLinkButton href="#services" variant="primary" arrow>
               {hero.primaryCta}
             </WebLinkButton>
-            <WebLinkButton href="#tools" variant="secondary">
-              {hero.secondaryCta}
-            </WebLinkButton>
+            {booking ? (
+              <WebLinkButton href={booking} variant="secondary" external>
+                {bookCall.label}
+              </WebLinkButton>
+            ) : (
+              <WebLinkButton href="#tools" variant="secondary">
+                {hero.secondaryCta}
+              </WebLinkButton>
+            )}
           </div>
         </div>
 
         {/*
-          2026-10-01: Sarah asked to appear first, in an office. No real,
-          authorised footage of her in an office exists (all films in VIDEOS/
-          are generated), so the hero carries the photograph she supplied, as a
-          still. The generated villa film is no longer the hero. The footage
-          needed for a video is specified in docs/home-buyer-system-preview.md §12.
+          2026-10-01 (and REVISION WEB-HOME.pdf point 2): Sarah wants a video
+          of herself in an office. No real, authorised footage of her exists
+          (every film in VIDEOS/ is generated), so the hero carries the
+          photograph she supplied, as a still: never animated, never presented
+          as footage. The footage needed is specified in
+          docs/home-buyer-system-preview.md §12.3.
         */}
         <figure className={styles.heroMedia}>
           <Image
@@ -142,7 +151,67 @@ export function HomeHero() {
   );
 }
 
-/** "On your side" — the confirmed independence decision, stated positively. */
+/**
+ * Sarah's introduction, in her words (REVISION WEB-HOME.pdf point 3). An
+ * editorial sequence, not a block: the opening, her two lessons as a pair,
+ * what she saw and what she decided, then her closing line set apart. On
+ * desktop the heading holds the left column while the text runs on the right.
+ */
+export function HomePresentation() {
+  const booking = bookingHref();
+  return (
+    <section
+      id="about"
+      className={cn(styles.presentation, styles.threaded)}
+      aria-labelledby="about-title"
+      data-surface="light"
+    >
+      <Thread />
+      <Container className={styles.presentationGrid}>
+        <div className={styles.presentationHead}>
+          <p className={styles.eyebrow}>{presentation.eyebrow}</p>
+          <h2 id="about-title" className={styles.sectionTitle}>
+            {presentation.title.text}
+          </h2>
+        </div>
+        <div className={styles.presentationText}>
+          <p className={styles.presentationOpening}>{presentation.opening.text}</p>
+          <ol className={styles.lessons}>
+            {presentation.lessons.map((lesson, index) => (
+              <li key={lesson.label} className={styles.lesson}>
+                <span className={styles.lessonNumber} aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <p>
+                  <strong>{lesson.label}</strong> {lesson.text.text}
+                </p>
+              </li>
+            ))}
+          </ol>
+          {presentation.body.map((paragraph) => (
+            <p key={paragraph.text} className={styles.presentationBody}>
+              {paragraph.text}
+            </p>
+          ))}
+          <p className={styles.presentationClosing}>{presentation.closing.text}</p>
+          <div className={styles.actions}>
+            {booking ? (
+              <WebLinkButton href={booking} variant="primary" arrow external>
+                {bookCall.label}
+              </WebLinkButton>
+            ) : (
+              <WebLinkButton href={CONTACT_PREVIEW_ROUTE} variant="secondary">
+                {presentation.contactCta}
+              </WebLinkButton>
+            )}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/** "On your side" — Sarah's statement, first person, with no word about money (PDF point 4). */
 export function HomeSideStatement() {
   return (
     <section
@@ -151,26 +220,11 @@ export function HomeSideStatement() {
       data-surface="light"
     >
       <Thread />
-      <Container className={styles.sideGrid}>
-        <div className={styles.sideArt}>
-          <p className={styles.eyebrow}>{side.eyebrow}</p>
-          <h2 id="side-title" className={styles.sideStatement}>
-            <RevealText>{side.statement.text}</RevealText>
-          </h2>
-        </div>
-        <ul className={styles.trustList}>
-          {trust.map((item, index) => (
-            <li key={item.label} className={styles.trustItem}>
-              <span className={styles.trustNumber} aria-hidden="true">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <p>
-                <span>{item.label}</span>
-                {item.value.text}
-              </p>
-            </li>
-          ))}
-        </ul>
+      <Container className={styles.sideInner}>
+        <p className={styles.eyebrow}>{side.eyebrow}</p>
+        <h2 id="side-title" className={styles.sideStatement}>
+          <RevealText>{side.statement.text}</RevealText>
+        </h2>
       </Container>
     </section>
   );
@@ -440,7 +494,7 @@ export function HomeToolsBand() {
  */
 export function HomeContactBand() {
   const channels = resolveContactChannels(contactBand.whatsappOpener);
-  const bookingHref = channels.booking.status === 'configured' ? channels.booking.href : null;
+  const booking = bookingHref();
   return (
     <section
       className={cn(styles.contactBand, styles.threaded)}
@@ -459,8 +513,8 @@ export function HomeContactBand() {
           <p className={styles.contactOffice}>{contactBand.office.text}</p>
         </div>
         <div className={styles.contactActions}>
-          {bookingHref ? (
-            <WebLinkButton href={bookingHref} variant="primary" arrow external>
+          {booking ? (
+            <WebLinkButton href={booking} variant="primary" arrow external>
               {contactBand.bookCta}
             </WebLinkButton>
           ) : null}
@@ -468,13 +522,15 @@ export function HomeContactBand() {
             {contactBand.contactCta}
           </WebLinkButton>
           <p className={styles.contactDirect}>
+            {/* One text node per link: split nodes made the browser's page
+                translation read "Llamaal +34 …" (PDF point 11). */}
             <a href={channels.whatsapp.href} target="_blank" rel="noopener noreferrer">
-              {contactBand.whatsappLabel} {channels.whatsapp.display}
+              {`${contactBand.whatsappLabel} ${channels.whatsapp.display}`}
               <span className="sk-visually-hidden"> (opens WhatsApp in a new tab)</span>
             </a>
-            <a href={channels.phone.href}>
-              {contactBand.phoneLabel} {channels.phone.display}
-            </a>
+            <a
+              href={channels.phone.href}
+            >{`${contactBand.phoneLabel} ${channels.phone.display}`}</a>
           </p>
         </div>
       </Container>
@@ -493,11 +549,13 @@ export function HomeFinalCtaBand() {
           <p className={styles.finalBody}>{finalCta.body.text}</p>
         </RevealOnScroll>
         <RevealOnScroll className={styles.finalActions}>
+          {/* 1 → the service selector on this page; 2 → the Purchase Tax and
+              Real Cash Needed entries on this page (no data in any URL). */}
           <WebLinkButton href="#services" variant="primary" onDark arrow>
-            {finalCta.primaryCta}
+            {finalCta.primaryCta.text}
           </WebLinkButton>
           <WebLinkButton href="#tools" variant="secondary" onDark>
-            {finalCta.secondaryCta}
+            {finalCta.secondaryCta.text}
           </WebLinkButton>
         </RevealOnScroll>
       </Container>

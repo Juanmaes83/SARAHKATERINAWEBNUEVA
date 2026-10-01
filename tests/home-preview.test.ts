@@ -9,19 +9,21 @@ import {
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
 import {
+  bookCall,
   contactBand,
   discovery,
-  faq,
+  finalCta,
   footer,
   hero,
+  presentation,
   process,
   seo,
   services,
   side,
-  trust,
   tools,
   voices,
 } from '@/content/en/home';
+import { SARAH_APPROVALS, SARAH_REVIEW_ITEMS } from '@/content/en/sarah-review';
 
 const root = resolve(__dirname, '..');
 const read = (path: string) => readFileSync(resolve(root, path), 'utf8');
@@ -70,24 +72,84 @@ describe('Home preview route', () => {
     ).toBe(true);
   });
 
-  it('replaces the side statement Sarah rejected with her own line', () => {
-    // 2026-10-01: "Sarah is paid by one side of the table: yours." is gone from
-    // the Home; Sarah's "Yo estoy a tu lado de la mesa", in English.
-    expect(side.statement.text).toBe('I’m on your side of the table.');
-    const rendered = JSON.stringify({ hero, side, trust, discovery, services, process, voices, tools, faq, contactBand, footer, seo });
-    expect(rendered).not.toMatch(/Sarah is paid/);
+  it('states Sarah\'s side in her words, with no word about money or who pays her (PDF point 4)', () => {
+    expect(side.statement.text).toBe('My job is to be on your side of the table, every step of the way.');
+    expect(side.statement.source).toMatch(/REVISION WEB-HOME\.pdf.*point 4/);
+    const rendered = JSON.stringify({ hero, presentation, side, discovery, services, process, voices, tools, finalCta, contactBand, footer, seo });
+    expect(rendered).not.toMatch(/Sarah is paid|paid only by|remuneration|No commission/i);
+    // The remuneration lines are not rendered on the Home at all.
+    expect(component).not.toMatch(/trustList|trust\.map/);
+  });
+
+  it('introduces Sarah in her own words, every sentence kept (PDF point 3)', () => {
+    expect(presentation.opening.text).toMatch(/^For twenty years I was an office director at SUMA Gestión Tributaria/);
+    expect(presentation.opening.text).toMatch(/thousands of taxpayers.*taught me two things\.$/);
+    expect(presentation.lessons.map((l) => l.label)).toEqual(['The first:', 'The second:']);
+    expect(presentation.body).toHaveLength(2);
+    expect(presentation.body[0]?.text).toMatch(/deadlines missed, taxes miscalculated, decisions taken without planning/);
+    expect(presentation.body[1]?.text).toMatch(/from the first viewing until long after the signing/);
+    expect(presentation.closing.text).toBe('Because behind every file there is a person, a family and a life plan. And that is what really matters.');
+    for (const line of [presentation.opening, ...presentation.lessons.map((l) => l.text), ...presentation.body, presentation.closing]) {
+      expect(line.status).toBe('confirmed');
+      expect(line.source).toMatch(/point 3 \(English translation\)/);
+    }
+    // The heading is ours, and open for her (SR-087).
+    expect(presentation.title.status).toBe('proposal');
+    expect(SARAH_REVIEW_ITEMS.some((item) => item.id === 'SR-087')).toBe(true);
+    expect(page.indexOf('<HomePresentation')).toBeGreaterThan(page.indexOf('<HomeHero'));
+    expect(page.indexOf('<HomePresentation')).toBeLessThan(page.indexOf('<HomeSideStatement'));
+  });
+
+  it('applies Sarah\'s PDF lines to the selector, the chapters, Team and the close (points 5–8, 10)', () => {
+    expect(discovery.states[2]?.userNeed).toBe('I need to understand what I’ll pay, in fees and in taxes.');
+    expect(services.items[0]?.title.text).toBe('We’re with you from your first question until you get the keys, with all your paperwork in one place.');
+    expect(services.items[1]?.title.text).toBe('Your dream deserves more than a pretty picture: we check everything before you take the step.');
+    const team = services.items[3];
+    expect(team?.title.text).toBe('One person by your side, from start to finish.');
+    expect(team?.body.text).toMatch(/^I lead your process personally\./);
+    expect(team?.cta.text).toBe('Meet my team');
+    expect(finalCta.title.text).toBe('Where would you like to start?');
+    expect(finalCta.primaryCta.text).toBe('Choose your starting point');
+    expect(finalCta.secondaryCta.text).toBe('Calculate your purchase costs');
+    const close = component.slice(component.indexOf('export function HomeFinalCtaBand'));
+    expect(close).toContain('href="#services"');
+    expect(close).toContain('href="#tools"');
+    expect(SARAH_APPROVALS[0]?.source).toMatch(/REVISION WEB-HOME\.pdf/);
+  });
+
+  it('removes the Home FAQ band and its anchor, leaving the landing FAQs alone (PDF point 9)', () => {
+    expect(page).not.toMatch(/WebFaq|faq/);
+    expect(JSON.stringify(footer)).not.toContain('#faq');
+    expect(component).not.toContain('id="faq"');
+    for (const anchor of footer.groups[1]?.links.map((link) => link.href) ?? []) {
+      expect(component, anchor).toContain(`id="${anchor.slice(1)}"`);
+    }
+  });
+
+  it('puts "Book a call" on the configured booking page only, never a dead button', () => {
+    expect(bookCall.label).toBe('Book a call');
+    expect(contactBand.bookCta).toBe('Book a call');
+    // Hero, introduction and contact band; each rendered only with a booking URL.
+    expect(component.match(/\{bookCall\.label\}|\{contactBand\.bookCta\}/g)).toHaveLength(3);
+    expect(component).toContain("booking.status === 'configured' ? booking.href : null");
+    expect(component).not.toMatch(/calendly\.com/i);
+  });
+
+  it('writes the call link as one text node so page translation reads it (PDF point 11)', () => {
+    expect(component).toContain('{`${contactBand.phoneLabel} ${channels.phone.display}`}');
+    expect(component).not.toContain('{contactBand.phoneLabel} {channels.phone.display}');
   });
 
   it('follows the Home decision narrative in the approved order', () => {
     const order = [
       '<HomeHero',
+      '<HomePresentation',
       '<HomeSideStatement',
       '<HomeServices',
       '<HomeProcessBand',
       '<HomeVoices',
       '<HomeTeam',
       '<HomeToolsBand',
-      '<WebFaq',
       '<HomeContactBand',
       '<HomeFinalCtaBand',
       '<WebFooter',
@@ -125,7 +187,7 @@ describe('Home preview route', () => {
     expect(discovery.states.map((s) => s.userNeed)).toEqual([
       'I want to buy a home.',
       'I want to invest.',
-      'I need tax clarity.',
+      'I need to understand what I’ll pay, in fees and in taxes.',
     ]);
     expect(discovery.states.map((s) => s.ctaHref)).toEqual([
       '/preview/property-purchase',
@@ -195,7 +257,6 @@ describe('Home preview route', () => {
     expect(component).not.toContain('sk-real-1.jpg');
     expect(component).not.toContain('sk-real-2.jpg');
     expect(services.items.find((service) => service.id === 'sarah')?.body.status).toBe('confirmed');
-    expect(trust.every((item) => item.value.status === 'confirmed')).toBe(true);
     expect(process.boundary.status).toBe('proposal');
     expect(page).toContain('showLanguageSwitcher={false}');
     expect(page).toContain('showLanguageStatus={false}');
@@ -237,7 +298,8 @@ describe('Home preview route', () => {
       services,
       voices,
       process,
-      faq,
+      presentation,
+      finalCta,
       footer,
       seo,
     });
@@ -254,7 +316,6 @@ describe('Home preview route', () => {
   it('never crosses anything out: the thread orients, it does not cancel', () => {
     expect(component).not.toMatch(/strike|parties/);
     expect(read('components/web/HomePreview.module.css')).not.toMatch(/\.strike|\.party/);
-    expect(trust[1].value.text).toBe('No remuneration from sellers, developers or agencies.');
   });
 
   it('reveals only the three selected editorial statements, never the H1', () => {

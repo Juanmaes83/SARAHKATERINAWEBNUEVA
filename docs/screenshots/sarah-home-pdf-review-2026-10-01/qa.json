@@ -1,0 +1,724 @@
+{
+ "base": "http://localhost:3310",
+ "at": "2026-10-01T11:31:33.653Z",
+ "browser": "Google Chrome via Playwright",
+ "widths": {
+  "320": {
+   "xRobots": "noindex, nofollow",
+   "errors": [],
+   "failed": [],
+   "h1": 1,
+   "h1Text": "Let me help you feel at home in Spain.",
+   "overflow": 0,
+   "headerOverflow": 0,
+   "headerOverlaps": 0,
+   "logoHeight": 48,
+   "navFont": "menu",
+   "navWrapped": [],
+   "editorial": [],
+   "missing": [],
+   "gone": [],
+   "faqSection": false,
+   "brokenImages": [],
+   "brokenAnchors": [],
+   "hero": {
+    "src": "/_next/image?url=%2Fmedia%2Fsarah-confianza.webp&w=640&q=75",
+    "natural": 320,
+    "focal": "50% 30%",
+    "w": 272,
+    "h": 272
+   },
+   "heroVideo": false,
+   "ctas": [
+    {
+     "text": "Find your starting point→",
+     "href": "#services",
+     "section": "top",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "top",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "about",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Meet my team→",
+     "href": "/preview/team",
+     "section": "sarah",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "contact",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "All contact options",
+     "href": "/preview/contact",
+     "section": "contact",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Choose your starting point→",
+     "href": "#services",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Calculate your purchase costs",
+     "href": "#tools",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Meet my team",
+     "href": "#sarah",
+     "section": "",
+     "visible": true,
+     "target": ""
+    }
+   ],
+   "phone": [
+    {
+     "text": "Call +34 647 754 589",
+     "nodes": 1,
+     "href": "tel:+34647754589"
+    }
+   ],
+   "aboutOpacity": 1,
+   "robots": "noindex, nofollow",
+   "menuLinks": 8,
+   "focusAfterEscape": "Menu"
+  },
+  "390": {
+   "xRobots": "noindex, nofollow",
+   "errors": [],
+   "failed": [],
+   "h1": 1,
+   "h1Text": "Let me help you feel at home in Spain.",
+   "overflow": 0,
+   "headerOverflow": 0,
+   "headerOverlaps": 0,
+   "logoHeight": 48,
+   "navFont": "menu",
+   "navWrapped": [],
+   "editorial": [],
+   "missing": [],
+   "gone": [],
+   "faqSection": false,
+   "brokenImages": [],
+   "brokenAnchors": [],
+   "hero": {
+    "src": "/_next/image?url=%2Fmedia%2Fsarah-confianza.webp&w=640&q=75",
+    "natural": 390,
+    "focal": "50% 30%",
+    "w": 342,
+    "h": 342
+   },
+   "heroVideo": false,
+   "ctas": [
+    {
+     "text": "Find your starting point→",
+     "href": "#services",
+     "section": "top",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "top",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "about",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Meet my team→",
+     "href": "/preview/team",
+     "section": "sarah",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "contact",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "All contact options",
+     "href": "/preview/contact",
+     "section": "contact",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Choose your starting point→",
+     "href": "#services",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Calculate your purchase costs",
+     "href": "#tools",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Meet my team",
+     "href": "#sarah",
+     "section": "",
+     "visible": true,
+     "target": ""
+    }
+   ],
+   "phone": [
+    {
+     "text": "Call +34 647 754 589",
+     "nodes": 1,
+     "href": "tel:+34647754589"
+    }
+   ],
+   "aboutOpacity": 1,
+   "robots": "noindex, nofollow",
+   "thirdNeedSelected": "true",
+   "menuLinks": 8,
+   "focusAfterEscape": "Menu"
+  },
+  "768": {
+   "xRobots": "noindex, nofollow",
+   "errors": [],
+   "failed": [],
+   "h1": 1,
+   "h1Text": "Let me help you feel at home in Spain.",
+   "overflow": 0,
+   "headerOverflow": 0,
+   "headerOverlaps": 0,
+   "logoHeight": 48,
+   "navFont": "menu",
+   "navWrapped": [],
+   "editorial": [],
+   "missing": [],
+   "gone": [],
+   "faqSection": false,
+   "brokenImages": [],
+   "brokenAnchors": [],
+   "hero": {
+    "src": "/_next/image?url=%2Fmedia%2Fsarah-confianza.webp&w=640&q=75",
+    "natural": 537,
+    "focal": "50% 30%",
+    "w": 704,
+    "h": 880
+   },
+   "heroVideo": false,
+   "ctas": [
+    {
+     "text": "Find your starting point→",
+     "href": "#services",
+     "section": "top",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "top",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "about",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Meet my team→",
+     "href": "/preview/team",
+     "section": "sarah",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "contact",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "All contact options",
+     "href": "/preview/contact",
+     "section": "contact",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Choose your starting point→",
+     "href": "#services",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Calculate your purchase costs",
+     "href": "#tools",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Meet my team",
+     "href": "#sarah",
+     "section": "",
+     "visible": true,
+     "target": ""
+    }
+   ],
+   "phone": [
+    {
+     "text": "Call +34 647 754 589",
+     "nodes": 1,
+     "href": "tel:+34647754589"
+    }
+   ],
+   "aboutOpacity": 1,
+   "robots": "noindex, nofollow",
+   "menuLinks": 8,
+   "focusAfterEscape": "Menu"
+  },
+  "1024": {
+   "xRobots": "noindex, nofollow",
+   "errors": [],
+   "failed": [],
+   "h1": 1,
+   "h1Text": "Let me help you feel at home in Spain.",
+   "overflow": 0,
+   "headerOverflow": 0,
+   "headerOverlaps": 0,
+   "logoHeight": 48,
+   "navFont": "menu",
+   "navWrapped": [],
+   "editorial": [],
+   "missing": [],
+   "gone": [],
+   "faqSection": false,
+   "brokenImages": [],
+   "brokenAnchors": [],
+   "hero": {
+    "src": "/_next/image?url=%2Fmedia%2Fsarah-confianza.webp&w=640&q=75",
+    "natural": 519,
+    "focal": "50% 30%",
+    "w": 360,
+    "h": 451
+   },
+   "heroVideo": false,
+   "ctas": [
+    {
+     "text": "Find your starting point→",
+     "href": "#services",
+     "section": "top",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "top",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "about",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Meet my team→",
+     "href": "/preview/team",
+     "section": "sarah",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "contact",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "All contact options",
+     "href": "/preview/contact",
+     "section": "contact",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Choose your starting point→",
+     "href": "#services",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Calculate your purchase costs",
+     "href": "#tools",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Meet my team",
+     "href": "#sarah",
+     "section": "",
+     "visible": true,
+     "target": ""
+    }
+   ],
+   "phone": [
+    {
+     "text": "Call +34 647 754 589",
+     "nodes": 1,
+     "href": "tel:+34647754589"
+    }
+   ],
+   "aboutOpacity": 1,
+   "robots": "noindex, nofollow",
+   "focusNoOutline": 0,
+   "tabOrder": [
+    "Skip to content",
+    "",
+    "Menu",
+    "Find your starting point",
+    "Book a call(opens in a n",
+    "Book a call→(opens in a ",
+    "01I want to buy a home.P",
+    "Editorial illustration01",
+    "Start with Property Purc",
+    "Explore Property Purchas",
+    "Explore Investment→",
+    "Explore Tax Advisory→",
+    "Meet my team→",
+    "Open purchase tax  (open"
+   ]
+  },
+  "1280": {
+   "xRobots": "noindex, nofollow",
+   "errors": [],
+   "failed": [],
+   "h1": 1,
+   "h1Text": "Let me help you feel at home in Spain.",
+   "overflow": 0,
+   "headerOverflow": 0,
+   "headerOverlaps": 0,
+   "logoHeight": 64,
+   "navFont": "16px",
+   "navWrapped": [],
+   "editorial": [],
+   "missing": [],
+   "gone": [],
+   "faqSection": false,
+   "brokenImages": [],
+   "brokenAnchors": [],
+   "hero": {
+    "src": "/_next/image?url=%2Fmedia%2Fsarah-confianza.webp&w=640&q=75",
+    "natural": 519,
+    "focal": "50% 30%",
+    "w": 469,
+    "h": 587
+   },
+   "heroVideo": false,
+   "ctas": [
+    {
+     "text": "Find your starting point→",
+     "href": "#services",
+     "section": "top",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "top",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "about",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Meet my team→",
+     "href": "/preview/team",
+     "section": "sarah",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "contact",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "All contact options",
+     "href": "/preview/contact",
+     "section": "contact",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Choose your starting point→",
+     "href": "#services",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Calculate your purchase costs",
+     "href": "#tools",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Meet my team",
+     "href": "#sarah",
+     "section": "",
+     "visible": true,
+     "target": ""
+    }
+   ],
+   "phone": [
+    {
+     "text": "Call +34 647 754 589",
+     "nodes": 1,
+     "href": "tel:+34647754589"
+    }
+   ],
+   "aboutOpacity": 1,
+   "robots": "noindex, nofollow",
+   "focusNoOutline": 0,
+   "tabOrder": [
+    "Skip to content",
+    "",
+    "Home",
+    "Property Purchase",
+    "Investment",
+    "Tax Advisory",
+    "Team",
+    "Contact",
+    "Buyer Tools→",
+    "Find your starting point",
+    "Book a call(opens in a n",
+    "Book a call→(opens in a ",
+    "01I want to buy a home.P",
+    "Editorial illustration01"
+   ]
+  },
+  "1440": {
+   "xRobots": "noindex, nofollow",
+   "errors": [],
+   "failed": [],
+   "h1": 1,
+   "h1Text": "Let me help you feel at home in Spain.",
+   "overflow": 0,
+   "headerOverflow": 0,
+   "headerOverlaps": 0,
+   "logoHeight": 64,
+   "navFont": "20px",
+   "navWrapped": [],
+   "editorial": [],
+   "missing": [],
+   "gone": [],
+   "faqSection": false,
+   "brokenImages": [],
+   "brokenAnchors": [],
+   "hero": {
+    "src": "/_next/image?url=%2Fmedia%2Fsarah-confianza.webp&w=640&q=75",
+    "natural": 519,
+    "focal": "50% 30%",
+    "w": 476,
+    "h": 595
+   },
+   "heroVideo": false,
+   "ctas": [
+    {
+     "text": "Find your starting point→",
+     "href": "#services",
+     "section": "top",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "top",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "about",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "Meet my team→",
+     "href": "/preview/team",
+     "section": "sarah",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Book a call→(opens in a new tab)",
+     "href": "https://www.sarahkaterina.com/book-a-call",
+     "section": "contact",
+     "visible": true,
+     "target": "_blank"
+    },
+    {
+     "text": "All contact options",
+     "href": "/preview/contact",
+     "section": "contact",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Choose your starting point→",
+     "href": "#services",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Calculate your purchase costs",
+     "href": "#tools",
+     "section": "",
+     "visible": true,
+     "target": ""
+    },
+    {
+     "text": "Meet my team",
+     "href": "#sarah",
+     "section": "",
+     "visible": true,
+     "target": ""
+    }
+   ],
+   "phone": [
+    {
+     "text": "Call +34 647 754 589",
+     "nodes": 1,
+     "href": "tel:+34647754589"
+    }
+   ],
+   "aboutOpacity": 1,
+   "robots": "noindex, nofollow",
+   "thirdNeedSelected": "true",
+   "focusNoOutline": 0,
+   "tabOrder": [
+    "Editorial illustration03",
+    "Start with Tax Advisory→",
+    "Explore Property Purchas",
+    "Explore Investment→",
+    "Explore Tax Advisory→",
+    "Meet my team→",
+    "Open purchase tax  (open",
+    "Open real cash needed  (",
+    "Book a call→(opens in a ",
+    "All contact options",
+    "WhatsApp +34 647 754 589",
+    "Call +34 647 754 589",
+    "Choose your starting poi",
+    "Calculate your purchase "
+   ]
+  }
+ },
+ "variants": {
+  "reduced-motion": {
+   "390": {
+    "h1": 1,
+    "missing": [],
+    "aboutOpacity": 1,
+    "ctas": 9,
+    "overflow": 0,
+    "brokenImages": 0
+   },
+   "1440": {
+    "h1": 1,
+    "missing": [],
+    "aboutOpacity": 1,
+    "ctas": 9,
+    "overflow": 0,
+    "brokenImages": 0
+   }
+  },
+  "no-javascript": {
+   "390": {
+    "h1": 1,
+    "missing": [],
+    "aboutOpacity": 1,
+    "ctas": 9,
+    "overflow": 0,
+    "brokenImages": 0
+   },
+   "1440": {
+    "h1": 1,
+    "missing": [],
+    "aboutOpacity": 1,
+    "ctas": 9,
+    "overflow": 0,
+    "brokenImages": 0
+   }
+  }
+ },
+ "sitemapHasPreview": false,
+ "booking": {
+  "hrefs": [
+   "https://www.sarahkaterina.com/book-a-call"
+  ],
+  "pages": {
+   "https://www.sarahkaterina.com/book-a-call": {
+    "status": 200,
+    "calendly": [
+     "https://calendly.com/sarahkaterina-info/30min"
+    ]
+   }
+  }
+ }
+}
