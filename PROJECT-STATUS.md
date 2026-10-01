@@ -107,6 +107,30 @@ Most recent first.
 
 Contact is integrated with Home, shared navigation and all footers. PR-head CI passed; the Vercel check on the merge commit was pending when this entry was prepared. The site remains controlled preview/noindex.
 
+**2026-10-01 — REVISION WEB-HOME.pdf, Sarah's eleven Home annotations (`feat/home-pdf-review-2026-10-01`, built on PR #37; `docs/home-buyer-system-preview.md` §13).**
+- **Applied:** points 1 and 3–11.
+  - Larger logo and menu.
+  - Her introduction in full, in English, after the hero.
+  - "My job is to be on your side of the table, every step of the way." with no remuneration lines.
+  - Her selector need, chapter titles, Team block and closing band.
+  - FAQ removed from the Home.
+  - Three "Book a call" buttons on the configured booking page.
+  - The "Llamaal" translation glitch fixed.
+- **Blocked:**
+  - **Point 2:** no real footage of Sarah in an office; the hero keeps her photograph.
+  - **Booking on the Preview:** `NEXT_PUBLIC_BOOKING_URL` is not set in Vercel. Locally it resolves to her booking page, which embeds `calendly.com/sarahkaterina-info/30min`.
+- **Register:** 22 open SR items; SR-004, SR-008 and SR-010 closed, SR-087 opened.
+
+Not visually approved; Juanma reviews first, then Sarah.
+
+**2026-10-01 — Sarah's Home feedback (`feat/sarah-home-voice-and-balance-2026-10-01`; `docs/home-buyer-system-preview.md` §12).**
+- **Home hero:** opens in Sarah's voice with "Let me help you feel at home in Spain." (proposal, SR-086; options 2 and 3 recorded) and with her supplied photograph. No real office footage exists; the footage to record is specified.
+- **Side statement:** "I’m on your side of the table." (Sarah's own line) replaces the rejected "Sarah is paid…".
+- **Photo:** the terrace photograph she rejected is no longer registered or served; the supplied photograph takes its Property Purchase slot.
+- **Desktop balance:** fixed on the Home, Contact, Property Purchase and Investment (Tax shares the authority rule).
+
+Not visually approved; Juanma reviews first, then Sarah.
+
 **2026-10-01 — Editorial marks hidden for Sarah's final review (`fix/hide-editorial-marks-2026-10-01`; `docs/approval-marks-audit.md` §12).**
 No route renders the "SARAH REVIEW REQUIRED · SR-###" strips or tags any more: the anchors render nothing but keep the
 build gate. The preview wording is also removed from the SEO descriptions. The 24 SR items stay in the register as copy Sarah

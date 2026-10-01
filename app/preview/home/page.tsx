@@ -5,18 +5,17 @@ import {
   HomeContactBand,
   HomeFinalCtaBand,
   HomeHero,
+  HomePresentation,
   HomeProcessBand,
   HomeServices,
   HomeSideStatement,
   HomeTeam,
-  HomeThreaded,
   HomeToolsBand,
   HomeVoices,
 } from '@/components/web/HomePreview';
-import { WebFaq } from '@/components/web/WebFaq';
 import { WebFooter } from '@/components/web/WebFooter';
 import { WebHeader } from '@/components/web/WebHeader';
-import { faq, footer, seo } from '@/content/en/home';
+import { footer, seo } from '@/content/en/home';
 import {
   BUYER_TOOLS_LABEL,
   HOME_PREVIEW_ROUTE,
@@ -51,9 +50,11 @@ export default function HomePreviewPage() {
         showLanguageSwitcher={false}
         buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
       />
+      <SarahReviewMark id="SR-086" />
       <SarahReviewMark id="SR-001" />
       <HomeHero />
-      <SarahReviewMark id="SR-002" />
+      <SarahReviewMark id="SR-087" />
+      <HomePresentation />
       <HomeSideStatement />
       <SarahReviewMark id="SR-003" />
       <HomeServices />
@@ -61,17 +62,12 @@ export default function HomePreviewPage() {
       <HomeProcessBand />
       <SarahReviewMark id="SR-006" />
       <HomeVoices />
-      <SarahReviewMark id="SR-004" />
       <HomeTeam />
       <SarahReviewMark id="SR-007" />
       <HomeToolsBand />
-      <SarahReviewMark id="SR-008" />
-      <HomeThreaded>
-        <WebFaq content={faq} appearance="light" />
-      </HomeThreaded>
+      {/* The FAQ band left the Home (REVISION WEB-HOME.pdf point 9). */}
       <SarahReviewMark id="SR-009" />
       <HomeContactBand />
-      <SarahReviewMark id="SR-010" />
       <HomeFinalCtaBand />
       <SarahReviewMark id="SR-011" />
       <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />

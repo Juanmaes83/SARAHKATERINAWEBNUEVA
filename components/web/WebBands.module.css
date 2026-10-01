@@ -908,7 +908,10 @@
 }
 
 @media (min-width: 768px) {
+  /* 2026-10-01: the photograph is centred against the longer copy column, so
+     no empty block opens under it on the left. */
   .authorityGrid {
+    align-items: center;
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: var(--sk-space-48);
   }
@@ -1949,4 +1952,10 @@
     .objectionIndex
   ) {
   color: var(--sk-web-muted);
+}
+
+/* 2026-10-01: Scenarios — the chart card sits level with the longer copy
+   column instead of at its top edge (no empty block under it on the left). */
+.splitCentered {
+  align-items: center;
 }

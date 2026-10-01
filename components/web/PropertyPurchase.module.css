@@ -909,6 +909,8 @@
     padding-inline: var(--sk-space-24);
   }
   .audienceGrid {
+    /* 2026-10-01: the copy sits level with the image, not at its top edge. */
+    align-items: center;
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
     gap: var(--sk-space-64);
   }
@@ -993,15 +995,17 @@
     /* Match the approved Tax Advisory authority composition: a wide editorial
        image beside one content column. The previous three-column layout made
        this image too narrow and cropped Services_Especial aggressively. */
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    /* 2026-10-01: a portrait photograph (4:5) beside the copy, vertically
+       centred, so neither column leaves an empty half. */
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: var(--sk-space-64);
-    align-items: start;
+    align-items: center;
   }
 
   .portraitFrame {
     grid-row: 1 / span 2;
     min-height: 0;
-    aspect-ratio: 1376 / 768;
+    aspect-ratio: 4 / 5;
   }
   .journey {
     grid-template-columns: repeat(4, minmax(0, 1fr));

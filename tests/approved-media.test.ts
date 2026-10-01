@@ -58,14 +58,13 @@ describe('approved media registry', () => {
     const uses = {
       'WebBands.tsx': 'sarahBalcony',
       'TaxBands.tsx': 'sarahStairs',
-      'PropertyPurchase.tsx': 'sarahTerrace',
     } as const;
     for (const [file, key] of Object.entries(uses)) {
       const source = read(resolve(root, 'components/web', file));
       expect(source, file).not.toContain('APPROVED_MEDIA.authorityEditorial');
       expect(source, file).toContain(`APPROVED_MEDIA.${key}`);
       const m = APPROVED_MEDIA[key];
-      expect(m.source).toMatch(/^IMAGES\/EQUIPO\/SARAH\/EQUIPO_SARAHKATERINA[456]\.png$/);
+      expect(m.source).toMatch(/^IMAGES\/EQUIPO\/SARAH\/EQUIPO_SARAHKATERINA[56]\.png$/);
       expect(m.note).toMatch(/confirmed by Juanma on 2026-09-30/);
     }
     const shas: Record<string, string> = {
@@ -82,6 +81,31 @@ describe('approved media registry', () => {
         .digest('hex');
       expect(actual.toUpperCase(), file).toBe(sha);
     }
+  });
+
+  it('replaces the terrace photograph Sarah rejected with the file she supplied', () => {
+    // 2026-10-01: Sarah asked to remove EQUIPO_SARAHKATERINA4 (standing on a
+    // terrace, black-and-white dress). It is neither registered nor served any
+    // more (its original stays in IMAGES/, untouched); its slot, the Property
+    // Purchase authority block, and the Home hero use the supplied file.
+    expect('sarahTerrace' in APPROVED_MEDIA).toBe(false);
+    expect(existsSync(resolve(root, 'public/media/sarah-terrace.webp'))).toBe(false);
+    expect(existsSync(resolve(root, 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA4.png'))).toBe(true);
+    const confianza = APPROVED_MEDIA.sarahConfianza;
+    expect(confianza.source).toBe('IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png');
+    expect(confianza.grade).toBeUndefined();
+    const sha = createHash('sha256')
+      .update(readFileSync(resolve(root, confianza.source)))
+      .digest('hex')
+      .toUpperCase();
+    expect(sha).toBe('AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5');
+    expect(confianza.note).toContain(sha);
+    expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain(
+      'APPROVED_MEDIA.sarahConfianza',
+    );
+    expect(read(resolve(root, 'components/web/HomePreview.tsx'))).toContain(
+      'APPROVED_MEDIA.sarahConfianza',
+    );
   });
 
   it('keeps Services_14 registered and gives the Tax hero its approved scroll video', () => {
@@ -109,7 +133,7 @@ describe('approved media registry', () => {
 
   it('serves every entry through the common Phase 2E grade, keeping the ungraded derivative', () => {
     // Sarah's own photographs are compression-only: her face is never graded.
-    const UNGRADED = ['home-sarah-authority', 'sarah-terrace', 'sarah-balcony', 'sarah-stairs'];
+    const UNGRADED = ['home-sarah-authority', 'sarah-confianza', 'sarah-balcony', 'sarah-stairs'];
     const gradedEntries = entries.filter((m) => !UNGRADED.includes(m.id));
     for (const m of gradedEntries) {
       expect(m.grade, m.id).toBe('sk-editorial-v1');

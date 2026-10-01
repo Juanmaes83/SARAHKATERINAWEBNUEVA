@@ -705,10 +705,12 @@
     align-items: start;
   }
 
+  /* 2026-10-01: a taller frame (it still follows the list while scrolling),
+     so the left column is not half empty beside the four formats. */
   .formatsMedia {
     position: sticky;
     inset-block-start: calc(var(--sk-space-80) + var(--sk-space-32));
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
   }
 
   .officeGrid {

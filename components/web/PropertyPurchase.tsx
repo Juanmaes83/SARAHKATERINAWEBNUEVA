@@ -543,10 +543,10 @@ export function ServicesBand() {
 }
 
 export function AuthorityBand() {
-  // 2026-09-30: Sarah asked to replace the face in the former authority
-  // image (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx).
-  // Her own photograph EQUIPO_SARAHKATERINA4, confirmed by Juanma as Sarah and approved for use.
-  const authorityMedia = APPROVED_MEDIA.sarahTerrace;
+  // 2026-10-01: Sarah asked to remove the photograph that stood here
+  // (EQUIPO_SARAHKATERINA4, on a terrace). Its replacement is the file she
+  // supplied, IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png.
+  const authorityMedia = APPROVED_MEDIA.sarahConfianza;
 
   return (
     <WebSection surface="navySoft" id="sarah">

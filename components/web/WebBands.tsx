@@ -449,7 +449,8 @@ export function ReportBand() {
 export function ScenariosBand() {
   return (
     <WebSection surface="ivory">
-      <div className={styles.split}>
+      {/* 2026-10-01: chart and copy level with each other (desktop balance). */}
+      <div className={`${styles.split} ${styles.splitCentered}`}>
         <RevealOnScroll className={styles.chartCard}>
           <h3 className={styles.reportCardTitle}>{scenarios.chartTitle.text}</h3>
           <SampleScenarios label="Optimistic, base and pessimistic scenarios" />

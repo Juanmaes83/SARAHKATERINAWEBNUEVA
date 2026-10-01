@@ -588,3 +588,225 @@ exists. A merge to `main` may trigger the configured Vercel Production-target
 build; that infrastructure event does not authorise custom-domain publication,
 indexation or migration. The Home remains under `/preview/home`, noindex and
 outside the sitemap. The 2H approval of the four existing landings is unchanged.
+
+---
+
+## 12. Sarah's feedback of 2026-10-01: Sarah first, her own voice, desktop balance
+
+**Source:** Sarah's comments relayed by Juanma on 2026-10-01, plus the files he uploaded to `main` the same day (`e782a6d`). Branch: `feat/sarah-home-voice-and-balance-2026-10-01`. Nothing here is visually approved: Juanma reviews it first, then Sarah.
+
+### 12.1 Copy: before, after, status
+
+| Where                   | Before                                                                                | After                                                                                            | Status                                                                                                                                                                                                                                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hero, first line (H1)   | "Clarity before commitment." (approved brand promise)                                 | "Let me help you feel at home in Spain."                                                         | **Proposal, not approved: SR-086.** Drafted from Sarah's direction ("Déjame ayudarte"; close, first person, no money or transaction). She said she would send three phrases; none was in the repository, the brief or the recent documents, so three were drafted (below) and the clearest is shown |
+| Hero lead               | "See the property, the full cost and the tax questions together — before you commit." | "I help you see the property, the full cost and the tax questions together — before you commit." | Proposal (SR-001): first person only, meaning unchanged                                                                                                                                                                                                                                             |
+| "Whose side?" statement | "Sarah is paid by one side of the table: yours." (rejected by Sarah)                  | "I’m on your side of the table."                                                                 | Sarah's own line ("Yo estoy a tu lado de la mesa"), in English. Recorded as `confirmed` with that source. SR-002 is closed. The rejected sentence appears nowhere on the Home                                                                                                                       |
+| Service selector intro  | "… Sarah turns it into the right kind of guidance."                                   | "… I’ll turn it into the right kind of guidance."                                                | Proposal (SR-003): first person only                                                                                                                                                                                                                                                                |
+| Hero film caption       | "From possibility to decision" / "Illustrative concept film. It does not promise…"    | Removed with the film                                                                            | —                                                                                                                                                                                                                                                                                                   |
+
+**The three opening lines** (drafted, not Sarah's, not approved):
+
+1. "Let me help you feel at home in Spain." ← shown
+2. "I'll walk with you, every step of the way."
+3. "You don't have to do this alone. Let me help."
+
+"Clarity before commitment." remains the approved brand promise and still closes the Team hero.
+
+**Not changed:**
+
+- the three trust lines under the statement (the remuneration model and the 20-year credential, both confirmed);
+- the testimonials;
+- every other Home text: the third-person sentences about the team stay, since Sarah is not speaking in them;
+- Tax Advisory, including its results.
+
+### 12.2 The photograph Sarah rejected and its replacement
+
+- **Removed:** `EQUIPO_SARAHKATERINA4.png`, Sarah standing on a terrace in a black-and-white dress, registered as `sarahTerrace` and served as `public/media/sarah-terrace.webp`. It was the only use of that file, in the **Property Purchase authority block**.
+  - The registry entry and the served derivative are deleted.
+  - The original stays in `IMAGES/EQUIPO/SARAH/`, untouched.
+  - It is not used anywhere else: no other slot, background, card, thumbnail or fallback.
+- **Replacement:** `IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png` (1122×1402, SHA-256 `AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5`), registered as `sarahConfianza`.
+  - Served as `public/media/sarah-confianza.webp`: a compression-only WebP at the source size, 95 KB, with no grade, retouch, crop or facial change.
+  - **Property Purchase authority block,** the slot of the rejected photograph. The frame changes from 16:9 to 4:5 so the portrait is not cut.
+  - **Home hero:** see §12.3. On phones the frame is square, keeping the face and hands; from tablet up it is 4:5.
+- **Also uploaded but not used, as not requested:** `SARAH_KATERINA_2_SARAH_CONFIANZA.png` and `OFICINA_EXTERIOR_SARAH_KATERINA_1/2.jpeg` (the office front). The office photographs could carry a future office band or video poster.
+
+### 12.3 The hero video Sarah asked for
+
+**Inventory.** Every film in `VIDEOS/` was checked:
+
+| File                                                                             | Resolution    | What it shows              | Origin                    |
+| -------------------------------------------------------------------------------- | ------------- | -------------------------- | ------------------------- |
+| `TU INVERSIÓN MI OBJETIVO.mp4` (the former Home hero)                            | 864×496       | villa on a plot, tablet    | generated                 |
+| `BUENA IDEA_MALA EJECUCIÓN.mp4`                                                  | 1280×720      | journey to Spain           | generated                 |
+| `SARAH KATERINA SIEMPRE DEL LADO DEL COMPRADOR.mp4`                              | 1280×720      | a woman at a meeting table | generated                 |
+| `TAX ADVISORY HERO REPLACEMENT.mp4` / `…SECTION.mp4`                             | 1920×1080     | aerials                    | generated                 |
+| `MAPA CIUDADES OPORTUNIDADES.mp4`, `BIENES RAICES…`, `CONTROLA…`, `EXPERIENCIA…` | 864–1280 wide | maps, property             | generated                 |
+| `kling_20260823_*` (two)                                                         | 1916×1080     | villa with the logo        | image-to-video, generated |
+
+The owner folder `Downloads/SARAH KATERINA OFFICE/VIDEOS` also holds only generated clips and WhatsApp property videos, not in the repository.
+
+**There is no real, authorised footage of Sarah in an office.** No video was fabricated, and no generative animation of her face was used.
+
+**What the hero now shows:**
+
+- Sarah's supplied photograph, as a still: `priority` load, served through `next/image` at the size each viewport needs.
+- The generated villa film is no longer the hero. It stays registered but is not placed elsewhere: its likeness and rights record (G-02) are still open.
+- The low quality Sarah saw had a cause: the film's source is **864×496**, scaled up to about 1,000 px wide at 1440. It cannot be fixed in CSS; only a better source can.
+
+**Footage to record for the video she wants:**
+
+- **Content:** Sarah, real and recognisable, in her office (Calle Bazán 10, Torrevieja) or a similar working setting. For example: at her desk reviewing a file, then looking up to camera; or walking in and sitting down.
+- **Length and resolution:**
+  - 8–12 s, steady (tripod or gimbal);
+  - 3840×2160 or at least 1920×1080, 25/30 fps;
+  - H.264 at a high bitrate, or ProRes as the source.
+- **Framing:** landscape, with the subject centred so a 4:5 or 1:1 crop works on phones. An optional vertical take helps.
+- **Light and sound:**
+  - natural or soft light, no heavy grade or face retouch;
+  - no audio needed: the site plays muted.
+- **Records:**
+  - written release from Sarah and from anyone else in shot;
+  - a note of who filmed it and when;
+  - a still taken from the same take, to use as the poster.
+
+**Once it exists**, the hero can use the existing play-once primitive. It plays muted, pauses off screen, offers accessible controls and a poster fallback, respects reduced motion, and loads after the poster, which keeps a good mobile LCP.
+
+### 12.4 Desktop: the empty left side
+
+**Measured, not guessed.** A Playwright audit of the six routes at 1440 and 1920 measured, for every section, the empty space left and right of the visible content. It also measured, for every two-column block, how far the left column ends above the right one.
+
+**What it found:**
+
+- The container itself is centred everywhere (120 px each side at 1440).
+- The imbalance came from two patterns:
+  - blocks that ran off the right edge, on the Home only;
+  - left columns much shorter than their right neighbour, which leaves an empty area in the left half.
+
+**Fixed** (CSS only; no content, card or decoration added):
+
+| Page              | Block                     | Before                                                                                           | Change                                                                                       |
+| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| Home              | Hero                      | Copy 0.78fr, film running off the right edge (at 1920: 360 px empty on the left, 0 on the right) | Copy and portrait share the container (1.15fr / 0.85fr), centred: 360 / 360 at 1920          |
+| Home              | Investment chapter        | Frame running off the right edge                                                                 | Kept inside the container                                                                    |
+| Contact           | Formats                   | Photo 467 px tall beside an 882 px list (416 px empty on the left)                               | 4:5 frame, still sticky while the list scrolls: gap 299 px, and the photo follows the reader |
+| Property Purchase | "We handle the paperwork" | Copy at the top of a 674 px image (363 px empty under it)                                        | Copy vertically centred                                                                      |
+| Property Purchase | Authority                 | Landscape frame, copy at the top                                                                 | 4:5 portrait, both columns centred                                                           |
+| Investment        | Authority                 | Photo shorter than the copy (209 px empty under it)                                              | Centred against the copy (Tax shares the rule)                                               |
+| Investment        | Scenarios                 | Chart card 312 px at the top of a 643 px column                                                  | Centred                                                                                      |
+
+Mobile keeps its single column, and every change applies from tablet or desktop widths only. Before/after captures and the QA report are in `docs/screenshots/sarah-home-voice-2026-10-01/`.
+
+---
+
+## 13. Sarah's annotated Home review: REVISION WEB-HOME.pdf (2026-10-01)
+
+**Source of truth:** `REVISION WEB-HOME.pdf`, Sarah's eleven annotations on `/preview/home`, uploaded to the repository root on 2026-10-01 (`1ebe89f`; SHA-256 `69ead599e1fce5ff2b4978d02d7e39ccb4fa78d4367e0e70d22c645edaa3ee62`). Her screenshots were taken through the browser's Spanish page translation, so the English lines they show were matched to the source by meaning.
+
+**Branch:** `feat/home-pdf-review-2026-10-01`. It is built on `feat/sarah-home-voice-and-balance-2026-10-01` (PR #37, §12, not merged) and carries its photograph replacement and desktop balance.
+
+**Not visually approved.** Juanma reviews first, then Sarah. The English translation of her lines is also open for her (SR-087).
+
+### 13.1 The eleven points
+
+| #   | Sarah's note                                                                                                                                   | Applied                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Menu labels and logo too small                                                                                                                 | Shared header, every route. **Logo:** 32 → 48 px tall on phones and tablets, 48 → 64 px from 1100. **Header:** 80 px tall from 1100. **Menu labels:** 14 px up to 1279, body size (16 px) from 1280, lead size (19–20 px) from 1360, with 32 px between labels. The underline moves down with the labels so it never crosses a word. Measured on the six routes from 320 to 1920: one row, no wrapping, no overlap, no overflow. The mobile menu is unchanged |
+| 2   | A video of her in an office, in the mood of the AI photo she likes                                                                             | **Blocked: no real footage exists** (§13.3). The hero keeps her supplied photograph as a still                                                                                                                                                                                                                                                                                                                                                                |
+| 3   | Hero copy: a short, direct, emotional introduction in the first person, with her text                                                          | New section "Who I am" (`#about`) straight after the hero, carrying **her whole text** in English (§13.2)                                                                                                                                                                                                                                                                                                                                                     |
+| 4   | No money or payment; "Mi trabajo es estar en tu lado de la mesa en todo momento"; remove "no remuneration from sellers"                        | "My job is to be on your side of the table, every step of the way." The three lines beside it are removed from the Home: "Paid only by the buyer or client.", "No remuneration from sellers, developers or agencies." and the twenty-year line, which her introduction now tells. No other remuneration wording replaces them                                                                                                                                 |
+| 5   | "Necesito claridad en materia fiscal" → "necesito entender qué voy a pagar tanto en gestión como en impuestos"                                 | Third need: "I need to understand what I’ll pay, in fees and in taxes." It still opens the Tax Advisory card                                                                                                                                                                                                                                                                                                                                                  |
+| 6   | Property Purchase title unclear → "Te acompañamos desde la primera duda hasta que recibes las llaves, con toda tu documentación centralizada." | "We’re with you from your first question until you get the keys, with all your paperwork in one place." The Property Purchase page itself is not touched                                                                                                                                                                                                                                                                                                      |
+| 7   | Investment title → "Tu sueño merece algo más que una bonita foto: verificamos todo antes de que des el paso."                                  | "Your dream deserves more than a pretty picture: we check everything before you take the step." See the scope note in §13.4                                                                                                                                                                                                                                                                                                                                   |
+| 8   | "La imagen me encanta": new Team title, text and button                                                                                        | Her title, text and "Meet my team →"; the composition and the portrait (`homeAuthority`) are kept. The photograph replaced after the most recent feedback is the terrace one; §12.2 records that swap                                                                                                                                                                                                                                                         |
+| 9   | Remove the questions block                                                                                                                     | The Home FAQ ("The questions that change the next step.") is gone, with its footer anchor. The landing pages keep their FAQs                                                                                                                                                                                                                                                                                                                                  |
+| 10  | New closing copy and buttons; several BOOK A CALL linked to her Calendly                                                                       | Her title, text and two buttons. **Button 1** goes to the service selector on this page (`#services`). **Button 2** goes to the Purchase Tax and Real Cash Needed entries on this page (`#tools`), which open the Buyer System with no data in any URL. Three "Book a call" buttons: hero, after her introduction and the contact band (§13.5)                                                                                                                |
+| 11  | "Llamaal +34 647 754 589" typo                                                                                                                 | The English source was "Call +34 647 754 589", rendered as three text nodes. Chrome's page translation joined them into "Llamaal". The link text is now **one text node** (the WhatsApp link too). The number and the `tel:` link are unchanged. No "Llama!" or "Llamaal" string exists in the code                                                                                                                                                           |
+
+### 13.2 English translation of her text
+
+**Introduction (point 3).** Every sentence is kept. Only the eyebrow ("Who I am") and the heading ("I’m Sarah Katerina.") are not hers; both are open as SR-087.
+
+| Her Spanish                                                                                                                                                                                                                                                                        | On the page                                                                                                                                                                                                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Durante veinte años fui directiva de oficina en SUMA Gestión Tributaria, el organismo público que gestiona los tributos locales en la provincia de Alicante. Desde ese lado del sistema revisé la documentación de miles de contribuyentes, y esa experiencia me enseñó dos cosas. | For twenty years I was an office director at SUMA Gestión Tributaria, the public body that manages local taxes in the province of Alicante. From that side of the system I reviewed the paperwork of thousands of taxpayers, and that experience taught me two things.                                                                                  |
+| La primera: el sistema inmobiliario y fiscal español funciona, pero solo para quien conoce sus reglas.                                                                                                                                                                             | The first: the Spanish property and tax system works, but only for those who know its rules.                                                                                                                                                                                                                                                            |
+| La segunda: el comprador extranjero casi nunca las conoce, y a menudo tampoco quienes le asesoran.                                                                                                                                                                                 | The second: foreign buyers almost never know them, and often neither do the people advising them.                                                                                                                                                                                                                                                       |
+| Una y otra vez vi los mismos errores, perfectamente evitables: …                                                                                                                                                                                                                   | Time and again I saw the same mistakes, all of them avoidable: deadlines missed, taxes miscalculated, decisions taken without planning, and buyers left frustrated, paying more for something nobody had explained to them.                                                                                                                             |
+| Por eso decidí dar un paso más. …                                                                                                                                                                                                                                                  | That is why I decided to go one step further. It was not about carrying on working inside the system, but about creating a service truly on the foreign buyer’s side: one that stays with them from the first viewing until long after the signing, explains every step clearly and protects them from the mistakes I have seen repeated so many times. |
+| Porque detrás de cada expediente hay una persona, una familia y un proyecto de vida. Y eso es lo que de verdad importa.                                                                                                                                                            | Because behind every file there is a person, a family and a life plan. And that is what really matters.                                                                                                                                                                                                                                                 |
+
+**Her other lines:**
+
+| Point | Spanish                                                                                                                                                                                                                         | English                                                                                                                                                                                        |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4     | Mi trabajo es estar en tu lado de la mesa en todo momento.                                                                                                                                                                      | My job is to be on your side of the table, every step of the way.                                                                                                                              |
+| 5     | Necesito entender qué voy a pagar tanto en gestión como en impuestos.                                                                                                                                                           | I need to understand what I’ll pay, in fees and in taxes.                                                                                                                                      |
+| 6     | Te acompañamos desde la primera duda hasta que recibes las llaves, con toda tu documentación centralizada.                                                                                                                      | We’re with you from your first question until you get the keys, with all your paperwork in one place.                                                                                          |
+| 7     | Tu sueño merece algo más que una bonita foto: verificamos todo antes de que des el paso.                                                                                                                                        | Your dream deserves more than a pretty picture: we check everything before you take the step.                                                                                                  |
+| 8     | Una sola persona a tu lado, de principio a fin.                                                                                                                                                                                 | One person by your side, from start to finish.                                                                                                                                                 |
+| 8     | Yo dirijo tu proceso personalmente. Cuando hace falta, me apoyo en un equipo de profesionales que conozco y en los que confío, para que tengas siempre el mejor asesoramiento sin tener que tratar con diez personas distintas. | I lead your process personally. When it’s needed, I rely on a team of professionals I know and trust, so you always get the best advice without having to deal with ten different people.      |
+| 8     | Conoce a mi equipo →                                                                                                                                                                                                            | Meet my team →                                                                                                                                                                                 |
+| 10    | ¿Por dónde quieres empezar?                                                                                                                                                                                                     | Where would you like to start?                                                                                                                                                                 |
+| 10    | Cuéntame en qué punto estás y te mostraré lo que necesitas saber. O, si prefieres empezar por los números, calcula en un minuto los impuestos de tu compra y el dinero real que vas a necesitar.                                | Tell me where you are and I’ll show you what you need to know. Or, if you’d rather start with the numbers, take a minute to work out the taxes on your purchase and the real cash you’ll need. |
+| 10    | Elige tu punto de partida →                                                                                                                                                                                                     | Choose your starting point →                                                                                                                                                                   |
+| 10    | Calcula los costes de tu compra                                                                                                                                                                                                 | Calculate your purchase costs                                                                                                                                                                  |
+
+**Hero lead (SR-001, proposal).** It condenses one sentence of her introduction into her voice: "I stay with you from the first viewing until long after the signing, and I explain every step clearly." It replaces the line she disliked. The hero H1 is still the open proposal SR-086 (§12.1); the PDF does not change it.
+
+### 13.3 Video (point 2): blocked on footage
+
+- **No new video was uploaded.** The repository's `VIDEOS/` folder is unchanged since the §12.3 inventory, and every film there is generated. None shows the real Sarah, and none was made or animated for this.
+- **The photo she likes** is `homeAuthority` (`IMAGES/Sarah home_1.png`), which she describes as made with AI. It sets the mood she wants, but it is not a recording of her. Animating it into a "video" would present a performance she never gave, so it was not done.
+- **The hero keeps her supplied photograph** (`sarahConfianza`) as a still. The villa film is not on the Home.
+- **What is needed:** the footage specified in §12.3. A real take of Sarah in an office with that warm, book-lined mood would do: 8–12 s, at least 1920×1080, with her written release. The hero can play it with the existing component once it exists.
+
+### 13.4 Scope note on "we check everything" (point 7)
+
+The sentence is Sarah's and is published as she wrote it. "Everything" is bounded on the page itself:
+
+- the chapter body lists what is reviewed (property, downside, costs, tax context and exit thinking);
+- the process scope line states that legal, technical, planning, valuation and financing matters stay with the appropriate qualified professionals.
+
+**For Juanma and Sarah:** if legal review finds "everything" too broad for the Investment engagement, the alternative to propose is "we check the essentials before you take the step". Not applied.
+
+### 13.5 Book a call and Calendly
+
+- **Configuration reused:** every booking button links to `NEXT_PUBLIC_BOOKING_URL` (`lib/contact/channels.ts`: HTTPS only, no query string). Without it, no booking button is rendered:
+  - the hero falls back to "Use Buyer Tools";
+  - the introduction falls back to "All contact options";
+  - the contact band shows only its Contact link.
+
+  No Calendly address is written in the code.
+
+- **Locally** (`.env.local`), the value is Sarah's live booking page. Read-only check on 2026-10-01: it returns 200 and embeds **`https://calendly.com/sarahkaterina-info/30min`**. The three buttons open it in a new tab. Nothing was booked.
+- **Blocked on Vercel:** `NEXT_PUBLIC_BOOKING_URL` is **not set in any Vercel environment** (`vercel env ls`, 2026-10-01). On the Preview the booking buttons are therefore not rendered; the fallbacks above show instead. Variables were not changed.
+- **Decision for Juanma:** set the variable for Preview, and for Production later, to one of:
+  - the booking page, as locally;
+  - the Calendly link directly, which saves a step.
+
+  The host stays out of the code either way.
+
+### 13.6 Removed from the Home
+
+- the FAQ band and its footer anchor ("Frequently asked questions"); the footer now links "Sarah Katerina" to `#about` and "Meet my team" to `#sarah`;
+- the three trust lines beside the side statement;
+- "Sarah holds the advisory thread together." / "Meet the team".
+
+**Kept:** "From the first viewing to the keys, one connected file for international buyers.", the Property Purchase line in the selector (Sarah's point-5 screenshot shows it without a note). It shares the phrase she found unclear in point 6. Recorded here for her next look, not changed.
+
+### 13.7 QA (2026-10-01, Google Chrome through Playwright, local production build)
+
+Captures and report: `docs/screenshots/sarah-home-pdf-review-2026-10-01/` (`QA.md`, `qa.json`, `full/`, `sections/`, `before-after/`).
+
+- **Home at 320, 390, 768, 1024, 1280 and 1440:**
+  - one H1; no horizontal or header overflow; no header overlap or wrapping;
+  - no console errors or failed requests; no broken images or anchors;
+  - no review marks or SR codes;
+  - every line from the PDF present and every replaced line absent; no FAQ section;
+  - noindex in both the meta tag and the header; `/preview` out of the sitemap;
+  - the hero photograph loads, focused at 50% 30%; no hero video;
+  - keyboard focus visible; the mobile menu opens and closes with Escape.
+- **Reduced motion and JavaScript disabled:** the introduction and every button are present and visible.
+- **The other five routes** (shared header) at 390 and 1280: clean on the same checks.

@@ -132,8 +132,9 @@ describe('Sarah review register', () => {
     expect(both, 'open and approved at once').toEqual([]);
   });
 
-  it('grounds every approval in one of the four documents or in Juanma’s relay', () => {
+  it('grounds every approval in one of Sarah’s review documents or in Juanma’s relay', () => {
     const DOCS = [
+      'REVISION WEB-HOME.pdf',
       'REVISION WEB-property-purchase.docx',
       'REVISION WEB-investment.docx',
       'REVISION WEB-Tax advisory.docx',
@@ -146,8 +147,9 @@ describe('Sarah review register', () => {
           DOCS.some((doc) => entry.source.includes(doc)),
           entry.source,
         ).toBe(true);
-      // No review document covers the Home: it can never carry an approval here.
-      expect(entry.routes as readonly string[]).not.toContain('/preview/home');
+      // Only her Home PDF (2026-10-01) can carry a Home approval.
+      if ((entry.routes as readonly string[]).includes('/preview/home'))
+        expect(entry.source).toMatch(/^REVISION WEB-HOME\.pdf/);
     }
     // Contact was approved as a whole page (Juanma, 2026-09-30): no open mark.
     expect(
@@ -155,12 +157,13 @@ describe('Sarah review register', () => {
         (item.routes as readonly string[]).includes('/preview/contact'),
       ),
     ).toBe(false);
-    // The Home keeps its own open items until a document reviews it.
+    // The Home keeps open what her PDF did not write: nine items after it
+    // closed SR-004, SR-008 and SR-010 and opened SR-087 (2026-10-01).
     expect(
       SARAH_REVIEW_ITEMS.filter((item) =>
         (item.routes as readonly string[]).includes('/preview/home'),
       ).length,
-    ).toBe(11);
+    ).toBe(9);
   });
 
   it('keeps the copy Sarah rejected off the page', () => {

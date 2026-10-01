@@ -75,14 +75,15 @@
 
 .logo {
   /* The mark is 2.159:1. Height drives the size so the lockup keeps its
-     proportions at every breakpoint. */
-  height: var(--sk-space-32);
+     proportions at every breakpoint. 2026-10-01 (Sarah, REVISION WEB-HOME.pdf
+     point 1): the logo read too small, so every step is one size up. */
+  height: var(--sk-space-48);
   width: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1100px) {
   .logo {
-    height: var(--sk-space-48);
+    height: var(--sk-space-64);
   }
 }
 
@@ -362,6 +363,16 @@
    mobile dialog through 1099px. This preserves comfortable labels and touch
    targets at tablet widths instead of compressing the desktop row. */
 @media (min-width: 1100px) {
+  .inner {
+    min-height: var(--sk-space-80);
+  }
+
+  /* Larger labels: the underline moves down with them so it always sits
+     under the word, never through it. */
+  .navLink::after {
+    inset-block-end: var(--sk-space-8);
+  }
+
   .nav,
   .actions {
     display: flex;
@@ -375,5 +386,30 @@
 
   .panel {
     display: none;
+  }
+}
+
+/* 2026-10-01 (Sarah, point 1): the menu labels read too small on desktop.
+   From the 1280 breakpoint they take the body size, as large as the page
+   text. Between 1100 and 1279 the row keeps the navigation size, so six
+   labels and the tools action still fit on one line without crowding. */
+@media (min-width: 1280px) {
+  .navLink {
+    font-size: var(--sk-type-body-size);
+  }
+
+  .navList {
+    gap: var(--sk-space-32);
+  }
+}
+
+/* From 1360 the container is wide enough for the lead size. */
+@media (min-width: 1360px) {
+  .navLink {
+    font-size: var(--sk-type-lead-size);
+  }
+
+  .navLink::after {
+    inset-block-end: var(--sk-space-4);
   }
 }

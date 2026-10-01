@@ -223,7 +223,7 @@ export function WebHeader({
             alt="Sarah Katerina"
             className={styles.logo}
             priority
-            sizes="(max-width: 767px) 140px, 220px"
+            sizes="(max-width: 1099px) 220px, 280px"
           />
         </Link>
 
@@ -338,7 +338,7 @@ export function WebHeader({
           aria-label="Site menu"
         >
           <div className={styles.panelHead}>
-            <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="140px" />
+            <Image src={logo} alt="Sarah Katerina" className={styles.logo} sizes="220px" />
             <button type="button" className={styles.menuTrigger} onClick={close}>
               Close
             </button>
