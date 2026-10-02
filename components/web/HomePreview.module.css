@@ -196,23 +196,6 @@
   box-shadow: var(--sk-web-shadow-float);
 }
 
-/* Sarah's photograph: square on phones (face and hands kept), 4:5 from tablet. */
-.heroPortrait {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: var(--sk-radius-card);
-  box-shadow: var(--sk-web-shadow-float);
-}
-
-@media (min-width: 768px) {
-  .heroPortrait {
-    aspect-ratio: 4 / 5;
-  }
-}
-
 .filmMeta {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -856,20 +839,22 @@
 @media (min-width: 1024px) {
   .heroGrid {
     grid-template-areas: 'copy media';
-    /* 2026-10-01: copy and portrait share the container; nothing runs off the
+    /* 2026-10-01: copy and media share the container; nothing runs off the
        right edge any more, so the left half no longer looks empty on wide
-       screens. */
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+       screens. 2026-10-02: the landscape film takes the larger column. */
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: var(--sk-space-32) var(--sk-space-80);
     align-items: center;
     min-height: calc(var(--sk-space-80) * 7);
     padding-block: var(--sk-space-64);
   }
 
+  /* 2026-10-02: the hero carries a landscape film (1880×1080) instead of
+     the 4:5 portrait, so the media column takes the larger share, still
+     inside the container and centred (the 2026-10-01 balance holds). */
   .heroMedia {
     justify-self: end;
     width: 100%;
-    max-width: calc(var(--sk-space-80) * 6.5);
   }
 
   .side,

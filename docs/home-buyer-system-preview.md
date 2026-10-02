@@ -810,3 +810,138 @@ Captures and report: `docs/screenshots/sarah-home-pdf-review-2026-10-01/` (`QA.m
   - keyboard focus visible; the mobile menu opens and closes with Escape.
 - **Reduced motion and JavaScript disabled:** the introduction and every button are present and visible.
 - **The other five routes** (shared header) at 390 and 1280: clean on the same checks.
+
+---
+
+## 14. Home hero film for review (2026-10-02)
+
+**Source:** Juanma's instruction of 2026-10-02 and the two files he placed in this worktree. Branch: `feat/home-video-preview-2026-10-02`, from `main` at `6c2035b`.
+
+**Not visually approved.** Juanma reviews it on the Vercel Preview at mobile and desktop widths first, then Sarah.
+
+**Provisional and silent.** The film has no sound on this Preview. Its final voice-over **has not been produced yet**. No audio file is served, and none was recovered from the original.
+
+This answers REVISION WEB-HOME.pdf point 2 (§13.3) for review. It does **not** close the footage questions in §12.3 (see §14.3).
+
+### 14.1 Files
+
+**Original (not committed).** `VIDEOS/SARAHKATERINA_HERO_VIDEO_WEB_BRANDING.mp4`, local only.
+
+- 92,657,825 B (88.4 MiB) · SHA-256 `4289c168d5b3c60f7862753b33366d0bce8cf3440f88e8689f6a9311565a0518`.
+- H.264 Main 2506×1440, 30 fps, 49.13 s, AAC stereo.
+- Its container tags show an editor re-encode. Who made it, and how, is not recorded.
+
+**Desktop cut (768 px and up), served.** `public/media/video/sarah-home-hero-review-silent.mp4`.
+
+- Supplied ready-made by Juanma and served **unchanged**.
+- 11,565,473 B · SHA-256 `abe15578d32ed22f26d05db330a104f62c3aae1ac41989ab677fbb7feae35855`.
+- H.264 High 1880×1080, 30 fps, **no audio track**, `+faststart`.
+
+**Mobile cut (below 768 px), served.** `public/media/video/sarah-home-hero-review-silent-mobile.mp4`.
+
+- Made here from the original: `scale=960:552` (lanczos), libx264 High, CRF 26, `-g 60`, `-an`, `+faststart`.
+- 3,539,167 B · SHA-256 `f0dfd19366f2ed6ad2c2719f2ae21bf081945a53ec445f6663837d86b0c86b69`.
+
+**Posters.** `public/media/video/sarah-home-hero-review-{desktop,mobile}-{start,end}.webp`, WebP quality 78.
+
+- `start` is frame 0 of each served cut (the pen signing); `end` is its final frame (the finished villa).
+- `desktop-start`: 30,260 B · SHA-256 `06a7f7c8f22a50ad35daa8718e8a3f1e99cfefe8e1d93e93c8ebcdcaa83a4b72`.
+- `desktop-end`: 91,350 B · SHA-256 `e640376f8541fb849f32dc19c928d95a20cc877496b500ea5393d15693698edc`.
+- `mobile-start`: 12,980 B · SHA-256 `2b73b97fdeb30e3ed5a3ef8154f3f8c51525b90930fcc42ecbf53439f88695c4`.
+- `mobile-end`: 39,838 B · SHA-256 `39fc49686578730e9aa96cbd468f45e1dd74b0ff2e09db2c7d36365df61b5e1f`.
+
+**Why the original stays out of git:**
+
+- At 92.7 MB it is about 4× the largest file in `VIDEOS/` (22.3 MB) and above GitHub's 50 MB warning size.
+- Committing it would more than double the repository's 65 MB pack.
+- The site never needs it: it is not copied to `public/` and not part of the Next.js bundle.
+
+It is recorded by path and SHA-256 in `HERO_VIDEO.home`. It is kept locally, untracked, in `C:\Users\temp123\SARAHKATERINAWEBNUEVA-home-video-review\VIDEOS\`. **Juanma should keep a copy outside the worktree.**
+
+**What the film shows (49 s), in order:**
+
+1. A document is signed with a fountain pen.
+2. A woman in a dark blazer speaks across a meeting table, in an office with the Sarah Katerina name on the wall.
+3. Folders and pages carry the same name.
+4. A floor plan is furnished step by step on a screen.
+5. A hillside plot becomes a building site.
+6. It ends on a finished villa at dusk, with the name on its facade.
+
+### 14.2 Implementation
+
+**Player: the landings' existing hero primitive.** The Home hero uses `HeroFilm` (as Investment and Property Purchase do), through a new `HERO_VIDEO.home` entry in `lib/media/hero-video.ts`. No new player was written.
+
+Why `HeroFilm` rather than `PlayOnceVideo`:
+
+- it serves a lighter cut to phones;
+- it attaches the video only after the window `load` event, so the poster stays the LCP;
+- the `APPROVED_VIDEO` registry that `PlayOnceVideo` reads caps every cut at 1 MB, a budget set for mid-page films, and it requires the original to be committed.
+
+**Behaviour** (all verified in §14.4):
+
+- muted; no `autoplay`, `loop` or native controls;
+- plays once while on screen, then rests on its final frame;
+- pauses off screen and in a hidden tab, and resumes only if it was playing;
+- a visible Pause / Play / Replay control;
+- under reduced motion or without JavaScript, the final-frame poster shows and **no video is requested**;
+- on a media error, the final poster covers the frame and the control retires.
+
+**Layout.** Only the hero's media column changed (`components/web/HomePreview.module.css`):
+
+- the portrait's 4:5 rules are removed;
+- from 1024 px the columns are `0.85fr` copy and `1.15fr` film, so the landscape film is not squeezed into the 520 px portrait column;
+- everything stays inside the container, so the 2026-10-01 balance (§12.4) holds;
+- phones keep the single column, with the film below the copy.
+
+**Content.** No copy, CTA, navigation or data changed. Sarah's photograph (`sarahConfianza`) leaves the Home hero. It stays registered and in use in the Property Purchase authority block.
+
+**Untouched:** `/`, the four landings, Contact, the Buyer System links, navigation, data and production configuration.
+
+**WebM: measured, not shipped.**
+
+- A VP9 WebM of the same frame (CRF 38, two-pass) weighed 6,875,149 B, against 11,565,473 B for the MP4: 41% lighter.
+- Its quality was almost the same: SSIM against the original was 0.983 for the WebM and 0.989 for the MP4. A 1:1 crop comparison showed no visible difference.
+- It was not added. `HeroFilm` attaches one H.264 MP4 per breakpoint, and the hero tests require H.264. Supporting WebM would mean changing a primitive shared with two approved landings, which is outside this change.
+- **Open for Juanma:** adding WebM support to `HeroFilm` would save about 4.7 MB on desktop.
+
+### 14.3 Open gates (PENDING_APPROVAL)
+
+- **Voice-over: not produced.** When it exists, sound needs:
+  - the `Soundtrack` model used for `purchaseGoodIdea`: rights, human-reviewed captions and Sarah's approval of the spoken line;
+  - support in `HeroFilm`, which has no sound by design today.
+- **The woman in the film.** Her identity, her written release and whether the footage is recorded or generated are **not in the repository**.
+  - Nothing here presents her as Sarah: the poster alt text describes the villa frame, and the video is decorative (`aria-hidden`).
+  - §12.3's request for real footage of Sarah, with her release, still stands.
+- **Wordmark.** The Sarah Katerina name appears inside the film (wall sign, folders, villa facade). It is part of the supplied footage, not the approved logo file (`BRAND-SK-001`), and needs brand review.
+- **Illustrative scenes.** The plot, the works and the villa are evidence of no project, planning permission, timing, budget or return.
+- **Source framing.** The film carries thin dark bars at the top and bottom (about 16 px at 1440 px tall). They are kept as supplied.
+- **Weight.** The desktop cut is 11.6 MB. It loads after the page and only when motion is allowed, but it is heavy for a hero. The WebM above, or a shorter cut, would reduce it.
+
+### 14.4 QA (2026-10-02, Google Chrome 153 through Playwright, isolated local production build)
+
+Report and captures: `docs/screenshots/home-hero-video-2026-10-02/` (`QA.md`, `qa.json`, `hero/`, `full/`).
+
+**`/preview/home` at 320, 390, 768, 1024, 1280, 1440 and 1920:**
+
+- one H1; noindex in both the meta tag and `X-Robots-Tag`; no horizontal overflow;
+- no console errors, failed requests or 4xx responses;
+- the poster loads first;
+- the phone cut is attached below 768 px and the desktop cut from 768 px;
+- the film plays muted.
+
+**Playback and control, at 390 and 1440:**
+
+- off screen it pauses; it resumes on return when it was playing;
+- after the visitor pauses it, it stays paused on return;
+- at the end, Replay restarts it;
+- the 44 px control is reachable by keyboard and shows a 2 px solid focus outline at a 2 px offset.
+
+**Fallbacks:**
+
+- reduced motion: zero video requests, and the final poster shows;
+- JavaScript off: one H1, and the final poster shows;
+- forced video 404: the final poster shows, and the control retires.
+
+**`/`:** unchanged. No film, and no reference to it.
+
+**Not measured:** Lighthouse / Core Web Vitals, Safari, Firefox and real phones.

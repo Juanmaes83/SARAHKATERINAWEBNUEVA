@@ -87,7 +87,7 @@ describe('approved media registry', () => {
     // 2026-10-01: Sarah asked to remove EQUIPO_SARAHKATERINA4 (standing on a
     // terrace, black-and-white dress). It is neither registered nor served any
     // more (its original stays in IMAGES/, untouched); its slot, the Property
-    // Purchase authority block, and the Home hero use the supplied file.
+    // Purchase authority block uses the supplied file (the Home hero did until 2026-10-02).
     expect('sarahTerrace' in APPROVED_MEDIA).toBe(false);
     expect(existsSync(resolve(root, 'public/media/sarah-terrace.webp'))).toBe(false);
     expect(existsSync(resolve(root, 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA4.png'))).toBe(true);
@@ -103,9 +103,8 @@ describe('approved media registry', () => {
     expect(read(resolve(root, 'components/web/PropertyPurchase.tsx'))).toContain(
       'APPROVED_MEDIA.sarahConfianza',
     );
-    expect(read(resolve(root, 'components/web/HomePreview.tsx'))).toContain(
-      'APPROVED_MEDIA.sarahConfianza',
-    );
+    // 2026-10-02: the Home hero now carries the provisional hero film
+    // (APPROVED_VIDEO.homeHeroReview); the photograph stays registered.
   });
 
   it('keeps Services_14 registered and gives the Tax hero its approved scroll video', () => {
