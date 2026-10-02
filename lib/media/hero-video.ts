@@ -28,6 +28,10 @@
  *
  * Team deliberately has no entry (brief §6.5): its hero stays the authentic
  * team photograph.
+ *
+ * 2026-10-02: the Home hero (`home`) joins as a play-once entry, PROVISIONAL
+ * and SILENT (docs/home-buyer-system-preview.md §14). Its original is not
+ * committed (92.7 MB); `source` and `sourceSha256` identify the local file.
  */
 
 export interface HeroVideoCut {
@@ -46,7 +50,11 @@ export interface HeroVideo {
   readonly id: string;
   /** How the hero moves: played once (`HeroFilm`) or scrubbed by scroll (`ScrubVideo`). */
   readonly playback: HeroPlayback;
-  readonly route: '/preview/investment' | '/preview/property-purchase' | '/preview/tax-advisory';
+  readonly route:
+    | '/preview/home'
+    | '/preview/investment'
+    | '/preview/property-purchase'
+    | '/preview/tax-advisory';
   /** 768px and up. */
   readonly desktop: HeroVideoCut;
   /** Below 768px. */
@@ -69,6 +77,35 @@ function heroVideo(entry: HeroVideo): HeroVideo {
 }
 
 export const HERO_VIDEO = {
+  home: heroVideo({
+    id: 'sarah-home-hero-review',
+    playback: 'play-once',
+    route: '/preview/home',
+    desktop: {
+      // Supplied ready-made by Juanma (2026-10-02); served unchanged.
+      src: '/media/video/sarah-home-hero-review-silent.mp4',
+      width: 1880,
+      height: 1080,
+      bytes: 11565473,
+      posterStart: '/media/video/sarah-home-hero-review-desktop-start.webp',
+      posterEnd: '/media/video/sarah-home-hero-review-desktop-end.webp',
+    },
+    mobile: {
+      src: '/media/video/sarah-home-hero-review-silent-mobile.mp4',
+      width: 960,
+      height: 552,
+      bytes: 3539167,
+      posterStart: '/media/video/sarah-home-hero-review-mobile-start.webp',
+      posterEnd: '/media/video/sarah-home-hero-review-mobile-end.webp',
+    },
+    duration: 49.13,
+    posterAlt:
+      'A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade.',
+    source: 'VIDEOS/SARAHKATERINA_HERO_VIDEO_WEB_BRANDING.mp4',
+    sourceSha256: '4289c168d5b3c60f7862753b33366d0bce8cf3440f88e8689f6a9311565a0518',
+    note: 'Owner-supplied by Juanma on 2026-10-02 for the Home Preview; PROVISIONAL and SILENT. Original NOT committed (92,657,825 B, about 4× the largest file in VIDEOS/): kept locally at VIDEOS/SARAHKATERINA_HERO_VIDEO_WEB_BRANDING.mp4 in the review worktree; H.264 Main 2506×1440, 30 fps, 49.13 s, AAC stereo (never served). Who made it, and how, is not recorded. Desktop cut: the MP4 supplied ready-made by Juanma, unchanged (H.264 High 1880×1080, 30 fps, no audio track, +faststart, SHA-256 abe15578d32ed22f26d05db330a104f62c3aae1ac41989ab677fbb7feae35855). Mobile cut: made from the original (H.264 High 960×552, CRF 26, keyframe every 2 s, no audio, +faststart, SHA-256 f0dfd19366f2ed6ad2c2719f2ae21bf081945a53ec445f6663837d86b0c86b69). Posters: frames 0 and final of each served cut, WebP quality 78. Shows a document being signed, a woman in a dark blazer speaking across a meeting table in an office with the Sarah Katerina name on the wall, a floor plan furnished on a screen, a hillside plot becoming a building site, and a finished villa. PENDING: the final voice-over (not produced; no audio exists or is served); the identity of the woman shown, her release and whether the footage is recorded or generated (not in the repository); the Sarah Katerina wordmark rendered inside the film is part of the supplied footage, not the approved logo file; the plot, works and villa are illustrative and evidence no project, permission, timing, budget or return. The source carries thin dark bars top and bottom (about 16 px at 1440), kept as supplied.',
+  }),
+
   investment: heroVideo({
     id: 'investment-hillside-development',
     playback: 'play-once',

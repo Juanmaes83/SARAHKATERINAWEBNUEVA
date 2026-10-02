@@ -278,8 +278,8 @@ describe('brand films — Property Purchase and controlled Home preview', () => 
     const primitiveUsers = sourceFiles
       .filter((f) => /<PlayOnceVideo\b/.test(readFileSync(f, 'utf8')))
       .map(rel);
-    // 2026-10-01: the Home hero is Sarah's photograph, no longer the generated
-    // villa film, so only the Property Purchase film uses the primitive.
+    // 2026-10-01: the Home hero is no longer the generated villa film; since
+    // 2026-10-02 it plays its own film through HeroFilm, not this primitive.
     expect(primitiveUsers).toEqual(['components/web/PropertyPurchase.tsx']);
 
     const page = read(PAGES.purchase);
