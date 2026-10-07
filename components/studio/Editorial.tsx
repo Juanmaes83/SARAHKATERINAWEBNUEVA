@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { WebHeader } from '@/components/web/WebHeader';
 import { WebFooter } from '@/components/web/WebFooter';
 import { HOME_PREVIEW_ROUTE, UNIFIED_WEB_NAV, BUYER_TOOLS_LABEL } from '@/content/en/site-navigation';
+import { footer as homeFooter } from '@/content/en/home';
 import { parseInline } from '@/lib/studio/inline';
 import { anchorFor, type ArticleContent, type Block, type CaseContent } from '@/lib/studio/schema';
 import { cardsFor, editorialPath, listPublished, resolveMedia, type EditorialCard, type EditorialDoc, type EditorialKind } from '@/lib/studio/content';
@@ -29,7 +30,7 @@ function renderInline(value: string) {
 }
 
 export function EditorialShell({ children }: { children: React.ReactNode }) {
-  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter /></>;
+  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter content={homeFooter} showLanguageStatus={false} /></>;
 }
 
 export async function EditorialListing({ kind, cards, draft }: { kind: EditorialKind; cards: EditorialCard[]; draft: boolean }) {
