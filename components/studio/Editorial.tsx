@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { WebHeader } from '@/components/web/WebHeader';
-import { WebFooter } from '@/components/web/WebFooter';
+import { WebFooter, type WebFooterContent } from '@/components/web/WebFooter';
 import { HOME_PREVIEW_ROUTE, UNIFIED_WEB_NAV, BUYER_TOOLS_LABEL } from '@/content/en/site-navigation';
 import { footer as homeFooter } from '@/content/en/home';
 import { parseInline } from '@/lib/studio/inline';
@@ -22,6 +22,16 @@ const illustrationBySlug: Record<string, ApprovedMedia> = {
   'british-buyer-torrevieja': APPROVED_MEDIA.caseApartmentLetting,
 };
 
+const editorialFooter: WebFooterContent = {
+  ...homeFooter,
+  groups: homeFooter.groups.map(group => ({
+    ...group,
+    links: group.links.map(link => 'href' in link && link.href.startsWith('#')
+      ? { ...link, href: `${HOME_PREVIEW_ROUTE}${link.href}` }
+      : link),
+  })),
+};
+
 function renderInline(value: string) {
   return parseInline(value).map((part, index) => part.kind === 'strong'
     ? <strong key={index}>{part.value}</strong>
@@ -30,7 +40,7 @@ function renderInline(value: string) {
 }
 
 export function EditorialShell({ children }: { children: React.ReactNode }) {
-  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter content={homeFooter} showLanguageStatus={false} /></>;
+  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter content={editorialFooter} showLanguageStatus={false} /></>;
 }
 
 export async function EditorialListing({ kind, cards, draft }: { kind: EditorialKind; cards: EditorialCard[]; draft: boolean }) {
