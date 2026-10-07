@@ -24,6 +24,7 @@ import {
 } from '@/content/en/site-navigation';
 import { buildMetadata } from '@/lib/seo/metadata';
 import { pageOverrides } from '@/lib/studio/content';
+import { EditorialHighlights } from '@/components/studio/Editorial';
 
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -73,6 +74,7 @@ export default async function HomePreviewPage() {
         {/* The FAQ band left the Home (REVISION WEB-HOME.pdf point 9). */}
         <SarahReviewMark id="SR-009" />
         <HomeContactBand />
+        <EditorialHighlights page="home" />
         <HomeFinalCtaBand />
         <SarahReviewMark id="SR-011" />
         <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />

@@ -235,7 +235,7 @@ export function WebHeader({
                   href={item.href}
                   className={styles.navLink}
                   aria-current={
-                    pathname === item.href
+                    pathname === item.href || pathname?.startsWith(`${item.href}/`)
                       ? 'page'
                       : current && item.href === `#${current}`
                         ? 'location'
@@ -354,7 +354,7 @@ export function WebHeader({
                     href={item.href}
                     className={styles.panelLink}
                     aria-current={
-                      pathname === item.href
+                      pathname === item.href || pathname?.startsWith(`${item.href}/`)
                         ? 'page'
                         : current && item.href === `#${current}`
                           ? 'location'

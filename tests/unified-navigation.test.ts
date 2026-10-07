@@ -23,13 +23,15 @@ describe('approved unified preview navigation', () => {
   afterEach(() => {
     vi.unstubAllEnvs();
   });
-  it('exposes Home, the four real landing routes and Contact in one order', () => {
+  it('exposes the six existing destinations and both editorial collections in one order', () => {
     expect(UNIFIED_WEB_NAV).toEqual([
       { href: '/preview/home', label: 'Home' },
       { href: '/preview/property-purchase', label: 'Property Purchase' },
       { href: '/preview/investment', label: 'Investment' },
       { href: '/preview/tax-advisory', label: 'Tax Advisory' },
       { href: '/preview/team', label: 'Team' },
+      { href: '/preview/insights', label: 'Insights' },
+      { href: '/preview/case-studies', label: 'Case Studies' },
       // Added 2026-09-29 (Juanma) once Contact had working destinations.
       { href: '/preview/contact', label: 'Contact' },
     ]);

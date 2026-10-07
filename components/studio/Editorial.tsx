@@ -4,7 +4,7 @@ import { WebFooter } from '@/components/web/WebFooter';
 import { HOME_PREVIEW_ROUTE, UNIFIED_WEB_NAV, BUYER_TOOLS_LABEL } from '@/content/en/site-navigation';
 import { parseInline } from '@/lib/studio/inline';
 import { anchorFor, type ArticleContent, type Block, type CaseContent } from '@/lib/studio/schema';
-import { cardsFor, editorialPath, resolveMedia, type EditorialCard, type EditorialDoc, type EditorialKind } from '@/lib/studio/content';
+import { cardsFor, editorialPath, listPublished, resolveMedia, type EditorialCard, type EditorialDoc, type EditorialKind } from '@/lib/studio/content';
 import { APPROVED_MEDIA, type ApprovedMedia } from '@/lib/media/approved-media';
 import styles from './Editorial.module.css';
 
@@ -39,6 +39,25 @@ export async function EditorialListing({ kind, cards, draft }: { kind: Editorial
       <div className={styles.cardBody}><span className={styles.eyebrow}>{card.category}</span><h2>{card.title}</h2><p>{card.dek}</p><span className={styles.read}>Read {kind === 'article' ? 'insight' : 'case'} →</span></div>
     </Link>)}</div> : <p>No {kind === 'article' ? 'insights' : 'cases'} have been published in this preview yet.</p>}
   </div></EditorialShell>;
+}
+
+/** Contextual reading on existing landings; invisible until the viewer can open the cards. */
+export async function EditorialHighlights({ page }: { page: 'home' | 'investment' }) {
+  const [articles, cases] = await Promise.all([listPublished('article'), listPublished('case')]);
+  const preferred = page === 'investment'
+    ? ['gross-vs-net-yield-costa-blanca', 'dutch-investor-orihuela', 'german-retiree-guardamar']
+    : ['modelo-210-explained', 'five-documents-before-arras', 'dutch-investor-orihuela'];
+  const cards = preferred.flatMap(slug => [...articles, ...cases].filter(card => card.slug === slug));
+  if (!cards.length) return null;
+  const media = await resolveMedia(cards.flatMap(card => card.heroMediaId ? [card.heroMediaId] : []));
+  return <section className={styles.relatedBand} aria-labelledby={`reading-${page}`}><div className={styles.wrap}>
+    <p className={styles.eyebrow}>Further reading</p><h2 id={`reading-${page}`} className={styles.relatedBandTitle}>{page === 'investment' ? 'Decisions behind the numbers' : 'Explore the details'}</h2>
+    <div className={styles.grid}>{cards.map(card => <Link className={styles.card} href={card.href} key={card.id}>
+      {card.heroMediaId && media.get(card.heroMediaId) ? <img src={media.get(card.heroMediaId)!.src} alt={card.heroAlt} /> : illustrationBySlug[card.slug] ? <img src={illustrationBySlug[card.slug]!.src} alt={illustrationBySlug[card.slug]!.alt} /> : null}
+      <div className={styles.cardBody}><span className={styles.eyebrow}>{card.kind === 'article' ? 'Insight' : 'Case study'}</span><h2>{card.title}</h2><p>{card.dek}</p><span className={styles.read}>Read {card.kind === 'article' ? 'insight' : 'case'} →</span></div>
+    </Link>)}</div>
+    <div className={styles.switcher}><Link href="/preview/insights">All insights →</Link><Link href="/preview/case-studies">All case studies →</Link></div>
+  </div></section>;
 }
 
 function BlockView({ block, sources, media }: { block: Block; sources: ArticleContent['sources']; media: Awaited<ReturnType<typeof resolveMedia>> }) {

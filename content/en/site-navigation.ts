@@ -16,6 +16,8 @@ export const HOME_PREVIEW_ROUTE = '/preview/home';
  * rule is satisfied. See docs/contact-page.md.
  */
 export const CONTACT_PREVIEW_ROUTE = '/preview/contact';
+export const INSIGHTS_PREVIEW_ROUTE = '/preview/insights';
+export const CASE_STUDIES_PREVIEW_ROUTE = '/preview/case-studies';
 
 export const UNIFIED_WEB_NAV = [
   { href: HOME_PREVIEW_ROUTE, label: 'Home' },
@@ -23,6 +25,8 @@ export const UNIFIED_WEB_NAV = [
   { href: SERVICE_ROUTES.investment, label: 'Investment' },
   { href: SERVICE_ROUTES.tax, label: 'Tax Advisory' },
   { href: SERVICE_ROUTES.team, label: 'Team' },
+  { href: INSIGHTS_PREVIEW_ROUTE, label: 'Insights' },
+  { href: CASE_STUDIES_PREVIEW_ROUTE, label: 'Case Studies' },
   { href: CONTACT_PREVIEW_ROUTE, label: 'Contact' },
 ] as const;
 
