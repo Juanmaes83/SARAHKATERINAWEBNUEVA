@@ -37,7 +37,7 @@ Each original remains in the read-only source snapshot `scripts/studio/import/li
 | `/insights/nie-application-three-routes` | `/preview/insights/nie-application-three-routes` | Source draft | Date official sources and make timing conditional |
 | `/case-studies/dutch-investor-orihuela` | `/preview/case-studies/dutch-investor-orihuela` | Adapted draft | Separate observed saving and eight-year projection; exit tax |
 | `/case-studies/german-retiree-guardamar` | `/preview/case-studies/german-retiree-guardamar` | Adapted draft | Reconcile historic surcharge sums and annual filing calendar |
-| `/case-studies/norwegian-couple-la-zenia` | `/preview/case-studies/norwegian-couple-la-zenia` | Source draft | Separate one-off and recurring amounts; annual average |
+| `/case-studies/norwegian-couple-la-zenia` | `/preview/case-studies/norwegian-couple-la-zenia` | Blocked draft | D-06 naming; separate one-off and recurring amounts; annual average |
 | `/case-studies/british-buyer-torrevieja` | `/preview/case-studies/british-buyer-torrevieja` | Blocked draft | D-06 naming decision; monthly and annual figures conflict |
 
 ## Primary-source checks, 7 October 2026

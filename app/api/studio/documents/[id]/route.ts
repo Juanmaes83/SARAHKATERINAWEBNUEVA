@@ -14,6 +14,7 @@ export async function POST(request:NextRequest,{params}:{params:Promise<{id:stri
   if(body.action==='save'){
     const title=titleSchema.safeParse(body.title),slug=slugSchema.safeParse(body.slug),content=contentSchema.safeParse(body.content);
     if(!title.success||!slug.success||!content.success||content.data.kind!==doc.kind)return NextResponse.json({error:'Please check the document fields.'},{status:400});
+    if(doc.kind==='page'&&slug.data!==doc.slug)return NextResponse.json({error:'This page URL is fixed.'},{status:400});
     if(content.data.kind==='page')content.data.fields=pickPageFields(slug.data,content.data.fields);
     rpc='save_document';args={p_id:id,p_expected_version:version,p_title:title.data,p_slug:slug.data,p_working:content.data};
   }else if(body.action==='restore'){

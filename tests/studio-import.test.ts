@@ -21,6 +21,7 @@ describe('Studio import boundary',()=>{
     expect(payloads).toHaveLength(12);
     expect(payloads.every(p=>p.publish_revision===null)).toBe(true);
     expect(payloads.every(p=>p.document.status==='draft'||p.document.status==='blocked')).toBe(true);
+    expect(payloads.filter(p=>p.document.status==='blocked').map(p=>p.document.slug).sort()).toEqual(['british-buyer-torrevieja','norwegian-couple-la-zenia']);
     expect(payloads.flatMap(p=>p.revisions)).toHaveLength(17);
   });
   it('stores content that the renderer can validate',()=>{

@@ -365,7 +365,7 @@ DRAFT_NOTES = {
     ],
     'norwegian-couple-la-zenia': [
         ('figures', 'review', 'Separate the one-off recovery from the recurring saving ("€6,200/year ongoing") and reconcile the announced annual average.', 'LAZ-01'),
-        ('governance', 'review', 'Service line "Property Management" is held publicly (D-06). Remove from the public version.', 'LAZ-02'),
+        ('governance', 'blocking', 'Service line "Property Management" is held publicly (D-06). Remove from the public version.', 'LAZ-02'),
         ('editorial', 'info', 'La Zenia is in the municipality of Orihuela (Orihuela Costa).', 'LAZ-03'),
     ],
     'british-buyer-torrevieja': [
@@ -396,7 +396,7 @@ for key, slug, kind, mandatory, category, hero, listing_date in DOCS:
         working, status = adapted, 'draft'
         revisions.append({'number': 2, 'reason': 'import_adapted', 'title': working_title, 'slug': slug, 'content': adapted,
                           'note': 'Editorial proposal for the preview: see the review notes for every change.'})
-    if slug == 'british-buyer-torrevieja':
+    if slug in ('norwegian-couple-la-zenia', 'british-buyer-torrevieja'):
         status = 'blocked'
     base_path = '/preview/insights/' if kind == 'article' else '/preview/case-studies/'
     notes = NOTES.get(slug, []) + [{'domain': d, 'severity': s, 'body': bd, 'code': cd} for d, s, bd, cd in DRAFT_NOTES.get(slug, [])]
@@ -406,7 +406,7 @@ for key, slug, kind, mandatory, category, hero, listing_date in DOCS:
     payloads.append({
         'document': {'kind': kind, 'slug': slug, 'title': working_title, 'working': working, 'status': status,
                      'has_unpublished_changes': status != 'published',
-                     'blocked_reason': 'Group-entity decision (D-06) and unreconciled figures' if status == 'blocked' else None,
+                     'blocked_reason': 'Governance decision (D-06) and, for Torrevieja, unreconciled figures' if status == 'blocked' else None,
                      'source_url': 'https://www.sarahkaterina' + '.com' + live_path,
                      'next_review_on': '2027-04-01' if mandatory else None},
         'revisions': revisions, 'publish_revision': publish,
