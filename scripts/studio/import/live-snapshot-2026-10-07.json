@@ -1,0 +1,3624 @@
+{
+ "case-studies_british-buyer-torrevieja": {
+  "head": {
+   "title": "From first viewing to €3,200/month rental in under 6 months. · Sarah Katerina",
+   "description": "Full-cycle: investment analysis, purchase, tax setup, and management handoff to VITA Host — one coordinated workflow across three service lines.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "From first viewing to €3,200/month rental in under 6 months."
+   },
+   {
+    "type": "paragraph",
+    "text": "Full-cycle: investment analysis, purchase, tax setup, and management handoff to VITA Host — one coordinated workflow across three service lines."
+   },
+   {
+    "type": "dl",
+    "items": [
+     "Client",
+     "British buyer, retired teacher, first overseas purchase",
+     "Location",
+     "Torrevieja centre, Alicante",
+     "Purchase",
+     "€275,000 — three-bedroom apartment with sea view",
+     "Service lines",
+     "· Investment Advisory · Property Purchase · Tax Advisory · Property Management",
+     "Timeline",
+     "5 months and 3 weeks from discovery call to first guest"
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The brief was simple and the client had heard versions of it before: a sea-view apartment in Torrevieja, kept for personal use two months a year and rented short-term the rest. Budget €280k. The complication was that this was the client's first overseas purchase, the post-Brexit non-resident regime now applied to her, and she wanted the rental income to cover the running costs and the trip-budget for two months a year on the coast."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Week 1 — The investment analysis"
+   },
+   {
+    "type": "paragraph",
+    "text": "Costa Larga's first job was a sanity check on the brief. We modelled three properties she had liked, run through the full cash-flow waterfall:"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Property",
+      "Asking",
+      "Net yield",
+      "Owner cash after costs"
+     ],
+     [
+      "2-bed coastal urbanisation",
+      "€225,000",
+      "2.1%",
+      "€4,700/yr"
+     ],
+     [
+      "3-bed inland villa",
+      "€340,000",
+      "1.4%",
+      "€4,750/yr"
+     ],
+     [
+      "3-bed Torrevieja-centre apt",
+      "€275,000",
+      "3.6%",
+      "€9,900/yr"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The third property — a three-bedroom in Torrevieja centre with a partial sea view, walking distance to restaurants — modelled best. Higher rental velocity in shoulder seasons, lower vacancy, lower turnover cost per stay."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Weeks 2–3 — Tax analysis under the post-Brexit regime"
+   },
+   {
+    "type": "paragraph",
+    "text": "As a UK resident, the client could not deduct expenses under Modelo 210. That made the tax math harsher than for an EU buyer. We ran two structures:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Direct as individual. 24% on gross rent. Fast to set up, but tax bill at the modelled rental income approached €5,400/year.",
+     "Spanish SL. 25% on profits with full deductions. Tax bill closer to €3,800/year. But the corporate setup added roughly €1,200/year in compliance, eating the saving."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "For this hold size and intended hold period (10+ years), individual ownership won on simplicity and was within €400/year of the SL on ongoing tax. We recommended Route 1, with a flag to revisit if she adds a second property."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Weeks 4–14 — The purchase"
+   },
+   {
+    "type": "paragraph",
+    "text": "NIE in week 4 via Route 2 (in-person at Torrevieja police station on her viewing trip). Spanish bank account opened the same week. Arras signed in week 6 after the standard five-document due diligence, including a community-of-owners check that revealed no short-term-rental restriction in the building."
+   },
+   {
+    "type": "paragraph",
+    "text": "Cédula de habitabilidad turned out to be expired — typical for older central Torrevieja apartments. We negotiated a 50/50 split on the renewal cost (€340 total), with the seller's share as a credit at notary. The renewal inspection happened during the gap between arras and notary, so the certificate was current at completion."
+   },
+   {
+    "type": "paragraph",
+    "text": "Notary in week 14. Keys in week 14."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Weeks 15–18 — Setup and rental launch"
+   },
+   {
+    "type": "paragraph",
+    "text": "Furniture and the licence pack ran in parallel. Compatibility report from Torrevieja town hall: 4 weeks. VT registration with Generalitat: 11 working days after compatibility. VITA Host onboarded the property in week 16, set up dynamic pricing on Airbnb and Booking, took the first photoshoot, processed the licence number for display."
+   },
+   {
+    "type": "paragraph",
+    "text": "First guest checked in week 18. €92 per night summer rate, €54 shoulder-season, average €74 net of platform fees. With a planned 75% occupancy outside her two personal-use months:"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Month",
+      "Status",
+      "Net to owner"
+     ],
+     [
+      "July (peak)",
+      "Rented",
+      "€2,950"
+     ],
+     [
+      "August",
+      "Personal use",
+      "€0"
+     ],
+     [
+      "September",
+      "Rented",
+      "€1,840"
+     ],
+     [
+      "October",
+      "Rented",
+      "€1,420"
+     ],
+     [
+      "November",
+      "Rented",
+      "€980"
+     ],
+     [
+      "December",
+      "Personal use",
+      "€0"
+     ],
+     [
+      "Average run-rate",
+      "—",
+      "~€3,200/mo on rented months"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "€3,200/month is the per-rented-month average net to owner across the first six months of operation, after platform fees, cleaning, utilities, VITA Host fee, IBI accrual, and the Modelo 210 quarterly. Over a full year with ten months of rental and two of personal use, that translates to a full-year owner cash of roughly €19,800 — within €1,000 of the model."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What made it work"
+   },
+   {
+    "type": "paragraph",
+    "text": "The client never had to translate between three service providers. Costa Larga briefed Sarah Katerina on the property profile. Sarah handled the legal and tax setup. VITA Host took the operational handover the moment keys arrived. From the client's side: one email address, one point of contact, one workflow."
+   },
+   {
+    "type": "paragraph",
+    "text": "Six months in, the file is exactly where the model said it would be, and the client is on the second of her two annual stays."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Other engagements"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Saved €12,400 in avoidable non-resident tax on a €340k purchase."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "From €8,600 in backdated Modelo 210 penalties to a clean file in 90 days."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Two properties, one treaty credit, zero double taxation."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "All case studies →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/case-studies",
+    "← All case studies"
+   ],
+   [
+    "/case-studies/dutch-investor-orihuela",
+    "Dutch investor · Orihuela Costa Saved €12,400 in avoidable n"
+   ],
+   [
+    "/case-studies/german-retiree-guardamar",
+    "German retiree · Guardamar From €8,600 in backdated Modelo 2"
+   ],
+   [
+    "/case-studies/norwegian-couple-la-zenia",
+    "Norwegian couple · La Zenia Two properties, one treaty credi"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "case-studies_dutch-investor-orihuela": {
+  "head": {
+   "title": "Saved €12,400 in avoidable non-resident tax on a €340k purchase. · Sarah Katerina",
+   "description": "Restructured the purchase vehicle before signing the arras — only possible because the tax specialist was involved before the agent was chosen.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "Saved €12,400 in avoidable non-resident tax on a €340k purchase."
+   },
+   {
+    "type": "paragraph",
+    "text": "Restructured the purchase vehicle before signing the arras — only possible because the tax specialist was involved before the agent was chosen."
+   },
+   {
+    "type": "dl",
+    "items": [
+     "Client",
+     "Dutch investor, age 52, two existing rental properties in NL",
+     "Location",
+     "Orihuela Costa, Alicante",
+     "Purchase",
+     "€340,000 — two-bedroom front-line apartment",
+     "Service lines",
+     "· Investment Advisory · Property Purchase · Tax Advisory",
+     "Timeline",
+     "11 weeks from first call to keys"
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The client came in through a Costa Larga discovery call with a specific brief: a coastal apartment to add to a small portfolio already running in the Netherlands, target gross yield above 6%, willing to hold for 8–10 years. He had a property in mind from a Dutch-language agent he had worked with for years — €340,000, €1,950 a month rental projection."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What the agent's plan looked like"
+   },
+   {
+    "type": "paragraph",
+    "text": "The default purchase structure proposed by the agent's recommended lawyer: buy as a Dutch individual, file Modelo 210 quarterly, income tax in the Netherlands, treaty credit, done. On paper, the straight line."
+   },
+   {
+    "type": "paragraph",
+    "text": "Costa Larga's first run of the numbers came back with a different conclusion. The Dutch box-3 system at the time taxes a deemed return on net wealth, and the rental income from a Spanish property is taxed in Spain at 19% (deductible expenses, EU treatment) but the underlying capital is also picked up by box 3. The double layer was the issue. With this client's existing portfolio, the marginal box-3 hit was meaningful."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The intervention"
+   },
+   {
+    "type": "paragraph",
+    "text": "Two weeks before arras, we ran a side-by-side analysis of three structures:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Direct as individual — the agent's plan.",
+     "Spanish SL (limited company) — Spanish tax resident company, 25% on profits, but full expense deductions including depreciation, and Spanish corporate distributions taxed differently in NL than direct rental income.",
+     "Dutch BV holding the Spanish asset — corporate non-resident in Spain, more administrative weight, but cleaner treatment of long-term capital gains."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "For this client's profile — 8-year hold, mid-six-figure rental intake, existing Dutch corporate structure — option 2 produced a clearly lower lifetime tax bill once depreciation, planned renovation capex, and the eventual disposal were modelled."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The before/after"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Structure",
+      "Annual tax (Spain + NL)",
+      "Year 8 disposal tax",
+      "Lifetime delta"
+     ],
+     [
+      "Direct as individual",
+      "€4,840",
+      "€18,200",
+      "baseline"
+     ],
+     [
+      "Spanish SL",
+      "€3,290",
+      "€16,600",
+      "−€12,400"
+     ],
+     [
+      "Dutch BV",
+      "€3,510",
+      "€15,800",
+      "−€10,200"
+     ]
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Why the timing mattered"
+   },
+   {
+    "type": "paragraph",
+    "text": "Restructuring after arras is expensive. The Spanish company has to be incorporated, NIE issued, bank account opened, and the arras assigned to the company before signature at notary — assigning is possible but adds notary cost and triggers a separate ITP analysis. Doing it before arras meant the company name was on the contract from day one. No assignment, no extra notary, no additional ITP exposure."
+   },
+   {
+    "type": "paragraph",
+    "text": "That sequence is only possible if the tax advisor is at the table before the agent has been chosen. By the time arras is drafted, the structure has already been baked in. This is the single most expensive sequence error we see and the reason this practice exists at all."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The outcome"
+   },
+   {
+    "type": "paragraph",
+    "text": "The Spanish SL was incorporated in week 4. NIE for the client and the company in week 5–6. Arras signed in the company's name in week 7. Notary in week 11. Property entered the rental market via VITA Host in week 13."
+   },
+   {
+    "type": "paragraph",
+    "text": "One year on, the file is producing the modelled net cash. The tax delta vs. the original plan is on track for the €12,400 over eight years. The structural decision will continue to compound for the entire holding period."
+   },
+   {
+    "type": "paragraph",
+    "text": "On a €340k transaction, the difference between the right structure and the default structure was €12,400 over the hold. The fee for the analysis was a fraction of that. The non-monetary win — sleeping with a clean file and a known exit tax — is harder to put on a spreadsheet but at least as real."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Other engagements"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "From first viewing to €3,200/month rental in under 6 months."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "From €8,600 in backdated Modelo 210 penalties to a clean file in 90 days."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Two properties, one treaty credit, zero double taxation."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "All case studies →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/case-studies",
+    "← All case studies"
+   ],
+   [
+    "/case-studies/british-buyer-torrevieja",
+    "British buyer · Torrevieja From first viewing to €3,200/mont"
+   ],
+   [
+    "/case-studies/german-retiree-guardamar",
+    "German retiree · Guardamar From €8,600 in backdated Modelo 2"
+   ],
+   [
+    "/case-studies/norwegian-couple-la-zenia",
+    "Norwegian couple · La Zenia Two properties, one treaty credi"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "case-studies_german-retiree-guardamar": {
+  "head": {
+   "title": "From €8,600 in backdated Modelo 210 penalties to a clean file in 90 days. · Sarah Katerina",
+   "description": "Voluntary regularisation after three years of missed non-resident declarations. Penalties reduced, file closed, quarterly filings now automated.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "From €8,600 in backdated Modelo 210 penalties to a clean file in 90 days."
+   },
+   {
+    "type": "paragraph",
+    "text": "Voluntary regularisation after three years of missed non-resident declarations. Penalties reduced, file closed, quarterly filings now automated."
+   },
+   {
+    "type": "dl",
+    "items": [
+     "Client",
+     "German retiree, age 68, holiday-home owner",
+     "Location",
+     "Guardamar del Segura, Alicante",
+     "Purchase",
+     "€198,000 — two-bedroom apartment near the dunes",
+     "Service lines",
+     "· Tax Advisory",
+     "Timeline",
+     "3 months from first call to clean file"
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The client bought in 2021 with a German notary handling power-of-attorney signing. A neighbour's casual remark in the spring of 2024 sent her looking for an advisor: she had never heard of Modelo 210, never filed it, and three full years had passed since signing."
+   },
+   {
+    "type": "paragraph",
+    "text": "The exposure on the desk by the time we met:"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Item",
+      "Amount"
+     ],
+     [
+      "Unfiled imputed-income Modelo 210, 2021–2023 (3 years)",
+      "€1,140 principal"
+     ],
+     [
+      "Estimated late surcharges (5%–20% scaling)",
+      "€820"
+     ],
+     [
+      "Estimated penalties under Hacienda's standard scale (50%–150%)",
+      "€2,280–€6,840"
+     ],
+     [
+      "Total worst case if Hacienda contacted first",
+      "~€8,600"
+     ]
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The decision tree on day one"
+   },
+   {
+    "type": "paragraph",
+    "text": "With unfiled non-resident tax, two doors are open. The first is to wait for Hacienda to find the file — they will, eventually, through a notary cross-check or a neighbour's denouncement, and when they do, the full penalty scale applies. The second is voluntary regularisation : file the missing returns before contact, pay the principal plus reduced surcharges, no penalty."
+   },
+   {
+    "type": "paragraph",
+    "text": "The choice is technical only on paper. In practice, every month that passes raises the surcharge bracket. We moved the same week."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The 90-day plan"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Week 1. Reconstructed cadastral history — the value had been revised in 2018, so the 1.1% rate applied for all three years. Confirmed EU-citizen 19% rate. Calculated the corrected principal: €380/year, €1,140 total.",
+     "Week 2. Filed the three years of Modelo 210 via voluntary disclosure (Modelo 210 with complementaria indication). Paid principal plus voluntary-disclosure surcharges of 5%, 10%, and 15% for the three years respectively (the scale climbs with delay).",
+     "Weeks 3–8. Awaited Hacienda confirmation. None of the three filings triggered a notification — the standard outcome when the disclosure is voluntary and the principal is paid in full.",
+     "Week 9. Set up the recurring quarterly filing calendar with the client. Imputed-income years roll into the annual filing on 31 December of the following year. Reminder emails six weeks before each deadline.",
+     "Week 12. Hacienda issued the standard resolución confirming the three years closed. File officially clean."
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The numbers, at the end"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Outcome",
+      "Amount"
+     ],
+     [
+      "Principal paid (3 years Modelo 210)",
+      "€1,140"
+     ],
+     [
+      "Voluntary-disclosure surcharges",
+      "€340"
+     ],
+     [
+      "Penalties",
+      "€0"
+     ],
+     [
+      "Total paid",
+      "€1,480"
+     ],
+     [
+      "vs. worst case if Hacienda contacted first",
+      "~€8,600"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Spanish tax law treats unsolicited regularisation very differently from regularisation triggered by a notification. The difference between the two is around €7,100 in this file. The window closes the moment a letter from Hacienda arrives. If you have unfiled years, the math says move now."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What it took from the client"
+   },
+   {
+    "type": "paragraph",
+    "text": "One discovery call. One signed engagement letter and tax-advisor mandate. Two scans of the deed and the latest IBI receipt. An IBAN for the principal payment. That is the entire client-side workload. The rest is paperwork on our side and patience while Hacienda processes."
+   },
+   {
+    "type": "paragraph",
+    "text": "A year on, all four quarterly cycles have run cleanly. The €380/year imputed-income filing is on autopilot, paid via domiciliation. The file that almost cost €8,600 now costs €380 a year and one minute of attention each January."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Other engagements"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Saved €12,400 in avoidable non-resident tax on a €340k purchase."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "From first viewing to €3,200/month rental in under 6 months."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Two properties, one treaty credit, zero double taxation."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "All case studies →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/case-studies",
+    "← All case studies"
+   ],
+   [
+    "/case-studies/british-buyer-torrevieja",
+    "British buyer · Torrevieja From first viewing to €3,200/mont"
+   ],
+   [
+    "/case-studies/dutch-investor-orihuela",
+    "Dutch investor · Orihuela Costa Saved €12,400 in avoidable n"
+   ],
+   [
+    "/case-studies/norwegian-couple-la-zenia",
+    "Norwegian couple · La Zenia Two properties, one treaty credi"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "case-studies_norwegian-couple-la-zenia": {
+  "head": {
+   "title": "Two properties, one treaty credit, zero double taxation. · Sarah Katerina",
+   "description": "Coordinated Spanish Modelo 210 and Norwegian self-assessment so rental income was taxed once, not twice. Saved an estimated €6,200/year ongoing.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "Two properties, one treaty credit, zero double taxation."
+   },
+   {
+    "type": "paragraph",
+    "text": "Coordinated Spanish Modelo 210 and Norwegian self-assessment so rental income was taxed once, not twice. Saved an estimated €6,200/year ongoing."
+   },
+   {
+    "type": "dl",
+    "items": [
+     "Client",
+     "Norwegian couple, both 60s, retired",
+     "Location",
+     "La Zenia and Cabo Roig, Orihuela Costa",
+     "Purchase",
+     "€520,000 combined — two adjacent rental apartments",
+     "Service lines",
+     "· Tax Advisory · Property Management",
+     "Timeline",
+     "Engagement at the end of year 1; first clean cycle in year 2"
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The couple bought two apartments side-by-side in 2022, intending to rent both. They engaged us at the end of their first year of ownership, after their Norwegian accountant flagged that the numbers on the rental income tax did not look right — they appeared to have been taxed in full both in Spain and in Norway. They had been."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The structural problem"
+   },
+   {
+    "type": "paragraph",
+    "text": "Norway and Spain have a tax treaty (signed 1999, in force since 2000) that determines which country has primary right to tax what income. For real estate rental income, the rule is simple and standard: the country where the property is located taxes first (Spain, in this case), and the country of residence (Norway) taxes the same income but credits the foreign tax paid against its own liability."
+   },
+   {
+    "type": "paragraph",
+    "text": "That credit only works if two things happen on time:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "The Spanish tax (Modelo 210) is filed and paid in the Spanish quarter when due.",
+     "The Norwegian tax return claims the foreign tax credit using the official Spanish payment certificate ( certificado de pagos ), not just the receipt."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "In year 1, neither happened. Modelo 210 was filed late by their previous Spanish gestor (one quarter combined into the next), and the Norwegian return was prepared without an official payment certificate, so the credit was disallowed. Result: 19% paid in Spain, 22% paid in Norway, on the same euros."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Year 1 cleanup"
+   },
+   {
+    "type": "paragraph",
+    "text": "Year 1 was already in the rear-view mirror, so the cleanup was retrospective. Two parallel streams:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Spain: verified the Modelo 210 filings, paid the late surcharges (€280), requested official payment certificates from Hacienda for both properties and all four quarters.",
+     "Norway: coordinated with the client's Norwegian accountant on a corrective return ( endringsmelding ) for year 1 with the Spanish certificates as supporting documentation. The credit was reinstated and the over-paid Norwegian tax refunded."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Year 1 net recovery to the clients: €4,800 in over-paid Norwegian tax, against €280 in Spanish late surcharges. Net €4,520 recovered ."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The forward-looking architecture"
+   },
+   {
+    "type": "paragraph",
+    "text": "The cleanup was the easy part. The harder part was preventing the same disaster every year forward. We set up a coordinated calendar:"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Date",
+      "Action",
+      "Side"
+     ],
+     [
+      "20 Apr",
+      "Q1 Modelo 210 filed",
+      "Spain"
+     ],
+     [
+      "20 Jul",
+      "Q2 Modelo 210 filed",
+      "Spain"
+     ],
+     [
+      "20 Oct",
+      "Q3 Modelo 210 filed",
+      "Spain"
+     ],
+     [
+      "20 Jan (next year)",
+      "Q4 Modelo 210 filed",
+      "Spain"
+     ],
+     [
+      "15 Feb",
+      "Request payment certificates from AEAT",
+      "Spain"
+     ],
+     [
+      "10 Mar",
+      "Forward certificates + summary to NO accountant",
+      "Coordination"
+     ],
+     [
+      "30 Apr",
+      "Norwegian self-assessment with credit applied",
+      "Norway"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Each step is automated on our side or scheduled with their Norwegian accountant. The clients receive one summary email per quarter with the Spanish payment confirmed and the credit accruing. They do nothing."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Year 2 result"
+   },
+   {
+    "type": "paragraph",
+    "text": "With the architecture in place, year 2 ran clean:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Modelo 210 filed on time, all four quarters, both properties. Spanish tax: €5,840 (19% on net rental income).",
+     "Spanish payment certificates issued February 2026 for the four 2025 quarters.",
+     "Norwegian self-assessment claimed the full €5,840 credit against the Norwegian liability. Net Norwegian tax on the rental income: €1,080 (the differential between Spanish 19% and Norwegian effective rate).",
+     "Total tax on the rental income: €6,920. Same income in year 1 had cost €11,840 between the two countries."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "€4,920/year ongoing. Combined with the year-1 recovery, the overall delta is around €6,200/year average over the first three years of the engagement. The architecture cost two days of our time to design and runs on autopilot thereafter."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Why this happens so often"
+   },
+   {
+    "type": "paragraph",
+    "text": "The treaty credit is technically simple. The execution requires two countries' tax calendars to talk to each other, and the Spanish system does not produce its certificates until the quarterly cycle is complete. Most Spanish gestors stop at \"filed on time\"; most foreign accountants stop at \"client says they paid in Spain\". The certificate, the timing, and the cross-border coordination are no one's job by default."
+   },
+   {
+    "type": "paragraph",
+    "text": "That coordination is what we add — and what turns the same rental income from a doubly-taxed liability into a singly-taxed asset."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Other engagements"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Saved €12,400 in avoidable non-resident tax on a €340k purchase."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "From first viewing to €3,200/month rental in under 6 months."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "From €8,600 in backdated Modelo 210 penalties to a clean file in 90 days."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "All case studies →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/case-studies",
+    "← All case studies"
+   ],
+   [
+    "/case-studies/british-buyer-torrevieja",
+    "British buyer · Torrevieja From first viewing to €3,200/mont"
+   ],
+   [
+    "/case-studies/dutch-investor-orihuela",
+    "Dutch investor · Orihuela Costa Saved €12,400 in avoidable n"
+   ],
+   [
+    "/case-studies/german-retiree-guardamar",
+    "German retiree · Guardamar From €8,600 in backdated Modelo 2"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "insights_five-documents-before-arras": {
+  "head": {
+   "title": "The five documents your lawyer should have reviewed before the arras · Sarah Katerina",
+   "description": "Nota simple, cédula, community debts, planning file, tax charges — in that order, with examples.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "The five documents your lawyer should have reviewed before the arras"
+   },
+   {
+    "type": "paragraph",
+    "text": "Nota simple, cédula, community debts, planning file, tax charges — in that order, with examples."
+   },
+   {
+    "type": "paragraph",
+    "text": "The arras contract is the moment the deal becomes binding. You leave 10% of the price on the table; the seller takes the property off the market. From that point on, withdrawing typically costs you the 10%, and the seller withdrawing typically costs them 20%. Most of the mistakes I see in tax appeals five years later trace back to a document that should have been read in the week before that signature — and was not."
+   },
+   {
+    "type": "paragraph",
+    "text": "Below, the five documents your lawyer should have on the table before you sign. In this exact order."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "1. Nota simple — the registry's mirror of the property"
+   },
+   {
+    "type": "paragraph",
+    "text": "The nota simple is a snapshot from the Land Registry ( Registro de la Propiedad ) showing who owns the property, what charges exist on it, and any restrictions. Costs around €10. Refresh date should be within the last 30 days."
+   },
+   {
+    "type": "paragraph",
+    "text": "What we read on a nota simple:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Owner identity matches the seller exactly. Joint ownership, deceased co-owners, divorce decrees still pending — all visible here.",
+     "Mortgages and embargoes. A standing mortgage must be cancelled at notary or the price reduced accordingly. An embargo (court seizure) means the deal cannot proceed at all.",
+     "Easements ( servidumbres ). Right of way, shared wells, neighbour access — silent on the listing, loud here.",
+     "Description match. The square metres, plot, and built area must match what you saw. Properties enlarged without licence are very common on the Costa Blanca, and the gap between registry and reality is the seller's problem if you spot it before arras — yours if you don't."
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "2. Cédula de habitabilidad — the licence to be lived in"
+   },
+   {
+    "type": "paragraph",
+    "text": "The cédula de habitabilidad (called licencia de segunda ocupación in some municipalities) is the certificate that the property meets habitability standards. Without it, you cannot legally connect water and electricity in most Valencian Community towns, and you cannot rent short-term."
+   },
+   {
+    "type": "paragraph",
+    "text": "The certificate has an expiry date, typically 10 years. If the seller cannot produce a current one, request it before arras. The inspection that issues it can take 4–8 weeks; agree the cost split in writing."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "3. Community debts certificate — the silent inheritance"
+   },
+   {
+    "type": "paragraph",
+    "text": "When you buy a flat or anything in a urbanisation, you inherit any outstanding community fees attached to the property. Spanish law covers debts from the current year and the preceding three. On a coastal urbanisation with a dispute over pool repairs, that has been €4,000–€8,000 of unwelcome welcome present."
+   },
+   {
+    "type": "paragraph",
+    "text": "The seller must obtain a certificado de estar al corriente from the community administrator confirming there are no debts. It is not optional and it is not on the buyer to chase — but it gets forgotten on rushed sales."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "4. Planning file (urbanismo) — what was actually licensed"
+   },
+   {
+    "type": "paragraph",
+    "text": "A request to the town hall ( certificado urbanístico ) tells you whether the building licence matches the building, whether extensions, pool, or annex were licensed, and whether any planning infraction is open against the property. Cost: €30–€80, depending on town. Time: 1–4 weeks."
+   },
+   {
+    "type": "paragraph",
+    "text": "This is where I see four recurring traps:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "The unlicensed extension. A fourth bedroom, a built-out terrace, a pool added without licence. Owner inherits the fine. Some can be regularised; some cannot.",
+     "The planning infraction file ( expediente urbanístico ). Once opened, it travels with the property, not the seller.",
+     "Coastal law (Ley de Costas) zoning. Properties inside the 100m maritime-terrestrial zone are governed by different rules and may have demolition orders. Always check.",
+     "Special protection. A house listed for architectural protection cannot be remodelled freely. The renovation budget you wrote on a napkin doubles."
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "5. Tax charges — IBI, plusvalía, non-resident filings"
+   },
+   {
+    "type": "paragraph",
+    "text": "The last layer is tax. Three documents matter, in this order:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Latest IBI receipt with the cadastral reference and value. You will need both for Modelo 210 and for the transfer tax (ITP) calculation.",
+     "Plusvalía estimate from the town hall. The municipal capital-gains tax falls on the seller by law, but the allocation gets renegotiated more often than people realise. Have the estimate before you negotiate.",
+     "Seller's Modelo 210 history if they are non-resident. A seller who has not filed for years has a debt with Hacienda — and Hacienda can attach it to the property if unresolved."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "None of these documents should arrive in the week of signing. They take two to four weeks combined. If your advisor is comfortable signing arras without them, find another advisor."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What good due diligence actually looks like"
+   },
+   {
+    "type": "paragraph",
+    "text": "A clean file delivered to the buyer two days before arras contains: the nota simple (under 30 days old), cédula de habitabilidad with expiry date, community debt certificate signed by the administrator, urbanism certificate from the town hall, latest IBI receipt and plusvalía estimate, and the seller's tax compliance proof if non-resident."
+   },
+   {
+    "type": "paragraph",
+    "text": "This is what we send our clients. Not because we are conservative, but because each of those documents has, at various points in twenty years, been the difference between a purchase and a regret."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Continue reading"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "NIE application for non-residents: three routes and which one is actually fastest"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Modelo 210 explained: the tax every non-resident owner actually pays"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows"
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "All insights →"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/insights",
+    "← All insights"
+   ],
+   [
+    "/insights/gross-vs-net-yield-costa-blanca",
+    "Investment Gross yield vs. net yield in Costa Blanca — what "
+   ],
+   [
+    "/insights/modelo-210-explained",
+    "Taxes Modelo 210 explained: the tax every non-resident owner"
+   ],
+   [
+    "/insights/nie-application-three-routes",
+    "Buying Guide NIE application for non-residents: three routes"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "insights_gross-vs-net-yield-costa-blanca": {
+  "head": {
+   "title": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows · Sarah Katerina",
+   "description": "A worked example on a €200k apartment in Torrevieja. The headline yield vs. what actually lands in your account.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows"
+   },
+   {
+    "type": "paragraph",
+    "text": "A worked example on a €200k apartment in Torrevieja. The headline yield vs. what actually lands in your account."
+   },
+   {
+    "type": "paragraph",
+    "text": "Every brochure for a Costa Blanca rental property quotes a yield. Almost none of them quote the net yield — the number that actually arrives in your bank account at the end of the year. The gap is rarely small. On a typical €200,000 apartment in Torrevieja, the gap between the brochure number and the bank-account number is between 3 and 4 percentage points . That is the gap this piece exists to close."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The brochure number — gross yield"
+   },
+   {
+    "type": "paragraph",
+    "text": "Gross yield is the simplest possible calculation: annual rental income divided by purchase price. A €200,000 apartment renting at €1,400 per month for 11 months produces €15,400 of annual income, a gross yield of 7.7% ."
+   },
+   {
+    "type": "paragraph",
+    "text": "Brochures stop here. Sometimes they stop one notch earlier and quote peak monthly rent multiplied by 12, which inflates the number by another point. The 7.7% becomes a 9% headline. Both numbers are useless for decision-making because they ignore everything that happens between the tenant's payment and your bank balance."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What the gross figure leaves out"
+   },
+   {
+    "type": "paragraph",
+    "text": "Below is the actual deduction stack on the same apartment. Numbers are illustrative, drawn from a typical Torrevieja two-bedroom in a well-run urbanisation, mid-tier furnishing, mixed short-term and long-term rental. Yours will differ — but the categories will not."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Acquisition costs spread over a 10-year hold"
+   },
+   {
+    "type": "paragraph",
+    "text": "You pay them once at purchase but they erode the yield from year one. ITP at 10% of the price, notary and registry around 0.6%, legal and fiscal advisory 1.0–1.5%. That is roughly €24,000 on a €200k purchase, or €2,400 per year of drag if you intend to hold for 10 years."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Annual operating costs"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "IBI (council tax): €380–€520 depending on cadastral revision year.",
+     "Community fees: €1,200–€2,400 in a typical urbanisation with a pool.",
+     "Property insurance: €280–€450.",
+     "Maintenance reserve: rule of thumb 1% of the property value annually for repairs and replacements. €2,000 on a €200k property.",
+     "Utilities (when units are rented short-term): €1,400–€1,800 — standing charges plus consumption that cannot be re-invoiced to short-stay guests.",
+     "Cleaning & turnover: €25–€55 per turnover. At 30 stays a year, €900–€1,650."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Add a ten percent vacancy assumption — €1,540 in lost rent — and a rental-management fee if you are using a property manager (typically 18–25% of rent on short-term, 8–12% on long-term)."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "The tax layer"
+   },
+   {
+    "type": "paragraph",
+    "text": "As covered in our Modelo 210 piece, the rate depends on whether you can deduct expenses. EU/EEA non-residents pay 19% on net rental income; everyone else pays 24% on gross . On the same flat, that produces meaningfully different bottom lines."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The full waterfall — Dutch buyer, full year"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Line",
+      "Amount"
+     ],
+     [
+      "Gross rental income",
+      "€15,400"
+     ],
+     [
+      "Less: vacancy assumption (10%)",
+      "−€1,540"
+     ],
+     [
+      "Effective rental income",
+      "€13,860"
+     ],
+     [
+      "Less: IBI",
+      "−€450"
+     ],
+     [
+      "Less: community fees",
+      "−€1,800"
+     ],
+     [
+      "Less: insurance",
+      "−€340"
+     ],
+     [
+      "Less: maintenance reserve (1%)",
+      "−€2,000"
+     ],
+     [
+      "Less: utilities net of guest reinvoice",
+      "−€1,500"
+     ],
+     [
+      "Less: cleaning & turnover",
+      "−€1,200"
+     ],
+     [
+      "Less: management fee (20% of effective)",
+      "−€2,772"
+     ],
+     [
+      "Pre-tax cash income",
+      "€3,798"
+     ],
+     [
+      "Less: Modelo 210 (19% on deductible base)",
+      "−€722"
+     ],
+     [
+      "Net cash to owner",
+      "€3,076"
+     ],
+     [
+      "Net yield on €200,000 purchase",
+      "1.5%"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Brochure: 7.7%. Reality: 1.5%. That is not a math trick — it is the standard Costa Blanca outcome on a furnished apartment in mixed rental, with one tenant, professionally managed. The arithmetic improves with longer-term tenants (lower turnover and management cost), with self-management (savings of 18–22% of rent), and with a property purchased at a price below market."
+   },
+   {
+    "type": "paragraph",
+    "text": "On a Costa Blanca rental property, breakeven net yield against an ETF benchmark is roughly 4.5–5%. To get there, you have to act on at least two of these four levers: longer rental terms, below-market entry, leverage, or self-management. None of them appear in the brochure. All of them appear in a Costa Larga cash-flow analysis."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "How to read a brochure from now on"
+   },
+   {
+    "type": "paragraph",
+    "text": "When the agent quotes 7%, ask three questions:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Is that gross or net? If they hesitate, gross.",
+     "What occupancy rate is assumed? Anything above 85% is optimistic in most coastal sub-markets.",
+     "Are taxes included? Not in the headline figure they aren't."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The answers will not change the property — but they will change what you offer for it."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Continue reading"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Modelo 210 explained: the tax every non-resident owner actually pays"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "The five documents your lawyer should have reviewed before the arras"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Short-term rental licensing, one autonomous community at a time"
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "All insights →"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/insights",
+    "← All insights"
+   ],
+   [
+    "/insights/five-documents-before-arras",
+    "Buying Guide The five documents your lawyer should have revi"
+   ],
+   [
+    "/insights/modelo-210-explained",
+    "Taxes Modelo 210 explained: the tax every non-resident owner"
+   ],
+   [
+    "/insights/short-term-rental-licence-valencian-community",
+    "Rentals Short-term rental licensing, one autonomous communit"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "insights_modelo-210-explained": {
+  "head": {
+   "title": "Modelo 210 explained: the tax every non-resident owner actually pays · Sarah Katerina",
+   "description": "Quarterly or annual. On paper simple, in practice the single most mis-filed form on the Costa Blanca. Here's the anatomy.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "Modelo 210 explained: the tax every non-resident owner actually pays"
+   },
+   {
+    "type": "paragraph",
+    "text": "Quarterly or annual. On paper simple, in practice the single most mis-filed form on the Costa Blanca. Here's the anatomy."
+   },
+   {
+    "type": "paragraph",
+    "text": "If you own property in Spain but spend less than 183 days a year here, you are a non-resident for tax purposes. That status carries one ongoing obligation that almost no agent will spell out at signing: Modelo 210 , the non-resident income tax declaration."
+   },
+   {
+    "type": "paragraph",
+    "text": "It is not a property tax — that is IBI, paid to the town hall. Modelo 210 is income tax. It applies whether you rent the property out or leave it empty for the family to use in August. The difference is which version of the form you file, how often, and how much."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Two paths, depending on what you do with the property"
+   },
+   {
+    "type": "paragraph",
+    "text": "The form has two filing patterns. Choose the wrong one and the mistakes accumulate quietly until a routine cross-check at Hacienda surfaces them four years later."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Path 1 — Property held for personal use"
+   },
+   {
+    "type": "paragraph",
+    "text": "If the home sits empty or is used by you and your family, Spain imputes a notional income on it: 1.1% of the cadastral value (or 2% if the value has not been revised in the last decade). On that imputed income, the non-resident rate is 19% for EU/EEA citizens and 24% for everyone else (UK included since Brexit)."
+   },
+   {
+    "type": "paragraph",
+    "text": "You file once a year , between 1 January and 31 December of the year after. A €180,000 cadastral value, EU passport, comes out around €376 . Same property, British passport, around €475 ."
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Path 2 — Property rented out"
+   },
+   {
+    "type": "paragraph",
+    "text": "The moment a euro of rent enters the picture, the rules change. You declare the actual rental income, and Modelo 210 becomes quarterly : by 20 January, 20 April, 20 July and 20 October for the previous quarter."
+   },
+   {
+    "type": "paragraph",
+    "text": "EU/EEA non-residents may deduct expenses (mortgage interest, community fees, IBI, insurance, depreciation, utilities for short stays) and pay 19% on net rental income. Non-EU residents — UK, US, Switzerland — cannot deduct anything and pay 24% on the gross. That asymmetry alone is why a British landlord on the Costa Blanca often pays four to five times more tax than a Dutch landlord on the same flat."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The arithmetic, on a real flat"
+   },
+   {
+    "type": "paragraph",
+    "text": "Picture a €220,000 apartment in Torrevieja. Rented all summer plus winter weekends, gross €18,400 a year. Allowable expenses (where deductible) of €6,200. Numbers below are illustrative — your file will produce its own."
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Tax residence",
+      "Taxable base",
+      "Rate",
+      "Annual tax"
+     ],
+     [
+      "Netherlands (EU)",
+      "€12,200 net",
+      "19%",
+      "€2,318"
+     ],
+     [
+      "Norway (EEA)",
+      "€12,200 net",
+      "19%",
+      "€2,318"
+     ],
+     [
+      "United Kingdom",
+      "€18,400 gross",
+      "24%",
+      "€4,416"
+     ],
+     [
+      "United States",
+      "€18,400 gross",
+      "24%",
+      "€4,416"
+     ]
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The five mistakes I keep seeing"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Filing once a year when the property was rented. Annual filing is for empty homes. The day a tenant pays you, you owe quarterly. Late filings carry surcharges starting at 5% and climbing.",
+     "Using the cadastral value from the deed. Cadastral values are revised by the Catastro and the rate (1.1% vs 2%) depends on whether the revision is recent. Half the buyers I see apply the wrong rate.",
+     "Forgetting deductions when you are entitled to them. EU/EEA landlords can subtract a meaningful list. Most buy-side advisors use the gross figure because it is faster, costing the client thousands a year.",
+     "Ignoring the days the property sat empty. If you rent for nine months and use it yourself for three, the empty quarter still carries imputed income. Both filings are required.",
+     "Skipping the treaty credit at home. Most countries credit the Spanish tax against your domestic liability. Skip the credit and you pay twice on the same euro."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "If you are reading this and your property has not been declared for a year or more, you have not lost. Voluntary regularisation before Hacienda contacts you carries reduced surcharges and no penalty. The window narrows the moment a notification arrives."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What the form does not ask, and you should"
+   },
+   {
+    "type": "paragraph",
+    "text": "Modelo 210 is the visible obligation. The invisible one is the interaction with your home country: the treaty credit, the timing mismatch between Spanish quarters and your domestic tax year, the documentation you will need three years from now if a Hacienda letter arrives. None of that is on the form. All of it shapes how much you actually pay."
+   },
+   {
+    "type": "paragraph",
+    "text": "That is the part of the work this practice was built to handle — not the form itself, which a competent gestor can fill, but the coordination across two tax systems that turns the same property into a clean file or a slow-burning liability."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Continue reading"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Plusvalía after the 2021 Constitutional ruling — are you owed a refund?"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "The five documents your lawyer should have reviewed before the arras"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows"
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "All insights →"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/insights",
+    "← All insights"
+   ],
+   [
+    "/insights/five-documents-before-arras",
+    "Buying Guide The five documents your lawyer should have revi"
+   ],
+   [
+    "/insights/gross-vs-net-yield-costa-blanca",
+    "Investment Gross yield vs. net yield in Costa Blanca — what "
+   ],
+   [
+    "/insights/plusvalia-2021-constitutional-ruling",
+    "Taxes Plusvalía after the 2021 Constitutional ruling — are y"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "insights_nie-application-three-routes": {
+  "head": {
+   "title": "NIE application for non-residents: three routes and which one is actually fastest · Sarah Katerina",
+   "description": "Consulate, in-person in Spain, via power of attorney. Real timings for 2026, not the internet folklore.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "NIE application for non-residents: three routes and which one is actually fastest"
+   },
+   {
+    "type": "paragraph",
+    "text": "Consulate, in-person in Spain, via power of attorney. Real timings for 2026, not the internet folklore."
+   },
+   {
+    "type": "paragraph",
+    "text": "The NIE — Número de Identificación de Extranjero — is the tax ID every non-resident needs to do almost anything in Spain. Open a bank account. Sign a deed. Pay a tax. Connect electricity. Buy a SIM card on contract. There is no transaction in this country where the answer to \"what's your NIE?\" is optional."
+   },
+   {
+    "type": "paragraph",
+    "text": "There are three legal routes to obtain it. Each has a different timing in 2026. Each has a different cost. Internet articles tend to confuse them; the lawyer your agent recommends tends to default to whichever is most convenient for them, not for you. Here is the working comparison."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Route 1 — Spanish consulate in your country"
+   },
+   {
+    "type": "paragraph",
+    "text": "You apply to the Spanish consulate that covers your residence abroad. Documents required: completed EX-15 form, passport copy, proof of address, justification for needing the NIE (e.g., signed arras contract, mandate letter from a Spanish notary). The process is free; you only pay the modelo 790 tax (about €10) on receipt."
+   },
+   {
+    "type": "paragraph",
+    "text": "Real timings, 2026:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "UK consulates (London, Edinburgh, Manchester): 6–10 weeks.",
+     "Netherlands (The Hague): 3–5 weeks.",
+     "Germany (Berlin, Munich, Hamburg, Frankfurt): 4–7 weeks.",
+     "France (Paris, Lyon, Marseille): 3–4 weeks.",
+     "United States (multiple): 8–14 weeks. Mostly Miami and NY.",
+     "Norway (Oslo): 3–5 weeks."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The bottleneck is the appointment slot, not the processing itself. Some consulates open booking 30 days in advance and the slots disappear in hours. Plan accordingly."
+   },
+   {
+    "type": "paragraph",
+    "text": "When to use it: when you have time, when you prefer to handle the paperwork yourself, when you happen to live near a consulate that books quickly. Cheapest of the three options."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Route 2 — In person at a Spanish police station"
+   },
+   {
+    "type": "paragraph",
+    "text": "You travel to Spain and apply at a Comisaría de Policía Nacional with a foreign-resident desk. The legal basis is the same EX-15 form, plus the modelo 790 tax slip paid in advance at a Spanish bank."
+   },
+   {
+    "type": "paragraph",
+    "text": "Real timings, 2026: the appointment system ( cita previa ) is the gating factor. In Alicante province, where most of our clients buy:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Torrevieja, Orihuela, Alicante: 2–4 weeks for an appointment.",
+     "On the appointment day: 30–60 minutes at the police station, NIE issued the same day in most cases or within a week."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The slot system does open new tranches periodically, but spots disappear in minutes during peak buying season (April–June and September–October). We typically book the moment a client books their first viewing flight."
+   },
+   {
+    "type": "paragraph",
+    "text": "When to use it: when you are coming to Spain anyway and can plan the police-station visit. Faster than the consulate route once the appointment is in hand. Costs only the modelo 790 tax."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Route 3 — Via power of attorney (poder notarial)"
+   },
+   {
+    "type": "paragraph",
+    "text": "You sign a Spanish power of attorney — at a Spanish consulate, or at a notary in your country with apostille — authorising your advisor in Spain to apply for the NIE on your behalf. We then submit the application and collect the NIE without you needing to be present."
+   },
+   {
+    "type": "paragraph",
+    "text": "Real timings, 2026:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Drafting and signing the power of attorney: 5–10 working days.",
+     "NIE application once the power is in our hands: 2–3 weeks for an appointment, then same-day issuance.",
+     "Total elapsed: 4–6 weeks."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The power of attorney costs €60–€140 in notary and translation fees on your side, plus our coordination work on this side. Where the deed-signing is also being handled by power of attorney (common for buyers who cannot travel), the same instrument covers NIE and notary."
+   },
+   {
+    "type": "paragraph",
+    "text": "When to use it: when you cannot travel to Spain before signing, when you want the NIE in hand before arras, or when the consulate route is jammed."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The honest comparison"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Route",
+      "Timing",
+      "Cost",
+      "Travel"
+     ],
+     [
+      "Spanish consulate",
+      "3–14 weeks",
+      "~€10",
+      "None"
+     ],
+     [
+      "In person in Spain",
+      "2–4 weeks",
+      "~€10",
+      "One trip required"
+     ],
+     [
+      "Power of attorney",
+      "4–6 weeks",
+      "€100–€200",
+      "None"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "For 80% of our clients, the fastest realistic path is Route 2 — in person in Spain on a property viewing trip, with the appointment booked the day they buy their flights. Two to four weeks lead time, NIE in hand the day they fly home. That assumes they were going to come anyway, which most do at least once before signing arras."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What the NIE is not"
+   },
+   {
+    "type": "paragraph",
+    "text": "The NIE is a tax-and-administrative identifier, not a residence permit. Holding it does not give you the right to live in Spain beyond the standard 90-day Schengen window. It does not register you as resident; that is a separate process (the certificado de registro for EU citizens, residency visa for the rest). Confusing the two is one of the more expensive mistakes foreign buyers make in their first year — and the topic of a separate piece."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Continue reading"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "The five documents your lawyer should have reviewed before the arras"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Modelo 210 explained: the tax every non-resident owner actually pays"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows"
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "All insights →"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/insights",
+    "← All insights"
+   ],
+   [
+    "/insights/five-documents-before-arras",
+    "Buying Guide The five documents your lawyer should have revi"
+   ],
+   [
+    "/insights/gross-vs-net-yield-costa-blanca",
+    "Investment Gross yield vs. net yield in Costa Blanca — what "
+   ],
+   [
+    "/insights/modelo-210-explained",
+    "Taxes Modelo 210 explained: the tax every non-resident owner"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "insights_plusvalia-2021-constitutional-ruling": {
+  "head": {
+   "title": "Plusvalía after the 2021 Constitutional ruling — are you owed a refund? · Sarah Katerina",
+   "description": "The ruling, the loophole, the window to claim. A reader of this post has four months to act.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "Plusvalía after the 2021 Constitutional ruling — are you owed a refund?"
+   },
+   {
+    "type": "paragraph",
+    "text": "The ruling, the loophole, the window to claim. A reader of this post has four months to act."
+   },
+   {
+    "type": "paragraph",
+    "text": "On 26 October 2021, Spain's Constitutional Court issued ruling 182/2021 and quietly invalidated the way every municipality in the country calculated plusvalía municipal — the local capital-gains tax that falls on the seller of a property. The ruling created a refund window for transactions that had already paid the tax, and a redesign deadline for the entire municipal formula."
+   },
+   {
+    "type": "paragraph",
+    "text": "Five years later, most foreign sellers who paid plusvalía between 2017 and late 2021 still do not know whether they are owed money, how much, or how to claim. This piece is the working playbook."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What plusvalía is, on one line"
+   },
+   {
+    "type": "paragraph",
+    "text": "Plusvalía municipal is the tax levied by the town hall on the increase in the cadastral value of the land between the date you bought and the date you sold. It has nothing to do with the actual gain on the property; it is a notional, formula-based number. That is precisely what the Constitutional Court found unconstitutional."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The ruling — what was struck down"
+   },
+   {
+    "type": "paragraph",
+    "text": "Ruling 182/2021 invalidated articles 107.1, 107.2.a) and 107.4 of the Local Tax Law (TRLRHL). The court's reasoning, in plain terms: the formula assumed there was always an increase in land value, and taxed an amount that did not depend on the seller's actual profit or loss. That violated the constitutional principle of economic capacity (Article 31.1 of the Constitution)."
+   },
+   {
+    "type": "paragraph",
+    "text": "The practical effect:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Any plusvalía liquidation that was not yet final on 26 October 2021 became challengeable.",
+     "The Spanish government issued Royal Decree-Law 26/2021 nine days later (10 November 2021), introducing a new dual-formula system. From that date, plusvalía exists again, but recalculated.",
+     "Liquidations from 26 October to 10 November fell into a brief gap with no valid law — these are pure refund cases."
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Who can still claim a refund — the four-year clock"
+   },
+   {
+    "type": "paragraph",
+    "text": "Spanish tax law gives you four years from the date the tax payment was made to challenge it (Art. 66 LGT). For plusvalía paid in the months before October 2021, the window is closing through 2025 and into early 2026. Today, the eligible cases are:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Plusvalía paid between October 2017 and October 2021, where you sold at a loss. The 2017 ruling 59/2017 already invalidated cases of clear capital loss. Combined with the 2021 ruling, these are the strongest cases. Refund rate near 100% if claimed in time.",
+     "Plusvalía paid in October–November 2021 (the \"gap\"). All cases in the legal vacuum window. Refund rate also high.",
+     "Plusvalía paid after November 2021 where the new formula was wrongly applied. The new dual-formula system has two methods (cadastral and real-gain) and the taxpayer can choose the lower. Many municipalities applied only the cadastral method by default. Refunds available where the real-gain method would have been lower."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "If you sold a property in spring 2022 and paid plusvalía at the time, your claim deadline is spring 2026. A reader of this post arriving at this paragraph in May 2026 has lost the window. Check your file before assuming."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The procedure, briefly"
+   },
+   {
+    "type": "paragraph",
+    "text": "The claim itself is administrative, not judicial. Steps:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Recover the plusvalía liquidation document from the town hall — you would have signed it at notary or paid it directly.",
+     "Compile the supporting evidence — purchase deed, sale deed, both cadastral references, notary fees and any improvement work invoices that increase the cost basis.",
+     "Calculate the actual capital gain or loss and contrast it with the plusvalía paid.",
+     "Submit a solicitud de devolución de ingresos indebidos to the town hall that levied the tax. The standard term for the town hall to respond is six months.",
+     "If denied, escalate to recurso de reposición within one month, and to the contentious-administrative court if necessary. Most cases resolve at the first or second step."
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The numbers"
+   },
+   {
+    "type": "paragraph",
+    "text": "A typical Costa Blanca refund file in our practice:"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Profile",
+      "Plusvalía paid",
+      "Refunded"
+     ],
+     [
+      "Sale at loss, 2019, Torrevieja",
+      "€4,200",
+      "€4,200 + interest"
+     ],
+     [
+      "Gap-period sale, November 2021, Orihuela Costa",
+      "€7,800",
+      "€7,800 + interest"
+     ],
+     [
+      "Wrongly-applied formula, 2023, Alicante",
+      "€5,400",
+      "€2,700 (formula switch)"
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Recovered amounts include legal interest from the date of payment to the date of refund — typically 3.0–4.0% per annum, which on a three-year file can add 10–15% to the principal."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The honest part"
+   },
+   {
+    "type": "paragraph",
+    "text": "Not every plusvalía paid in this window is recoverable. If you sold at a clear gain, paid plusvalía under the post-November 2021 regime, and the cadastral method was the lower of the two, you have paid the right tax under the current law. The cases worth challenging are the ones above. The cases worth not challenging are the ones where the math says you owe what you paid."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute review of the deeds and the liquidation tells us which you have. We do not bill for that review. We bill for the recovery if the file qualifies and you choose to proceed."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Continue reading"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Modelo 210 explained: the tax every non-resident owner actually pays"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "The five documents your lawyer should have reviewed before the arras"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows"
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "All insights →"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/insights",
+    "← All insights"
+   ],
+   [
+    "/insights/five-documents-before-arras",
+    "Buying Guide The five documents your lawyer should have revi"
+   ],
+   [
+    "/insights/gross-vs-net-yield-costa-blanca",
+    "Investment Gross yield vs. net yield in Costa Blanca — what "
+   ],
+   [
+    "/insights/modelo-210-explained",
+    "Taxes Modelo 210 explained: the tax every non-resident owner"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ },
+ "insights_short-term-rental-licence-valencian-community": {
+  "head": {
+   "title": "Short-term rental licensing, one autonomous community at a time · Sarah Katerina",
+   "description": "Valencian Community rules walked through. The moratorium, the exceptions, the paperwork your agent won't mention.",
+   "canonical": "https://www.sarahkaterina.com",
+   "og_type": "article",
+   "og_image": "https://www.sarahkaterina.com/images/og/default.jpg",
+   "hreflang": [
+    [
+     "en",
+     "https://www.sarahkaterina.com"
+    ],
+    [
+     "es",
+     "https://www.sarahkaterina.com/es"
+    ],
+    [
+     "x-default",
+     "https://www.sarahkaterina.com"
+    ]
+   ],
+   "jsonld": 0,
+   "imgs_in_main": 0
+  },
+  "blocks": [
+   {
+    "type": "heading",
+    "level": 1,
+    "text": "Short-term rental licensing, one autonomous community at a time"
+   },
+   {
+    "type": "paragraph",
+    "text": "Valencian Community rules walked through. The moratorium, the exceptions, the paperwork your agent won't mention."
+   },
+   {
+    "type": "paragraph",
+    "text": "The 2024 wave of restrictions on short-term rentals across Spain arrived first as headlines about Barcelona and Malaga, then quietly rolled into the Valencian Community — where most of our clients buy. The position today is more permissive than the press suggests and more complex than the listing agents want to discuss. This piece is the working version we hand to our investment clients."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The legal layer cake"
+   },
+   {
+    "type": "paragraph",
+    "text": "A short-term rental in Spain sits at the intersection of three regulators, in this order:"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "The autonomous community (Comunidad Valenciana, Cataluña, Andalucía, etc.) sets the tourism licensing regime.",
+     "The municipality (Torrevieja, Orihuela, Alicante, etc.) sets the urban planning rules — what zones permit tourist use, density caps, parking requirements.",
+     "The community of owners (your urbanisation or building) can — since 2019 — vote to prohibit short-term rentals with a 3/5 majority. The vote binds anyone who buys after it is registered."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "Any one of the three can stop you from renting. The licence process tends to start at the bottom and work up: confirm the urbanisation does not prohibit, confirm the zoning permits, then register with the autonomous community."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The Valencian Community in 2026"
+   },
+   {
+    "type": "paragraph",
+    "text": "The Valencian Community has had a tourist-rental registry since 2009 (Decree 92/2009 and successors). The licence — the famous VT registration number — is what every platform (Airbnb, Booking, Vrbo) requires you to display. The current regime, after the 2018 update and the 2024 tightening:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Eligibility: the property must have a current cédula de habitabilidad and meet the minimum equipment standards (heating, hot water, basic kitchen, fitting list).",
+     "Compatibility report from the town hall — the piece that takes time. Some towns take a week, some take three months, some have suspended new compatibility reports altogether.",
+     "Community of owners not opposed. If the building has voted against tourist rental, you cannot register, full stop. Get the minutes before you buy.",
+     "Online registration with the Valencian Tourism registry once compatibility is confirmed. The number is granted within 15 working days."
+    ]
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The 2024 moratorium — and what it actually says"
+   },
+   {
+    "type": "paragraph",
+    "text": "The press talks about a moratorium . What exists is a set of municipal-level suspensions of new tourist licences, layered over the autonomous regime. The five towns where most of our clients buy currently sit as follows:"
+   },
+   {
+    "type": "table",
+    "rows": [
+     [
+      "Municipality",
+      "New licences",
+      "Notes"
+     ],
+     [
+      "Torrevieja",
+      "Open",
+      "Compatibility reports running 4–8 weeks."
+     ],
+     [
+      "Orihuela (Costa)",
+      "Open with conditions",
+      "Density caps in some urbanisations near the coast."
+     ],
+     [
+      "Alicante",
+      "Restricted",
+      "Suspension on new licences in central districts."
+     ],
+     [
+      "Guardamar",
+      "Open",
+      "No municipal restrictions; community vote dependent."
+     ],
+     [
+      "La Zenia / Cabo Roig",
+      "Open",
+      "Most urbanisations permit; check minutes."
+     ]
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The picture changes by ordinance vote. We refresh this internally every quarter. If you are reading this six months after publication, ask before assuming."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "The four common ways to lose the licence"
+   },
+   {
+    "type": "list",
+    "ordered": true,
+    "items": [
+     "Renting before registration. A common shortcut — list on Airbnb under \"ask for licence number\" while the paperwork crawls through the town hall. The platform itself now demands the number; not having it brings down the listing and starts a sanction file.",
+     "Failing to display the VT number. Required at the entrance and on every listing. Inspections cross-check the number on the door against the registry.",
+     "Mismatch between registered capacity and actual. If you registered four guests and rent to six, the licence is invalid. Sanctions go up to €600,000 in the most serious cases — though typical fines for a single owner are €600 to €15,000.",
+     "Community vote you missed. If your community votes to prohibit while you are abroad, you have one year to keep operating before the prohibition kicks in. After that you cannot relist — even if your licence is current."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "If the property is in a building that may vote against tourist rentals, or in a municipality with restricted new licences, long-term rental (over 11 months under the LAU) is not licence-controlled, requires no compatibility report, and the community cannot prohibit it. Yields are 30–40% lower in cash terms but the regulatory risk evaporates."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "What we do for clients buying for rental"
+   },
+   {
+    "type": "paragraph",
+    "text": "Before the arras, we run three checks:"
+   },
+   {
+    "type": "list",
+    "ordered": false,
+    "items": [
+     "Pull the latest community minutes and verify no prohibition has passed in the last decade.",
+     "Request the urban-planning compatibility certificate for tourist use. The answer is binding for that address.",
+     "Cross-reference the autonomous registry to confirm no existing licence on the property has been cancelled — a cancelled licence is a flag worth understanding before buying."
+    ]
+   },
+   {
+    "type": "paragraph",
+    "text": "The work takes two to three weeks. It is the difference between buying a property that works as an investment and buying one that works only as a holiday home you cannot afford to keep empty."
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Continue reading"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Modelo 210 explained: the tax every non-resident owner actually pays"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "The five documents your lawyer should have reviewed before the arras"
+   },
+   {
+    "type": "heading",
+    "level": 3,
+    "text": "Gross yield vs. net yield in Costa Blanca — what the brochure never shows"
+   },
+   {
+    "type": "heading",
+    "level": 2,
+    "text": "Whatever stage you're at, let's talk."
+   },
+   {
+    "type": "paragraph",
+    "text": "A 30-minute discovery call is free and clarifies more than any email chain."
+   }
+  ],
+  "links": [
+   [
+    "#",
+    "Cookies"
+   ],
+   [
+    "#",
+    "Legal Notice"
+   ],
+   [
+    "#",
+    "Terms"
+   ],
+   [
+    "/",
+    "English"
+   ],
+   [
+    "/",
+    "Sarah Katerina Group"
+   ],
+   [
+    "/",
+    "en"
+   ],
+   [
+    "/about",
+    "A b o u t A b o u t"
+   ],
+   [
+    "/about",
+    "About"
+   ],
+   [
+    "/about",
+    "About Sarah"
+   ],
+   [
+    "/book-a-call",
+    "B o o k a C a l l B o o k a C a l l"
+   ],
+   [
+    "/book-a-call",
+    "Book a Call →"
+   ],
+   [
+    "/book-a-call",
+    "Book a discovery call →"
+   ],
+   [
+    "/case-studies",
+    "C a s e S t u d i e s C a s e S t u d i e s"
+   ],
+   [
+    "/case-studies",
+    "Case Studies"
+   ],
+   [
+    "/contact",
+    "C o n t a c t C o n t a c t"
+   ],
+   [
+    "/contact",
+    "Contact"
+   ],
+   [
+    "/es",
+    "Español"
+   ],
+   [
+    "/es",
+    "es"
+   ],
+   [
+    "/guides",
+    "Guides"
+   ],
+   [
+    "/insights",
+    "All insights →"
+   ],
+   [
+    "/insights",
+    "I n s i g h t s I n s i g h t s"
+   ],
+   [
+    "/insights",
+    "Insights"
+   ],
+   [
+    "/insights",
+    "← All insights"
+   ],
+   [
+    "/insights/five-documents-before-arras",
+    "Buying Guide The five documents your lawyer should have revi"
+   ],
+   [
+    "/insights/gross-vs-net-yield-costa-blanca",
+    "Investment Gross yield vs. net yield in Costa Blanca — what "
+   ],
+   [
+    "/insights/modelo-210-explained",
+    "Taxes Modelo 210 explained: the tax every non-resident owner"
+   ],
+   [
+    "/investment",
+    "Sarah Katerina Investment"
+   ],
+   [
+    "/investment/opportunities",
+    "I n v e s t m e n t o p p o r t u n i t i e s I n v e s t m "
+   ],
+   [
+    "/investment/opportunities",
+    "Investment opportunities"
+   ],
+   [
+    "/privacy",
+    "Privacy"
+   ],
+   [
+    "/services/property-management",
+    "Property Management"
+   ],
+   [
+    "/services/property-purchase",
+    "Property Purchase"
+   ],
+   [
+    "/services/tax-advisory",
+    "Tax Advisory"
+   ],
+   [
+    "https://vitahost.es",
+    "Visit vitahost.es →"
+   ],
+   [
+    "https://wa.me/34647754589?text=Hi%20Sarah%2C%20I%20found%20you%20on%20Google%20and%20I'm%20looking%20at%20buying%20property%20in%20Spain.",
+    ""
+   ],
+   [
+    "https://www.linkedin.com/in/sarah-katerina/es",
+    "Sarah on LinkedIn"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "Or send an email"
+   ],
+   [
+    "mailto:info@sarahkaterina.com",
+    "info@sarahkaterina.com"
+   ],
+   [
+    "tel:+34647754589",
+    "+34 647 754 589"
+   ]
+  ]
+ }
+}
