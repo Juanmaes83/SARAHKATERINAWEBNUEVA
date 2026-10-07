@@ -4,7 +4,7 @@
 
 Implementation branch `feat/sarah-studio-editorial-2026-10-07` continues `bcfccf4` (Home visual base `35d119e`, SEO origin fix `b47c5d1`). It keeps the approved Home, Investment and shared web tokens. The shared Rubik SEO/GEO Core remains pinned to `8a1f808`; Sarah uses its `professional-service` adapter for service classification and path checks. Next.js renders metadata and schema once, without a second Publisher HTML layer.
 
-The Supabase project is `wiswwjxshdknjihjpgcu` in Paris. Its first three migrations came from the handoff. Migration `20261007150000_studio_related.sql` connects five adapted working copies to imported records. The import left all ten editorial documents, plus Home and Investment, as drafts or blocked; zero rows were added to `publications`. Legacy redirect rows are inactive.
+The Supabase project is `wiswwjxshdknjihjpgcu` in Paris. Its first three migrations came from the handoff. Migration `20261007150000_studio_related.sql` connects five adapted working copies to imported records. Migration `20261007160000_studio_governance_hold.sql` blocks the La Zenia source draft under D-06. The import left all ten editorial documents, plus Home and Investment, as drafts or blocked; zero rows were added to `publications`. Legacy redirect rows are inactive.
 
 ## Editorial workflow for Sarah and the team
 
@@ -50,4 +50,4 @@ Each original remains in the read-only source snapshot `scripts/studio/import/li
 
 ## Operating checks before a visual sign-off
 
-Confirm the Vercel Preview has `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, a stable `NEXT_PUBLIC_SITE_URL` for its own canonical, and that Supabase Auth Site URL and allowed Redirect URLs include the exact Preview deployment origin. Verify the resulting deployment SHA and READY state. Review at 320, 375, 390, 768, 1280, 1440 and 1920 px, then complete the authenticated editing, upload, conflict, restore and role matrix. Record screenshots from that same final deployment. Any blocked note or inconsistent real figure requires editorial resolution; passing code QA is not approval to publish it.
+Confirm the Vercel Preview has `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. This branch currently derives canonical URLs from the stable Vercel project origin; if `NEXT_PUBLIC_SITE_URL` is configured later, keep it on that Preview origin. Add the exact protected branch alias to Supabase Auth Site URL and Redirect URLs after the owner's authorization. Verify the resulting deployment SHA and READY state. Review at 320, 375, 390, 768, 1280, 1440 and 1920 px, then complete the authenticated editing, upload, conflict, restore and role matrix. Record screenshots from that same final deployment. Any blocked note or inconsistent real figure requires editorial resolution; passing code QA is not approval to publish it.
