@@ -48,12 +48,24 @@ import styles from './HomePreview.module.css';
  * JavaScript, every segment is drawn and every heading is plain text.
  */
 
+// 2026-10-07: Property Purchase moves from the cutaway plan (`assetPlan`) to
+// the advisory scene, and Team from `homeAuthority` to `sarahConfianza`
+// (docs/home-buyer-system-preview.md §15).
 const SERVICE_MEDIA = {
-  assetPlan: APPROVED_MEDIA.assetPlan,
+  advisorClientOne: APPROVED_MEDIA.advisorClientOne,
   assetResidential: APPROVED_MEDIA.assetResidential,
   reportInterior: APPROVED_MEDIA.reportInterior,
-  homeAuthority: APPROVED_MEDIA.homeAuthority,
+  sarahConfianza: APPROVED_MEDIA.sarahConfianza,
 } as const;
+
+/**
+ * Wraps the whole Home so its desktop stage can widen together: header,
+ * sections and footer share one content edge (`.stage` in the stylesheet).
+ * It renders no box of its own.
+ */
+export function HomeStage({ children }: { children: ReactNode }) {
+  return <div className={styles.stage}>{children}</div>;
+}
 
 const CHAPTER_CLASS: Record<string, string | undefined> = {
   'property-purchase': styles.chapterPurchase,

@@ -1,0 +1,502 @@
+{
+  "label": "before",
+  "url": "http://localhost:3461/preview/home",
+  "date": "2026-10-07T09:29:02.439Z",
+  "widths": {
+    "375": {
+      "vw": 375,
+      "overflowX": 0,
+      "h1": 1,
+      "robots": "noindex, nofollow",
+      "sections": {
+        "#top": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        },
+        "#about": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        },
+        "#services": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": -66
+        },
+        "#chapter-property-purchase": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": -66
+        },
+        "#chapter-investment": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": -25
+        },
+        "#chapter-tax-advisory": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": -66
+        },
+        "#process": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        },
+        "#voices": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        },
+        "#sarah": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        },
+        "#tools": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        },
+        "#contact": {
+          "contentLeft": 24,
+          "contentWidth": 327,
+          "rightAir": 24,
+          "firstInkLeft": 24
+        }
+      },
+      "imgs": [
+        {
+          "src": "http://localhost:3461/media/video/sarah-home-hero-review-mobile-start.webp",
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade.",
+          "loaded": true,
+          "natural": "960x552",
+          "box": "327x188",
+          "objectPosition": "50% 50%",
+          "transform": "none",
+          "section": "top"
+        },
+        {
+          "src": "/media/graded/home-discovery-buy.webp",
+          "alt": "An editorial advisory scene: an adviser points to a floor plan while a couple on either side follows the page.",
+          "loaded": true,
+          "natural": "330x185",
+          "box": "244x153",
+          "objectPosition": "50% 45%",
+          "transform": "none",
+          "section": "services"
+        },
+        {
+          "src": "/_next/static/media/sarah-katerina-logo.7954d612.png",
+          "alt": "Sarah Katerina",
+          "loaded": true,
+          "natural": "140x65",
+          "box": "112x52",
+          "objectPosition": "50% 50%",
+          "transform": "none",
+          "section": "services"
+        },
+        {
+          "src": "/media/graded/asset-plan.webp",
+          "alt": "A three-dimensional cutaway floor plan of an apartment, seen from above.",
+          "loaded": true,
+          "natural": "374x208",
+          "box": "507x338",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.55, 0, 0, 1.55, 0, 0)",
+          "section": "chapter-property-purchase"
+        },
+        {
+          "src": "/media/graded/asset-residential.webp",
+          "alt": "A bright kitchen and living space, half rendered and half drawn as architectural plans.",
+          "loaded": true,
+          "natural": "374x172",
+          "box": "425x283",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.3, 0, 0, 1.3, 0, 0)",
+          "section": "chapter-investment"
+        },
+        {
+          "src": "/media/graded/report-interior.webp",
+          "alt": "A quiet grey interior with a sofa and tall windows, and a glass panel resting on the floor.",
+          "loaded": true,
+          "natural": "374x208",
+          "box": "507x338",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.55, 0, 0, 1.55, 0, 0)",
+          "section": "chapter-tax-advisory"
+        },
+        {
+          "src": "/media/home-sarah-authority.webp",
+          "alt": "Sarah Katerina seated at a desk in a warmly lit office, with books and framed brand messages around her.",
+          "loaded": true,
+          "natural": "374x468",
+          "box": "327x409",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "section": "sarah"
+        }
+      ],
+      "xRobots": "noindex, nofollow",
+      "textOverPurchaseImage": [],
+      "textOverTeamImage": [],
+      "bannerState03": [
+        {
+          "src": "/media/graded/advisor-client-one.webp",
+          "alt": "An editorial advisory scene: Sarah Katerina goes through printed documents with a person seated across a wooden table.",
+          "loaded": true,
+          "natural": "330x220",
+          "box": "244x153",
+          "objectPosition": "55% 35%",
+          "transform": "none",
+          "section": "services"
+        }
+      ],
+      "duplicatesWith03": [],
+      "duplicatesDefault": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    "1280": {
+      "vw": 1280,
+      "overflowX": 0,
+      "h1": 1,
+      "robots": "noindex, nofollow",
+      "sections": {
+        "#top": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#about": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#services": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 12
+        },
+        "#chapter-property-purchase": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 12
+        },
+        "#chapter-investment": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#chapter-tax-advisory": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#process": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#voices": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#sarah": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#tools": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        },
+        "#contact": {
+          "contentLeft": 48,
+          "contentWidth": 1184,
+          "rightAir": 48,
+          "firstInkLeft": 48
+        }
+      },
+      "imgs": [
+        {
+          "src": "http://localhost:3461/media/video/sarah-home-hero-review-desktop-start.webp",
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade.",
+          "loaded": true,
+          "natural": "1880x1080",
+          "box": "635x365",
+          "objectPosition": "50% 50%",
+          "transform": "none",
+          "section": "top"
+        },
+        {
+          "src": "/media/graded/home-discovery-buy.webp",
+          "alt": "An editorial advisory scene: an adviser points to a floor plan while a couple on either side follows the page.",
+          "loaded": true,
+          "natural": "559x314",
+          "box": "435x272",
+          "objectPosition": "50% 45%",
+          "transform": "none",
+          "section": "services"
+        },
+        {
+          "src": "/_next/static/media/sarah-katerina-logo.7954d612.png",
+          "alt": "Sarah Katerina",
+          "loaded": true,
+          "natural": "140x65",
+          "box": "112x52",
+          "objectPosition": "50% 50%",
+          "transform": "none",
+          "section": "services"
+        },
+        {
+          "src": "/media/graded/asset-plan.webp",
+          "alt": "A three-dimensional cutaway floor plan of an apartment, seen from above.",
+          "loaded": true,
+          "natural": "768x428",
+          "box": "1255x471",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.06, 0, 0, 1.06, 0, 0)",
+          "section": "chapter-property-purchase"
+        },
+        {
+          "src": "/media/graded/asset-residential.webp",
+          "alt": "A bright kitchen and living space, half rendered and half drawn as architectural plans.",
+          "loaded": true,
+          "natural": "768x354",
+          "box": "837x523",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.3, 0, 0, 1.3, 0, 0)",
+          "section": "chapter-investment"
+        },
+        {
+          "src": "/media/graded/report-interior.webp",
+          "alt": "A quiet grey interior with a sofa and tall windows, and a glass panel resting on the floor.",
+          "loaded": true,
+          "natural": "768x428",
+          "box": "998x665",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.55, 0, 0, 1.55, 0, 0)",
+          "section": "chapter-tax-advisory"
+        },
+        {
+          "src": "/media/home-sarah-authority.webp",
+          "alt": "Sarah Katerina seated at a desk in a warmly lit office, with books and framed brand messages around her.",
+          "loaded": true,
+          "natural": "512x640",
+          "box": "480x600",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "section": "sarah"
+        }
+      ],
+      "xRobots": "noindex, nofollow",
+      "textOverPurchaseImage": [],
+      "textOverTeamImage": [],
+      "bannerState03": [
+        {
+          "src": "/media/graded/advisor-client-one.webp",
+          "alt": "An editorial advisory scene: Sarah Katerina goes through printed documents with a person seated across a wooden table.",
+          "loaded": true,
+          "natural": "559x373",
+          "box": "435x272",
+          "objectPosition": "55% 35%",
+          "transform": "none",
+          "section": "services"
+        }
+      ],
+      "duplicatesWith03": [],
+      "duplicatesDefault": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    "1440": {
+      "vw": 1440,
+      "overflowX": 0,
+      "h1": 1,
+      "robots": "noindex, nofollow",
+      "sections": {
+        "#top": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#about": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#services": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 84
+        },
+        "#chapter-property-purchase": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 84
+        },
+        "#chapter-investment": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#chapter-tax-advisory": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#process": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#voices": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#sarah": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#tools": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        },
+        "#contact": {
+          "contentLeft": 120,
+          "contentWidth": 1200,
+          "rightAir": 120,
+          "firstInkLeft": 120
+        }
+      },
+      "imgs": [
+        {
+          "src": "http://localhost:3461/media/video/sarah-home-hero-review-desktop-start.webp",
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade.",
+          "loaded": true,
+          "natural": "1880x1080",
+          "box": "644x370",
+          "objectPosition": "50% 50%",
+          "transform": "none",
+          "section": "top"
+        },
+        {
+          "src": "/media/graded/home-discovery-buy.webp",
+          "alt": "An editorial advisory scene: an adviser points to a floor plan while a couple on either side follows the page.",
+          "loaded": true,
+          "natural": "559x314",
+          "box": "442x276",
+          "objectPosition": "50% 45%",
+          "transform": "none",
+          "section": "services"
+        },
+        {
+          "src": "/_next/static/media/sarah-katerina-logo.7954d612.png",
+          "alt": "Sarah Katerina",
+          "loaded": true,
+          "natural": "140x65",
+          "box": "112x52",
+          "objectPosition": "50% 50%",
+          "transform": "none",
+          "section": "services"
+        },
+        {
+          "src": "/media/graded/asset-plan.webp",
+          "alt": "A three-dimensional cutaway floor plan of an apartment, seen from above.",
+          "loaded": true,
+          "natural": "864x482",
+          "box": "1272x477",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.06, 0, 0, 1.06, 0, 0)",
+          "section": "chapter-property-purchase"
+        },
+        {
+          "src": "/media/graded/asset-residential.webp",
+          "alt": "A bright kitchen and living space, half rendered and half drawn as architectural plans.",
+          "loaded": true,
+          "natural": "864x398",
+          "box": "849x531",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.3, 0, 0, 1.3, 0, 0)",
+          "section": "chapter-investment"
+        },
+        {
+          "src": "/media/graded/report-interior.webp",
+          "alt": "A quiet grey interior with a sofa and tall windows, and a glass panel resting on the floor.",
+          "loaded": true,
+          "natural": "864x482",
+          "box": "1013x675",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1.55, 0, 0, 1.55, 0, 0)",
+          "section": "chapter-tax-advisory"
+        },
+        {
+          "src": "/media/home-sarah-authority.webp",
+          "alt": "Sarah Katerina seated at a desk in a warmly lit office, with books and framed brand messages around her.",
+          "loaded": true,
+          "natural": "576x720",
+          "box": "480x600",
+          "objectPosition": "50% 0%",
+          "transform": "matrix(1, 0, 0, 1, 0, 0)",
+          "section": "sarah"
+        }
+      ],
+      "xRobots": "noindex, nofollow",
+      "textOverPurchaseImage": [],
+      "textOverTeamImage": [],
+      "bannerState03": [
+        {
+          "src": "/media/graded/advisor-client-one.webp",
+          "alt": "An editorial advisory scene: Sarah Katerina goes through printed documents with a person seated across a wooden table.",
+          "loaded": true,
+          "natural": "559x373",
+          "box": "442x276",
+          "objectPosition": "55% 35%",
+          "transform": "none",
+          "section": "services"
+        }
+      ],
+      "duplicatesWith03": [],
+      "duplicatesDefault": [],
+      "consoleErrors": [],
+      "failedRequests": []
+    }
+  }
+}

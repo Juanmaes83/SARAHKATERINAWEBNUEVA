@@ -9,6 +9,7 @@ import {
   HomeProcessBand,
   HomeServices,
   HomeSideStatement,
+  HomeStage,
   HomeTeam,
   HomeToolsBand,
   HomeVoices,
@@ -43,34 +44,36 @@ export const metadata: Metadata = buildMetadata({
 export default function HomePreviewPage() {
   return (
     <RevealLineProvider line="reading-zone">
-      <WebHeader
-        nav={UNIFIED_WEB_NAV}
-        ctaLabel={BUYER_TOOLS_LABEL}
-        brandHref={HOME_PREVIEW_ROUTE}
-        showLanguageSwitcher={false}
-        buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
-      />
-      <SarahReviewMark id="SR-086" />
-      <SarahReviewMark id="SR-001" />
-      <HomeHero />
-      <SarahReviewMark id="SR-087" />
-      <HomePresentation />
-      <HomeSideStatement />
-      <SarahReviewMark id="SR-003" />
-      <HomeServices />
-      <SarahReviewMark id="SR-005" />
-      <HomeProcessBand />
-      <SarahReviewMark id="SR-006" />
-      <HomeVoices />
-      <HomeTeam />
-      <SarahReviewMark id="SR-007" />
-      <HomeToolsBand />
-      {/* The FAQ band left the Home (REVISION WEB-HOME.pdf point 9). */}
-      <SarahReviewMark id="SR-009" />
-      <HomeContactBand />
-      <HomeFinalCtaBand />
-      <SarahReviewMark id="SR-011" />
-      <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />
+      <HomeStage>
+        <WebHeader
+          nav={UNIFIED_WEB_NAV}
+          ctaLabel={BUYER_TOOLS_LABEL}
+          brandHref={HOME_PREVIEW_ROUTE}
+          showLanguageSwitcher={false}
+          buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
+        />
+        <SarahReviewMark id="SR-086" />
+        <SarahReviewMark id="SR-001" />
+        <HomeHero />
+        <SarahReviewMark id="SR-087" />
+        <HomePresentation />
+        <HomeSideStatement />
+        <SarahReviewMark id="SR-003" />
+        <HomeServices />
+        <SarahReviewMark id="SR-005" />
+        <HomeProcessBand />
+        <SarahReviewMark id="SR-006" />
+        <HomeVoices />
+        <HomeTeam />
+        <SarahReviewMark id="SR-007" />
+        <HomeToolsBand />
+        {/* The FAQ band left the Home (REVISION WEB-HOME.pdf point 9). */}
+        <SarahReviewMark id="SR-009" />
+        <HomeContactBand />
+        <HomeFinalCtaBand />
+        <SarahReviewMark id="SR-011" />
+        <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />
+      </HomeStage>
     </RevealLineProvider>
   );
 }

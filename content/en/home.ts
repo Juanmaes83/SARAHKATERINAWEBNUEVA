@@ -146,7 +146,7 @@ export interface DiscoveryState {
   readonly supportingCopy: Claim;
   readonly ctaLabel: string;
   readonly ctaHref: string;
-  readonly media: 'homeDiscoveryBuy' | 'homeDiscoveryInvest' | 'advisorClientOne';
+  readonly media: 'homeDiscoveryBuy' | 'homeDiscoveryInvest' | 'sarahHomeDesk';
   /** Visible, client-facing disclosure printed on the banner under the image. */
   readonly mediaNote: string;
 }
@@ -226,7 +226,9 @@ export const discovery = {
       }),
       ctaLabel: 'Start with Tax Advisory',
       ctaHref: '/preview/tax-advisory',
-      media: 'advisorClientOne',
+      // 2026-10-07: was `advisorClientOne`, which now carries the Property
+      // Purchase chapter; Juanma chose this replacement so no image repeats.
+      media: 'sarahHomeDesk',
       mediaNote: 'Editorial illustration',
     },
   ] satisfies readonly DiscoveryState[],
@@ -259,7 +261,9 @@ export const services = {
       body: 'Bring the property checks, purchase costs, paperwork and specialist input into the same decision.',
       href: '/preview/property-purchase',
       cta: 'Explore Property Purchase',
-      media: 'assetPlan' as const,
+      // 2026-10-07: was `assetPlan` (the cutaway plan). Sarah reviewing the
+      // paperwork with a client says "with you until the keys" more plainly.
+      media: 'advisorClientOne' as const,
     },
     {
       id: 'investment',
@@ -295,7 +299,10 @@ export const services = {
       body: 'I lead your process personally. When it’s needed, I rely on a team of professionals I know and trust, so you always get the best advice without having to deal with ten different people.',
       href: '/preview/team',
       cta: 'Meet my team',
-      media: 'homeAuthority' as const,
+      // 2026-10-07: was `homeAuthority` (Sarah home_1.png, generated, with
+      // embedded text), already retired from the three landings. The same
+      // pose, supplied on 2026-10-01 as the replacement Sarah asked for.
+      media: 'sarahConfianza' as const,
     },
   ].map((item) => {
     const point = SARAH_PDF_POINT[item.id];

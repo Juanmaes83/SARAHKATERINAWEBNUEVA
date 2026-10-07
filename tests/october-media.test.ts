@@ -105,7 +105,12 @@ describe('October media — slots', () => {
       .map((f) => code(readFileSync(f, 'utf8')))
       .join('\n');
     expect(all.match(/APPROVED_MEDIA\.advisorClientTwo/g)?.length).toBe(1);
-    expect(all.match(/APPROVED_MEDIA\.advisorClientOne/g)?.length).toBe(1);
+    // 2026-10-07 (Juanma): advisorClientOne also carries the Home's Property
+    // Purchase chapter, the same service; the registry entry is unchanged.
+    expect(all.match(/APPROVED_MEDIA\.advisorClientOne/g)?.length).toBe(2);
+    expect(read('components/web/HomePreview.tsx')).toContain(
+      'advisorClientOne: APPROVED_MEDIA.advisorClientOne',
+    );
     expect(bands).toContain('media={APPROVED_MEDIA.advisorClientTwo}');
     expect(purchase).toContain('media={APPROVED_MEDIA.advisorClientOne}');
   });

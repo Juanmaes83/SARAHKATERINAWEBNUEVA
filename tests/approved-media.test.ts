@@ -43,7 +43,8 @@ describe('approved media registry', () => {
     // owner-proposed Home service-discovery images (2026-09-29).
     // 2026-09-30: + Sarah's three photographs (EQUIPO_SARAHKATERINA4–6), confirmed
     // by Juanma, for the authority blocks.
-    expect(entries.length).toBe(33);
+    // 2026-10-07: + `sarahHomeDesk` (Sarah home_2.jpeg) for the Home banner, state 03.
+    expect(entries.length).toBe(34);
   });
 
   it('replaces the authority image Sarah rejected with her own photographs', () => {
@@ -132,7 +133,13 @@ describe('approved media registry', () => {
 
   it('serves every entry through the common Phase 2E grade, keeping the ungraded derivative', () => {
     // Sarah's own photographs are compression-only: her face is never graded.
-    const UNGRADED = ['home-sarah-authority', 'sarah-confianza', 'sarah-balcony', 'sarah-stairs'];
+    const UNGRADED = [
+      'home-sarah-authority',
+      'sarah-confianza',
+      'sarah-balcony',
+      'sarah-stairs',
+      'sarah-home-desk',
+    ];
     const gradedEntries = entries.filter((m) => !UNGRADED.includes(m.id));
     for (const m of gradedEntries) {
       expect(m.grade, m.id).toBe('sk-editorial-v1');

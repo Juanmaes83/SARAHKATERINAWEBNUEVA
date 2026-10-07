@@ -229,6 +229,25 @@ export const APPROVED_MEDIA = {
     note: 'Sarah Katerina, confirmed by Juanma on 2026-09-30 and approved by him for use; copied unchanged from the owner folder SARAH KATERINA OFFICE/EQUIPO/SARAH (identical to the mother repository IMAGENES NUEVAS/EQUIPO/EQUIPO_SARAHKATERINA6.png), SHA-256 68E9CBCD788FEBB20CB2B7B8908307454451F14F9BFB5CEA83400ADA070FDE0D. Compression-only derivative: no grade, crop or facial alteration. Used in the Tax Advisory authority block after Sarah asked to replace the former face.',
   }),
 
+  /**
+   * 2026-10-07: chosen by Juanma for the Home service banner, state 03 (fees
+   * and taxes), so `advisorClientOne` can move to the Property Purchase
+   * chapter without appearing twice on the Home. It renders nowhere else.
+   */
+  sarahHomeDesk: media({
+    id: 'sarah-home-desk',
+    src: '/media/sarah-home-desk.webp',
+    width: 1280,
+    height: 960,
+    alt: 'Sarah Katerina at her office desk, smiling, with her hands resting on the desk.',
+    // The banner frame is 16:10; this keeps her hair and her hands inside it.
+    focal: '50% 40%',
+    source: 'IMAGES/Sarah home_2.jpeg',
+    embeddedText:
+      'Office signage only: a "Sarah Katerina" desk mat and part of the wall sign ("…terina").',
+    note: 'On main since d7b24eda (2026-09-29) with Sarah home_1; SHA-256 70EC0843B5A8E566064DB72FBF3FF835C4863B1A94FA77DBC34670C5F8DFF102. Selected by Juanma on 2026-10-07 for Home · service banner · state 03 only. Compression-only derivative at the source size: no grade, crop or facial alteration. No approval of this file by Sarah for this slot is recorded, and whether it is a photograph or generated is not recorded — confirm both before production.',
+  }),
+
   /* --- Home service discovery (owner-proposed, 2026-09-29) --------------
    * Proposed by the owner to humanise the Home. Both are treated as
    * illustrative/generated: no generation or model-release record exists.
