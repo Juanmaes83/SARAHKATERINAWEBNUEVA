@@ -67,11 +67,11 @@ export function WebHero() {
           <dl className={styles.signals}>
             {hero.signals.map((signal) => (
               <div key={signal.value.text} className={styles.signal}>
-                <Icon name={signal.icon as IconName} className={styles.signalIcon} />
-                <div>
-                  <dt className={styles.signalValue}>{signal.value.text}</dt>
-                  <dd className={styles.signalNote}>{signal.note.text}</dd>
-                </div>
+                <dt className={styles.signalValue}>
+                  <Icon name={signal.icon as IconName} className={styles.signalIcon} />
+                  {signal.value.text}
+                </dt>
+                <dd className={styles.signalNote}>{signal.note.text}</dd>
               </div>
             ))}
           </dl>

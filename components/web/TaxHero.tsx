@@ -50,11 +50,11 @@ export function TaxHero() {
             <dl className={shared.signals}>
               {hero.signals.map((signal) => (
                 <div key={signal.value.text} className={shared.signal}>
-                  <Icon name={signal.icon as IconName} className={shared.signalIcon} />
-                  <div>
-                    <dt className={shared.signalValue}>{signal.value.text}</dt>
-                    <dd className={shared.signalNote}>{signal.note.text}</dd>
-                  </div>
+                  <dt className={shared.signalValue}>
+                    <Icon name={signal.icon as IconName} className={shared.signalIcon} />
+                    {signal.value.text}
+                  </dt>
+                  <dd className={shared.signalNote}>{signal.note.text}</dd>
                 </div>
               ))}
             </dl>
