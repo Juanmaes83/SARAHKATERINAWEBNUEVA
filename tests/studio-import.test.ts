@@ -27,6 +27,12 @@ describe('Studio import boundary',()=>{
   it('stores content that the renderer can validate',()=>{
     for(const payload of payloads){expect(parseContent(payload.document.working),payload.document.slug).not.toBeNull();for(const revision of payload.revisions)expect(parseContent(revision.content),payload.document.slug).not.toBeNull();}
   });
+  it('includes checked primary references in every editorial proposal',()=>{
+    for(const payload of payloads.filter(p=>p.document.kind==='article'||p.document.kind==='case')){
+      const content=parseContent(payload.document.working);
+      expect(content && content.kind!=='page' && content.sources.length>0,payload.document.slug).toBe(true);
+    }
+  });
   it('keeps held naming out of all ten adapted working copies',()=>{
     for(const payload of payloads.filter(p=>p.revisions.length===2))expect(JSON.stringify(payload.document.working)).not.toMatch(/VITA\s*Host|Costa Larga|Property Management/i);
   });
