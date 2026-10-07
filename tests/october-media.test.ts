@@ -69,7 +69,7 @@ describe('October media — registry', () => {
       "quality={media?.id === 'investment-opportunities' ? 90 : 75}",
     );
     const figure = read('components/web/ArtworkFigure.tsx');
-    expect(figure.match(/quality=\\{media\\.id === 'asset-land'/g)?.length).toBe(2);
+    expect(figure.match(/quality=\{media\.id === 'asset-land'/g)?.length).toBe(2);
   });
 
   it('records every new derivative in both manifests', () => {
