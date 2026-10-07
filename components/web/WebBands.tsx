@@ -504,7 +504,7 @@ export function AuthorityBand({ investment = false }: { investment?: boolean }) 
   // image (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx).
   // Her own photograph EQUIPO_SARAHKATERINA5, confirmed by Juanma as Sarah and approved for use.
   const authorityMedia = investment
-    ? APPROVED_MEDIA.investmentAuthorityHuman
+    ? APPROVED_MEDIA.sarahInvestmentPortrait
     : APPROVED_MEDIA.sarahBalcony;
 
   return (

@@ -520,7 +520,7 @@ export const APPROVED_MEDIA = {
    * These serve the protected Preview only. The consultation is an editorial
    * scene, not evidence of an actual client, testimonial or outcome.
    */
-  investmentAuthorityHuman: media({
+  sarahInvestmentPortrait: media({
     id: 'investment-authority-human',
     src: '/media/graded/investment-authority-human.webp',
     ungradedSrc: '/media/investment-authority-human.webp',
