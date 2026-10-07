@@ -433,9 +433,11 @@ describe('tax advisory content — suppressed from the template', () => {
     }
   });
 
-  it('does not repeat the administration or region the template names', () => {
+  // 2026-10-07 (owner): SUMA is named as Sarah names it on Home, always as
+  // SUMA Gestión Tributaria; the region the template names stays out.
+  it('names SUMA only as SUMA Gestión Tributaria and never the region', () => {
     const offenders = texts
-      .filter(({ text }) => /\bSUMA\b|Comunidad Valenciana/i.test(text))
+      .filter(({ text }) => /Comunidad Valenciana/i.test(text) || (/\bSUMA\b/.test(text) && !/SUMA Gestión Tributaria/.test(text)))
       .map(({ path, text }) => `${path}: "${text}"`);
     expect(offenders).toEqual([]);
   });

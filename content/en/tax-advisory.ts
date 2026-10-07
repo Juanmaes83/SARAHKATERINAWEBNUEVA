@@ -39,7 +39,7 @@ const TEMPLATE = 'website/nueva web/Sarah Katerina Tax Advisory.png (approved vi
 export const seo = {
   title: 'Spanish tax advisory for non-resident property owners',
   description:
-    'Tax advisory for international owners and buyers of property in Spain: Modelo 210, annual compliance, purchase tax overlay and wealth planning, explained from inside the tax administration.',
+    'Tax advisory for international owners and buyers of property in Spain: Modelo 210, annual compliance, purchase tax overlay and wealth planning, explained from Torrevieja by an adviser with 20 years inside SUMA Gestión Tributaria.',
 } as const;
 
 /* ===========================================================================
@@ -53,7 +53,7 @@ export const hero = {
   heading: claim({ text: 'Spanish taxes, from the inside.', status: 'proposal', source: TEMPLATE }),
   /** "Claridad fiscal para propietarios no residentes y compradores extranjeros…" */
   lead: claim({
-    text: 'Clarity for non-resident owners and foreign buyers. Real experience from inside Spain’s tax administration, so you decide with confidence and avoid surprises.',
+    text: 'Clarity for non-resident owners and foreign buyers. Twenty years of experience inside SUMA Gestión Tributaria, the public body that manages local taxes in the province of Alicante, so you decide with confidence and avoid surprises.',
     status: 'proposal',
     source: TEMPLATE,
     review: 'tax',
@@ -73,9 +73,9 @@ export const hero = {
         source: 'verbal/credential-register.csv CR-002, confirmed by the project owner 2026-08-12',
       }),
       note: claim({
-        text: 'inside Spain’s tax administration',
+        text: 'inside SUMA Gestión Tributaria, Alicante',
         status: 'confirmed',
-        source: 'CR-002',
+        source: 'Owner direction 2026-10-07: name SUMA Gestión Tributaria accurately (duration: CR-002)',
       }),
     },
     {
@@ -185,9 +185,9 @@ export const trustStrip: readonly { icon: string; value: Claim; note: Claim }[] 
       source: 'verbal/credential-register.csv CR-002, confirmed 2026-08-12',
     }),
     note: claim({
-      text: 'inside Spain’s tax administration',
+      text: 'inside SUMA Gestión Tributaria, Alicante',
       status: 'confirmed',
-      source: TEMPLATE,
+      source: 'Owner direction 2026-10-07: name SUMA Gestión Tributaria accurately (duration: CR-002)',
     }),
   },
   {
@@ -1010,10 +1010,10 @@ export const authority = {
     source: TEMPLATE,
   }),
   body: claim({
-    text: 'Sarah worked inside Spain’s tax administration before advising international clients on it. The value is not only knowing the rules — it is knowing how the administration actually reads them.',
+    text: 'Sarah spent twenty years inside SUMA Gestión Tributaria, the public body that manages local taxes in the province of Alicante, before advising international clients. The value is not only knowing the rules — it is knowing how the administration actually reads them.',
     status: 'proposal',
     review: 'tax',
-    note: 'The template names SUMA and the Comunidad Valenciana. Neither is repeated: content/authority-content-and-video-opportunity-map.md warns against publishing specifics of that period.',
+    note: 'SUMA Gestión Tributaria is named as Sarah names it on Home (owner direction 2026-10-07). The Comunidad Valenciana and any non-public specifics of that period stay out (content/authority-content-and-video-opportunity-map.md).',
   }),
   points: [
     {

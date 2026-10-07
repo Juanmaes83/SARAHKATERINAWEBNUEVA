@@ -387,11 +387,14 @@ describe('publication and held subjects', () => {
   // Hashes are re-recorded so any further, unreviewed edit still fails here.
   it('leaves the protected content files unchanged', () => {
     const sha = (text: string) => createHash('sha256').update(text).digest('hex');
+    // 2026-10-07 (owner direction): the 20-year credential names SUMA Gestión
+    // Tributaria instead of a generalised "Spain's tax administration", and the
+    // Home and Property Purchase meta descriptions carry Torrevieja / Costa Blanca.
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        '1f9004943f0b508089aab5bf46f782c0bcad70719c8c6cd5ad0c4aafed317014',
+        'cfd7603499b24d4ce7bb903343790a8dac07336aae19f71f7f27b29177302f23',
       'content/en/tax-advisory.ts':
-        '587c710fdc65807250fe5d01f11ece859ce03a239b18ef6ac2469474872faf56',
+        '7f507fb301a040d36e62aeaa9cf205e1899df7ba91b6239571bbc6120671eb31',
       'content/en/team.ts': 'ef4002352a4e7c2c38aeb2c9e1220e7916a785796584cf49eddf444f1d124f72',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
@@ -407,7 +410,7 @@ describe('publication and held subjects', () => {
     const end = purchase.indexOf('export const oneFile');
     expect(start).toBeGreaterThan(0);
     expect(sha(purchase.slice(0, start) + purchase.slice(end))).toBe(
-      '23dc74fb0671b823c8acc00333d9be849113da8d1d90241b320dc85ce5d6a009',
+      '86d555aa26cac44305270689ce9bfb367ecc8fb75ddf2f5369a314fe39fe2406',
     );
   });
 });
