@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { isLaboratoryRoute } from '@/lib/seo/config';
@@ -8,6 +8,7 @@ import {
 } from '@/lib/buyer-system/links';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
 import { APPROVED_VIDEO } from '@/lib/media/approved-video';
+import { HERO_VIDEO } from '@/lib/media/hero-video';
 import {
   bookCall,
   contactBand,
@@ -44,19 +45,24 @@ describe('Home preview route', () => {
     expect(read('app/sitemap.ts')).not.toContain('/preview/home');
   });
 
-  it('opens in Sarah\'s voice, with her photograph first', () => {
+  it('opens in Sarah\'s voice, with the provisional silent hero film', () => {
     // 2026-10-01: Sarah found "Clarity before commitment." unclear as the first
     // line and asked for her own voice; the opening line is a proposal (SR-086).
-    // No real footage of her in an office exists, so the hero is her supplied
-    // photograph; the generated villa film is no longer the hero.
+    // 2026-10-02: the owner-supplied hero film replaces her still photograph in
+    // the hero (REVISION WEB-HOME.pdf point 2), silent until its voice-over exists.
     expect(hero.title.text).toBe('Let me help you feel at home in Spain.');
     expect(hero.title.status).toBe('proposal');
     expect(hero.title.text).not.toMatch(/€|\bpay|\bpaid|price|money/i);
     expect(component).toContain('<h1');
     expect(component.match(/<h1/g)).toHaveLength(1);
-    expect(component).toContain('APPROVED_MEDIA.sarahConfianza');
+    const heroSource = component.slice(
+      component.indexOf('export function HomeHero'),
+      component.indexOf('export function HomePresentation'),
+    );
+    expect(heroSource).toContain('<HeroFilm video={HERO_VIDEO.home}');
+    expect(heroSource).not.toContain('APPROVED_MEDIA.sarahConfianza');
     expect(component).not.toContain('APPROVED_VIDEO.homeInvestmentObjective');
-    // The registered film stays traceable, unused on this page.
+    // The registered villa film stays traceable, unused on this page.
     expect(APPROVED_VIDEO.homeInvestmentObjective.source).toBe(
       'VIDEOS/TU INVERSIÓN MI OBJETIVO.mp4',
     );
@@ -70,6 +76,32 @@ describe('Home preview route', () => {
     expect(
       existsSync(resolve(root, `public${APPROVED_VIDEO.homeInvestmentObjective.poster}`)),
     ).toBe(true);
+  });
+
+  it('serves the hero film silent, poster-first, with its original out of the build', () => {
+    const film = HERO_VIDEO.home;
+    expect(film.route).toBe('/preview/home');
+    expect(film.playback).toBe('play-once');
+    // The desktop cut is the file Juanma supplied; the phone gets a lighter cut.
+    expect(film.desktop.src).toBe('/media/video/sarah-home-hero-review-silent.mp4');
+    expect(film.mobile.bytes).toBeLessThan(film.desktop.bytes / 3);
+    for (const cut of [film.desktop, film.mobile]) {
+      expect(cut.src).toMatch(/-silent(-mobile)?\.mp4$/);
+      for (const poster of [cut.posterStart, cut.posterEnd]) {
+        expect(existsSync(resolve(root, `public${poster}`)), poster).toBe(true);
+      }
+    }
+    // The 92.7 MB original is recorded by path and hash, never served.
+    expect(film.source).toBe('VIDEOS/SARAHKATERINA_HERO_VIDEO_WEB_BRANDING.mp4');
+    expect(film.sourceSha256).toBe(
+      '4289c168d5b3c60f7862753b33366d0bce8cf3440f88e8689f6a9311565a0518',
+    );
+    expect(readdirSync(resolve(root, 'public'), { recursive: true }).join('\n')).not.toMatch(
+      /BRANDING/,
+    );
+    expect(film.note).toMatch(/voice-over \(not produced/);
+    expect(film.note).toMatch(/identity of the woman shown.*not in the repository/);
+    expect(reviewRecord).toMatch(/## 14\. Home hero film for review/);
   });
 
   it('states Sarah\'s side in her words, with no word about money or who pays her (PDF point 4)', () => {

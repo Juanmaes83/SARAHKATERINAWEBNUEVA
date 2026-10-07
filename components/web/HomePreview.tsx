@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, type ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
+import { HeroFilm } from '@/components/motion/HeroFilm';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
   bookCall,
@@ -18,6 +19,7 @@ import {
 import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
 import { resolveContactChannels } from '@/lib/contact/channels';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';
+import { HERO_VIDEO } from '@/lib/media/hero-video';
 import { cn } from '@/lib/utils/cn';
 import { BuyerToolRibbon } from './BuyerToolRibbon';
 import { HomeServiceBanner } from './HomeServiceBanner';
@@ -91,7 +93,6 @@ function RevealText({ children }: { children: ReactNode }) {
 
 export function HomeHero() {
   const words = hero.title.text.split(' ');
-  const portrait = APPROVED_MEDIA.sarahConfianza;
   const booking = bookingHref();
   return (
     <section className={cn(styles.hero, styles.threaded)} id="top" data-surface="light">
@@ -127,24 +128,15 @@ export function HomeHero() {
         </div>
 
         {/*
-          2026-10-01 (and REVISION WEB-HOME.pdf point 2): Sarah wants a video
-          of herself in an office. No real, authorised footage of her exists
-          (every film in VIDEOS/ is generated), so the hero carries the
-          photograph she supplied, as a still: never animated, never presented
-          as footage. The footage needed is specified in
-          docs/home-buyer-system-preview.md §12.3.
+          2026-10-02 (REVISION WEB-HOME.pdf point 2): the owner-supplied hero
+          film, provisional and SILENT — its final voice-over is not produced
+          yet, and no audio is served. Played by the landings' hero primitive:
+          poster first (the LCP), the viewport's cut attached only after the
+          window load event, and never under reduced motion. Record and open
+          gates: docs/home-buyer-system-preview.md §14.
         */}
         <figure className={styles.heroMedia}>
-          <Image
-            src={portrait.src}
-            alt={portrait.alt}
-            width={portrait.width}
-            height={portrait.height}
-            priority
-            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 70vw, 520px"
-            className={styles.heroPortrait}
-            style={{ objectPosition: portrait.focal }}
-          />
+          <HeroFilm video={HERO_VIDEO.home} name="the Home film" className={styles.film} />
         </figure>
       </Container>
     </section>

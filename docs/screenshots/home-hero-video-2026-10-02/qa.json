@@ -1,0 +1,997 @@
+{
+  "base": "http://localhost:3417",
+  "label": "local",
+  "when": "2026-10-02T10:26:32.015Z",
+  "chrome": "153.0.8010.53",
+  "runs": [
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "atLoad": {
+        "state": "poster",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 98
+        }
+      },
+      "playing": {
+        "state": "playing",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 2.72,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "offscreenWhilePlaying": {
+        "state": "paused",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 3.03,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 98
+        }
+      },
+      "backAfterPlaying": {
+        "state": "playing",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 4.22,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "afterPauseClick": {
+        "state": "paused",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 4.23,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 98
+        }
+      },
+      "backAfterUserPause": {
+        "state": "paused",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 4.23,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 98
+        }
+      },
+      "ended": {
+        "state": "ended",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 49.13,
+          "ended": true,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Replay the Home film",
+          "text": "Replay",
+          "h": 44,
+          "w": 117
+        }
+      },
+      "afterReplay": {
+        "state": "playing",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 0.84,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "keyboardFocus": {
+        "label": "Pause the Home film",
+        "outline": "solid 2px",
+        "offset": "2px",
+        "tabs": 30
+      },
+      "overflowEnd": 0,
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [
+          "http://localhost:3417/media/video/sarah-home-hero-review-silent-mobile.mp4 net::ERR_ABORTED"
+        ],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "/media/video/sarah-home-hero-review-silent-mobile.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "atLoad": {
+        "state": "poster",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 0,
+          "h": 0
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 101
+        }
+      },
+      "playing": {
+        "state": "playing",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 2.62,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 104
+        }
+      },
+      "offscreenWhilePlaying": {
+        "state": "paused",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 2.93,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 101
+        }
+      },
+      "backAfterPlaying": {
+        "state": "playing",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 4.13,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 104
+        }
+      },
+      "afterPauseClick": {
+        "state": "paused",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 4.15,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 101
+        }
+      },
+      "backAfterUserPause": {
+        "state": "paused",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 4.15,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 101
+        }
+      },
+      "ended": {
+        "state": "ended",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 49.13,
+          "ended": true,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Replay the Home film",
+          "text": "Replay",
+          "h": 44,
+          "w": 122
+        }
+      },
+      "afterReplay": {
+        "state": "playing",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 0.83,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 104
+        }
+      },
+      "keyboardFocus": {
+        "label": "Pause the Home film",
+        "outline": "solid 2px",
+        "offset": "2px",
+        "tabs": 36
+      },
+      "overflowEnd": 0,
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [
+          "http://localhost:3417/media/video/sarah-home-hero-review-silent.mp4 net::ERR_ABORTED"
+        ],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent.mp4",
+          "/media/video/sarah-home-hero-review-silent.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 320,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "playing",
+        "frame": {
+          "w": 272,
+          "h": 156
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent-mobile.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 1.46,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 961,
+          "h": 552
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent-mobile.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 768,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "playing",
+        "frame": {
+          "w": 704,
+          "h": 404
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 1.47,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1024,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "playing",
+        "frame": {
+          "w": 488,
+          "h": 280
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 1.46,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1280,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "playing",
+        "frame": {
+          "w": 635,
+          "h": 365
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 1.47,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 100
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1920,
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "playing",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": false,
+          "t": 1.46,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 1880,
+          "h": 1080
+        },
+        "button": {
+          "label": "Pause the Home film",
+          "text": "Pause",
+          "h": 44,
+          "w": 104
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": [
+          "/media/video/sarah-home-hero-review-silent.mp4"
+        ]
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "mode": "reduced-motion",
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "poster",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-end.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "",
+          "muted": true,
+          "paused": true,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 0,
+          "h": 0
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 98
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": []
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "mode": "reduced-motion",
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "poster",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-end.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "",
+          "muted": true,
+          "paused": true,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 0,
+          "h": 0
+        },
+        "button": {
+          "label": "Play the Home film",
+          "text": "Play",
+          "h": 44,
+          "w": 101
+        }
+      },
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": []
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 390,
+      "mode": "no-js",
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "poster",
+        "frame": {
+          "w": 342,
+          "h": 197
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-mobile-end.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "",
+          "muted": true,
+          "paused": true,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 0,
+          "h": 0
+        },
+        "button": null
+      },
+      "log": {
+        "console": [],
+        "failed": [
+          "http://localhost:3417/_next/static/chunks/webpack-d34fbe3f6f6c2b2a.js csp"
+        ],
+        "aborted": [],
+        "bad": [],
+        "media": []
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "mode": "no-js",
+      "h1": 1,
+      "h1Text": "Let me help you feel at home in Spain.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "hero": {
+        "state": "poster",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-end.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "",
+          "muted": true,
+          "paused": true,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 0,
+          "h": 0
+        },
+        "button": null
+      },
+      "log": {
+        "console": [],
+        "failed": [
+          "http://localhost:3417/_next/static/chunks/webpack-d34fbe3f6f6c2b2a.js csp"
+        ],
+        "aborted": [],
+        "bad": [],
+        "media": []
+      }
+    },
+    {
+      "route": "/preview/home",
+      "width": 1440,
+      "mode": "video-404",
+      "hero": {
+        "state": "failed",
+        "frame": {
+          "w": 644,
+          "h": 370
+        },
+        "poster": {
+          "src": "/media/video/sarah-home-hero-review-desktop-start.webp",
+          "loaded": true,
+          "alt": "A finished contemporary villa with a pool and lit terraces on a hillside at dusk, the name Sarah Katerina on its facade."
+        },
+        "video": {
+          "src": "/media/video/sarah-home-hero-review-silent.mp4",
+          "muted": true,
+          "paused": true,
+          "t": 0,
+          "ended": false,
+          "ariaHidden": "true",
+          "w": 0,
+          "h": 0
+        },
+        "button": null
+      },
+      "fallbackImgs": 2,
+      "consoleErrors": 1
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "h1": 1,
+      "h1Text": "Clarity before commitment.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "heroFilm": 0,
+      "mentionsFilm": false,
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": []
+      }
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "h1": 1,
+      "h1Text": "Clarity before commitment.",
+      "robots": "noindex, nofollow",
+      "overflow": 0,
+      "brokenImages": [],
+      "xRobots": "noindex, nofollow",
+      "heroFilm": 0,
+      "mentionsFilm": false,
+      "log": {
+        "console": [],
+        "failed": [],
+        "aborted": [],
+        "bad": [],
+        "media": []
+      }
+    }
+  ]
+}
