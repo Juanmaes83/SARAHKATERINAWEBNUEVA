@@ -1,5 +1,7 @@
 # Sarah Katerina Studio — architecture and operation
 
+The dated implementation checks and function-by-function status are recorded in [studio-qa-2026-10-08.md](studio-qa-2026-10-08.md).
+
 ## Scope and base
 
 Implementation branch `feat/sarah-studio-editorial-2026-10-07` continues `bcfccf4` (Home visual base `35d119e`, SEO origin fix `b47c5d1`). It keeps the approved Home, Investment and shared web tokens. The shared Rubik SEO/GEO Core remains pinned to `8a1f808`; Sarah uses its `professional-service` adapter for service classification and path checks. Next.js renders metadata and schema once, without a second Publisher HTML layer.
