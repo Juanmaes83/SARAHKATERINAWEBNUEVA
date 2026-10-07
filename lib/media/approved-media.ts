@@ -458,7 +458,7 @@ export const APPROVED_MEDIA = {
     focal: '50% 50%',
     compactFocal: '12% 50%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Opportunities.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I want to see opportunities". The town is not named: no specific location is claimed. Full-resolution original PNG served from /media/originals/investment-opportunities.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I want to see opportunities". The town is not named: no specific location is claimed. Full-resolution original PNG served from /media/originals/investment-opportunities.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   assetLand: media({
@@ -469,7 +469,7 @@ export const APPROVED_MEDIA = {
     alt: 'An open hillside of dry grass and olive trees overlooking a small town, with a mountain range on the horizon.',
     focal: '50% 55%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Land.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Land. Illustrates the category only; not a specific plot, and says nothing about its planning status. Full-resolution original PNG served from /media/originals/asset-land.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Land. Illustrates the category only; not a specific plot, and says nothing about its planning status. Full-resolution original PNG served from /media/originals/asset-land.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   assetCommercial: media({
@@ -480,7 +480,7 @@ export const APPROVED_MEDIA = {
     alt: 'An empty ground-floor retail unit with a wide glazed frontage, set in a stone-clad building with balconies above.',
     focal: '45% 55%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Commercial.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Commercial. Illustrates the category only; not a specific asset or tenancy. Full-resolution original PNG served from /media/originals/asset-commercial.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Commercial. Illustrates the category only; not a specific asset or tenancy. Full-resolution original PNG served from /media/originals/asset-commercial.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   advisorClientOne: media({
