@@ -17,13 +17,33 @@ const siteEnvSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().catch('http://localhost:3000'),
 });
 
+/**
+ * Origin fallback when NEXT_PUBLIC_SITE_URL is not configured.
+ *
+ * Vercel's `VERCEL_PROJECT_PRODUCTION_URL` is the project's stable domain, so
+ * every deployment of the same project shares one origin. `VERCEL_URL` names a
+ * single deployment (`<project>-<hash>-<team>.vercel.app`) and is used only
+ * when the stable domain is unavailable. Neither is a hardcoded host.
+ */
+export function resolveSiteUrl(env: {
+  NEXT_PUBLIC_SITE_URL?: string;
+  VERCEL_PROJECT_PRODUCTION_URL?: string;
+  VERCEL_URL?: string;
+}): string | undefined {
+  if (env.NEXT_PUBLIC_SITE_URL) return env.NEXT_PUBLIC_SITE_URL;
+  const host = env.VERCEL_PROJECT_PRODUCTION_URL || env.VERCEL_URL;
+  return host ? `https://${host}` : undefined;
+}
+
 const parsed = siteEnvSchema.parse({
   // Next.js inlines NEXT_PUBLIC_* only when referenced statically.
   NEXT_PUBLIC_SITE_MODE: process.env.NEXT_PUBLIC_SITE_MODE,
   NEXT_PUBLIC_SITE_INDEXABLE: process.env.NEXT_PUBLIC_SITE_INDEXABLE,
-  NEXT_PUBLIC_SITE_URL:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined),
+  NEXT_PUBLIC_SITE_URL: resolveSiteUrl({
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+    VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    VERCEL_URL: process.env.VERCEL_URL,
+  }),
 });
 
 export type SiteMode = 'preview' | 'production';
@@ -46,9 +66,11 @@ export const siteConfig = {
    * truth. decisions-log.md (2026-08-05) approved https://sarahkaterina.com
    * (non-www); the 2026-09-16 entry records production redirecting non-www to
    * www and leaves the conflict "Abierta" as a P0. No production host is
-   * hardcoded anywhere in this repository. Vercel previews use their generated
-   * `VERCEL_URL` only when no explicit site URL is configured, so canonical and
-   * Open Graph URLs never point to localhost on a remote review deployment.
+   * hardcoded anywhere in this repository. When no explicit site URL is
+   * configured, Vercel deployments use the project's stable domain
+   * (`VERCEL_PROJECT_PRODUCTION_URL`) and only then the per-deployment
+   * `VERCEL_URL`, so canonical and Open Graph URLs never point to localhost or
+   * to one transient deployment on a remote review build.
    */
   url: parsed.NEXT_PUBLIC_SITE_URL,
 
