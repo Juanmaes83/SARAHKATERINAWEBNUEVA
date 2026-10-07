@@ -200,13 +200,13 @@ export const APPROVED_MEDIA = {
    */
   sarahConfianza: media({
     id: 'sarah-confianza',
-    src: '/media/sarah-confianza.webp',
+    src: '/media/originals/sarah-confianza.png',
     width: 1122,
     height: 1402,
     alt: 'Sarah Katerina at her desk, smiling, resting her chin on her hand.',
     focal: '50% 30%',
     source: 'IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png',
-    note: 'Supplied by Juanma on main (e782a6d, 2026-10-01) as the replacement Sarah asked for. Source SHA-256 AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5. Compression-only derivative at the source size: no grade, crop or facial alteration. Used in the Home hero (Sarah asked to appear first) and in the Property Purchase authority block (the slot of the rejected photograph).',
+    note: 'Supplied by Juanma on 2026-10-01 as Sarah’s replacement portrait. Full-resolution PNG is served from the original file; responsive Next.js image optimisation uses quality 90. No grade, crop or facial alteration. Used in the Home and Property Purchase authority blocks.',
   }),
   sarahBalcony: media({
     id: 'sarah-balcony',
@@ -523,15 +523,13 @@ export const APPROVED_MEDIA = {
 
   homeTaxAdvisoryHuman: media({
     id: 'home-tax-advisory-human',
-    src: '/media/graded/home-tax-advisory-human.webp',
-    ungradedSrc: '/media/home-tax-advisory-human.webp',
-    grade: 'sk-editorial-v1',
-    width: 1600,
-    height: 900,
+    src: '/media/originals/home-tax-advisory-human.png',
+    width: 1672,
+    height: 941,
     alt: 'An editorial advisory scene: a woman reviews property plans and documents with a couple at a table.',
     focal: '50% 40%',
-    source: 'IMAGES/MEJORAS 7 OCTUBRE/home-tax-advisory-human.webp',
-    note: 'Supplied by Juanma on 2026-10-07 for the Home Tax Advisory chapter in Preview. Source PNG: image(8).png. Staged editorial scene, not a real client, testimonial or outcome; production rights and provenance still require confirmation.',
+    source: 'IMAGES/HOME 29 SEPTIEMBRE/ChatGPT Image 23 sept 2026, 18_49_02.png',
+    note: 'Supplied by Juanma on 2026-10-07 for the Home Tax Advisory chapter in Preview. Source PNG: image(8).png. Staged editorial scene, not a real client, testimonial or outcome; production rights and provenance still require confirmation. Preview-only full-resolution original PNG; responsive Next.js image optimisation uses quality 90. Previous WebP derivatives remain in public/media.',
   }),
 
   homeInvestmentCoastHuman: media({

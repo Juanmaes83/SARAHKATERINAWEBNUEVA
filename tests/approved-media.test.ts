@@ -140,6 +140,7 @@ describe('approved media registry', () => {
       'sarah-balcony',
       'sarah-stairs',
       'sarah-home-desk',
+      'home-tax-advisory-human',
       'investment-opportunities',
       'asset-land',
       'asset-commercial',
@@ -184,6 +185,8 @@ describe('approved media registry', () => {
       '/media/originals/property-in-mind.png',
       '/media/originals/advisor-client-one.png',
       '/media/originals/advisor-client-two.png',
+      '/media/originals/sarah-confianza.png',
+      '/media/originals/home-tax-advisory-human.png',
     ]);
     const heavy = entries
       .map((m) => {

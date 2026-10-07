@@ -558,6 +558,7 @@ export function AuthorityBand() {
             className={styles.portrait}
             fill
             sizes="(max-width: 767px) 100vw, 46vw"
+            quality={authorityMedia.id === 'sarah-confianza' ? 90 : 75}
             style={{ objectPosition: authorityMedia.focal }}
           />
         </RevealOnScroll>
