@@ -36,6 +36,12 @@ S = {
     'boe_rental': {'id': 'boe-rd-1312-2024', 'label': 'Consolidated Royal Decree 1312/2024 on short-duration rental registration', 'publisher': 'BOE',
                    'url': 'https://www.boe.es/eli/es/rd/2024/12/23/1312', 'checkedOn': CHECKED,
                    'note': 'Read with the 2026 Supreme Court judgment and later amendments; legal review required.'},
+    'boe_arras': {'id': 'boe-cc-1454', 'label': 'Civil Code, article 1454 (arras)', 'publisher': 'BOE',
+                  'url': 'https://www.boe.es/buscar/act.php?id=BOE-A-1889-4763&bj=art1454', 'checkedOn': '2026-10-08'},
+    'catastro_reference': {'id': 'catastro-reference-2026', 'label': 'Reference value of real estate, 2026', 'publisher': 'Dirección General del Catastro',
+                           'url': 'https://www.sedecatastro.gob.es/Accesos/SECAccvr.aspx?EJERCICIO=2026', 'checkedOn': '2026-10-08'},
+    'aeat_rental': {'id': 'aeat-rental-income', 'label': 'Non-resident tax on rented property', 'publisher': 'Agencia Tributaria (AEAT)',
+                    'url': 'https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente/cuestiones-especificas-sobre-tributacion-inmuebles/rendimientos-inmuebles-arrendados.html', 'checkedOn': '2026-10-08'},
 }
 
 # Live path, new slug, kind, mandatory, category, hero media key
@@ -206,7 +212,7 @@ def adapt_modelo210(title, c):
                note='Illustrative figures. Allowable expenses of €6,200 are assumed only where the owner is entitled to deduct them.')
     c['assumptions'] = ['Imputed income at 1.1% of the cadastral value (2% where the value has not been revised under the applicable rule).',
                         'Example figures are illustrative; your file will produce its own.']
-    c['sources'] = [S['aeat210'], S['lgt27']]
+    c['sources'] = [S['aeat210'], S['lgt27'], S['aeat_rental']]
     c['related']['services'] = ['tax']
     c['tags'] = ['Modelo 210', 'non-resident tax', 'IRNR']
     note('modelo-210-explained', 'tax', 'review', 'Filing calendar rewritten against AEAT (page updated 02/10/2026): annual grouping of rental income since 2024 (Jan 1–20 for 2024–2025 income, Apr 1–20 from 2026 income) and imputed income window Apr 1–Dec 31 from 2026 income. The live text said rentals were always quarterly. Needs Sarah/professional review.', 'M210-01')
@@ -246,7 +252,7 @@ def adapt_arras(title, c):
                  'Latest IBI receipt with the cadastral reference and the cadastral value. The cadastral value drives the Modelo 210 imputed income; '
                  'transfer tax (ITP) is assessed on the price or on the Catastro’s reference value (valor de referencia), whichever is higher — two '
                  'different values, so check both before you agree the price.')
-    c['sources'] = []
+    c['sources'] = [S['boe_arras'], S['catastro_reference']]
     c['related']['services'] = ['purchase']
     c['tags'] = ['arras', 'due diligence', 'nota simple']
     note('five-documents-before-arras', 'legal', 'review', 'Arras: live text stated universal rules (10% deposit, buyer loses 10%, seller pays 20%). Rewritten to distinguish arras penitenciales (art. 1454 CC) from confirmatory/penal arras. Legal review required; add BOE Civil Code source when approved.', 'ARR-01')
@@ -274,7 +280,7 @@ def adapt_yield(title, c):
                note='Illustrative. For simplicity, the Modelo 210 line applies 19% to the pre-tax cash income shown above.')
     c['assumptions'] = ['€1,400 a month for 11 months; 10% vacancy.', 'Owner tax resident in the Netherlands (EU rules, 19% on net income).',
                         'Mixed short- and long-term rental, professionally managed at 20% of effective rent.']
-    c['sources'] = [S['aeat210']]
+    c['sources'] = [S['aeat210'], S['aeat_rental']]
     c['related']['services'] = ['investment', 'tax']
     c['tags'] = ['rental yield', 'Torrevieja', 'cash flow']
     note('gross-vs-net-yield-costa-blanca', 'figures', 'review', 'Live intro said the gap is "between 3 and 4 percentage points" while the table goes from 7.7% to 1.5% (6.2 points). Intro now quotes only the two table figures. No reconciliation invented.', 'YLD-01')
@@ -305,6 +311,7 @@ def adapt_dutch(title, c):
         {'label': 'From first call to keys', 'value': '11 weeks', 'type': 'observed'},
     ]
     c['related']['services'] = ['tax', 'purchase']
+    c['sources'] = [S['aeat_rental']]
     c['tags'] = ['Orihuela Costa', 'Spanish SL', 'Netherlands']
     note('dutch-investor-orihuela', 'figures', 'review', 'Lifetime delta does not reconcile with the table: Spanish SL (4,840−3,290)×8 = 12,400 annual only, +1,600 at disposal = 14,000; Dutch BV (4,840−3,510)×8 = 10,640, +2,400 = 13,040 vs −10,200 shown. Figures kept as validated by Juanma (07/10/2026); presentation to be reconciled by Sarah.', 'ORI-01')
     note('dutch-investor-orihuela', 'figures', 'review', 'Live headline "Saved €12,400" presents a projected 8-year figure as achieved. Public title now neutral; the figure appears as a projected result with its period.', 'ORI-02')
