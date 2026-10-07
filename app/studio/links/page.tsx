@@ -1,0 +1,6 @@
+import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { studioSession } from '@/lib/supabase/server';
+import { auditEditorialLinks,ADAPTER_ID } from '@/lib/studio/link-audit';
+import styles from '@/components/studio/Studio.module.css';
+export default async function Page(){const session=await studioSession();if(!session)redirect('/studio/login');const {data:docs}=await session.client.from('documents').select('id,kind,slug,title,working');const {data:pubs}=await session.client.from('publications').select('document_id');const issues=auditEditorialLinks(docs??[],new Set((pubs??[]).map(p=>p.document_id)));return <main className={styles.content}><p className={styles.eyebrow}>SEO / GEO</p><h1>Enlaces y páginas</h1><p>Adapter: {ADAPTER_ID}. Metadata and structured data are rendered by Next.js from each published document. The preview remains noindex.</p><section><h2>Internal links to review</h2>{issues.length?<ul>{issues.map((issue,i)=><li key={i}><Link href={`/studio/documents/${issue.documentId}`}>{issue.title}</Link>: {issue.href} · {issue.reason}</li>)}</ul>:<p>No invalid internal links found in editorial documents.</p>}</section><section><h2>Publication boundary</h2><p>Only approved revisions published through the Studio appear in public lists and details. Draft links remain visible to the team for review.</p></section></main>;}

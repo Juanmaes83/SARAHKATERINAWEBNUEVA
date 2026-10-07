@@ -105,15 +105,15 @@ function RevealText({ children }: { children: ReactNode }) {
   return <span className={styles.reveal}>{children}</span>;
 }
 
-export function HomeHero() {
-  const words = hero.title.text.split(' ');
+export function HomeHero({overrides={}}:{overrides?:Record<string,string>}) {
+  const words = (overrides.heroTitle || hero.title.text).split(' ');
   const booking = bookingHref();
   return (
     <section className={cn(styles.hero, styles.threaded)} id="top" data-surface="light">
       <Thread start />
       <Container className={styles.heroGrid}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>{hero.eyebrow}</p>
+          <p className={styles.eyebrow}>{overrides.heroEyebrow || hero.eyebrow}</p>
           <h1 className={styles.heading}>
             {/* The space sits outside each word: inside the inline-block first
                 word it would collapse ("Letme"). */}
@@ -124,10 +124,10 @@ export function HomeHero() {
               </Fragment>
             ))}
           </h1>
-          <p className={styles.lead}>{hero.lead.text}</p>
+          <p className={styles.lead}>{overrides.heroLead || hero.lead.text}</p>
           <div className={styles.actions}>
             <WebLinkButton href="#services" variant="primary" arrow>
-              {hero.primaryCta}
+              {overrides.heroPrimaryCta || hero.primaryCta}
             </WebLinkButton>
             {booking ? (
               <WebLinkButton href={booking} variant="secondary" external>

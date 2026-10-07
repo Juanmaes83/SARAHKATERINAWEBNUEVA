@@ -1,10 +1,10 @@
-"""Builds the Studio seed SQL from the read-only live snapshot (live/extracted.json, 2026-10-07).
+"""Builds the Studio import payload from the read-only live snapshot (2026-10-07).
 
 For every one of the 10 live URLs:
   * revision 1  `import_source`  — verbatim structure of the live page (template tails removed).
   * documents.working             — the adapted editorial proposal (5 mandatory) or the source (others).
   * revision 2  `import_adapted`  — the adapted proposal, when one exists.
-  * publications                  — the adapted proposal for the 5 mandatory pages ("published in preview").
+  * publications                  — none; editorial approval and preview publication are separate actions.
   * review_notes                  — every discrepancy, governance point and source check, internal only.
   * redirects                     — inactive legacy registry: live path -> new path.
 
@@ -12,7 +12,7 @@ No figure is changed. Adaptations remove group-entity mentions, correct dated ru
 against the verified primary source (cited, with check date) and withhold
 conflicting headline metrics from the public title; each change is listed in a note.
 """
-import json, pathlib, re, uuid
+import json, pathlib, re, sys, uuid
 
 HERE = pathlib.Path(__file__).parent
 SRC = json.loads((HERE / 'live-snapshot-2026-10-07.json').read_text(encoding='utf-8'))
@@ -266,7 +266,7 @@ def adapt_yield(title, c):
     note('gross-vs-net-yield-costa-blanca', 'figures', 'review', 'Live intro said the gap is "between 3 and 4 percentage points" while the table goes from 7.7% to 1.5% (6.2 points). Intro now quotes only the two table figures. No reconciliation invented.', 'YLD-01')
     note('gross-vs-net-yield-costa-blanca', 'figures', 'review', 'Annualised acquisition cost (€2,400/yr) is described in the text but not deducted in the final table. Added a visible sentence saying the waterfall excludes it. Sarah to decide whether to add a line to the table.', 'YLD-02')
     note('gross-vs-net-yield-costa-blanca', 'tax', 'review', 'Maintenance reserve (€2,000) is used as a deduction before the 19% line; a reserve is not a deductible expense. Visible note added; Sarah to decide whether to recompute the tax line.', 'YLD-03')
-    note('gross-vs-net-yield-costa-blanca', 'tax', 'review', 'ITP 10% kept as the example assumption. Secondary sources report a 9% general Valencian rate for operations from 1 June 2026 (Decreto-ley 4/2026) — NOT verified against the DOGV; verify before citing.', 'YLD-04')
+    note('gross-vs-net-yield-costa-blanca', 'tax', 'review', 'ITP 10% kept as this historical example assumption. Primary source: Ley 5/2025, art. 33 (DOGV 31 May 2025), amending Ley 13/1997 art. 13, sets 9% for relevant taxable events from 1 June 2026, with 11% above EUR 1 million and other special rates possible. Verify the transaction date and applicable rate professionally before changing the example.', 'YLD-04')
     note('gross-vs-net-yield-costa-blanca', 'governance', 'info', '"Costa Larga cash-flow analysis" replaced by "a proper cash-flow analysis" (group entity not public).', 'YLD-05')
     return title
 
@@ -393,7 +393,7 @@ for key, slug, kind, mandatory, category, hero, listing_date in DOCS:
     if slug in ADAPT:
         adapted = json.loads(json.dumps(content))
         working_title = ADAPT[slug](title, adapted)
-        working, status, publish = adapted, 'published', 2
+        working, status = adapted, 'draft'
         revisions.append({'number': 2, 'reason': 'import_adapted', 'title': working_title, 'slug': slug, 'content': adapted,
                           'note': 'Editorial proposal for the preview: see the review notes for every change.'})
     if slug == 'british-buyer-torrevieja':
@@ -402,7 +402,7 @@ for key, slug, kind, mandatory, category, hero, listing_date in DOCS:
     notes = NOTES.get(slug, []) + [{'domain': d, 'severity': s, 'body': bd, 'code': cd} for d, s, bd, cd in DRAFT_NOTES.get(slug, [])]
     notes.append({'domain': 'seo', 'severity': 'info', 'body': COMMON_IMPORT_NOTE, 'code': 'IMP-01'})
     if slug in ADAPT:
-        notes.append({'domain': 'editorial', 'severity': 'review', 'body': '"Published" here means visible on the preview only, as the imported baseline. It is NOT Sarah’s editorial approval and NOT a launch authorisation.', 'code': 'IMP-02'})
+        notes.append({'domain': 'editorial', 'severity': 'review', 'body': 'Adapted proposal requires editorial approval before publication in preview.', 'code': 'IMP-02'})
     payloads.append({
         'document': {'kind': kind, 'slug': slug, 'title': working_title, 'working': working, 'status': status,
                      'has_unpublished_changes': status != 'published',
@@ -418,12 +418,13 @@ for key, slug, kind, mandatory, category, hero, listing_date in DOCS:
 
 for page, title in (('home', 'Home'), ('investment', 'Investment landing')):
     content = {'kind': 'page', 'schemaVersion': 1, 'fields': {}}
-    payloads.append({'document': {'kind': 'page', 'slug': page, 'title': title, 'working': content, 'status': 'published', 'has_unpublished_changes': False},
+    payloads.append({'document': {'kind': 'page', 'slug': page, 'title': title, 'working': content, 'status': 'draft', 'has_unpublished_changes': True},
                      'revisions': [{'number': 1, 'reason': 'import_adapted', 'title': title, 'slug': page, 'content': content,
                                     'note': 'Baseline: no overrides, the approved page renders unchanged.'}],
-                     'publish_revision': 1, 'redirects': [], 'notes': []})
+                     'publish_revision': None, 'redirects': [], 'notes': []})
 
-(HERE / 'payloads.json').write_text(json.dumps(payloads, ensure_ascii=False), encoding='utf-8')
+output_path = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / 'payloads.json'
+output_path.write_text(json.dumps(payloads, ensure_ascii=False), encoding='utf-8')
 for s in summary:
     print(s)
 print('notes', sum(len(p['notes']) for p in payloads))

@@ -70,7 +70,8 @@ describe('October media — registry', () => {
     );
     const figure = read('components/web/ArtworkFigure.tsx');
     expect(figure.match(/quality=\{media\.id === 'asset-land'/g)?.length).toBe(2);
-    expect(read('components/web/HomePreview.tsx').match(/quality=\{media\.id === 'advisor-client-one'/g)?.length).toBe(2);
+    expect(read('components/web/HomePreview.tsx')).toContain("quality={['advisor-client-one', 'home-tax-advisory-human'].includes(media.id) ? 90 : 75}");
+    expect(read('components/web/HomePreview.tsx')).toContain("quality={['advisor-client-one', 'sarah-confianza'].includes(media.id) ? 90 : 75}");
   });
 
   it('records every new derivative in both manifests', () => {

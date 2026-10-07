@@ -206,7 +206,7 @@ export const APPROVED_MEDIA = {
     alt: 'Sarah Katerina at her desk, smiling, resting her chin on her hand.',
     focal: '50% 30%',
     source: 'IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png',
-    note: 'Supplied by Juanma on 2026-10-01 as Sarah’s replacement portrait. Full-resolution PNG is served from the original file; responsive Next.js image optimisation uses quality 90. No grade, crop or facial alteration. Used in the Home and Property Purchase authority blocks.',
+    note: 'Preview-only source. Supplied by Juanma on 2026-10-01 as Sarah’s replacement portrait. SHA-256 AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5. Full-resolution PNG is served from the original file; responsive Next.js image optimisation uses quality 90. No grade, crop or facial alteration. Used in the Home and Property Purchase authority blocks.',
   }),
   sarahBalcony: media({
     id: 'sarah-balcony',

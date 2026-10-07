@@ -140,15 +140,24 @@ describe('unapproved naming and claims', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('emits no Organization or Person JSON-LD', () => {
-    // The legal entity, address, telephone, email and institutional descriptor
-    // are all unconfirmed, so neither schema type may be asserted.
+  it('emits no invented business entity JSON-LD and confines the real byline Person', () => {
+    // A named, visible author may be represented as Person on an editorial
+    // detail. No institutional, legal or local-business entity is asserted.
     const offenders = sourceFiles
       .filter((file) => file.endsWith('.tsx'))
-      .filter((file) => /'@type':\s*'(Organization|Person|LocalBusiness)'/.test(readCode(file)))
+      .filter((file) => /'@type':\s*'(Organization|LocalBusiness)'/.test(readCode(file)))
       .map(rel);
 
     expect(offenders).toEqual([]);
+    const personFiles = sourceFiles.filter(file => /'@type':\s*'Person'/.test(readCode(file))).map(rel);
+    expect(personFiles).toEqual(['lib/studio/editorial-seo.ts']);
+  });
+
+  it('keeps the historical source snapshot as a single explicit naming exception', () => {
+    const snapshot = resolve(root, 'scripts/studio/import/live-snapshot-2026-10-07.json');
+    expect(read(snapshot)).toMatch(/VITA Host|Costa Larga/);
+    const rendered = sourceFiles.filter(file => /VITA\s*Host|Costa Larga/i.test(readCode(file))).map(rel);
+    expect(rendered).toEqual([]);
   });
 });
 

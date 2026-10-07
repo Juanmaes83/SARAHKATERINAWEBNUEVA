@@ -27,6 +27,7 @@ import {
   UNIFIED_WEB_NAV,
 } from '@/content/en/site-navigation';
 import { SERVICE_ROUTES } from '@/content/en/service-journey';
+import { pageOverrides } from '@/lib/studio/content';
 
 /**
  * INVESTMENT — PHASE 2C VISUAL FIDELITY IMPLEMENTATION.
@@ -48,7 +49,9 @@ export const metadata: Metadata = buildMetadata({
   laboratory: true,
 });
 
-export default function InvestmentPage() {
+export const dynamic = 'force-dynamic';
+export default async function InvestmentPage() {
+  const overrides = await pageOverrides('investment');
   return (
     // Phase 2E: arrivals start in the reading zone, not at the viewport edge.
     <RevealLineProvider line="reading-zone">
@@ -63,7 +66,7 @@ export default function InvestmentPage() {
         />
 
         <SarahReviewMark id="SR-036" />
-        <WebHero />
+        <WebHero overrides={overrides} />
         <TrustBand />
         {/* Phase 2H (Sarah's review): Sarah's authority block at the start of the page. */}
         <AuthorityBand investment />

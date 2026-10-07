@@ -45,23 +45,23 @@ import styles from './WebHero.module.css';
  * on scroll (`HeroFilm`), and the visual column is wider from 1024px
  * ("the video is too small").
  */
-export function WebHero() {
+export function WebHero({overrides={}}:{overrides?:Record<string,string>}) {
   return (
     <section className={styles.hero} id="top">
       <Container className={cn(styles.grid, styles.gridFilm)}>
         <RevealOnScroll className={cn(styles.copy, entrance.copy)}>
-          <p className={styles.eyebrow}>{hero.eyebrow.text}</p>
+          <p className={styles.eyebrow}>{overrides.heroEyebrow || hero.eyebrow.text}</p>
 
           {/* The single h1 of the page. */}
-          <h1 className={styles.heading}>{hero.heading.text}</h1>
+          <h1 className={styles.heading}>{overrides.heroTitle || hero.heading.text}</h1>
 
-          <p className={styles.lead}>{hero.lead.text}</p>
+          <p className={styles.lead}>{overrides.heroLead || hero.lead.text}</p>
 
           <div className={styles.ctas}>
             <WebButton variant="primary" arrow>
-              {hero.primaryCta.text}
+              {overrides.heroPrimaryCta || hero.primaryCta.text}
             </WebButton>
-            <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
+            <WebButton variant="secondary">{overrides.heroSecondaryCta || hero.secondaryCta.text}</WebButton>
           </div>
 
           <dl className={styles.signals}>

@@ -23,6 +23,7 @@ import {
   UNIFIED_WEB_NAV,
 } from '@/content/en/site-navigation';
 import { buildMetadata } from '@/lib/seo/metadata';
+import { pageOverrides } from '@/lib/studio/content';
 
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -41,7 +42,9 @@ export const metadata: Metadata = buildMetadata({
  * the sitemap, noindex/nofollow in metadata and headers, and `/` is untouched.
  * The four landings keep their own preview strips.
  */
-export default function HomePreviewPage() {
+export const dynamic = 'force-dynamic';
+export default async function HomePreviewPage() {
+  const overrides = await pageOverrides('home');
   return (
     <RevealLineProvider line="reading-zone">
       <HomeStage>
@@ -54,7 +57,7 @@ export default function HomePreviewPage() {
         />
         <SarahReviewMark id="SR-086" />
         <SarahReviewMark id="SR-001" />
-        <HomeHero />
+        <HomeHero overrides={overrides} />
         <SarahReviewMark id="SR-087" />
         <HomePresentation />
         <HomeSideStatement />

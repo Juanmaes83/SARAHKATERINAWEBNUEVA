@@ -102,6 +102,21 @@ function toCard(row: {
 
 /** Published cards of one kind, newest first. Empty when the database is not configured. */
 export const listPublished = cache(async (kind: EditorialKind): Promise<EditorialCard[]> => {
+  if (await isDraftPreview()) {
+    const session = await sessionClient();
+    if (session) {
+      const { data: drafts } = await session.from('documents')
+        .select('id, kind, slug, title, working, updated_at').eq('kind', kind).eq('locale', 'en');
+      if (drafts) return drafts.flatMap((row) => {
+        const content = parseContent(row.working);
+        if (!content || content.kind === 'page') return [];
+        return [{ id: row.id as string, kind, slug: row.slug as string,
+          title: row.title as string, dek: content.dek, category: content.category,
+          href: editorialPath(kind, row.slug as string), date: (row.updated_at as string).slice(0, 10),
+          heroMediaId: content.hero?.mediaId ?? null, heroAlt: content.hero?.alt ?? '' }];
+      });
+    }
+  }
   const client = publicClient();
   if (!client) return [];
   const { data, error } = await client
@@ -199,6 +214,23 @@ async function readDraft(
 /** Published cards for the given document ids, in the order given. */
 export async function cardsFor(ids: readonly string[]): Promise<EditorialCard[]> {
   if (ids.length === 0) return [];
+  if (await isDraftPreview()) {
+    const session = await sessionClient();
+    if (session) {
+      const { data: drafts } = await session.from('documents')
+        .select('id,kind,slug,title,working,updated_at').in('id', [...ids]);
+      const cards = (drafts ?? []).flatMap((row) => {
+        const content = parseContent(row.working);
+        if (!content || content.kind === 'page') return [];
+        const kind = row.kind as EditorialKind;
+        return [{ id: row.id as string, kind, slug: row.slug as string,
+          title: row.title as string, dek: content.dek, category: content.category,
+          href: editorialPath(kind, row.slug as string), date: (row.updated_at as string).slice(0, 10),
+          heroMediaId: content.hero?.mediaId ?? null, heroAlt: content.hero?.alt ?? '' }];
+      });
+      return ids.flatMap(id => cards.filter(card => card.id === id));
+    }
+  }
   const client = publicClient();
   if (!client) return [];
   const { data } = await client
