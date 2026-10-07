@@ -207,8 +207,8 @@ describe('Home preview route', () => {
       // 2026-10-07: Property Purchase takes the advisory scene (was assetPlan)
       // and Team the photograph supplied as Sarah's replacement (was homeAuthority).
       'advisorClientOne',
-      'assetResidential',
-      'reportInterior',
+      'homeInvestmentCoastHuman',
+      'homeTaxAdvisoryHuman',
       'sarahConfianza',
     ]);
     // Team is rendered by HomeTeam after the voices, never as a service chapter.

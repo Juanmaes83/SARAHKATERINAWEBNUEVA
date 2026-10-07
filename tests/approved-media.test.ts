@@ -44,7 +44,8 @@ describe('approved media registry', () => {
     // 2026-09-30: + Sarah's three photographs (EQUIPO_SARAHKATERINA4–6), confirmed
     // by Juanma, for the authority blocks.
     // 2026-10-07: + `sarahHomeDesk` (Sarah home_2.jpeg) for the Home banner, state 03.
-    expect(entries.length).toBe(34);
+    // 2026-10-07: + three owner-selected human images for Investment and Home.
+    expect(entries.length).toBe(37);
   });
 
   it('replaces the authority image Sarah rejected with her own photographs', () => {

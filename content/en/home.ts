@@ -277,7 +277,7 @@ export const services = {
       body: 'Review the property, downside, costs, tax context and exit thinking as one investment decision.',
       href: '/preview/investment',
       cta: 'Explore Investment',
-      media: 'assetResidential' as const,
+      media: 'homeInvestmentCoastHuman' as const,
     },
     {
       id: 'tax-advisory',
@@ -287,7 +287,7 @@ export const services = {
       body: 'Connect purchase tax and owner-stage obligations to the property decision they affect.',
       href: '/preview/tax-advisory',
       cta: 'Explore Tax Advisory',
-      media: 'reportInterior' as const,
+      media: 'homeTaxAdvisoryHuman' as const,
     },
     {
       id: 'sarah',

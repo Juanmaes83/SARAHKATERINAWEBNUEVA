@@ -56,6 +56,8 @@ const SERVICE_MEDIA = {
   assetResidential: APPROVED_MEDIA.assetResidential,
   reportInterior: APPROVED_MEDIA.reportInterior,
   sarahConfianza: APPROVED_MEDIA.sarahConfianza,
+  homeInvestmentCoastHuman: APPROVED_MEDIA.homeInvestmentCoastHuman,
+  homeTaxAdvisoryHuman: APPROVED_MEDIA.homeTaxAdvisoryHuman,
 } as const;
 
 /**

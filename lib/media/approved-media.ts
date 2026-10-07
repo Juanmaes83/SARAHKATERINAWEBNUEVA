@@ -515,6 +515,50 @@ export const APPROVED_MEDIA = {
     note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · ApproachBand, shown at its native 16:9 so no face is cropped. The two people are not presented as real clients; no case, testimonial or outcome is implied.',
   }),
 
+  /**
+   * Owner-provided image selections for the 2026-10-07 visual review.
+   * These serve the protected Preview only. The consultation is an editorial
+   * scene, not evidence of an actual client, testimonial or outcome.
+   */
+  investmentAuthorityHuman: media({
+    id: 'investment-authority-human',
+    src: '/media/graded/investment-authority-human.webp',
+    ungradedSrc: '/media/investment-authority-human.webp',
+    grade: 'sk-editorial-v1',
+    width: 1122,
+    height: 1402,
+    alt: 'Portrait of Sarah Katerina in a dark blazer, seated at a desk against a light studio backdrop.',
+    focal: '50% 33%',
+    source: 'IMAGES/MEJORAS 7 OCTUBRE/investment-authority-human.webp',
+    note: 'Supplied by Juanma on 2026-10-07 for the Investment authority block in Preview. Source PNG: image(3).png. Preview selection; production rights and provenance still require confirmation.',
+  }),
+
+  homeTaxAdvisoryHuman: media({
+    id: 'home-tax-advisory-human',
+    src: '/media/graded/home-tax-advisory-human.webp',
+    ungradedSrc: '/media/home-tax-advisory-human.webp',
+    grade: 'sk-editorial-v1',
+    width: 1600,
+    height: 900,
+    alt: 'An editorial advisory scene: a woman reviews property plans and documents with a couple at a table.',
+    focal: '50% 40%',
+    source: 'IMAGES/MEJORAS 7 OCTUBRE/home-tax-advisory-human.webp',
+    note: 'Supplied by Juanma on 2026-10-07 for the Home Tax Advisory chapter in Preview. Source PNG: image(8).png. Staged editorial scene, not a real client, testimonial or outcome; production rights and provenance still require confirmation.',
+  }),
+
+  homeInvestmentCoastHuman: media({
+    id: 'home-investment-coast-human',
+    src: '/media/graded/home-investment-coast-human.webp',
+    ungradedSrc: '/media/home-investment-coast-human.webp',
+    grade: 'sk-editorial-v1',
+    width: 1412,
+    height: 1114,
+    alt: 'A woman standing on a terrace overlooking the Mediterranean coast at dusk.',
+    focal: '50% 40%',
+    source: 'IMAGES/MEJORAS 7 OCTUBRE/home-investment-coast-human.webp',
+    note: 'Supplied by Juanma on 2026-10-07 for the Home Investment chapter in Preview. Source PNG: 7680bfbb-d59c-4c0a-9df6-77c77a331b43.png. Preview selection; production rights and provenance still require confirmation.',
+  }),
+
   /* --- Phase 2F: approved case and One File imagery ----------------------
    * Seven owner-approved images, mapped slot by slot in the Phase 2F brief
    * §4. Each is an illustrative composition: a staged scene with an analysis

@@ -499,11 +499,13 @@ export function ScenariosBand() {
 
 /* --- AUTHORITY (navy) ---------------------------------------------------------- */
 
-export function AuthorityBand() {
+export function AuthorityBand({ investment = false }: { investment?: boolean }) {
   // 2026-09-30: Sarah asked to replace the face in the former authority
   // image (REVISION WEB-Tax advisory.docx, REVISION WEB-investment.docx).
   // Her own photograph EQUIPO_SARAHKATERINA5, confirmed by Juanma as Sarah and approved for use.
-  const authorityMedia = APPROVED_MEDIA.sarahBalcony;
+  const authorityMedia = investment
+    ? APPROVED_MEDIA.investmentAuthorityHuman
+    : APPROVED_MEDIA.sarahBalcony;
 
   return (
     <WebSection surface="navySoft" id="sarah">

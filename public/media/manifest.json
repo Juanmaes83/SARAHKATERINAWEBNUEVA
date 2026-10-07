@@ -280,5 +280,35 @@
     "cropped": false,
     "originalKB": 130,
     "webKB": 148
+  },
+  {
+    "id": "investment-authority-human",
+    "source": "IMAGES/MEJORAS 7 OCTUBRE/investment-authority-human.webp",
+    "original": "1122x1402",
+    "web": "1122x1402",
+    "cropped": false,
+    "originalKB": 68,
+    "webKB": 68,
+    "note": "Owner-supplied 2026-10-07; compression-only source copy from image(3).png. Preview only pending production rights/provenance confirmation."
+  },
+  {
+    "id": "home-tax-advisory-human",
+    "source": "IMAGES/MEJORAS 7 OCTUBRE/home-tax-advisory-human.webp",
+    "original": "1600x900",
+    "web": "1600x900",
+    "cropped": false,
+    "originalKB": 96,
+    "webKB": 96,
+    "note": "Owner-supplied 2026-10-07; editorial advisory scene from image(8).png, not a real client or outcome."
+  },
+  {
+    "id": "home-investment-coast-human",
+    "source": "IMAGES/MEJORAS 7 OCTUBRE/home-investment-coast-human.webp",
+    "original": "1412x1114",
+    "web": "1412x1114",
+    "cropped": false,
+    "originalKB": 91,
+    "webKB": 91,
+    "note": "Owner-supplied 2026-10-07; compression-only source copy from 7680bfbb-d59c-4c0a-9df6-77c77a331b43.png. Preview only pending production rights/provenance confirmation."
   }
 ]
