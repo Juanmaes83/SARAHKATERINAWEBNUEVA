@@ -1,5 +1,9 @@
 # Sarah Katerina Studio — handoff (WIP, 2026-10-07)
 
+## Continuation update, 2026-10-07
+
+The sections below preserve the original handoff as historical evidence. Current operation and the ten-source register are in [studio-operation-2026-10-07.md](studio-operation-2026-10-07.md). The import has now run: ten editorials and two editable page records exist in Supabase, with ten adapted editorial revisions, 65 internal notes, two blocked cases and **zero publications**. Migrations through `20261007190000` are applied. The Home visual branch, SEO origin correction and pinned Core remain in the Studio branch. The original five hero candidates still need a genuine upload through the Studio library; site-approved assets currently serve as labelled illustrative fallbacks. The owner has confirmed `marketing@sarahkaterina.com` for a one-use administrator email invitation. Auth URLs on the protected Preview alias are configured, but the invitation and live role workflow must be verified before declaring access complete. Do not use the historical personal address or code flow in the section below.
+
 Work in progress on branch `feat/sarah-studio-editorial-2026-10-07`. Not reviewed, not for merge.
 Base: `origin/feat/home-desktop-balance-and-images-2026-10-07` (35d119e) + merge of `origin/fix/seo-stable-site-origin` (b47c5d1).
 

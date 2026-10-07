@@ -22,12 +22,12 @@ describe('Studio import boundary',()=>{
     expect(payloads.every(p=>p.publish_revision===null)).toBe(true);
     expect(payloads.every(p=>p.document.status==='draft'||p.document.status==='blocked')).toBe(true);
     expect(payloads.filter(p=>p.document.status==='blocked').map(p=>p.document.slug).sort()).toEqual(['british-buyer-torrevieja','norwegian-couple-la-zenia']);
-    expect(payloads.flatMap(p=>p.revisions)).toHaveLength(17);
+    expect(payloads.flatMap(p=>p.revisions)).toHaveLength(22);
   });
   it('stores content that the renderer can validate',()=>{
     for(const payload of payloads){expect(parseContent(payload.document.working),payload.document.slug).not.toBeNull();for(const revision of payload.revisions)expect(parseContent(revision.content),payload.document.slug).not.toBeNull();}
   });
-  it('keeps held naming out of the five adapted working copies',()=>{
+  it('keeps held naming out of all ten adapted working copies',()=>{
     for(const payload of payloads.filter(p=>p.revisions.length===2))expect(JSON.stringify(payload.document.working)).not.toMatch(/VITA\s*Host|Costa Larga|Property Management/i);
   });
 });

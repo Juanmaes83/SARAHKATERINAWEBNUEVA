@@ -18,6 +18,7 @@ function walk(dir: string, acc: string[] = []): string[] {
 }
 
 const sourceFiles = SOURCE_DIRS.flatMap((dir) => walk(resolve(root, dir)));
+const importFiles = walk(resolve(root, 'scripts/studio/import'));
 
 function read(file: string): string {
   return readFileSync(file, 'utf8');
@@ -156,8 +157,9 @@ describe('unapproved naming and claims', () => {
   it('keeps the historical source snapshot as a single explicit naming exception', () => {
     const snapshot = resolve(root, 'scripts/studio/import/live-snapshot-2026-10-07.json');
     expect(read(snapshot)).toMatch(/VITA Host|Costa Larga/);
-    const rendered = sourceFiles.filter(file => /VITA\s*Host|Costa Larga/i.test(readCode(file))).map(rel);
-    expect(rendered).toEqual([]);
+    const governed = [...sourceFiles, ...importFiles].filter(file => file !== snapshot);
+    const offenders = governed.filter(file => /VITA\s*Host|Costa Larga/i.test(readCode(file))).map(rel);
+    expect(offenders).toEqual([]);
   });
 });
 

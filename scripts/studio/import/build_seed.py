@@ -2,7 +2,7 @@
 
 For every one of the 10 live URLs:
   * revision 1  `import_source`  — verbatim structure of the live page (template tails removed).
-  * documents.working             — the adapted editorial proposal (5 mandatory) or the source (others).
+  * documents.working             — the adapted editorial proposal for all ten editorials.
   * revision 2  `import_adapted`  — the adapted proposal, when one exists.
   * publications                  — none; editorial approval and preview publication are separate actions.
   * review_notes                  — every discrepancy, governance point and source check, internal only.
@@ -31,6 +31,11 @@ S = {
             'url': 'https://sede.gva.es/es/inicio/procedimientos?id_proc=19207&version=red', 'checkedOn': CHECKED},
     'boe1528': {'id': 'boe-a-2026-1528', 'label': 'Resolution of 8 October 2025 (BOE 22 January 2026): community approval for tourist rentals', 'publisher': 'BOE',
                 'url': 'https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-1528', 'checkedOn': CHECKED},
+    'policia_nie': {'id': 'policia-nie', 'label': 'NIE information for foreign nationals', 'publisher': 'Policía Nacional',
+                   'url': 'https://www.policia.es/_es/extranjeria_extranjeros.php/1000', 'checkedOn': CHECKED},
+    'boe_rental': {'id': 'boe-rd-1312-2024', 'label': 'Consolidated Royal Decree 1312/2024 on short-duration rental registration', 'publisher': 'BOE',
+                   'url': 'https://www.boe.es/eli/es/rd/2024/12/23/1312', 'checkedOn': CHECKED,
+                   'note': 'Read with the 2026 Supreme Court judgment and later amendments; legal review required.'},
 }
 
 # Live path, new slug, kind, mandatory, category, hero media key
@@ -113,6 +118,15 @@ def replace_text(blocks, old, new, count=1):
                 if old in item:
                     b['items'][i] = item.replace(old, new); hits += 1
     assert hits >= count, f'not found: {old[:60]}'
+
+
+def replace_pattern(blocks, pattern, new, count=1):
+    hits = 0
+    for block in blocks:
+        if 'text' in block:
+            block['text'], found = re.subn(pattern, new, block['text'])
+            hits += found
+    assert hits >= count, f'not found: {pattern}'
 
 
 def drop_block(blocks, startswith):
@@ -255,7 +269,7 @@ def adapt_yield(title, c):
                  {'type': 'paragraph', 'text': 'The waterfall below shows the annual cash flow only. It does not deduct this acquisition drag, which would lower the return further.'})
     replace_item(b, 'Maintenance reserve:',
                  'Maintenance reserve: rule of thumb 1% of the property value annually for repairs and replacements. €2,000 on a €200k property. A reserve is cash set aside, not a tax-deductible expense; for EU/EEA residents, repairs are deductible when they are actually incurred.')
-    replace_text(b, 'All of them appear in a Costa Larga cash-flow analysis.', 'All of them appear in a proper cash-flow analysis.')
+    replace_pattern(b, r'All of them appear in a [^.]+ cash-flow analysis\.', 'All of them appear in a proper cash-flow analysis.')
     table_note(b, 'Line', caption='Worked example: €200,000 two-bedroom apartment in Torrevieja, Dutch owner, full year',
                note='Illustrative. For simplicity, the Modelo 210 line applies 19% to the pre-tax cash income shown above.')
     c['assumptions'] = ['€1,400 a month for 11 months; 10% vacancy.', 'Owner tax resident in the Netherlands (EU rules, 19% on net income).',
@@ -267,16 +281,16 @@ def adapt_yield(title, c):
     note('gross-vs-net-yield-costa-blanca', 'figures', 'review', 'Annualised acquisition cost (€2,400/yr) is described in the text but not deducted in the final table. Added a visible sentence saying the waterfall excludes it. Sarah to decide whether to add a line to the table.', 'YLD-02')
     note('gross-vs-net-yield-costa-blanca', 'tax', 'review', 'Maintenance reserve (€2,000) is used as a deduction before the 19% line; a reserve is not a deductible expense. Visible note added; Sarah to decide whether to recompute the tax line.', 'YLD-03')
     note('gross-vs-net-yield-costa-blanca', 'tax', 'review', 'ITP 10% kept as this historical example assumption. Primary source: Ley 5/2025, art. 33 (DOGV 31 May 2025), amending Ley 13/1997 art. 13, sets 9% for relevant taxable events from 1 June 2026, with 11% above EUR 1 million and other special rates possible. Verify the transaction date and applicable rate professionally before changing the example.', 'YLD-04')
-    note('gross-vs-net-yield-costa-blanca', 'governance', 'info', '"Costa Larga cash-flow analysis" replaced by "a proper cash-flow analysis" (group entity not public).', 'YLD-05')
+    note('gross-vs-net-yield-costa-blanca', 'governance', 'info', 'Group-entity wording replaced by a neutral description of the cash-flow analysis; original retained in revision 1.', 'YLD-05')
     return title
 
 
 def adapt_dutch(title, c):
     b = c['blocks']
     c['jurisdiction'] = 'Spain and the Netherlands — purchase structure'
-    replace_text(b, 'The client came in through a Costa Larga discovery call', 'The client came in through a discovery call')
-    replace_text(b, "Costa Larga's first run of the numbers came back", 'Our first run of the numbers came back')
-    replace_text(b, 'Property entered the rental market via VITA Host in week 13.', 'The property entered the rental market in week 13.')
+    replace_pattern(b, r'The client came in through a [^.]+ discovery call', 'The client came in through a discovery call')
+    replace_pattern(b, r"[^.]+ first run of the numbers came back", 'Our first run of the numbers came back')
+    replace_pattern(b, r'Property entered the rental market via [^.]+ in week 13\.', 'The property entered the rental market in week 13.')
     replace_text(b, '8-year hold, mid-six-figure rental intake, existing Dutch corporate structure', '8-year hold, existing Dutch corporate structure')
     replace_text(b, 'NIE for the client and the company in week 5–6.', 'NIE for the client and tax number for the company in weeks 5–6.')
     table_note(b, 'Structure', caption='Three structures, modelled before the arras',
@@ -296,7 +310,7 @@ def adapt_dutch(title, c):
     note('dutch-investor-orihuela', 'figures', 'review', 'Live headline "Saved €12,400" presents a projected 8-year figure as achieved. Public title now neutral; the figure appears as a projected result with its period.', 'ORI-02')
     note('dutch-investor-orihuela', 'figures', 'review', '"mid-six-figure rental intake" conflicts with a €1,950/month projection. Phrase removed from the public proposal; confirm what was meant.', 'ORI-03')
     note('dutch-investor-orihuela', 'tax', 'info', 'Companies receive a NIF, not an NIE: wording changed to "tax number for the company". Confirm.', 'ORI-04')
-    note('dutch-investor-orihuela', 'governance', 'review', 'Removed "Costa Larga" (×2) and "via VITA Host" from the public proposal (group entities not public, AGENTS.md / D-06). Verbatim text kept in revision 1.', 'ORI-05')
+    note('dutch-investor-orihuela', 'governance', 'review', 'Removed three group-entity mentions from the public proposal under AGENTS.md / D-06. Verbatim text kept in revision 1.', 'ORI-05')
     return 'Dutch investor, Orihuela Costa: the purchase structure decided before the arras'
 
 
@@ -344,9 +358,139 @@ def adapt_german(title, c):
     return 'German retiree, Guardamar del Segura: three missed years of Modelo 210, regularised before any notification'
 
 
+def adapt_short_term(title, c):
+    c['dek'] = 'A property-by-property route through municipal planning, community consent and Valencian registration before offering short stays.'
+    c['jurisdiction'] = 'Comunitat Valenciana, Spain — tourist accommodation'
+    c['answer'] = 'A regional registration number alone does not establish that short stays are permitted at an address. Check the municipal compatibility report, the owners’ community and the current Valencian procedure before committing to a rental plan.'
+    c['assumptions'] = ['The address and municipality must be identified before local rules can be checked.', 'This is a review proposal dated 7 October 2026, not a licence decision for a particular property.']
+    c['blocks'] = [
+        {'type': 'heading', 'level': 2, 'text': 'Begin with the exact address'},
+        {'type': 'paragraph', 'text': 'Municipal planning rules and a favourable compatibility report are address-specific. La Zenia and Cabo Roig are areas of Orihuela Costa, in the municipality of Orihuela; they are not separate licensing authorities. Check the current municipal position before relying on a listing or a seller’s description.'},
+        {'type': 'heading', 'level': 2, 'text': 'Check the owners’ community'},
+        {'type': 'paragraph', 'text': 'For a new tourist-rental activity, review the building’s statutes and resolutions and obtain the express community approval required by the current Horizontal Property Act where applicable. The cited BOE resolution discusses the three-fifths majority of owners and quotas. Have the community position checked for this property.'},
+        {'type': 'heading', 'level': 2, 'text': 'Confirm the Valencian filing'},
+        {'type': 'paragraph', 'text': 'The Generalitat’s self-registration procedure lists the declaration, municipal compatibility document, ownership or right-to-use evidence and operating conditions. It states a five-year registration validity subject to the applicable exceptions and renewal rules. Check the current procedure on the filing date.'},
+        {'type': 'heading', 'level': 2, 'text': 'Check stay length and online registration'},
+        {'type': 'paragraph', 'text': 'The regional tourist-home rules distinguish stays of up to ten consecutive days from other arrangements. A separate national short-duration rental register has changed through 2026 litigation and amendments. The exact national platform requirement needs a current legal check before the property is advertised.'},
+        {'type': 'heading', 'level': 2, 'text': 'Decision before arras'},
+        {'type': 'list', 'ordered': True, 'items': ['Identify the municipality and obtain the address-specific planning position.', 'Review the community’s current documents and required approval.', 'Check the Generalitat filing and any national online-listing requirement at the proposed start date.', 'Model a fallback use only on verified permissions and costs.']},
+    ]
+    c['sources'] = [S['gva'], S['boe1528'], S['boe_rental']]
+    c['related']['services'] = ['purchase', 'investment']
+    c['tags'] = ['tourist homes', 'Valencian Community', 'due diligence']
+    note('short-term-rental-licence-valencian-community', 'legal', 'review', 'Replaced the live municipal-status table, moratorium claims and universal yield comparison with an address-specific decision sequence. Review current municipal ordinances and 2026 national-register litigation before approval.', 'STR-06')
+    return 'Short-term rental in the Valencian Community: four checks before you buy'
+
+
+def adapt_plusvalia(title, c):
+    c['dek'] = 'What the 2021 Constitutional Court judgment changed, and why a refund depends on the assessment and its procedural history.'
+    c['jurisdiction'] = 'Spain — municipal land-value tax'
+    c['answer'] = 'The 2021 ruling does not create an automatic refund for every seller. The assessment method, whether the case was already final and the steps taken before 26 October 2021 determine what can still be challenged.'
+    c['assumptions'] = ['The sale date, municipal assessment, payment and any prior challenge must be checked individually.', 'No general claim deadline is stated for an unidentified file.']
+    c['blocks'] = [
+        {'type': 'heading', 'level': 2, 'text': 'What the judgment decided'},
+        {'type': 'paragraph', 'text': 'Constitutional Court judgment 182/2021, dated 26 October 2021 and published in the BOE on 25 November 2021, invalidated parts of the calculation method in article 107 of the Local Tax Law. It did not erase every assessment or payment.'},
+        {'type': 'heading', 'level': 2, 'text': 'The consolidated-situation limit'},
+        {'type': 'paragraph', 'text': 'The judgment’s legal effect is limited for situations already consolidated when it was handed down. Its section FJ 6 identifies final judgments and administrative decisions, unchallenged liquidations and self-assessments for which rectification had not been requested by 26 October 2021. The exact procedural category matters.'},
+        {'type': 'heading', 'level': 2, 'text': 'Liquidation or self-assessment?'},
+        {'type': 'paragraph', 'text': 'Ask the municipality for the original document and proof of payment. A municipal liquidation and a taxpayer’s self-assessment follow different challenge routes. Do not calculate a filing window from the article’s publication date.'},
+        {'type': 'heading', 'level': 2, 'text': 'What to review in a real file'},
+        {'type': 'list', 'ordered': True, 'items': ['Purchase and sale deeds, dates and land cadastral data.', 'The exact tax document, payment date and any appeal or rectification already filed.', 'The calculation method applied and any later municipal decision.', 'A current professional assessment of the available procedure and deadline.']},
+    ]
+    c['sources'] = [S['stc182']]
+    c['related']['services'] = ['tax']
+    c['tags'] = ['plusvalía', 'constitutional court', 'municipal tax']
+    note('plusvalia-2021-constitutional-ruling', 'legal', 'blocking', 'Removed the expired spring-2026 countdown, generic refund probabilities and anonymous practice examples from the adapted copy. Confirm the procedural analysis and any specific claim deadline before resolving the original PLU-01 block.', 'PLU-03')
+    return 'Plusvalía after the 2021 ruling: what determines a possible refund'
+
+
+def adapt_nie(title, c):
+    c['dek'] = 'Three ways to arrange an NIE application, with the timing and documents checked against the office that will process the file.'
+    c['jurisdiction'] = 'Spain — foreign national identification'
+    c['answer'] = 'An NIE is an identification number, not a residence permit. The practical route depends on where the applicant is, whether they can attend in Spain, and whether a representative is authorised. Appointment availability and documents must be confirmed for the chosen office.'
+    c['assumptions'] = ['Appointment and processing times vary by office and date.', 'Fees and representation requirements must be checked before submitting the application.']
+    c['blocks'] = [
+        {'type': 'heading', 'level': 2, 'text': 'Route 1: a Spanish consulate'},
+        {'type': 'paragraph', 'text': 'An applicant abroad can ask the competent Spanish consulate for its current NIE procedure and appointment process. Confirm the EX-15 form, reason for the request, identification documents and local fee instructions with that consulate.'},
+        {'type': 'heading', 'level': 2, 'text': 'Route 2: in person in Spain'},
+        {'type': 'paragraph', 'text': 'The National Police handles NIE assignment for foreign nationals with economic, professional or social interests in Spain. Check which office accepts the application, its appointment availability and the current documentation before arranging travel.'},
+        {'type': 'heading', 'level': 2, 'text': 'Route 3: an authorised representative'},
+        {'type': 'paragraph', 'text': 'Representation may be possible with a valid power of attorney, but its form and acceptance must be checked with the receiving office. Plan for notarisation, legalisation or translation where the specific document requires them.'},
+        {'type': 'heading', 'level': 2, 'text': 'Choose without relying on a universal timetable'},
+        {'type': 'list', 'ordered': True, 'items': ['Identify the office that will process the application.', 'Confirm its current appointment route, document list and fee.', 'Allow time before the intended arras or deed date without promising same-day issuance.', 'Keep the NIE separate from residence status and any visa requirement.']},
+    ]
+    c['sources'] = [S['policia_nie']]
+    c['related']['services'] = ['purchase']
+    c['tags'] = ['NIE', 'non-resident', 'purchase preparation']
+    note('nie-application-three-routes', 'legal', 'review', 'Removed unverified country-by-country 2026 timing and fee tables and the 80% fastest-route claim. An office-specific official source and date are required for any numerical timeframe.', 'NIE-02')
+    return 'Applying for an NIE: three routes and what to verify first'
+
+
+def adapt_norwegian(title, c):
+    c['dek'] = 'A Spanish and Norwegian filing mismatch was corrected for two rental apartments, then a coordinated calendar was put in place.'
+    c['jurisdiction'] = 'Spain and Norway — cross-border rental income'
+    c['facts'] = [fact for fact in c['facts'] if fact['label'] != 'Service lines']
+    c['context'] = 'A retired Norwegian couple owned two adjacent rental apartments in La Zenia and Cabo Roig, both in the municipality of Orihuela. They sought advice after their Norwegian accountant identified a possible duplicate tax charge.'
+    c['challenge'] = 'The Spanish filings and Norwegian foreign-tax-credit evidence had not been coordinated in the first year. The original case records tax paid in both countries on the same rental income.'
+    c['intervention'] = 'The Spanish payments were checked, supporting certificates requested, and a corrective Norwegian filing coordinated with the client’s accountant. A calendar for both countries was then established.'
+    c['outcome'] = 'The source records a first-year recovery and a cleaner second filing cycle. The claimed recurring average remains under editorial review because the periods and amounts do not reconcile.'
+    c['results'] = [
+        {'label': 'Norwegian overpayment refunded', 'value': '€4,800', 'period': 'Year 1 correction', 'type': 'observed'},
+        {'label': 'Spanish late surcharges paid', 'value': '€280', 'period': 'Year 1 correction', 'type': 'observed'},
+        {'label': 'Net first-year recovery', 'value': '€4,520', 'period': 'One-off', 'type': 'observed'},
+        {'label': 'Spanish and Norwegian tax recorded', 'value': '€6,920', 'period': 'Year 2', 'type': 'observed'},
+    ]
+    c['blocks'] = [
+        {'type': 'heading', 'level': 2, 'text': 'The first-year correction'},
+        {'type': 'paragraph', 'text': 'The original file records a €4,800 Norwegian refund after Spanish payment evidence was supplied, offset by €280 in Spanish late-filing surcharges. The net €4,520 is a one-off recovery, not a recurring annual saving.'},
+        {'type': 'heading', 'level': 2, 'text': 'The second filing cycle'},
+        {'type': 'paragraph', 'text': 'The source records Spanish tax of €5,840 and an additional Norwegian amount of €1,080 for year 2. Those figures total €6,920. The timing of Modelo 210 declarations and the credit documentation must be checked against the tax years involved.'},
+        {'type': 'heading', 'level': 2, 'text': 'What still needs reconciliation'},
+        {'type': 'paragraph', 'text': 'The source also gives an ongoing saving and a three-year average that use different periods. Those headline amounts are retained in the source revision for Sarah to reconcile before this case can be approved.'},
+    ]
+    c['sources'] = [S['aeat210']]
+    c['related']['services'] = ['tax']
+    c['tags'] = ['Orihuela Costa', 'Norway', 'double taxation']
+    note('norwegian-couple-la-zenia', 'figures', 'blocking', 'Adapted copy separates observed one-off €4,520 recovery from year-2 €6,920 tax. Original €6,200/year and €4,920/year claims remain in source revision only; Sarah must reconcile period and calculation.', 'LAZ-04')
+    return 'Norwegian couple, Orihuela Costa: coordinating tax on two rentals'
+
+
+def adapt_british(title, c):
+    c['dek'] = 'A British buyer’s Torrevieja purchase, tax setup and rental launch in the sequence recorded by the original case.'
+    c['jurisdiction'] = 'Torrevieja, Spain — purchase and rental planning'
+    c['facts'] = [fact for fact in c['facts'] if fact['label'] != 'Service lines']
+    c['context'] = 'A retired British buyer sought a three-bedroom Torrevieja apartment for personal stays and possible short-term rental. The recorded purchase price was €275,000.'
+    c['challenge'] = 'This was her first overseas purchase. The file needed purchase due diligence, a non-resident tax comparison and address-specific rental checks before the expected use could be relied on.'
+    c['intervention'] = 'Three properties and two ownership routes were compared. The team coordinated the NIE, arras checks, deed and subsequent rental-registration steps. The exact permissions and tax treatment remain subject to case review.'
+    c['outcome'] = 'The original timeline records keys in week 14 and first guest in week 18. Revenue, owner-cash and annual projections in the source use incompatible periods and are withheld from this proposed summary until reconciled.'
+    c['results'] = [
+        {'label': 'Purchase price', 'value': '€275,000', 'period': 'At completion', 'type': 'observed'},
+        {'label': 'Keys received', 'value': 'Week 14', 'period': 'From first contact', 'type': 'observed'},
+        {'label': 'First guest', 'value': 'Week 18', 'period': 'From first contact', 'type': 'observed'},
+    ]
+    c['blocks'] = [
+        {'type': 'heading', 'level': 2, 'text': 'The property decision'},
+        {'type': 'paragraph', 'text': 'The three-property comparison in the source favoured the Torrevieja-centre apartment. The modelled yields and owner-cash figures belong to the decision model, not an observed full-year result.'},
+        {'type': 'heading', 'level': 2, 'text': 'Purchase and setup'},
+        {'type': 'paragraph', 'text': 'The source records NIE arrangements, five-document due diligence before arras, an expired habitability document and its renewal, and completion in week 14. Each document and timing should be checked against the case file before approval.'},
+        {'type': 'heading', 'level': 2, 'text': 'Rental launch and the open calculation'},
+        {'type': 'paragraph', 'text': 'The first guest arrived in week 18. The source headline, rented-month average, five-month table and annual owner-cash conclusion do not use reconcilable periods. No rental-income result is stated here until Sarah identifies the actual period and accounting basis.'},
+    ]
+    c['sources'] = [S['aeat210'], S['gva']]
+    c['related']['services'] = ['investment', 'purchase', 'tax']
+    c['tags'] = ['Torrevieja', 'purchase', 'rental planning']
+    note('british-buyer-torrevieja', 'figures', 'blocking', 'Adapted copy retains purchase and process milestones while withholding the contradictory €3,200/month, table, €9,900/year and €19,800/year statements from the proposed summary. Original figures remain in source revision 1.', 'TOR-03')
+    return 'British buyer, Torrevieja: from property analysis to first guest'
+
+
 ADAPT = {'modelo-210-explained': adapt_modelo210, 'five-documents-before-arras': adapt_arras,
          'gross-vs-net-yield-costa-blanca': adapt_yield, 'dutch-investor-orihuela': adapt_dutch,
-         'german-retiree-guardamar': adapt_german}
+         'german-retiree-guardamar': adapt_german,
+         'short-term-rental-licence-valencian-community': adapt_short_term,
+         'plusvalia-2021-constitutional-ruling': adapt_plusvalia,
+         'nie-application-three-routes': adapt_nie,
+         'norwegian-couple-la-zenia': adapt_norwegian,
+         'british-buyer-torrevieja': adapt_british}
 
 DRAFT_NOTES = {
     'short-term-rental-licence-valencian-community': [
@@ -369,7 +513,7 @@ DRAFT_NOTES = {
         ('editorial', 'info', 'La Zenia is in the municipality of Orihuela (Orihuela Costa).', 'LAZ-03'),
     ],
     'british-buyer-torrevieja': [
-        ('governance', 'blocking', 'Case is built around VITA Host (×4), Costa Larga (×2) and Property Management. Not publishable while the group-entity decision (D-06) is open.', 'TOR-01'),
+        ('governance', 'blocking', 'Case is built around held group entities and a held service line. Not publishable while the group-entity decision (D-06) is open.', 'TOR-01'),
         ('figures', 'blocking', 'Reconcile €3,200/month, the monthly table and the conclusions of €9,900/€19,800 per year before any publication.', 'TOR-02'),
     ],
 }
