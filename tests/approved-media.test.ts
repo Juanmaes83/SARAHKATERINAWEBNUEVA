@@ -126,6 +126,9 @@ describe('approved media registry', () => {
     expect(APPROVED_MEDIA.purchaseFinalContact.source).toBe('sarahkaterina_Contacto.png');
     expect(APPROVED_MEDIA.purchaseFinalContact.ungradedSrc).toBe(
       '/media/purchase-final-contact.png',
+      '/media/originals/investment-opportunities.png',
+      '/media/originals/asset-land.png',
+      '/media/originals/asset-commercial.png',
     );
     expect(APPROVED_MEDIA.purchaseFinalContact.src).toBe(
       '/media/graded/purchase-final-contact.webp',
@@ -140,6 +143,9 @@ describe('approved media registry', () => {
       'sarah-balcony',
       'sarah-stairs',
       'sarah-home-desk',
+      'investment-opportunities',
+      'asset-land',
+      'asset-commercial',
     ];
     const gradedEntries = entries.filter((m) => !UNGRADED.includes(m.id));
     for (const m of gradedEntries) {
