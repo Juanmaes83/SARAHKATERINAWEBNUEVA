@@ -3,6 +3,7 @@
 .eyebrow{color:var(--sk-web-gold-strong);font-size:var(--sk-font-size-eyebrow);letter-spacing:var(--sk-web-tracking-caps);text-transform:uppercase}
 .wrap h1{font-family:var(--sk-font-family-display);font-size:var(--sk-font-size-h1);line-height:1.1;max-width:var(--sk-layout-container-focused);margin:var(--sk-space-16) 0}
 .intro{font-size:var(--sk-font-size-lead);line-height:1.5;max-width:var(--sk-layout-container-focused);color:var(--sk-web-muted)}
+.switcher{display:flex;flex-wrap:wrap;gap:var(--sk-space-16);margin-top:var(--sk-space-32)}.switcher a{color:var(--sk-web-ink);border-bottom:2px solid transparent;padding:var(--sk-space-8) 0}.switcher a[aria-current="page"]{border-color:var(--sk-web-gold)}.switcher a:focus-visible{outline:2px solid var(--sk-web-gold);outline-offset:2px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,calc(var(--sk-layout-container-focused) / 2)),1fr));gap:var(--sk-space-24);margin-top:var(--sk-space-64)}
 .card{display:block;background:var(--sk-web-white);color:var(--sk-web-ink);border:1px solid var(--sk-web-border);text-decoration:none;overflow:hidden}
 .card:hover{border-color:var(--sk-web-gold)}.card:focus-visible,.reading a:focus-visible,.breadcrumb a:focus-visible{outline:2px solid var(--sk-web-gold);outline-offset:2px}

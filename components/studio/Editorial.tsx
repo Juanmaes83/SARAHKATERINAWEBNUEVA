@@ -24,8 +24,7 @@ function renderInline(value: string) {
 }
 
 export function EditorialShell({ children }: { children: React.ReactNode }) {
-  const nav=[...UNIFIED_WEB_NAV,{href:'/preview/insights',label:'Insights'},{href:'/preview/case-studies',label:'Case studies'}];
-  return <><WebHeader nav={nav} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter /></>;
+  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter /></>;
 }
 
 export async function EditorialListing({ kind, cards, draft }: { kind: EditorialKind; cards: EditorialCard[]; draft: boolean }) {
@@ -34,6 +33,7 @@ export async function EditorialListing({ kind, cards, draft }: { kind: Editorial
     <p className={styles.eyebrow}>Sarah Katerina · {draft ? 'Studio preview' : 'Editorial'}</p>
     <h1>{kind === 'article' ? 'Insights' : 'Case studies'}</h1>
     <p className={styles.intro}>{kind === 'article' ? 'Clear answers for decisions about buying, investing and tax in Spain.' : 'Real client situations, the decisions made and the results recorded.'}</p>
+    <nav className={styles.switcher} aria-label="Editorial collections"><Link href="/preview/insights" aria-current={kind==='article'?'page':undefined}>Insights</Link><Link href="/preview/case-studies" aria-current={kind==='case'?'page':undefined}>Case studies</Link></nav>
     {cards.length ? <div className={styles.grid}>{cards.map(card => <Link className={styles.card} href={card.href} key={card.id}>
       {card.heroMediaId && media.get(card.heroMediaId) ? <img src={media.get(card.heroMediaId)!.src} alt={card.heroAlt} /> : illustrationBySlug[card.slug] ? <img src={illustrationBySlug[card.slug]!.src} alt={illustrationBySlug[card.slug]!.alt} /> : null}
       <div className={styles.cardBody}><span className={styles.eyebrow}>{card.category}</span><h2>{card.title}</h2><p>{card.dek}</p><span className={styles.read}>Read {kind === 'article' ? 'insight' : 'case'} →</span></div>
