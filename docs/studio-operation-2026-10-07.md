@@ -4,7 +4,7 @@
 
 Implementation branch `feat/sarah-studio-editorial-2026-10-07` continues `bcfccf4` (Home visual base `35d119e`, SEO origin fix `b47c5d1`). It keeps the approved Home, Investment and shared web tokens. The shared Rubik SEO/GEO Core remains pinned to `8a1f808`; Sarah uses its `professional-service` adapter for service classification and path checks. Next.js renders metadata and schema once, without a second Publisher HTML layer.
 
-The Supabase project is `wiswwjxshdknjihjpgcu` in Paris. Its first three migrations came from the handoff. Migration `20261007150000_studio_related.sql` connects the first five adapted working copies. Migration `20261007160000_studio_governance_hold.sql` blocks the La Zenia draft under D-06. Migration `20261007170000_studio_email_invites.sql` permits a pre-allowlisted Supabase Admin email invitation. Migration `20261007180000_studio_complete_adaptations.sql` adds proposals for the other five records only if their working copies still equal source revision 1, and `20261007190000_studio_complete_related.sql` adds related reading. All ten editorials and both editable pages remain drafts or blocked; `publications` remains empty. Legacy redirect rows are inactive.
+The Supabase project is `wiswwjxshdknjihjpgcu` in Paris. Its first three migrations came from the handoff. Migration `20261007150000_studio_related.sql` connects the first five adapted working copies. Migration `20261007160000_studio_governance_hold.sql` blocks the La Zenia draft under D-06. Migration `20261007170000_studio_email_invites.sql` permits a pre-allowlisted Supabase Admin email invitation. Migration `20261007180000_studio_complete_adaptations.sql` adds proposals for the other five records only if their working copies still equal source revision 1, and `20261007190000_studio_complete_related.sql` adds related reading. Migration `20261007200000_studio_private_case_copy.sql` removes internal conflict descriptions from the two blocked case proposals while keeping the private notes and original revisions. All ten editorials and both editable pages remain drafts or blocked; `publications` remains empty. Legacy redirect rows are inactive.
 
 ## Editorial workflow for Sarah and the team
 
@@ -26,7 +26,7 @@ The Supabase project is `wiswwjxshdknjihjpgcu` in Paris. Its first three migrati
 
 ## Ten-source register
 
-Each original remains in the read-only source snapshot `scripts/studio/import/live-snapshot-2026-10-07.json`. All ten editorials have source revision 1 and adapted revision 2; related-reading revisions are present on all ten. No historical amount was silently replaced. The two blocked cases are accessible to authenticated reviewers only and cannot be approved until their blocking notes are resolved.
+Each original remains in the read-only source snapshot `scripts/studio/import/live-snapshot-2026-10-07.json`. All ten editorials have source revision 1 and adapted revision 2; related-reading revisions are present on all ten. The two blocked cases have a further copy-only revision. No historical amount was silently replaced. These cases are accessible to authenticated reviewers only and cannot be approved until their blocking notes are resolved.
 
 | Live source path | New Preview path | Current state | Editorial point before approval |
 | --- | --- | --- | --- |

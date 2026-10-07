@@ -433,7 +433,7 @@ def adapt_norwegian(title, c):
     c['context'] = 'A retired Norwegian couple owned two adjacent rental apartments in La Zenia and Cabo Roig, both in the municipality of Orihuela. They sought advice after their Norwegian accountant identified a possible duplicate tax charge.'
     c['challenge'] = 'The Spanish filings and Norwegian foreign-tax-credit evidence had not been coordinated in the first year. The original case records tax paid in both countries on the same rental income.'
     c['intervention'] = 'The Spanish payments were checked, supporting certificates requested, and a corrective Norwegian filing coordinated with the client’s accountant. A calendar for both countries was then established.'
-    c['outcome'] = 'The source records a first-year recovery and a cleaner second filing cycle. The claimed recurring average remains under editorial review because the periods and amounts do not reconcile.'
+    c['outcome'] = 'The source records a first-year recovery and a cleaner second filing cycle.'
     c['results'] = [
         {'label': 'Norwegian overpayment refunded', 'value': '€4,800', 'period': 'Year 1 correction', 'type': 'observed'},
         {'label': 'Spanish late surcharges paid', 'value': '€280', 'period': 'Year 1 correction', 'type': 'observed'},
@@ -445,8 +445,6 @@ def adapt_norwegian(title, c):
         {'type': 'paragraph', 'text': 'The original file records a €4,800 Norwegian refund after Spanish payment evidence was supplied, offset by €280 in Spanish late-filing surcharges. The net €4,520 is a one-off recovery, not a recurring annual saving.'},
         {'type': 'heading', 'level': 2, 'text': 'The second filing cycle'},
         {'type': 'paragraph', 'text': 'The source records Spanish tax of €5,840 and an additional Norwegian amount of €1,080 for year 2. Those figures total €6,920. The timing of Modelo 210 declarations and the credit documentation must be checked against the tax years involved.'},
-        {'type': 'heading', 'level': 2, 'text': 'What still needs reconciliation'},
-        {'type': 'paragraph', 'text': 'The source also gives an ongoing saving and a three-year average that use different periods. Those headline amounts are retained in the source revision for Sarah to reconcile before this case can be approved.'},
     ]
     c['sources'] = [S['aeat210']]
     c['related']['services'] = ['tax']
@@ -462,7 +460,7 @@ def adapt_british(title, c):
     c['context'] = 'A retired British buyer sought a three-bedroom Torrevieja apartment for personal stays and possible short-term rental. The recorded purchase price was €275,000.'
     c['challenge'] = 'This was her first overseas purchase. The file needed purchase due diligence, a non-resident tax comparison and address-specific rental checks before the expected use could be relied on.'
     c['intervention'] = 'Three properties and two ownership routes were compared. The team coordinated the NIE, arras checks, deed and subsequent rental-registration steps. The exact permissions and tax treatment remain subject to case review.'
-    c['outcome'] = 'The original timeline records keys in week 14 and first guest in week 18. Revenue, owner-cash and annual projections in the source use incompatible periods and are withheld from this proposed summary until reconciled.'
+    c['outcome'] = 'The original timeline records keys in week 14 and a first guest in week 18. A verified full-year rental result is not established by those milestones.'
     c['results'] = [
         {'label': 'Purchase price', 'value': '€275,000', 'period': 'At completion', 'type': 'observed'},
         {'label': 'Keys received', 'value': 'Week 14', 'period': 'From first contact', 'type': 'observed'},
@@ -474,7 +472,7 @@ def adapt_british(title, c):
         {'type': 'heading', 'level': 2, 'text': 'Purchase and setup'},
         {'type': 'paragraph', 'text': 'The source records NIE arrangements, five-document due diligence before arras, an expired habitability document and its renewal, and completion in week 14. Each document and timing should be checked against the case file before approval.'},
         {'type': 'heading', 'level': 2, 'text': 'Rental launch and the open calculation'},
-        {'type': 'paragraph', 'text': 'The first guest arrived in week 18. The source headline, rented-month average, five-month table and annual owner-cash conclusion do not use reconcilable periods. No rental-income result is stated here until Sarah identifies the actual period and accounting basis.'},
+        {'type': 'paragraph', 'text': 'The first guest arrived in week 18. That milestone records the start of activity; it does not establish a full-year rental result.'},
     ]
     c['sources'] = [S['aeat210'], S['gva']]
     c['related']['services'] = ['investment', 'purchase', 'tax']
