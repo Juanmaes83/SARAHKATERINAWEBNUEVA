@@ -126,9 +126,6 @@ describe('approved media registry', () => {
     expect(APPROVED_MEDIA.purchaseFinalContact.source).toBe('sarahkaterina_Contacto.png');
     expect(APPROVED_MEDIA.purchaseFinalContact.ungradedSrc).toBe(
       '/media/purchase-final-contact.png',
-      '/media/originals/investment-opportunities.png',
-      '/media/originals/asset-land.png',
-      '/media/originals/asset-commercial.png',
     );
     expect(APPROVED_MEDIA.purchaseFinalContact.src).toBe(
       '/media/graded/purchase-final-contact.webp',
@@ -178,6 +175,9 @@ describe('approved media registry', () => {
       '/media/authority-editorial.png',
       '/media/tax-services-14.png',
       '/media/purchase-final-contact.png',
+      '/media/originals/investment-opportunities.png',
+      '/media/originals/asset-land.png',
+      '/media/originals/asset-commercial.png',
     ]);
     const heavy = entries
       .map((m) => {
