@@ -204,7 +204,7 @@ export function TerritoryVisual({
           fill
           sizes={sizes}
           priority={priority}
-          quality={media?.id === 'investment-opportunities' ? 90 : 75}
+          quality={media && ['property-in-mind', 'investment-opportunities', 'advisor-client-two'].includes(media.id) ? 90 : 75}
           className={styles.photo}
           // Hook for card-level hover and reveal choreography.
           data-media-photo=""

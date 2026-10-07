@@ -143,6 +143,9 @@ describe('approved media registry', () => {
       'investment-opportunities',
       'asset-land',
       'asset-commercial',
+      'property-in-mind',
+      'advisor-client-one',
+      'advisor-client-two',
     ];
     const gradedEntries = entries.filter((m) => !UNGRADED.includes(m.id));
     for (const m of gradedEntries) {
@@ -178,6 +181,9 @@ describe('approved media registry', () => {
       '/media/originals/investment-opportunities.png',
       '/media/originals/asset-land.png',
       '/media/originals/asset-commercial.png',
+      '/media/originals/property-in-mind.png',
+      '/media/originals/advisor-client-one.png',
+      '/media/originals/advisor-client-two.png',
     ]);
     const heavy = entries
       .map((m) => {

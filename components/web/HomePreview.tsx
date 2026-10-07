@@ -312,6 +312,7 @@ export function HomeServices() {
                   height={media.height}
                   className={styles.chapterImage}
                   sizes="(max-width: 767px) 100vw, (max-width: 1199px) 70vw, 60vw"
+                  quality={media.id === 'advisor-client-one' ? 90 : 75}
                 />
               </ChapterMedia>
 
@@ -435,6 +436,7 @@ export function HomeTeam() {
             height={media.height}
             className={styles.chapterImage}
             sizes="(max-width: 767px) 100vw, 40vw"
+            quality={media.id === 'advisor-client-one' ? 90 : 75}
           />
           <span className={styles.tie} aria-hidden="true" />
         </ChapterMedia>

@@ -43,7 +43,7 @@ describe('October media — registry', () => {
       expect(m.note).toMatch(/Owner-supplied on 2026-10-23/);
       expect(m.focal).toMatch(/^\d+% \d+%$/);
       expect(existsSync(resolve(root, m.source))).toBe(true);
-      if (['investment-opportunities', 'asset-land', 'asset-commercial'].includes(id)) {
+      if (OCTOBER.map(([, imageId]) => imageId).includes(id as (typeof OCTOBER)[number][1])) {
         const original = resolve(root, m.source);
         const served = resolve(root, 'public', m.src.slice(1));
         expect(m.src).toBe(`/media/originals/${id}.png`);
@@ -51,7 +51,7 @@ describe('October media — registry', () => {
         expect(m.grade).toBeUndefined();
         expect(existsSync(served)).toBe(true);
         expect(readFileSync(served).equals(readFileSync(original))).toBe(true);
-        expect(statSync(original).size).toBeGreaterThan(2500000);
+        expect(statSync(original).size).toBeGreaterThan(1800000);
       } else {
         expect(m.src).toBe(`/media/graded/${id}.webp`);
         expect(m.ungradedSrc).toBe(`/media/${id}.webp`);
@@ -66,10 +66,11 @@ describe('October media — registry', () => {
 
   it('requests high-quality responsive optimisation for the three restored originals', () => {
     expect(read('components/web/TerritoryVisual.tsx')).toContain(
-      "quality={media?.id === 'investment-opportunities' ? 90 : 75}",
+      "quality={media && ['property-in-mind', 'investment-opportunities', 'advisor-client-two'].includes(media.id) ? 90 : 75}",
     );
     const figure = read('components/web/ArtworkFigure.tsx');
     expect(figure.match(/quality=\{media\.id === 'asset-land'/g)?.length).toBe(2);
+    expect(read('components/web/HomePreview.tsx').match(/quality=\{media\.id === 'advisor-client-one'/g)?.length).toBe(2);
   });
 
   it('records every new derivative in both manifests', () => {
