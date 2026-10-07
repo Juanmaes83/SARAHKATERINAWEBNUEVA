@@ -444,7 +444,7 @@ export const APPROVED_MEDIA = {
     // The walker is at the far left; a portrait crop keeps her and the building.
     compactFocal: '8% 50%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Property in mind.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I have a property in mind". Full-resolution original PNG served from /media/originals/property-in-mind.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I have a property in mind". Full-resolution original PNG served from /media/originals/property-in-mind.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   investmentOpportunities: media({
@@ -489,7 +489,7 @@ export const APPROVED_MEDIA = {
     alt: 'An editorial advisory scene: Sarah Katerina goes through printed documents with a person seated across a wooden table.',
     focal: '55% 35%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 1.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Property Purchase · AudienceBand. The other person is not presented as a real client; no case, testimonial or outcome is implied. The file name "CLIENTE" is not carried into any public text. Full-resolution original PNG served from /media/originals/advisor-client-one.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Property Purchase · AudienceBand. The other person is not presented as a real client; no case, testimonial or outcome is implied. The file name "CLIENTE" is not carried into any public text. Full-resolution original PNG served from /media/originals/advisor-client-one.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   advisorClientTwo: media({
@@ -500,7 +500,7 @@ export const APPROVED_MEDIA = {
     alt: 'An editorial advisory scene: Sarah Katerina reviews floor plans in a folder with two people at a table in a bright apartment.',
     focal: '50% 40%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 2.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · ApproachBand, shown at its native 16:9 so no face is cropped. The two people are not presented as real clients; no case, testimonial or outcome is implied. Full-resolution original PNG served from /media/originals/advisor-client-two.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · ApproachBand, shown at its native 16:9 so no face is cropped. The two people are not presented as real clients; no case, testimonial or outcome is implied. Full-resolution original PNG served from /media/originals/advisor-client-two.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   /**
