@@ -86,9 +86,9 @@ export const hero = {
         source: 'credential-register.csv CR-002, confirmed 2026-08-12',
       }),
       note: claim({
-        text: 'inside Spain’s tax administration',
+        text: 'inside SUMA Gestión Tributaria, Alicante',
         status: 'confirmed',
-        source: 'CR-002',
+        source: 'Owner direction 2026-10-07: name SUMA Gestión Tributaria accurately (duration: CR-002)',
       }),
     },
     {
@@ -868,7 +868,7 @@ export const authority = {
   }),
   /** "Con más de 20 años dentro de la administración fiscal y una profunda experiencia en el mercado inmobiliario de la Costa Blanca, ayudo a compradores internacionales a invertir con claridad y confianza." */
   body: claim({
-    text: 'With 20 years inside Spain’s tax administration and deep experience of the Costa Blanca property market, I help international buyers invest with clarity and confidence.',
+    text: 'With 20 years inside SUMA Gestión Tributaria, the public body that manages local taxes in the province of Alicante, and deep experience of the Costa Blanca property market, I help international buyers invest with clarity and confidence.',
     status: 'proposal',
     source: TEMPLATE,
     review: 'tax',

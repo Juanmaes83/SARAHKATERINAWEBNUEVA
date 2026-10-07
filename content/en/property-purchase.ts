@@ -72,9 +72,9 @@ export const trust = [
       source: 'credential-register.csv CR-002',
     }),
     note: claim({
-      text: "Twenty years inside Spain's tax administration.",
+      text: 'Twenty years inside SUMA Gestión Tributaria, Alicante.',
       status: 'confirmed',
-      source: 'credential-register.csv CR-002',
+      source: 'Owner direction 2026-10-07: name SUMA Gestión Tributaria accurately (duration: CR-002)',
       review: 'none',
     }),
   },
@@ -534,7 +534,7 @@ export const authority = {
     status: 'proposal',
   }),
   body: claim({
-    text: "With twenty years inside Spain's tax administration and a buyer-side approach, Sarah connects the details that are too often handled in isolation.",
+    text: 'With twenty years inside SUMA Gestión Tributaria, the public body that manages local taxes in the province of Alicante, and a buyer-side approach, Sarah connects the details that are too often handled in isolation.',
     status: 'proposal',
     review: 'tax',
   }),
@@ -550,9 +550,9 @@ export const authority = {
       source: 'decisions-log.md 2026-07-27',
     }),
     claim({
-      text: "Twenty years inside Spain's tax administration",
+      text: 'Twenty years inside SUMA Gestión Tributaria',
       status: 'confirmed',
-      source: 'credential-register.csv CR-002',
+      source: 'Owner direction 2026-10-07: name SUMA Gestión Tributaria accurately (duration: CR-002)',
     }),
     claim({ text: 'One accountable point of contact', status: 'proposal', source: TEMPLATE }),
     claim({ text: 'Clear explanations in writing', status: 'proposal', source: TEMPLATE }),
@@ -783,5 +783,5 @@ export const footer = {
 export const seo = {
   title: 'Property purchase support in Spain',
   description:
-    'Independent, end-to-end property purchase support for international buyers in Spain.',
+    'Independent, end-to-end buyer-side support for international buyers purchasing property in Spain, from Torrevieja on the Costa Blanca.',
 } as const;
