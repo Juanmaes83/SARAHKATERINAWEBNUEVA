@@ -1,4 +1,19 @@
-'use client';
-import { useState } from 'react';
-type Member={email:string;role:string;display_name:string|null;active:boolean;joined_at:string|null};
-export function Team({members,admin}:{members:Member[];admin:boolean}){const [email,setEmail]=useState(''),[role,setRole]=useState('contributor'),[code,setCode]=useState(''),[message,setMessage]=useState('');async function invite(e:React.FormEvent){e.preventDefault();setMessage('Creating invitation…');const response=await fetch('/api/studio/team',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,role})});const data=await response.json();if(response.ok){setCode(data.code);setMessage('Code created. Share it privately with the invited person. It is shown once.');}else setMessage(data.error||'Invitation failed.');}return <><section><h2>Members</h2><ul>{members.map(m=><li key={m.email}>{m.display_name||m.email} · {m.role} · {m.active?'active':'inactive'}{m.joined_at?' · joined':' · invitation pending'}</li>)}</ul></section>{admin?<section><h2>Invite team member</h2><p>Only create an invitation for a confirmed recipient. The Studio never emails or publishes the one-time code.</p><form onSubmit={invite}><label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)}/></label><label>Role<select value={role} onChange={e=>setRole(e.target.value)}><option value="contributor">Contributor</option><option value="publisher">Reviewer and publisher</option><option value="admin">Administrator</option></select></label><button>Create invitation</button></form><p role="status">{message}</p>{code?<p><strong>One-time code:</strong> <code>{code}</code></p>:null}</section>:null}</>;}
+type Member = { email: string; role: string; display_name: string | null; active: boolean; joined_at: string | null };
+
+/** Enrollment is handled through the Supabase administrator invitation flow. */
+export function Team({ members, admin }: { members: Member[]; admin: boolean }) {
+  return <>
+    <section>
+      <h2>Members</h2>
+      <ul>{members.map(member => <li key={member.email}>
+        {member.display_name || member.email} · {member.role} · {member.active ? 'active' : 'inactive'}
+        {member.joined_at ? ' · joined' : ' · invitation pending'}
+      </li>)}</ul>
+    </section>
+    {admin ? <section>
+      <h2>Inviting a team member</h2>
+      <p>Ask the project administrator to add the intended email and approved role to the Studio allowlist, then send a one-use Supabase Auth email invitation. The recipient sets their own password. An invitation expires; membership remains active until revoked.</p>
+      <p>Never share invitation links, codes or passwords in Studio notes or a pull request.</p>
+    </section> : null}
+  </>;
+}

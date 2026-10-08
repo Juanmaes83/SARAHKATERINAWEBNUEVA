@@ -1,3 +1,10 @@
-import { NextResponse,type NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 import { studioSession } from '@/lib/supabase/server';
-export async function POST(request:NextRequest){const session=await studioSession();if(!session)return NextResponse.json({error:'Session expired.'},{status:401});if(session.role!=='admin')return NextResponse.json({error:'Administrator permission required.'},{status:403});if(request.headers.get('origin')!==request.nextUrl.origin)return NextResponse.json({error:'Invalid origin.'},{status:403});let body:Record<string,unknown>;try{body=await request.json();}catch{return NextResponse.json({error:'Invalid JSON.'},{status:400});}const email=String(body.email??'').trim().toLowerCase(),role=String(body.role??'');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||!['contributor','publisher','admin'].includes(role))return NextResponse.json({error:'Invalid invitation.'},{status:400});const {data,error}=await session.client.rpc('invite_member',{p_email:email,p_role:role,p_display_name:null});if(error)return NextResponse.json({error:error.message},{status:400});return NextResponse.json({code:data});}
+
+/** Legacy code enrollment is closed when public Auth signup is disabled. */
+export async function POST() {
+  const session = await studioSession();
+  if (!session) return NextResponse.json({ error: 'Session expired.' }, { status: 401 });
+  if (session.role !== 'admin') return NextResponse.json({ error: 'Administrator permission required.' }, { status: 403 });
+  return NextResponse.json({ error: 'Use the project administrator email invitation procedure.' }, { status: 410 });
+}

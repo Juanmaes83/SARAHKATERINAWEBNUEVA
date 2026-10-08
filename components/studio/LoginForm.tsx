@@ -1,9 +1,47 @@
 'use client';
+
+import Link from 'next/link';
 import { useState } from 'react';
 import { browserClient } from '@/lib/supabase/browser';
 import styles from './Studio.module.css';
-export function LoginForm(){
-  const [mode,setMode]=useState<'login'|'join'>('login');const [email,setEmail]=useState('');const [password,setPassword]=useState('');const [code,setCode]=useState('');const [error,setError]=useState('');const [busy,setBusy]=useState(false);
-  async function submit(event:React.FormEvent){event.preventDefault();setBusy(true);setError('');try{const client=browserClient();const result=mode==='login'?await client.auth.signInWithPassword({email,password}):await client.auth.signUp({email,password,options:{data:{invite_code:code}}});if(result.error)throw result.error;if(mode==='join'&&!result.data.session){setError('Account created. Please confirm your email, then sign in.');setMode('login');return;}window.location.assign('/studio');}catch(e){setError(e instanceof Error?e.message:'Access failed.');}finally{setBusy(false);}}
-  return <main className={styles.login}><div className={styles.loginCard}><p className={styles.eyebrow}>Sarah Katerina</p><h1>Studio</h1><p>Private workspace for the Sarah Katerina team.</p><form onSubmit={submit}><label>Email<input type="email" required autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)}/></label><label>Password<input type="password" required minLength={8} autoComplete={mode==='login'?'current-password':'new-password'} value={password} onChange={e=>setPassword(e.target.value)}/></label>{mode==='join'?<label>Invitation code<input required value={code} onChange={e=>setCode(e.target.value)}/></label>:null}{error?<p role="alert">{error}</p>:null}<button disabled={busy}>{busy?'Please wait…':mode==='login'?'Sign in':'Join Studio'}</button></form><button className={styles.textButton} type="button" onClick={()=>{setError('');setMode(mode==='login'?'join':'login')}}>{mode==='login'?'Have an invitation?':'Already a member?'}</button></div></main>;
+
+export function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
+
+  async function submit(event: React.FormEvent) {
+    event.preventDefault();
+    setBusy(true);
+    setError('');
+    try {
+      const { error: signInError } = await browserClient().auth.signInWithPassword({ email, password });
+      if (signInError) throw signInError;
+      const response = await fetch('/api/studio/session', { cache: 'no-store' });
+      if (!response.ok) {
+        await browserClient().auth.signOut();
+        setError('This account does not have active Studio access. Contact your administrator.');
+        return;
+      }
+      window.location.assign('/studio');
+    } catch {
+      setError('Could not sign in. Check your email and password, or reset your password.');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return <main className={styles.login}><div className={styles.loginCard}>
+    <p className={styles.eyebrow}>Sarah Katerina</p><h1>Studio</h1>
+    <p>Private workspace for the Sarah Katerina team.</p>
+    <form onSubmit={submit}>
+      <label>Email<input type="email" required autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} /></label>
+      <label>Password<input type="password" required autoComplete="current-password" value={password} onChange={event => setPassword(event.target.value)} /></label>
+      {error ? <p role="alert">{error}</p> : null}
+      <button disabled={busy}>{busy ? 'Signing in…' : 'Sign in'}</button>
+    </form>
+    <p><Link href="/studio/recover">Forgot your password?</Link></p>
+    <p>If your invitation link expired or was already used, sign in here or request a password reset.</p>
+  </div></main>;
 }
