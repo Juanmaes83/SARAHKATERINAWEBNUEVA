@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Page chrome lives with each page: the canonical brand pages use
             AppChrome, the website landings supply their own header and footer
             in the scoped palette. */}
-        <main id="main">{children}</main>
+        {children}
       </body>
     </html>
   );

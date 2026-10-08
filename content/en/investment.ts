@@ -1275,5 +1275,5 @@ export const footer = {
 export const seo = {
   title: 'Property investment analysis in the Costa Blanca',
   description:
-    'Independent property investment analysis for international buyers in the Costa Blanca: financial modelling, due diligence and a tax overlay in one decision report.',
+    'Property investment analysis in the Costa Blanca for international buyers: financial modelling, due diligence and tax considerations in one decision report.',
 } as const;

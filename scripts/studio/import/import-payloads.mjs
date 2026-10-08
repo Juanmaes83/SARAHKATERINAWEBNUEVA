@@ -33,6 +33,13 @@ if (
   process.exit(2);
 }
 
+const payloads = JSON.parse(readFileSync(file, 'utf8'));
+if (!Array.isArray(payloads) || payloads.some(payload =>
+  payload.document?.status !== 'draft' || payload.publish_revision != null)) {
+  console.error('Only draft payloads without a publication revision can be imported by this script.');
+  process.exit(2);
+}
+
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
   auth: { persistSession: false },
 });
@@ -45,16 +52,20 @@ if (signInError) {
   process.exit(1);
 }
 
-const payloads = JSON.parse(readFileSync(file, 'utf8'));
 let failed = 0;
 for (const payload of payloads) {
   const { slug, kind } = payload.document;
-  const { data: existing } = await supabase
+  const { data: existing, error: lookupError } = await supabase
     .from('documents')
     .select('id')
     .eq('kind', kind)
     .eq('slug', slug)
     .maybeSingle();
+  if (lookupError) {
+    failed += 1;
+    console.log(`ERROR  ${kind}/${slug}: unable to check whether the document already exists.`);
+    continue;
+  }
   if (existing) {
     console.log(`skip   ${kind}/${slug} (already exists)`);
     continue;

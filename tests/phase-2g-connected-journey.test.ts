@@ -390,12 +390,14 @@ describe('publication and held subjects', () => {
     // 2026-10-07 (owner direction): the 20-year credential names SUMA Gestión
     // Tributaria instead of a generalised "Spain's tax administration", and the
     // Home and Property Purchase meta descriptions carry Torrevieja / Costa Blanca.
+    // 2026-10-08: owner authorised metadata shortening and removal of the
+    // duplicated Team brand suffix. Visible body copy remains unchanged.
     const unchanged: Record<string, string> = {
       'content/en/investment.ts':
-        'cfd7603499b24d4ce7bb903343790a8dac07336aae19f71f7f27b29177302f23',
+        '7ef00870764ae4a5937a6019054a3040e2e926d924c7bc64c710e60c2a8ffd1f',
       'content/en/tax-advisory.ts':
-        '7f507fb301a040d36e62aeaa9cf205e1899df7ba91b6239571bbc6120671eb31',
-      'content/en/team.ts': 'ef4002352a4e7c2c38aeb2c9e1220e7916a785796584cf49eddf444f1d124f72',
+        '59512b170c5ee4e28e6eae6f3cc64f860c947e23c9aed4c75f09835cdb07f5c5',
+      'content/en/team.ts': '60a7aaa7a5c4a48f7769de9cb1fa97e609b28fc0ea9fa18d9380f50123c5dd1f',
       'content/en/buyer-voices.ts':
         '2357ce7b8d459af6ab9e486b2479c1d40c3538e770011592c17ac7471d73f3d2',
       'lib/buyer-system/links.ts':

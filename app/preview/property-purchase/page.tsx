@@ -51,6 +51,7 @@ export default function PropertyPurchasePage() {
           showLanguageSwitcher={false}
           buyerToolsSourcePage={SERVICE_ROUTES.purchase}
         />
+        <main id="main" tabIndex={-1}>
         <PurchaseHero />
         <SarahReviewMark id="SR-019" />
         {/* Phase 2H (Sarah's review): the purchase-tax tool, at the start of the page. */}
@@ -80,6 +81,7 @@ export default function PropertyPurchasePage() {
         <SarahReviewMark id="SR-085" />
         <WebFaq content={faq} appearance="light" related={FAQ_RELATED.purchase} />
         <FinalCtaBand />
+        </main>
         <WebFooter content={footer} />
       </div>
     </RevealLineProvider>

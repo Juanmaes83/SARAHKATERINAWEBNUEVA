@@ -39,7 +39,7 @@ const TEMPLATE = 'website/nueva web/Sarah Katerina Tax Advisory.png (approved vi
 export const seo = {
   title: 'Spanish tax advisory for non-resident property owners',
   description:
-    'Tax advisory for international owners and buyers of property in Spain: Modelo 210, annual compliance, purchase tax overlay and wealth planning, explained from Torrevieja by an adviser with 20 years inside SUMA Gestión Tributaria.',
+    'Tax advisory from Torrevieja for non-resident property owners in Spain: Modelo 210, annual compliance, purchase costs and wealth planning.',
 } as const;
 
 /* ===========================================================================
