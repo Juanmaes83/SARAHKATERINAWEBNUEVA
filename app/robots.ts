@@ -7,6 +7,12 @@ import { LABORATORY_ROUTES, absoluteUrl, siteConfig } from '@/lib/seo/config';
  * Default is a full disallow. The site only becomes crawlable when it is BOTH
  * in production mode and explicitly flagged indexable — a human decision.
  *
+ * This file reads the SITE-LEVEL gate only (plus the fixed laboratory
+ * exclusions); it is deliberately not route-aware. Whether a given page may be
+ * indexed is the route-level decision in lib/seo/routes.ts, enforced per page
+ * by the metadata robots directive (lib/seo/metadata.ts) and by the sitemap.
+ * Allowing crawling here therefore does not make an unapproved page indexable.
+ *
  * NOTE ON AI CRAWLERS: decisions-log.md (2026-08-05) records that the public
  * robots.txt contains no directive for GPTBot, ClaudeBot, PerplexityBot or
  * Google-Extended, that the current open access is "a default configuration,
