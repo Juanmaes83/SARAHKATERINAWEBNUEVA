@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { activeRedirects } from './lib/seo/redirects';
 
 /**
  * The site is NOT indexable by default. Indexing is only ever enabled by an
@@ -16,6 +17,12 @@ const nextConfig: NextConfig = {
   eslint: {
     // Lint errors must fail the build. CI also runs `npm run lint`.
     ignoreDuringBuilds: false,
+  },
+  async redirects() {
+    // Only owner-approved migrations whose target route is publishable
+    // (lib/seo/redirects.ts, lib/seo/routes.ts). Today this list is empty:
+    // every target path is unresolved, so nothing redirects silently.
+    return activeRedirects();
   },
   async headers() {
     const security = [
