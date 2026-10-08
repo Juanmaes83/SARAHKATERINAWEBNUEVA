@@ -1,5 +1,6 @@
 import { Container } from '@/components/layout/Container';
-import { WebButton } from './WebButton';
+import { WebLinkButton } from './WebButton';
+import { CTA_TARGETS } from '@/content/en/internal-links';
 import { TaxSnapshotCard } from './TaxSnapshotCard';
 import { Icon, type IconName } from './icons/Icon';
 import { HERO_VIDEO } from '@/lib/media/hero-video';
@@ -41,20 +42,22 @@ export function TaxHero() {
             <p className={shared.lead}>{hero.lead.text}</p>
 
             <div className={shared.ctas}>
-              <WebButton variant="primary" arrow>
+              <WebLinkButton href={CTA_TARGETS.taxHeroPrimary} variant="primary" arrow>
                 {hero.primaryCta.text}
-              </WebButton>
-              <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
+              </WebLinkButton>
+              <WebLinkButton href={CTA_TARGETS.taxHeroSecondary} variant="secondary">
+                {hero.secondaryCta.text}
+              </WebLinkButton>
             </div>
 
             <dl className={shared.signals}>
               {hero.signals.map((signal) => (
                 <div key={signal.value.text} className={shared.signal}>
-                  <Icon name={signal.icon as IconName} className={shared.signalIcon} />
-                  <div>
-                    <dt className={shared.signalValue}>{signal.value.text}</dt>
-                    <dd className={shared.signalNote}>{signal.note.text}</dd>
-                  </div>
+                  <dt className={shared.signalValue}>
+                    <Icon name={signal.icon as IconName} className={shared.signalIcon} />
+                    {signal.value.text}
+                  </dt>
+                  <dd className={shared.signalNote}>{signal.note.text}</dd>
                 </div>
               ))}
             </dl>

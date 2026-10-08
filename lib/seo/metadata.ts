@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { absoluteUrl, siteConfig } from './config';
+import { SEO_ROUTES, languageAlternates, resolveRouteIndexing, type SeoRoute } from './routes';
 
 /**
  * Brand strings permitted in public-facing output.
@@ -15,14 +16,32 @@ export const APPROVED_BRAND_PROMISE = 'Clarity before commitment.';
 
 const SITE_NAME = 'Sarah Katerina';
 
+/** Which page is being described. Omitting it fails closed (noindex). */
+export type RouteContext = {
+  /** Path the page is served at. */
+  path?: string;
+  /** Internal laboratory pages are forced to noindex, nofollow. */
+  laboratory?: boolean;
+  /** Route manifest; injectable for tests with synthetic fixtures only. */
+  routes?: readonly SeoRoute[];
+};
+
 /**
  * Robots directives.
  *
- * `noindex, nofollow` unless the site is BOTH in production mode and
- * explicitly flagged indexable. Laboratory routes are never indexable.
+ * `index, follow` only when BOTH gates are open (see lib/seo/routes.ts):
+ * the site-level gate (`siteConfig.indexable`: production mode + explicit
+ * flag) and the route-level gate (`resolveRouteIndexing()`: a known, approved,
+ * index-eligible route served at its public path, not its preview, and not
+ * marked laboratory). A call without a path — the layout fallback
+ * `baseMetadata`, or any page that forgets its context — is noindex.
  */
-export function robotsFor(options?: { laboratory?: boolean }): Metadata['robots'] {
-  const allowIndex = siteConfig.indexable && !options?.laboratory;
+export function robotsFor(context: RouteContext = {}): Metadata['robots'] {
+  const allowIndex = resolveRouteIndexing(
+    context.path,
+    { siteIndexable: siteConfig.indexable, laboratory: context.laboratory },
+    context.routes ?? SEO_ROUTES,
+  ).indexable;
 
   return {
     index: allowIndex,
@@ -31,12 +50,10 @@ export function robotsFor(options?: { laboratory?: boolean }): Metadata['robots'
   };
 }
 
-type PageMetadataInput = {
+type PageMetadataInput = RouteContext & {
   title: string;
   description: string;
   path: string;
-  /** Internal laboratory pages are forced to noindex, nofollow. */
-  laboratory?: boolean;
 };
 
 export function buildMetadata({
@@ -44,27 +61,33 @@ export function buildMetadata({
   description,
   path,
   laboratory = false,
+  routes = SEO_ROUTES,
 }: PageMetadataInput): Metadata {
-  const canonical = absoluteUrl(path);
+  const resolution = resolveRouteIndexing(path, { siteIndexable: siteConfig.indexable, laboratory }, routes);
+  // Canonical and Open Graph point at the APPROVED public path when the route
+  // has one — also from its /preview URL, which stays noindex. Without an
+  // approved public path they keep the served path: no production URL is
+  // invented for an undecided route.
+  const canonical = absoluteUrl(resolution.publicPath ?? path);
+  // hreflang comes ONLY from the route manifest, only on an indexable public
+  // URL, and only for alternates whose target is itself an existing,
+  // approved, indexable manifest route that links back
+  // (`languageAlternates()`). No Spanish route exists, so nothing is emitted.
+  // seo-final-audit-2026-09.md §9 requires hreflang to be "recíproco, válido y
+  // solo para equivalentes".
+  const alternates = resolution.indexable ? languageAlternates(path, siteConfig.indexable, routes) : undefined;
 
   return {
     title,
     description,
-    robots: robotsFor({ laboratory }),
+    robots: robotsFor({ path, laboratory, routes }),
     alternates: {
       canonical,
-      // EN/ES alternates are PREPARED but only EMITTED once the site is
-      // indexable. Spanish routes do not exist yet, and seo-final-audit
-      // -2026-09.md §9 requires hreflang to be "recíproco, válido y solo para
-      // equivalentes" — advertising a /es URL that returns 404 would fail that
-      // criterion. The shape is here so the work is a config change, not a
-      // rewrite.
-      ...(siteConfig.indexable && !laboratory
+      ...(alternates
         ? {
-            languages: {
-              en: absoluteUrl(path),
-              es: absoluteUrl(`/es${path === '/' ? '' : path}`),
-            },
+            languages: Object.fromEntries(
+              Object.entries(alternates).map(([locale, href]) => [locale, absoluteUrl(href)]),
+            ),
           }
         : {}),
     },
@@ -74,7 +97,7 @@ export function buildMetadata({
       title,
       description,
       url: canonical,
-      locale: 'en',
+      locale: resolution.route?.locale ?? 'en',
     },
     twitter: {
       card: 'summary_large_image',
@@ -92,6 +115,8 @@ export const baseMetadata: Metadata = {
   },
   description:
     'Internal technical foundation for the Sarah Katerina website. Not a public site and not approved for production.',
+  // No route context: always noindex. Every page sets its own robots through
+  // buildMetadata(); anything that does not (e.g. not-found) inherits this.
   robots: robotsFor(),
   // No Organization/Person metadata, no verification tokens, no analytics IDs:
   // none of that data is confirmed in the source of truth.

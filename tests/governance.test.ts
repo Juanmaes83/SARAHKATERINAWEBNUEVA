@@ -103,8 +103,8 @@ describe('PENDING_APPROVAL guards', () => {
   });
 
   it('no production host is hardcoded anywhere in the source', () => {
-    // The canonical host is an OPEN decision (non-www vs www). Every URL must
-    // derive from NEXT_PUBLIC_SITE_URL.
+    // The canonical host is decided (www, owner-approved 2026-10-07) but it is
+    // configuration, not code: every URL must derive from NEXT_PUBLIC_SITE_URL.
     const offenders = sourceFiles
       .filter((file) => /sarahkaterina\.(com|es)/i.test(readCode(file)))
       .map(rel);
@@ -151,7 +151,9 @@ describe('unapproved naming and claims', () => {
 
     expect(offenders).toEqual([]);
     const personFiles = sourceFiles.filter(file => /'@type':\s*'Person'/.test(readCode(file))).map(rel);
-    expect(personFiles).toEqual(['lib/studio/editorial-seo.ts']);
+    expect(personFiles).toEqual(['lib/seo/entity-graph.ts', 'lib/studio/editorial-seo.ts']);
+    // The recovered entity builder is inert: no page or component imports it.
+    expect(sourceFiles.filter(file => file.endsWith('.tsx') && /from ['"]@\/lib\/seo\/entity-graph/.test(readCode(file))).map(rel)).toEqual([]);
   });
 
   it('keeps the historical source snapshot as a single explicit naming exception', () => {

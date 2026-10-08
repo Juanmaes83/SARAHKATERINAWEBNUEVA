@@ -1,5 +1,6 @@
 import { Container } from '@/components/layout/Container';
-import { WebButton } from './WebButton';
+import { WebLinkButton } from './WebButton';
+import { CTA_TARGETS } from '@/content/en/internal-links';
 import { DashboardCard } from './DashboardCard';
 import { Icon, type IconName } from './icons/Icon';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
@@ -58,20 +59,22 @@ export function WebHero({overrides={}}:{overrides?:Record<string,string>}) {
           <p className={styles.lead}>{overrides.heroLead || hero.lead.text}</p>
 
           <div className={styles.ctas}>
-            <WebButton variant="primary" arrow>
+            <WebLinkButton href={CTA_TARGETS.investmentHeroPrimary} variant="primary" arrow>
               {overrides.heroPrimaryCta || hero.primaryCta.text}
-            </WebButton>
-            <WebButton variant="secondary">{overrides.heroSecondaryCta || hero.secondaryCta.text}</WebButton>
+            </WebLinkButton>
+            <WebLinkButton href={CTA_TARGETS.investmentHeroSecondary} variant="secondary">
+              {overrides.heroSecondaryCta || hero.secondaryCta.text}
+            </WebLinkButton>
           </div>
 
           <dl className={styles.signals}>
             {hero.signals.map((signal) => (
               <div key={signal.value.text} className={styles.signal}>
-                <Icon name={signal.icon as IconName} className={styles.signalIcon} />
-                <div>
-                  <dt className={styles.signalValue}>{signal.value.text}</dt>
-                  <dd className={styles.signalNote}>{signal.note.text}</dd>
-                </div>
+                <dt className={styles.signalValue}>
+                  <Icon name={signal.icon as IconName} className={styles.signalIcon} />
+                  {signal.value.text}
+                </dt>
+                <dd className={styles.signalNote}>{signal.note.text}</dd>
               </div>
             ))}
           </dl>

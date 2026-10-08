@@ -4,6 +4,7 @@ import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import { WebLinkButton } from './WebButton';
 import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
 import { WebFaq } from './WebFaq';
+import { FAQ_RELATED } from '@/content/en/internal-links';
 import { ServiceJourney } from './ServiceJourney';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon } from './icons/Icon';
@@ -309,7 +310,7 @@ export function TeamEditorial() {
       <AftercareBand />
       {/* Phase 2G: back to the service that matches the reader's need. */}
       <ServiceJourney page="team" />
-      <WebFaq content={faq} />
+      <WebFaq content={faq} related={FAQ_RELATED.team} />
       <FinalCtaBand />
     </div>
   );

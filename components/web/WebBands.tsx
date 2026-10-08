@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { WebButton, WebLinkButton } from './WebButton';
 import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
+import { CTA_TARGETS, INVESTMENT_DOOR_TARGETS } from '@/content/en/internal-links';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
@@ -175,9 +176,21 @@ export function DoorsBand() {
                 ))}
               </ul>
               <div className={styles.doorAction}>
-                <WebButton variant="primary" arrow>
-                  {door.cta.text}
-                </WebButton>
+                {/* Linked where a destination exists; "See opportunities" has
+                    none yet and stays a button (REVIEW_REQUIRED). */}
+                {INVESTMENT_DOOR_TARGETS[door.id] ? (
+                  <WebLinkButton
+                    href={INVESTMENT_DOOR_TARGETS[door.id] ?? ''}
+                    variant="primary"
+                    arrow
+                  >
+                    {door.cta.text}
+                  </WebLinkButton>
+                ) : (
+                  <WebButton variant="primary" arrow>
+                    {door.cta.text}
+                  </WebButton>
+                )}
               </div>
             </div>
           </RevealOnScroll>
@@ -206,9 +219,15 @@ export function DoorsBand() {
               </li>
             ))}
           </ul>
-          <WebButton variant="quiet" arrow>
-            {door.cta.text}
-          </WebButton>
+          {INVESTMENT_DOOR_TARGETS[door.id] ? (
+            <WebLinkButton href={INVESTMENT_DOOR_TARGETS[door.id] ?? ''} variant="quiet" arrow>
+              {door.cta.text}
+            </WebLinkButton>
+          ) : (
+            <WebButton variant="quiet" arrow>
+              {door.cta.text}
+            </WebButton>
+          )}
         </RevealOnScroll>
       ))}
 
@@ -537,9 +556,14 @@ export function AuthorityBand({ investment = false }: { investment?: boolean }) 
             <div className={styles.stack24}>
               <p className={`${styles.bodyText} ${styles.bodyOnDark}`}>{authority.body.text}</p>
               <div>
-                <WebButton variant="primary" onDark arrow>
+                <WebLinkButton
+                  href={CTA_TARGETS.investmentAuthority}
+                  variant="primary"
+                  onDark
+                  arrow
+                >
                   {authority.cta.text}
-                </WebButton>
+                </WebLinkButton>
               </div>
             </div>
 

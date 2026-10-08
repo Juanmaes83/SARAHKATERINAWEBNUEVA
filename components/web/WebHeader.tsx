@@ -258,7 +258,7 @@ export function WebHeader({
                 variant="primary"
                 arrow
                 aria-expanded={toolsOpen}
-                aria-controls={toolsPanelId}
+                aria-controls={toolsOpen ? toolsPanelId : undefined}
                 aria-haspopup="true"
                 onClick={() => setToolsOpen((value) => !value)}
               >
@@ -316,7 +316,7 @@ export function WebHeader({
           type="button"
           className={styles.menuTrigger}
           aria-expanded={open}
-          aria-controls={panelId}
+          aria-controls={open ? panelId : undefined}
           onClick={() => setOpen(true)}
         >
           Menu
