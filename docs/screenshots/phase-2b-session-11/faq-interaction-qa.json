@@ -1,0 +1,345 @@
+{
+  "suite": "tests/interaction/faq.interaction.ts (npm run test:interaction)",
+  "commit": "f4837f935477739f3fb8b7d6779fc829a40ade29",
+  "note": "Application and test code at the final PR head are identical to this commit; later commits change documentation and evidence only.",
+  "recordedAt": "2026-10-08T08:33:59Z",
+  "environment": {
+    "node": "v22.22.0",
+    "playwright": "1.56.1 (global install, not a repository dependency)",
+    "browser": "chromium 141.0.7390.37",
+    "server": "next build && next start (local), NEXT_PUBLIC_SITE_MODE=preview, NEXT_PUBLIC_SITE_INDEXABLE=false",
+    "baseUrl": "http://localhost:3193"
+  },
+  "viewports": [
+    375,
+    1440
+  ],
+  "result": "36 passed / 36",
+  "inCI": false,
+  "checks": [
+    {
+      "viewport": 375,
+      "route": "/preview/investment",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/investment",
+      "check": "purchase-support via Enter",
+      "related": {
+        "href": "/preview/property-purchase",
+        "label": "Property Purchase",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/investment",
+      "check": "tax via Space",
+      "related": {
+        "href": "/preview/tax-advisory",
+        "label": "Tax Advisory",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/investment",
+      "check": "independence via Enter",
+      "related": {
+        "href": "/preview/team#team",
+        "label": "Meet the team",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/investment",
+      "check": "foreign-only via Space",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/property-purchase",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/property-purchase",
+      "check": "when via Enter",
+      "related": {
+        "href": "/preview/team#team",
+        "label": "Meet the team",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/property-purchase",
+      "check": "included via Space",
+      "related": {
+        "href": "/preview/contact",
+        "label": "Contact",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/property-purchase",
+      "check": "lawyer via Enter",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/tax-advisory",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/tax-advisory",
+      "check": "purchase via Enter",
+      "related": {
+        "href": "/preview/property-purchase",
+        "label": "Property Purchase",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/tax-advisory",
+      "check": "documents via Space",
+      "related": {
+        "href": "/preview/contact",
+        "label": "Contact",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/tax-advisory",
+      "check": "independence via Enter",
+      "related": {
+        "href": "/preview/team#team",
+        "label": "Meet the team",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/tax-advisory",
+      "check": "adviser-abroad via Space",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/team",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/team",
+      "check": "remote via Enter",
+      "related": {
+        "href": "/preview/contact",
+        "label": "Contact",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/team",
+      "check": "after via Space",
+      "related": {
+        "href": "/preview/tax-advisory",
+        "label": "Tax Advisory",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 375,
+      "route": "/preview/team",
+      "check": "seller via Enter",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/investment",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/investment",
+      "check": "purchase-support via Enter",
+      "related": {
+        "href": "/preview/property-purchase",
+        "label": "Property Purchase",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/investment",
+      "check": "tax via Space",
+      "related": {
+        "href": "/preview/tax-advisory",
+        "label": "Tax Advisory",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/investment",
+      "check": "independence via Enter",
+      "related": {
+        "href": "/preview/team#team",
+        "label": "Meet the team",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/investment",
+      "check": "foreign-only via Space",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/property-purchase",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/property-purchase",
+      "check": "when via Enter",
+      "related": {
+        "href": "/preview/team#team",
+        "label": "Meet the team",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/property-purchase",
+      "check": "included via Space",
+      "related": {
+        "href": "/preview/contact",
+        "label": "Contact",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/property-purchase",
+      "check": "lawyer via Enter",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/tax-advisory",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/tax-advisory",
+      "check": "purchase via Enter",
+      "related": {
+        "href": "/preview/property-purchase",
+        "label": "Property Purchase",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/tax-advisory",
+      "check": "documents via Space",
+      "related": {
+        "href": "/preview/contact",
+        "label": "Contact",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/tax-advisory",
+      "check": "independence via Enter",
+      "related": {
+        "href": "/preview/team#team",
+        "label": "Meet the team",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/tax-advisory",
+      "check": "adviser-abroad via Space",
+      "related": null,
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/team",
+      "check": "initially closed",
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/team",
+      "check": "remote via Enter",
+      "related": {
+        "href": "/preview/contact",
+        "label": "Contact",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/team",
+      "check": "after via Space",
+      "related": {
+        "href": "/preview/tax-advisory",
+        "label": "Tax Advisory",
+        "navigated": true
+      },
+      "pass": true
+    },
+    {
+      "viewport": 1440,
+      "route": "/preview/team",
+      "check": "seller via Enter",
+      "related": null,
+      "pass": true
+    }
+  ]
+}
