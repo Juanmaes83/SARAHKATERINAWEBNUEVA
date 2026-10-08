@@ -115,11 +115,17 @@ describe('1–4. approved images', () => {
     );
   });
 
-  it('uses no case image outside its own slot', () => {
-    const all = rendered.map((f) => code(readFileSync(f, 'utf8'))).join('\n');
+  it('keeps each landing case image in its approved landing slot', () => {
+    const all = rendered.filter(f => f.includes('components\\web\\') || f.includes('components/web/')).map((f) => code(readFileSync(f, 'utf8'))).join('\n');
     for (const [key] of IMAGE_MAPPING) {
       expect(all.match(new RegExp(`APPROVED_MEDIA\\.${key}\\b`, 'g'))?.length, key).toBe(1);
     }
+  });
+
+  it('labels editorial reuse of approved illustrations as illustrative', () => {
+    const editorial = read('components/studio/Editorial.tsx');
+    expect(editorial).toContain('APPROVED_MEDIA.caseApartmentLetting');
+    expect(editorial).toContain('It does not depict the client, property or outcome');
   });
 
   it('replaces the former One File still life with the approved image', () => {

@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { WebSection, WebSectionHeader } from './WebSection';
-import { WebButton, WebLinkButton } from './WebButton';
+import { WebLinkButton } from './WebButton';
 import { CONTACT_PREVIEW_ROUTE } from '@/content/en/site-navigation';
+import { CTA_TARGETS } from '@/content/en/internal-links';
 import { Icon, type IconName } from './icons/Icon';
 import { TerritoryVisual } from './TerritoryVisual';
 import { ReportExplorer } from './ReportExplorer';
@@ -213,9 +214,9 @@ export function TaxCalendarBand() {
           <p className={shared.cardEyebrow}>{calendar.aside.eyebrow.text}</p>
           <p className={shared.cardText}>{calendar.aside.body.text}</p>
           <div className={shared.cardFoot}>
-            <WebButton variant="primary" arrow>
+            <WebLinkButton href={CTA_TARGETS.taxCalendarAside} variant="primary" arrow>
               {calendar.aside.cta.text}
-            </WebButton>
+            </WebLinkButton>
           </div>
         </RevealOnScroll>
       </div>
@@ -472,9 +473,9 @@ export function TaxServicesBand() {
               <p className={styles.alsoLine}>{item.also.text}</p>
 
               <div className={shared.cardFoot}>
-                <WebButton variant="quiet" arrow>
+                <WebLinkButton href={CTA_TARGETS.taxServiceCards} variant="quiet" arrow>
                   {item.cta.text}
-                </WebButton>
+                </WebLinkButton>
               </div>
             </div>
           </RevealOnScroll>
@@ -514,9 +515,9 @@ export function TaxAuthorityBand() {
             <div className={shared.stack24}>
               <p className={`${shared.bodyText} ${shared.bodyOnDark}`}>{authority.body.text}</p>
               <div>
-                <WebButton variant="primary" onDark arrow>
+                <WebLinkButton href={CTA_TARGETS.taxAuthority} variant="primary" onDark arrow>
                   {authority.cta.text}
-                </WebButton>
+                </WebLinkButton>
               </div>
             </div>
 
@@ -588,9 +589,9 @@ export function TaxCasesBand() {
         ))}
       </div>
       <div style={{ marginBlockStart: 'var(--sk-space-32)', textAlign: 'center' }}>
-        <WebButton variant="secondary" arrow>
+        <WebLinkButton href={CTA_TARGETS.taxCases} variant="secondary" arrow>
           {cases.cta.text}
-        </WebButton>
+        </WebLinkButton>
       </div>
     </WebSection>
   );

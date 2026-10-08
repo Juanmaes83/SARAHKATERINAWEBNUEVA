@@ -17,7 +17,7 @@ export function AppChrome({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      {children}
+      <main id="main" tabIndex={-1}>{children}</main>
       <Footer />
     </>
   );

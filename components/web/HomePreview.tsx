@@ -1,5 +1,6 @@
+import { webPath } from '@/lib/seo/public-path';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/web/SiteLink';
 import { Fragment, type ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
 import { HeroFilm } from '@/components/motion/HeroFilm';
@@ -48,12 +49,26 @@ import styles from './HomePreview.module.css';
  * JavaScript, every segment is drawn and every heading is plain text.
  */
 
+// 2026-10-07: Property Purchase moves from the cutaway plan (`assetPlan`) to
+// the advisory scene, and Team from `homeAuthority` to `sarahConfianza`
+// (docs/home-buyer-system-preview.md §15).
 const SERVICE_MEDIA = {
-  assetPlan: APPROVED_MEDIA.assetPlan,
+  advisorClientOne: APPROVED_MEDIA.advisorClientOne,
   assetResidential: APPROVED_MEDIA.assetResidential,
   reportInterior: APPROVED_MEDIA.reportInterior,
-  homeAuthority: APPROVED_MEDIA.homeAuthority,
+  sarahConfianza: APPROVED_MEDIA.sarahConfianza,
+  homeInvestmentCoastHuman: APPROVED_MEDIA.homeInvestmentCoastHuman,
+  homeTaxAdvisoryHuman: APPROVED_MEDIA.homeTaxAdvisoryHuman,
 } as const;
+
+/**
+ * Wraps the whole Home so its desktop stage can widen together: header,
+ * sections and footer share one content edge (`.stage` in the stylesheet).
+ * It renders no box of its own.
+ */
+export function HomeStage({ children }: { children: ReactNode }) {
+  return <div className={styles.stage}>{children}</div>;
+}
 
 const CHAPTER_CLASS: Record<string, string | undefined> = {
   'property-purchase': styles.chapterPurchase,
@@ -91,15 +106,15 @@ function RevealText({ children }: { children: ReactNode }) {
   return <span className={styles.reveal}>{children}</span>;
 }
 
-export function HomeHero() {
-  const words = hero.title.text.split(' ');
+export function HomeHero({overrides={}}:{overrides?:Record<string,string>}) {
+  const words = (overrides.heroTitle || hero.title.text).split(' ');
   const booking = bookingHref();
   return (
     <section className={cn(styles.hero, styles.threaded)} id="top" data-surface="light">
       <Thread start />
       <Container className={styles.heroGrid}>
         <div className={styles.heroCopy}>
-          <p className={styles.eyebrow}>{hero.eyebrow}</p>
+          <p className={styles.eyebrow}>{overrides.heroEyebrow || hero.eyebrow}</p>
           <h1 className={styles.heading}>
             {/* The space sits outside each word: inside the inline-block first
                 word it would collapse ("Letme"). */}
@@ -110,10 +125,10 @@ export function HomeHero() {
               </Fragment>
             ))}
           </h1>
-          <p className={styles.lead}>{hero.lead.text}</p>
+          <p className={styles.lead}>{overrides.heroLead || hero.lead.text}</p>
           <div className={styles.actions}>
             <WebLinkButton href="#services" variant="primary" arrow>
-              {hero.primaryCta}
+              {overrides.heroPrimaryCta || hero.primaryCta}
             </WebLinkButton>
             {booking ? (
               <WebLinkButton href={booking} variant="secondary" external>
@@ -298,6 +313,7 @@ export function HomeServices() {
                   height={media.height}
                   className={styles.chapterImage}
                   sizes="(max-width: 767px) 100vw, (max-width: 1199px) 70vw, 60vw"
+                  quality={['advisor-client-one', 'home-tax-advisory-human'].includes(media.id) ? 90 : 75}
                 />
               </ChapterMedia>
 
@@ -421,6 +437,7 @@ export function HomeTeam() {
             height={media.height}
             className={styles.chapterImage}
             sizes="(max-width: 767px) 100vw, 40vw"
+            quality={['advisor-client-one', 'sarah-confianza'].includes(media.id) ? 90 : 75}
           />
           <span className={styles.tie} aria-hidden="true" />
         </ChapterMedia>
@@ -461,7 +478,7 @@ export function HomeToolsBand() {
           <RevealOnScroll>
             <BuyerToolRibbon
               toolKey="purchaseTax"
-              sourcePage="/preview/home"
+              sourcePage={webPath('/preview/home')}
               moment={tools.purchaseTaxMoment}
               className={styles.toolRibbon}
             />
@@ -469,7 +486,7 @@ export function HomeToolsBand() {
           <RevealOnScroll order={1}>
             <BuyerToolRibbon
               toolKey="realCashNeeded"
-              sourcePage="/preview/home"
+              sourcePage={webPath('/preview/home')}
               moment={tools.realCashMoment}
               className={styles.toolRibbon}
             />

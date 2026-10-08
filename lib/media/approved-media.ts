@@ -200,13 +200,13 @@ export const APPROVED_MEDIA = {
    */
   sarahConfianza: media({
     id: 'sarah-confianza',
-    src: '/media/sarah-confianza.webp',
+    src: '/media/originals/sarah-confianza.png',
     width: 1122,
     height: 1402,
     alt: 'Sarah Katerina at her desk, smiling, resting her chin on her hand.',
     focal: '50% 30%',
     source: 'IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png',
-    note: 'Supplied by Juanma on main (e782a6d, 2026-10-01) as the replacement Sarah asked for. Source SHA-256 AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5. Compression-only derivative at the source size: no grade, crop or facial alteration. Used in the Home hero (Sarah asked to appear first) and in the Property Purchase authority block (the slot of the rejected photograph).',
+    note: 'Preview-only source. Supplied by Juanma on 2026-10-01 as Sarah’s replacement portrait. SHA-256 AC09225865A670A82FB1CCDA4647133BE4CE0A037B6D6CCBE6CA084A654AD3F5. Full-resolution PNG is served from the original file; responsive Next.js image optimisation uses quality 90. No grade, crop or facial alteration. Used in the Home and Property Purchase authority blocks.',
   }),
   sarahBalcony: media({
     id: 'sarah-balcony',
@@ -227,6 +227,25 @@ export const APPROVED_MEDIA = {
     focal: '50% 30%',
     source: 'IMAGES/EQUIPO/SARAH/EQUIPO_SARAHKATERINA6.png',
     note: 'Sarah Katerina, confirmed by Juanma on 2026-09-30 and approved by him for use; copied unchanged from the owner folder SARAH KATERINA OFFICE/EQUIPO/SARAH (identical to the mother repository IMAGENES NUEVAS/EQUIPO/EQUIPO_SARAHKATERINA6.png), SHA-256 68E9CBCD788FEBB20CB2B7B8908307454451F14F9BFB5CEA83400ADA070FDE0D. Compression-only derivative: no grade, crop or facial alteration. Used in the Tax Advisory authority block after Sarah asked to replace the former face.',
+  }),
+
+  /**
+   * 2026-10-07: chosen by Juanma for the Home service banner, state 03 (fees
+   * and taxes), so `advisorClientOne` can move to the Property Purchase
+   * chapter without appearing twice on the Home. It renders nowhere else.
+   */
+  sarahHomeDesk: media({
+    id: 'sarah-home-desk',
+    src: '/media/sarah-home-desk.webp',
+    width: 1280,
+    height: 960,
+    alt: 'Sarah Katerina at her office desk, smiling, with her hands resting on the desk.',
+    // The banner frame is 16:10; this keeps her hair and her hands inside it.
+    focal: '50% 40%',
+    source: 'IMAGES/Sarah home_2.jpeg',
+    embeddedText:
+      'Office signage only: a "Sarah Katerina" desk mat and part of the wall sign ("…terina").',
+    note: 'On main since d7b24eda (2026-09-29) with Sarah home_1; SHA-256 70EC0843B5A8E566064DB72FBF3FF835C4863B1A94FA77DBC34670C5F8DFF102. Selected by Juanma on 2026-10-07 for Home · service banner · state 03 only. Compression-only derivative at the source size: no grade, crop or facial alteration. No approval of this file by Sarah for this slot is recorded, and whether it is a photograph or generated is not recorded — confirm both before production.',
   }),
 
   /* --- Home service discovery (owner-proposed, 2026-09-29) --------------
@@ -417,83 +436,113 @@ export const APPROVED_MEDIA = {
 
   propertyInMind: media({
     id: 'property-in-mind',
-    src: '/media/graded/property-in-mind.webp',
-    ungradedSrc: '/media/property-in-mind.webp',
-    grade: 'sk-editorial-v1',
-    width: 1200,
-    height: 800,
+    src: '/media/originals/property-in-mind.png',
+    width: 1536,
+    height: 1024,
     alt: 'A woman with a woven bag walks along a stone path towards a white apartment building among olive trees and lavender.',
     focal: '45% 50%',
     // The walker is at the far left; a portrait crop keeps her and the building.
     compactFocal: '8% 50%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Property in mind.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I have a property in mind".',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I have a property in mind". Full-resolution original PNG served from /media/originals/property-in-mind.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   investmentOpportunities: media({
     id: 'investment-opportunities',
-    src: '/media/graded/investment-opportunities.webp',
-    ungradedSrc: '/media/investment-opportunities.webp',
-    grade: 'sk-editorial-v1',
-    width: 1280,
-    height: 853,
+    src: '/media/originals/investment-opportunities.png',
+    width: 1536,
+    height: 1024,
     alt: 'A woman leans on a stone wall looking out over the rooftops of a Mediterranean coastal town, with mountains and the sea beyond.',
     focal: '50% 50%',
     compactFocal: '12% 50%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Opportunities.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I want to see opportunities". The town is not named: no specific location is claimed.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · DoorsBand · "I want to see opportunities". The town is not named: no specific location is claimed. Full-resolution original PNG served from /media/originals/investment-opportunities.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   assetLand: media({
     id: 'asset-land',
-    src: '/media/graded/asset-land.webp',
-    ungradedSrc: '/media/asset-land.webp',
-    grade: 'sk-editorial-v1',
-    width: 1280,
-    height: 720,
+    src: '/media/originals/asset-land.png',
+    width: 1672,
+    height: 941,
     alt: 'An open hillside of dry grass and olive trees overlooking a small town, with a mountain range on the horizon.',
     focal: '50% 55%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Land.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Land. Illustrates the category only; not a specific plot, and says nothing about its planning status.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Land. Illustrates the category only; not a specific plot, and says nothing about its planning status. Full-resolution original PNG served from /media/originals/asset-land.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   assetCommercial: media({
     id: 'asset-commercial',
-    src: '/media/graded/asset-commercial.webp',
-    ungradedSrc: '/media/asset-commercial.webp',
-    grade: 'sk-editorial-v1',
-    width: 1280,
-    height: 720,
+    src: '/media/originals/asset-commercial.png',
+    width: 1672,
+    height: 941,
     alt: 'An empty ground-floor retail unit with a wide glazed frontage, set in a stone-clad building with balconies above.',
     focal: '45% 55%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/Commercial.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Commercial. Illustrates the category only; not a specific asset or tenancy.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · Asset types · Commercial. Illustrates the category only; not a specific asset or tenancy. Full-resolution original PNG served from /media/originals/asset-commercial.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   advisorClientOne: media({
     id: 'advisor-client-one',
-    src: '/media/graded/advisor-client-one.webp',
-    ungradedSrc: '/media/advisor-client-one.webp',
-    grade: 'sk-editorial-v1',
+    src: '/media/originals/advisor-client-one.png',
     width: 1536,
     height: 1024,
     alt: 'An editorial advisory scene: Sarah Katerina goes through printed documents with a person seated across a wooden table.',
     focal: '55% 35%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 1.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Property Purchase · AudienceBand. The other person is not presented as a real client; no case, testimonial or outcome is implied. The file name "CLIENTE" is not carried into any public text.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Property Purchase · AudienceBand. The other person is not presented as a real client; no case, testimonial or outcome is implied. The file name "CLIENTE" is not carried into any public text. Full-resolution original PNG served from /media/originals/advisor-client-one.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
   }),
 
   advisorClientTwo: media({
     id: 'advisor-client-two',
-    src: '/media/graded/advisor-client-two.webp',
-    ungradedSrc: '/media/advisor-client-two.webp',
-    grade: 'sk-editorial-v1',
+    src: '/media/originals/advisor-client-two.png',
     width: 1672,
     height: 941,
     alt: 'An editorial advisory scene: Sarah Katerina reviews floor plans in a folder with two people at a table in a bright apartment.',
     focal: '50% 40%',
     source: 'IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 2.png',
-    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` for Preview. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · ApproachBand, shown at its native 16:9 so no face is cropped. The two people are not presented as real clients; no case, testimonial or outcome is implied.',
+    note: 'Owner-supplied on 2026-10-23 in `IMAGES/MEJORAS 23 OCTUBRE/` as Preview-only media. Staged editorial image; generation method and model release are not recorded — confirm before production. Slot: Investment · ApproachBand, shown at its native 16:9 so no face is cropped. The two people are not presented as real clients; no case, testimonial or outcome is implied. Full-resolution original PNG served from /media/originals/advisor-client-two.png; responsive Next.js image optimisation uses quality 90. The previous WebP derivatives remain in public/media for comparison.',
+  }),
+
+  /**
+   * Owner-provided image selections for the 2026-10-07 visual review.
+   * These serve the protected Preview only. The consultation is an editorial
+   * scene, not evidence of an actual client, testimonial or outcome.
+   */
+  sarahInvestmentPortrait: media({
+    id: 'investment-authority-human',
+    src: '/media/graded/investment-authority-human.webp',
+    ungradedSrc: '/media/investment-authority-human.webp',
+    grade: 'sk-editorial-v1',
+    width: 1122,
+    height: 1402,
+    alt: 'Portrait of Sarah Katerina in a dark blazer, seated at a desk against a light studio backdrop.',
+    focal: '50% 33%',
+    source: 'IMAGES/MEJORAS 7 OCTUBRE/investment-authority-human.webp',
+    note: 'Supplied by Juanma on 2026-10-07 for the Investment authority block in Preview. Source PNG: image(3).png. Preview selection; production rights and provenance still require confirmation.',
+  }),
+
+  homeTaxAdvisoryHuman: media({
+    id: 'home-tax-advisory-human',
+    src: '/media/originals/home-tax-advisory-human.png',
+    width: 1672,
+    height: 941,
+    alt: 'An editorial advisory scene: a woman reviews property plans and documents with a couple at a table.',
+    focal: '50% 40%',
+    source: 'IMAGES/HOME 29 SEPTIEMBRE/ChatGPT Image 23 sept 2026, 18_49_02.png',
+    note: 'Supplied by Juanma on 2026-10-07 for the Home Tax Advisory chapter in Preview. Source PNG: image(8).png. Staged editorial scene, not a real client, testimonial or outcome; production rights and provenance still require confirmation. Preview-only full-resolution original PNG; responsive Next.js image optimisation uses quality 90. Previous WebP derivatives remain in public/media.',
+  }),
+
+  homeInvestmentCoastHuman: media({
+    id: 'home-investment-coast-human',
+    src: '/media/graded/home-investment-coast-human.webp',
+    ungradedSrc: '/media/home-investment-coast-human.webp',
+    grade: 'sk-editorial-v1',
+    width: 1412,
+    height: 1114,
+    alt: 'A woman standing on a terrace overlooking the Mediterranean coast at dusk.',
+    focal: '50% 40%',
+    source: 'IMAGES/MEJORAS 7 OCTUBRE/home-investment-coast-human.webp',
+    note: 'Supplied by Juanma on 2026-10-07 for the Home Investment chapter in Preview. Source PNG: 7680bfbb-d59c-4c0a-9df6-77c77a331b43.png. Preview selection; production rights and provenance still require confirmation.',
   }),
 
   /* --- Phase 2F: approved case and One File imagery ----------------------

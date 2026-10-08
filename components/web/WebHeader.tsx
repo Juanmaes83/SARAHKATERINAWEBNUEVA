@@ -1,7 +1,8 @@
 'use client';
+import { webPath } from '@/lib/seo/public-path';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/web/SiteLink';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { Container } from '@/components/layout/Container';
@@ -57,7 +58,7 @@ export interface WebHeaderProps {
 export function WebHeader({
   nav,
   ctaLabel,
-  brandHref = '/preview/investment',
+  brandHref = webPath('/preview/investment'),
   ctaHref,
   showLanguageSwitcher = true,
   buyerToolsSourcePage,
@@ -216,7 +217,7 @@ export function WebHeader({
         <Link
           href={brandHref}
           className={styles.brand}
-          aria-current={pathname === brandHref ? 'page' : undefined}
+          aria-current={pathname === webPath(brandHref) ? 'page' : undefined}
         >
           <Image
             src={logo}
@@ -235,7 +236,7 @@ export function WebHeader({
                   href={item.href}
                   className={styles.navLink}
                   aria-current={
-                    pathname === item.href
+                    pathname === webPath(item.href) || pathname?.startsWith(`${webPath(item.href)}/`)
                       ? 'page'
                       : current && item.href === `#${current}`
                         ? 'location'
@@ -258,7 +259,7 @@ export function WebHeader({
                 variant="primary"
                 arrow
                 aria-expanded={toolsOpen}
-                aria-controls={toolsPanelId}
+                aria-controls={toolsOpen ? toolsPanelId : undefined}
                 aria-haspopup="true"
                 onClick={() => setToolsOpen((value) => !value)}
               >
@@ -316,7 +317,7 @@ export function WebHeader({
           type="button"
           className={styles.menuTrigger}
           aria-expanded={open}
-          aria-controls={panelId}
+          aria-controls={open ? panelId : undefined}
           onClick={() => setOpen(true)}
         >
           Menu
@@ -354,7 +355,7 @@ export function WebHeader({
                     href={item.href}
                     className={styles.panelLink}
                     aria-current={
-                      pathname === item.href
+                      pathname === webPath(item.href) || pathname?.startsWith(`${webPath(item.href)}/`)
                         ? 'page'
                         : current && item.href === `#${current}`
                           ? 'location'

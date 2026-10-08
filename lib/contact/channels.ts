@@ -23,7 +23,7 @@
 export type ChannelStatus = 'configured' | 'unconfigured';
 
 /** Owner instruction 2026-09-29 + live site (contact, book-a-call), both read 2026-09-29. */
-const PHONE_E164 = '+34647754589';
+export const PHONE_E164 = '+34647754589';
 const PHONE_DISPLAY = '+34 647 754 589';
 
 function clean(value: string | undefined): string | null {

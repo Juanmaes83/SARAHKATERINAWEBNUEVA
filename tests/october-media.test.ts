@@ -35,24 +35,44 @@ const OCTOBER = [
 
 describe('October media — registry', () => {
   it.each(OCTOBER)(
-    '%s is registered with a graded derivative and its provenance',
+    '%s uses its approved source and preserves original quality',
     (key, id, file) => {
       const m = APPROVED_MEDIA[key];
       expect(m.id).toBe(id);
-      expect(m.src).toBe(`/media/graded/${id}.webp`);
-      expect(m.ungradedSrc).toBe(`/media/${id}.webp`);
-      expect(m.grade).toBe('sk-editorial-v1');
       expect(m.source).toBe(`IMAGES/MEJORAS 23 OCTUBRE/${file}`);
       expect(m.note).toMatch(/Owner-supplied on 2026-10-23/);
       expect(m.focal).toMatch(/^\d+% \d+%$/);
-      // The original stays where it was; derivatives exist and are budgeted.
       expect(existsSync(resolve(root, m.source))).toBe(true);
-      expect(existsSync(resolve(root, 'public', m.ungradedSrc!.slice(1)))).toBe(true);
-      const graded = resolve(root, 'public', m.src.slice(1));
-      expect(existsSync(graded)).toBe(true);
-      expect(statSync(graded).size / 1024).toBeLessThanOrEqual(250);
+      if (OCTOBER.map(([, imageId]) => imageId).includes(id as (typeof OCTOBER)[number][1])) {
+        const original = resolve(root, m.source);
+        const served = resolve(root, 'public', m.src.slice(1));
+        expect(m.src).toBe(`/media/originals/${id}.png`);
+        expect(m.ungradedSrc).toBeUndefined();
+        expect(m.grade).toBeUndefined();
+        expect(existsSync(served)).toBe(true);
+        expect(readFileSync(served).equals(readFileSync(original))).toBe(true);
+        expect(statSync(original).size).toBeGreaterThan(1800000);
+      } else {
+        expect(m.src).toBe(`/media/graded/${id}.webp`);
+        expect(m.ungradedSrc).toBe(`/media/${id}.webp`);
+        expect(m.grade).toBe('sk-editorial-v1');
+        expect(existsSync(resolve(root, 'public', m.ungradedSrc!.slice(1)))).toBe(true);
+        const graded = resolve(root, 'public', m.src.slice(1));
+        expect(existsSync(graded)).toBe(true);
+        expect(statSync(graded).size / 1024).toBeLessThanOrEqual(250);
+      }
     },
   );
+
+  it('requests high-quality responsive optimisation for the three restored originals', () => {
+    expect(read('components/web/TerritoryVisual.tsx')).toContain(
+      "quality={media && ['property-in-mind', 'investment-opportunities', 'advisor-client-two'].includes(media.id) ? 90 : 75}",
+    );
+    const figure = read('components/web/ArtworkFigure.tsx');
+    expect(figure.match(/quality=\{media\.id === 'asset-land'/g)?.length).toBe(2);
+    expect(read('components/web/HomePreview.tsx')).toContain("quality={['advisor-client-one', 'home-tax-advisory-human'].includes(media.id) ? 90 : 75}");
+    expect(read('components/web/HomePreview.tsx')).toContain("quality={['advisor-client-one', 'sarah-confianza'].includes(media.id) ? 90 : 75}");
+  });
 
   it('records every new derivative in both manifests', () => {
     const web = JSON.parse(read('public/media/manifest.json')) as { id: string }[];
@@ -105,7 +125,12 @@ describe('October media — slots', () => {
       .map((f) => code(readFileSync(f, 'utf8')))
       .join('\n');
     expect(all.match(/APPROVED_MEDIA\.advisorClientTwo/g)?.length).toBe(1);
-    expect(all.match(/APPROVED_MEDIA\.advisorClientOne/g)?.length).toBe(1);
+    // 2026-10-07 (Juanma): advisorClientOne also carries the Home's Property
+    // Purchase chapter, the same service; the registry entry is unchanged.
+    expect(all.match(/APPROVED_MEDIA\.advisorClientOne/g)?.length).toBe(2);
+    expect(read('components/web/HomePreview.tsx')).toContain(
+      'advisorClientOne: APPROVED_MEDIA.advisorClientOne',
+    );
     expect(bands).toContain('media={APPROVED_MEDIA.advisorClientTwo}');
     expect(purchase).toContain('media={APPROVED_MEDIA.advisorClientOne}');
   });

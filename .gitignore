@@ -52,3 +52,6 @@ yarn-error.log*
 # test output
 /test-results/
 /playwright-report/
+
+# Supabase CLI cache
+/supabase/.temp/

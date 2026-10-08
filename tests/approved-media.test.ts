@@ -43,7 +43,9 @@ describe('approved media registry', () => {
     // owner-proposed Home service-discovery images (2026-09-29).
     // 2026-09-30: + Sarah's three photographs (EQUIPO_SARAHKATERINA4–6), confirmed
     // by Juanma, for the authority blocks.
-    expect(entries.length).toBe(33);
+    // 2026-10-07: + `sarahHomeDesk` (Sarah home_2.jpeg) for the Home banner, state 03.
+    // 2026-10-07: + three owner-selected human images for Investment and Home.
+    expect(entries.length).toBe(37);
   });
 
   it('replaces the authority image Sarah rejected with her own photographs', () => {
@@ -132,7 +134,20 @@ describe('approved media registry', () => {
 
   it('serves every entry through the common Phase 2E grade, keeping the ungraded derivative', () => {
     // Sarah's own photographs are compression-only: her face is never graded.
-    const UNGRADED = ['home-sarah-authority', 'sarah-confianza', 'sarah-balcony', 'sarah-stairs'];
+    const UNGRADED = [
+      'home-sarah-authority',
+      'sarah-confianza',
+      'sarah-balcony',
+      'sarah-stairs',
+      'sarah-home-desk',
+      'home-tax-advisory-human',
+      'investment-opportunities',
+      'asset-land',
+      'asset-commercial',
+      'property-in-mind',
+      'advisor-client-one',
+      'advisor-client-two',
+    ];
     const gradedEntries = entries.filter((m) => !UNGRADED.includes(m.id));
     for (const m of gradedEntries) {
       expect(m.grade, m.id).toBe('sk-editorial-v1');
@@ -164,6 +179,14 @@ describe('approved media registry', () => {
       '/media/authority-editorial.png',
       '/media/tax-services-14.png',
       '/media/purchase-final-contact.png',
+      '/media/originals/investment-opportunities.png',
+      '/media/originals/asset-land.png',
+      '/media/originals/asset-commercial.png',
+      '/media/originals/property-in-mind.png',
+      '/media/originals/advisor-client-one.png',
+      '/media/originals/advisor-client-two.png',
+      '/media/originals/sarah-confianza.png',
+      '/media/originals/home-tax-advisory-human.png',
     ]);
     const heavy = entries
       .map((m) => {

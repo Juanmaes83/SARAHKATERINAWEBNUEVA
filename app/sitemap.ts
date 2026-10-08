@@ -1,28 +1,30 @@
 import type { MetadataRoute } from 'next';
-import { absoluteUrl, isLaboratoryRoute, siteConfig } from '@/lib/seo/config';
+import { absoluteUrl, siteConfig } from '@/lib/seo/config';
+import { listPublished } from '@/lib/studio/content';
+import { sitemapRoutes } from '@/lib/seo/routes';
 
 /**
- * Routes eligible for the sitemap.
+ * Sitemap, generated from the governed route manifest (lib/seo/routes.ts).
  *
- * Laboratory routes are excluded by construction and the exclusion is asserted
- * below, so a future route cannot be added to the sitemap by accident.
+ * A route enters it only when it is sitemap-eligible AND its public path is
+ * indexable under the same shared decision the page metadata uses
+ * (`resolveRouteIndexing()`): site-level gate open, route approved with a
+ * valid non-laboratory production path, index-eligible. While every public
+ * path is unresolved (Phase 2 gate D2-01) the sitemap is empty even if the
+ * switch were flipped — preview and laboratory URLs can never leak into it.
+ *
+ * The manifest cannot prove that the App Router page at that path exists and
+ * answers 200; that is a launch check (docs/seo-route-migration.md).
  *
  * seo-final-audit-2026-09.md §9: "Sitemap contiene únicamente URLs canónicas,
  * 200 e indexables."
  */
-const PUBLIC_ROUTES = ['/'] as const;
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  // While the site is not indexable the sitemap is empty. Publishing preview
-  // URLs would contradict the noindex posture and pollute a future crawl.
-  if (!siteConfig.indexable) {
-    return [];
-  }
-
-  return PUBLIC_ROUTES.filter((route) => !isLaboratoryRoute(route)).map((route) => ({
-    url: absoluteUrl(route),
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: route === '/' ? 1 : 0.7,
-  }));
+export const dynamic = 'force-dynamic';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const editorials = siteConfig.indexable ? [...await listPublished('article', false), ...await listPublished('case', false)] : [];
+  return [...editorials.map(card => ({url: absoluteUrl(card.href), changeFrequency: 'monthly' as const, priority: 0.6})), ...sitemapRoutes(siteConfig.indexable).map((route) => ({
+    url: absoluteUrl(route.productionPath),
+    changeFrequency: route.changeFrequency ?? 'monthly',
+    priority: route.priority ?? 0.5,
+  }))];
 }

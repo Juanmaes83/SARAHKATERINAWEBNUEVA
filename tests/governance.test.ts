@@ -18,6 +18,7 @@ function walk(dir: string, acc: string[] = []): string[] {
 }
 
 const sourceFiles = SOURCE_DIRS.flatMap((dir) => walk(resolve(root, dir)));
+const importFiles = walk(resolve(root, 'scripts/studio/import'));
 
 function read(file: string): string {
   return readFileSync(file, 'utf8');
@@ -102,8 +103,8 @@ describe('PENDING_APPROVAL guards', () => {
   });
 
   it('no production host is hardcoded anywhere in the source', () => {
-    // The canonical host is an OPEN decision (non-www vs www). Every URL must
-    // derive from NEXT_PUBLIC_SITE_URL.
+    // The canonical host is decided (www, owner-approved 2026-10-07) but it is
+    // configuration, not code: every URL must derive from NEXT_PUBLIC_SITE_URL.
     const offenders = sourceFiles
       .filter((file) => /sarahkaterina\.(com|es)/i.test(readCode(file)))
       .map(rel);
@@ -140,14 +141,26 @@ describe('unapproved naming and claims', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('emits no Organization or Person JSON-LD', () => {
-    // The legal entity, address, telephone, email and institutional descriptor
-    // are all unconfirmed, so neither schema type may be asserted.
+  it('emits no invented business entity JSON-LD and confines the real byline Person', () => {
+    // A named, visible author may be represented as Person on an editorial
+    // detail. No institutional, legal or local-business entity is asserted.
     const offenders = sourceFiles
       .filter((file) => file.endsWith('.tsx'))
-      .filter((file) => /'@type':\s*'(Organization|Person|LocalBusiness)'/.test(readCode(file)))
+      .filter((file) => /'@type':\s*'(Organization|LocalBusiness)'/.test(readCode(file)))
       .map(rel);
 
+    expect(offenders).toEqual([]);
+    const personFiles = sourceFiles.filter(file => /'@type':\s*'Person'/.test(readCode(file))).map(rel);
+    expect(personFiles).toEqual(['lib/seo/entity-graph.ts', 'lib/studio/editorial-seo.ts']);
+    // The recovered entity builder is inert: no page or component imports it.
+    expect(sourceFiles.filter(file => file.endsWith('.tsx') && /from ['"]@\/lib\/seo\/entity-graph/.test(readCode(file))).map(rel)).toEqual([]);
+  });
+
+  it('keeps the historical source snapshot as a single explicit naming exception', () => {
+    const snapshot = resolve(root, 'scripts/studio/import/live-snapshot-2026-10-07.json');
+    expect(read(snapshot)).toMatch(/VITA Host|Costa Larga/);
+    const governed = [...sourceFiles, ...importFiles].filter(file => file !== snapshot);
+    const offenders = governed.filter(file => /VITA\s*Host|Costa Larga/i.test(readCode(file))).map(rel);
     expect(offenders).toEqual([]);
   });
 });

@@ -945,3 +945,147 @@ Report and captures: `docs/screenshots/home-hero-video-2026-10-02/` (`QA.md`, `q
 **`/`:** unchanged. No film, and no reference to it.
 
 **Not measured:** Lighthouse / Core Web Vitals, Safari, Firefox and real phones.
+
+## 15. Desktop balance and two image changes (2026-10-07)
+
+Juanma asked for three visual changes on the Home only, pending his visual review. Nothing else changed: no copy, CTA, navigation, data, video, landing, `/` or production setting.
+
+### 15.1 Audit before editing (`main` at `6a45a66`)
+
+Images the Home rendered, read from the code (`content/en/home.ts`, `components/web/HomePreview.tsx`, `components/web/HomeServiceBanner.tsx`) and confirmed in the browser:
+
+| Section                        | Asset (registry key)  | Source                                                  |
+| ------------------------------ | --------------------- | ------------------------------------------------------- |
+| Hero                           | `HERO_VIDEO.home`     | Provisional silent film (§14), poster first             |
+| Banner · 01 buy                | `homeDiscoveryBuy`    | `IMAGES/HOME 29 SEPTIEMBRE/ChatGPT Image 23 sept 2026…` |
+| Banner · 02 invest             | `homeDiscoveryInvest` | `IMAGES/HOME 29 SEPTIEMBRE/01.webp`                     |
+| Banner · 03 fees and taxes     | `advisorClientOne`    | `IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 1.png` |
+| Chapter 01 · Property Purchase | `assetPlan`           | `IMAGES/sarahkaterina_Services_10.png` (cutaway plan)   |
+| Chapter 02 · Investment        | `assetResidential`    | `IMAGES/sarahkaterina_Services 8.png`                   |
+| Chapter 03 · Tax Advisory      | `reportInterior`      | `IMAGES/sarahkaterina_contacto_2.png`                   |
+| Team (`#sarah`)                | `homeAuthority`       | `IMAGES/Sarah home_1.png`                               |
+
+No branch carries a newer Sarah image for the Home. Compared with `main`: `feat/home-video-preview-2026-10-02`, `feat/sarah-home-voice-and-balance-2026-10-01`, `feat/home-pdf-review-2026-10-01` and `feat/preview-home-calculators`.
+
+### 15.2 Change 1 — less empty margin on desktop
+
+**Problem.**
+
+- At 1440 px the content sat in the canonical 1200 px column, with 120 px of empty margin on each side.
+- The hero copy column (0.85fr against 1.15fr, 80 px gap) set the H1 in four lines above a tall empty block.
+- The "Who I am" heading column (4fr against 7fr, 80 px gap) left the left half mostly blank.
+
+**Composition decision** (`components/web/HomePreview.module.css`, Home only):
+
+- **Stage.** A `HomeStage` wrapper sets the landing width for the whole Home, header and footer included, so every content edge still lines up.
+  - It uses `display: contents`, so it draws no box of its own.
+  - From 1360 px the width is `clamp(1200, 100vw − 2×80, 1360)`, so the thread's numbered node always keeps its 80 px margin.
+  - Below 1360 px nothing changes: the gutter already decides the width there.
+  - The canonical token files are not edited; the value applies to this page only.
+- **Hero** (from 1024 px): columns 1fr / 1.1fr with a 64 px gap. The H1 now sets in three lines. The film keeps its size (637 px wide at 1440, against 644 px before).
+- **"Who I am"** (from 1024 px): columns 3fr / 8fr with a 64 px gap. Paragraphs keep the 62ch reading measure; the two lesson cards use the wider column.
+
+**Result, measured** (content edge from the viewport's left side, and content width):
+
+| Viewport | Before                 | After                 |
+| -------- | ---------------------- | --------------------- |
+| 375      | 24 px · 327 wide       | 24 px · 327 wide      |
+| 1280     | 48 px · 1184 wide      | 48 px · 1184 wide     |
+| 1440     | **120 px · 1200 wide** | **80 px · 1280 wide** |
+| ≥ 1520   | (vw − 1200) / 2        | (vw − 1360) / 2       |
+
+At 1280 the margin cannot shrink: 48 px is the gutter's minimum. There, only the hero and "Who I am" columns change. Tablet and phone breakpoints are untouched.
+
+### 15.3 Change 2 — Sarah's older photograph in the Team block
+
+- **Problem.** The Team block still showed `homeAuthority` (`IMAGES/Sarah home_1.png`).
+  - It is a generated portrait with embedded typography ("Ideas / People / Real Impact", book spines, a mug).
+  - It had already been retired from the three landings, which now show Sarah's own photographs.
+- **New asset.** `sarahConfianza` (`IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png`), supplied on 2026-10-01 as the replacement Sarah asked for.
+  - Same pose, framing and 4:5 proportion, on a clean background, with no embedded text.
+  - Compression-only derivative: no grade, retouch, crop or facial change.
+- **Kept.** The proportion (1122×1402, full frame), the block's text and button, and the thread tie.
+- **Decision.** Juanma decided on 2026-10-07 to replace it.
+- **Note for review.** In REVISION WEB-HOME.pdf (point 8) Sarah wrote "La imagen me encanta" about the Team block. The new photograph keeps that pose and mood, but it is a different file. Sarah should see it.
+- **Other uses.**
+  - `homeAuthority` stays registered: Contact still uses it.
+  - `sarahConfianza` also appears in the Property Purchase landing's authority block, a different page. On the Home it appears once.
+
+### 15.4 Change 3 — Property Purchase chapter image
+
+- **Problem.** Chapter 01 ("We’re with you from your first question until you get the keys, with all your paperwork in one place.") showed the cutaway floor plan `assetPlan` (`IMAGES/sarahkaterina_Services_10.png`, with its embedded "sistem" lockup cropped out). It shows a property, but nothing about being accompanied or about paperwork.
+- **New asset.** `advisorClientOne` (`IMAGES/MEJORAS 23 OCTUBRE/SARAH ASESORA CLIENTE 1.png`), through its existing graded derivative `public/media/graded/advisor-client-one.webp` (1536×1024).
+  - It shows Sarah going through printed documents with a person across a table.
+  - It communicates accompaniment, document review and a decision in progress.
+- **Composition.**
+  - Phones: the whole 3:2 frame, unscaled.
+  - From 768 px: a 16:9 window at `object-position: 50% 35%`. Both heads, the pencil on the page, the documents and the hands stay inside it. Checked against the source: the crop removes 56 px above and 104 px below.
+  - The former 1.06 scale and 16:6 window existed only to hide the `assetPlan` lockup, so they no longer apply.
+  - The copy stays under the image: no card or text overlaps it, and the image has no embedded text to duplicate.
+- **Not altered.** The registry entry, alt text and derivative are unchanged, so the Property Purchase landing (AudienceBand) shows exactly the same image as before.
+- **Not used.** `propertyInMind` belongs to an Investment door.
+
+**Consequence: banner state 03.**
+
+- `advisorClientOne` was also the banner's "fees and taxes" image. Keeping it there would show the scene twice as soon as the visitor picks state 03. The repository test "none repeats a chapter image" also forbids it.
+- Juanma ruled out `advisorClientOne`, `processAnalysis` and `homeAuthority`, and asked for an inventory.
+- Three alternatives were presented. None was rendered anywhere in the site:
+
+| Option | File                                                      | Notes                                                                            |
+| ------ | --------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **A**  | `IMAGES/Sarah home_2.jpeg` (1280×960)                     | **Chosen by Juanma.** Sarah at her office desk, facing the camera                |
+| B      | `public/team/originals/office/OFFICE3_SARAHKATERINA.jpeg` | Office desk with documents, no people; would need a privacy crop (street window) |
+| C      | `public/team/originals/office/OFFICE2_SARAHKATERINA.jpeg` | Office overview; the weakest link to taxes                                       |
+
+**The chosen file:** `sarahHomeDesk`, served as `public/media/sarah-home-desk.webp`.
+
+- A compression-only WebP at the source size (58,780 B): no grade, crop or facial change.
+- Source SHA-256 `70EC0843B5A8E566064DB72FBF3FF835C4863B1A94FA77DBC34670C5F8DFF102`.
+- The banner's 16:10 frame uses `object-position: 50% 40%`, which keeps her hair and her hands.
+
+**Inventory scope.**
+
+- Searched:
+  - 47 files in this repository's `IMAGES/` and root;
+  - about 95 in the mother repository's `IMAGENES NUEVAS/`;
+  - about 105 in `Downloads/SARAH KATERINA OFFICE/`.
+- Excluded:
+  - anything already rendered on the Home or a landing;
+  - every image with the former face Sarah rejected (Services_11/12/14/Especial, home, home2, home3, most of the mother repository);
+  - images with embedded claims or brand copy (the LifeStyle "sistem" lockups, the brochures OFFICE10–13 with tax copy, templates).
+
+### 15.5 Assets before and after
+
+| Section                        | Before                                             | After                                                     |
+| ------------------------------ | -------------------------------------------------- | --------------------------------------------------------- |
+| Chapter 01 · Property Purchase | `assetPlan` · `sarahkaterina_Services_10.png`      | `advisorClientOne` · `SARAH ASESORA CLIENTE 1.png`        |
+| Banner · 03 fees and taxes     | `advisorClientOne` · `SARAH ASESORA CLIENTE 1.png` | `sarahHomeDesk` · `Sarah home_2.jpeg`                     |
+| Team (`#sarah`)                | `homeAuthority` · `Sarah home_1.png`               | `sarahConfianza` · `SARAH_KATERINA_1_SARAH_CONFIANZA.png` |
+
+Every other Home image is unchanged. No image appears twice on the Home, either in the default state or with state 03 selected.
+
+### 15.6 QA (2026-10-07, Google Chrome through Playwright, isolated local production build)
+
+Captures and data: `docs/screenshots/home-desktop-balance-2026-10-07/` (`QA.md`, `before-qa.json`, `after-qa.json`, before/after JPEGs).
+
+- `npm run lint`, `npm run typecheck`, `npm run test` (19 files, 327 tests) and `npm run build`: all pass.
+- `/preview/home` at 375, 1280 and 1440:
+  - one H1;
+  - `noindex, nofollow` in the meta tag and in `X-Robots-Tag`;
+  - 0 horizontal overflow, 0 console errors, 0 failed requests;
+  - every image loaded, with its registry alt text;
+  - no duplicate image, in the default state or with banner state 03 selected;
+  - no text element overlaps the Property Purchase or Team image.
+- Element captures confirm that no person is cut in the three changed frames.
+
+### 15.7 Pending human review
+
+- **Juanma's visual review** at 375 and 1440 on the Vercel Preview: the new margin, the hero, "Who I am" and the three images.
+- **Sarah: the Team photograph.** She said she loved the former one (§15.3).
+- **`Sarah home_2.jpeg`:**
+  - no approval by Sarah for this slot is recorded;
+  - whether it is a photograph or generated is not recorded;
+  - it shows office signage: a desk mat and part of the wall sign.
+- **Banner label.** State 03 keeps the banner's existing "Editorial illustration" label. If `Sarah home_2.jpeg` is a real photograph, the label is inaccurate for it and should change. It is copy, so it was left as it was.
+- **`advisorClientOne` in two places:** the Property Purchase landing and the Home's Property Purchase chapter, the same service on two pages. Its generation and model-release records are still missing for production, as before.
+- **Not measured:** Lighthouse / Core Web Vitals, Safari, Firefox and real phones.

@@ -37,8 +37,10 @@ export default function TeamPage() {
         showLanguageSwitcher={false}
         buyerToolsSourcePage={SERVICE_ROUTES.team}
       />
+        <main id="main" tabIndex={-1}>
       <TeamEditorial />
-      <WebFooter content={footer} />
+      </main>
+        <WebFooter content={footer} />
     </div>
   );
 }

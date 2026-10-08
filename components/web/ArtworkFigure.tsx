@@ -57,6 +57,7 @@ export function ArtworkFigure({ media, title, sizes, note, className }: ArtworkF
           width={media.width}
           height={media.height}
           sizes={sizes}
+          quality={media.id === 'asset-land' || media.id === 'asset-commercial' ? 90 : 75}
           className={styles.image}
         />
       </div>
@@ -103,6 +104,7 @@ export function ArtworkFigure({ media, title, sizes, note, className }: ArtworkF
               height={media.height}
               // Phones show it 70vh tall (wider than the screen), so ask for the full file.
               sizes="(max-width: 767px) 1600px, (max-width: 1600px) 96vw, 1600px"
+              quality={media.id === 'asset-land' || media.id === 'asset-commercial' ? 90 : 75}
               loading="lazy"
               className={styles.dialogImage}
             />

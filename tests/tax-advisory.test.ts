@@ -195,7 +195,10 @@ describe('investment is unaffected', () => {
     // no prop, so it must still default to its own content.
     expect(investmentPage).toMatch(/<WebFooter\s*\/>/);
     // Phase 2E: an `appearance` prop is allowed; a `content` prop is not.
-    expect(investmentPage).toMatch(/<WebFaq(\s+appearance="light")?\s*\/>/);
+    // Phase 2B (2026-10-08): a `related` internal-link map is allowed too.
+    expect(investmentPage).toMatch(
+      /<WebFaq(\s+appearance="light")?(\s+related=\{FAQ_RELATED\.investment\})?\s*\/>/,
+    );
     expect(read('components/web/WebFooter.tsx')).toContain('content = investmentFooter');
     expect(read('components/web/WebFaq.tsx')).toContain('content = investmentFaq');
   });
@@ -437,7 +440,11 @@ describe('tax advisory content — suppressed from the template', () => {
   // SUMA Gestión Tributaria; the region the template names stays out.
   it('names SUMA only as SUMA Gestión Tributaria and never the region', () => {
     const offenders = texts
-      .filter(({ text }) => /Comunidad Valenciana/i.test(text) || (/\bSUMA\b/.test(text) && !/SUMA Gestión Tributaria/.test(text)))
+      .filter(
+        ({ text }) =>
+          /Comunidad Valenciana/i.test(text) ||
+          (/\bSUMA\b/.test(text) && !/SUMA Gestión Tributaria/.test(text)),
+      )
       .map(({ path, text }) => `${path}: "${text}"`);
     expect(offenders).toEqual([]);
   });

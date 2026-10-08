@@ -204,10 +204,12 @@ describe('Home preview route', () => {
       '/preview/team',
     ]);
     expect(services.items.map((service) => service.media)).toEqual([
-      'assetPlan',
-      'assetResidential',
-      'reportInterior',
-      'homeAuthority',
+      // 2026-10-07: Property Purchase takes the advisory scene (was assetPlan)
+      // and Team the photograph supplied as Sarah's replacement (was homeAuthority).
+      'advisorClientOne',
+      'homeInvestmentCoastHuman',
+      'homeTaxAdvisoryHuman',
+      'sarahConfianza',
     ]);
     // Team is rendered by HomeTeam after the voices, never as a service chapter.
     expect(component).toContain("services.items.filter((item) => item.id !== 'sarah')");
@@ -282,10 +284,18 @@ describe('Home preview route', () => {
     );
   });
 
-  it('uses the Sarah-approved Home portrait and keeps unsupported scope out of the client page', () => {
-    expect(component).toContain('APPROVED_MEDIA.homeAuthority');
-    expect(APPROVED_MEDIA.homeAuthority.source).toBe('IMAGES/Sarah home_1.png');
-    expect(APPROVED_MEDIA.homeAuthority.note).toMatch(/approved by Sarah for the Home/i);
+  it('uses the portrait Sarah supplied and keeps unsupported scope out of the client page', () => {
+    // 2026-10-07: the Team block shows `sarahConfianza`, the same pose as the
+    // former `homeAuthority` (Sarah home_1.png) without its embedded text. That
+    // entry stays registered for Contact; the Home no longer renders it.
+    expect(component).toContain('APPROVED_MEDIA.sarahConfianza');
+    expect(component).not.toContain('APPROVED_MEDIA.homeAuthority');
+    expect(component).not.toContain('APPROVED_MEDIA.assetPlan');
+    expect(APPROVED_MEDIA.sarahConfianza.source).toBe('IMAGES/SARAH_KATERINA_1_SARAH_CONFIANZA.png');
+    expect(APPROVED_MEDIA.sarahConfianza.grade).toBeUndefined();
+    // The banner's fees-and-taxes state carries its own image, never a chapter's.
+    expect(discovery.states.find((s) => s.id === 'tax')?.media).toBe('sarahHomeDesk');
+    expect(APPROVED_MEDIA.sarahHomeDesk.source).toBe('IMAGES/Sarah home_2.jpeg');
     expect(component).not.toContain('sk-real-1.jpg');
     expect(component).not.toContain('sk-real-2.jpg');
     expect(services.items.find((service) => service.id === 'sarah')?.body.status).toBe('confirmed');

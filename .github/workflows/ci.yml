@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, feat/sarah-studio-editorial-2026-10-07, feat/studio-seo-unified-2026-10-08]
   push:
-    branches: [main]
+    branches: [main, feat/sarah-studio-editorial-2026-10-07, feat/studio-seo-unified-2026-10-08]
 
 # Least privilege: CI only needs to read the repository.
 permissions:
@@ -53,6 +53,20 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Capture public and private route responses
+        run: node scripts/qa/capture-routes.mjs
+
+      # Phase 2B: the rendered HTML is checked after the build. Every
+      # registry href (FAQ related links included, which only appear when an
+      # answer is opened) and every <a> in the initial HTML must resolve to a
+      # route and to an id rendered on THAT destination page; plus one h1,
+      # heading outline, unique ids and ARIA references. The FAQ browser
+      # interaction QA (tests/interaction) is local only, not part of CI.
+      - name: Rendered HTML checks
+        env:
+          REQUIRE_RENDERED_HTML: '1'
+        run: npx vitest run tests/internal-links.test.ts tests/rendered-semantics.test.ts
 
   secrets:
     name: Secret and env hygiene

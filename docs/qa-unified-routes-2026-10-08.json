@@ -1,0 +1,239 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/foundation",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/home",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/investment",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/property-purchase",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/tax-advisory",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/team",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/contact",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/preview/case-studies",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/studio/login",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/studio/recover",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/studio/recover/complete",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/studio/accept-invite",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/studio",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/pages",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/articles",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/cases",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/documents/00000000-0000-0000-0000-000000000000",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/media",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/links",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/new",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/studio/team",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights/modelo-210-explained",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights/five-documents-before-arras",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights/gross-vs-net-yield-costa-blanca",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights/short-term-rental-licence-valencian-community",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights/plusvalia-2021-constitutional-ruling",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/insights/nie-application-three-routes",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/case-studies/dutch-investor-orihuela",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/case-studies/german-retiree-guardamar",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/case-studies/norwegian-couple-la-zenia",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/preview/case-studies/british-buyer-torrevieja",
+    "status": 404,
+    "noindex": true
+  },
+  {
+    "path": "/robots.txt",
+    "method": "GET",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/sitemap.xml",
+    "method": "GET",
+    "status": 200,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/session",
+    "method": "GET",
+    "status": 403,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/export",
+    "method": "GET",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/team",
+    "method": "POST",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/documents",
+    "method": "POST",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/documents/00000000-0000-0000-0000-000000000000",
+    "method": "POST",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/notes/00000000-0000-0000-0000-000000000000",
+    "method": "POST",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/media",
+    "method": "POST",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/media",
+    "method": "PATCH",
+    "status": 401,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/preview",
+    "method": "GET",
+    "status": 307,
+    "noindex": true
+  },
+  {
+    "path": "/api/studio/preview/exit",
+    "method": "GET",
+    "status": 307,
+    "noindex": true
+  }
+]

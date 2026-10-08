@@ -8,6 +8,25 @@
  * every strike are simply drawn. See docs/home-buyer-system-preview.md §2.
  * =========================================================================== */
 
+/* --- desktop stage (2026-10-07) ----------------------------------------
+ * The Home's content column, header and footer included, widens past the
+ * canonical 1200 on wide screens while always leaving the margin the thread's
+ * numbered node needs (80 each side), up to 1360. Below 1360 nothing changes:
+ * the gutter already decides the width there. The wrapper draws no box. */
+.stage {
+  display: contents;
+}
+
+@media (min-width: 1360px) {
+  .stage {
+    --sk-layout-container-landing: clamp(
+      var(--sk-layout-container-max),
+      calc(100vw - 2 * var(--sk-space-80)),
+      calc(var(--sk-layout-container-max) + 2 * var(--sk-space-80))
+    );
+  }
+}
+
 .threaded {
   /* The thread sits in the page margin beside the content column when there
      is room for it, and in the gutter when there is not. */
@@ -421,8 +440,8 @@
   height: 100%;
 }
 
-/* Wide frames. The three service images carry an embedded descriptor along
-   their lower edge that is not approved Home copy, so every frame is anchored
+/* Wide frames. The Investment and Tax images carry an embedded descriptor along
+   their lower edge that is not approved Home copy, so their frames are anchored
    to the top and either letterboxed or scaled from the top edge; the visible
    height never exceeds the 16:6 window already verified to exclude it. */
 .wideMedia {
@@ -432,6 +451,18 @@
 
 .chapterInvestment .wideMedia {
   --sk-crop-scale: 1.3;
+}
+
+/* 2026-10-07: Property Purchase carries the advisory scene (Sarah and a
+   client over the paperwork). It has no embedded descriptor, so it is not
+   scaled: phones show its whole 3:2 frame, wider screens a 16:9 window set
+   to keep both heads, the documents and the hands inside it. */
+.chapterPurchase .wideMedia {
+  --sk-crop-scale: 1;
+}
+
+.chapterPurchase .chapterImage {
+  object-position: 50% 35%;
 }
 
 .chapterImage {
@@ -768,8 +799,7 @@
   }
 
   .chapterPurchase .wideMedia {
-    --sk-crop-scale: 1.06;
-    aspect-ratio: 16 / 6;
+    aspect-ratio: 16 / 9;
   }
 
   /* 02 · the opportunity: the question first, the frame runs off the edge. */
@@ -842,8 +872,10 @@
     /* 2026-10-01: copy and media share the container; nothing runs off the
        right edge any more, so the left half no longer looks empty on wide
        screens. 2026-10-02: the landscape film takes the larger column. */
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: var(--sk-space-32) var(--sk-space-80);
+    /* 2026-10-07: the copy column widens (was 0.85fr / 1.15fr with an 80
+       gap), so the H1 sets in fewer lines and the left half fills. */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: var(--sk-space-32) var(--sk-space-64);
     align-items: center;
     min-height: calc(var(--sk-space-80) * 7);
     padding-block: var(--sk-space-64);
@@ -869,10 +901,22 @@
 
   /* The heading holds the left column while her text runs on the right, so
      the left half is never left empty beside a long column. */
+  /* 2026-10-07: the heading column narrows (was 4fr / 7fr with an 80 gap)
+     and the text column takes the room; paragraphs keep the reading measure. */
   .presentationGrid {
-    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-    gap: var(--sk-space-80);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 8fr);
+    gap: var(--sk-space-64);
     align-items: start;
+  }
+
+  .presentationText {
+    max-width: none;
+  }
+
+  .presentationOpening,
+  .presentationBody,
+  .presentationClosing {
+    max-width: var(--sk-layout-reading-measure);
   }
 
   .presentationHead {

@@ -9,6 +9,7 @@ import {
   HomeProcessBand,
   HomeServices,
   HomeSideStatement,
+  HomeStage,
   HomeTeam,
   HomeToolsBand,
   HomeVoices,
@@ -22,6 +23,8 @@ import {
   UNIFIED_WEB_NAV,
 } from '@/content/en/site-navigation';
 import { buildMetadata } from '@/lib/seo/metadata';
+import { pageOverrides } from '@/lib/studio/content';
+import { EditorialHighlights } from '@/components/studio/Editorial';
 
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -40,37 +43,44 @@ export const metadata: Metadata = buildMetadata({
  * the sitemap, noindex/nofollow in metadata and headers, and `/` is untouched.
  * The four landings keep their own preview strips.
  */
-export default function HomePreviewPage() {
+export const dynamic = 'force-dynamic';
+export default async function HomePreviewPage() {
+  const overrides = await pageOverrides('home');
   return (
     <RevealLineProvider line="reading-zone">
-      <WebHeader
-        nav={UNIFIED_WEB_NAV}
-        ctaLabel={BUYER_TOOLS_LABEL}
-        brandHref={HOME_PREVIEW_ROUTE}
-        showLanguageSwitcher={false}
-        buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
-      />
-      <SarahReviewMark id="SR-086" />
-      <SarahReviewMark id="SR-001" />
-      <HomeHero />
-      <SarahReviewMark id="SR-087" />
-      <HomePresentation />
-      <HomeSideStatement />
-      <SarahReviewMark id="SR-003" />
-      <HomeServices />
-      <SarahReviewMark id="SR-005" />
-      <HomeProcessBand />
-      <SarahReviewMark id="SR-006" />
-      <HomeVoices />
-      <HomeTeam />
-      <SarahReviewMark id="SR-007" />
-      <HomeToolsBand />
-      {/* The FAQ band left the Home (REVISION WEB-HOME.pdf point 9). */}
-      <SarahReviewMark id="SR-009" />
-      <HomeContactBand />
-      <HomeFinalCtaBand />
-      <SarahReviewMark id="SR-011" />
-      <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />
+      <HomeStage>
+        <WebHeader
+          nav={UNIFIED_WEB_NAV}
+          ctaLabel={BUYER_TOOLS_LABEL}
+          brandHref={HOME_PREVIEW_ROUTE}
+          showLanguageSwitcher={false}
+          buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
+        />
+        <main id="main" tabIndex={-1}>
+        <SarahReviewMark id="SR-086" />
+        <SarahReviewMark id="SR-001" />
+        <HomeHero overrides={overrides} />
+        <SarahReviewMark id="SR-087" />
+        <HomePresentation />
+        <HomeSideStatement />
+        <SarahReviewMark id="SR-003" />
+        <HomeServices />
+        <SarahReviewMark id="SR-005" />
+        <HomeProcessBand />
+        <SarahReviewMark id="SR-006" />
+        <HomeVoices />
+        <HomeTeam />
+        <SarahReviewMark id="SR-007" />
+        <HomeToolsBand />
+        {/* The FAQ band left the Home (REVISION WEB-HOME.pdf point 9). */}
+        <SarahReviewMark id="SR-009" />
+        <HomeContactBand />
+        <EditorialHighlights page="home" />
+        <HomeFinalCtaBand />
+        <SarahReviewMark id="SR-011" />
+        </main>
+        <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />
+      </HomeStage>
     </RevealLineProvider>
   );
 }

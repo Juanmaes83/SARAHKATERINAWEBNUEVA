@@ -596,6 +596,66 @@
         122,
         120
       ]
+    },
+    {
+      "id": "investment-authority-human",
+      "input": "public/media/investment-authority-human.webp",
+      "output": "public/media/graded/investment-authority-human.webp",
+      "size": "1122x1402",
+      "kb": 68,
+      "warmthBefore": 1.22,
+      "warmthAfter": 1.187,
+      "temperatureGain": 0.9746,
+      "meanBefore": [
+        150,
+        133,
+        123
+      ],
+      "meanAfter": [
+        146,
+        132,
+        123
+      ]
+    },
+    {
+      "id": "home-tax-advisory-human",
+      "input": "public/media/home-tax-advisory-human.webp",
+      "output": "public/media/graded/home-tax-advisory-human.webp",
+      "size": "1600x900",
+      "kb": 96,
+      "warmthBefore": 1.272,
+      "warmthAfter": 1.209,
+      "temperatureGain": 0.9631,
+      "meanBefore": [
+        145,
+        124,
+        114
+      ],
+      "meanAfter": [
+        139,
+        123,
+        115
+      ]
+    },
+    {
+      "id": "home-investment-coast-human",
+      "input": "public/media/home-investment-coast-human.webp",
+      "output": "public/media/graded/home-investment-coast-human.webp",
+      "size": "1412x1114",
+      "kb": 92,
+      "warmthBefore": 1.648,
+      "warmthAfter": 1.486,
+      "temperatureGain": 0.94,
+      "meanBefore": [
+        173,
+        133,
+        105
+      ],
+      "meanAfter": [
+        162,
+        132,
+        109
+      ]
     }
   ]
 }

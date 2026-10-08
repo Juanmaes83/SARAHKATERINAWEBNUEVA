@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/web/SiteLink';
 import { Container } from '@/components/layout/Container';
 import { Icon } from './icons/Icon';
 import { footer as investmentFooter } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
 import { siteConfig } from '@/lib/seo/config';
+import { FOOTER_LINK_TARGETS } from '@/content/en/internal-links';
 import logo from '@/public/brand/sarah-katerina-logo-light.png';
 import styles from './WebFooter.module.css';
 
@@ -73,6 +74,15 @@ export function WebFooter({
                       {'label' in link ? (
                         <Link href={link.href} className={styles.footerLink}>
                           {link.label.text}
+                        </Link>
+                      ) : FOOTER_LINK_TARGETS[link.text] ? (
+                        // Phase 2B: a label that already names an existing
+                        // page or section links to it; the others stay text.
+                        <Link
+                          href={FOOTER_LINK_TARGETS[link.text] ?? ''}
+                          className={styles.footerLink}
+                        >
+                          {link.text}
                         </Link>
                       ) : (
                         link.text
