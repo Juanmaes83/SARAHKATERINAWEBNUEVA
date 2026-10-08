@@ -1,5 +1,5 @@
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { join, relative, resolve, sep } from 'node:path';
+import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { relative } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   CTA_TARGETS,
@@ -9,75 +9,140 @@ import {
 } from '@/content/en/internal-links';
 import { JOURNEY, SERVICE_ROUTES, TEAM_LAYER } from '@/content/en/service-journey';
 import { UNIFIED_WEB_NAV } from '@/content/en/site-navigation';
+import { footer as homeFooter } from '@/content/en/home';
 import { footer as investmentFooter, faq as investmentFaq } from '@/content/en/investment';
 import { footer as purchaseFooter, faq as purchaseFaq } from '@/content/en/property-purchase';
 import { footer as taxFooter, faq as taxFaq } from '@/content/en/tax-advisory';
 import { footer as teamFooter, faq as teamFaq } from '@/content/en/team';
 import { doors } from '@/content/en/investment';
+import { checkLink, resolveHref, type DestinationIndex, type LinkRef } from './helpers/link-check';
+import {
+  APP_ROUTES,
+  CHECKED_PAGES,
+  RENDERED_HTML_REQUIRED,
+  haveBuild,
+  idsIn,
+  renderedMarkup,
+  root,
+} from './helpers/rendered-html';
 
 /**
  * NO BROKEN INTERNAL LINKS (Phase 2B, 2026-10-08).
  *
  * 1. The App Router route set is derived from app/**\/page.tsx.
- * 2. Every internal path literal in app/, components/, content/ and lib/, and
- *    every route held in the link registries, must be one of those routes.
- * 3. Every fragment must name an id that exists in the source.
- * 4. When a production build is present (`.next/server/app`), the rendered
- *    HTML of the seven pages is checked as well: every internal href resolves
- *    to a route and its fragment to an id rendered on that page. CI runs this
- *    file again after `next build` with REQUIRE_RENDERED_HTML=1.
+ * 2. Source: every internal path literal in app/, components/, content/ and
+ *    lib/, and every registry href, must be an existing route.
+ * 3. Rendered build, PER DESTINATION: every registry href — including
+ *    FAQ_RELATED, whose links are only inserted when an answer is opened and
+ *    are therefore NOT in the prerendered HTML — and every <a href> in the
+ *    initial HTML of the seven pages must resolve to a route and, if it has a
+ *    fragment, to an id rendered on THAT destination page
+ *    (tests/helpers/link-check.ts). An id on another page does not count; a
+ *    fragment whose destination has no rendered HTML is an error.
+ *    CI runs this file after `next build` with REQUIRE_RENDERED_HTML=1.
  */
 
-const root = resolve(__dirname, '..');
+const ROUTES = APP_ROUTES;
 
-function walk(dir: string): string[] {
+const sources = ['app', 'components', 'content', 'lib']
+  .flatMap((d) => walkFiles(`${root}/${d}`))
+  .filter((f) => /\.(ts|tsx)$/.test(f));
+
+function walkFiles(dir: string): string[] {
   return readdirSync(dir).flatMap((name) => {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) return walk(path);
-    return [path];
+    const path = `${dir}/${name}`;
+    return statSync(path).isDirectory() ? walkFiles(path) : [path];
   });
 }
 
-const ROUTES = new Set(
-  walk(resolve(root, 'app'))
-    .filter((f) => f.endsWith(`${sep}page.tsx`))
-    .map((f) => {
-      const dir = relative(resolve(root, 'app'), f).split(sep).slice(0, -1).join('/');
-      return dir ? `/${dir}` : '/';
-    }),
-);
+const FAQ_PAGE: Record<keyof typeof FAQ_RELATED, string> = {
+  investment: SERVICE_ROUTES.investment,
+  purchase: SERVICE_ROUTES.purchase,
+  tax: SERVICE_ROUTES.tax,
+  team: SERVICE_ROUTES.team,
+};
 
-const sources = ['app', 'components', 'content', 'lib']
-  .flatMap((d) => walk(resolve(root, d)))
-  .filter((f) => /\.(ts|tsx)$/.test(f));
+/** Footer content → the pages that render it. Contact renders the Team footer. */
+const FOOTERS = [
+  { footer: homeFooter, pages: ['/preview/home'] },
+  { footer: investmentFooter, pages: [SERVICE_ROUTES.investment] },
+  { footer: purchaseFooter, pages: [SERVICE_ROUTES.purchase] },
+  { footer: taxFooter, pages: [SERVICE_ROUTES.tax] },
+  { footer: teamFooter, pages: [SERVICE_ROUTES.team, '/preview/contact'] },
+] as const;
 
-const allSource = sources.map((f) => readFileSync(f, 'utf8')).join('\n');
+const footerLabel = (link: { label?: { text: string }; text?: string }) =>
+  link.label?.text ?? link.text ?? '';
 
-function split(href: string): { path: string; hash: string | null } {
-  const [path = '', hash] = href.split('#');
-  return { path, hash: hash ?? null };
-}
+const ctaSource = (slot: string) =>
+  slot.startsWith('investment')
+    ? SERVICE_ROUTES.investment
+    : slot.startsWith('tax')
+      ? SERVICE_ROUTES.tax
+      : SERVICE_ROUTES.purchase;
 
-/** Ids declared in source: id="x", id: 'x' (only literal ones). */
-const SOURCE_IDS = new Set(
-  [...allSource.matchAll(/\bid=["']([\w-]+)["']|\bid:\s*'([\w-]+)'/g)].map((m) => m[1] ?? m[2]),
-);
-
-const registryHrefs: string[] = [
-  ...Object.values(CTA_TARGETS),
-  ...Object.values(INVESTMENT_DOOR_TARGETS),
-  ...Object.values(FOOTER_LINK_TARGETS),
-  ...Object.values(FAQ_RELATED).flatMap((group) =>
-    Object.values(group as Record<string, { href: string }>).map((link) => link.href),
+/** Every registry href, traced to the page(s) it is shown on. */
+const REGISTRY_LINKS: LinkRef[] = [
+  ...Object.entries(CTA_TARGETS).map(([key, href]) => ({
+    registry: 'CTA_TARGETS',
+    key,
+    source: ctaSource(key),
+    href,
+  })),
+  ...Object.entries(INVESTMENT_DOOR_TARGETS).map(([key, href]) => ({
+    registry: 'INVESTMENT_DOOR_TARGETS',
+    key,
+    source: SERVICE_ROUTES.investment,
+    href,
+  })),
+  ...Object.entries(FAQ_RELATED).flatMap(([page, links]) =>
+    Object.entries(links as Record<string, { href: string }>).map(([id, link]) => ({
+      registry: 'FAQ_RELATED',
+      key: `${page}.${id}`,
+      source: FAQ_PAGE[page as keyof typeof FAQ_RELATED],
+      href: link.href,
+    })),
   ),
-  ...UNIFIED_WEB_NAV.map((item) => item.href),
-  ...Object.values(SERVICE_ROUTES),
-  TEAM_LAYER.href,
-  ...[investmentFooter, purchaseFooter, taxFooter, teamFooter].flatMap((footer) =>
+  ...Object.entries(FOOTER_LINK_TARGETS).flatMap(([label, href]) => {
+    const pages = FOOTERS.filter(({ footer }) =>
+      footer.groups.some((group) =>
+        group.links.some((link) => footerLabel(link as never) === label),
+      ),
+    ).flatMap(({ pages }) => [...pages]);
+    return (pages.length ? pages : ['(no footer)']).map((source) => ({
+      registry: 'FOOTER_LINK_TARGETS',
+      key: label,
+      source,
+      href,
+    }));
+  }),
+  ...FOOTERS.flatMap(({ footer, pages }) =>
     footer.groups.flatMap((group) =>
-      group.links.flatMap((link) => ('href' in link ? [link.href] : [])),
+      group.links.flatMap((link) =>
+        'href' in link
+          ? pages.map((source) => ({
+              registry: 'footer content',
+              key: footerLabel(link as never),
+              source,
+              href: link.href,
+            }))
+          : [],
+      ),
     ),
   ),
+  ...UNIFIED_WEB_NAV.map((item) => ({
+    registry: 'UNIFIED_WEB_NAV',
+    key: item.label,
+    source: '/preview/home',
+    href: item.href,
+  })),
+  ...Object.entries(SERVICE_ROUTES).map(([key, href]) => ({
+    registry: 'SERVICE_ROUTES',
+    key,
+    source: '/preview/home',
+    href,
+  })),
+  { registry: 'TEAM_LAYER', key: 'href', source: '/preview/home', href: TEAM_LAYER.href },
 ];
 
 describe('internal link graph — source', () => {
@@ -108,12 +173,12 @@ describe('internal link graph — source', () => {
     expect(broken).toEqual([]);
   });
 
-  it('every registry href is an existing route with an existing fragment', () => {
-    const broken = registryHrefs.filter((href) => {
-      const { path, hash } = split(href);
-      return !ROUTES.has(path) || (hash !== null && !SOURCE_IDS.has(hash));
-    });
+  it('every registry href points at an existing route (fragments: see the rendered check)', () => {
+    const broken = REGISTRY_LINKS.filter(
+      (link) => !ROUTES.has(resolveHref(link.href, link.source).path),
+    ).map((link) => `${link.registry}[${link.key}] on ${link.source}: ${link.href}`);
     expect(broken).toEqual([]);
+    expect(REGISTRY_LINKS.filter((link) => link.source === '(no footer)')).toEqual([]);
   });
 
   it('keys the registries to labels and ids that actually exist', () => {
@@ -158,58 +223,126 @@ describe('internal link graph — source', () => {
   });
 });
 
-/* --- rendered HTML ---------------------------------------------------------- */
+/* --- rendered HTML, per destination ------------------------------------------ */
 
-const BUILT = resolve(root, '.next/server/app');
-const PAGES: Record<string, string> = {
-  '/': 'index.html',
-  '/preview/home': 'preview/home.html',
-  '/preview/investment': 'preview/investment.html',
-  '/preview/property-purchase': 'preview/property-purchase.html',
-  '/preview/tax-advisory': 'preview/tax-advisory.html',
-  '/preview/team': 'preview/team.html',
-  '/preview/contact': 'preview/contact.html',
+const renderedIndex: DestinationIndex = {
+  routes: ROUTES,
+  idsFor(route) {
+    const html = renderedMarkup(route);
+    return html === null ? null : new Set(idsIn(html));
+  },
 };
-const required = process.env.REQUIRE_RENDERED_HTML === '1';
-const haveBuild = Object.values(PAGES).every((f) => existsSync(join(BUILT, f)));
-
-/** Rendered markup without scripts (the RSC payload repeats attributes as JSON). */
-function renderedMarkup(route: string): string {
-  const file = PAGES[route];
-  if (!file) throw new Error(route);
-  return readFileSync(join(BUILT, file), 'utf8')
-    .replace(/<script\b[\s\S]*?<\/script>/g, '')
-    .replace(/<template\b[\s\S]*?<\/template>/g, '');
-}
-
-const renderedIds = (html: string) => [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
 
 describe('internal link graph — rendered HTML', () => {
   it('has a build to check when CI requires one', () => {
-    if (required) expect(haveBuild).toBe(true);
+    if (RENDERED_HTML_REQUIRED) expect(haveBuild).toBe(true);
   });
 
-  it.skipIf(!haveBuild)('every internal href resolves to a route and a rendered id', () => {
-    const ids = Object.fromEntries(
-      Object.keys(PAGES).map((route) => [route, new Set(renderedIds(renderedMarkup(route)))]),
-    );
-    const broken: string[] = [];
-    for (const route of Object.keys(PAGES)) {
-      const html = renderedMarkup(route);
-      for (const [, raw] of html.matchAll(/<a\b[^>]*\shref="([^"]+)"/g)) {
-        const href = (raw ?? '').replace(/&amp;/g, '&');
-        if (/^(https?:|tel:|mailto:)/.test(href)) continue;
-        const { path, hash } = split(href);
-        const target = path === '' ? route : path;
-        if (!ROUTES.has(target)) {
-          broken.push(`${route}: ${href} (no route)`);
-          continue;
+  it.skipIf(!haveBuild)(
+    'every registry href (FAQ_RELATED included) resolves on its own destination page',
+    () => {
+      const broken = REGISTRY_LINKS.map((link) => checkLink(link, renderedIndex)).filter(Boolean);
+      expect(broken).toEqual([]);
+    },
+  );
+
+  it.skipIf(!haveBuild)(
+    'every <a href> in the initial HTML resolves on its own destination page',
+    () => {
+      const broken: string[] = [];
+      for (const source of CHECKED_PAGES) {
+        const html = renderedMarkup(source) ?? '';
+        let index = 0;
+        for (const [, raw] of html.matchAll(/<a\b[^>]*\shref="([^"]+)"/g)) {
+          const href = (raw ?? '').replace(/&amp;/g, '&');
+          index += 1;
+          if (/^(https?:|tel:|mailto:)/.test(href)) continue;
+          const error = checkLink(
+            { registry: 'rendered <a>', key: String(index), source, href },
+            renderedIndex,
+          );
+          if (error) broken.push(error);
         }
-        const targetIds = ids[target];
-        if (hash && targetIds && !targetIds.has(hash))
-          broken.push(`${route}: ${href} (no #${hash})`);
       }
-    }
-    expect(broken).toEqual([]);
+      expect(broken).toEqual([]);
+    },
+  );
+
+  it.skipIf(!haveBuild)(
+    'FAQ related links are not in the prerendered HTML (they appear on interaction)',
+    () => {
+      // Documents the current behaviour the docs describe; if this starts to
+      // fail, the FAQ began server-rendering its links and the docs must change.
+      for (const [page, links] of Object.entries(FAQ_RELATED)) {
+        const html = renderedMarkup(FAQ_PAGE[page as keyof typeof FAQ_RELATED]) ?? '';
+        const start = html.indexOf('id="faq"');
+        expect(start, page).toBeGreaterThan(-1);
+        const faq = html.slice(start, html.indexOf('</section>', start));
+        // The questions are rendered; the answers and their related links are not.
+        expect(faq).toMatch(/aria-expanded="false"/);
+        for (const link of Object.values(
+          links as Record<string, { href: string; label: string }>,
+        )) {
+          expect(faq.includes(`href="${link.href}"`), `${page}: ${link.href}`).toBe(false);
+        }
+      }
+    },
+  );
+});
+
+describe('per-destination link check (synthetic fixtures)', () => {
+  const ids: Record<string, ReadonlySet<string> | null> = {
+    '/a': new Set(['shared', 'only-a']),
+    '/b': new Set(['only-b']),
+    '/c': null, // route exists, but the build has no HTML for it
+  };
+  const index: DestinationIndex = {
+    routes: new Set(['/a', '/b', '/c']),
+    idsFor: (route) => ids[route] ?? null,
+  };
+  const ref = (href: string, source = '/a', registry = 'TEST', key = 'k'): LinkRef => ({
+    registry,
+    key,
+    source,
+    href,
+  });
+
+  it('accepts a fragment rendered on its own destination, absolute or relative', () => {
+    expect(checkLink(ref('/a#only-a'), index)).toBeNull();
+    expect(checkLink(ref('#only-a'), index)).toBeNull();
+    expect(checkLink(ref('/b'), index)).toBeNull();
+    expect(checkLink(ref('/b/'), index)).toBeNull();
+  });
+
+  it('rejects a fragment that exists on another page but not on the destination', () => {
+    expect(checkLink(ref('/b#only-a'), index)).toBe(
+      'TEST[k] on /a: /b#only-a → #only-a is not rendered on /b',
+    );
+    expect(checkLink(ref('#only-b', '/a'), index)).toMatch(/#only-b is not rendered on \/a/);
+  });
+
+  it('rejects a route that does not exist', () => {
+    expect(checkLink(ref('/missing#only-a'), index)).toMatch(/route \/missing does not exist/);
+  });
+
+  it('rejects a fragment whose destination has no rendered HTML instead of skipping it', () => {
+    expect(checkLink(ref('/c#anything'), index)).toMatch(
+      /no rendered HTML for \/c to verify #anything/,
+    );
+  });
+
+  it('names the registry, source page, href and failed target for a broken FAQ link', () => {
+    const faq = ref('/b#missing', '/a', 'FAQ_RELATED', 'tax.purchase');
+    expect(checkLink(faq, index)).toBe(
+      'FAQ_RELATED[tax.purchase] on /a: /b#missing → #missing is not rendered on /b',
+    );
+    expect(checkLink({ ...faq, href: '/nowhere' }, index)).toBe(
+      'FAQ_RELATED[tax.purchase] on /a: /nowhere → route /nowhere does not exist',
+    );
+  });
+
+  it('rejects an href that leaves the site', () => {
+    expect(checkLink(ref('https://example.test/a'), index)).toMatch(/not an internal link/);
+    expect(checkLink(ref('//example.test/a'), index)).toMatch(/not an internal link/);
   });
 });
