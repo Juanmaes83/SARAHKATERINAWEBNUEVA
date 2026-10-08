@@ -14,6 +14,7 @@ import { ArtworkFigure } from './ArtworkFigure';
 import { BuyerToolRibbon } from './BuyerToolRibbon';
 import { PlayOnceVideo } from '@/components/motion/PlayOnceVideo';
 import { SERVICE_ROUTES } from '@/content/en/service-journey';
+import { CTA_TARGETS } from '@/content/en/internal-links';
 import {
   audience,
   authority,
@@ -517,7 +518,7 @@ export function ServicesBand() {
                 {/* Card-level actions are quiet across the system; the gold
                     fill is reserved for section-level decisions. */}
                 <div className={styles.serviceCta}>
-                  <WebLinkButton href="#faq" variant="quiet" arrow>
+                  <WebLinkButton href={CTA_TARGETS.purchaseServiceCards} variant="quiet" arrow>
                     {service.cta}
                   </WebLinkButton>
                 </div>
@@ -565,7 +566,7 @@ export function AuthorityBand() {
           <p className={styles.eyebrow}>{authority.eyebrow.text}</p>
           <h2>{authority.title.text}</h2>
           <p>{authority.body.text}</p>
-          <WebLinkButton href="#faq" variant="primary" onDark arrow>
+          <WebLinkButton href={CTA_TARGETS.purchaseAuthority} variant="primary" onDark arrow>
             {authority.cta.text}
           </WebLinkButton>
         </RevealOnScroll>
@@ -683,7 +684,12 @@ export function FinalCtaBand() {
             <WebLinkButton href="#services-options" variant="primary" onDark arrow>
               {finalCta.primaryCta.text}
             </WebLinkButton>
-            <WebLinkButton href="#faq" variant="secondary" onDark arrow>
+            <WebLinkButton
+              href={CTA_TARGETS.purchaseFinalSecondary}
+              variant="secondary"
+              onDark
+              arrow
+            >
               {finalCta.secondaryCta.text}
             </WebLinkButton>
           </div>

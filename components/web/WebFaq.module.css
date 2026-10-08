@@ -102,6 +102,10 @@
   }
 }
 
+.related {
+  margin: var(--sk-space-8) 0 0;
+}
+
 .answer {
   margin: 0;
   font-family: var(--sk-type-body-small-family);

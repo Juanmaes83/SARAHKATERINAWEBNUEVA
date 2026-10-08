@@ -21,6 +21,7 @@ import { BuyerToolBand } from '@/components/web/BuyerToolRibbon';
 import { SERVICE_ROUTES, TAX_LEAD_TOOL } from '@/content/en/service-journey';
 import { RevealLineProvider } from '@/components/motion/RevealLineProvider';
 import { buildMetadata } from '@/lib/seo/metadata';
+import { FAQ_RELATED } from '@/content/en/internal-links';
 import { faq, footer, seo } from '@/content/en/tax-advisory';
 import {
   BUYER_TOOLS_LABEL,
@@ -70,7 +71,7 @@ export default function TaxAdvisoryPage() {
         <TaxCasesBand />
         <TaxJourneyBand />
         <ServiceJourney page="tax" />
-        <WebFaq content={faq} appearance="light" />
+        <WebFaq content={faq} appearance="light" related={FAQ_RELATED.tax} />
         <TaxFinalCtaBand />
         <WebFooter content={footer} />
       </div>

@@ -360,6 +360,14 @@
   gap: var(--sk-space-8);
   margin-block-end: var(--sk-space-24);
 }
+/* A8 (2026-10-08): the two eyebrows on the soft ivory surface ("Good idea,
+   bad execution" and "The file, front to back") use gold-strong, 5.14:1 on
+   --sk-web-ivory-soft, instead of gold at 4.41:1. Every other eyebrow on
+   this page keeps --sk-web-gold. */
+.trackerHeading > .eyebrow,
+.goodIdeaCopy > .eyebrow {
+  color: var(--sk-web-gold-strong);
+}
 .trackerHeading > span {
   color: var(--sk-web-muted);
 }
@@ -1434,7 +1442,9 @@
 
 .goodIdeaKicker {
   margin: 0 0 var(--sk-space-16);
-  color: var(--sk-web-gold);
+  /* A8 (2026-10-08): on the soft ivory band gold measures 4.41:1 (axe
+     color-contrast, 13px eyebrow). gold-strong measures 5.14:1. */
+  color: var(--sk-web-gold-strong);
   font: var(--sk-type-eyebrow-weight) var(--sk-type-eyebrow-size) /
     var(--sk-type-eyebrow-line-height) var(--sk-type-eyebrow-family);
   letter-spacing: var(--sk-web-tracking-caps);
