@@ -22,10 +22,10 @@ Los cinco primeros pasos usan los botones reales del editor (`components/studio/
 
 Fichero: `scripts/studio/import/new-articles-2026-10-08.json`. Validado por `tests/studio-new-articles.test.ts` con el mismo esquema que usa el editor.
 
-| Slug | Título SEO (≤ 70) | Fuentes primarias (comprobadas) |
+| Slug | Título SEO (≤ 70 con el sufijo « · Sarah Katerina») | Fuentes primarias (comprobadas) |
 |---|---|---|
-| `ibi-alicante-province-non-resident-owners` | IBI in Alicante province 2026: how non-residents pay (SUMA) | SUMA, calendario 2026 y periodo voluntario (8 oct 2026); BOE, LGT art. 28 (8 oct 2026); AEAT, plazos del Modelo 210 (7 oct 2026) |
-| `non-resident-owner-tax-calendar-alicante-2026` | Non-resident owner tax calendar 2026, Alicante province | SUMA, calendario 2026 (8 oct 2026); AEAT, plazos del Modelo 210 (7 oct 2026) |
+| `ibi-alicante-province-non-resident-owners` | IBI in Alicante province 2026: how non-residents pay | SUMA, calendario 2026 y periodo voluntario (8 oct 2026); BOE, LGT art. 28 (8 oct 2026); AEAT, plazos del Modelo 210 (7 oct 2026) |
+| `non-resident-owner-tax-calendar-alicante-2026` | Non-resident owner tax calendar 2026, Alicante | SUMA, calendario 2026 (8 oct 2026); AEAT, plazos del Modelo 210 (7 oct 2026) |
 
 **SEO on page, comprobado en la página publicada:**
 - un título y una descripción propios;
@@ -65,6 +65,22 @@ node scripts/studio/import/import-payloads.mjs scripts/studio/import/new-article
 2. Elegir la imagen principal.
 3. Enlazar los artículos relacionados.
 4. **Send to review** → Sarah revisa → **Approve** → **Publish to preview**.
+
+## Auditoría SEO on page de la web nueva (build local, 8 oct 2026)
+
+Medido con Chromium sobre las 10 rutas públicas de preview. Todas:
+- responden 200;
+- tienen un único H1, canonical y Open Graph;
+- no tienen ninguna imagen sin `alt`.
+
+| Hallazgo | Páginas | Estado |
+|---|---|---|
+| Títulos de los artículos nuevos por encima de 70 caracteres al sumar « · Sarah Katerina» | Los 2 artículos nuevos | **Corregido** en este PR: 69 y 63 caracteres; el test incluye el sufijo |
+| Marca repetida en el título («… \| Sarah Katerina · Sarah Katerina») | Team | Pendiente (hallazgo A2). Es copy aprobado en un fichero de contenido protegido: decide el propietario |
+| Meta description de más de 160 caracteres | Home (176), Investment (163), Tax Advisory (229), Team (179) | Pendiente: acortar con Sarah, porque es copy aprobado |
+| Meta description muy corta | Insights (58), Case studies (44) | Propuesta: describir qué encuentra el lector. Requiere copy nuevo |
+| Las landings no llevan JSON-LD de entidad | 6 landings | Diseño: AGENTS §7.4. El constructor está listo y se emite cuando se apruebe el lanzamiento |
+| Artículos con `BlogPosting` + `BreadcrumbList` | Artículos | Correcto |
 
 ## Evidencias (esta carpeta)
 

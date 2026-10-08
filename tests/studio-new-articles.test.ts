@@ -80,7 +80,8 @@ describe('new Studio articles (2026-10-08)', () => {
         const { seo, blocks } = parsed.data;
         expect(seo.mode).toBe('custom');
         expect(seo.title?.length ?? 0).toBeGreaterThan(30);
-        expect(seo.title!.length).toBeLessThanOrEqual(70);
+        // The page template appends ' · Sarah Katerina' (17 characters).
+        expect(seo.title!.length + ' · Sarah Katerina'.length).toBeLessThanOrEqual(70);
         expect(seo.description?.length ?? 0).toBeGreaterThan(100);
         const headings = blocks.filter((b) => b.type === 'heading');
         expect(headings.length).toBeGreaterThanOrEqual(3);
