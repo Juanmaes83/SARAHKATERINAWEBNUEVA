@@ -1,0 +1,1167 @@
+[
+  {
+    "document": {
+      "kind": "article",
+      "locale": "en",
+      "slug": "who-pays-property-advisor-spain",
+      "title": "Who pays your property advisor in Spain? Questions to ask before choosing",
+      "status": "draft",
+      "has_unpublished_changes": true,
+      "working": {
+        "kind": "article",
+        "schemaVersion": 1,
+        "dek": "Understand representation, remuneration and scope before you decide who will help you buy on the Costa Blanca.",
+        "category": "Buying",
+        "tags": [
+          "buyer representation",
+          "independence",
+          "Costa Blanca",
+          "property advisory"
+        ],
+        "jurisdiction": "Spain — foreign buyers and non-resident property owners",
+        "dates": {
+          "updated": "2026-10-08"
+        },
+        "answer": "Before choosing a property advisor in Spain, ask who appoints them, who pays them and which services their written agreement covers. Sarah Katerina’s approved model is buyer-paid advisory: the buyer or client pays Sarah, with no commissions or incentives from sellers, developers or agencies. Ask for that position and the scope of work in writing. This explains Sarah’s model; it is not a claim that every advisor in Spain operates the same way.",
+        "assumptions": [
+          "This article describes Sarah Katerina’s approved business model, not a universal rule for the Spanish market.",
+          "Fees, scope and any third-party appointments must be confirmed in the agreement for your situation."
+        ],
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Start with representation, not the property shortlist",
+            "anchor": "representation-first"
+          },
+          {
+            "type": "paragraph",
+            "text": "A shared language can make a conversation easier, but it does not answer whose interests an advisor is engaged to represent. Before you discuss viewings, write down your intended use, budget, timing and the decisions you need help making. Then ask the advisor to explain their role against that brief."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Ask three questions in writing",
+            "anchor": "three-questions"
+          },
+          {
+            "type": "table",
+            "caption": "A comparison worksheet for choosing an advisor",
+            "rows": [
+              [
+                "Question",
+                "What to ask for",
+                "What remains to clarify"
+              ],
+              [
+                "Who appoints you?",
+                "The client named in the engagement agreement",
+                "Whether you are receiving buyer advice or another service"
+              ],
+              [
+                "Who pays you?",
+                "Fees, payer and any other remuneration or incentive",
+                "How possible competing interests are disclosed"
+              ],
+              [
+                "What will you deliver?",
+                "Written scope, exclusions and decision points",
+                "Which tasks require a separately appointed professional"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Use the same questions when comparing proposals. A low headline fee tells you little until you can see the work included, the payment basis and the responsibilities excluded. Ask for clarification rather than assuming a recommendation comes with independent advice."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "How Sarah Katerina’s model works",
+            "anchor": "sarah-model"
+          },
+          {
+            "type": "paragraph",
+            "text": "Sarah Katerina represents the buyer and is paid by the buyer or client who contracts the service. The approved model excludes seller, developer and agency commissions or incentives. Property opportunities are selected according to the buyer’s interests. A client can contract advisory without choosing other related suppliers."
+          },
+          {
+            "type": "source",
+            "sourceId": "sarah-model"
+          },
+          {
+            "type": "paragraph",
+            "text": "This is a statement of the business model, not a prediction of a purchase outcome. Your engagement should make the particular assignment clear: purchase advice, an investment decision or tax advisory, with the responsibilities and deliverables agreed for that assignment."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Match the scope to your decision",
+            "anchor": "match-scope"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Before committing to a property: ask which documents will be examined and which unanswered questions must be referred for specialist review.",
+              "Before investing: ask which income, cost and vacancy assumptions the analysis will use, and how alternative scenarios will be compared.",
+              "After buying: ask which ownership and tax documents the advisor needs, and which ongoing tasks are included in the engagement."
+            ]
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Questions buyers often ask",
+            "anchor": "buyer-questions"
+          },
+          {
+            "type": "paragraph",
+            "text": "Does buyer-paid advice mean I must buy? Ask what the agreement says about ending the assignment and paying for work completed. This article does not set cancellation terms or a fee schedule."
+          },
+          {
+            "type": "paragraph",
+            "text": "Can I choose another professional? Sarah’s approved model allows advisory without using other related suppliers. Confirm how document sharing and separate responsibilities will work for your purchase."
+          },
+          {
+            "type": "paragraph",
+            "text": "Will advice promise a return or a saving? A useful proposal identifies the work and evidence you will receive. Treat investment results and tax conclusions as matters for an individual review, rather than outcomes implied by a marketing description."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Prepare for the first conversation",
+            "anchor": "first-conversation"
+          },
+          {
+            "type": "paragraph",
+            "text": "Bring your property shortlist if you have one, your intended use and the questions that would change your decision. If the immediate concern is a deposit, start with the related guide to documents before arras. If the concern is investment performance, use the gross-versus-net-yield guide to prepare your assumptions."
+          },
+          {
+            "type": "cta",
+            "target": "purchase",
+            "label": "Discuss your purchase brief",
+            "text": "Explain the decision you need to make and ask Sarah to confirm the suitable scope."
+          }
+        ],
+        "sources": [
+          {
+            "id": "sarah-model",
+            "label": "Approved buyer-representation and remuneration decisions",
+            "publisher": "Sarah Katerina — strategic source repository",
+            "url": "https://github.com/Juanmaes83/sarahkaterina/blob/main/strategy/master/decisions-log.md",
+            "checkedOn": "2026-10-08",
+            "note": "Business decisions dated 27 July 2026; not legal rules or a signed engagement."
+          }
+        ],
+        "related": {
+          "documents": [
+            "81cd312d-197c-416c-85eb-92c325cc2786",
+            "083b5bfb-f433-4f16-8b33-c219a92a3a89"
+          ],
+          "services": [
+            "purchase",
+            "investment"
+          ]
+        },
+        "seo": {
+          "mode": "custom",
+          "title": "Who pays your property advisor in Spain?",
+          "description": "Ask who represents you, who pays your advisor and what the agreement covers before choosing buyer advice for a Costa Blanca property purchase."
+        }
+      }
+    },
+    "revisions": [
+      {
+        "number": 1,
+        "reason": "manual",
+        "slug": "who-pays-property-advisor-spain",
+        "title": "Who pays your property advisor in Spain? Questions to ask before choosing",
+        "content": {
+          "kind": "article",
+          "schemaVersion": 1,
+          "dek": "Understand representation, remuneration and scope before you decide who will help you buy on the Costa Blanca.",
+          "category": "Buying",
+          "tags": [
+            "buyer representation",
+            "independence",
+            "Costa Blanca",
+            "property advisory"
+          ],
+          "jurisdiction": "Spain — foreign buyers and non-resident property owners",
+          "dates": {
+            "updated": "2026-10-08"
+          },
+          "answer": "Before choosing a property advisor in Spain, ask who appoints them, who pays them and which services their written agreement covers. Sarah Katerina’s approved model is buyer-paid advisory: the buyer or client pays Sarah, with no commissions or incentives from sellers, developers or agencies. Ask for that position and the scope of work in writing. This explains Sarah’s model; it is not a claim that every advisor in Spain operates the same way.",
+          "assumptions": [
+            "This article describes Sarah Katerina’s approved business model, not a universal rule for the Spanish market.",
+            "Fees, scope and any third-party appointments must be confirmed in the agreement for your situation."
+          ],
+          "blocks": [
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Start with representation, not the property shortlist",
+              "anchor": "representation-first"
+            },
+            {
+              "type": "paragraph",
+              "text": "A shared language can make a conversation easier, but it does not answer whose interests an advisor is engaged to represent. Before you discuss viewings, write down your intended use, budget, timing and the decisions you need help making. Then ask the advisor to explain their role against that brief."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Ask three questions in writing",
+              "anchor": "three-questions"
+            },
+            {
+              "type": "table",
+              "caption": "A comparison worksheet for choosing an advisor",
+              "rows": [
+                [
+                  "Question",
+                  "What to ask for",
+                  "What remains to clarify"
+                ],
+                [
+                  "Who appoints you?",
+                  "The client named in the engagement agreement",
+                  "Whether you are receiving buyer advice or another service"
+                ],
+                [
+                  "Who pays you?",
+                  "Fees, payer and any other remuneration or incentive",
+                  "How possible competing interests are disclosed"
+                ],
+                [
+                  "What will you deliver?",
+                  "Written scope, exclusions and decision points",
+                  "Which tasks require a separately appointed professional"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Use the same questions when comparing proposals. A low headline fee tells you little until you can see the work included, the payment basis and the responsibilities excluded. Ask for clarification rather than assuming a recommendation comes with independent advice."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "How Sarah Katerina’s model works",
+              "anchor": "sarah-model"
+            },
+            {
+              "type": "paragraph",
+              "text": "Sarah Katerina represents the buyer and is paid by the buyer or client who contracts the service. The approved model excludes seller, developer and agency commissions or incentives. Property opportunities are selected according to the buyer’s interests. A client can contract advisory without choosing other related suppliers."
+            },
+            {
+              "type": "source",
+              "sourceId": "sarah-model"
+            },
+            {
+              "type": "paragraph",
+              "text": "This is a statement of the business model, not a prediction of a purchase outcome. Your engagement should make the particular assignment clear: purchase advice, an investment decision or tax advisory, with the responsibilities and deliverables agreed for that assignment."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Match the scope to your decision",
+              "anchor": "match-scope"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Before committing to a property: ask which documents will be examined and which unanswered questions must be referred for specialist review.",
+                "Before investing: ask which income, cost and vacancy assumptions the analysis will use, and how alternative scenarios will be compared.",
+                "After buying: ask which ownership and tax documents the advisor needs, and which ongoing tasks are included in the engagement."
+              ]
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Questions buyers often ask",
+              "anchor": "buyer-questions"
+            },
+            {
+              "type": "paragraph",
+              "text": "Does buyer-paid advice mean I must buy? Ask what the agreement says about ending the assignment and paying for work completed. This article does not set cancellation terms or a fee schedule."
+            },
+            {
+              "type": "paragraph",
+              "text": "Can I choose another professional? Sarah’s approved model allows advisory without using other related suppliers. Confirm how document sharing and separate responsibilities will work for your purchase."
+            },
+            {
+              "type": "paragraph",
+              "text": "Will advice promise a return or a saving? A useful proposal identifies the work and evidence you will receive. Treat investment results and tax conclusions as matters for an individual review, rather than outcomes implied by a marketing description."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Prepare for the first conversation",
+              "anchor": "first-conversation"
+            },
+            {
+              "type": "paragraph",
+              "text": "Bring your property shortlist if you have one, your intended use and the questions that would change your decision. If the immediate concern is a deposit, start with the related guide to documents before arras. If the concern is investment performance, use the gross-versus-net-yield guide to prepare your assumptions."
+            },
+            {
+              "type": "cta",
+              "target": "purchase",
+              "label": "Discuss your purchase brief",
+              "text": "Explain the decision you need to make and ask Sarah to confirm the suitable scope."
+            }
+          ],
+          "sources": [
+            {
+              "id": "sarah-model",
+              "label": "Approved buyer-representation and remuneration decisions",
+              "publisher": "Sarah Katerina — strategic source repository",
+              "url": "https://github.com/Juanmaes83/sarahkaterina/blob/main/strategy/master/decisions-log.md",
+              "checkedOn": "2026-10-08",
+              "note": "Business decisions dated 27 July 2026; not legal rules or a signed engagement."
+            }
+          ],
+          "related": {
+            "documents": [
+              "81cd312d-197c-416c-85eb-92c325cc2786",
+              "083b5bfb-f433-4f16-8b33-c219a92a3a89"
+            ],
+            "services": [
+              "purchase",
+              "investment"
+            ]
+          },
+          "seo": {
+            "mode": "custom",
+            "title": "Who pays your property advisor in Spain?",
+            "description": "Ask who represents you, who pays your advisor and what the agreement covers before choosing buyer advice for a Costa Blanca property purchase."
+          }
+        },
+        "note": "AI-assisted editorial proposal, imported by delegated database administration through the admin RPC. This is not a browser login by marketing@. Not reviewed or approved by Sarah; no publication authorised."
+      }
+    ],
+    "notes": [
+      {
+        "code": "ED-PRO-01",
+        "domain": "governance",
+        "severity": "blocking",
+        "body": "PROPOSAL: Sarah must approve the synthesis of her remuneration model and the scope language. Confirm that the public source link to the strategic repository is suitable, or replace it with an approved public independence policy. No fee, exclusivity claim or signed contractual term has been invented."
+      },
+      {
+        "code": "ED-AUTHOR-01",
+        "domain": "editorial",
+        "severity": "review",
+        "body": "AI-assisted proposal: Sarah has not authored or reviewed this text. No byline, reviewer or reviewed date has been asserted. Confirm editorial ownership before publication."
+      },
+      {
+        "code": "ED-MEDIA-01",
+        "domain": "media",
+        "severity": "review",
+        "body": "Juanma chooses the main image. No image, video or documentary visual has been invented. Add a rights-cleared image with meaningful alt text; do not use real client documents."
+      },
+      {
+        "code": "ED-DEMAND-01",
+        "domain": "source",
+        "severity": "info",
+        "body": "Priority derives from mother repo Demand Graph (02), keyword universe T1/T2/T4/T7 and signal matrix (09), checked 2026-10-08. Research is dated 2026-08-05 and uses competitor-published content as an indirect demand proxy, not measured search volume or first-party enquiries."
+      }
+    ]
+  },
+  {
+    "document": {
+      "kind": "article",
+      "locale": "en",
+      "slug": "nota-simple-spain-foreign-buyer-checklist",
+      "title": "Nota simple in Spain: a reading checklist for foreign property buyers",
+      "status": "draft",
+      "has_unpublished_changes": true,
+      "working": {
+        "kind": "article",
+        "schemaVersion": 1,
+        "dek": "Use the Spanish Land Registry extract to frame better questions before a Costa Blanca purchase, while understanding what it cannot establish.",
+        "category": "Buying",
+        "tags": [
+          "nota simple",
+          "Land Registry",
+          "due diligence",
+          "foreign buyer",
+          "Costa Blanca"
+        ],
+        "jurisdiction": "Spain — foreign buyers and non-resident property owners",
+        "dates": {
+          "updated": "2026-10-08"
+        },
+        "answer": "A nota simple is an informative Spanish Land Registry extract identifying a property, its registered right holders and the nature and limitations of their rights. It helps a buyer ask specific questions about registered ownership and charges. It is not a registry certification and should not be treated as a complete purchase clearance. Match it to the property you intend to buy and ask your appointed professional to explain any discrepancy before you commit.",
+        "assumptions": [
+          "General orientation for a property purchase in Spain; this is a document-reading checklist, not a legal opinion.",
+          "The professional reviewing the transaction must decide which further documents and checks are needed."
+        ],
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "What the extract tells you",
+            "anchor": "what-extract-tells-you"
+          },
+          {
+            "type": "paragraph",
+            "text": "The Colegio de Registradores describes the nota simple as informative registry publicity. It includes property identification, the registered right holders and the extent, nature and limitations of the registered rights. Use those entries as the starting point for questions about the specific property."
+          },
+          {
+            "type": "source",
+            "sourceId": "registry-extract"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Read it against your proposed purchase",
+            "anchor": "reading-checklist"
+          },
+          {
+            "type": "table",
+            "caption": "Proposed buyer checklist — ask your professional to interpret each entry",
+            "rows": [
+              [
+                "Entry to examine",
+                "Question to bring to the review"
+              ],
+              [
+                "Property identification",
+                "Is this the exact property, and are any separately identified elements included?"
+              ],
+              [
+                "Registered right holders",
+                "How do the recorded holders relate to the proposed seller and signing arrangements?"
+              ],
+              [
+                "Rights and limitations",
+                "What do these entries mean for the transaction being proposed?"
+              ],
+              [
+                "Charges or restrictions",
+                "What needs explanation or further evidence before a commitment?"
+              ],
+              [
+                "Issue date and transaction stage",
+                "Is this information suitable for the decision we are making now?"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "The table is a suggested preparation tool, not a legal checklist that clears a purchase. Keep the proposed agreement and the extract together so the reviewer can explain the connection between the document and the terms you are being asked to accept."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Understand the difference from a certification",
+            "anchor": "certification-difference"
+          },
+          {
+            "type": "paragraph",
+            "text": "A nota simple is informative. A registry certification is a public document signed by the Registrar that attests to the registry contents. The Colegio explains that these documents have different evidentiary functions. Ask your appointed professional which form is appropriate for your purpose rather than treating them as interchangeable."
+          },
+          {
+            "type": "source",
+            "sourceId": "registry-certification"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Request the right property information",
+            "anchor": "request-information"
+          },
+          {
+            "type": "paragraph",
+            "text": "The official registry service provides request routes based on identifiers such as the Código Registral Único (CRU), registry details or holder information. The request requires a legitimate interest assessed by the Registrar. Its service also offers an English translation on request."
+          },
+          {
+            "type": "source",
+            "sourceId": "registry-extract"
+          },
+          {
+            "type": "paragraph",
+            "text": "Before ordering, gather the information already supplied about the property. If you are unsure which identifier relates to the home you viewed, ask for clarification. When comparing an English translation with the original, ask the reviewer to explain any term that affects your decision."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Turn an unclear entry into a clear next step",
+            "anchor": "unclear-entry"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Keep a copy of the complete extract with its issue date.",
+              "Highlight the entry you do not understand and write the question in plain language.",
+              "Ask who will obtain the supporting evidence and explain its meaning.",
+              "Record the answer and any issue that remains open before deciding what to do next."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Do not turn a reassuring summary into an assumption that every purchase issue is settled. A sensible review records which question the extract answers, which other evidence the reviewer needs and which decision should wait for that explanation."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "How it fits the wider purchase file",
+            "anchor": "wider-file"
+          },
+          {
+            "type": "paragraph",
+            "text": "This article develops one document in the existing five-documents-before-arras guide. Read that guide for the wider preparation conversation. If you are buying from abroad, the NIE guide covers a separate administrative topic; it does not replace the review of the property documents."
+          },
+          {
+            "type": "cta",
+            "target": "purchase",
+            "label": "Discuss your property documents",
+            "text": "Tell Sarah what you are considering and which questions remain unanswered."
+          }
+        ],
+        "sources": [
+          {
+            "id": "registry-extract",
+            "label": "Nota simple and property information services",
+            "publisher": "Colegio de Registradores",
+            "url": "https://sede.registradores.org/site/propiedad?lang=es",
+            "checkedOn": "2026-10-08",
+            "note": ""
+          },
+          {
+            "id": "registry-certification",
+            "label": "Differences between a nota simple and registry certification",
+            "publisher": "Colegio de Registradores",
+            "url": "https://www.registradores.org/es/-/%C2%BFque-diferencias-existen-entre-una-nota-simple-y-una-certificacio-n-registral-",
+            "checkedOn": "2026-10-08",
+            "note": ""
+          }
+        ],
+        "related": {
+          "documents": [
+            "81cd312d-197c-416c-85eb-92c325cc2786",
+            "f6c140e6-2444-4034-aab0-b45d2e32b5e1"
+          ],
+          "services": [
+            "purchase"
+          ]
+        },
+        "seo": {
+          "mode": "custom",
+          "title": "Nota simple in Spain: a buyer’s reading checklist",
+          "description": "Understand a Spanish nota simple, its limits and the questions to ask about registered ownership and charges before a Costa Blanca property purchase."
+        }
+      }
+    },
+    "revisions": [
+      {
+        "number": 1,
+        "reason": "manual",
+        "slug": "nota-simple-spain-foreign-buyer-checklist",
+        "title": "Nota simple in Spain: a reading checklist for foreign property buyers",
+        "content": {
+          "kind": "article",
+          "schemaVersion": 1,
+          "dek": "Use the Spanish Land Registry extract to frame better questions before a Costa Blanca purchase, while understanding what it cannot establish.",
+          "category": "Buying",
+          "tags": [
+            "nota simple",
+            "Land Registry",
+            "due diligence",
+            "foreign buyer",
+            "Costa Blanca"
+          ],
+          "jurisdiction": "Spain — foreign buyers and non-resident property owners",
+          "dates": {
+            "updated": "2026-10-08"
+          },
+          "answer": "A nota simple is an informative Spanish Land Registry extract identifying a property, its registered right holders and the nature and limitations of their rights. It helps a buyer ask specific questions about registered ownership and charges. It is not a registry certification and should not be treated as a complete purchase clearance. Match it to the property you intend to buy and ask your appointed professional to explain any discrepancy before you commit.",
+          "assumptions": [
+            "General orientation for a property purchase in Spain; this is a document-reading checklist, not a legal opinion.",
+            "The professional reviewing the transaction must decide which further documents and checks are needed."
+          ],
+          "blocks": [
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "What the extract tells you",
+              "anchor": "what-extract-tells-you"
+            },
+            {
+              "type": "paragraph",
+              "text": "The Colegio de Registradores describes the nota simple as informative registry publicity. It includes property identification, the registered right holders and the extent, nature and limitations of the registered rights. Use those entries as the starting point for questions about the specific property."
+            },
+            {
+              "type": "source",
+              "sourceId": "registry-extract"
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Read it against your proposed purchase",
+              "anchor": "reading-checklist"
+            },
+            {
+              "type": "table",
+              "caption": "Proposed buyer checklist — ask your professional to interpret each entry",
+              "rows": [
+                [
+                  "Entry to examine",
+                  "Question to bring to the review"
+                ],
+                [
+                  "Property identification",
+                  "Is this the exact property, and are any separately identified elements included?"
+                ],
+                [
+                  "Registered right holders",
+                  "How do the recorded holders relate to the proposed seller and signing arrangements?"
+                ],
+                [
+                  "Rights and limitations",
+                  "What do these entries mean for the transaction being proposed?"
+                ],
+                [
+                  "Charges or restrictions",
+                  "What needs explanation or further evidence before a commitment?"
+                ],
+                [
+                  "Issue date and transaction stage",
+                  "Is this information suitable for the decision we are making now?"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "The table is a suggested preparation tool, not a legal checklist that clears a purchase. Keep the proposed agreement and the extract together so the reviewer can explain the connection between the document and the terms you are being asked to accept."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Understand the difference from a certification",
+              "anchor": "certification-difference"
+            },
+            {
+              "type": "paragraph",
+              "text": "A nota simple is informative. A registry certification is a public document signed by the Registrar that attests to the registry contents. The Colegio explains that these documents have different evidentiary functions. Ask your appointed professional which form is appropriate for your purpose rather than treating them as interchangeable."
+            },
+            {
+              "type": "source",
+              "sourceId": "registry-certification"
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Request the right property information",
+              "anchor": "request-information"
+            },
+            {
+              "type": "paragraph",
+              "text": "The official registry service provides request routes based on identifiers such as the Código Registral Único (CRU), registry details or holder information. The request requires a legitimate interest assessed by the Registrar. Its service also offers an English translation on request."
+            },
+            {
+              "type": "source",
+              "sourceId": "registry-extract"
+            },
+            {
+              "type": "paragraph",
+              "text": "Before ordering, gather the information already supplied about the property. If you are unsure which identifier relates to the home you viewed, ask for clarification. When comparing an English translation with the original, ask the reviewer to explain any term that affects your decision."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Turn an unclear entry into a clear next step",
+              "anchor": "unclear-entry"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Keep a copy of the complete extract with its issue date.",
+                "Highlight the entry you do not understand and write the question in plain language.",
+                "Ask who will obtain the supporting evidence and explain its meaning.",
+                "Record the answer and any issue that remains open before deciding what to do next."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Do not turn a reassuring summary into an assumption that every purchase issue is settled. A sensible review records which question the extract answers, which other evidence the reviewer needs and which decision should wait for that explanation."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "How it fits the wider purchase file",
+              "anchor": "wider-file"
+            },
+            {
+              "type": "paragraph",
+              "text": "This article develops one document in the existing five-documents-before-arras guide. Read that guide for the wider preparation conversation. If you are buying from abroad, the NIE guide covers a separate administrative topic; it does not replace the review of the property documents."
+            },
+            {
+              "type": "cta",
+              "target": "purchase",
+              "label": "Discuss your property documents",
+              "text": "Tell Sarah what you are considering and which questions remain unanswered."
+            }
+          ],
+          "sources": [
+            {
+              "id": "registry-extract",
+              "label": "Nota simple and property information services",
+              "publisher": "Colegio de Registradores",
+              "url": "https://sede.registradores.org/site/propiedad?lang=es",
+              "checkedOn": "2026-10-08",
+              "note": ""
+            },
+            {
+              "id": "registry-certification",
+              "label": "Differences between a nota simple and registry certification",
+              "publisher": "Colegio de Registradores",
+              "url": "https://www.registradores.org/es/-/%C2%BFque-diferencias-existen-entre-una-nota-simple-y-una-certificacio-n-registral-",
+              "checkedOn": "2026-10-08",
+              "note": ""
+            }
+          ],
+          "related": {
+            "documents": [
+              "81cd312d-197c-416c-85eb-92c325cc2786",
+              "f6c140e6-2444-4034-aab0-b45d2e32b5e1"
+            ],
+            "services": [
+              "purchase"
+            ]
+          },
+          "seo": {
+            "mode": "custom",
+            "title": "Nota simple in Spain: a buyer’s reading checklist",
+            "description": "Understand a Spanish nota simple, its limits and the questions to ask about registered ownership and charges before a Costa Blanca property purchase."
+          }
+        },
+        "note": "AI-assisted editorial proposal, imported by delegated database administration through the admin RPC. This is not a browser login by marketing@. Not reviewed or approved by Sarah; no publication authorised."
+      }
+    ],
+    "notes": [
+      {
+        "code": "ED-PRO-01",
+        "domain": "legal",
+        "severity": "blocking",
+        "body": "PROPOSAL: competent legal review is required before approval/publication. Confirm the registry terminology, checklist limits and transaction-specific caveats. No clearance, exhaustive due-diligence coverage, fee, validity period or legal outcome is promised."
+      },
+      {
+        "code": "ED-AUTHOR-01",
+        "domain": "editorial",
+        "severity": "review",
+        "body": "AI-assisted proposal: Sarah has not authored or reviewed this text. No byline, reviewer or reviewed date has been asserted. Confirm editorial ownership before publication."
+      },
+      {
+        "code": "ED-MEDIA-01",
+        "domain": "media",
+        "severity": "review",
+        "body": "Juanma chooses the main image. No image, video or documentary visual has been invented. Add a rights-cleared image with meaningful alt text; do not use real client documents."
+      },
+      {
+        "code": "ED-DEMAND-01",
+        "domain": "source",
+        "severity": "info",
+        "body": "Priority derives from mother repo Demand Graph (02), keyword universe T1/T2/T4/T7 and signal matrix (09), checked 2026-10-08. Research is dated 2026-08-05 and uses competitor-published content as an indirect demand proxy, not measured search volume or first-party enquiries."
+      }
+    ]
+  },
+  {
+    "document": {
+      "kind": "article",
+      "locale": "en",
+      "slug": "aeat-tax-letter-non-resident-property-owner",
+      "title": "Received an AEAT tax letter? A first checklist for non-resident owners",
+      "status": "draft",
+      "has_unpublished_changes": true,
+      "working": {
+        "kind": "article",
+        "schemaVersion": 1,
+        "dek": "Identify the sender, check the document and organise your property tax file before asking for help with a Spanish Tax Agency letter.",
+        "category": "Taxes",
+        "tags": [
+          "AEAT",
+          "tax letter",
+          "non-resident",
+          "Modelo 210",
+          "property tax"
+        ],
+        "jurisdiction": "Spain — foreign buyers and non-resident property owners",
+        "dates": {
+          "updated": "2026-10-08"
+        },
+        "answer": "If you receive a letter claiming to be from Spain’s Tax Agency, first identify the issuing body and verify the document through the official AEAT website. Its notification and document-checking services include a Código Seguro de Verificación (CSV) check. Keep the complete letter and any delivery evidence, then ask a qualified advisor to identify the request and the applicable response steps. Do not assume that every letter is a payment demand or that every property-tax letter concerns Modelo 210.",
+        "assumptions": [
+          "This draft concerns documents claiming to come from AEAT; municipal and other issuers use their own procedures.",
+          "No response period, assessment, penalty or remedy can be determined from a generic article. The actual document requires individual review."
+        ],
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Identify the sender before interpreting the request",
+            "anchor": "identify-sender"
+          },
+          {
+            "type": "paragraph",
+            "text": "Start with the issuing body, the name of the recipient and the reference shown on the document. Keep the original and any attachments. Before discussing a tax calculation, make sure the advisor is looking at the complete communication rather than a photograph of one paragraph."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Check the document on the official AEAT website",
+            "anchor": "check-document"
+          },
+          {
+            "type": "paragraph",
+            "text": "AEAT provides a notifications and document-verification area. The CSV service checks the integrity of a copy of an AEAT electronic document. Use the official service and compare the retrieved document with what you received; the presence of a code printed on a page is not itself a completed verification."
+          },
+          {
+            "type": "source",
+            "sourceId": "aeat-verification"
+          },
+          {
+            "type": "source",
+            "sourceId": "aeat-notifications"
+          },
+          {
+            "type": "paragraph",
+            "text": "Verification establishes a document check, not the correct response to its contents. If you cannot retrieve the document or cannot match it confidently, record that problem and ask for assistance instead of guessing what the letter requires."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Prepare a file your advisor can review",
+            "anchor": "prepare-file"
+          },
+          {
+            "type": "table",
+            "caption": "Suggested preparation file — include only information relevant to the request",
+            "rows": [
+              [
+                "Material",
+                "Why it helps the conversation"
+              ],
+              [
+                "Complete letter and attachments",
+                "Shows the wording and the matter raised"
+              ],
+              [
+                "Delivery or notification evidence available to you",
+                "Helps the advisor examine the timing"
+              ],
+              [
+                "Prior submissions relevant to the letter",
+                "Lets the advisor compare the request with your records"
+              ],
+              [
+                "Relevant property and ownership records",
+                "Provides context for the property concerned"
+              ],
+              [
+                "Your questions and any action already taken",
+                "Prevents the next step being based on missing context"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "This is a proposed preparation checklist, not a statement that every item is legally required. Ask which records are needed for your particular letter. Keep credentials out of email and use the secure document-sharing method agreed with your advisor."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Ask for a specific response plan",
+            "anchor": "response-plan"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "What type of document have I received, and what is the request?",
+              "Which date and procedural rule determine any response period?",
+              "Which information or action is required in my case?",
+              "Who will prepare and submit any response, if one is needed?",
+              "What confirmation or record should I retain afterwards?"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "A generic deadline from a blog is not a substitute for examining the letter. This guide intentionally gives no universal number of days, surcharge or penalty. Ask the advisor to explain the next step using the document and your circumstances."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Keep different property obligations separate",
+            "anchor": "separate-obligations"
+          },
+          {
+            "type": "paragraph",
+            "text": "For background, the related Modelo 210 article explains the non-resident income-tax topic. The Alicante IBI article deals with a different property-tax topic, and the ownership calendar helps organise recurring questions. These articles can orient the conversation; none establishes what this particular letter means."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "A calm first conversation",
+            "anchor": "first-conversation"
+          },
+          {
+            "type": "paragraph",
+            "text": "Tell Sarah who issued the letter, what the document is called and whether it identifies a property or a prior filing. Request an individual review before deciding how to act. Do not send the contents through a public website field or post a screenshot showing personal identifiers."
+          },
+          {
+            "type": "cta",
+            "target": "tax",
+            "label": "Ask about your Spanish tax letter",
+            "text": "Describe the issue without uploading sensitive documents to a public form; agree the next review step with Sarah."
+          }
+        ],
+        "sources": [
+          {
+            "id": "aeat-notifications",
+            "label": "Notifications and document verification",
+            "publisher": "Agencia Estatal de Administración Tributaria",
+            "url": "https://sede.agenciatributaria.gob.es/Sede/notificaciones-cotejo-documentos.html",
+            "checkedOn": "2026-10-08",
+            "note": ""
+          },
+          {
+            "id": "aeat-verification",
+            "label": "Checking documents using the Código Seguro de Verificación",
+            "publisher": "Agencia Estatal de Administración Tributaria",
+            "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/consultas-informaticas/otros-servicios-ayuda-tecnica/cotejo-documentos-mediante-codigo-seguro-verificacion.html",
+            "checkedOn": "2026-10-08",
+            "note": ""
+          }
+        ],
+        "related": {
+          "documents": [
+            "b5fc7062-7463-4c08-8f81-f0fc83e11467",
+            "f9d96a79-de91-4a7f-aa53-ba5fa9291d52",
+            "cc874c9d-25cd-40e6-bc6e-72c856efd96d"
+          ],
+          "services": [
+            "tax"
+          ]
+        },
+        "seo": {
+          "mode": "custom",
+          "title": "AEAT tax letter: a non-resident owner’s checklist",
+          "description": "Received a Spanish Tax Agency letter? Check its authenticity, organise relevant documents and prepare questions for an individual tax review."
+        }
+      }
+    },
+    "revisions": [
+      {
+        "number": 1,
+        "reason": "manual",
+        "slug": "aeat-tax-letter-non-resident-property-owner",
+        "title": "Received an AEAT tax letter? A first checklist for non-resident owners",
+        "content": {
+          "kind": "article",
+          "schemaVersion": 1,
+          "dek": "Identify the sender, check the document and organise your property tax file before asking for help with a Spanish Tax Agency letter.",
+          "category": "Taxes",
+          "tags": [
+            "AEAT",
+            "tax letter",
+            "non-resident",
+            "Modelo 210",
+            "property tax"
+          ],
+          "jurisdiction": "Spain — foreign buyers and non-resident property owners",
+          "dates": {
+            "updated": "2026-10-08"
+          },
+          "answer": "If you receive a letter claiming to be from Spain’s Tax Agency, first identify the issuing body and verify the document through the official AEAT website. Its notification and document-checking services include a Código Seguro de Verificación (CSV) check. Keep the complete letter and any delivery evidence, then ask a qualified advisor to identify the request and the applicable response steps. Do not assume that every letter is a payment demand or that every property-tax letter concerns Modelo 210.",
+          "assumptions": [
+            "This draft concerns documents claiming to come from AEAT; municipal and other issuers use their own procedures.",
+            "No response period, assessment, penalty or remedy can be determined from a generic article. The actual document requires individual review."
+          ],
+          "blocks": [
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Identify the sender before interpreting the request",
+              "anchor": "identify-sender"
+            },
+            {
+              "type": "paragraph",
+              "text": "Start with the issuing body, the name of the recipient and the reference shown on the document. Keep the original and any attachments. Before discussing a tax calculation, make sure the advisor is looking at the complete communication rather than a photograph of one paragraph."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Check the document on the official AEAT website",
+              "anchor": "check-document"
+            },
+            {
+              "type": "paragraph",
+              "text": "AEAT provides a notifications and document-verification area. The CSV service checks the integrity of a copy of an AEAT electronic document. Use the official service and compare the retrieved document with what you received; the presence of a code printed on a page is not itself a completed verification."
+            },
+            {
+              "type": "source",
+              "sourceId": "aeat-verification"
+            },
+            {
+              "type": "source",
+              "sourceId": "aeat-notifications"
+            },
+            {
+              "type": "paragraph",
+              "text": "Verification establishes a document check, not the correct response to its contents. If you cannot retrieve the document or cannot match it confidently, record that problem and ask for assistance instead of guessing what the letter requires."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Prepare a file your advisor can review",
+              "anchor": "prepare-file"
+            },
+            {
+              "type": "table",
+              "caption": "Suggested preparation file — include only information relevant to the request",
+              "rows": [
+                [
+                  "Material",
+                  "Why it helps the conversation"
+                ],
+                [
+                  "Complete letter and attachments",
+                  "Shows the wording and the matter raised"
+                ],
+                [
+                  "Delivery or notification evidence available to you",
+                  "Helps the advisor examine the timing"
+                ],
+                [
+                  "Prior submissions relevant to the letter",
+                  "Lets the advisor compare the request with your records"
+                ],
+                [
+                  "Relevant property and ownership records",
+                  "Provides context for the property concerned"
+                ],
+                [
+                  "Your questions and any action already taken",
+                  "Prevents the next step being based on missing context"
+                ]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "This is a proposed preparation checklist, not a statement that every item is legally required. Ask which records are needed for your particular letter. Keep credentials out of email and use the secure document-sharing method agreed with your advisor."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Ask for a specific response plan",
+              "anchor": "response-plan"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "What type of document have I received, and what is the request?",
+                "Which date and procedural rule determine any response period?",
+                "Which information or action is required in my case?",
+                "Who will prepare and submit any response, if one is needed?",
+                "What confirmation or record should I retain afterwards?"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "A generic deadline from a blog is not a substitute for examining the letter. This guide intentionally gives no universal number of days, surcharge or penalty. Ask the advisor to explain the next step using the document and your circumstances."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Keep different property obligations separate",
+              "anchor": "separate-obligations"
+            },
+            {
+              "type": "paragraph",
+              "text": "For background, the related Modelo 210 article explains the non-resident income-tax topic. The Alicante IBI article deals with a different property-tax topic, and the ownership calendar helps organise recurring questions. These articles can orient the conversation; none establishes what this particular letter means."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "A calm first conversation",
+              "anchor": "first-conversation"
+            },
+            {
+              "type": "paragraph",
+              "text": "Tell Sarah who issued the letter, what the document is called and whether it identifies a property or a prior filing. Request an individual review before deciding how to act. Do not send the contents through a public website field or post a screenshot showing personal identifiers."
+            },
+            {
+              "type": "cta",
+              "target": "tax",
+              "label": "Ask about your Spanish tax letter",
+              "text": "Describe the issue without uploading sensitive documents to a public form; agree the next review step with Sarah."
+            }
+          ],
+          "sources": [
+            {
+              "id": "aeat-notifications",
+              "label": "Notifications and document verification",
+              "publisher": "Agencia Estatal de Administración Tributaria",
+              "url": "https://sede.agenciatributaria.gob.es/Sede/notificaciones-cotejo-documentos.html",
+              "checkedOn": "2026-10-08",
+              "note": ""
+            },
+            {
+              "id": "aeat-verification",
+              "label": "Checking documents using the Código Seguro de Verificación",
+              "publisher": "Agencia Estatal de Administración Tributaria",
+              "url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/consultas-informaticas/otros-servicios-ayuda-tecnica/cotejo-documentos-mediante-codigo-seguro-verificacion.html",
+              "checkedOn": "2026-10-08",
+              "note": ""
+            }
+          ],
+          "related": {
+            "documents": [
+              "b5fc7062-7463-4c08-8f81-f0fc83e11467",
+              "f9d96a79-de91-4a7f-aa53-ba5fa9291d52",
+              "cc874c9d-25cd-40e6-bc6e-72c856efd96d"
+            ],
+            "services": [
+              "tax"
+            ]
+          },
+          "seo": {
+            "mode": "custom",
+            "title": "AEAT tax letter: a non-resident owner’s checklist",
+            "description": "Received a Spanish Tax Agency letter? Check its authenticity, organise relevant documents and prepare questions for an individual tax review."
+          }
+        },
+        "note": "AI-assisted editorial proposal, imported by delegated database administration through the admin RPC. This is not a browser login by marketing@. Not reviewed or approved by Sarah; no publication authorised."
+      }
+    ],
+    "notes": [
+      {
+        "code": "ED-PRO-01",
+        "domain": "tax",
+        "severity": "blocking",
+        "body": "PROPOSAL: competent tax/procedural review required before approval/publication. Verify document-checking instructions and the privacy-aware contact wording. No universal deadline, remedy, penalty or entitlement is asserted; no DEHú acceptance instruction is given."
+      },
+      {
+        "code": "ED-AUTHOR-01",
+        "domain": "editorial",
+        "severity": "review",
+        "body": "AI-assisted proposal: Sarah has not authored or reviewed this text. No byline, reviewer or reviewed date has been asserted. Confirm editorial ownership before publication."
+      },
+      {
+        "code": "ED-MEDIA-01",
+        "domain": "media",
+        "severity": "review",
+        "body": "Juanma chooses the main image. No image, video or documentary visual has been invented. Add a rights-cleared image with meaningful alt text; do not use real client documents."
+      },
+      {
+        "code": "ED-DEMAND-01",
+        "domain": "source",
+        "severity": "info",
+        "body": "Priority derives from mother repo Demand Graph (02), keyword universe T1/T2/T4/T7 and signal matrix (09), checked 2026-10-08. Research is dated 2026-08-05 and uses competitor-published content as an indirect demand proxy, not measured search volume or first-party enquiries."
+      }
+    ]
+  }
+]
