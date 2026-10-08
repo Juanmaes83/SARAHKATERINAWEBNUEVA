@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { absoluteUrl, siteConfig } from '@/lib/seo/config';
+import { listPublished } from '@/lib/studio/content';
 import { sitemapRoutes } from '@/lib/seo/routes';
 
 /**
@@ -18,10 +19,12 @@ import { sitemapRoutes } from '@/lib/seo/routes';
  * seo-final-audit-2026-09.md §9: "Sitemap contiene únicamente URLs canónicas,
  * 200 e indexables."
  */
-export default function sitemap(): MetadataRoute.Sitemap {
-  return sitemapRoutes(siteConfig.indexable).map((route) => ({
+export const dynamic = 'force-dynamic';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const editorials = siteConfig.indexable ? [...await listPublished('article', false), ...await listPublished('case', false)] : [];
+  return [...editorials.map(card => ({url: absoluteUrl(card.href), changeFrequency: 'monthly' as const, priority: 0.6})), ...sitemapRoutes(siteConfig.indexable).map((route) => ({
     url: absoluteUrl(route.productionPath),
     changeFrequency: route.changeFrequency ?? 'monthly',
     priority: route.priority ?? 0.5,
-  }));
+  }))];
 }

@@ -1,3 +1,4 @@
+import { OWNER_RELEASE_APPROVED_IDS } from './owner-release-2026-10-08';
 import { siteConfig } from '@/lib/seo/config';
 
 /**
@@ -23,7 +24,7 @@ export function assertSarahReviewMarksAllowed(
   id: string,
   config: ReviewGateConfig = siteConfig,
 ): void {
-  if (!sarahReviewMarksAllowed(config)) {
+  if (!sarahReviewMarksAllowed(config) && !OWNER_RELEASE_APPROVED_IDS.includes(id)) {
     throw new Error(
       `${id} is still waiting for Sarah's review. SARAH REVIEW marks cannot be built into a production or indexable site: resolve the item in content/en/sarah-review.ts first.`,
     );

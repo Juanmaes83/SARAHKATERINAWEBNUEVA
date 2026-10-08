@@ -1,4 +1,5 @@
 import 'server-only';
+import { webPath } from '@/lib/seo/public-path';
 import { cache } from 'react';
 import { draftMode } from 'next/headers';
 import { publicClient } from '@/lib/supabase/public';
@@ -26,8 +27,8 @@ import { mediaUrls, type MediaRecord, type ResolvedMedia } from './media';
 export type EditorialKind = 'article' | 'case';
 
 export const EDITORIAL_BASE: Record<EditorialKind, string> = {
-  article: '/preview/insights',
-  case: '/preview/case-studies',
+  article: webPath('/preview/insights'),
+  case: webPath('/preview/case-studies'),
 };
 
 export const EDITORIAL_LABEL: Record<EditorialKind, string> = {
@@ -101,8 +102,8 @@ function toCard(row: {
 }
 
 /** Published cards of one kind, newest first. Empty when the database is not configured. */
-export const listPublished = cache(async (kind: EditorialKind): Promise<EditorialCard[]> => {
-  if (await isDraftPreview()) {
+export const listPublished = cache(async (kind: EditorialKind, includeDraft = true): Promise<EditorialCard[]> => {
+  if (includeDraft && await isDraftPreview()) {
     const session = await sessionClient();
     if (session) {
       const { data: drafts } = await session.from('documents')
@@ -137,8 +138,9 @@ export const getEditorial = cache(
     kind: EditorialKind,
     slug: string,
     revisionId?: string,
+    includeDraft = true,
   ): Promise<EditorialDoc<ArticleContent | CaseContent> | null> => {
-    if (await isDraftPreview()) {
+    if (includeDraft && await isDraftPreview()) {
       const draft = await readDraft(kind, slug, revisionId);
       if (draft) return draft;
     }
@@ -212,9 +214,9 @@ async function readDraft(
 }
 
 /** Published cards for the given document ids, in the order given. */
-export async function cardsFor(ids: readonly string[]): Promise<EditorialCard[]> {
+export async function cardsFor(ids: readonly string[], includeDraft = true): Promise<EditorialCard[]> {
   if (ids.length === 0) return [];
-  if (await isDraftPreview()) {
+  if (includeDraft && await isDraftPreview()) {
     const session = await sessionClient();
     if (session) {
       const { data: drafts } = await session.from('documents')

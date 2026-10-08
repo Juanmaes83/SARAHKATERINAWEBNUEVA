@@ -18,6 +18,9 @@ import {
   type SeoRoute,
 } from '@/lib/seo/routes';
 
+vi.mock('server-only', () => ({}));
+vi.mock('@/lib/studio/content', () => ({ listPublished: async () => [] }));
+
 const root = resolve(__dirname, '..');
 const SITE = 'https://example.test';
 
@@ -101,7 +104,7 @@ const PRODUCTION_INDEXABLE = {
 
 describe('route manifest', () => {
   it('declares every page the app renders, exactly once', () => {
-    const declared = SEO_ROUTES.map((route) => route.previewPath).sort();
+    const declared = [...new Set(SEO_ROUTES.flatMap(route => [route.previewPath, ...(route.productionPath ? [route.productionPath] : [])]))].sort();
     expect(declared).toEqual(appRoutes());
     expect(new Set(SEO_ROUTES.map((route) => route.id)).size).toBe(SEO_ROUTES.length);
   });
@@ -149,11 +152,10 @@ describe('route manifest', () => {
     }
   });
 
-  it('never invents a public path: every route is laboratory or unresolved today', () => {
-    for (const route of SEO_ROUTES) {
-      expect(route.status).not.toBe('approved');
+  it('only approves owner-authorized public routes and leaves private routes private', () => {
+    expect(SEO_ROUTES.filter(isPublishable)).toHaveLength(10);
+    for (const route of SEO_ROUTES.filter(r => r.status === 'laboratory')) {
       expect(route.productionPath).toBeNull();
-      expect(route.blockedReason, route.id).toBeTruthy();
       expect(isPublishable(route)).toBe(false);
     }
   });
@@ -181,22 +183,24 @@ describe('route manifest', () => {
 describe('sitemap', () => {
   it('is empty in preview mode', async () => {
     const { sitemap } = await loadWithEnv({ NEXT_PUBLIC_SITE_MODE: 'preview', NEXT_PUBLIC_SITE_URL: SITE });
-    expect(sitemap()).toEqual([]);
+    expect(await sitemap()).toEqual([]);
   });
 
   it('is empty when the env is missing (safe defaults)', async () => {
     const { sitemap } = await loadWithEnv({});
-    expect(sitemap()).toEqual([]);
+    expect(await sitemap()).toEqual([]);
   });
 
   it('is empty in production without the explicit indexable flag', async () => {
     const { sitemap } = await loadWithEnv({ NEXT_PUBLIC_SITE_MODE: 'production', NEXT_PUBLIC_SITE_URL: SITE });
-    expect(sitemap()).toEqual([]);
+    expect(await sitemap()).toEqual([]);
   });
 
-  it('stays empty in production + indexable while every public path is unresolved', async () => {
+  it('lists approved public routes when production indexing is enabled', async () => {
     const { sitemap } = await loadWithEnv(PRODUCTION_INDEXABLE);
-    expect(sitemap()).toEqual([]);
+    const entries = await sitemap();
+    expect(entries).toHaveLength(8);
+    expect(entries.every(entry => !entry.url.includes('/preview') && !entry.url.includes('[slug]'))).toBe(true);
   });
 
   it('would list only approved, publishable, index-eligible routes', () => {
@@ -250,15 +254,15 @@ describe('hreflang', () => {
   it('keeps the canonical on the configured origin', async () => {
     const { metadata } = await loadWithEnv(PRODUCTION_INDEXABLE);
     const meta = metadata.buildMetadata({ title: 't', description: 'd', path: '/preview/home' });
-    expect(meta.alternates?.canonical).toBe(`${SITE}/preview/home`);
-    expect(meta.openGraph?.url).toBe(`${SITE}/preview/home`);
+    expect(meta.alternates?.canonical).toBe(`${SITE}/`);
+    expect(meta.openGraph?.url).toBe(`${SITE}/`);
   });
 });
 
 describe('migration registry and redirects', () => {
-  it('produces no redirect today: nothing is approved and every target is unresolved', () => {
-    expect(activeRedirects()).toEqual([]);
-    expect(MIGRATION_REGISTRY.some((entry) => entry.status === 'approved')).toBe(false);
+  it('activates only the three equivalent legacy destinations approved for launch', () => {
+    expect(activeRedirects()).toHaveLength(3);
+    expect(MIGRATION_REGISTRY.filter(entry => entry.status === 'approved')).toHaveLength(3);
   });
 
   it('points every mapping at a route that exists in the manifest', () => {
@@ -408,7 +412,7 @@ describe('publication guarantees: site gate × route gate', () => {
       const { metadata, sitemap, nextConfig } = await loadWithEnv(env);
       expect(meta(metadata, '/fixture').robots).toEqual(NOINDEX);
       expect(metadata.robotsFor({ path: '/fixture', routes: [APPROVED] })).toEqual(NOINDEX);
-      expect(sitemap()).toEqual([]);
+      expect(await sitemap()).toEqual([]);
       expect(sitemapRoutes(false, [APPROVED])).toEqual([]);
       expect(await globalRobotsHeader(nextConfig)).toBe('noindex, nofollow');
     }
@@ -417,7 +421,7 @@ describe('publication guarantees: site gate × route gate', () => {
   it('2. preview + flag true → metadata and the global header stay noindex', async () => {
     const { metadata, nextConfig, sitemap } = await loadWithEnv(PREVIEW_WITH_FLAG);
     expect(meta(metadata, '/fixture').robots).toEqual(NOINDEX);
-    expect(sitemap()).toEqual([]);
+    expect(await sitemap()).toEqual([]);
     expect(await globalRobotsHeader(nextConfig)).toBe('noindex, nofollow');
   });
 
@@ -432,7 +436,7 @@ describe('publication guarantees: site gate × route gate', () => {
     }
   });
 
-  it('3. production + flag + every real route (all unresolved or laboratory) → noindex', async () => {
+  it('3. preview twins stay noindex even when public counterparts are approved', async () => {
     const { metadata } = await loadWithEnv(PRODUCTION_INDEXABLE);
     for (const route of SEO_ROUTES) {
       expect(metadata.buildMetadata({ title: 't', description: 'd', path: route.previewPath }).robots, route.id).toEqual(NOINDEX);
@@ -486,7 +490,7 @@ describe('publication guarantees: site gate × route gate', () => {
     expect(unresolved.openGraph?.url).toBe(`${SITE}/preview/fixture`);
     // Real routes today: canonical stays on the served preview path.
     const real = metadata.buildMetadata({ title: 't', description: 'd', path: '/preview/home', laboratory: true });
-    expect(real.alternates?.canonical).toBe(`${SITE}/preview/home`);
+    expect(real.alternates?.canonical).toBe(`${SITE}/`);
   });
 
   it('9. a laboratory route is never publishable or indexable, whatever it declares', async () => {
@@ -563,11 +567,11 @@ describe('publication guarantees: site gate × route gate', () => {
     expect(entityGraphEmissionAllowed(APPROVED.id, { ...open, servedPath: undefined }, [APPROVED])).toBe(false);
   });
 
-  it('15. the real manifest today: empty sitemap, no active redirect, no entity graph, no indexable page', async () => {
+  it('15. approved public sitemap and private noindex coexist without an entity graph', async () => {
     const { sitemap, metadata } = await loadWithEnv(PRODUCTION_INDEXABLE);
-    expect(sitemap()).toEqual([]);
-    expect(sitemapRoutes(true)).toEqual([]);
-    expect(activeRedirects()).toEqual([]);
+    expect(await sitemap()).toHaveLength(8);
+    expect(sitemapRoutes(true)).toHaveLength(8);
+    expect(activeRedirects()).toHaveLength(3);
     for (const route of SEO_ROUTES) {
       expect(entityGraphEmissionAllowed(route.id, { siteIndexable: true, entityJsonLdApproved: true })).toBe(false);
       expect(resolveRouteIndexing(route.previewPath, { siteIndexable: true }).indexable).toBe(false);

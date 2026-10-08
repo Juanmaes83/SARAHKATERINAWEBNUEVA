@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { webPath } from '@/lib/seo/public-path';
+import Link from '@/components/web/SiteLink';
 import { WebHeader } from '@/components/web/WebHeader';
 import { WebFooter, type WebFooterContent } from '@/components/web/WebFooter';
 import { HOME_PREVIEW_ROUTE, UNIFIED_WEB_NAV, BUYER_TOOLS_LABEL } from '@/content/en/site-navigation';
@@ -49,7 +50,7 @@ export async function EditorialListing({ kind, cards, draft }: { kind: Editorial
     <p className={styles.eyebrow}>Sarah Katerina · {draft ? 'Studio preview' : 'Editorial'}</p>
     <h1>{kind === 'article' ? 'Insights' : 'Case studies'}</h1>
     <p className={styles.intro}>{kind === 'article' ? 'Clear answers for decisions about buying, investing and tax in Spain.' : 'Real client situations, the decisions made and the results recorded.'}</p>
-    <nav className={styles.switcher} aria-label="Editorial collections"><Link href="/preview/insights" aria-current={kind==='article'?'page':undefined}>Insights</Link><Link href="/preview/case-studies" aria-current={kind==='case'?'page':undefined}>Case studies</Link></nav>
+    <nav className={styles.switcher} aria-label="Editorial collections"><Link href={webPath('/preview/insights')} aria-current={kind==='article'?'page':undefined}>Insights</Link><Link href={webPath('/preview/case-studies')} aria-current={kind==='case'?'page':undefined}>Case studies</Link></nav>
     {cards.length ? <div className={styles.grid}>{cards.map(card => <Link className={styles.card} href={card.href} key={card.id}>
       {card.heroMediaId && media.get(card.heroMediaId) ? <img src={media.get(card.heroMediaId)!.src} alt={card.heroAlt} /> : illustrationBySlug[card.slug] ? <><img src={illustrationBySlug[card.slug]!.src} alt={illustrationBySlug[card.slug]!.alt} /><span className={styles.illustrativeCaption}>Illustrative image</span></> : null}
       <div className={styles.cardBody}><span className={styles.eyebrow}>{card.category}</span><h2>{card.title}</h2><p>{card.dek}</p><span className={styles.read}>Read {kind === 'article' ? 'insight' : 'case'} →</span></div>
@@ -72,7 +73,7 @@ export async function EditorialHighlights({ page }: { page: 'home' | 'investment
       {card.heroMediaId && media.get(card.heroMediaId) ? <img src={media.get(card.heroMediaId)!.src} alt={card.heroAlt} /> : illustrationBySlug[card.slug] ? <><img src={illustrationBySlug[card.slug]!.src} alt={illustrationBySlug[card.slug]!.alt} /><span className={styles.illustrativeCaption}>Illustrative image</span></> : null}
       <div className={styles.cardBody}><span className={styles.eyebrow}>{card.kind === 'article' ? 'Insight' : 'Case study'}</span><h2>{card.title}</h2><p>{card.dek}</p><span className={styles.read}>Read {card.kind === 'article' ? 'insight' : 'case'} →</span></div>
     </Link>)}</div>
-    <div className={styles.switcher}><Link href="/preview/insights">All insights →</Link><Link href="/preview/case-studies">All case studies →</Link></div>
+    <div className={styles.switcher}><Link href={webPath('/preview/insights')}>All insights →</Link><Link href={webPath('/preview/case-studies')}>All case studies →</Link></div>
   </div></section>;
 }
 
@@ -85,7 +86,7 @@ function BlockView({ block, sources, media }: { block: Block; sources: ArticleCo
     case 'quote': return <blockquote><p>{renderInline(block.text)}</p>{block.cite ? <cite>{block.cite}</cite> : null}</blockquote>;
     case 'image': { const item = media.get(block.mediaId); return item ? <figure><img src={item.src} srcSet={item.srcSet || undefined} alt={block.decorative ? '' : block.alt || item.alt} style={{objectPosition:item.objectPosition}} />{block.caption ? <figcaption>{block.caption}</figcaption> : null}</figure> : null; }
     case 'source': { const source = sources.find(s => s.id === block.sourceId); return source ? <p><a href={source.url} rel="noopener noreferrer">{block.text || source.label}</a></p> : null; }
-    case 'cta': { const href = { contact:'/preview/contact', booking:'/preview/contact', investment:'/preview/investment', purchase:'/preview/property-purchase', tax:'/preview/tax-advisory', team:'/preview/team' }[block.target]; return <aside className={styles.cta}><p>{block.text}</p><Link href={href}>{block.label} →</Link></aside>; }
+    case 'cta': { const href = { contact:webPath('/preview/contact'), booking:webPath('/preview/contact'), investment:webPath('/preview/investment'), purchase:webPath('/preview/property-purchase'), tax:webPath('/preview/tax-advisory'), team:webPath('/preview/team') }[block.target]; return <aside className={styles.cta}><p>{block.text}</p><Link href={href}>{block.label} →</Link></aside>; }
   }
 }
 
@@ -94,11 +95,11 @@ export async function EditorialDetail({ doc }: { doc: EditorialDoc<ArticleConten
   const media = await resolveMedia([...content.blocks.filter(b => b.type === 'image').map(b => b.mediaId), ...(content.hero ? [content.hero.mediaId] : [])]);
   const hero = content.hero ? media.get(content.hero.mediaId) : null;
   const illustration = hero ? null : illustrationBySlug[doc.slug];
-  const related = await cardsFor(content.related.documents);
+  const related = await cardsFor(content.related.documents, doc.isDraft);
   const toc = content.blocks.filter(b => b.type === 'heading' && b.level === 2);
-  const base = doc.kind === 'article' ? '/preview/insights' : '/preview/case-studies';
+  const base = doc.kind === 'article' ? webPath('/preview/insights') : webPath('/preview/case-studies');
   return <EditorialShell><article className={styles.wrap}>
-    <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/preview/home">Home</Link> / <Link href={base}>{doc.kind === 'article' ? 'Insights' : 'Case studies'}</Link> / <span aria-current="page">{doc.title}</span></nav>
+    <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href={webPath('/preview/home')}>Home</Link> / <Link href={base}>{doc.kind === 'article' ? 'Insights' : 'Case studies'}</Link> / <span aria-current="page">{doc.title}</span></nav>
     {doc.isDraft ? <p className={styles.draft}>Studio working preview · Private</p> : null}
     <header className={styles.articleHeader}><p className={styles.eyebrow}>{content.category}{content.jurisdiction ? ` · ${content.jurisdiction}` : ''}</p><h1>{doc.title}</h1><p className={styles.intro}>{content.dek}</p>{content.byline ? <p>By {content.byline.name}{content.dates.updated ? ` · Updated ${content.dates.updated}` : ''}</p> : null}</header>
     {hero ? <figure className={styles.hero}><img src={hero.src} srcSet={hero.srcSet || undefined} alt={content.hero?.alt || hero.alt} style={{objectPosition:hero.objectPosition}} />{content.hero?.caption ? <figcaption>{content.hero.caption}</figcaption> : null}</figure> : illustration ? <figure className={styles.hero}><img src={illustration.src} alt={illustration.alt} /><figcaption>{doc.kind === 'case' ? 'Illustrative image. It does not depict the client, property or outcome in this story.' : 'Illustrative image. It does not depict a specific property or official document.'}</figcaption></figure> : null}
@@ -108,7 +109,7 @@ export async function EditorialDetail({ doc }: { doc: EditorialDoc<ArticleConten
       {content.blocks.map((block, i) => <BlockView key={i} block={block} sources={content.sources} media={media} />)}
       {content.sources.length ? <section className={styles.sources}><h2>Sources</h2><ol>{content.sources.map(source => <li key={source.id}><a href={source.url} rel="noopener noreferrer">{source.label}</a> · {source.publisher} · checked {source.checkedOn}</li>)}</ol></section> : null}
       {related.length ? <section><h2>Related reading</h2><ul>{related.map(card => <li key={card.id}><Link href={editorialPath(card.kind, card.slug)}>{card.title}</Link></li>)}</ul></section> : null}
-      <aside className={styles.cta}><h2>Discuss your situation</h2><p>Start with the facts that matter to your decision.</p><Link href="/preview/contact">Contact Sarah →</Link></aside>
+      <aside className={styles.cta}><h2>Discuss your situation</h2><p>Start with the facts that matter to your decision.</p><Link href={webPath('/preview/contact')}>Contact Sarah →</Link></aside>
     </div>
   </article></EditorialShell>;
 }

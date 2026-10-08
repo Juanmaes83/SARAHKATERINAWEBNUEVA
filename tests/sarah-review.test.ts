@@ -303,10 +303,11 @@ describe('Sarah review marks never reach a publishable build', () => {
     expect(sarahReviewMarksAllowed({ mode: 'preview', indexable: true })).toBe(false);
   });
 
-  it('throws when a mark would render in production or an indexable build', () => {
+  it('only lets explicitly owner-approved anchors pass a production build', () => {
+    expect(() => assertSarahReviewMarksAllowed('SR-001', { mode: 'production', indexable: true })).not.toThrow();
     expect(() =>
-      assertSarahReviewMarksAllowed('SR-001', { mode: 'production', indexable: false }),
-    ).toThrow(/SR-001.*production or indexable/);
+      assertSarahReviewMarksAllowed('SR-UNAPPROVED', { mode: 'production', indexable: false }),
+    ).toThrow(/SR-UNAPPROVED.*production or indexable/);
     expect(() =>
       assertSarahReviewMarksAllowed('SR-001', { mode: 'preview', indexable: false }),
     ).not.toThrow();

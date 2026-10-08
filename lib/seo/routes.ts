@@ -1,3 +1,4 @@
+import { PUBLIC_PATHS } from './public-path';
 import { isLaboratoryRoute } from './config';
 
 /**
@@ -83,24 +84,7 @@ export interface SeoRoute {
   readonly blockedReason?: string;
 }
 
-const PHASE_2_GATE =
-  'Public path not assigned: Phase 2 decision gate D2-01 (docs/phase-2-decision-gate.md) and the production SEO/legal/migration gate are still open.';
-
 export const SEO_ROUTES: readonly SeoRoute[] = [
-  {
-    id: 'overview',
-    previewPath: '/',
-    productionPath: null,
-    status: 'unresolved',
-    locale: 'en',
-    indexEligible: false,
-    sitemapEligible: false,
-    structuredData: 'none',
-    metadataSource: 'app/page.tsx',
-    alternates: {},
-    blockedReason:
-      'The root currently renders the internal foundation overview, not a public home page. Which page becomes the public home is undecided (D2-01).',
-  },
   {
     id: 'foundation',
     previewPath: '/foundation',
@@ -127,8 +111,8 @@ export const SEO_ROUTES: readonly SeoRoute[] = [
     ([id, previewPath, metadataSource]): SeoRoute => ({
       id,
       previewPath,
-      productionPath: null,
-      status: 'unresolved',
+      productionPath: PUBLIC_PATHS[previewPath] ?? null,
+      status: 'approved',
       locale: 'en',
       // Intended for production, so eligible in principle; nothing is emitted
       // while the route is unresolved and the site-wide switch is off.
@@ -139,12 +123,16 @@ export const SEO_ROUTES: readonly SeoRoute[] = [
       structuredData: id === 'home' || id === 'contact' ? 'entity' : 'none',
       metadataSource,
       alternates: {},
-      blockedReason: PHASE_2_GATE,
+
     }),
   ),
+  ...['insights', 'case-studies'].flatMap((collection): SeoRoute[] => [false, true].map(detail => ({
+    id: collection + (detail ? '-detail' : ''), previewPath: '/preview/' + collection + (detail ? '/[slug]' : ''),
+    productionPath: '/' + collection + (detail ? '/[slug]' : ''), status: 'approved', locale: 'en',
+    indexEligible: true, sitemapEligible: !detail, structuredData: 'none', metadataSource: 'Studio publications',
+    alternates: {}, changeFrequency: 'weekly', priority: detail ? 0.6 : 0.7,
+  }))),
   ...[
-    '/preview/insights', '/preview/insights/[slug]',
-    '/preview/case-studies', '/preview/case-studies/[slug]',
     '/studio', '/studio/[section]', '/studio/documents/[id]',
     '/studio/media', '/studio/recover/complete', '/studio/recover',
     '/studio/login', '/studio/accept-invite', '/studio/links',
@@ -167,7 +155,8 @@ export function routeById(id: string, routes: readonly SeoRoute[] = SEO_ROUTES):
 
 /** Finds the route that renders a given path, by preview or production path. */
 export function routeForPath(path: string, routes: readonly SeoRoute[] = SEO_ROUTES): SeoRoute | undefined {
-  return routes.find((route) => route.previewPath === path || route.productionPath === path);
+  const matches = (pattern: string | null) => pattern === path || (pattern?.endsWith('/[slug]') && path.startsWith(pattern.slice(0, -6)) && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path.slice(pattern.length - 6)));
+  return routes.find((route) => matches(route.previewPath) || matches(route.productionPath));
 }
 
 /**
@@ -180,7 +169,7 @@ export function isValidPublicPath(path: string | null): path is string {
   if (path !== '/' && path.endsWith('/')) return false;
   if (/[\s?#\\]|\/\/|:/.test(path)) return false;
   if (path.split('/').some((segment) => segment === '.' || segment === '..')) return false;
-  return !isLaboratoryRoute(path);
+  return !isLaboratoryRoute(path ?? '');
 }
 
 /**
@@ -218,9 +207,9 @@ export function resolveRouteIndexing(
     options.siteIndexable &&
     !options.laboratory &&
     route.indexEligible &&
-    path === route.productionPath &&
-    !isLaboratoryRoute(path);
-  return { route, publicPath: route.productionPath, indexable };
+    (path === route.productionPath || (route.productionPath.endsWith('/[slug]') && !isLaboratoryRoute(path ?? ''))) &&
+    !isLaboratoryRoute(path ?? '');
+  return { route, publicPath: route.productionPath.endsWith('/[slug]') ? route.productionPath.slice(0, -6) + path!.split('/').at(-1) : route.productionPath, indexable }; 
 }
 
 /**

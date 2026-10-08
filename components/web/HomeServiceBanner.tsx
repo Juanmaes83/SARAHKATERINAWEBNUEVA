@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/web/SiteLink';
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
 import { discovery } from '@/content/en/home';
 import { APPROVED_MEDIA } from '@/lib/media/approved-media';

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/web/SiteLink';
 import { Container } from '@/components/layout/Container';
 import { Icon } from './icons/Icon';
 import { footer as investmentFooter } from '@/content/en/investment';

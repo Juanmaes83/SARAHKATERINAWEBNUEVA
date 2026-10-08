@@ -1,5 +1,6 @@
+import { webPath } from '@/lib/seo/public-path';
 import Image from 'next/image';
-import Link from 'next/link';
+import Link from '@/components/web/SiteLink';
 import { Fragment, type ReactNode } from 'react';
 import { Container } from '@/components/layout/Container';
 import { HeroFilm } from '@/components/motion/HeroFilm';
@@ -477,7 +478,7 @@ export function HomeToolsBand() {
           <RevealOnScroll>
             <BuyerToolRibbon
               toolKey="purchaseTax"
-              sourcePage="/preview/home"
+              sourcePage={webPath('/preview/home')}
               moment={tools.purchaseTaxMoment}
               className={styles.toolRibbon}
             />
@@ -485,7 +486,7 @@ export function HomeToolsBand() {
           <RevealOnScroll order={1}>
             <BuyerToolRibbon
               toolKey="realCashNeeded"
-              sourcePage="/preview/home"
+              sourcePage={webPath('/preview/home')}
               moment={tools.realCashMoment}
               className={styles.toolRibbon}
             />

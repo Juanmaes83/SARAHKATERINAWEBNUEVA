@@ -1,4 +1,5 @@
 'use client';
+import { webPath } from '@/lib/seo/public-path';
 
 import { WebSection, WebSectionHeader } from './WebSection';
 import { Icon, type IconName } from './icons/Icon';
@@ -48,7 +49,7 @@ const TOOLS: ReadonlyArray<{
  *   - the verified production origin is resolved in one adapter only;
  *   - no form, no capture, no CRM.
  */
-export function ToolsBand({ sourcePage = '/preview/investment' }: { sourcePage?: string } = {}) {
+export function ToolsBand({ sourcePage = webPath('/preview/investment') }: { sourcePage?: string } = {}) {
   return (
     <WebSection surface="white" id="tools">
       <WebSectionHeader
