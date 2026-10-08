@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { absoluteUrl, siteConfig } from './config';
+import { languageAlternates } from './routes';
 
 /**
  * Brand strings permitted in public-facing output.
@@ -46,6 +47,13 @@ export function buildMetadata({
   laboratory = false,
 }: PageMetadataInput): Metadata {
   const canonical = absoluteUrl(path);
+  // hreflang comes ONLY from the route manifest (lib/seo/routes.ts), and only
+  // for publishable routes that declare an existing alternate. No Spanish
+  // route exists, so nothing is emitted. The previous version prepared a
+  // guessed `/es<path>` URL that would have been advertised the moment indexing
+  // was switched on — seo-final-audit-2026-09.md §9 requires hreflang to be
+  // "recíproco, válido y solo para equivalentes".
+  const alternates = siteConfig.indexable && !laboratory ? languageAlternates(path) : undefined;
 
   return {
     title,
@@ -53,18 +61,11 @@ export function buildMetadata({
     robots: robotsFor({ laboratory }),
     alternates: {
       canonical,
-      // EN/ES alternates are PREPARED but only EMITTED once the site is
-      // indexable. Spanish routes do not exist yet, and seo-final-audit
-      // -2026-09.md §9 requires hreflang to be "recíproco, válido y solo para
-      // equivalentes" — advertising a /es URL that returns 404 would fail that
-      // criterion. The shape is here so the work is a config change, not a
-      // rewrite.
-      ...(siteConfig.indexable && !laboratory
+      ...(alternates
         ? {
-            languages: {
-              en: absoluteUrl(path),
-              es: absoluteUrl(`/es${path === '/' ? '' : path}`),
-            },
+            languages: Object.fromEntries(
+              Object.entries(alternates).map(([locale, href]) => [locale, absoluteUrl(href)]),
+            ),
           }
         : {}),
     },
