@@ -14,9 +14,9 @@ const STRATEGIC_SOURCE =
 
 
 export const seo = {
-  title: 'Meet the buyer advisory team in Spain | Sarah Katerina',
+  title: 'Meet the buyer advisory team in Spain',
   description:
-    'Meet the team supporting international buyers in Spain, from a Costa Blanca property search and purchase-cost review to non-resident owner tax and administration after completion.',
+    'Meet the team supporting international buyers and non-resident owners in Torrevieja and the Costa Blanca, from property search to purchase and ownership.',
 } as const;
 
 export const hero = {

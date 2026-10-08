@@ -49,6 +49,7 @@ export default function TaxAdvisoryPage() {
           showLanguageSwitcher={false}
           buyerToolsSourcePage={SERVICE_ROUTES.tax}
         />
+        <main id="main" tabIndex={-1}>
 
         <TaxHero />
         <SarahReviewMark id="SR-054" />
@@ -73,6 +74,7 @@ export default function TaxAdvisoryPage() {
         <ServiceJourney page="tax" />
         <WebFaq content={faq} appearance="light" related={FAQ_RELATED.tax} />
         <TaxFinalCtaBand />
+        </main>
         <WebFooter content={footer} />
       </div>
     </RevealLineProvider>

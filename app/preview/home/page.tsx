@@ -56,6 +56,7 @@ export default async function HomePreviewPage() {
           showLanguageSwitcher={false}
           buyerToolsSourcePage={HOME_PREVIEW_ROUTE}
         />
+        <main id="main" tabIndex={-1}>
         <SarahReviewMark id="SR-086" />
         <SarahReviewMark id="SR-001" />
         <HomeHero overrides={overrides} />
@@ -77,6 +78,7 @@ export default async function HomePreviewPage() {
         <EditorialHighlights page="home" />
         <HomeFinalCtaBand />
         <SarahReviewMark id="SR-011" />
+        </main>
         <WebFooter content={footer} showLanguageStatus={false} showStatus={false} />
       </HomeStage>
     </RevealLineProvider>

@@ -13,5 +13,5 @@ export default async function Page({params}:{params:Promise<{id:string}>}){
     session.client.from('documents').select('id,title,kind').in('kind',['article','case']).neq('id',doc.id).order('title'),
     session.client.from('media').select('id,alt').eq('bucket','media').order('created_at',{ascending:false}),
   ]);
-  return <main className={styles.content}><DocumentEditor doc={{id:doc.id,title:doc.title,slug:doc.slug,kind:doc.kind,status:doc.status,version:doc.lock_version,content}} revisions={revisions??[]} notes={notes??[]} role={session.role} relatedOptions={related??[]} mediaOptions={media??[]}/></main>;
+  return <main id="main" tabIndex={-1} className={styles.content}><DocumentEditor doc={{id:doc.id,title:doc.title,slug:doc.slug,kind:doc.kind,status:doc.status,version:doc.lock_version,content}} revisions={revisions??[]} notes={notes??[]} role={session.role} relatedOptions={related??[]} mediaOptions={media??[]}/></main>;
 }

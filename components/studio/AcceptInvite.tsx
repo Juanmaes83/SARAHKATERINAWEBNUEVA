@@ -74,7 +74,7 @@ export function AcceptInvite({ purpose = 'invite' }: { purpose?: 'invite' | 'rec
     }
   }
 
-  return <main className={styles.login}><div className={styles.loginCard}>
+  return <main id="main" tabIndex={-1} className={styles.login}><div className={styles.loginCard}>
     <p className={styles.eyebrow}>Sarah Katerina</p><h1>{purpose === 'recovery' ? 'Choose a new password' : 'Set your Studio password'}</h1>
     <p>{ready ? `Account: ${email}. Choose a password to continue.` : error ? 'You can still use your Studio account.' : 'Checking your link…'}</p>
     {ready ? <form onSubmit={submit}>

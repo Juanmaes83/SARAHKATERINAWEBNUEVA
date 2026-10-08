@@ -19,14 +19,7 @@ import {
  * `nav` and on every `aside`. Skipped without a build; CI runs it after
  * `next build` with REQUIRE_RENDERED_HTML=1.
  *
- * NOT CHECKED HERE — banner/contentinfo. app/layout.tsx wraps every page,
- * header and footer included, in `<main id="main">`. Under HTML-AAM a
- * `header`/`footer` inside `main` is not the page banner/contentinfo, so no
- * page exposes those landmarks today. That predates Phase 2B (it is on
- * `main` at 922c5f3) and fixing it changes the shared layout of every page;
- * it is recorded as follow-up A11Y-LM-01 (docs/phase-2b-coverage-matrix.md).
- * The landmark classifier is tested below on fixtures so the check can be
- * switched on once the layout is fixed.
+ * A11Y-LM-01: checked here after moving page chrome outside main.
  */
 
 const tags = (html: string, name: string) =>
@@ -64,6 +57,12 @@ describe('rendered HTML semantics', () => {
         expect(tags(html(), 'button').filter((a) => !/\stype="/.test(a))).toEqual([]);
         expect(tags(html(), 'a').filter((a) => !/\shref="/.test(a))).toEqual([]);
         expect(tags(html(), 'img').filter((a) => !/\salt="/.test(a))).toEqual([]);
+      });
+
+      it('exposes one site banner and footer outside main', () => {
+        expect(landmarks(html()).banner).toHaveLength(1);
+        expect(landmarks(html()).contentinfo).toHaveLength(1);
+        expect(landmarks(html()).main).toHaveLength(1);
       });
 
       it('has exactly one main landmark and labels repeated nav and every aside', () => {

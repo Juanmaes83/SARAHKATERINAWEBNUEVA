@@ -66,6 +66,7 @@ export default async function InvestmentPage() {
           showLanguageSwitcher={false}
           buyerToolsSourcePage={SERVICE_ROUTES.investment}
         />
+        <main id="main" tabIndex={-1}>
 
         <SarahReviewMark id="SR-036" />
         <WebHero overrides={overrides} />
@@ -91,6 +92,7 @@ export default async function InvestmentPage() {
         <EditorialHighlights page="investment" />
         <WebFaq appearance="light" related={FAQ_RELATED.investment} />
         <FinalCtaBand />
+        </main>
         <WebFooter />
       </div>
     </RevealLineProvider>

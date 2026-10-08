@@ -34,8 +34,10 @@ export default function ContactPreviewPage() {
         showLanguageSwitcher={false}
         buyerToolsSourcePage="/preview/contact"
       />
+        <main id="main" tabIndex={-1}>
       <ContactPage />
-      <WebFooter content={footer} showLanguageStatus={false} />
+      </main>
+        <WebFooter content={footer} showLanguageStatus={false} />
     </>
   );
 }

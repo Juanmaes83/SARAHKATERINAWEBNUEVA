@@ -32,7 +32,7 @@ export function LoginForm() {
     }
   }
 
-  return <main className={styles.login}><div className={styles.loginCard}>
+  return <main id="main" tabIndex={-1} className={styles.login}><div className={styles.loginCard}>
     <p className={styles.eyebrow}>Sarah Katerina</p><h1>Studio</h1>
     <p>Private workspace for the Sarah Katerina team.</p>
     <form onSubmit={submit}>

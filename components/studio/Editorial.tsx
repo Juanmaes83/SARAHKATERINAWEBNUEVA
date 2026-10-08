@@ -40,7 +40,7 @@ function renderInline(value: string) {
 }
 
 export function EditorialShell({ children }: { children: React.ReactNode }) {
-  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main className={styles.main}>{children}</main><WebFooter content={editorialFooter} showLanguageStatus={false} /></>;
+  return <><WebHeader nav={UNIFIED_WEB_NAV} ctaLabel={BUYER_TOOLS_LABEL} brandHref={HOME_PREVIEW_ROUTE} showLanguageSwitcher={false} /><main id="main" tabIndex={-1} className={styles.main}>{children}</main><WebFooter content={editorialFooter} showLanguageStatus={false} /></>;
 }
 
 export async function EditorialListing({ kind, cards, draft }: { kind: EditorialKind; cards: EditorialCard[]; draft: boolean }) {

@@ -36,7 +36,7 @@ export function PasswordRecovery() {
     }
   }
 
-  return <main className={styles.login}><div className={styles.loginCard}>
+  return <main id="main" tabIndex={-1} className={styles.login}><div className={styles.loginCard}>
     <p className={styles.eyebrow}>Sarah Katerina</p><h1>Reset your password</h1>
     {sent ? <p role="status">If this address has a Studio account, a reset link has been sent. Check your inbox, then return to sign in.</p> : <form onSubmit={submit}>
       <p>Enter your Studio email. The link expires; your team access does not.</p>
