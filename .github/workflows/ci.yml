@@ -54,6 +54,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Phase 2B: the rendered HTML of the seven pages is checked after the
+      # build — internal hrefs and fragments resolve, one h1, unique ids.
+      - name: Rendered HTML checks
+        env:
+          REQUIRE_RENDERED_HTML: '1'
+        run: npx vitest run tests/internal-links.test.ts tests/rendered-semantics.test.ts
+
   secrets:
     name: Secret and env hygiene
     runs-on: ubuntu-latest

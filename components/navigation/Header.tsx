@@ -131,7 +131,7 @@ export function Header() {
           type="button"
           className={styles.menuTrigger}
           aria-expanded={open}
-          aria-controls={panelId}
+          aria-controls={open ? panelId : undefined}
           onClick={() => setOpen(true)}
         >
           Menu

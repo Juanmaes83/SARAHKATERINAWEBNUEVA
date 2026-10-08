@@ -30,7 +30,9 @@ function FaqItem({
           id={triggerId}
           className={styles.trigger}
           aria-expanded={open}
-          aria-controls={panelId}
+          // The panel leaves the DOM when collapsed, so it is only referenced
+          // while it exists (no dangling aria-controls id).
+          aria-controls={open ? panelId : undefined}
           onClick={() => setOpen((value) => !value)}
         >
           <span>{question}</span>

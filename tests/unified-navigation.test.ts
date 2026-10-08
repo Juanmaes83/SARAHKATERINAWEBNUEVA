@@ -77,7 +77,8 @@ describe('approved unified preview navigation', () => {
     expect(header).toContain('usePathname');
     expect(header).toContain('aria-current={');
     expect(header).toContain('aria-expanded={toolsOpen}');
-    expect(header).toContain('aria-controls={toolsPanelId}');
+    // Phase 2B: the panel is referenced only while it is rendered.
+    expect(header).toContain('aria-controls={toolsOpen ? toolsPanelId : undefined}');
     expect(header).toContain("event.key === 'Escape'");
     expect(header.match(/<BuyerToolLink/g)).toHaveLength(2);
   });
