@@ -29,6 +29,7 @@ import { ServiceJourney } from '@/components/web/ServiceJourney';
 import { SarahReviewMark } from '@/components/review/SarahReviewMark';
 import { BuyerToolBand } from '@/components/web/BuyerToolRibbon';
 import { SERVICE_ROUTES } from '@/content/en/service-journey';
+import { FAQ_RELATED } from '@/content/en/internal-links';
 
 export const metadata: Metadata = buildMetadata({
   title: seo.title,
@@ -77,7 +78,7 @@ export default function PropertyPurchasePage() {
         <JourneyBand />
         <ServiceJourney page="purchase" />
         <SarahReviewMark id="SR-085" />
-        <WebFaq content={faq} appearance="light" />
+        <WebFaq content={faq} appearance="light" related={FAQ_RELATED.purchase} />
         <FinalCtaBand />
         <WebFooter content={footer} />
       </div>

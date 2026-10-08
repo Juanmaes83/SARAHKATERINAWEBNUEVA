@@ -44,17 +44,24 @@ export function BuyerToolRibbon({
   const entry = resolveEntryPoint(toolKey);
   const { experience } = entry;
   const Question = prominent ? 'h2' : 'h3';
+  // Semantics (Phase 2B, 2026-10-08): inside a band the labelled <section>
+  // of BuyerToolBand is already the landmark, so a nested <aside> was a
+  // complementary landmark inside a region (axe
+  // landmark-complementary-is-top-level). The band variant is a plain
+  // container; the in-flow ribbon stays a labelled <aside>.
+  const Frame = prominent ? 'div' : 'aside';
+  const label = `${experience.label} — Buyer System tool`;
   const pendingNote =
     experience.availability === 'live'
       ? 'This tool is not linked from this page yet.'
       : entry.pendingReason;
 
   return (
-    <aside
+    <Frame
       className={cn(styles.ribbon, prominent && styles.prominent, className)}
       // The navy lead variant needs the dark-surface focus ring.
       data-surface={prominent ? 'dark' : undefined}
-      aria-label={`${experience.label} — Buyer System tool`}
+      aria-label={prominent ? undefined : label}
     >
       <span className={styles.icon}>
         <Icon name="financialModel" />
@@ -85,7 +92,7 @@ export function BuyerToolRibbon({
           </>
         )}
       </div>
-    </aside>
+    </Frame>
   );
 }
 
@@ -97,7 +104,10 @@ export function BuyerToolRibbon({
  */
 export function BuyerToolBand(props: Omit<BuyerToolRibbonProps, 'prominent' | 'className'>) {
   return (
-    <section className={styles.band} aria-label="Buyer System tool">
+    <section
+      className={styles.band}
+      aria-label={`${resolveEntryPoint(props.toolKey).experience.label} — Buyer System tool`}
+    >
       <Container>
         <BuyerToolRibbon {...props} prominent className={styles.bandRibbon} />
       </Container>

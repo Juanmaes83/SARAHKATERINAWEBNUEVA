@@ -10,7 +10,7 @@ const sarahLine = (point: number) => `${HOME_PDF}, point ${point} (English trans
 export const seo = {
   title: 'Independent buyer-side guidance in Spain',
   description:
-    'Buy a home, invest or get tax clarity in Spain with independent buyer-side guidance from Sarah Katerina.',
+    'Independent buyer-side guidance from Torrevieja, Costa Blanca, for international buyers and non-resident owners: buy, invest or own property in Spain with tax and cost clarity.',
 } as const;
 
 export const hero = {

@@ -166,15 +166,23 @@
   }
 }
 
+/*
+ * Each signal is one dt/dd group. HTML allows a single <div> between <dl> and
+ * its dt/dd, so the icon lives inside the <dt> (it is aria-hidden) and is
+ * positioned in the 24px + 8px gutter the former flex row reserved. The
+ * rendered layout is unchanged; only the markup is now a valid description
+ * list (Lighthouse/axe `definition-list`, `dlitem`).
+ */
 .signal {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--sk-space-8);
+  position: relative;
+  padding-inline-start: var(--sk-space-32);
 }
 
 .signalIcon {
+  position: absolute;
+  inset-block-start: var(--sk-space-4);
+  inset-inline-start: 0;
   color: var(--sk-web-gold);
-  margin-block-start: var(--sk-space-4);
 }
 
 .signalValue {

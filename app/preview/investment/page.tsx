@@ -29,6 +29,7 @@ import {
 import { SERVICE_ROUTES } from '@/content/en/service-journey';
 import { pageOverrides } from '@/lib/studio/content';
 import { EditorialHighlights } from '@/components/studio/Editorial';
+import { FAQ_RELATED } from '@/content/en/internal-links';
 
 /**
  * INVESTMENT — PHASE 2C VISUAL FIDELITY IMPLEMENTATION.
@@ -88,7 +89,7 @@ export default async function InvestmentPage() {
         <ServiceJourney page="investment" />
         <SarahReviewMark id="SR-084" />
         <EditorialHighlights page="investment" />
-        <WebFaq appearance="light" />
+        <WebFaq appearance="light" related={FAQ_RELATED.investment} />
         <FinalCtaBand />
         <WebFooter />
       </div>

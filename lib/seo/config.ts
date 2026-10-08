@@ -62,15 +62,16 @@ export const siteConfig = {
   /**
    * Origin used for canonical URLs, Open Graph URLs and sitemap entries.
    *
-   * PENDING_APPROVAL — the production host is an OPEN decision in the source of
-   * truth. decisions-log.md (2026-08-05) approved https://sarahkaterina.com
-   * (non-www); the 2026-09-16 entry records production redirecting non-www to
-   * www and leaves the conflict "Abierta" as a P0. No production host is
-   * hardcoded anywhere in this repository. When no explicit site URL is
-   * configured, Vercel deployments use the project's stable domain
-   * (`VERCEL_PROJECT_PRODUCTION_URL`) and only then the per-deployment
-   * `VERCEL_URL`, so canonical and Open Graph URLs never point to localhost or
-   * to one transient deployment on a remote review build.
+   * Canonical production host: `www` — APPROVED by the project owner
+   * (mother repository, strategy/technical/ENTITY-SEO-GEO-ALIGNMENT.md and
+   * SARAH-TECHNICAL-CONTROL-BOARD.md, recorded 2026-10-07; this supersedes the
+   * "Abierta" entry of decisions-log.md 2026-09-16). It is still NOT hardcoded:
+   * production sets `NEXT_PUBLIC_SITE_URL` to the www origin, and
+   * tests/governance.test.ts keeps every host literal out of the source. When
+   * no explicit site URL is configured, Vercel deployments use the project's
+   * stable domain (`VERCEL_PROJECT_PRODUCTION_URL`) and only then the
+   * per-deployment `VERCEL_URL`, so canonical and Open Graph URLs never point to
+   * localhost or to one transient deployment on a remote review build.
    */
   url: parsed.NEXT_PUBLIC_SITE_URL,
 
@@ -92,7 +93,7 @@ export type Locale = (typeof siteConfig.locales)[number];
  * promoted out of that namespace until the Phase 2 decision gate is answered
  * (see docs/phase-2-decision-gate.md, D2-01).
  */
-export const LABORATORY_ROUTES = ['/foundation', '/preview'] as const;
+export const LABORATORY_ROUTES = ['/foundation', '/preview', '/studio', '/api/studio'] as const;
 
 export function isLaboratoryRoute(path: string): boolean {
   return LABORATORY_ROUTES.some((route) => path === route || path.startsWith(`${route}/`));
