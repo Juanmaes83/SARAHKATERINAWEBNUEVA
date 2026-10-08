@@ -142,8 +142,16 @@ Non-negotiable, and all verified upstream:
    ProfessionalService + Person + WebSite graph from the facts that ARE
    confirmed (address, telephone, hours, SUMA credential), but it is not
    rendered: `entityGraphEmissionAllowed()` stays false until the site is
-   indexable, the route is publishable and the owner lifts this rule.
-5. Do not add hreflang for a route that does not exist.
+   indexable, the route is publishable and the owner lifts this rule. Its
+   validator is structural and policy-based, not a proof that the facts are
+   true or a complete schema.org check.
+5. Do not add hreflang for a route that does not exist. The manifest
+   enforces this: a declared alternate is emitted only when its target is an
+   approved, indexable, reciprocal manifest route.
+   Indexing has two gates: the site level (production mode + explicit flag)
+   and the route level (`lib/seo/routes.ts`); a page is indexable only when
+   both are open, and never at its `/preview/*` URL
+   (docs/seo-route-migration.md).
 6. Never declare Core Web Vitals, indexation or crawl health without a dated
    measurement.
 

@@ -6,9 +6,12 @@ import { SEO_ROUTES, isPublishable, routeById, type SeoRoute } from './routes';
  * repository, with a DECISION status.
  *
  * Only `status: 'approved'` mappings whose target route is publishable become
- * real HTTP redirects (see `activeRedirects()` and next.config.ts). Everything
- * else is recorded — never redirected silently. Today no mapping is approved,
- * so this produces zero redirects, by design.
+ * real HTTP redirects (see `activeRedirects()` and next.config.ts). They are
+ * served as Next.js permanent redirects, which answer **308** (a 301 would need
+ * an explicit `statusCode: 301`; none is configured). Redirects are independent
+ * of the indexing switch: their gate is the mapping's own approval plus a
+ * publishable target. Everything else is recorded — never redirected silently.
+ * Today no mapping is approved, so this produces zero redirects, by design.
  *
  * Sources:
  *   - production `sitemap.xml` (30 URLs) and the home page links, read
@@ -23,7 +26,10 @@ import { SEO_ROUTES, isPublishable, routeById, type SeoRoute } from './routes';
  */
 
 export type MigrationStatus =
-  /** Approved by the owner; becomes a 301 once the target route is publishable. */
+  /**
+   * Approved by the owner; becomes a permanent redirect once the target route
+   * is publishable. Next.js `permanent: true` answers HTTP 308 (not 301).
+   */
   | 'approved'
   /** Destination or treatment needs a human decision. Never redirected. */
   | 'decision_required'
@@ -48,7 +54,7 @@ export interface MigrationEntry {
 const SPANISH_OPEN =
   'Spanish route architecture and hreflang are open (docs/phase-2-decision-gate.md §5). No /es route exists here.';
 const D06 =
-  'D-06 (affiliated brands and the group architecture, AGENTS.md §9) is unexecuted and Property Management is on HOLD. Must not be carried over; owner decides 301-to-home vs 410.';
+  'D-06 (affiliated brands and the group architecture, AGENTS.md §9) is unexecuted and Property Management is on HOLD. Must not be carried over; owner decides permanent-redirect-to-home vs 410.';
 const CONTENT_GAP =
   'No equivalent page in this repository. Owner decides: rebuild with approved content, redirect to the closest service, or retire.';
 const TARGET_UNRESOLVED = 'Target route exists as a preview, but its public path is unresolved (D2-01).';
@@ -80,7 +86,7 @@ export const MIGRATION_REGISTRY: readonly MigrationEntry[] = [
   en('/services/investment-advisory', 'investment', 'decision_required', TARGET_UNRESOLVED),
   en('/services/property-management', null, 'retire_candidate', D06),
   en('/investment', 'investment', 'decision_required', TARGET_UNRESOLVED),
-  en('/investment/opportunities', null, 'retire_candidate', 'Listing-style "opportunities" content conflicts with the buyer-side positioning (not an agency or portal). Owner decides 301-to-investment vs 410.'),
+  en('/investment/opportunities', null, 'retire_candidate', 'Listing-style "opportunities" content conflicts with the buyer-side positioning (not an agency or portal). Owner decides permanent-redirect-to-investment vs 410.'),
   en('/case-studies', null, 'decision_required', `${CONTENT_GAP} Case content needs permission and verified evidence (AGENTS.md §13).`),
   en('/case-studies/dutch-investor-orihuela', null, 'decision_required', `${CONTENT_GAP} Client permission and evidence unverified.`),
   en('/case-studies/british-buyer-torrevieja', null, 'decision_required', `${CONTENT_GAP} Client permission and evidence unverified.`),
@@ -127,7 +133,7 @@ export const MIGRATION_REGISTRY: readonly MigrationEntry[] = [
     locale: 'es',
     targetRouteId: 'property-purchase',
     status: 'decision_required',
-    decision: 'Still served and indexable with sales-oriented content (observed 2026-10-08). Needs a domain-level 301 (to the purchase service) or noindex; owner decision, outside this app.',
+    decision: 'Still served and indexable with sales-oriented content (observed 2026-10-08). Needs a domain-level permanent redirect (to the purchase service) or noindex; owner decision, outside this app.',
   },
   {
     origin: 'LEGACY_ES_DOMAIN',
@@ -135,7 +141,7 @@ export const MIGRATION_REGISTRY: readonly MigrationEntry[] = [
     locale: 'es',
     targetRouteId: 'property-purchase',
     status: 'decision_required',
-    decision: 'Still served and indexable (observed 2026-10-08). Needs a domain-level 301 or noindex; owner decision, outside this app.',
+    decision: 'Still served and indexable (observed 2026-10-08). Needs a domain-level permanent redirect or noindex; owner decision, outside this app.',
   },
 ];
 
