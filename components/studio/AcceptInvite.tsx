@@ -18,17 +18,44 @@ export function AcceptInvite({ purpose = 'invite' }: { purpose?: 'invite' | 'rec
     const query = new URLSearchParams(window.location.search);
     const fragment = new URLSearchParams(window.location.hash.slice(1));
     if (query.has('error') || fragment.has('error')) {
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
       setError('This link is invalid, expired or already used. Sign in or request a new password reset link.');
       return;
     }
+    // Admin invitations and our cross-device recovery email use implicit
+    // callbacks. @supabase/ssr creates a PKCE client, so consume the one-use
+    // tokens before creating it and remove them from the address bar at once.
+    const expectedType = purpose === 'invite' ? 'invite' : 'recovery';
+    if (fragment.has('type') && fragment.get('type') !== expectedType) {
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
+      setError('This link is for a different account action. Sign in or request a new password reset link.');
+      return;
+    }
+    const callbackTokens = fragment.get('type') === expectedType
+      ? { access_token: fragment.get('access_token'), refresh_token: fragment.get('refresh_token') }
+      : null;
+    if (callbackTokens && (!callbackTokens.access_token || !callbackTokens.refresh_token)) {
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
+      setError('This link is invalid, expired or already used. Sign in or request a new password reset link.');
+      return;
+    }
+    if (callbackTokens?.access_token && callbackTokens.refresh_token) {
+      window.history.replaceState(window.history.state, '', `${window.location.pathname}${window.location.search}`);
+    }
     const client = browserClient();
-    void client.auth.getUser().then(({ data, error: authError }) => {
+    const session = callbackTokens?.access_token && callbackTokens.refresh_token
+      ? client.auth.setSession({ access_token: callbackTokens.access_token, refresh_token: callbackTokens.refresh_token })
+      : Promise.resolve({ error: null });
+    void session.then(({ error: sessionError }) => {
+      if (sessionError) throw sessionError;
+      return client.auth.getUser();
+    }).then(({ data, error: authError }) => {
       if (!alive) return;
       if (authError || !data.user) setError('This link is invalid, expired or already used. Sign in or request a new password reset link.');
-      else { setEmail(data.user.email ?? ''); setReady(true); }
-    }).catch(() => { if (alive) setError('Could not check the invitation. Please try again.'); });
+      else { setError(''); setEmail(data.user.email ?? ''); setReady(true); }
+    }).catch(() => { if (alive) setError('This link is invalid, expired or already used. Sign in or request a new password reset link.'); });
     return () => { alive = false; };
-  }, []);
+  }, [purpose]);
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();

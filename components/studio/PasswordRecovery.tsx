@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { browserClient } from '@/lib/supabase/browser';
+import { createClient } from '@supabase/supabase-js';
+import { supabaseEnv } from '@/lib/supabase/env';
 import { studioReturnUrl } from '@/lib/studio/access-url';
 import styles from './Studio.module.css';
 
@@ -18,7 +19,14 @@ export function PasswordRecovery() {
     setError('');
     try {
       const redirectTo = studioReturnUrl('/studio/recover/complete', window.location.origin);
-      const { error: resetError } = await browserClient().auth.resetPasswordForEmail(email.trim(), { redirectTo });
+      const env = supabaseEnv();
+      if (!env) throw new Error('Studio is not configured.');
+      // The recipient may open email on a different browser or device. An
+      // implicit recovery link has no browser-local PKCE verifier dependency.
+      const resetClient = createClient(env.url, env.key, {
+        auth: { flowType: 'implicit', persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+      });
+      const { error: resetError } = await resetClient.auth.resetPasswordForEmail(email.trim(), { redirectTo });
       if (resetError) throw resetError;
       setSent(true);
     } catch {
