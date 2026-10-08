@@ -131,13 +131,18 @@ Non-negotiable, and all verified upstream:
 1. The site is **not indexable by default** and must stay that way until a
    human approves publication.
 2. `/foundation` is never indexable and never in the sitemap.
-3. **Never hardcode a production host.** The canonical host is an open
-   conflict: non-www was approved on 2026-08-05, production was observed
-   redirecting to www on 2026-09-16, and the decision is recorded as "Abierta".
-   All URLs derive from `NEXT_PUBLIC_SITE_URL`. A test enforces this.
+3. **Never hardcode a production host.** The canonical host is now decided:
+   `www`, approved by the project owner and recorded in the mother repository
+   on 2026-10-07 (it supersedes the "Abierta" entry of 2026-09-16). It is still
+   configuration, not code: all URLs derive from `NEXT_PUBLIC_SITE_URL`, which
+   production sets to the www origin. A test enforces this.
 4. **Do not emit Organization, Person or LocalBusiness JSON-LD.** The legal
-   entity, address, contact details and institutional descriptor are all
-   unconfirmed. A test enforces this.
+   entity and the institutional descriptor are still unconfirmed. A test
+   enforces this. `lib/seo/entity-graph.ts` builds and validates a
+   ProfessionalService + Person + WebSite graph from the facts that ARE
+   confirmed (address, telephone, hours, SUMA credential), but it is not
+   rendered: `entityGraphEmissionAllowed()` stays false until the site is
+   indexable, the route is publishable and the owner lifts this rule.
 5. Do not add hreflang for a route that does not exist.
 6. Never declare Core Web Vitals, indexation or crawl health without a dated
    measurement.
