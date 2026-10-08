@@ -1,0 +1,338 @@
+[
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 320,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 320,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 320,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 320,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 320,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 320,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 360,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 360,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 360,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 360,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 360,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 360,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 768,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 768,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 768,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 768,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 768,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 768,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1024,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1024,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1024,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1024,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1024,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1024,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1440,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1440,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1440,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1440,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1440,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": false,
+    "width": 1440,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 1
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 360,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 360,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 360,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 360,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 360,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 360,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 1440,
+    "path": "/preview/property-purchase",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 1440,
+    "path": "/preview/investment",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 1440,
+    "path": "/preview/tax-advisory",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 1440,
+    "path": "/preview/team",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 1440,
+    "path": "/preview/contact",
+    "overflow": false,
+    "hiddenReveals": 0
+  },
+  {
+    "label": "after",
+    "reduced": true,
+    "width": 1440,
+    "path": "/preview/home",
+    "overflow": false,
+    "hiddenReveals": 0
+  }
+]
