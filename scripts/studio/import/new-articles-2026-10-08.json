@@ -1,0 +1,768 @@
+[
+  {
+    "document": {
+      "kind": "article",
+      "locale": "en",
+      "slug": "ibi-alicante-province-non-resident-owners",
+      "title": "IBI in the province of Alicante: how a non-resident owner pays it in 2026",
+      "status": "draft",
+      "has_unpublished_changes": true,
+      "working": {
+        "kind": "article",
+        "schemaVersion": 1,
+        "dek": "The town-hall property tax is collected by SUMA in most of the province. Here is the 2026 window, how to pay it from abroad and what a missed deadline costs.",
+        "category": "Taxes",
+        "tags": ["IBI", "SUMA", "non-resident", "property tax", "Province of Alicante"],
+        "byline": {
+          "name": "Sarah Katerina",
+          "role": "Tax, purchase costs and buyer advisory"
+        },
+        "jurisdiction": "Spain — Province of Alicante, municipalities whose collection is delegated to SUMA",
+        "dates": {
+          "updated": "2026-10-08"
+        },
+        "answer": "IBI (Impuesto sobre Bienes Inmuebles) is the yearly municipal tax on owning property. In most municipalities of the province of Alicante it is collected by SUMA Gestión Tributaria, the tax agency of the Diputación de Alicante. In 2026 the voluntary payment window runs from 27 July to 8 October. Direct-debited bills are charged on 1 October, and new direct-debit orders are accepted until 23 September. Alicante city and Xàbia set their own calendars. Paying after the window adds a 5%, 10% or 20% surcharge under the General Tax Law.",
+        "assumptions": [
+          "Dates are SUMA's 2026 calendar for municipalities whose collection is delegated to SUMA. Alicante city and Xàbia use their own calendars.",
+          "Check who issued your bill. If it is not SUMA, your municipality's own calendar applies."
+        ],
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "What IBI is, and what it is not",
+            "anchor": "what-ibi-is"
+          },
+          {
+            "type": "paragraph",
+            "text": "IBI is a local tax on owning a property. The bill comes from the collecting body of the municipality where the property sits, which across most of the province of Alicante is SUMA. It arrives whether the home is rented, used by the family or empty."
+          },
+          {
+            "type": "paragraph",
+            "text": "It is not income tax. A non-resident owner also files Modelo 210 with the Spanish Tax Agency (AEAT) for the income the property produces, or is deemed to produce when it is not rented. The two are paid to different administrations, on different calendars, and paying one never settles the other."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "When to pay in 2026",
+            "anchor": "when-to-pay-2026"
+          },
+          {
+            "type": "table",
+            "caption": "SUMA 2026 taxpayer's calendar, the items a property owner usually receives",
+            "rows": [
+              ["Item", "2026 voluntary period", "Scope"],
+              [
+                "IBI: urban, special and unbuildable-land property tax",
+                "27 July – 8 October",
+                "Province of Alicante, except Alicante city and Xàbia"
+              ],
+              [
+                "Solid waste collection rate (TRRSU)",
+                "5 March – 11 May",
+                "Province of Alicante, except Alicante city, Alcoi, Dénia and Xàbia"
+              ],
+              [
+                "Direct-debited IBI bills charged",
+                "1 October",
+                "Bills with an active direct debit"
+              ],
+              [
+                "Last day to set up a new direct debit for this window",
+                "23 September",
+                "New direct-debit orders"
+              ]
+            ],
+            "note": "Source: SUMA Gestión Tributaria, 2026 taxpayer's calendar and annual payment period pages, checked on 8 October 2026."
+          },
+          {
+            "type": "source",
+            "sourceId": "suma-calendar"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "How to pay from abroad",
+            "anchor": "how-to-pay-from-abroad"
+          },
+          {
+            "type": "paragraph",
+            "text": "Most methods need the secure code (CSV) printed on the bill, so keep a copy of it. The options SUMA lists for the annual period are:"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "Online, by card or Bizum, with the CSV code from the bill.",
+              "In SUMA's online office, which requires a Spanish digital ID.",
+              "Through online banking or the cash machines of SUMA's collaborating banks.",
+              "By phone on +34 965 292 000 with the CSV code: Monday to Friday 08:00–21:00, Saturday 10:00–14:00.",
+              "By direct debit from a Spanish account, set up at least 15 days before the deadline.",
+              "In instalments, through a deferred payment or a flexible payment plan requested from SUMA."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "No bill to hand? SUMA's website lets you obtain a copy of the bill by providing some personal details from it."
+          },
+          {
+            "type": "source",
+            "sourceId": "suma-annual-period"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "What a missed deadline costs",
+            "anchor": "missed-deadline"
+          },
+          {
+            "type": "table",
+            "caption": "Surcharges once the voluntary period has ended (General Tax Law, article 28)",
+            "rows": [
+              ["Surcharge", "Rate", "When it applies"],
+              [
+                "Recargo ejecutivo",
+                "5%",
+                "The whole debt is paid before the enforcement order (providencia de apremio) is notified"
+              ],
+              [
+                "Recargo de apremio reducido",
+                "10%",
+                "The debt and the surcharge are paid within the deadline given in the enforcement order"
+              ],
+              [
+                "Recargo de apremio ordinario",
+                "20%",
+                "In any other case, plus late-payment interest"
+              ]
+            ],
+            "note": "The surcharge is calculated on the whole debt not paid during the voluntary period."
+          },
+          {
+            "type": "source",
+            "sourceId": "lgt-28"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "A short checklist for non-resident owners",
+            "anchor": "checklist"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "Set up a direct debit from a Spanish account before 23 September, so the bill is paid on 1 October even if you are not in Spain.",
+              "Keep the bill or its CSV code: almost every payment channel asks for it.",
+              "Check that the owner's name and the property on the bill match your deed.",
+              "Keep IBI and Modelo 210 separate in your records: one is a municipal tax, the other is income tax filed with the Tax Agency.",
+              "If you bought or sold during the year, check what the purchase contract says about who bears that year's IBI."
+            ]
+          },
+          {
+            "type": "cta",
+            "label": "Review my local tax position",
+            "target": "tax",
+            "text": "A short review of the bills and filings attached to your property, before a deadline turns into a surcharge."
+          }
+        ],
+        "sources": [
+          {
+            "id": "suma-calendar",
+            "label": "2026 Taxpayer's Calendar",
+            "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+            "url": "https://www.suma.es/calendario-del-contribuyente",
+            "checkedOn": "2026-10-08"
+          },
+          {
+            "id": "suma-annual-period",
+            "label": "Annual payment period: dates, direct debit and payment methods",
+            "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+            "url": "https://www.suma.es/periodo-pago-voluntario",
+            "checkedOn": "2026-10-08"
+          },
+          {
+            "id": "lgt-28",
+            "label": "Ley 58/2003, General Tributaria — article 28 (surcharges of the enforcement period)",
+            "publisher": "BOE",
+            "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186",
+            "checkedOn": "2026-10-08"
+          },
+          {
+            "id": "aeat-210",
+            "label": "Modelo 210 — filing periods (plazo de declaración)",
+            "publisher": "Agencia Tributaria (AEAT)",
+            "url": "https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente/declaracion-irnr-sin-establecimiento-permanente/modelo-plazo-declaracion.html",
+            "checkedOn": "2026-10-07"
+          }
+        ],
+        "seo": {
+          "mode": "custom",
+          "title": "IBI in Alicante province 2026: how non-residents pay",
+          "description": "2026 IBI dates in the province of Alicante, how to pay SUMA from abroad, direct debit deadlines and the 5–20% surcharges for paying late."
+        },
+        "related": {
+          "documents": [],
+          "services": ["tax"]
+        }
+      }
+    },
+    "revisions": [
+      {
+        "number": 1,
+        "reason": "manual",
+        "title": "IBI in the province of Alicante: how a non-resident owner pays it in 2026",
+        "slug": "ibi-alicante-province-non-resident-owners",
+        "note": "New article drafted on 8 October 2026 from SUMA, BOE and AEAT primary sources. Awaiting professional review.",
+        "content": {
+          "kind": "article",
+          "schemaVersion": 1,
+          "dek": "The town-hall property tax is collected by SUMA in most of the province. Here is the 2026 window, how to pay it from abroad and what a missed deadline costs.",
+          "category": "Taxes",
+          "tags": ["IBI", "SUMA", "non-resident", "property tax", "Province of Alicante"],
+          "byline": {
+            "name": "Sarah Katerina",
+            "role": "Tax, purchase costs and buyer advisory"
+          },
+          "jurisdiction": "Spain — Province of Alicante, municipalities whose collection is delegated to SUMA",
+          "dates": {
+            "updated": "2026-10-08"
+          },
+          "answer": "IBI (Impuesto sobre Bienes Inmuebles) is the yearly municipal tax on owning property. In most municipalities of the province of Alicante it is collected by SUMA Gestión Tributaria, the tax agency of the Diputación de Alicante. In 2026 the voluntary payment window runs from 27 July to 8 October. Direct-debited bills are charged on 1 October, and new direct-debit orders are accepted until 23 September. Alicante city and Xàbia set their own calendars. Paying after the window adds a 5%, 10% or 20% surcharge under the General Tax Law.",
+          "assumptions": [
+            "Dates are SUMA's 2026 calendar for municipalities whose collection is delegated to SUMA. Alicante city and Xàbia use their own calendars.",
+            "Check who issued your bill. If it is not SUMA, your municipality's own calendar applies."
+          ],
+          "blocks": [
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "What IBI is, and what it is not",
+              "anchor": "what-ibi-is"
+            },
+            {
+              "type": "paragraph",
+              "text": "IBI is a local tax on owning a property. The bill comes from the collecting body of the municipality where the property sits, which across most of the province of Alicante is SUMA. It arrives whether the home is rented, used by the family or empty."
+            },
+            {
+              "type": "paragraph",
+              "text": "It is not income tax. A non-resident owner also files Modelo 210 with the Spanish Tax Agency (AEAT) for the income the property produces, or is deemed to produce when it is not rented. The two are paid to different administrations, on different calendars, and paying one never settles the other."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "When to pay in 2026",
+              "anchor": "when-to-pay-2026"
+            },
+            {
+              "type": "table",
+              "caption": "SUMA 2026 taxpayer's calendar, the items a property owner usually receives",
+              "rows": [
+                ["Item", "2026 voluntary period", "Scope"],
+                [
+                  "IBI: urban, special and unbuildable-land property tax",
+                  "27 July – 8 October",
+                  "Province of Alicante, except Alicante city and Xàbia"
+                ],
+                [
+                  "Solid waste collection rate (TRRSU)",
+                  "5 March – 11 May",
+                  "Province of Alicante, except Alicante city, Alcoi, Dénia and Xàbia"
+                ],
+                [
+                  "Direct-debited IBI bills charged",
+                  "1 October",
+                  "Bills with an active direct debit"
+                ],
+                [
+                  "Last day to set up a new direct debit for this window",
+                  "23 September",
+                  "New direct-debit orders"
+                ]
+              ],
+              "note": "Source: SUMA Gestión Tributaria, 2026 taxpayer's calendar and annual payment period pages, checked on 8 October 2026."
+            },
+            {
+              "type": "source",
+              "sourceId": "suma-calendar"
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "How to pay from abroad",
+              "anchor": "how-to-pay-from-abroad"
+            },
+            {
+              "type": "paragraph",
+              "text": "Most methods need the secure code (CSV) printed on the bill, so keep a copy of it. The options SUMA lists for the annual period are:"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Online, by card or Bizum, with the CSV code from the bill.",
+                "In SUMA's online office, which requires a Spanish digital ID.",
+                "Through online banking or the cash machines of SUMA's collaborating banks.",
+                "By phone on +34 965 292 000 with the CSV code: Monday to Friday 08:00–21:00, Saturday 10:00–14:00.",
+                "By direct debit from a Spanish account, set up at least 15 days before the deadline.",
+                "In instalments, through a deferred payment or a flexible payment plan requested from SUMA."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "No bill to hand? SUMA's website lets you obtain a copy of the bill by providing some personal details from it."
+            },
+            {
+              "type": "source",
+              "sourceId": "suma-annual-period"
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "What a missed deadline costs",
+              "anchor": "missed-deadline"
+            },
+            {
+              "type": "table",
+              "caption": "Surcharges once the voluntary period has ended (General Tax Law, article 28)",
+              "rows": [
+                ["Surcharge", "Rate", "When it applies"],
+                [
+                  "Recargo ejecutivo",
+                  "5%",
+                  "The whole debt is paid before the enforcement order (providencia de apremio) is notified"
+                ],
+                [
+                  "Recargo de apremio reducido",
+                  "10%",
+                  "The debt and the surcharge are paid within the deadline given in the enforcement order"
+                ],
+                [
+                  "Recargo de apremio ordinario",
+                  "20%",
+                  "In any other case, plus late-payment interest"
+                ]
+              ],
+              "note": "The surcharge is calculated on the whole debt not paid during the voluntary period."
+            },
+            {
+              "type": "source",
+              "sourceId": "lgt-28"
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "A short checklist for non-resident owners",
+              "anchor": "checklist"
+            },
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Set up a direct debit from a Spanish account before 23 September, so the bill is paid on 1 October even if you are not in Spain.",
+                "Keep the bill or its CSV code: almost every payment channel asks for it.",
+                "Check that the owner's name and the property on the bill match your deed.",
+                "Keep IBI and Modelo 210 separate in your records: one is a municipal tax, the other is income tax filed with the Tax Agency.",
+                "If you bought or sold during the year, check what the purchase contract says about who bears that year's IBI."
+              ]
+            },
+            {
+              "type": "cta",
+              "label": "Review my local tax position",
+              "target": "tax",
+              "text": "A short review of the bills and filings attached to your property, before a deadline turns into a surcharge."
+            }
+          ],
+          "sources": [
+            {
+              "id": "suma-calendar",
+              "label": "2026 Taxpayer's Calendar",
+              "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+              "url": "https://www.suma.es/calendario-del-contribuyente",
+              "checkedOn": "2026-10-08"
+            },
+            {
+              "id": "suma-annual-period",
+              "label": "Annual payment period: dates, direct debit and payment methods",
+              "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+              "url": "https://www.suma.es/periodo-pago-voluntario",
+              "checkedOn": "2026-10-08"
+            },
+            {
+              "id": "lgt-28",
+              "label": "Ley 58/2003, General Tributaria — article 28 (surcharges of the enforcement period)",
+              "publisher": "BOE",
+              "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186",
+              "checkedOn": "2026-10-08"
+            },
+            {
+              "id": "aeat-210",
+              "label": "Modelo 210 — filing periods (plazo de declaración)",
+              "publisher": "Agencia Tributaria (AEAT)",
+              "url": "https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente/declaracion-irnr-sin-establecimiento-permanente/modelo-plazo-declaracion.html",
+              "checkedOn": "2026-10-07"
+            }
+          ],
+          "seo": {
+            "mode": "custom",
+            "title": "IBI in Alicante province 2026: how non-residents pay",
+            "description": "2026 IBI dates in the province of Alicante, how to pay SUMA from abroad, direct debit deadlines and the 5–20% surcharges for paying late."
+          },
+          "related": {
+            "documents": [],
+            "services": ["tax"]
+          }
+        }
+      }
+    ],
+    "notes": [
+      {
+        "code": "NEW-IBI-01",
+        "domain": "tax",
+        "severity": "review",
+        "body": "New article (8 Oct 2026). Every date and rate is taken from the cited SUMA pages and LGT art. 28, checked on 8 Oct 2026. Sarah to confirm wording and that SUMA collects IBI for the municipalities her clients usually buy in (e.g. Torrevieja) before approval."
+      },
+      {
+        "code": "NEW-IBI-02",
+        "domain": "media",
+        "severity": "info",
+        "body": "No hero image yet. Choose an approved image from the Studio library before publication."
+      }
+    ]
+  },
+  {
+    "document": {
+      "kind": "article",
+      "locale": "en",
+      "slug": "non-resident-owner-tax-calendar-alicante-2026",
+      "title": "A non-resident owner's tax year in the province of Alicante: the 2026 calendar",
+      "status": "draft",
+      "has_unpublished_changes": true,
+      "working": {
+        "kind": "article",
+        "schemaVersion": 1,
+        "dek": "Two administrations, three recurring obligations and a handful of dates. One page that puts the year in order for owners who live outside Spain.",
+        "category": "Taxes",
+        "tags": ["tax calendar", "non-resident", "Modelo 210", "IBI", "SUMA"],
+        "byline": {
+          "name": "Sarah Katerina",
+          "role": "Tax, purchase costs and buyer advisory"
+        },
+        "jurisdiction": "Spain — non-resident taxation; Province of Alicante local taxes collected by SUMA",
+        "dates": {
+          "updated": "2026-10-08"
+        },
+        "answer": "A non-resident who owns a home in the province of Alicante usually deals with two administrations. SUMA collects the local taxes: the waste collection rate (5 March – 11 May 2026) and IBI (27 July – 8 October 2026). The Spanish Tax Agency (AEAT) receives Modelo 210 for income tax. Grouped rental income for 2025 was due 1–20 January 2026. Imputed income for 2025, when the home was not rented, is due by 31 December 2026. From income earned in 2026, the grouped rental return moves to 1–20 April and the imputed-income return to 1 April – 31 December of the following year.",
+        "assumptions": [
+          "Local-tax dates follow SUMA's 2026 calendar. Alicante city and Xàbia, and Alcoi and Dénia for the waste rate, use their own calendars.",
+          "Modelo 210 dates follow the AEAT filing-period page checked on 7 October 2026. Your situation may involve other forms; this page covers the recurring ones for a single home."
+        ],
+        "blocks": [
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Who you pay, and for what",
+            "anchor": "who-you-pay"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "SUMA Gestión Tributaria, for local taxes on the property: IBI and, in most municipalities, the solid waste collection rate.",
+              "The Spanish Tax Agency (AEAT), for non-resident income tax through Modelo 210: on rental income when the home is let, or on imputed income when it is not."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Paying one never settles the other. Most of the problems that surface years later start with treating them as a single bill."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "The 2026 calendar, month by month",
+            "anchor": "calendar-2026"
+          },
+          {
+            "type": "table",
+            "caption": "Recurring 2026 dates for a non-resident owner of one home in the province of Alicante",
+            "rows": [
+              ["When", "What", "Who"],
+              ["1–20 January", "Modelo 210: grouped annual return for 2025 rental income", "AEAT"],
+              [
+                "First 20 days of April, July and October",
+                "Modelo 210: quarterly returns for other income",
+                "AEAT"
+              ],
+              ["5 March – 11 May", "Solid waste collection rate (TRRSU)", "SUMA"],
+              ["27 July – 8 October", "IBI, the municipal property tax", "SUMA"],
+              ["23 September", "Last day to set up a new direct debit for IBI", "SUMA"],
+              ["1 October", "Direct-debited IBI bills are charged", "SUMA"],
+              [
+                "By 31 December",
+                "Modelo 210: imputed income for 2025, when the home was not rented",
+                "AEAT"
+              ]
+            ],
+            "note": "The waste-rate window excludes Alicante city, Alcoi, Dénia and Xàbia; the IBI window excludes Alicante city and Xàbia."
+          },
+          {
+            "type": "source",
+            "sourceId": "suma-calendar"
+          },
+          {
+            "type": "source",
+            "sourceId": "aeat-210"
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "What changes from income earned in 2026",
+            "anchor": "changes-2026-income"
+          },
+          {
+            "type": "paragraph",
+            "text": "The Tax Agency has moved two Modelo 210 windows for income accrued from 2026 onwards. The grouped annual return for rental income moves from 1–20 January to 1–20 April of the following year. The imputed-income return for a home that was not rented moves from the whole following calendar year to 1 April – 31 December of the following year."
+          },
+          {
+            "type": "paragraph",
+            "text": "In practice, rent received in 2026 is declared between 1 and 20 April 2027 if you group it, and imputed income for 2026 between 1 April and 31 December 2027."
+          },
+          {
+            "type": "heading",
+            "level": 2,
+            "text": "Three habits that keep the year clean",
+            "anchor": "three-habits"
+          },
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "Pay the local taxes by direct debit from a Spanish account. Set it up before 23 September for IBI, so it is charged on 1 October.",
+              "Keep one record per tax: the SUMA bills with their CSV codes, and the Modelo 210 returns with their filing receipts.",
+              "Note which months the home was rented and which it was not. Rental and imputed income are declared differently, and a mixed year needs both."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "For the detail of Modelo 210, including rates by country of residence and the deductions that are or are not available, see our guide to Modelo 210."
+          },
+          {
+            "type": "cta",
+            "label": "Map my tax exposure",
+            "target": "tax",
+            "text": "One review of every bill and filing attached to your property, with the dates that apply to your situation."
+          }
+        ],
+        "sources": [
+          {
+            "id": "suma-calendar",
+            "label": "2026 Taxpayer's Calendar",
+            "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+            "url": "https://www.suma.es/calendario-del-contribuyente",
+            "checkedOn": "2026-10-08"
+          },
+          {
+            "id": "suma-annual-period",
+            "label": "Annual payment period: dates, direct debit and payment methods",
+            "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+            "url": "https://www.suma.es/periodo-pago-voluntario",
+            "checkedOn": "2026-10-08"
+          },
+          {
+            "id": "aeat-210",
+            "label": "Modelo 210 — filing periods (plazo de declaración)",
+            "publisher": "Agencia Tributaria (AEAT)",
+            "url": "https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente/declaracion-irnr-sin-establecimiento-permanente/modelo-plazo-declaracion.html",
+            "checkedOn": "2026-10-07",
+            "note": "Page updated by AEAT on 2 October 2026."
+          }
+        ],
+        "seo": {
+          "mode": "custom",
+          "title": "Non-resident owner tax calendar 2026, Alicante",
+          "description": "Every recurring 2026 date for a non-resident home owner in the province of Alicante: SUMA waste rate and IBI, and Modelo 210 with the AEAT."
+        },
+        "related": {
+          "documents": [],
+          "services": ["tax"]
+        }
+      }
+    },
+    "revisions": [
+      {
+        "number": 1,
+        "reason": "manual",
+        "title": "A non-resident owner's tax year in the province of Alicante: the 2026 calendar",
+        "slug": "non-resident-owner-tax-calendar-alicante-2026",
+        "note": "New article drafted on 8 October 2026 from SUMA and AEAT primary sources. Awaiting professional review.",
+        "content": {
+          "kind": "article",
+          "schemaVersion": 1,
+          "dek": "Two administrations, three recurring obligations and a handful of dates. One page that puts the year in order for owners who live outside Spain.",
+          "category": "Taxes",
+          "tags": ["tax calendar", "non-resident", "Modelo 210", "IBI", "SUMA"],
+          "byline": {
+            "name": "Sarah Katerina",
+            "role": "Tax, purchase costs and buyer advisory"
+          },
+          "jurisdiction": "Spain — non-resident taxation; Province of Alicante local taxes collected by SUMA",
+          "dates": {
+            "updated": "2026-10-08"
+          },
+          "answer": "A non-resident who owns a home in the province of Alicante usually deals with two administrations. SUMA collects the local taxes: the waste collection rate (5 March – 11 May 2026) and IBI (27 July – 8 October 2026). The Spanish Tax Agency (AEAT) receives Modelo 210 for income tax. Grouped rental income for 2025 was due 1–20 January 2026. Imputed income for 2025, when the home was not rented, is due by 31 December 2026. From income earned in 2026, the grouped rental return moves to 1–20 April and the imputed-income return to 1 April – 31 December of the following year.",
+          "assumptions": [
+            "Local-tax dates follow SUMA's 2026 calendar. Alicante city and Xàbia, and Alcoi and Dénia for the waste rate, use their own calendars.",
+            "Modelo 210 dates follow the AEAT filing-period page checked on 7 October 2026. Your situation may involve other forms; this page covers the recurring ones for a single home."
+          ],
+          "blocks": [
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Who you pay, and for what",
+              "anchor": "who-you-pay"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "SUMA Gestión Tributaria, for local taxes on the property: IBI and, in most municipalities, the solid waste collection rate.",
+                "The Spanish Tax Agency (AEAT), for non-resident income tax through Modelo 210: on rental income when the home is let, or on imputed income when it is not."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Paying one never settles the other. Most of the problems that surface years later start with treating them as a single bill."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "The 2026 calendar, month by month",
+              "anchor": "calendar-2026"
+            },
+            {
+              "type": "table",
+              "caption": "Recurring 2026 dates for a non-resident owner of one home in the province of Alicante",
+              "rows": [
+                ["When", "What", "Who"],
+                [
+                  "1–20 January",
+                  "Modelo 210: grouped annual return for 2025 rental income",
+                  "AEAT"
+                ],
+                [
+                  "First 20 days of April, July and October",
+                  "Modelo 210: quarterly returns for other income",
+                  "AEAT"
+                ],
+                ["5 March – 11 May", "Solid waste collection rate (TRRSU)", "SUMA"],
+                ["27 July – 8 October", "IBI, the municipal property tax", "SUMA"],
+                ["23 September", "Last day to set up a new direct debit for IBI", "SUMA"],
+                ["1 October", "Direct-debited IBI bills are charged", "SUMA"],
+                [
+                  "By 31 December",
+                  "Modelo 210: imputed income for 2025, when the home was not rented",
+                  "AEAT"
+                ]
+              ],
+              "note": "The waste-rate window excludes Alicante city, Alcoi, Dénia and Xàbia; the IBI window excludes Alicante city and Xàbia."
+            },
+            {
+              "type": "source",
+              "sourceId": "suma-calendar"
+            },
+            {
+              "type": "source",
+              "sourceId": "aeat-210"
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "What changes from income earned in 2026",
+              "anchor": "changes-2026-income"
+            },
+            {
+              "type": "paragraph",
+              "text": "The Tax Agency has moved two Modelo 210 windows for income accrued from 2026 onwards. The grouped annual return for rental income moves from 1–20 January to 1–20 April of the following year. The imputed-income return for a home that was not rented moves from the whole following calendar year to 1 April – 31 December of the following year."
+            },
+            {
+              "type": "paragraph",
+              "text": "In practice, rent received in 2026 is declared between 1 and 20 April 2027 if you group it, and imputed income for 2026 between 1 April and 31 December 2027."
+            },
+            {
+              "type": "heading",
+              "level": 2,
+              "text": "Three habits that keep the year clean",
+              "anchor": "three-habits"
+            },
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Pay the local taxes by direct debit from a Spanish account. Set it up before 23 September for IBI, so it is charged on 1 October.",
+                "Keep one record per tax: the SUMA bills with their CSV codes, and the Modelo 210 returns with their filing receipts.",
+                "Note which months the home was rented and which it was not. Rental and imputed income are declared differently, and a mixed year needs both."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "For the detail of Modelo 210, including rates by country of residence and the deductions that are or are not available, see our guide to Modelo 210."
+            },
+            {
+              "type": "cta",
+              "label": "Map my tax exposure",
+              "target": "tax",
+              "text": "One review of every bill and filing attached to your property, with the dates that apply to your situation."
+            }
+          ],
+          "sources": [
+            {
+              "id": "suma-calendar",
+              "label": "2026 Taxpayer's Calendar",
+              "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+              "url": "https://www.suma.es/calendario-del-contribuyente",
+              "checkedOn": "2026-10-08"
+            },
+            {
+              "id": "suma-annual-period",
+              "label": "Annual payment period: dates, direct debit and payment methods",
+              "publisher": "SUMA Gestión Tributaria (Diputación de Alicante)",
+              "url": "https://www.suma.es/periodo-pago-voluntario",
+              "checkedOn": "2026-10-08"
+            },
+            {
+              "id": "aeat-210",
+              "label": "Modelo 210 — filing periods (plazo de declaración)",
+              "publisher": "Agencia Tributaria (AEAT)",
+              "url": "https://sede.agenciatributaria.gob.es/Sede/no-residentes/irnr-sin-establecimiento-permanente/declaracion-irnr-sin-establecimiento-permanente/modelo-plazo-declaracion.html",
+              "checkedOn": "2026-10-07",
+              "note": "Page updated by AEAT on 2 October 2026."
+            }
+          ],
+          "seo": {
+            "mode": "custom",
+            "title": "Non-resident owner tax calendar 2026, Alicante",
+            "description": "Every recurring 2026 date for a non-resident home owner in the province of Alicante: SUMA waste rate and IBI, and Modelo 210 with the AEAT."
+          },
+          "related": {
+            "documents": [],
+            "services": ["tax"]
+          }
+        }
+      }
+    ],
+    "notes": [
+      {
+        "code": "NEW-CAL-01",
+        "domain": "tax",
+        "severity": "review",
+        "body": "New article (8 Oct 2026). SUMA dates checked on 8 Oct 2026; Modelo 210 windows reuse the AEAT page already verified on 7 Oct 2026 for the Modelo 210 guide. Sarah to confirm the wording and that the quarterly calendar for 'other income' should stay in a page aimed at single-home owners."
+      },
+      {
+        "code": "NEW-CAL-02",
+        "domain": "seo",
+        "severity": "info",
+        "body": "In the Studio, link this article to 'modelo-210-explained' and 'ibi-alicante-province-non-resident-owners' under Related documents (ids differ per database, so they are not hard-coded here)."
+      }
+    ]
+  }
+]
