@@ -4,9 +4,19 @@ import { useId, useState } from 'react';
 import { WebSection, WebSectionHeader } from './WebSection';
 import { faq as investmentFaq } from '@/content/en/investment';
 import type { Claim } from '@/lib/content/claims';
+import type { RelatedLink } from '@/content/en/internal-links';
+import { WebLinkButton } from './WebButton';
 import styles from './WebFaq.module.css';
 
-function FaqItem({ question, answer }: { question: string; answer: Claim }) {
+function FaqItem({
+  question,
+  answer,
+  related,
+}: {
+  question: string;
+  answer: Claim;
+  related?: RelatedLink;
+}) {
   const [open, setOpen] = useState(false);
   const baseId = useId();
   const triggerId = `${baseId}-trigger`;
@@ -35,6 +45,15 @@ function FaqItem({ question, answer }: { question: string; answer: Claim }) {
       {open ? (
         <div id={panelId} role="region" aria-labelledby={triggerId} className={styles.panel}>
           <p className={styles.answer}>{answer.text}</p>
+          {/* Phase 2B internal link: the service that carries this answer,
+              under its navigation label (content/en/internal-links.ts). */}
+          {related ? (
+            <p className={styles.related}>
+              <WebLinkButton href={related.href} variant="quiet" arrow>
+                {related.label}
+              </WebLinkButton>
+            </p>
+          ) : null}
           {/*
             2026-10-01: the per-answer "Not confirmed for publication yet." note
             was an internal status, not information for the visitor; it lives
@@ -77,14 +96,25 @@ export interface WebFaqContent {
 export function WebFaq({
   content = investmentFaq,
   appearance = 'boxed',
-}: { content?: WebFaqContent; appearance?: 'boxed' | 'light' } = {}) {
+  related = {},
+}: {
+  content?: WebFaqContent;
+  appearance?: 'boxed' | 'light';
+  /** FAQ item id → related page (content/en/internal-links.ts `FAQ_RELATED`). */
+  related?: Readonly<Record<string, RelatedLink>>;
+} = {}) {
   const faq = content;
   return (
     <WebSection surface="ivory" id="faq">
       <WebSectionHeader eyebrow={faq.eyebrow.text} title={faq.title.text} centered rule />
       <div className={appearance === 'light' ? `${styles.grid} ${styles.light}` : styles.grid}>
         {faq.items.map((item) => (
-          <FaqItem key={item.id} question={item.question.text} answer={item.answer} />
+          <FaqItem
+            key={item.id}
+            question={item.question.text}
+            answer={item.answer}
+            related={related[item.id]}
+          />
         ))}
       </div>
       <p className={styles.legalNote}>{faq.legalNote.text}</p>

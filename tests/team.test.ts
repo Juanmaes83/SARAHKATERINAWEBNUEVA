@@ -19,7 +19,8 @@ describe('team editorial preview', () => {
   it('reuses the shared chrome, FAQ, buttons and motion', () => {
     expect(page).toContain('<WebHeader');
     expect(page).toContain('<WebFooter');
-    expect(editorial).toContain('<WebFaq content={faq} />');
+    // Phase 2B (2026-10-08): the FAQ carries its internal-link map.
+    expect(editorial).toContain('<WebFaq content={faq} related={FAQ_RELATED.team} />');
     expect(editorial).toContain('<WebLinkButton');
     expect(editorial).toContain('<RevealOnScroll');
   });

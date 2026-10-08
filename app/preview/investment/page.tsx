@@ -27,6 +27,7 @@ import {
   UNIFIED_WEB_NAV,
 } from '@/content/en/site-navigation';
 import { SERVICE_ROUTES } from '@/content/en/service-journey';
+import { FAQ_RELATED } from '@/content/en/internal-links';
 
 /**
  * INVESTMENT — PHASE 2C VISUAL FIDELITY IMPLEMENTATION.
@@ -83,7 +84,7 @@ export default function InvestmentPage() {
         <SarahReviewMark id="SR-049" />
         <ServiceJourney page="investment" />
         <SarahReviewMark id="SR-084" />
-        <WebFaq appearance="light" />
+        <WebFaq appearance="light" related={FAQ_RELATED.investment} />
         <FinalCtaBand />
         <WebFooter />
       </div>

@@ -1,5 +1,6 @@
 import { Container } from '@/components/layout/Container';
-import { WebButton } from './WebButton';
+import { WebLinkButton } from './WebButton';
+import { CTA_TARGETS } from '@/content/en/internal-links';
 import { DashboardCard } from './DashboardCard';
 import { Icon, type IconName } from './icons/Icon';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
@@ -58,10 +59,12 @@ export function WebHero() {
           <p className={styles.lead}>{hero.lead.text}</p>
 
           <div className={styles.ctas}>
-            <WebButton variant="primary" arrow>
+            <WebLinkButton href={CTA_TARGETS.investmentHeroPrimary} variant="primary" arrow>
               {hero.primaryCta.text}
-            </WebButton>
-            <WebButton variant="secondary">{hero.secondaryCta.text}</WebButton>
+            </WebLinkButton>
+            <WebLinkButton href={CTA_TARGETS.investmentHeroSecondary} variant="secondary">
+              {hero.secondaryCta.text}
+            </WebLinkButton>
           </div>
 
           <dl className={styles.signals}>
