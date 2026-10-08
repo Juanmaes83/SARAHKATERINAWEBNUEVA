@@ -1,4 +1,4 @@
-import { SEO_ROUTES, isPublishable, routeById, type SeoRoute } from './routes';
+import { SEO_ROUTES, resolveRouteIndexing, routeById, type SeoRoute } from './routes';
 import type { JsonLdObject } from './jsonld';
 
 /**
@@ -158,7 +158,16 @@ function walk(value: unknown, path: string, visit: (key: string, value: unknown,
   }
 }
 
-/** Structural and governance validation of a built graph. */
+/**
+ * Structural and policy validation of a built graph: required node types,
+ * `@id` present, unique and resolvable, URLs on the configured origin, and the
+ * governance deny-lists (keys, `@type`s at any depth, wording).
+ *
+ * It does NOT verify that the facts are true, legally correct or a complete
+ * and semantically valid schema.org description; that is the job of the
+ * human fact review and of an external structured-data validator before
+ * emission.
+ */
 export function validateEntityGraph(graph: JsonLdObject, siteUrl: string): ValidationResult {
   const errors: string[] = [];
   const base = origin(siteUrl);
@@ -174,8 +183,8 @@ export function validateEntityGraph(graph: JsonLdObject, siteUrl: string): Valid
     const record = node as Record<string, unknown>;
     if (typeof record['@type'] !== 'string') errors.push('every node needs a string @type');
     if (typeof record['@id'] !== 'string') errors.push('every node needs an @id');
+    else if (ids.has(record['@id'])) errors.push(`duplicate @id ${record['@id']}`);
     else ids.add(record['@id']);
-    if (FORBIDDEN_TYPES.includes(String(record['@type']))) errors.push(`forbidden @type ${String(record['@type'])}`);
   }
 
   for (const required of ['ProfessionalService', 'Person', 'WebSite']) {
@@ -186,6 +195,12 @@ export function validateEntityGraph(graph: JsonLdObject, siteUrl: string): Valid
 
   walk(graph, '$', (key, value, path) => {
     if ((FORBIDDEN_KEYS as readonly string[]).includes(key)) errors.push(`forbidden key ${path}`);
+    if (key === '@type') {
+      // A node's type may be a string or an array; check it at any depth.
+      for (const type of Array.isArray(value) ? value : [value]) {
+        if (FORBIDDEN_TYPES.includes(String(type))) errors.push(`forbidden @type ${String(type)} at ${path}`);
+      }
+    }
     if (key === '@id' && typeof value === 'string' && path.split('.').length > 3 && !ids.has(value)) {
       errors.push(`dangling reference ${path} → ${value}`);
     }
@@ -203,9 +218,12 @@ export function validateEntityGraph(graph: JsonLdObject, siteUrl: string): Valid
 }
 
 /**
- * Emission gate. All three must hold: the site-wide indexing switch is on,
- * the route is publishable and declares entity structured data, and the
- * owner has lifted AGENTS.md §7.4 (`entityJsonLdApproved`). Today: false.
+ * Emission gate. All must hold: the owner has lifted AGENTS.md §7.4
+ * (`entityJsonLdApproved`); the route declares entity structured data; and the
+ * route's public path is indexable under the shared route-level decision
+ * (`resolveRouteIndexing()`: site-level gate open, route approved with a valid
+ * public path, index-eligible). Emit only on that public path, never on the
+ * preview. Today: false on every route.
  */
 export function entityGraphEmissionAllowed(
   routeId: string,
@@ -213,11 +231,7 @@ export function entityGraphEmissionAllowed(
   routes: readonly SeoRoute[] = SEO_ROUTES,
 ): boolean {
   const route = routeById(routeId, routes);
-  return Boolean(
-    options.siteIndexable &&
-      options.entityJsonLdApproved &&
-      route &&
-      isPublishable(route) &&
-      route.structuredData === 'entity',
-  );
+  if (!route || !options.entityJsonLdApproved || route.structuredData !== 'entity') return false;
+  if (route.productionPath === null) return false;
+  return resolveRouteIndexing(route.productionPath, { siteIndexable: options.siteIndexable }, routes).indexable;
 }

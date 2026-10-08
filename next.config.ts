@@ -1,11 +1,17 @@
 import type { NextConfig } from 'next';
+import { siteConfig } from './lib/seo/config';
 import { activeRedirects } from './lib/seo/redirects';
 
 /**
- * The site is NOT indexable by default. Indexing is only ever enabled by an
- * explicit, human-approved environment change (see lib/seo/config.ts).
+ * The site is NOT indexable by default. The global X-Robots-Tag is lifted only
+ * by the SAME site-level gate the rest of the app uses (`siteConfig.indexable`,
+ * lib/seo/config.ts): production mode AND an explicit
+ * `NEXT_PUBLIC_SITE_INDEXABLE=true`. A preview deployment handed the flag by
+ * mistake keeps the header. Lifting it does not make any page indexable on its
+ * own: each page's robots meta still applies the route-level gate
+ * (lib/seo/routes.ts).
  */
-const isIndexable = process.env.NEXT_PUBLIC_SITE_INDEXABLE === 'true';
+const isIndexable = siteConfig.indexable;
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -22,6 +28,8 @@ const nextConfig: NextConfig = {
     // Only owner-approved migrations whose target route is publishable
     // (lib/seo/redirects.ts, lib/seo/routes.ts). Today this list is empty:
     // every target path is unresolved, so nothing redirects silently.
+    // `permanent: true` makes Next.js answer 308, not 301. Redirects do not
+    // depend on the indexing switch: they have their own approval.
     return activeRedirects();
   },
   async headers() {
