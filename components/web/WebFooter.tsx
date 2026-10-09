@@ -49,6 +49,9 @@ export function WebFooter({
   showStatus?: boolean;
 } = {}) {
   const footer = content;
+  // Shared legal access lives exclusively in the footer. Draft destinations
+  // remain in /preview until controller identity and texts are approved.
+  const groups = footer.groups.filter((group) => group.title !== 'Legal');
 
   return (
     <footer className={styles.footer} data-surface="dark">
@@ -65,7 +68,7 @@ export function WebFooter({
           </div>
 
           <div className={styles.groups}>
-            {footer.groups.map((group) => (
+            {groups.map((group) => (
               <div key={group.title}>
                 <h2 className={styles.groupTitle}>{group.title}</h2>
                 <ul className={styles.list}>
@@ -95,6 +98,12 @@ export function WebFooter({
           </div>
         </div>
 
+        <nav aria-label="Legal information" className={styles.legalLinks}>
+          <Link href="/preview/legal-notice" className={styles.footerLink}>Legal notice</Link>
+          <Link href="/preview/privacy" className={styles.footerLink}>Privacy policy</Link>
+          <Link href="/preview/cookies" className={styles.footerLink}>Cookie policy</Link>
+          <Link href="/preview/cookies#preferences" className={styles.footerLink}>Cookie preferences</Link>
+        </nav>
         <div className={styles.bottom}>
           <div className={styles.bottomLeft}>
             <p className={styles.copyright}>{footer.copyright.text}</p>

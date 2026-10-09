@@ -220,3 +220,13 @@
   letter-spacing: var(--sk-web-tracking-caps);
   white-space: nowrap;
 }
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8) var(--sk-space-24);
+  margin-block-start: var(--sk-space-32);
+  font-family: var(--sk-type-body-small-family);
+  font-size: var(--sk-type-body-small-size);
+  color: var(--sk-web-muted-on-dark);
+}
