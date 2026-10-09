@@ -1,6 +1,6 @@
 # Contrato funcional propuesto v1
 
-Estado: PROPOSAL. No describe una conexión o funcionalidad ya desplegada.
+Actualización: contrato guiado autorizado por Juanma para implementación/revisión de Preview el 2026-10-09; APPROVED_WITH_CONDITION + INTERNAL_TEST_ONLY. Ver ../ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md para el código realizado. La ampliación generativa y fuentes normativas permanecen propuestas; no se describe una API conectada o publicación definitiva.
 
 ## Identidad y propósito
 

@@ -1,6 +1,6 @@
 # QA y entrega del asistente propuesto
 
-Estado: plan de pruebas; NO ejecutado sobre un chatbot. Esta rama solo añade documentación.
+Actualización: matriz original de aceptación; implementación guiada añadida después de autorización de Juanma. Las pruebas concretas realizadas se distinguen de los criterios de futura ampliación en ../ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md y el JSON de evidencia. No afirmar que toda esta matriz ni la revisión humana están cerradas.
 No usar formularios, Studio o BD alojada: Preview comparte datos de producción.
 
 | ID  | Caso                                 | Resultado exigido                                                                  |
@@ -38,7 +38,7 @@ Automatizar lo que corresponda al implementar: elegibilidad del catálogo, desti
 
 Para cada cambio visible: URL exacta de Preview (no el alias mutable como única evidencia), SHA, ruta, login/rol si se requiere, instrucciones a 1440px y 390/320px, resultado y efectos de botones. Visitante público; si Vercel protege el Preview, acceso mediante su autorización existente. Abrir/cerrar/opciones no escriben ni consumen IA; WhatsApp abre servicio externo y solo el visitante envía. Navegar/call/mail puede activar el servicio elegido.
 
-No usar el Preview de esta rama documental como evidencia del chatbot: la UI todavía no existe. Merge documental, deploy de infraestructura, proveedor conectado y validación humana deben reportarse por separado.
+El Preview del PR documental original #58 no demuestra la UI. Usar el deployment exacto del PR de implementación y su SHA. Merge, deploy de infraestructura, proveedor conectado y validación humana deben reportarse por separado.
 
 ## Checkpoint y pendientes independientes
 

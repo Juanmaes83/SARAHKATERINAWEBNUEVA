@@ -1,6 +1,6 @@
 # Catálogo de respuestas v1 para revisión humana
 
-Estado de TODOS los textos: PROPOSAL / PENDING_APPROVAL. Idioma de implementación propuesto: EN. ES se ofrece para revisión de Juanma; no habilita traducciones del sitio.
+Actualización: A01–A12 autorizados por Juanma para implementación guiada y revisión en Preview mediante su instrucción «HAZLO Y CONTINUA HASTA QUE PUEDA HACER REVISIÓN VISUAL HUMANA». Registro: content/en/assistant.ts, 2026-10-09, APPROVED_WITH_CONDITION + INTERNAL_TEST_ONLY. No atribuir aprobación a Sarah o PUBLIC_PRODUCTION. EN implementado; ES sigue siendo traducción de revisión, sin habilitar rutas ES. Los campos pendientes originales de abajo describen el acta inicial de aprobación pública, todavía abierta.
 Base de las fuentes S01–S08: `5b3b5cc45bfefe1afb87228a846945c47edcc6e9`; ver KNOWLEDGE-REGISTER.md.
 
 V1 muestra opciones, sin interpretar texto libre. Los nombres de temas internos no son un compromiso de navegación nuevo. Las rutas /preview son destinos de revisión; usar el registro canónico existente al decidir otros entornos.

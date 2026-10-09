@@ -84,3 +84,11 @@ Datos básicos del titular y contactos cerrados por confirmación del propietari
 ## Contrato de asistente para revisión, 9 octubre
 
 Juanma autorizó preparar reglas, memoria, conocimiento, fuentes y catálogo antes de implementar el chatbot. [Paquete v1](assistant/README.md) documenta asistente guiado sin IA/proveedor, memoria efímera, navegación y WhatsApp voluntario. Los textos exactos propuestos están pendientes de revisión; no hay UI implementada o conexión API. Las fuentes oficiales son candidatas, no respuestas normativas habilitadas. Esta continuación no cierra QA de Studio ni gates legales/de lanzamiento.
+
+## Continuación autorizada: asistente guiado para revisión visual
+
+Juanma autorizó implementar y continuar hasta revisión humana; supersede el estado de preparación anterior para Preview. A01–A12 incorporados con permiso INTERNAL_TEST_ONLY; no aprobación atribuida a Sarah ni PUBLIC_PRODUCTION. [Entrega de UI/WhatsApp y pasos de revisión](ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md). Rama propia feat/guided-assistant-whatsapp-review; el nuevo PR incluye el paquete documental #58 y lo sustituye sin fusionarlo por separado.
+
+Panel modal EN, sin input libre, sin memoria persistente, sin proveedor o API WhatsApp. Deriva al número existente con saludo neutro; no envía mensajes. Cierre, navegación y recarga descartan selección. Fuera de Studio/foundation/API y deshabilitado en deployments production. Page Registry, Media Library, datos alojados y tokens canónicos preservados. No cambios de DNS, secretos, indexación o GA/GTM.
+
+Pruebas locales: 480 tests/33 suites sin skips, tipos/build, lint sin errores/8 avisos heredados, 55 rutas HTTP. Chromium 153 con interacción real a 1440, 390 y 320 px; evidencia en docs/screenshots/assistant-review-2026-10-09. SHA/CI/deployment finales constan en el PR; validación humana y merge pendientes. No confundir estas pruebas del asistente con QA completa de Studio o cierre legal.

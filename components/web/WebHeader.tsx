@@ -85,6 +85,11 @@ export function WebHeader({
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
+    window.dispatchEvent(new CustomEvent('sk:web-overlay', { detail: { open: open || toolsOpen } }));
+    return () => { window.dispatchEvent(new CustomEvent('sk:web-overlay', { detail: { open: false } })); };
+  }, [open, toolsOpen]);
+
+  useEffect(() => {
     if (!toolsOpen) return;
 
     const closeTools = (event: KeyboardEvent | PointerEvent) => {

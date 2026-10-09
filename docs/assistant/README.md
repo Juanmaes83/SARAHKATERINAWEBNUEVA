@@ -1,7 +1,7 @@
 # Asistente Sarah Katerina — contrato propuesto v1
 
 Fecha: 2026-10-09. Base auditada: `5b3b5cc45bfefe1afb87228a846945c47edcc6e9`.
-Estado: PROPOSAL / PENDING_CONTENT_APPROVAL. La autorización de Juanma cubre preparar este paquete; no convierte textos nuevos en aprobados por Sarah.
+Actualización: Juanma autorizó implementar este catálogo y continuar hasta revisión visual. Alcance APPROVED_WITH_CONDITION + INTERNAL_TEST_ONLY: asistente guiado en Preview; revisión humana antes de merge. No se atribuye aprobación a Sarah ni permiso PUBLIC_PRODUCTION.
 
 - [Contrato, memoria y acciones](CONTRACT.md)
 - [Registro de conocimiento y fuentes oficiales](KNOWLEDGE-REGISTER.md)
@@ -10,18 +10,18 @@ Estado: PROPOSAL / PENDING_CONTENT_APPROVAL. La autorización de Juanma cubre pr
 
 La primera versión propuesta es un asistente guiado por opciones, sin campo de texto libre ni modelo generativo. Un botón de ayuda abre un panel y ofrece derivación voluntaria al WhatsApp existente. No es una API de WhatsApp, no envía mensajes y no representa a Sarah como interlocutora presente.
 
-Este paquete solo documenta. No añade UI, consultas a Studio, proveedor, cookies, almacenamiento, costes ni publicación. No altera Project State, Page Registry o Media Library como sistemas: el único Project State sigue siendo ../PROJECT-STATE-2026-10-09.md.
+El PR documental inicial #58 se continúa en el bloque de implementación: panel guiado y derivación al WhatsApp existente. Ver [entrega de revisión](../ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md). No añade consultas a Studio, proveedor, cookies, almacenamiento ni API WhatsApp. El único Project State sigue siendo ../PROJECT-STATE-2026-10-09.md; Page Registry y Media Library se preservan.
 
 ## Secuencia de ejecución
 
-1. Juanma revisa el texto exacto del catálogo y resuelve con Sarah únicamente nuevas afirmaciones comerciales si las hubiera. Los datos de contacto ya confirmados no se vuelven a pedir.
-2. Registrar aprobador, fecha, versión y respuestas aprobadas; no aprobar todo por inferencia.
-3. Implementar panel guiado con catálogo explícitamente permitido, contactos del resolver existente y pruebas de la matriz.
-4. Entregar Draft PR y enlaces exactos de Preview, escritorio/móvil, sin escribir datos alojados.
-5. Revisión visual humana antes de merge. Publicación, indexación y proveedores siguen teniendo gates propios.
+1. Autorización de Juanma para implementación/revisión registrada en la entrega y en content/en/assistant.ts.
+2. Panel guiado implementado con contactos del resolver existente y sin datos alojados.
+3. Pruebas locales y entrega de Draft PR/Preview; resultados específicos en la entrega.
+4. Revisión visual humana pendiente antes de merge. Datos básicos confirmados no se vuelven a pedir.
+5. Publicación, indexación, copy comercial nuevo y proveedores siguen teniendo gates propios.
 
 La propuesta de IA generativa quedará en otra decisión: conocimiento recuperado y citado, proveedor, contrato de tratamiento, retención, costes máximos, defensa ante inyección, supervisión y evaluación. No se habilita por disponer de una clave.
 
 ## Autoridad y permiso de publicación
 
-Separar dos ejes upstream: decisión del sistema y permiso de publicación. Este paquete es NEEDS_DECISION + REFERENCE_ONLY; PROPOSAL/PENDING_APPROVAL son etiquetas de trabajo locales, no un estado aprobado upstream. La aprobación posterior debe registrar ambos ejes, alcance y condiciones. Aprobar una demo de Preview no habilita PUBLIC_PRODUCTION.
+Separar dos ejes upstream: decisión del sistema y permiso de publicación. La implementación de revisión está APPROVED_WITH_CONDITION + INTERNAL_TEST_ONLY por Juanma. Las fuentes normativas y la IA generativa permanecen NEEDS_DECISION + REFERENCE_ONLY. Aprobar una demo de Preview no habilita PUBLIC_PRODUCTION.
