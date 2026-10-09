@@ -1,6 +1,13 @@
 # Roadmap actualizado — 8 octubre 2026
 
-Este registro sustituye los estados históricos de importación/publicación de los handoffs anteriores. El propietario ha aprobado expresamente el lanzamiento y la indexación el 8 de octubre. La aprobación existe; no equivale a que el dominio o Google ya estén configurados.
+Este registro sustituye los estados históricos de importación/publicación de los handoffs anteriores. El propietario aprobó el lanzamiento y la indexación el 8 de octubre y **después los pausó hasta esta tarde**, a las 15:58 Europe/Madrid. La instrucción actual es preparar mejoras y nuevos borradores, sin aplicar la nueva web al dominio ni abrir la indexación. Llegar a la tarde no constituye por sí solo una orden de ejecutar el corte: se retomará con el propietario.
+
+## Pausa vigente y trabajo editorial autorizado
+
+- No se han modificado registros DNS en Namecheap durante esta pausa. Solo se seleccionó un navegador; no se abrió una sesión de Namecheap ni se introdujeron credenciales.
+- PR51 ya está mergeado en main (`d5231af`) y el candidato de Vercel está READY. Las 20 páginas EN del candidato se comprobaron por HTTP: 200, un H1, canonical público y navegación sin enlaces /preview. El dominio real sigue pendiente de verificación/asignación; la indexación mantiene false.
+- Las doce publicaciones existentes en Studio se conservan. Los nuevos artículos son propuestas separadas, sin autoría ni revisión profesional atribuida a Sarah y sin publicación autorizada.
+- La nueva tanda y el plan SEO/off page están en `docs/editorial-seo-growth-2026-10-08.md`, con payloads reproducibles en `scripts/studio/import/editorial-drafts-2026-10-08.json`. Su incorporación al repositorio se somete a un Draft PR; no mergear este trabajo durante la pausa.
 
 | Fase | Estado comprobado | Pendiente |
 | --- | --- | --- |
