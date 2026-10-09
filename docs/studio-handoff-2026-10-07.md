@@ -1,5 +1,7 @@
 # Sarah Katerina Studio — handoff (WIP, 2026-10-07)
 
+> **Reconciliación 2026-10-09:** [Project State](PROJECT-STATE-2026-10-09.md) distingue los resultados posteriores y pendientes actuales. Las instrucciones antiguas de importación, invitación o publicación no deben repetirse como trabajo pendiente.
+
 ## Continuation update, 2026-10-07
 
 The sections below preserve the original handoff as historical evidence. Current operation and the ten-source register are in [studio-operation-2026-10-07.md](studio-operation-2026-10-07.md). The import has now run: ten editorials and two editable page records exist in Supabase, with ten adapted editorial revisions, 65 internal notes, two blocked cases and **zero publications**. Migrations through `20261008063431` are applied. The Home visual branch, SEO origin correction and pinned Core remain in the Studio branch. The original five hero candidates still need a genuine upload through the Studio library; site-approved assets currently serve as labelled illustrative fallbacks. The one-use administrator invitation to `marketing@sarahkaterina.com` was sent on 8 October; account acceptance, password setup and live role workflow remain to verify. Do not use the historical personal address or code flow in the section below.
