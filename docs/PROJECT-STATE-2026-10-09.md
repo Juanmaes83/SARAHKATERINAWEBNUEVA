@@ -28,7 +28,7 @@ PR53 contiene preparación de consentimiento, adaptador condicionado, seis tests
 | Lanzamiento      | Roadmap main registra aprobación histórica; PR52 registra pausa posterior del corte/indexación                                                | PR55 y PR56 tienen merge y despliegue Vercel READY; dominio definitivo y activación de indexación siguen pendientes                    |
 | Datos            | Roadmap registra Preview y producción con la misma BD y cuentas                                                                               | Prohibidas pruebas mutadoras alojadas en este bloque                                                     |
 | Consentimiento   | PR53 publicado; configuración sin política aprobada deniega propósitos opcionales                                                             | Decisiones humanas de proveedor, mecanismo y textos; sin conexión real                                   |
-| Entidad/legal    | PR56 entrega footer y tres páginas /preview legales explícitamente draft; identidad aportada por Juanma y relación de titular confirmada en esta sesión; dirección todavía parcial, registro/privacidad pendientes                                                                                | No inferir NIF, entidad, registro o domicilio fiscal del sitio antiguo                                   |
+| Entidad/legal    | PR56 entrega footer y tres páginas /preview legales explícitamente draft; identidad aportada por Juanma y relación de titular confirmada en esta sesión; domicilio completado por Juanma (03181 Torrevieja, Alicante, España), registro aplicable/privacidad pendientes                                                                                | No inferir NIF, entidad, registro o domicilio fiscal del sitio antiguo                                   |
 
 Estas cifras alojadas son evidencia documental del 8 de octubre y del PR52, no una nueva consulta a la BD el 9 de octubre.
 
@@ -65,7 +65,7 @@ Esto reduce el riesgo; NO prueba aislamiento del egreso del servidor, proxy TLS,
 
 ## Actualización de titular y Docker aportada por Juanma
 
-El propietario aportó razón social, CIF y dirección parcial y confirmó que la sociedad presta/factura Sarah Katerina. No repetir la petición de razón social/CIF; falta completar domicilio y decisiones/validación de privacidad. Los valores permanecen en el canal privado de la sesión hasta la propuesta legal revisable.
+El propietario aportó razón social, CIF y dirección parcial y confirmó que la sociedad presta/factura Sarah Katerina. No repetir razón social/CIF/domicilio/teléfono/email: Juanma completó 03181 Torrevieja, Alicante, España y confirmó reutilizar los contactos de la web. Solo quedan decisiones/validación de privacidad y los datos registrales que correspondan. Los valores permanecen en el canal privado de la sesión hasta la propuesta legal revisable.
 
 La captura de Docker Desktop del propietario muestra motor activo, cero contenedores corriendo y dos contenedores PostgreSQL ajenos a este frente. No se tocaron. Tener Docker en Windows no da acceso a este executor remoto: no hay CLI/socket Docker aquí. El handoff local prepara ejecución con Codex Desktop/CLI en Windows, sin exponer Docker por TCP ni usar bases de otros proyectos. Ver [ejecución local](STUDIO-LOCAL-EXECUTION-HANDOFF-2026-10-09.md).
 
@@ -76,3 +76,7 @@ Ver [lista de cierre para Sarah](SARAH-CLOSEOUT-REQUEST-2026-10-09.md). Datos o 
 ## Verificación de reconciliación y guardas
 
 Sobre el código de main indicado: lint 0 errores/8 avisos Studio img heredados; typecheck y build correctos; 55 rutas HTTP comprobadas; `REQUIRE_RENDERED_HTML=1 npm run test`: 476/476 PASS, 32 suites, sin skips. Seis tests de aislamiento prueban rechazo previo de destinos/callbacks no locales y chunks alojados en build; no sustituyen UI/Auth/DB/Storage real. No hay cambios visuales ni mutaciones alojadas en esta continuación.
+
+## Continuación del cierre, 9 octubre 22:46 Europe/Madrid
+
+Datos básicos del titular y contactos cerrados por confirmación del propietario; no pedirlos otra vez. Solicitud a Sarah reducida en [mensaje listo para WhatsApp](MENSAJE-WHATSAPP-SARAH-CIERRE-2026-10-09.md), guardado y no enviado. [Siguiente bloque chatbot/WhatsApp](CHATBOT-WHATSAPP-NEXT-BLOCK-2026-10-09.md) define propuesta de asistente y derivación al canal existente, sin afirmar implementación ni API conectada. QA local completa sigue pendiente de Codex local; esta actualización documental no la sustituye.
