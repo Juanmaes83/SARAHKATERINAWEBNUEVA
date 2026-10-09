@@ -4,13 +4,13 @@
 
 Repositorio canónico de aplicación, Studio, Media Library y registro de páginas: `Juanmaes83/SARAHKATERINAWEBNUEVA`. El repositorio `Juanmaes83/sarahkaterina` es fuente estratégica y de activos, solo lectura. Rubik SEO GEO y el modo OpenSEO legacy del piloto están excluidos de este frente.
 
-Juanma confirmó el 9 de octubre que Claude ya no trabaja sobre la web y autorizó reconciliar documentación y preparar QA aislada. No autoriza merge, despliegue manual, publicación, DNS, indexación, proveedores, secretos ni escrituras alojadas.
+Juanma confirmó el 9 de octubre que Claude ya no trabaja sobre la web. Autorizó implementar/publicar el bloque legacy (PR55), aprobó visualmente y autorizó fusionar el footer legal (PR56), y después autorizó finalizar reconciliación y preparación de QA aislada. Estas instrucciones no aportan datos legales, ni decisiones concretas de proveedor, ni autorización para escribir datos reales o modificar DNS/secretos/gastos. La QA mutadora sigue limitada a una instancia desechable demostrablemente aislada.
 
 ## Checkpoint remoto de partida
 
 | Elemento              | Estado verificado por GitHub el 9 octubre                                                                     |
 | --------------------- | ------------------------------------------------------------------------------------------------------------- |
-| main                  | `d5231afc9627aec44195cb97ef49ce5b53a7f358`                                                                    |
+| main                  | `846fb72d901940deae12f5fe4079dcc9f76b9c12`                                                                    |
 | PR53                  | Abierto, no fusionado; rama `claude/consentimiento-medicion`; HEAD `9be117324d1a6f23ab18b06232347d66ac333d88` |
 | CI PR53               | Lint/typecheck/test/build e higiene de secretos: success; Vercel: success                                     |
 | PR52                  | Draft abierto, no fusionado; HEAD `e73bf076c783fff69485fef2d403fee121bfea52`                                  |
@@ -22,13 +22,13 @@ PR53 contiene preparación de consentimiento, adaptador condicionado, seis tests
 
 | Área             | Evidencia disponible                                                                                                                          | Pendiente real                                                                                           |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Aplicación       | main integra preparación de lanzamiento y Studio consolidado; roadmap de lanzamiento registra 20 páginas EN y tres redirects 308 aprobados    | QA del candidato alojado y conciliación completa de URLs antiguas, ES y legales                          |
+| Aplicación       | main integra preparación de lanzamiento y Studio consolidado; roadmap de lanzamiento registra 20 páginas EN y siete redirects 308 implementados por PR55 y diez URLs editoriales conservadas    | QA del candidato alojado y conciliación completa de URLs antiguas, ES y legales                          |
 | Studio editorial | `studio-hosted-publication-2026-10-08.md` registra 8 artículos + 4 casos publicados y ambas membresías activas                                | Flujo interactivo real, recuperación, conflictos y Storage; no confundir operaciones DB con login humano |
 | Nuevo lote       | PR52 declara tres artículos importados como draft, sin publicaciones y con notas bloqueantes; código/documentación del lote aún fuera de main | Revisión humana y PR52; no repetir importación ni publicar                                               |
-| Lanzamiento      | Roadmap main registra aprobación histórica; PR52 registra pausa posterior del corte/indexación                                                | La instrucción de esta sesión mantiene publicación, DNS e indexación fuera de alcance                    |
+| Lanzamiento      | Roadmap main registra aprobación histórica; PR52 registra pausa posterior del corte/indexación                                                | PR55 y PR56 tienen merge y despliegue Vercel READY; dominio definitivo y activación de indexación siguen pendientes                    |
 | Datos            | Roadmap registra Preview y producción con la misma BD y cuentas                                                                               | Prohibidas pruebas mutadoras alojadas en este bloque                                                     |
 | Consentimiento   | PR53 publicado; configuración sin política aprobada deniega propósitos opcionales                                                             | Decisiones humanas de proveedor, mecanismo y textos; sin conexión real                                   |
-| Entidad/legal    | No hay identidad fiscal/legal verificada para completar textos                                                                                | No inferir NIF, entidad, registro o domicilio fiscal del sitio antiguo                                   |
+| Entidad/legal    | PR56 entrega footer y tres páginas /preview legales explícitamente draft; identidad fiscal/legal todavía no verificada                                                                                | No inferir NIF, entidad, registro o domicilio fiscal del sitio antiguo                                   |
 
 Estas cifras alojadas son evidencia documental del 8 de octubre y del PR52, no una nueva consulta a la BD el 9 de octubre.
 
@@ -48,8 +48,25 @@ README y PROJECT-STATUS describían principalmente septiembre. El handoff y ledg
 
 Preparar y verificar un entorno local desechable con Auth, PostgreSQL y Storage reales, luego ejecutar la matriz de [QA aislada](STUDIO-ISOLATED-QA-2026-10-09.md). No usar los contenidos reales ni sus notas como fixtures. La sesión actual no dispone de Docker ni CLI Supabase: QA DB/Storage queda pendiente, no aprobada.
 
-La entrega de esta rama cambia solo Markdown, sin cambios visibles en producto. El SHA de entrega, PR y CI se mantienen en el PR y checkpoint final para evitar un SHA autorreferencial en el documento.
+Esta continuación añade reconciliación documental y barreras para el script de QA local; no modifica la UI del producto. El SHA de entrega, PR y CI se mantienen en el PR y checkpoint final para evitar un SHA autorreferencial en el documento.
 
-## Verificación de esta entrega
+## Cierre de los bloques implementados
 
-Checkout aislado en rama `docs/canonical-state-isolated-studio-qa-2026-10-09`, desde el SHA main anterior, inicialmente limpio. `npm ci`, lint (0 errores, 8 avisos de img existentes), typecheck y build correctos. Captura local de 45 rutas: estados HTTP, redirects privados y noindex correctos; posterior `REQUIRE_RENDERED_HTML=1 npm test`: 467/467 tests, 30 suites, sin skips. Supabase sin configurar en este build: no demuestra contenido alojado, login real, recuperación ni Storage. Diff solo de ocho Markdown; código y registros intactos.
+- PR55 fusionado: `6de9a13437b4cf9c53ae92d670f210f9c1feaf2e`. CI verde y despliegue `dpl_8j7DvdnpubsugRUca9C8hyaotxLH` READY. Preserva los diez detalles heredados y siete aliases 308; no implica pago, traducciones o cutover completados.
+- PR56 fusionado tras aprobación visual humana: `846fb72d901940deae12f5fe4079dcc9f76b9c12`. CI verde y despliegue `dpl_DLd2U92ihpbU1citbCD2WVmtkwqq` READY. Footer legal, privacidad por canales y páginas de revisión; preferencias son una demo sin persistencia ni proveedores. Textos legales todavía PENDING_APPROVAL.
+- La reconciliación original estaba en PR54; esta continuación la integra con los resultados posteriores, manteniendo documentos históricos y señalando sus estados supersedidos.
+- PR52 (tres drafts) y PR53 (preparación consentimiento) no fusionados en la comprobación de esta sesión. No recrear importaciones ni equiparar invitaciones a API/OAuth conectado.
+
+## Preparación de QA y límite real
+
+`STUDIO-ISOLATED-QA-2026-10-09.md` define la matriz de roles, conflictos, restauración, recuperación y Media Library. `scripts/qa/studio-isolation.mjs` añade rechazo previo de configuración alojada, callbacks distintos, build ausente/mezclado y contenedor DB no explícito; el navegador aborta peticiones fuera de los orígenes locales permitidos. El script añade aserciones donde antes solo registraba resultados y deja de interpolar el contenedor/SQL en una shell.
+
+Esto reduce el riesgo; NO prueba aislamiento del egreso del servidor, proxy TLS, SMTP, Auth ni Storage real. La ejecución mutadora completa requiere Docker/stack local con TLS y restricción real del egreso. En esta sesión no hay Docker ni CLI Supabase y la descarga de Chromium falló en el bloque anterior: esos casos permanecen BLOCKED. No se ejecuta el script sobre Preview porque comparte producción.
+
+## Lo que debe aportar Sarah
+
+Ver [lista de cierre para Sarah](SARAH-CLOSEOUT-REQUEST-2026-10-09.md). Datos o textos no confirmados no pasan a producción. El checkpoint de esta continuación y CI queda en el PR para no introducir un SHA autorreferencial.
+
+## Verificación de reconciliación y guardas
+
+Sobre el código de main indicado: lint 0 errores/8 avisos Studio img heredados; typecheck y build correctos; 55 rutas HTTP comprobadas; `REQUIRE_RENDERED_HTML=1 npm run test`: 476/476 PASS, 32 suites, sin skips. Seis tests de aislamiento prueban rechazo previo de destinos/callbacks no locales y chunks alojados en build; no sustituyen UI/Auth/DB/Storage real. No hay cambios visuales ni mutaciones alojadas en esta continuación.

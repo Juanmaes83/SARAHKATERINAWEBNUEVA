@@ -10,7 +10,23 @@ Estado: PREPARADA, NO EJECUTADA. Alcance: permisos, persistencia, conflictos, re
 4. Crear únicamente cuentas ficticias admin, publisher, contributor y usuario Auth sin membresía, con correos `example.test`; credenciales fuera de Git. Fixtures sintéticas identificadas `qa-isolated-*`, sin datos fiscales ni personales reales.
 5. Capturar estado inicial, publicaciones y objetos. Eliminar el entorno desechable al terminar; no limpiar mediante comandos que puedan seleccionar el proyecto alojado.
 
-El script existente `scripts/qa/studio-e2e-local.mjs` publica y crea datos. Comprueba solo el origen local de la web, no el Supabase compilado. No ejecutarlo hasta verificar todas las condiciones anteriores. Sus pasos que solo registran resultados necesitan aserciones explícitas antes de servir como gate: permiso 403, botón oculto, texto persistido y listado público.
+El script `scripts/qa/studio-e2e-local.mjs` publica y crea datos. Ahora ejecuta `assertLocalStudioBuild` ANTES de importar Playwright o iniciar sesión: exige orígenes loopback, Supabase HTTPS, callback igual a la web, preview/noindex, contenedor explícito y build con URL local en server/static, sin referencias alojadas Supabase. Rechaza `.env` discrepantes. Intercepta peticiones del navegador fuera de esos orígenes y falla si aparecen. Aserciones obligatorias: approve oculto, API403, texto persistido, detalle200 y listado público. SQL usa argumentos de execFile, sin shell.
+
+Este preflight no prueba egreso del servidor ni el destino detrás de un proxy local. No ejecutar hasta verificar todas las condiciones anteriores, incluida la restricción efectiva de egreso y correspondencia DB/Auth/Storage. Las fixtures heredadas del script son dos artículos del lote; aunque los títulos sean iguales, deben crearse exclusivamente en la instancia desechable, nunca importarse de producción. El script cubre parte de la matriz, no conflictos, restauración, recuperación o uploads completos.
+
+### Configuración de ejecución, sin secretos en Git
+
+- `QA_BASE_URL`: origen local exacto de la app.
+- `NEXT_PUBLIC_SUPABASE_URL`: origen HTTPS loopback del proxy al Supabase desechable; la app rechaza HTTP en `lib/supabase/env.ts`, regla que no se cambia.
+- `NEXT_PUBLIC_STUDIO_ORIGIN`: mismo origen que QA_BASE_URL.
+- `NEXT_PUBLIC_SITE_MODE=preview`, `NEXT_PUBLIC_SITE_INDEXABLE=false`.
+- `QA_DB_CONTAINER`: nombre explícito `supabase_db_<id-local>` comprobado con inspección del contenedor/red; no proyecto vinculado alojado.
+- `QA_PASSWORD`, publishable key local y configuración SMTP: solo entorno privado desechable, sin imprimir valores.
+- Rebuild limpio de `.next` con esos valores; servidor arranca con los mismos. Revisar BUILD_ID, mapa proxy TLS y contenedor/red. La URL local no es garantía si un proxy reenvía a producción.
+- Solo después ejecutar `node scripts/qa/studio-e2e-local.mjs <directorio-de-evidencias>`.
+
+Dependencias de esta sesión: Docker y CLI Supabase no disponibles; no hay `supabase/config.toml`. No se crea un proyecto alojado ni se configura uno de pago para suplirlo. Instalar/arrancar el stack local y verificar migraciones, Auth y Storage es trabajo técnico, no una petición a Sarah de contraseñas o contenido.
+
 
 ## Matriz funcional
 
@@ -37,3 +53,7 @@ Cada caso debe llevar PASS/FAIL/BLOCKED, pasos, expected/actual, status HTTP, re
 Distinguir: tests unitarios, navegador local, CI, despliegue preexistente, conexión alojada y revisión humana. Para recuperación distinguir correo local de entrega real; para Media distinguir transformación sharp de subida/Storage completa. Solo cerrar el bloque tras todos los casos críticos PASS; cualquier dependencia ausente queda BLOCKED.
 
 La revisión alojada posterior necesita autorización específica para datos de prueba porque Preview comparte BD con producción. No pedir contraseñas por chat, reinvitar cuentas, cambiar roles reales, OTP global, secrets, proveedores o publicación en este bloque.
+
+## Resultado de preparación de esta continuación
+
+PASS: guardas y seis casos negativos/positivos de preflight, suite completa 476/476 con HTML capturado, 55 rutas HTTP, lint/tipos/build. BLOCKED: navegador contra stack local real, roles completos, dos sesiones/conflictos/restauración, reset por correo y Storage end-to-end. No se interpreta el PASS de preparación como PASS de toda la matriz.

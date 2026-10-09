@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Container } from '@/components/layout/Container';
 import { RevealOnScroll } from '@/components/motion/RevealOnScroll';
 import {
@@ -124,6 +125,7 @@ export function ContactPage() {
             <div className={styles.direct}>
               <p className={styles.directHeading}>{hero.alternativesLabel}</p>
               {directLinks}
+              <p className={styles.actionNote}><Link href="/preview/privacy">Privacy policy — draft for review</Link></p>
             </div>
           </div>
         </Container>

@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 const origin = 'http://127.0.0.1:3107';
 const server = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '-p', '3107', '-H', '127.0.0.1'], { stdio: 'ignore' });
-const publicPaths = ['/', '/foundation', '/preview/home', '/preview/investment', '/preview/property-purchase', '/preview/tax-advisory', '/preview/team', '/preview/contact', '/preview/insights', '/preview/case-studies', '/studio/login', '/studio/recover', '/studio/recover/complete', '/studio/accept-invite'];
+const publicPaths = ['/', '/foundation', '/preview/home', '/preview/investment', '/preview/property-purchase', '/preview/tax-advisory', '/preview/team', '/preview/contact', '/preview/legal-notice', '/preview/privacy', '/preview/cookies', '/preview/insights', '/preview/case-studies', '/studio/login', '/studio/recover', '/studio/recover/complete', '/studio/accept-invite'];
 const draftPaths = ['modelo-210-explained','five-documents-before-arras','gross-vs-net-yield-costa-blanca','short-term-rental-licence-valencian-community','plusvalia-2021-constitutional-ruling','nie-application-three-routes'].map(slug => `/preview/insights/${slug}`).concat(['dutch-investor-orihuela','german-retiree-guardamar','norwegian-couple-la-zenia','british-buyer-torrevieja'].map(slug => `/preview/case-studies/${slug}`));
 const privatePaths = ['/studio', '/studio/pages', '/studio/articles', '/studio/cases', '/studio/documents/00000000-0000-0000-0000-000000000000', '/studio/media', '/studio/links', '/studio/new', '/studio/team'];
 try {
@@ -22,6 +22,25 @@ try {
     if (privatePaths.includes(path) && !response.headers.get('location')?.includes('/studio/login')) throw new Error(`${path}: missing login redirect`);
     if (expected === 200) await writeFile(`.next/route-audit/${path === '/' ? 'index' : path.slice(1).replaceAll('/', '__')}.html`, html);
     results.push({ path, status: response.status, noindex: true });
+  }
+  // Real HTTP verification of legacy compatibility, not just registry tests.
+  for (const [source, destination] of [
+    ['/services', '/'],
+    ['/services/investment-advisory', '/investment'],
+    ['/book-a-call', '/contact'],
+    ['/guides', '/insights'],
+    ['/modelo-210-help', '/services/tax-advisory'],
+    ['/english-tax-advisor-costa-blanca', '/services/tax-advisory'],
+    ['/foreign-buyer-tax-guide', '/services/tax-advisory'],
+  ]) {
+    const response = await fetch(origin + source, { redirect: 'manual' });
+    if (response.status !== 308) throw new Error(source + ': legacy redirect must be 308');
+    const location = response.headers.get('location');
+    if (!location || new URL(location, origin).href !== origin + destination)
+      throw new Error(source + ': wrong legacy destination');
+    const target = await fetch(origin + destination, { redirect: 'manual' });
+    if (target.status !== 200) throw new Error(destination + ': legacy target must be 200');
+    results.push({ path: source, status: 308, destination, targetStatus: 200 });
   }
   const serviceRoutes = [
     ['/robots.txt', 'GET', 200], ['/sitemap.xml', 'GET', 200],

@@ -1,4 +1,6 @@
-# Roadmap actualizado — 8 octubre 2026
+# Roadmap de lanzamiento — reconciliado el 9 octubre 2026
+
+> Estado canónico actual: [Project State](PROJECT-STATE-2026-10-09.md). El registro del 8 de octubre se conserva como evidencia histórica; las actualizaciones del 9 de octubre al final prevalecen para los bloques entregados.
 
 Este registro sustituye los estados históricos de importación/publicación de los handoffs anteriores. El propietario ha aprobado expresamente el lanzamiento y la indexación el 8 de octubre. La aprobación existe; no equivale a que el dominio o Google ya estén configurados.
 
@@ -52,3 +54,19 @@ La política actual /privacy se leyó como fuente del propio sitio el 8 de octub
 - Comprobación HTTP local de las rutas públicas en modo production: las páginas comprobadas responden 200 con un H1 y enlaces públicos; noindex sigue presente conforme al bloqueo del corte. No demuestra todavía lectura de los doce detalles en el despliegue de producción.
 - Los doce detalles alojados y los listados de la preview se verificaron antes: 14 respuestas 200, ocho artículos y cuatro casos enlazados (registro separado studio-hosted-publication-2026-10-08.md).
 - El entorno local requiere SWC WASM y un preload temporal externo al repositorio para APIs del sistema no disponibles. Ninguno de esos ajustes se incorpora al producto ni a CI.
+
+## Legacy continuation, 9 October 2026
+
+Owner instructed legacy implementation/publication and postponed chatbot/WhatsApp. See [implementation and remaining blockers](LEGACY-MIGRATION-2026-10-09.md). Seven legacy entry-point redirects and the ten-source preservation registry are implemented; legal, paid-tool, Spanish and external-domain work is not declared complete. No DNS, indexation or hosted content changes in this continuation.
+
+## Cierre y pendientes — 9 octubre 2026
+
+PR55 y PR56 fusionados y desplegados READY; main `846fb72d901940deae12f5fe4079dcc9f76b9c12`. Siete redirects, diez URLs heredadas preservadas. Footer legal fuera de menú y páginas legales /preview revisadas visualmente por Juanma; contenido definitivo y consentimiento siguen pendientes, demo no conectada.
+
+Orden operativo actualizado:
+1. Reconciliar PR54 con estos resultados y preparar QA aislada con guardas; no ejecutar mutaciones sobre Preview compartida.
+2. Obtener [datos/decisiones de Sarah](SARAH-CLOSEOUT-REQUEST-2026-10-09.md); redactar y revisar textos legales conforme al stack real.
+3. Ejecutar matriz completa local de Studio cuando Docker, Auth, Storage, correo y TLS aislados estén disponibles.
+4. Resolver legado pago/español, consentimiento/proveedores y candidate QA; no declarar completada toda la migración.
+5. Dominio/DNS/HTTPS/indexación y Search Console según autorización y registros efectivos, sin alterar correo.
+6. Chatbot y WhatsApp: bloque posterior con alcance y tratamiento de datos definidos.

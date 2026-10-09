@@ -26,8 +26,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     // Only owner-approved migrations whose target route is publishable
-    // (lib/seo/redirects.ts, lib/seo/routes.ts). Today this list is empty:
-    // every target path is unresolved, so nothing redirects silently.
+    // (lib/seo/redirects.ts, lib/seo/routes.ts). Legacy compatibility only;
+    // kept editorial URLs are served by their existing public pages.
     // `permanent: true` makes Next.js answer 308, not 301. Redirects do not
     // depend on the indexing switch: they have their own approval.
     return activeRedirects();
