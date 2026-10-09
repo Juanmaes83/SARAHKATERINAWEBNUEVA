@@ -4,11 +4,11 @@ Documento operativo interno. No es política legal, no se envía automáticament
 
 ## Información ya aportada por Juanma
 
-Juanma ha aportado razón social, CIF y dirección parcial, y ha confirmado expresamente que esa sociedad presta y factura los servicios de Sarah Katerina. No volver a solicitar razón social/CIF. Los valores se conservan en el intercambio privado de esta sesión hasta incorporarlos a un borrador legal revisable; no se infiere inscripción registral ni descriptor profesional. Falta completar código postal, municipio/provincia y, si aplica, piso/local o datos registrales. Confirmación del titular por el propietario no equivale a política legal final aprobada.
+Juanma ha aportado razón social, CIF y dirección parcial, y ha confirmado expresamente que esa sociedad presta y factura los servicios de Sarah Katerina. No volver a solicitar razón social/CIF. Los valores se conservan en el intercambio privado de esta sesión hasta incorporarlos a un borrador legal revisable; no se infiere inscripción registral ni descriptor profesional. Juanma completó el 9 de octubre: 03181 Torrevieja, Alicante, España. Calle, teléfono y correo ya constan en la web/código de referencia. No volver a pedir esos datos. Solo verificar los datos registrales aplicables al preparar el texto final. Confirmación del titular por el propietario no equivale a política legal final aprobada.
 
 ## Imprescindible para legal y lanzamiento
 
-1. **Completar los datos del titular ya aportado:** código postal, municipio/provincia, contacto para privacidad y datos registrales/profesionales solo si aplican. No volver a pedir razón social ni CIF. El propietario confirmó la relación con Sarah; falta revisión del borrador final, no una identidad inventada. Entrega de información adicional por canal privado seguro.
+1. **Datos del titular cerrados por el propietario:** razón social, CIF y domicilio completado; calle, teléfono y correo conocidos. No volver a pedirlos. Al redactar el aviso, revisar únicamente datos registrales/profesionales que realmente correspondan, sin inventarlos.
 2. **Responsable/revisión:** quién valida aviso legal, privacidad, cookies y condiciones; enviar textos previos del asesor si existen, con fecha. Confirmar alcance profesional real y las limitaciones que deban figurar. No aprobar por defecto la política antigua que enumera Analytics/Stripe/Web3Forms.
 3. **Tratamiento real de consultas:** a qué correo/cuenta llegan y quién las atiende; qué se conserva, cuánto tiempo/criterios, si entra en CRM o se comparte con colaboradores. Nosotros verificamos técnicamente proveedores, alojamiento y flujos; Sarah confirma el uso de negocio y el asesor valida base jurídica/transferencias.
 4. **Permisos de contenido:** confirmar autorización de los casos/testimonios e imágenes que sigan pendientes, y resolver las notas privadas de casos bloqueados. Confirmar si marketing/info son los usuarios y roles deseados; no crear nuevas invitaciones por defecto.
@@ -22,7 +22,7 @@ Juanma ha aportado razón social, CIF y dirección parcial, y ha confirmado expr
 
 ## Para el siguiente bloque chatbot/WhatsApp
 
-9. Número de WhatsApp Business definitivo y titular/admin. Elegir primero enlace de contacto manual o automatización; esta última necesita decisión expresa de proveedor, presupuesto, cuenta/API y tratamiento de datos.
+9. El número y enlace de WhatsApp ya existen en `lib/contact/channels.ts`; no pedir el número de nuevo. Reutilizar el canal manual. Una automatización posterior requiere decisión expresa de proveedor, presupuesto, cuenta/API y tratamiento de datos; el enlace actual no demuestra Business API conectada.
 10. Alcance del chatbot: preguntas sobre servicios/proceso, idiomas, derivación humana y horario confirmado. Identificarlo como asistente; no hacerlo pasar por Sarah, no dar asesoramiento fiscal personalizado ni recoger documentación sensible por defecto. Aprobar contenido/base de conocimiento y la persona que responde los casos derivados.
 
 ## Trabajo que hacemos nosotros, no Sarah
@@ -32,3 +32,7 @@ Reconciliación y checkpoint, guardas de QA, entorno local desechable, ejecució
 ## Criterio de finalización
 
 Código/CI/merge/despliegue se reportan separados de conexión real, QA local y aprobación humana. Cierre global solo con legal aprobado, casos autorizados, QA crítica PASS, URLs/pago/idiomas resueltos, dominio/HTTPS verificados y configuración de publicación comprobada. Posicionamiento/indexación y entrega de emails dependen de validaciones reales, no se prometen por un merge.
+
+## Solicitud breve
+
+Enviar el texto preparado en [mensaje WhatsApp](MENSAJE-WHATSAPP-SARAH-CIERRE-2026-10-09.md), no toda esta matriz técnica. Dominio, Analytics, traducciones e ingeniería se gestionan primero por Juanma; preguntar a Sarah solo por accesos o decisiones que realmente no tengamos. Dirección/contactos cerrados por confirmación de Juanma, no se declara con ello aprobado el texto legal completo.
