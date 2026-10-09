@@ -1,3 +1,5 @@
+> Review-layer amendment, 2026-10-10: [local topic finder and reviewed WhatsApp topics](CONVERSATION-REVIEW-2026-10-10.md) supersedes v1 input/memory/fixed-opener limits for INTERNAL_TEST_ONLY. Production remains disabled. The following text records the v1 baseline.
+
 # Contrato funcional propuesto v1
 
 Actualización: contrato guiado autorizado por Juanma para implementación/revisión de Preview el 2026-10-09; APPROVED_WITH_CONDITION + INTERNAL_TEST_ONLY. Ver ../ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md para el código realizado. La ampliación generativa y fuentes normativas permanecen propuestas; no se describe una API conectada o publicación definitiva.

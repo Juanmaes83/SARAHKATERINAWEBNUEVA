@@ -92,3 +92,7 @@ Juanma autorizó implementar y continuar hasta revisión humana; supersede el es
 Panel modal EN, sin input libre, sin memoria persistente, sin proveedor o API WhatsApp. Deriva al número existente con saludo neutro; no envía mensajes. Cierre, navegación y recarga descartan selección. Fuera de Studio/foundation/API y deshabilitado en deployments production. Page Registry, Media Library, datos alojados y tokens canónicos preservados. No cambios de DNS, secretos, indexación o GA/GTM.
 
 Pruebas locales: 480 tests/33 suites sin skips, tipos/build, lint sin errores/8 avisos heredados, 55 rutas HTTP. Chromium 153 con interacción real a 1440, 390 y 320 px; evidencia en docs/screenshots/assistant-review-2026-10-09. SHA/CI/deployment finales constan en el PR; validación humana y merge pendientes. No confundir estas pruebas del asistente con QA completa de Studio o cierre legal.
+
+## Conversational review continuation — 10 October
+
+Juanma authorised continuing the review layer and permits merge if needed for visual validation; the wait-for-credits instruction is superseded. See [scope and contract amendment](assistant/CONVERSATION-REVIEW-2026-10-10.md). A separate branch continues PR59 for local topic routing, ephemeral response history, related page links, clearing and an explicitly reviewed WhatsApp topic summary. No generative provider or production activation. Visual acceptance remains pending; Studio and legal gates stay open.
