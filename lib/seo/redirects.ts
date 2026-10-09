@@ -55,8 +55,6 @@ const SPANISH_OPEN =
   'Spanish route architecture and hreflang are open (docs/phase-2-decision-gate.md §5). No /es route exists here.';
 const D06 =
   'D-06 (affiliated brands and the group architecture, AGENTS.md §9) is unexecuted and Property Management is on HOLD. Must not be carried over; owner decides permanent-redirect-to-home vs 410.';
-const CONTENT_GAP =
-  'No equivalent page in this repository. Owner decides: rebuild with approved content, redirect to the closest service, or retire.';
 const PRESERVED = 'Legacy path preserved by the public App Router and canonical Studio; read published content only.';
 const MIGRATED = 'Owner instructed implementation/publication of legacy on 2026-10-09; use the existing equivalent service/resource destination without copying obsolete claims.';
 
