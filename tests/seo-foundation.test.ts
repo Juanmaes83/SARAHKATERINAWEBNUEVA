@@ -260,9 +260,9 @@ describe('hreflang', () => {
 });
 
 describe('migration registry and redirects', () => {
-  it('activates only the three equivalent legacy destinations approved for launch', () => {
-    expect(activeRedirects()).toHaveLength(3);
-    expect(MIGRATION_REGISTRY.filter(entry => entry.status === 'approved')).toHaveLength(3);
+  it('activates the seven equivalent legacy entry points approved for migration', () => {
+    expect(activeRedirects()).toHaveLength(7);
+    expect(MIGRATION_REGISTRY.filter(entry => entry.status === 'approved')).toHaveLength(7);
   });
 
   it('points every mapping at a route that exists in the manifest', () => {
@@ -571,7 +571,7 @@ describe('publication guarantees: site gate × route gate', () => {
     const { sitemap, metadata } = await loadWithEnv(PRODUCTION_INDEXABLE);
     expect(await sitemap()).toHaveLength(8);
     expect(sitemapRoutes(true)).toHaveLength(8);
-    expect(activeRedirects()).toHaveLength(3);
+    expect(activeRedirects()).toHaveLength(7);
     for (const route of SEO_ROUTES) {
       expect(entityGraphEmissionAllowed(route.id, { siteIndexable: true, entityJsonLdApproved: true })).toBe(false);
       expect(resolveRouteIndexing(route.previewPath, { siteIndexable: true }).indexable).toBe(false);

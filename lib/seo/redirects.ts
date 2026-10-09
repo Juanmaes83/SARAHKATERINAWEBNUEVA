@@ -11,7 +11,7 @@ import { SEO_ROUTES, isPublishable, routeById, type SeoRoute } from './routes';
  * an explicit `statusCode: 301`; none is configured). Redirects are independent
  * of the indexing switch: their gate is the mapping's own approval plus a
  * publishable target. Everything else is recorded — never redirected silently.
- * Today no mapping is approved, so this produces zero redirects, by design.
+ * Equivalent legacy entry points are approved by the owner’s migration instruction\n * on 2026-10-09. Same-path content stays in the canonical Studio publications.
  *
  * Sources:
  *   - production `sitemap.xml` (30 URLs) and the home page links, read
@@ -57,7 +57,8 @@ const D06 =
   'D-06 (affiliated brands and the group architecture, AGENTS.md §9) is unexecuted and Property Management is on HOLD. Must not be carried over; owner decides permanent-redirect-to-home vs 410.';
 const CONTENT_GAP =
   'No equivalent page in this repository. Owner decides: rebuild with approved content, redirect to the closest service, or retire.';
-const TARGET_UNRESOLVED = 'Target route exists as a preview, but its public path is unresolved (D2-01).';
+const PRESERVED = 'Legacy path preserved by the public App Router and canonical Studio; read published content only.';
+const MIGRATED = 'Owner instructed implementation/publication of legacy on 2026-10-09; use the existing equivalent service/resource destination without copying obsolete claims.';
 
 const en = (
   oldPath: string,
@@ -77,29 +78,34 @@ const es = (oldPath: string, targetRouteId: string | null, decision = SPANISH_OP
 
 export const MIGRATION_REGISTRY: readonly MigrationEntry[] = [
   // ── Current production, English (sitemap) ──────────────────────────────
-  en('/', 'home', 'decision_required', TARGET_UNRESOLVED),
-  en('/about', 'team', 'decision_required', `${TARGET_UNRESOLVED} Team is the closest equivalent to About.`),
+  en('/', 'home', 'keep', PRESERVED),
+  en('/about', 'team', 'keep', PRESERVED),
   en('/about/the-group', null, 'retire_candidate', D06),
   en('/services', 'home', 'approved', 'Owner-approved launch 2026-10-08: equivalent public destination.'),
-  en('/services/property-purchase', 'property-purchase', 'decision_required', TARGET_UNRESOLVED),
-  en('/services/tax-advisory', 'tax-advisory', 'decision_required', TARGET_UNRESOLVED),
+  en('/services/property-purchase', 'property-purchase', 'keep', PRESERVED),
+  en('/services/tax-advisory', 'tax-advisory', 'keep', PRESERVED),
   en('/services/investment-advisory', 'investment', 'approved', 'Owner-approved launch 2026-10-08: equivalent public destination.'),
   en('/services/property-management', null, 'retire_candidate', D06),
-  en('/investment', 'investment', 'decision_required', TARGET_UNRESOLVED),
+  en('/investment', 'investment', 'keep', PRESERVED),
   en('/investment/opportunities', null, 'retire_candidate', 'Listing-style "opportunities" content conflicts with the buyer-side positioning (not an agency or portal). Owner decides permanent-redirect-to-investment vs 410.'),
-  en('/case-studies', null, 'decision_required', `${CONTENT_GAP} Case content needs permission and verified evidence (AGENTS.md §13).`),
-  en('/case-studies/dutch-investor-orihuela', null, 'decision_required', `${CONTENT_GAP} Client permission and evidence unverified.`),
-  en('/case-studies/british-buyer-torrevieja', null, 'decision_required', `${CONTENT_GAP} Client permission and evidence unverified.`),
-  en('/insights', null, 'decision_required', CONTENT_GAP),
-  en('/insights/modelo-210-explained', 'tax-advisory', 'decision_required', `${CONTENT_GAP} Tax content needs competent review (AGENTS.md §11).`),
-  en('/insights/five-documents-before-arras', 'property-purchase', 'decision_required', `${CONTENT_GAP} Legal content needs competent review (AGENTS.md §11).`),
-  en('/insights/gross-vs-net-yield-costa-blanca', 'investment', 'decision_required', `${CONTENT_GAP} Financial content needs competent review (AGENTS.md §11).`),
-  en('/guides', null, 'decision_required', CONTENT_GAP),
-  en('/contact', 'contact', 'decision_required', TARGET_UNRESOLVED),
+  en('/case-studies', 'case-studies', 'keep', PRESERVED),
+  en('/insights', 'insights', 'keep', PRESERVED),
+  en('/case-studies/british-buyer-torrevieja', 'case-studies-detail', 'keep', PRESERVED),
+  en('/case-studies/dutch-investor-orihuela', 'case-studies-detail', 'keep', PRESERVED),
+  en('/case-studies/german-retiree-guardamar', 'case-studies-detail', 'keep', PRESERVED),
+  en('/case-studies/norwegian-couple-la-zenia', 'case-studies-detail', 'keep', PRESERVED),
+  en('/insights/five-documents-before-arras', 'insights-detail', 'keep', PRESERVED),
+  en('/insights/gross-vs-net-yield-costa-blanca', 'insights-detail', 'keep', PRESERVED),
+  en('/insights/modelo-210-explained', 'insights-detail', 'keep', PRESERVED),
+  en('/insights/nie-application-three-routes', 'insights-detail', 'keep', PRESERVED),
+  en('/insights/plusvalia-2021-constitutional-ruling', 'insights-detail', 'keep', PRESERVED),
+  en('/insights/short-term-rental-licence-valencian-community', 'insights-detail', 'keep', PRESERVED),
+  en('/guides', 'insights', 'approved', MIGRATED),
+  en('/contact', 'contact', 'keep', PRESERVED),
   en('/book-a-call', 'contact', 'approved', 'Owner-approved launch 2026-10-08: equivalent public destination.'),
-  en('/modelo-210-help', 'tax-advisory', 'decision_required', `${CONTENT_GAP} Indexed landing page; tax content needs review.`),
-  en('/english-tax-advisor-costa-blanca', 'tax-advisory', 'decision_required', `${CONTENT_GAP} Indexed landing page.`),
-  en('/foreign-buyer-tax-guide', 'tax-advisory', 'decision_required', `${CONTENT_GAP} Indexed landing page; tax content needs review.`),
+  en('/modelo-210-help', 'tax-advisory', 'approved', MIGRATED),
+  en('/english-tax-advisor-costa-blanca', 'tax-advisory', 'approved', MIGRATED),
+  en('/foreign-buyer-tax-guide', 'tax-advisory', 'approved', MIGRATED),
   en('/tax-diagnostic', null, 'decision_required', 'Paid product flow on the current site (checkout and payment paths are disallowed in its robots.txt). Pricing publication is not approved here (D2-04).'),
   en('/privacy', null, 'keep', 'A privacy policy must exist on the new site at a stable URL before launch. Legal text: BLOCKED_BY_OWNER_OR_LEGAL.'),
 
@@ -153,7 +159,7 @@ export interface NextRedirect {
 
 /**
  * Redirects this app may serve: approved, same-domain entries whose target is
- * publishable. Today: none.
+ * publishable. Kept URLs never redirect, and external-domain/Spanish decisions\n * remain inactive until they have their own approved implementation.
  */
 export function activeRedirects(
   registry: readonly MigrationEntry[] = MIGRATION_REGISTRY,
