@@ -28,7 +28,7 @@ PR53 contiene preparación de consentimiento, adaptador condicionado, seis tests
 | Lanzamiento      | Roadmap main registra aprobación histórica; PR52 registra pausa posterior del corte/indexación                                                | PR55 y PR56 tienen merge y despliegue Vercel READY; dominio definitivo y activación de indexación siguen pendientes                    |
 | Datos            | Roadmap registra Preview y producción con la misma BD y cuentas                                                                               | Prohibidas pruebas mutadoras alojadas en este bloque                                                     |
 | Consentimiento   | PR53 publicado; configuración sin política aprobada deniega propósitos opcionales                                                             | Decisiones humanas de proveedor, mecanismo y textos; sin conexión real                                   |
-| Entidad/legal    | PR56 entrega footer y tres páginas /preview legales explícitamente draft; identidad fiscal/legal todavía no verificada                                                                                | No inferir NIF, entidad, registro o domicilio fiscal del sitio antiguo                                   |
+| Entidad/legal    | PR56 entrega footer y tres páginas /preview legales explícitamente draft; identidad aportada por Juanma y relación de titular confirmada en esta sesión; dirección todavía parcial, registro/privacidad pendientes                                                                                | No inferir NIF, entidad, registro o domicilio fiscal del sitio antiguo                                   |
 
 Estas cifras alojadas son evidencia documental del 8 de octubre y del PR52, no una nueva consulta a la BD el 9 de octubre.
 
@@ -62,6 +62,12 @@ Esta continuación añade reconciliación documental y barreras para el script d
 `STUDIO-ISOLATED-QA-2026-10-09.md` define la matriz de roles, conflictos, restauración, recuperación y Media Library. `scripts/qa/studio-isolation.mjs` añade rechazo previo de configuración alojada, callbacks distintos, build ausente/mezclado y contenedor DB no explícito; el navegador aborta peticiones fuera de los orígenes locales permitidos. El script añade aserciones donde antes solo registraba resultados y deja de interpolar el contenedor/SQL en una shell.
 
 Esto reduce el riesgo; NO prueba aislamiento del egreso del servidor, proxy TLS, SMTP, Auth ni Storage real. La ejecución mutadora completa requiere Docker/stack local con TLS y restricción real del egreso. En esta sesión no hay Docker ni CLI Supabase y la descarga de Chromium falló en el bloque anterior: esos casos permanecen BLOCKED. No se ejecuta el script sobre Preview porque comparte producción.
+
+## Actualización de titular y Docker aportada por Juanma
+
+El propietario aportó razón social, CIF y dirección parcial y confirmó que la sociedad presta/factura Sarah Katerina. No repetir la petición de razón social/CIF; falta completar domicilio y decisiones/validación de privacidad. Los valores permanecen en el canal privado de la sesión hasta la propuesta legal revisable.
+
+La captura de Docker Desktop del propietario muestra motor activo, cero contenedores corriendo y dos contenedores PostgreSQL ajenos a este frente. No se tocaron. Tener Docker en Windows no da acceso a este executor remoto: no hay CLI/socket Docker aquí. El handoff local prepara ejecución con Codex Desktop/CLI en Windows, sin exponer Docker por TCP ni usar bases de otros proyectos. Ver [ejecución local](STUDIO-LOCAL-EXECUTION-HANDOFF-2026-10-09.md).
 
 ## Lo que debe aportar Sarah
 

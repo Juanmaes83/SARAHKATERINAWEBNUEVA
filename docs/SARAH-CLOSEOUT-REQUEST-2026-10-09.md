@@ -2,9 +2,13 @@
 
 Documento operativo interno. No es política legal, no se envía automáticamente y no registra datos pendientes como hechos. Juanma valida/transmite la solicitud por su canal habitual. No pedir contraseñas, NIF/documentos por repositorio público ni publicar datos personales sin revisión.
 
+## Información ya aportada por Juanma
+
+Juanma ha aportado razón social, CIF y dirección parcial, y ha confirmado expresamente que esa sociedad presta y factura los servicios de Sarah Katerina. No volver a solicitar razón social/CIF. Los valores se conservan en el intercambio privado de esta sesión hasta incorporarlos a un borrador legal revisable; no se infiere inscripción registral ni descriptor profesional. Falta completar código postal, municipio/provincia y, si aplica, piso/local o datos registrales. Confirmación del titular por el propietario no equivale a política legal final aprobada.
+
 ## Imprescindible para legal y lanzamiento
 
-1. **Quién presta/factura el servicio:** persona física o sociedad, nombre legal completo y nombre comercial; NIF/CIF, domicilio legal y contacto para privacidad. Pedir información registral, colegio/título/autorización solo si realmente aplican. El domicilio de atención no se presume domicilio legal. Entrega de los datos por canal privado seguro.
+1. **Completar los datos del titular ya aportado:** código postal, municipio/provincia, contacto para privacidad y datos registrales/profesionales solo si aplican. No volver a pedir razón social ni CIF. El propietario confirmó la relación con Sarah; falta revisión del borrador final, no una identidad inventada. Entrega de información adicional por canal privado seguro.
 2. **Responsable/revisión:** quién valida aviso legal, privacidad, cookies y condiciones; enviar textos previos del asesor si existen, con fecha. Confirmar alcance profesional real y las limitaciones que deban figurar. No aprobar por defecto la política antigua que enumera Analytics/Stripe/Web3Forms.
 3. **Tratamiento real de consultas:** a qué correo/cuenta llegan y quién las atiende; qué se conserva, cuánto tiempo/criterios, si entra en CRM o se comparte con colaboradores. Nosotros verificamos técnicamente proveedores, alojamiento y flujos; Sarah confirma el uso de negocio y el asesor valida base jurídica/transferencias.
 4. **Permisos de contenido:** confirmar autorización de los casos/testimonios e imágenes que sigan pendientes, y resolver las notas privadas de casos bloqueados. Confirmar si marketing/info son los usuarios y roles deseados; no crear nuevas invitaciones por defecto.
