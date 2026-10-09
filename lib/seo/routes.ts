@@ -132,6 +132,13 @@ export const SEO_ROUTES: readonly SeoRoute[] = [
     indexEligible: true, sitemapEligible: !detail, structuredData: 'none', metadataSource: 'Studio publications',
     alternates: {}, changeFrequency: 'weekly', priority: detail ? 0.6 : 0.7,
   }))),
+  ...['/preview/legal-notice', '/preview/privacy', '/preview/cookies'].map((previewPath): SeoRoute => ({
+    id: previewPath.slice(1).replaceAll('/', '-'), previewPath,
+    productionPath: null, status: 'laboratory', locale: 'en',
+    indexEligible: false, sitemapEligible: false, structuredData: 'none',
+    metadataSource: 'Legal review proposal', alternates: {},
+    blockedReason: 'Draft legal layout: verified controller and competent approval required.',
+  })),
   ...[
     '/studio', '/studio/[section]', '/studio/documents/[id]',
     '/studio/media', '/studio/recover/complete', '/studio/recover',

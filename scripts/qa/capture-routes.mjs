@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 const origin = 'http://127.0.0.1:3107';
 const server = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '-p', '3107', '-H', '127.0.0.1'], { stdio: 'ignore' });
-const publicPaths = ['/', '/foundation', '/preview/home', '/preview/investment', '/preview/property-purchase', '/preview/tax-advisory', '/preview/team', '/preview/contact', '/preview/insights', '/preview/case-studies', '/studio/login', '/studio/recover', '/studio/recover/complete', '/studio/accept-invite'];
+const publicPaths = ['/', '/foundation', '/preview/home', '/preview/investment', '/preview/property-purchase', '/preview/tax-advisory', '/preview/team', '/preview/contact', '/preview/legal-notice', '/preview/privacy', '/preview/cookies', '/preview/insights', '/preview/case-studies', '/studio/login', '/studio/recover', '/studio/recover/complete', '/studio/accept-invite'];
 const draftPaths = ['modelo-210-explained','five-documents-before-arras','gross-vs-net-yield-costa-blanca','short-term-rental-licence-valencian-community','plusvalia-2021-constitutional-ruling','nie-application-three-routes'].map(slug => `/preview/insights/${slug}`).concat(['dutch-investor-orihuela','german-retiree-guardamar','norwegian-couple-la-zenia','british-buyer-torrevieja'].map(slug => `/preview/case-studies/${slug}`));
 const privatePaths = ['/studio', '/studio/pages', '/studio/articles', '/studio/cases', '/studio/documents/00000000-0000-0000-0000-000000000000', '/studio/media', '/studio/links', '/studio/new', '/studio/team'];
 try {
