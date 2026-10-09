@@ -23,6 +23,25 @@ try {
     if (expected === 200) await writeFile(`.next/route-audit/${path === '/' ? 'index' : path.slice(1).replaceAll('/', '__')}.html`, html);
     results.push({ path, status: response.status, noindex: true });
   }
+  // Real HTTP verification of legacy compatibility, not just registry tests.
+  for (const [source, destination] of [
+    ['/services', '/'],
+    ['/services/investment-advisory', '/investment'],
+    ['/book-a-call', '/contact'],
+    ['/guides', '/insights'],
+    ['/modelo-210-help', '/services/tax-advisory'],
+    ['/english-tax-advisor-costa-blanca', '/services/tax-advisory'],
+    ['/foreign-buyer-tax-guide', '/services/tax-advisory'],
+  ]) {
+    const response = await fetch(origin + source, { redirect: 'manual' });
+    if (response.status !== 308) throw new Error(source + ': legacy redirect must be 308');
+    const location = response.headers.get('location');
+    if (!location || new URL(location, origin).href !== origin + destination)
+      throw new Error(source + ': wrong legacy destination');
+    const target = await fetch(origin + destination, { redirect: 'manual' });
+    if (target.status !== 200) throw new Error(destination + ': legacy target must be 200');
+    results.push({ path: source, status: 308, destination, targetStatus: 200 });
+  }
   const serviceRoutes = [
     ['/robots.txt', 'GET', 200], ['/sitemap.xml', 'GET', 200],
     ['/api/studio/session', 'GET', 403], ['/api/studio/export', 'GET', 401],

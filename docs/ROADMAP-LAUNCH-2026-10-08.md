@@ -52,3 +52,7 @@ La política actual /privacy se leyó como fuente del propio sitio el 8 de octub
 - Comprobación HTTP local de las rutas públicas en modo production: las páginas comprobadas responden 200 con un H1 y enlaces públicos; noindex sigue presente conforme al bloqueo del corte. No demuestra todavía lectura de los doce detalles en el despliegue de producción.
 - Los doce detalles alojados y los listados de la preview se verificaron antes: 14 respuestas 200, ocho artículos y cuatro casos enlazados (registro separado studio-hosted-publication-2026-10-08.md).
 - El entorno local requiere SWC WASM y un preload temporal externo al repositorio para APIs del sistema no disponibles. Ninguno de esos ajustes se incorpora al producto ni a CI.
+
+## Legacy continuation, 9 October 2026
+
+Owner instructed legacy implementation/publication and postponed chatbot/WhatsApp. See [implementation and remaining blockers](LEGACY-MIGRATION-2026-10-09.md). Seven legacy entry-point redirects and the ten-source preservation registry are implemented; legal, paid-tool, Spanish and external-domain work is not declared complete. No DNS, indexation or hosted content changes in this continuation.
