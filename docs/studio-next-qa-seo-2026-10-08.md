@@ -1,5 +1,7 @@
 # Continuación Studio / SEO, 8 octubre 2026
 
+> **Reconciliación 2026-10-09:** [Project State](PROJECT-STATE-2026-10-09.md) distingue los resultados posteriores y pendientes actuales. Las instrucciones antiguas de importación, invitación o publicación no deben repetirse como trabajo pendiente.
+
 El usuario autorizó revisar/integrar PR49, importar borradores y comprobar el Studio, incorporar el parche de dependencias y resolver accesibilidad/metadatos. Reservó para sí la selección de imágenes, revisión del contenido y aprobación de publicación. No se interpreta como publicación automática de artículos ni lanzamiento de producción.
 
 ## Integración y cambios

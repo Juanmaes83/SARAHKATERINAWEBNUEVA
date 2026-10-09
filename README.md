@@ -1,5 +1,7 @@
 # Sarah Katerina — New Website
 
+> **Estado reconciliado — 9 octubre 2026:** consulta [Project State](docs/PROJECT-STATE-2026-10-09.md) y [QA aislada del Studio](docs/STUDIO-ISOLATED-QA-2026-10-09.md). Los registros anteriores conservan su valor histórico; no describen por sí solos el estado actual. Este frente pertenece exclusivamente a SARAHKATERINAWEBNUEVA.
+
 > **Status (2026-09-30): SIX PREVIEW ROUTES (FOUR LANDINGS, HOME, CONTACT) · CONTROLLED PREVIEW · NOINDEX · NO CUSTOM-DOMAIN LAUNCH**
 >
 > Juanma visually approved the four `/preview` landings on 2026-09-28 and the Home on 2026-09-29. Contact's page/content approval was relayed by Juanma on 2026-09-30 and PR #33 is merged. These approvals do not close production, legal, domain, DNS, migration, indexation or public-launch gates. Open Sarah copy decisions, evidence, asset, rights and professional-review gates remain in `PROJECT-STATUS.md` and the phase records. The application remains **not indexable by default**.

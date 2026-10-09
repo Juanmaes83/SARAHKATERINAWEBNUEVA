@@ -1,5 +1,7 @@
 # SEO routes, sitemap, redirects and entity graph
 
+> **Reconciliación 2026-10-09:** [Project State](PROJECT-STATE-2026-10-09.md) distingue los resultados posteriores y pendientes actuales. Las instrucciones antiguas de importación, invitación o publicación no deben repetirse como trabajo pendiente.
+
 Status: **INFRASTRUCTURE READY · NOTHING PUBLISHED** · Updated: 2026-10-08
 
 This page explains the technical SEO foundation. The data lives in code, so tests

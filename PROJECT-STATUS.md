@@ -1,5 +1,7 @@
 # Project Status — SARAHKATERINAWEBNUEVA
 
+> **Estado reconciliado — 9 octubre 2026:** consulta [Project State](docs/PROJECT-STATE-2026-10-09.md) y [QA aislada del Studio](docs/STUDIO-ISOLATED-QA-2026-10-09.md). Los registros anteriores conservan su valor histórico; no describen por sí solos el estado actual. Este frente pertenece exclusivamente a SARAHKATERINAWEBNUEVA.
+
 **Last updated:** 2026-09-30 (after PR #33 merge)
 **Repository status:** CONTROLLED PREVIEW · NOINDEX · NOT PRODUCTION  
 **Review state:** four landing routes and Home have recorded visual approval; Contact page/content approval was relayed by Juanma on 2026-09-30. All remain preview-only; no production approval.
