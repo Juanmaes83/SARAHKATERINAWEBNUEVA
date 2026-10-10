@@ -1,0 +1,114 @@
+[
+  {
+    "width": 2048,
+    "height": 1060,
+    "readability": {
+      "bodyHeight": 421.578125,
+      "headingVisible": true,
+      "paragraphVisible": 83.671875,
+      "paragraphHeight": 83.671875,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "readability": {
+      "bodyHeight": 428.640625,
+      "headingVisible": true,
+      "paragraphVisible": 49.59375,
+      "paragraphHeight": 49.59375,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "readability": {
+      "bodyHeight": 383.78125,
+      "headingVisible": true,
+      "paragraphVisible": 49.59375,
+      "paragraphHeight": 49.59375,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 1280,
+    "height": 600,
+    "readability": {
+      "bodyHeight": 220.625,
+      "headingVisible": true,
+      "paragraphVisible": 49.59375,
+      "paragraphHeight": 49.59375,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 800,
+    "height": 450,
+    "readability": {
+      "bodyHeight": 204.6875,
+      "headingVisible": true,
+      "paragraphVisible": 49.59375,
+      "paragraphHeight": 49.59375,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 390,
+    "height": 640,
+    "readability": {
+      "bodyHeight": 256.921875,
+      "headingVisible": true,
+      "paragraphVisible": 99.1875,
+      "paragraphHeight": 99.1875,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 320,
+    "height": 640,
+    "readability": {
+      "bodyHeight": 235.234375,
+      "headingVisible": true,
+      "paragraphVisible": 123.984375,
+      "paragraphHeight": 123.984375,
+      "internalOverflow": false
+    },
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  }
+]

@@ -31,7 +31,7 @@
   inset: auto var(--sk-space-24) var(--sk-space-24) auto;
   margin: 0;
   padding: 0;
-  width: min(calc(6 * var(--sk-space-64)), calc(100% - 2 * var(--sk-space-16)));
+  width: min(calc(8 * var(--sk-space-64)), calc(100% - 2 * var(--sk-space-16)));
   max-height: calc(100dvh - 2 * var(--sk-space-24));
   overflow-y: auto;
   border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
@@ -232,7 +232,7 @@
 
 /* Keep contact visible while only the response area scrolls. */
 .dialog {
-  height: min(calc(10 * var(--sk-space-64)), calc(100dvh - 2 * var(--sk-space-24)));
+  height: min(calc(12 * var(--sk-space-64)), calc(100dvh - 2 * var(--sk-space-24)));
   overflow: hidden;
 }
 .dialog[open] {
@@ -288,5 +288,30 @@
 @media (max-width: 639px) {
   .dialog {
     height: calc(100dvh - 2 * var(--sk-space-16));
+  }
+}
+
+.historyActions {
+  display: grid;
+  gap: var(--sk-space-8);
+}
+.historyActions:empty {
+  display: none;
+}
+/* Preserve a reading area when zoom or a keyboard reduces viewport height. */
+.workspace {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+@media (max-height: 559px) {
+  .workspace {
+    display: block;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .body {
+    overflow: visible;
   }
 }
