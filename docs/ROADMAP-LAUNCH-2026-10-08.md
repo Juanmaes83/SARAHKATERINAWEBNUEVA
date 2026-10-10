@@ -74,3 +74,25 @@ Orden operativo actualizado:
 ## Continuación de asistente/WhatsApp autorizada — 9 octubre
 
 Juanma adelantó este bloque y autorizó llegar a revisión visual humana. Contrato y catálogo v1 definidos; panel guiado EN y WhatsApp voluntario implementados para Preview (INTERNAL_TEST_ONLY). Ver [entrega y pasos](ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md) y Project State. No IA generativa, API de WhatsApp, datos reales, publicación/indexación o merge en este bloque. Siguiente paso de este frente: revisión humana del deployment del PR; QA completa Studio y pendientes legales continúan en paralelo como pendientes, no quedan cerrados por el asistente.
+
+## Roadmap operativo actualizado — 10 octubre 2026
+
+Esta sección supersede los estados anteriores del asistente pendiente de revisión/merge. [Handoff completo: trabajo Claude y decisiones Juanma/Sarah](HANDOFF-CLAUDE-CODE-2026-10-10.md).
+
+PR60 fusionado en `9f89ab2b7012e81bacc659d16f6dbaad89a0a656`, aprobación humana de escritorio/móvil/WhatsApp/borrado/cierre, HEAD 03745f con CI verde. PR59 cerrado como sustituido e íntegramente incluido. Guía EN, búsqueda por palabras clave, historial efímero y resumen manual implementados; no IA generativa, Business API ni activación pública del asistente.
+
+| Paquete | Estado | Claude Code | Juanma/Sarah |
+| --- | --- | --- | --- |
+| A Conocimiento/fuentes | Pendiente, siguiente implementación | Catálogo versionado, elegibilidad, citas que sostengan respuestas, UI/fallback/pruebas | Aprobar corpus/textos/revisor competente |
+| B Invitación contextual | NUEVO, pendiente | 45s activos+50% scroll O 3 rutas distintas incluyendo servicio; un aviso por visita; memoria temporal, contexto, reduced-motion y supresión | Revisar copy EN, intensidad, relevancia/umbrales |
+| C Conversación IA/RAG | Pendiente | Evaluar assistant-ui/AI SDK; corpus aprobado, mocks y después backend con coste/rate/seguridad/fuentes | Proveedor/modelo/presupuesto/idiomas/datos |
+| D Integraciones | Pendiente, según necesidad | Canales reales, sandbox/API/CRM/agenda, idempotencia/errores/recepción | Cuentas, prioridad, atención y tratamiento |
+| E Studio aislado | Preparación existente; E2E completo pendiente | Docker/Auth/DB/Storage/SMTP/TLS y matriz real, fixtures aislados y correcciones | Acceso equipo local y revisión visual; alojado mutador requiere aprobación aparte |
+| F Legal/consentimiento/contenido | Pendiente; PR52/53 abiertos | Reconciliar, banner real, mapear datos, borradores legales y permisos pendientes | Revisor legal, retención/registro aplicable, derechos/copy |
+| G Lanzamiento/migración/SEO | Parcial | URLs/ES/pago, candidate QA, performance/security, DNS/HTTPS/Auth, sitemap/GSC y seguimiento | Decisiones oferta pago/idioma, delegación dominio/Google, aprobación corte |
+
+B se especifica como invitación discreta: brillo/pulso único con tokens, Resolver una duda/Ahora no (equivalente EN por revisar), nunca autoabrir ni tapar menú/consentimiento/CTA. Pestaña oculta pausa tiempo. Apertura/descartar suprime nuevos avisos entre rutas. No perfil/cookies/almacenamiento persistente. Señales indican posible interés, no intención demostrada. Medición futura requiere proveedor/consentimiento; clic WhatsApp no es lead.
+
+Pendientes adicionales confirmados por documentación: PR52 y PR53, permisos/selección de imágenes y testimonios, producto /tax-diagnostic, migración ES/legales/dominio antiguo, Auth callbacks, rendimiento/CWV real, reconciliación PR antiguos, propiedad GSC/sitemap/indexación y SEO off-page preparado pero no ejecutado. No volver a pedir titular/CIF/contactos ya aportados.
+
+Orden: A → B → C según decisiones; E/F en paralelo; D según necesidad; G tras gates. Aprobación histórica de lanzamiento seguida de pausa: confirmar autorización vigente de corte/indexación, no inferirla de PR60. Asistente permanece gateado en production. Despliegue main del merge se verifica aparte del Preview aprobado. Handoff detalla aceptación, responsables, QA y entrega final a auditoría.

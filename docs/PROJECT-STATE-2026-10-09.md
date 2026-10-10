@@ -96,3 +96,15 @@ Pruebas locales: 480 tests/33 suites sin skips, tipos/build, lint sin errores/8 
 ## Conversational review continuation — 10 October
 
 Juanma authorised continuing the review layer and permits merge if needed for visual validation; the wait-for-credits instruction is superseded. See [scope and contract amendment](assistant/CONVERSATION-REVIEW-2026-10-10.md). A separate branch continues PR59 for local topic routing, ephemeral response history, related page links, clearing and an explicitly reviewed WhatsApp topic summary. No generative provider or production activation. Visual acceptance remains pending; Studio and legal gates stay open.
+
+## Checkpoint vigente — 10 octubre 2026, traspaso a Claude Code
+
+Main verificado: `9f89ab2b7012e81bacc659d16f6dbaad89a0a656`, squash PR60. PR59 cerrado sustituido; estaba íntegramente incluido. Juanma aprobó escritorio, móvil, WhatsApp, borrado y cierre. HEAD aprobado 03745f; tres checks success, 482/482 tests, 55 rutas y QA local Chromium en siete tamaños. Preview rama aprobado: https://sarahkaterina-web-nueva-hrktbib00-juanma-espinosas-projects.vercel.app/preview/home. No acreditar deployment main o navegador alojado por esa URL.
+
+Supersede los párrafos de asistente sin input/pendiente de merge: guía EN con búsqueda local por palabras clave, historial efímero de ocho respuestas, borrado y resumen WhatsApp revisable implementados. La respuesta tax quedó legible tras corregir controles y desplazamiento; aprobación visual registrada en PR60. Sigue sin IA generativa, fuentes por respuesta, bibliotecas externas, Business API, CRM o agenda; production del asistente gateado.
+
+Nueva propuesta incorporada al roadmap: invitación contextual por señales temporales de interés, sin implementar. No confundir aprobación de la UI actual con código de esta propuesta. Los umbrales son hipótesis iniciales.
+
+Juanma continúa con Claude Code. [Handoff canónico de continuidad](HANDOFF-CLAUDE-CODE-2026-10-10.md) contiene paquetes A–G, tareas técnicas, decisiones humanas y aceptación. PR52/53 permanecen abiertos en lectura actual; PR antiguos requieren reconciliación. QA real Studio, legal/consentimiento, permisos/contenido, diagnóstico pago/ES, dominio/indexación/GSC/performance/off-page no cerrados por PR60. Titular/contactos ya aportados: no pedir otra vez. No inferir autorización de corte del merge.
+
+Esta actualización solo documental no ejecuta QA alojada, no conecta proveedor/IA/CRM, ni modifica dominio/indexación. El checkpoint de esta actualización documental estará en su PR; Claude debe leer la rama si aún no está fusionada.
