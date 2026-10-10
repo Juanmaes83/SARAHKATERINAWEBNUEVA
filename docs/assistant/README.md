@@ -8,6 +8,7 @@ Actualización: Juanma autorizó implementar este catálogo y continuar hasta re
 - [Catálogo de respuestas para revisión](RESPONSE-CATALOGUE.md)
 - [Matriz de aceptación y entrega](ACCEPTANCE.md)
 - [Paquete A: trazabilidad y bloqueo por fuente (10 octubre)](KNOWLEDGE-PACKAGE-A-2026-10-10.md)
+- [Paquete B: invitación contextual de ayuda (10 octubre)](INVITATION-PACKAGE-B-2026-10-10.md)
 - [Paquete C: evaluación IA y recuperación preparada (10 octubre)](AI-PACKAGE-C-2026-10-10.md)
 
 La primera versión propuesta es un asistente guiado por opciones, sin campo de texto libre ni modelo generativo. Un botón de ayuda abre un panel y ofrece derivación voluntaria al WhatsApp existente. No es una API de WhatsApp, no envía mensajes y no representa a Sarah como interlocutora presente.

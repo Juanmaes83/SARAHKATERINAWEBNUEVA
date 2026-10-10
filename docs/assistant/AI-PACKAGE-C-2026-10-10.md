@@ -56,4 +56,4 @@ Sin estas decisiones no se instala SDK, no se crea endpoint ni se conecta provee
 
 ## Entrega
 
-Draft PR #64, dependiente de #62 (contiene sus commits; el CI solo corre en PR contra `main`). Fusionar después de #62. Sin cambios de interfaz propios: su Preview muestra la UI del paquete A.
+Draft PR #64. #62 y #63 ya están en main; este PR solo añade el paquete C, sin cambios de interfaz. Merge NO autorizado todavía.

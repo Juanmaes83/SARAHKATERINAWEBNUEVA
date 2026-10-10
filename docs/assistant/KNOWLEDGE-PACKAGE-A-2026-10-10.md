@@ -46,7 +46,7 @@ Ninguna respuesta contiene contenido fiscal, legal o financiero normativo. A04 s
 
 ## Copy nuevo pendiente de aprobación
 
-`Source on this website` y `Checked 10 Oct 2026` (UI de cita). PENDING_APPROVAL de Juanma en la revisión visual del Preview.
+`Source on this website` y `Checked 10 Oct 2026` (UI de cita): **aprobados por Juanma el 10 octubre 2026** en la revisión del Preview, junto con el PR completo y su merge. No implica aprobación pública del corpus por Sarah ni activación en production.
 
 ## Verificación local (10 octubre 2026)
 
