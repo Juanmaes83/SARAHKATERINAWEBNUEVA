@@ -1,3 +1,5 @@
+> Actualización 10 octubre 2026 (paquete A): el registro se implementa como código verificado en `content/en/assistant-evidence.ts` con extracto, huella, versión, caducidad y bloqueo por respuesta. Las etiquetas S01–S08 quedan como inventario histórico. Ver [paquete A](KNOWLEDGE-PACKAGE-A-2026-10-10.md).
+
 # Registro propuesto de conocimiento y fuentes
 
 Base auditada: `5b3b5cc45bfefe1afb87228a846945c47edcc6e9`. Fecha: 2026-10-09.

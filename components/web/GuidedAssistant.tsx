@@ -22,6 +22,7 @@ import {
   type VisitState,
 } from '@/lib/assistant/invitation';
 import { useContextualInvitation } from './useContextualInvitation';
+import { ASSISTANT_FALLBACK_ID, responseEligibility } from '@/content/en/assistant-evidence';
 import styles from './GuidedAssistant.module.css';
 
 /** Reuse the menu's explicit lifecycle; no observer, polling or persistent memory. */
@@ -37,6 +38,16 @@ export function GuidedAssistant({ enabled }: { enabled: boolean }) {
   return enabled && website ? (
     <AssistantSession key={pathname} path={pathname!} visit={visit} />
   ) : null;
+}
+
+/** Oldest review date among the cited pages, as "10 Oct 2026" (no locale drift). */
+function citation(citations: readonly { reviewedAt: string }[]): string {
+  const [year, month, day] = [...citations]
+    .map((item) => item.reviewedAt)
+    .sort()[0]!
+    .split('-');
+  const months = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
+  return `${Number(day)} ${months[Number(month) - 1]} ${year}`;
 }
 
 function AssistantSession({ path, visit }: { path: string; visit: MutableRefObject<VisitState> }) {
@@ -274,20 +285,49 @@ function AssistantSession({ path, visit }: { path: string; visit: MutableRefObje
                 >
                   {history.map((id, index) => {
                     const entry = ASSISTANT_RESPONSES.find((item) => item.id === id)!;
+                    // The panel only renders in review deployments (lib/assistant/policy.ts).
+                    const eligibility = responseEligibility(id, 'review');
+                    // A withheld answer falls back to the approved human hand-off.
+                    const shown =
+                      eligibility.status === 'eligible'
+                        ? entry
+                        : ASSISTANT_RESPONSES.find((item) => item.id === ASSISTANT_FALLBACK_ID)!;
                     return (
-                      <section className={styles.message} key={`${index}-${id}`}>
+                      <section
+                        className={styles.message}
+                        key={`${index}-${id}`}
+                        data-knowledge={eligibility.status}
+                      >
                         <h3
                           ref={index === history.length - 1 ? answerRef : undefined}
                           tabIndex={-1}
                         >
                           {entry.label}
                         </h3>
-                        <p>{entry.text}</p>
+                        <p>{shown.text}</p>
+                        {eligibility.status === 'eligible' && eligibility.citations.length ? (
+                          <div className={styles.sources}>
+                            <p className={styles.notice}>{assistantCopy.sourceHeading}</p>
+                            {eligibility.citations.map((citation) => (
+                              <Link
+                                key={citation.href}
+                                href={citation.href}
+                                className={styles.contactLink}
+                                onClick={close}
+                              >
+                                {citation.label} →
+                              </Link>
+                            ))}
+                            <p className={styles.notice}>
+                              {assistantCopy.sourceChecked(citation(eligibility.citations))}
+                            </p>
+                          </div>
+                        ) : null}
                         <div className={styles.links}>
-                          {entry.links.length ? (
+                          {shown.links.length ? (
                             <p className={styles.notice}>Related website pages</p>
                           ) : null}
-                          {entry.links.map((link) => (
+                          {shown.links.map((link) => (
                             <Link
                               key={link.href}
                               href={link.href}

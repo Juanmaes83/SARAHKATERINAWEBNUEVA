@@ -138,6 +138,15 @@
   display: grid;
   gap: var(--sk-space-8);
 }
+/* Cited source: set apart from related pages so a navigation link never reads as evidence. */
+.sources {
+  display: grid;
+  gap: var(--sk-space-4);
+  margin-block: var(--sk-space-8);
+  padding-inline-start: var(--sk-space-16);
+  border-inline-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+}
 .contactLink {
   display: flex;
   align-items: center;
