@@ -4,7 +4,7 @@ import {
   type AssistantResponseId,
 } from '@/content/en/assistant';
 
-const TERMS: Partial<Record<AssistantResponseId, readonly string[]>> = {
+export const TOPIC_TERMS: Partial<Record<AssistantResponseId, readonly string[]>> = {
   A02: ['buy', 'buying', 'purchase', 'property', 'comprar', 'vivienda'],
   A03: ['invest', 'investment', 'invertir', 'inversion'],
   A04: ['tax', 'taxes', 'fiscal', 'impuesto', 'itp', 'vat', 'iva'],
@@ -24,7 +24,7 @@ export function matchAssistantTopic(question: string): AssistantResponseId {
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .split(/[^a-z]+/);
-  const matches = Object.entries(TERMS).filter(([, terms]) =>
+  const matches = Object.entries(TOPIC_TERMS).filter(([, terms]) =>
     terms?.some((term) => words.includes(term)),
   );
   return matches.length === 1 ? (matches[0]![0] as AssistantResponseId) : 'A12';
