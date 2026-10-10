@@ -69,6 +69,10 @@ Ninguna respuesta contiene contenido fiscal, legal o financiero normativo. A04 s
 | Fuentes normativas (AEAT/BOE/ATV/SUMA)             | BLOCKED                               | Revisor fiscal/legal competente | `reference_only`                  |
 | Activación production del asistente                | BLOCKED                               | Juanma (aprobación separada)    | política + contexto `production`  |
 
+## Entrega
+
+Draft PR #62 (`claude/relaxed-hopper-bj882p`). Primer commit `2e2ea5e`: CI de GitHub en verde (lint/typecheck/test/build y secretos); el deployment de Vercel de ese commit falló al instante en el push sin registro accesible desde este entorno (vercel.com bloqueado por la red del contenedor). El PR hermano #63, mismo autor y base, desplegó correctamente, por lo que se trata como fallo de plataforma no reproducido; este commit documental vuelve a desplegar. La URL exacta de Preview se registra en el PR, no aquí, para evitar un SHA autorreferencial.
+
 ## Qué necesita una respuesta nueva
 
 ID, texto exacto en el catálogo documental, afirmaciones clasificadas con fuente y extracto, huella regenerada tras revisión humana, aprobador/fecha, permiso y fecha de revisión. Una afirmación fiscal/legal/financiera exige además documento oficial concreto, versión y vigencia, jurisdicción y revisión profesional fechada. Nunca actualizar una huella sin esa revisión.
