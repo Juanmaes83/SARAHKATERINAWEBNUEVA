@@ -20,7 +20,9 @@ Base: main `9f89ab2b7012e81bacc659d16f6dbaad89a0a656`. Especificación: handoff 
 - **Acciones**: «Ask a question» abre el panel con el tema de la página primero (Tax → Tax questions, Purchase → Buying a property, Investment → Investment); «Not now» descarta. Escape dentro de la tarjeta descarta y devuelve el foco al launcher. El panel mantiene contacto humano (WhatsApp/Contact).
 - No se registra, mide ni envía nada. La futura medición (exposición/apertura/ayuda/contacto iniciado) requiere proveedor y consentimiento aprobados; abrir WhatsApp no es un lead ni una reserva.
 
-## Copy EN — PENDING_APPROVAL (Juanma)
+## Copy EN — revisado por Juanma (10 octubre 2026)
+
+Juanma probó el Preview ("funciona") y autorizó el merge de PR63 el 10 octubre 2026. Los umbrales siguen siendo hipótesis a medir tras activar medición con consentimiento; ajustarlos requiere nueva revisión.
 
 | Elemento  | EN propuesto                                                                  | Brief ES                 |
 | --------- | ----------------------------------------------------------------------------- | ------------------------ |
@@ -55,6 +57,6 @@ En 320–390px la tarjeta ocupa unos 250px sobre el contenido hasta que se respo
 | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------- | ------------ |
 | Señales, una por visita, pausa, supresión, exclusiones | PASS local                                                                                            | Claude       |
 | Coordinación menú/diálogos                             | PASS local; banner de consentimiento real no existe aún (PR53) → solo contrato `data-sk-consent-open` | Claude / F   |
-| Copy EN, intensidad, umbrales                          | PENDING_APPROVAL                                                                                      | Juanma       |
+| Copy EN, intensidad, umbrales                          | Validado por Juanma 2026-10-10 (funciona, merge autorizado)                                           | Juanma       |
 | Medición/analítica                                     | BLOCKED (proveedor + consentimiento)                                                                  | Juanma/Sarah |
 | Production                                             | BLOCKED: el asistente sigue deshabilitado en production                                               | Juanma       |

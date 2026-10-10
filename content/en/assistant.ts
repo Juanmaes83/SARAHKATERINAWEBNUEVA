@@ -34,8 +34,8 @@ export const assistantCopy = {
   whatsapp: 'Open WhatsApp',
   session: 'Guided help · No conversation is saved',
   /**
-   * Contextual help invitation, package B 2026-10-10: PENDING_APPROVAL.
-   * Juanma reviews EN copy and intensity on the Preview. Spanish brief:
+   * Contextual help invitation, package B. Juanma reviewed the Preview on
+   * 2026-10-10 ("funciona") and authorised the merge (PR 63). Spanish brief:
    * «Resolver una duda» / «Ahora no».
    */
   invitation: {
