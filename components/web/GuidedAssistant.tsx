@@ -9,7 +9,6 @@ import { resolveContactChannels } from '@/lib/contact/channels';
 import { isAssistantWebsiteRoute } from '@/lib/assistant/policy';
 import {
   ASSISTANT_CONTACT_ROUTE,
-  ASSISTANT_OPENER,
   ASSISTANT_RESPONSES,
   assistantCopy,
   type AssistantResponseId,
@@ -30,7 +29,6 @@ export function GuidedAssistant({ enabled }: { enabled: boolean }) {
 function AssistantSession() {
   const [open, setOpen] = useState(false);
   const [blocked, setBlocked] = useState(false);
-  const [active, setActive] = useState<AssistantResponseId | null>(null);
   const [history, setHistory] = useState<AssistantResponseId[]>([]);
   const [question, setQuestion] = useState('');
   const [review, setReview] = useState(false);
@@ -38,23 +36,22 @@ function AssistantSession() {
   const inputRef = useRef<HTMLInputElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const reviewRef = useRef<HTMLHeadingElement>(null);
   const answerRef = useRef<HTMLHeadingElement>(null);
   const dialogId = useId();
   const titleId = useId();
   const descriptionId = useId();
-  const channels = resolveContactChannels(ASSISTANT_OPENER);
+  const shareable = [...new Set(history)].filter((id) => id !== 'A12');
   const summary = assistantSummary(selected);
   const summaryChannels = resolveContactChannels(summary);
 
   function choose(id: AssistantResponseId) {
-    setActive(id);
     setHistory((items) => [...items.slice(-7), id]);
     setReview(false);
     setSelected([]);
   }
 
   function reset() {
-    setActive(null);
     setHistory([]);
     setQuestion('');
     setReview(false);
@@ -64,7 +61,6 @@ function AssistantSession() {
   const close = useCallback(() => {
     dialogRef.current?.close();
     setOpen(false);
-    setActive(null);
     setHistory([]);
     setQuestion('');
     setReview(false);
@@ -97,8 +93,14 @@ function AssistantSession() {
   }, [open]);
 
   useEffect(() => {
-    if (active) answerRef.current?.focus();
-  }, [active, history.length]);
+    if (review) {
+      reviewRef.current?.focus({ preventScroll: true });
+      reviewRef.current?.closest('section')?.parentElement?.scrollTo({ top: 0 });
+    } else if (history.length) {
+      answerRef.current?.focus({ preventScroll: true });
+      answerRef.current?.scrollIntoView({ block: 'nearest' });
+    }
+  }, [review, history]);
 
   function topicButtons(primary: boolean) {
     return ASSISTANT_RESPONSES.filter((item) => item.primary === primary).map((item) => (
@@ -166,13 +168,45 @@ function AssistantSession() {
           </div>
           <div className={styles.body}>
             <p id={descriptionId} className={styles.intro}>
-              {assistantCopy.introduction}
+              {review
+                ? 'Review the message before opening WhatsApp. Nothing is sent automatically.'
+                : 'Choose a topic or find information on this website.'}
             </p>
-            <p className={styles.notice}>
-              Website guide: fixed replies in English. Your question stays in this panel; please do
-              not enter personal or financial details.
-            </p>
-            {history.length > 0 ? (
+            {review ? (
+              <section className={styles.summary} aria-label="Review WhatsApp summary">
+                <h3 ref={reviewRef} tabIndex={-1}>
+                  Review your message
+                </h3>
+                <p className={styles.notice}>
+                  Include only the topics you want to discuss. Your typed question is never
+                  included.
+                </p>
+                {shareable.length ? (
+                  shareable.map((id) => {
+                    const entry = ASSISTANT_RESPONSES.find((item) => item.id === id)!;
+                    return (
+                      <label className={styles.check} key={id}>
+                        <input
+                          type="checkbox"
+                          checked={selected.includes(id)}
+                          onChange={(event) =>
+                            setSelected((items) =>
+                              event.target.checked
+                                ? [...items, id]
+                                : items.filter((item) => item !== id),
+                            )
+                          }
+                        />
+                        {entry.label}
+                      </label>
+                    );
+                  })
+                ) : (
+                  <p className={styles.notice}>You can open WhatsApp with a simple greeting.</p>
+                )}
+                <p className={styles.summaryText}>{summary}</p>
+              </section>
+            ) : history.length > 0 ? (
               <div
                 className={styles.conversation}
                 role="log"
@@ -183,13 +217,14 @@ function AssistantSession() {
                   const entry = ASSISTANT_RESPONSES.find((item) => item.id === id)!;
                   return (
                     <section className={styles.message} key={`${index}-${id}`}>
-                      <p className={styles.topicLabel}>{entry.label}</p>
                       <h3 ref={index === history.length - 1 ? answerRef : undefined} tabIndex={-1}>
-                        Website guide
+                        {entry.label}
                       </h3>
                       <p>{entry.text}</p>
                       <div className={styles.links}>
-                        <p className={styles.notice}>Related website pages</p>
+                        {entry.links.length ? (
+                          <p className={styles.notice}>Related website pages</p>
+                        ) : null}
                         {entry.links.map((link) => (
                           <Link
                             key={link.href}
@@ -212,119 +247,117 @@ function AssistantSession() {
                   );
                 })}
               </div>
-            ) : null}
-            <form
-              className={styles.composer}
-              onSubmit={(event) => {
-                event.preventDefault();
-                if (!question.trim()) return;
-                choose(matchAssistantTopic(question));
-                setQuestion('');
-              }}
-            >
-              <label htmlFor={`${dialogId}-question`}>Find a topic</label>
-              <input
-                ref={inputRef}
-                id={`${dialogId}-question`}
-                type="text"
-                maxLength={240}
-                autoComplete="off"
-                value={question}
-                onChange={(event) => setQuestion(event.target.value)}
-                placeholder="Buying, investment, tax…"
-              />
-              <WebButton type="submit" variant="secondary" disabled={!question.trim()}>
-                Find information
-              </WebButton>
-            </form>
-            <div className={styles.topics}>
-              {topicButtons(true)}
-              <details className={styles.more}>
-                <summary>{assistantCopy.more}</summary>
-                <div className={styles.topics}>{topicButtons(false)}</div>
-              </details>
-            </div>
-            {history.length > 0 ? (
-              <WebButton
-                variant="quiet"
-                onClick={() => {
-                  reset();
-                  inputRef.current?.focus();
+            ) : (
+              <div className={styles.topics}>
+                {topicButtons(true)}
+                <details className={styles.more}>
+                  <summary>{assistantCopy.more}</summary>
+                  <div className={styles.topics}>{topicButtons(false)}</div>
+                </details>
+              </div>
+            )}
+          </div>
+          {!review ? (
+            <div className={styles.controls}>
+              {history.length > 0 ? (
+                <details className={styles.more} key={history.length}>
+                  <summary>Choose another topic</summary>
+                  <div className={styles.topicPicker}>
+                    {topicButtons(true)}
+                    {topicButtons(false)}
+                  </div>
+                </details>
+              ) : null}
+              <form
+                className={styles.composer}
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  if (!question.trim()) return;
+                  choose(matchAssistantTopic(question));
+                  setQuestion('');
                 }}
               >
-                Clear conversation
-              </WebButton>
-            ) : null}
-            {review ? (
-              <section className={styles.summary} aria-label="Review WhatsApp summary">
-                <h3>Review your topics</h3>
+                <label htmlFor={`${dialogId}-question`}>Find a topic</label>
+                <div className={styles.inputRow}>
+                  <input
+                    ref={inputRef}
+                    id={`${dialogId}-question`}
+                    type="text"
+                    maxLength={240}
+                    autoComplete="off"
+                    value={question}
+                    onChange={(event) => setQuestion(event.target.value)}
+                    placeholder="Buying, investment, tax…"
+                  />
+                  <WebButton type="submit" variant="secondary" disabled={!question.trim()}>
+                    Find
+                  </WebButton>
+                </div>
                 <p className={styles.notice}>
-                  Only the checked topic names will be included. Your typed question is never
-                  included.
+                  Fixed replies in English. Please do not enter personal or financial details.
                 </p>
-                {[...new Set(history)].map((id) => {
-                  const entry = ASSISTANT_RESPONSES.find((item) => item.id === id)!;
-                  return (
-                    <label className={styles.check} key={id}>
-                      <input
-                        type="checkbox"
-                        checked={selected.includes(id)}
-                        onChange={(event) =>
-                          setSelected((items) =>
-                            event.target.checked
-                              ? [...items, id]
-                              : items.filter((item) => item !== id),
-                          )
-                        }
-                      />
-                      {entry.label}
-                    </label>
-                  );
-                })}
-                <p className={styles.summaryText}>{summary}</p>
+              </form>
+            </div>
+          ) : null}
+          <div className={styles.foot}>
+            {review ? (
+              <>
+                <p className={styles.notice}>
+                  WhatsApp will ask you to choose its app or web version. You decide whether to send
+                  the message there.
+                </p>
                 <WebLinkButton
                   href={summaryChannels.whatsapp.href}
                   external
                   variant="primary"
                   className={styles.whatsapp}
                 >
-                  Open WhatsApp with these topics
+                  Open WhatsApp with this message
                 </WebLinkButton>
                 <WebButton
                   variant="quiet"
                   onClick={() => {
                     setReview(false);
                     setSelected([]);
+                    requestAnimationFrame(() =>
+                      dialogRef.current
+                        ?.querySelector<HTMLButtonElement>('[data-assistant-contact]')
+                        ?.focus(),
+                    );
                   }}
                 >
-                  Cancel summary
+                  Back to guide
                 </WebButton>
-              </section>
-            ) : null}
-          </div>
-          <div className={styles.foot}>
-            <p className={styles.notice}>{assistantCopy.whatsappNotice}</p>
-            <WebLinkButton
-              href={channels.whatsapp.href}
-              external
-              variant="primary"
-              arrow
-              className={styles.whatsapp}
-            >
-              {assistantCopy.whatsapp}
-            </WebLinkButton>
-            {history.length > 0 && !review ? (
-              <WebButton
-                variant="secondary"
-                onClick={() => {
-                  setSelected([...new Set(history)]);
-                  setReview(true);
-                }}
-              >
-                Review topics for WhatsApp
-              </WebButton>
-            ) : null}
-            <p className={styles.session}>{assistantCopy.session}</p>
+              </>
+            ) : (
+              <>
+                <WebButton
+                  data-assistant-contact
+                  variant="primary"
+                  className={styles.whatsapp}
+                  onClick={() => {
+                    setSelected(shareable);
+                    setReview(true);
+                  }}
+                >
+                  Contact Sarah on WhatsApp
+                </WebButton>
+                {history.length > 0 ? (
+                  <WebButton
+                    variant="quiet"
+                    onClick={() => {
+                      reset();
+                      inputRef.current?.focus();
+                    }}
+                  >
+                    Clear conversation
+                  </WebButton>
+                ) : null}
+                <p className={styles.session}>
+                  No conversation is saved · Review your message before opening WhatsApp
+                </p>
+              </>
+            )}
           </div>
         </dialog>
       ) : null}

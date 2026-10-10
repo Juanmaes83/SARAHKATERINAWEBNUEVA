@@ -12,6 +12,8 @@ describe('local assistant conversation', () => {
   });
   it('summarises selected catalogue labels only and deduplicates them', () => {
     expect(assistantSummary([])).toBe(ASSISTANT_OPENER);
+    expect(assistantSummary(['A12'])).toBe(ASSISTANT_OPENER);
+    expect(assistantSummary(['A12', 'A04'])).not.toContain('Something else');
     expect(assistantSummary(['A02', 'A02', 'A04'])).toBe(
       `${ASSISTANT_OPENER}\nTopics I would like to discuss: Buying a property, Tax questions.`,
     );

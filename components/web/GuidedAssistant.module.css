@@ -229,3 +229,64 @@
   white-space: pre-line;
   overflow-wrap: anywhere;
 }
+
+/* Keep contact visible while only the response area scrolls. */
+.dialog {
+  height: min(calc(10 * var(--sk-space-64)), calc(100dvh - 2 * var(--sk-space-24)));
+  overflow: hidden;
+}
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.head,
+.foot,
+.controls {
+  flex-shrink: 0;
+}
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.controls {
+  padding: var(--sk-space-8) var(--sk-space-16);
+  border-block-start: var(--sk-border-standard-width) var(--sk-border-standard-style)
+    var(--sk-web-border);
+  background: var(--sk-web-ivory-soft);
+}
+.controls .composer {
+  margin-block: 0;
+  gap: var(--sk-space-8);
+}
+.inputRow {
+  display: flex;
+  gap: var(--sk-space-8);
+  align-items: center;
+}
+.inputRow input {
+  flex: 1;
+}
+.inputRow button {
+  width: auto;
+  padding-inline: var(--sk-space-16);
+  flex-shrink: 0;
+}
+.topicPicker {
+  display: grid;
+  gap: var(--sk-space-8);
+  max-height: calc(3 * var(--sk-space-64));
+  overflow-y: auto;
+}
+.conversation {
+  margin-block: 0;
+}
+.summary {
+  margin-block: 0;
+}
+@media (max-width: 639px) {
+  .dialog {
+    height: calc(100dvh - 2 * var(--sk-space-16));
+  }
+}

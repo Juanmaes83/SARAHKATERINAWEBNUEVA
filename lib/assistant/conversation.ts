@@ -33,6 +33,7 @@ export function matchAssistantTopic(question: string): AssistantResponseId {
 /** Only explicitly selected catalogue topics travel; never raw visitor text. */
 export function assistantSummary(ids: readonly AssistantResponseId[]): string {
   const labels = [...new Set(ids)]
+    .filter((id) => id !== 'A12')
     .map((id) => ASSISTANT_RESPONSES.find((item) => item.id === id)?.label)
     .filter(Boolean);
   return labels.length
