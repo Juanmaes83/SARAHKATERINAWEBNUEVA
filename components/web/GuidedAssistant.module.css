@@ -315,3 +315,75 @@
     overflow: visible;
   }
 }
+
+/*
+ * Contextual help invitation (package B). One soft glow and a single pulse on
+ * the launcher; a static glow with reduced motion. Never covers the open
+ * panel or the menu (both hide it).
+ */
+.invited {
+  box-shadow:
+    var(--sk-web-shadow-card),
+    0 0 0 var(--sk-space-4) color-mix(in srgb, var(--sk-web-gold-on-dark) 45%, transparent);
+  animation: invitePulse var(--sk-web-motion-settle) var(--sk-web-motion-ease) 1;
+}
+@keyframes invitePulse {
+  0% {
+    box-shadow:
+      var(--sk-web-shadow-card),
+      0 0 0 0 color-mix(in srgb, var(--sk-web-gold-on-dark) 70%, transparent);
+  }
+  100% {
+    box-shadow:
+      var(--sk-web-shadow-card),
+      0 0 0 var(--sk-space-4) color-mix(in srgb, var(--sk-web-gold-on-dark) 45%, transparent);
+  }
+}
+.invitation {
+  position: fixed;
+  inset-inline-end: var(--sk-space-24);
+  inset-block-end: calc(
+    var(--sk-space-24) + var(--sk-layout-control-height-default) + var(--sk-space-16)
+  );
+  z-index: var(--sk-app-z-raised);
+  display: grid;
+  gap: var(--sk-space-8);
+  width: min(calc(5 * var(--sk-space-64)), calc(100% - 2 * var(--sk-space-16)));
+  padding: var(--sk-space-16);
+  border: var(--sk-border-standard-width) var(--sk-border-standard-style) var(--sk-web-border);
+  border-radius: var(--sk-radius-card);
+  background: var(--sk-web-ivory);
+  color: var(--sk-web-ink);
+  box-shadow: var(--sk-web-shadow-float);
+  font-size: var(--sk-type-body-small-size);
+  animation: inviteIn var(--sk-web-motion-reveal) var(--sk-web-motion-ease) 1;
+}
+.invitationEyebrow {
+  color: var(--sk-web-gold);
+  font-size: var(--sk-type-caption-size);
+}
+.invitationActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sk-space-8);
+}
+@keyframes inviteIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sk-web-motion-distance));
+  }
+}
+@media (max-width: 639px) {
+  .invitation {
+    inset-inline-end: var(--sk-space-16);
+    inset-block-end: calc(
+      var(--sk-space-16) + var(--sk-layout-control-height-default) + var(--sk-space-16)
+    );
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .invited,
+  .invitation {
+    animation: none;
+  }
+}

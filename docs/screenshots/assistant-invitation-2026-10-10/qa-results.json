@@ -1,0 +1,54 @@
+[
+  {
+    "width": 1440,
+    "height": 900,
+    "scenario": "service-engagement+hidden-tab+accept",
+    "result": "PASS"
+  },
+  {
+    "width": 390,
+    "height": 740,
+    "scenario": "service-engagement+hidden-tab+accept",
+    "result": "PASS"
+  },
+  {
+    "width": 390,
+    "height": 740,
+    "scenario": "menu-defers-not-consumes",
+    "result": "PASS"
+  },
+  {
+    "width": 320,
+    "height": 640,
+    "scenario": "service-engagement+hidden-tab+accept",
+    "result": "PASS"
+  },
+  {
+    "width": 320,
+    "height": 640,
+    "scenario": "menu-defers-not-consumes",
+    "result": "PASS"
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "scenario": "multi-page+keyboard+suppression",
+    "result": "PASS"
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "scenario": "reduced-motion",
+    "result": "PASS"
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "scenario": "legal-and-studio-excluded",
+    "result": "PASS"
+  },
+  {
+    "scenario": "webdriver-excluded",
+    "result": "PASS"
+  }
+]

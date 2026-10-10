@@ -33,6 +33,17 @@ export const assistantCopy = {
     'This opens WhatsApp, an external service. Nothing is sent until you choose to send it there.',
   whatsapp: 'Open WhatsApp',
   session: 'Guided help · No conversation is saved',
+  /**
+   * Contextual help invitation, package B 2026-10-10: PENDING_APPROVAL.
+   * Juanma reviews EN copy and intensity on the Preview. Spanish brief:
+   * «Resolver una duda» / «Ahora no».
+   */
+  invitation: {
+    label: 'Offer of help',
+    message: 'Have a question? I can point you to the right page or help you contact Sarah.',
+    accept: 'Ask a question',
+    dismiss: 'Not now',
+  },
 } as const;
 
 export const ASSISTANT_RESPONSES = [
