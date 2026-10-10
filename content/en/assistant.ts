@@ -33,7 +33,7 @@ export const assistantCopy = {
     'This opens WhatsApp, an external service. Nothing is sent until you choose to send it there.',
   whatsapp: 'Open WhatsApp',
   session: 'Guided help · No conversation is saved',
-  /** Package A UI copy, 2026-10-10: PENDING_APPROVAL (Juanma visual/copy review). */
+  /** Package A UI copy: approved by Juanma on 2026-10-10 (Preview review, PR 62). */
   sourceHeading: 'Source on this website',
   sourceChecked: (date: string) => `Checked ${date}`,
 } as const;
