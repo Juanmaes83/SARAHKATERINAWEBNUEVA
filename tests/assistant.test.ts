@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { assistantReviewEnabled, isAssistantWebsiteRoute } from '@/lib/assistant/policy';
 import { ASSISTANT_RESPONSES, ASSISTANT_OPENER, ASSISTANT_APPROVAL } from '@/content/en/assistant';
 import { resolveContactChannels, PHONE_E164 } from '@/lib/contact/channels';
+import { RESPONSE_EVIDENCE } from '@/content/en/assistant-evidence';
 
 describe('assistant review boundary', () => {
   it('never enables the assistant on a production deployment, even with preview site mode', () => {
@@ -43,7 +44,7 @@ describe('assistant review boundary', () => {
       ASSISTANT_RESPONSES.length,
     );
     for (const response of ASSISTANT_RESPONSES) {
-      expect(response.sources.length).toBeGreaterThan(0);
+      expect(RESPONSE_EVIDENCE.some((item) => item.responseId === response.id)).toBe(true);
       for (const link of response.links) {
         expect(link.href.startsWith('/')).toBe(true);
         expect(isAssistantWebsiteRoute(link.href)).toBe(true);
