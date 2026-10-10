@@ -70,3 +70,7 @@ Orden operativo actualizado:
 4. Resolver legado pago/español, consentimiento/proveedores y candidate QA; no declarar completada toda la migración.
 5. Dominio/DNS/HTTPS/indexación y Search Console según autorización y registros efectivos, sin alterar correo.
 6. Chatbot y WhatsApp: bloque posterior con alcance y tratamiento de datos definidos.
+
+## Continuación de asistente/WhatsApp autorizada — 9 octubre
+
+Juanma adelantó este bloque y autorizó llegar a revisión visual humana. Contrato y catálogo v1 definidos; panel guiado EN y WhatsApp voluntario implementados para Preview (INTERNAL_TEST_ONLY). Ver [entrega y pasos](ASSISTANT-WHATSAPP-REVIEW-2026-10-09.md) y Project State. No IA generativa, API de WhatsApp, datos reales, publicación/indexación o merge en este bloque. Siguiente paso de este frente: revisión humana del deployment del PR; QA completa Studio y pendientes legales continúan en paralelo como pendientes, no quedan cerrados por el asistente.

@@ -1,0 +1,26 @@
+[
+  {
+    "width": 1440,
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 390,
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  },
+  {
+    "width": 320,
+    "result": "PASS",
+    "summaryOptOut": true,
+    "localFallback": true,
+    "reset": true,
+    "unchangedStorage": true
+  }
+]

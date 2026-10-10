@@ -17,6 +17,7 @@ import styles from './Icon.module.css';
  */
 
 export type IconName =
+  | 'chat'
   | 'buyer'
   | 'tax'
   | 'analysis'
@@ -51,6 +52,12 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'children'> {
 }
 
 const PATHS: Record<IconName, React.ReactNode> = {
+  chat: (
+    <>
+      <path d="M20 15a3 3 0 0 1-3 3H9l-5 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z" />
+      <path d="M8 8h8M8 12h5" />
+    </>
+  ),
   // A person: the international buyer.
   buyer: (
     <>

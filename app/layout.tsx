@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 import { baseMetadata } from '@/lib/seo/metadata';
+import { GuidedAssistant } from '@/components/web/GuidedAssistant';
+import { siteConfig } from '@/lib/seo/config';
+import { assistantReviewEnabled } from '@/lib/assistant/policy';
 import './globals.css';
 
 /**
@@ -49,6 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             AppChrome, the website landings supply their own header and footer
             in the scoped palette. */}
         {children}
+        <GuidedAssistant
+          enabled={assistantReviewEnabled(process.env.VERCEL_ENV, siteConfig.mode)}
+        />
       </body>
     </html>
   );

@@ -1,0 +1,48 @@
+{
+  "baseUrl": "http://127.0.0.1:3109",
+  "browser": "153.0.8010.0",
+  "checks": [
+    {
+      "width": 1440,
+      "result": "PASS",
+      "topics": 10,
+      "noInput": true,
+      "keyboard": true,
+      "noOverflow": true,
+      "touchTargets": true,
+      "resetOnCloseRouteReload": true,
+      "menuInterlock": false,
+      "unchangedStorage": true,
+      "mutationAttempts": [],
+      "blockedExternalOrigins": []
+    },
+    {
+      "width": 390,
+      "result": "PASS",
+      "topics": 10,
+      "noInput": true,
+      "keyboard": true,
+      "noOverflow": true,
+      "touchTargets": true,
+      "resetOnCloseRouteReload": true,
+      "menuInterlock": true,
+      "unchangedStorage": true,
+      "mutationAttempts": [],
+      "blockedExternalOrigins": []
+    },
+    {
+      "width": 320,
+      "result": "PASS",
+      "topics": 10,
+      "noInput": true,
+      "keyboard": true,
+      "noOverflow": true,
+      "touchTargets": true,
+      "resetOnCloseRouteReload": true,
+      "menuInterlock": true,
+      "unchangedStorage": true,
+      "mutationAttempts": [],
+      "blockedExternalOrigins": []
+    }
+  ]
+}
