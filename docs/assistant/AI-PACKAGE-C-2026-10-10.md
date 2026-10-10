@@ -37,13 +37,29 @@ Panel actual → `POST /api/assistant` (Route Handler, runtime Node, solo Previe
 
 1. **Alcance**: (a) mantener catálogo guiado sin IA (coste 0, recomendado hasta aprobar corpus público); (b) IA solo para reformular respuestas del corpus aprobado con citas; (c) IA con corpus ampliado a artículos publicados revisados — requiere revisor fiscal/legal por artículo.
 2. **Idiomas**: EN solo (coherente con rutas actuales) / EN + ES (requiere revisor ES y rutas ES decididas).
-3. **Proveedor/modelo**: Anthropic Claude (familia Haiku para coste bajo) vía `@ai-sdk/anthropic`; u otro proveedor equivalente. Requiere cuenta del titular, DPA/condiciones de tratamiento y región. Precios a confirmar en la web del proveedor en la fecha de decisión; no se citan aquí.
+3. **Proveedor/modelo — DECIDIDO PARCIALMENTE (Juanma, 10 oct 2026): Google Gemini u OpenAI (ChatGPT).** Falta elegir uno de los dos y el modelo concreto. Integración prevista con el mismo AI SDK: `@ai-sdk/google` (Gemini API o Vertex AI) o `@ai-sdk/openai` (OpenAI API). Importante: se usa la **API de pago por uso** con cuenta del titular, no una suscripción ChatGPT/Gemini de consumo. Antes de conectar: condiciones de tratamiento de datos (DPA) del titular, opción sin uso de datos para entrenamiento, retención mínima, región/transferencias (Vertex AI permite fijar región UE; en OpenAI revisar la residencia de datos disponible), y precios vigentes en la web del proveedor en la fecha de decisión (no se citan aquí).
 4. **Presupuesto**: límite mensual de gasto en la cuenta del proveedor + límites de la app (propuesta 6/min, 30/día por visitante, 600 caracteres de salida). Fijar importe máximo mensual y alerta.
 5. **Datos**: no enviar datos personales (filtro implementado); retención del proveedor (cero o mínima), transferencias internacionales, base jurídica y texto de privacidad (paquete F).
 6. **Almacén de rate limit**: Vercel KV/Upstash u otro; cuenta y coste.
 7. **Responsable humano**: quién revisa abstenciones/quejas y quién aprueba ampliaciones del corpus.
 
 Sin estas decisiones no se instala SDK, no se crea endpoint ni se conecta proveedor. La QA real del proveedor (latencia, coste, alucinación con tráfico real) solo es posible tras autorización.
+
+## Qué falta para conectar IA (pendiente, por responsable)
+
+| #   | Pendiente                                                                                                                          | Responsable                 | Estado                                      |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------------------- |
+| 1   | Elegir entre Gemini y OpenAI y el modelo concreto                                                                                  | Juanma                      | PENDIENTE (los dos candidatos ya decididos) |
+| 2   | Crear cuenta API del titular, activar facturación y límite de gasto mensual con alerta                                             | Juanma/Sarah                | PENDIENTE                                   |
+| 3   | Revisar DPA, uso para entrenamiento desactivado, retención y región                                                                | Juanma + asesor privacidad  | PENDIENTE                                   |
+| 4   | Alcance (catálogo / reformulación con citas / corpus ampliado) e idiomas                                                           | Juanma/Sarah                | PENDIENTE                                   |
+| 5   | Almacén compartido para rate limit (Vercel KV/Upstash u otro)                                                                      | Juanma                      | PENDIENTE                                   |
+| 6   | Responsable humano de abstenciones y ampliación del corpus                                                                         | Juanma/Sarah                | PENDIENTE                                   |
+| 7   | Texto de privacidad que mencione el proveedor IA (paquete F)                                                                       | Sarah + asesor              | PENDIENTE                                   |
+| 8   | Clave API en variables de entorno de Vercel (solo servidor, sin `NEXT_PUBLIC_`), entregada por canal seguro, nunca en chat ni repo | Juanma                      | PENDIENTE                                   |
+| 9   | Implementar endpoint `POST /api/assistant` con el proveedor elegido, conectado a `grounding.ts`                                    | Claude                      | BLOCKED por 1–8                             |
+| 10  | QA real del proveedor en Preview: latencia, coste, fundamentación, inyección, caída                                                | Claude + Juanma             | BLOCKED por 9                               |
+| 11  | Activación pública del asistente (production)                                                                                      | Juanma, aprobación separada | BLOCKED                                     |
 
 ## Estado
 
@@ -56,4 +72,4 @@ Sin estas decisiones no se instala SDK, no se crea endpoint ni se conecta provee
 
 ## Entrega
 
-Draft PR #64. #62 y #63 ya están en main; este PR solo añade el paquete C, sin cambios de interfaz. Merge NO autorizado todavía.
+PR #64: merge autorizado por Juanma el 10 octubre 2026. #62 y #63 ya estaban en main; este PR solo añade el paquete C, sin cambios de interfaz ni proveedor conectado.
