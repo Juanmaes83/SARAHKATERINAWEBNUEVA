@@ -53,3 +53,7 @@ Sin estas decisiones no se instala SDK, no se crea endpoint ni se conecta provee
 | Corpus, recuperación, verificación, inyección, límites (mock) | PASS local               | Claude             |
 | Endpoint + SDK + proveedor                                    | BLOCKED — decisiones 1–7 | Juanma/Sarah       |
 | Revisión fiscal/legal de corpus ampliado                      | BLOCKED                  | Revisor competente |
+
+## Entrega
+
+Draft PR #64, dependiente de #62 (contiene sus commits; el CI solo corre en PR contra `main`). Fusionar después de #62. Sin cambios de interfaz propios: su Preview muestra la UI del paquete A.
