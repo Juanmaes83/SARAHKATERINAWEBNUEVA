@@ -1,3 +1,5 @@
+> **Continuidad — 10 octubre 2026:** PR60 fusionado y guía/WhatsApp aprobados; PR59 sustituido. Consultar [handoff a Claude Code](docs/HANDOFF-CLAUDE-CODE-2026-10-10.md) y la actualización del 10 en [roadmap](docs/ROADMAP-LAUNCH-2026-10-08.md). Incluye conocimiento/fuentes, invitación contextual nueva, IA/integraciones y los pendientes Studio/legal/lanzamiento. Los estados anteriores se conservan como histórico.
+
 # Sarah Katerina — New Website
 
 > **Estado reconciliado — 9 octubre 2026:** consulta [Project State](docs/PROJECT-STATE-2026-10-09.md) y [QA aislada del Studio](docs/STUDIO-ISOLATED-QA-2026-10-09.md). Los registros anteriores conservan su valor histórico; no describen por sí solos el estado actual. Este frente pertenece exclusivamente a SARAHKATERINAWEBNUEVA.

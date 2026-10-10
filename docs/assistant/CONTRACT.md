@@ -1,3 +1,5 @@
+> Actualización 10 octubre 2026: PR60 fusionado, UI guiada aprobada por Juanma; búsqueda local, historial efímero, borrado y resumen revisable sustituyen los límites históricos v1. Producción del asistente sigue deshabilitada. [Handoff y propuesta de invitación contextual](../HANDOFF-CLAUDE-CODE-2026-10-10.md): la captura de atención pasa de exclusión v1 a nuevo alcance planificado, SIN implementar aún; una invitación por visita, sin autoapertura, perfil o persistencia. Umbrales/copy son hipótesis para revisión. No se habilita IA o fuente normativa por este cambio documental.
+
 > Review-layer amendment, 2026-10-10: [local topic finder and reviewed WhatsApp topics](CONVERSATION-REVIEW-2026-10-10.md) supersedes v1 input/memory/fixed-opener limits for INTERNAL_TEST_ONLY. Production remains disabled. The following text records the v1 baseline.
 
 # Contrato funcional propuesto v1
