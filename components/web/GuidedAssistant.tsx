@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useRef, useState, type MutableRefObject } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from './SiteLink';
 import { Icon } from './icons/Icon';
@@ -14,6 +14,14 @@ import {
   type AssistantResponseId,
 } from '@/content/en/assistant';
 import { matchAssistantTopic, assistantSummary } from '@/lib/assistant/conversation';
+import {
+  NEW_VISIT,
+  serviceTopic,
+  settle,
+  type InvitationTopic,
+  type VisitState,
+} from '@/lib/assistant/invitation';
+import { useContextualInvitation } from './useContextualInvitation';
 import { ASSISTANT_FALLBACK_ID, responseEligibility } from '@/content/en/assistant-evidence';
 import styles from './GuidedAssistant.module.css';
 
@@ -24,7 +32,12 @@ export function GuidedAssistant({ enabled }: { enabled: boolean }) {
   const pathname = usePathname();
   // No assistant on Studio, API, foundation, authentication or unknown pages.
   const website = isAssistantWebsiteRoute(pathname);
-  return enabled && website ? <AssistantSession key={pathname} /> : null;
+  // Visit memory for the help invitation: survives client navigation inside
+  // the root layout, gone on reload. Never stored or sent.
+  const visit = useRef<VisitState>(NEW_VISIT);
+  return enabled && website ? (
+    <AssistantSession key={pathname} path={pathname!} visit={visit} />
+  ) : null;
 }
 
 /** Oldest review date among the cited pages, as "10 Oct 2026" (no locale drift). */
@@ -37,9 +50,12 @@ function citation(citations: readonly { reviewedAt: string }[]): string {
   return `${Number(day)} ${months[Number(month) - 1]} ${year}`;
 }
 
-function AssistantSession() {
+function AssistantSession({ path, visit }: { path: string; visit: MutableRefObject<VisitState> }) {
   const [open, setOpen] = useState(false);
   const [blocked, setBlocked] = useState(false);
+  const [priority, setPriority] = useState<InvitationTopic | null>(null);
+  const invitation = useContextualInvitation(path, visit, open || blocked);
+  const invitationRef = useRef<HTMLElement>(null);
   const [history, setHistory] = useState<AssistantResponseId[]>([]);
   const [question, setQuestion] = useState('');
   const [review, setReview] = useState(false);
@@ -115,8 +131,25 @@ function AssistantSession() {
     }
   }, [review, history]);
 
+  function openPanel(from: 'launcher' | 'invitation') {
+    visit.current = settle(visit.current);
+    invitation.close();
+    setPriority(from === 'invitation' ? serviceTopic(path) : null);
+    setOpen(true);
+  }
+
+  function dismissInvitation() {
+    const hadFocus = invitationRef.current?.contains(document.activeElement);
+    invitation.close();
+    if (hadFocus) requestAnimationFrame(() => triggerRef.current?.focus());
+  }
+
   function topicButtons(primary: boolean) {
-    return ASSISTANT_RESPONSES.filter((item) => item.primary === primary).map((item) => (
+    // Opened from the invitation on a service page: that page's topic first.
+    const items = ASSISTANT_RESPONSES.filter((item) => item.primary === primary).sort(
+      (a, b) => Number(b.id === priority) - Number(a.id === priority),
+    );
+    return items.map((item) => (
       <button key={item.id} type="button" className={styles.topic} onClick={() => choose(item.id)}>
         <Icon name={item.icon} />
         <span>{item.label}</span>
@@ -130,17 +163,40 @@ function AssistantSession() {
       <button
         ref={triggerRef}
         type="button"
-        className={styles.launcher}
+        className={
+          invitation.shown && !blocked ? `${styles.launcher} ${styles.invited}` : styles.launcher
+        }
         data-surface="dark"
         hidden={blocked || open}
         aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={open ? dialogId : undefined}
-        onClick={() => setOpen(true)}
+        onClick={() => openPanel('launcher')}
       >
         <Icon name="chat" />
         {assistantCopy.launcher}
       </button>
+      {invitation.shown && !open && !blocked ? (
+        <section
+          ref={invitationRef}
+          className={styles.invitation}
+          aria-label={assistantCopy.invitation.label}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') dismissInvitation();
+          }}
+        >
+          <p className={styles.invitationEyebrow}>{assistantCopy.label}</p>
+          <p role="status">{assistantCopy.invitation.message}</p>
+          <div className={styles.invitationActions}>
+            <WebButton variant="primary" onClick={() => openPanel('invitation')}>
+              {assistantCopy.invitation.accept}
+            </WebButton>
+            <WebButton variant="quiet" onClick={dismissInvitation}>
+              {assistantCopy.invitation.dismiss}
+            </WebButton>
+          </div>
+        </section>
+      ) : null}
       {open ? (
         <dialog
           ref={dialogRef}
