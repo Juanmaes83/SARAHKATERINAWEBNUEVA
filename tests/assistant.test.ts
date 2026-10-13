@@ -12,6 +12,11 @@ describe('assistant review boundary', () => {
     expect(assistantReviewEnabled(undefined, 'production')).toBe(false);
     expect(assistantReviewEnabled('preview', 'production')).toBe(true);
     expect(assistantReviewEnabled(undefined, 'preview')).toBe(true);
+    expect(assistantReviewEnabled('production', 'preview', true, 'prj_TNvr9TAOburUCNvtsythYOeuVpaP')).toBe(true);
+    expect(assistantReviewEnabled('production', 'production', true, 'prj_TNvr9TAOburUCNvtsythYOeuVpaP')).toBe(false);
+    expect(assistantReviewEnabled('production', 'preview', true, 'prj_OrXgptj9PoHLEWREcOrOg5lwAdCi')).toBe(false);
+    expect(assistantReviewEnabled('production', 'preview', false, 'prj_TNvr9TAOburUCNvtsythYOeuVpaP')).toBe(false);
+    expect(assistantReviewEnabled('production', 'preview', true, undefined)).toBe(false);
     expect(ASSISTANT_APPROVAL.permission).toBe('INTERNAL_TEST_ONLY');
   });
   it('keeps private, unknown and lookalike destinations out of the assistant surface', () => {
