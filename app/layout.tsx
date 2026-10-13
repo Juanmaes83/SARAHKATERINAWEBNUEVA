@@ -53,7 +53,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             in the scoped palette. */}
         {children}
         <GuidedAssistant
-          enabled={assistantReviewEnabled(process.env.VERCEL_ENV, siteConfig.mode)}
+          enabled={assistantReviewEnabled(
+            process.env.VERCEL_ENV,
+            siteConfig.mode,
+            process.env.SARAH_ASSISTANT_REVIEW_ENABLED === 'true',
+            process.env.VERCEL_PROJECT_ID,
+          )}
         />
       </body>
     </html>

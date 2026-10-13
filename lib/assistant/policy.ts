@@ -1,10 +1,23 @@
 import type { SiteMode } from '@/lib/seo/config';
 
-/** Owner approved review, not a production release. Fail closed for any other host context. */
+/**
+ * The assistant remains an internal-review feature. A separately configured
+ * Vercel review project may expose it on its own production deployment.
+ * Never infer review approval from site mode alone on Vercel production.
+ */
 export function assistantReviewEnabled(
   vercelEnvironment: string | undefined,
   mode: SiteMode,
+  reviewProjectEnabled = false,
+  vercelProjectId?: string,
 ): boolean {
+  if (
+    reviewProjectEnabled &&
+    mode === 'preview' &&
+    vercelProjectId === 'prj_TNvr9TAOburUCNvtsythYOeuVpaP'
+  ) {
+    return true;
+  }
   return vercelEnvironment === 'preview' || (vercelEnvironment === undefined && mode === 'preview');
 }
 
