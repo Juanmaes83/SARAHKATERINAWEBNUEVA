@@ -1,10 +1,15 @@
 import { describe, expect, it } from 'vitest';
+import { isBlockedReviewRoute } from '@/middleware';
 import { assistantReviewEnabled, isAssistantWebsiteRoute } from '@/lib/assistant/policy';
 import { ASSISTANT_RESPONSES, ASSISTANT_OPENER, ASSISTANT_APPROVAL } from '@/content/en/assistant';
 import { resolveContactChannels, PHONE_E164 } from '@/lib/contact/channels';
 import { RESPONSE_EVIDENCE } from '@/content/en/assistant-evidence';
 
 describe('assistant review boundary', () => {
+  it('blocks private and mutation routes from public review', () => {
+    for (const path of ['/studio', '/studio/login', '/api/studio/media', '/api/assistant', '/auth/callback', '/foundation']) expect(isBlockedReviewRoute(path)).toBe(true);
+    for (const path of ['/', '/preview/home', '/preview/insights/modelo-210-explained', '/preview/case-studies/british-buyer-torrevieja']) expect(isBlockedReviewRoute(path)).toBe(false);
+  });
   it('never enables the assistant on a production deployment, even with preview site mode', () => {
     expect(assistantReviewEnabled('production', 'production')).toBe(false);
     expect(assistantReviewEnabled('production', 'preview')).toBe(false);
